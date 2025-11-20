@@ -1,0 +1,16 @@
+name: power_electronics
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10
+  - matplotlib
+  - pandas
+  - numpy
+  - scipy
+  - openai>=1.16.1
+  - pyspice==1.5
+  - pip
+  - pip:
+    - ollama  # Optional, for local models
+

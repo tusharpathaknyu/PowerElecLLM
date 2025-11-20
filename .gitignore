@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PySpice
+*.raw
+*.log
+*.cir
+
+# API Keys
+.env
+*.key
+api_keys.txt
+
+# Generated files
+*.sp
+*_op.txt
+*_dc.txt
+*_success.py
+*_error_*
+token_info_*
+
+# Model outputs
+gpt*/
+claude*/
+deepseek*/
+*_log.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+prompt_template_complex_with_sub_*.md
+problem_set.tsv.backup
+
