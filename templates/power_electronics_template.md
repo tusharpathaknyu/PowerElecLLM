@@ -48,7 +48,8 @@ from PySpice.Unit import *
 circuit = Circuit('Buck Converter 12V to 5V')
 
 # Define GaN HEMT model (simplified)
-circuit.model('gan_hemt', 'nmos', level=1, kp=500e-6, vto=1.5, lambda=0.01)
+# IMPORTANT: 'lambda' is a Python keyword, use **kwargs: **{'lambda': 0.01}
+circuit.model('gan_hemt', 'nmos', level=1, kp=500e-6, vto=1.5, **{'lambda': 0.01})
 
 # Input voltage
 circuit.V('in', 'Vin', circuit.gnd, 12@u_V)
@@ -58,7 +59,8 @@ circuit.MOSFET('Q1', 'Vsw', 'Vgate', 'Vin', 'Vin',
                model='gan_hemt', w=2000e-6, l=0.5e-6)
 
 # Freewheeling diode (Schottky for low Vf)
-circuit.model('schottky', 'd', is=1e-6, rs=0.05, n=1.05)
+# IMPORTANT: 'is' is a Python keyword, use **kwargs: **{'is': 1e-6}
+circuit.model('schottky', 'd', **{'is': 1e-6}, rs=0.05, n=1.05)
 circuit.D('D1', circuit.gnd, 'Vsw', model='schottky')
 
 # Inductor (calculated: L = (12-5)*0.42/(0.4*10*500k) ≈ 7.4uH)
@@ -107,4 +109,21 @@ Provide:
 1. Topology selection and reasoning
 2. Component calculations
 3. Complete PySpice code
+
+## IMPORTANT: Python Keyword Conflicts
+
+When using PySpice model() function, avoid Python keywords:
+- **lambda** → Use: `**{'lambda': value}` instead of `lambda=value`
+- **is** → Use: `**{'is': value}` instead of `is=value`
+
+Example:
+```python
+# ❌ WRONG (causes SyntaxError):
+circuit.model('mos', 'nmos', lambda=0.01, is=1e-6)
+
+# ✅ CORRECT:
+circuit.model('mos', 'nmos', **{'lambda': 0.01}, **{'is': 1e-6})
+# OR combine:
+circuit.model('mos', 'nmos', **{'lambda': 0.01, 'is': 1e-6})
+```
 

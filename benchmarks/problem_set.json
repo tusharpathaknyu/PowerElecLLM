@@ -1,0 +1,39 @@
+[
+    {
+        "task_id": 1,
+        "topology": "Buck",
+        "description": "Design a buck converter",
+        "input_voltage": 12,
+        "output_voltage": 5,
+        "output_power": 10,
+        "switching_freq": 200,
+        "efficiency_target": 85,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 2,
+        "topology": "Buck",
+        "description": "Design a buck converter",
+        "input_voltage": 24,
+        "output_voltage": 12,
+        "output_power": 50,
+        "switching_freq": 500,
+        "efficiency_target": 90,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 3,
+        "topology": "Boost",
+        "description": "Design a boost converter",
+        "input_voltage": 5,
+        "output_voltage": 12,
+        "output_power": 20,
+        "switching_freq": 300,
+        "efficiency_target": 88,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    }
+]
+
