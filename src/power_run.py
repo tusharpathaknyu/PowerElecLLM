@@ -170,6 +170,9 @@ def validate_circuit(code_file, problem_spec):
     validation_result = {
         'syntax_valid': False,
         'simulation_runs': False,
+        'output_voltage_ok': False,
+        'output_voltage': None,
+        'target_voltage': problem_spec['output_voltage'],
         'errors': [],
         'warnings': []
     }
@@ -204,6 +207,51 @@ def validate_circuit(code_file, problem_spec):
         validation_result['simulation_runs'] = True
         print("  ✓ Simulation executed successfully")
         
+        # Try to extract output voltage for functional validation
+        try:
+            # Re-run simulation to get analysis result
+            import numpy as np
+            from PySpice.Spice.Netlist import Circuit
+            from PySpice.Unit import u_V, u_A, u_s, u_ms
+            
+            # Execute code to get circuit and analysis
+            exec_namespace_voltage = {}
+            test_code_voltage = code.replace('plt.show()', 'pass')
+            test_code_voltage = test_code_voltage.replace('import matplotlib.pyplot as plt', 'import matplotlib\nmatplotlib.use("Agg")\nimport matplotlib.pyplot as plt')
+            
+            # Add code to capture final voltage value
+            capture_code = """
+import numpy as np
+if 'analysis' in dir() and hasattr(analysis, 'Vout'):
+    _output_voltage_final = float(analysis['Vout'][-1])
+elif 'analysis' in dir() and hasattr(analysis, 'vout'):
+    _output_voltage_final = float(analysis['vout'][-1])
+else:
+    _output_voltage_final = None
+"""
+            test_code_voltage += "\n" + capture_code
+            
+            exec(test_code_voltage, exec_namespace_voltage)
+            
+            if '_output_voltage_final' in exec_namespace_voltage and exec_namespace_voltage['_output_voltage_final'] is not None:
+                output_v = exec_namespace_voltage['_output_voltage_final']
+                validation_result['output_voltage'] = output_v
+                target_v = problem_spec['output_voltage']
+                error_pct = abs(output_v - target_v) / target_v * 100
+                
+                # Accept ±5% tolerance
+                if error_pct <= 5.0:
+                    validation_result['output_voltage_ok'] = True
+                    print(f"  ✓ Output voltage: {output_v:.3f}V (target: {target_v}V, error: {error_pct:.1f}%)")
+                else:
+                    validation_result['output_voltage_ok'] = False
+                    validation_result['errors'].append(f"Output voltage {output_v:.3f}V is {error_pct:.1f}% off target {target_v}V (>5% tolerance)")
+                    print(f"  ✗ Output voltage: {output_v:.3f}V (target: {target_v}V, error: {error_pct:.1f}%)")
+        except Exception as e:
+            # Voltage extraction failed, but simulation ran
+            validation_result['warnings'].append(f"Could not extract output voltage: {e}")
+            print(f"  ⚠️  Could not validate output voltage: {e}")
+        
     except Exception as e:
         error_msg = f"{type(e).__name__}: {str(e)}"
         validation_result['errors'].append(error_msg)
@@ -223,13 +271,28 @@ def create_feedback_prompt(original_prompt, code, validation_result, problem_spe
     for error in validation_result['errors']:
         feedback += f"- {error}\n"
     
-    feedback += f"\n## Previous Code:\n```python\n{code[:500]}...\n```\n\n## Instructions:\nPlease fix the above errors and provide a corrected circuit design.\nRemember:\n- Use **{{'lambda': value}}** syntax for Python keywords\n- Ensure all components are properly connected\n- Include proper error handling\n\n## Original Task:\n"""
+    # Add specific guidance for output voltage issues
+    if not validation_result.get('output_voltage_ok', True) and validation_result.get('output_voltage') is not None:
+        target_v = problem_spec['output_voltage']
+        actual_v = validation_result['output_voltage']
+        feedback += f"\n## Output Voltage Issue:\n"
+        feedback += f"- Target: {target_v}V, Actual: {actual_v:.3f}V\n"
+        
+        if actual_v > target_v * 1.05:
+            feedback += f"- Output is too HIGH. Decrease duty cycle.\n"
+            feedback += f"- Check if you applied 1.15× compensation correctly\n"
+        elif actual_v < target_v * 0.95:
+            feedback += f"- Output is too LOW. Increase duty cycle.\n"
+            feedback += f"- Make sure to apply 1.15× compensation: D_actual = (Vout/Vin) × 1.15\n"
+            feedback += f"- Verify PWM gate drive is working (not DC)\n"
+    
+    feedback += f"\n## Previous Code:\n```python\n{code[:500]}...\n```\n\n## Instructions:\nPlease fix the above errors and provide a corrected circuit design.\nRemember:\n- **CRITICAL**: Use PWM gate drive, NOT DC voltage!\n- **CRITICAL**: Apply duty cycle compensation: D_actual = D_ideal × 1.15\n- Use **{{'lambda': value}}** syntax for Python keywords\n- Consider using voltage-controlled switch (VCS) for reliable switching\n- Ensure all components are properly connected\n- Include proper error handling\n\n## Original Task:\n"""
     
     feedback += f"""Design {problem_spec['topology']} converter.
 Input: {problem_spec['input_voltage']}V → Output: {problem_spec['output_voltage']}V
 Power: {problem_spec['output_power']}W, Frequency: {problem_spec['switching_freq']}kHz
 
-Provide complete, working PySpice code.
+Provide complete, working PySpice code with PWM gate drive and duty cycle compensation.
 """
     
     return feedback
@@ -304,10 +367,14 @@ def main():
             print("\n🔬 Validating circuit...")
             validation_result = validate_circuit(code_file, problem)
             
-            # Check if validation passed
-            if validation_result['syntax_valid'] and validation_result['simulation_runs']:
+            # Check if validation passed (syntax, simulation, and optionally voltage)
+            voltage_check = validation_result.get('output_voltage') is None or validation_result.get('output_voltage_ok', False)
+            
+            if validation_result['syntax_valid'] and validation_result['simulation_runs'] and voltage_check:
                 print(f"\n✅ Generation {iteration} successful!")
                 print(f"   Code saved to: {code_file}")
+                if validation_result.get('output_voltage') is not None:
+                    print(f"   Output voltage: {validation_result['output_voltage']:.3f}V (target: {problem['output_voltage']}V)")
                 successful_generations += 1
                 break
             else:
