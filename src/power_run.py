@@ -165,6 +165,76 @@ def save_generated_code(code, output_dir, task_id, iteration):
     return code_file
 
 
+def validate_circuit(code_file, problem_spec):
+    """Validate generated circuit code"""
+    validation_result = {
+        'syntax_valid': False,
+        'simulation_runs': False,
+        'errors': [],
+        'warnings': []
+    }
+    
+    # Read the code
+    try:
+        with open(code_file, 'r') as f:
+            code = f.read()
+    except Exception as e:
+        validation_result['errors'].append(f"Failed to read file: {e}")
+        return validation_result
+    
+    # Check syntax by compiling
+    try:
+        compile(code, str(code_file), 'exec')
+        validation_result['syntax_valid'] = True
+        print("  ✓ Syntax check passed")
+    except SyntaxError as e:
+        validation_result['errors'].append(f"Syntax error at line {e.lineno}: {e.msg}")
+        print(f"  ✗ Syntax error: {e.msg}")
+        return validation_result
+    
+    # Try to execute the circuit (without plotting)
+    try:
+        # Replace plt.show() to avoid blocking
+        test_code = code.replace('plt.show()', 'pass  # Validation mode')
+        test_code = test_code.replace('import matplotlib.pyplot as plt', 'import matplotlib\nmatplotlib.use("Agg")\nimport matplotlib.pyplot as plt')
+        
+        exec_namespace = {}
+        exec(test_code, exec_namespace)
+        
+        validation_result['simulation_runs'] = True
+        print("  ✓ Simulation executed successfully")
+        
+    except Exception as e:
+        error_msg = f"{type(e).__name__}: {str(e)}"
+        validation_result['errors'].append(error_msg)
+        print(f"  ✗ Simulation error: {error_msg}")
+        return validation_result
+    
+    return validation_result
+
+
+def create_feedback_prompt(original_prompt, code, validation_result, problem_spec):
+    """Create feedback prompt for refinement"""
+    feedback = f"""Your previous circuit design had the following issues:
+
+## Errors:
+"""
+    
+    for error in validation_result['errors']:
+        feedback += f"- {error}\n"
+    
+    feedback += f"\n## Previous Code:\n```python\n{code[:500]}...\n```\n\n## Instructions:\nPlease fix the above errors and provide a corrected circuit design.\nRemember:\n- Use **{{'lambda': value}}** syntax for Python keywords\n- Ensure all components are properly connected\n- Include proper error handling\n\n## Original Task:\n"""
+    
+    feedback += f"""Design {problem_spec['topology']} converter.
+Input: {problem_spec['input_voltage']}V → Output: {problem_spec['output_voltage']}V
+Power: {problem_spec['output_power']}W, Frequency: {problem_spec['switching_freq']}kHz
+
+Provide complete, working PySpice code.
+"""
+    
+    return feedback
+
+
 def main():
     print("PowerElecLLM - Power Electronics Circuit Generator")
     print("=" * 60)
@@ -194,39 +264,67 @@ def main():
     
     # Generate circuit code for each iteration
     output_base = PROJECT_ROOT / args.model.replace('-', '_')
+    successful_generations = 0
     
     for iteration in range(1, args.num_per_task + 1):
         print(f"\n🔄 Iteration {iteration}/{args.num_per_task}")
         print("-" * 60)
         
-        # Call LLM
-        print("🤖 Calling LLM...")
-        llm_response = call_llm(client, prompt, model=args.model, temperature=args.temperature)
+        current_prompt = prompt
+        retry_count = 0
         
-        if not llm_response:
-            print("❌ Failed to get response from LLM")
-            continue
-        
-        # Extract code
-        print("🔍 Extracting SPICE code...")
-        code = extract_spice_code(llm_response)
-        
-        if not code:
-            print("⚠️  No code found in LLM response")
-            print("Response preview:", llm_response[:200])
-            continue
-        
-        # Save code
-        code_file = save_generated_code(code, output_base, args.task_id, iteration)
-        
-        print(f"\n✅ Generation {iteration} complete!")
-        print(f"   Code saved to: {code_file}")
-        
-        # TODO: Add PySpice validation here
-        # TODO: Add iterative refinement if validation fails
+        while retry_count <= args.num_of_retry:
+            # Call LLM
+            if retry_count == 0:
+                print("🤖 Calling LLM...")
+            else:
+                print(f"🔄 Retry {retry_count}/{args.num_of_retry}...")
+                
+            llm_response = call_llm(client, current_prompt, model=args.model, temperature=args.temperature)
+            
+            if not llm_response:
+                print("❌ Failed to get response from LLM")
+                retry_count += 1
+                continue
+            
+            # Extract code
+            print("🔍 Extracting SPICE code...")
+            code = extract_spice_code(llm_response)
+            
+            if not code:
+                print("⚠️  No code found in LLM response")
+                print("Response preview:", llm_response[:200])
+                retry_count += 1
+                continue
+            
+            # Save code
+            code_file = save_generated_code(code, output_base, args.task_id, iteration)
+            
+            # Validate circuit
+            print("\n🔬 Validating circuit...")
+            validation_result = validate_circuit(code_file, problem)
+            
+            # Check if validation passed
+            if validation_result['syntax_valid'] and validation_result['simulation_runs']:
+                print(f"\n✅ Generation {iteration} successful!")
+                print(f"   Code saved to: {code_file}")
+                successful_generations += 1
+                break
+            else:
+                print(f"\n❌ Validation failed (attempt {retry_count + 1}/{args.num_of_retry + 1})")
+                
+                if retry_count < args.num_of_retry:
+                    # Create feedback prompt for refinement
+                    print("📝 Creating feedback prompt for refinement...")
+                    current_prompt = create_feedback_prompt(prompt, code, validation_result, problem)
+                    retry_count += 1
+                else:
+                    print("⚠️  Max retries reached, moving to next iteration")
+                    break
     
     print("\n" + "=" * 60)
     print("✨ Generation complete!")
+    print(f"📊 Success rate: {successful_generations}/{args.num_per_task}")
     print(f"📁 Results in: {output_base}")
 
 if __name__ == "__main__":
