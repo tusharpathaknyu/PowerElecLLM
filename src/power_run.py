@@ -213,6 +213,145 @@ def detect_blocklist_issues(code: str):
     return issues
 
 
+def autofix_missing_diode(code: str, topology: str):
+    """Auto-insert freewheeling diode for buck converter if missing."""
+    warnings = []
+    topology_lower = topology.lower()
+    
+    # Only applies to buck converters
+    if 'buck' not in topology_lower:
+        return code, warnings
+    
+    # Check if diode already present
+    diode_call_pattern = re.compile(r"circuit\s*\.\s*d\s*\(", re.IGNORECASE)
+    if diode_call_pattern.search(code):
+        return code, warnings
+    
+    # Look for switch node (Vsw) or similar patterns to identify insertion point
+    lines = code.splitlines()
+    insert_idx = None
+    vsw_pattern = re.compile(r"['\"]Vsw['\"]|['\"]vsw['\"]|['\"]VSW['\"]|['\"]SW['\"]|['\"]sw['\"]")
+    
+    # Find line with inductor (often connected to Vsw)
+    inductor_pattern = re.compile(r"circuit\s*\.\s*l\s*\(", re.IGNORECASE)
+    
+    for idx, line in enumerate(lines):
+        if inductor_pattern.search(line) and vsw_pattern.search(line):
+            insert_idx = idx
+            break
+    
+    # Fallback: insert after any VCS (voltage-controlled switch) definition
+    if insert_idx is None:
+        vcs_pattern = re.compile(r"circuit\s*\.\s*vcs\s*\(", re.IGNORECASE)
+        for idx, line in enumerate(lines):
+            if vcs_pattern.search(line):
+                insert_idx = idx + 1
+                break
+    
+    # Final fallback: insert before the load resistor
+    if insert_idx is None:
+        load_pattern = re.compile(r"circuit\s*\.\s*r\s*\(.*['\"]Rload['\"]", re.IGNORECASE)
+        for idx, line in enumerate(lines):
+            if load_pattern.search(line):
+                insert_idx = idx
+                break
+    
+    # Last resort: insert after 'Circuit(' line
+    if insert_idx is None:
+        for idx, line in enumerate(lines):
+            if 'Circuit(' in line:
+                insert_idx = idx + 1
+                break
+    
+    if insert_idx is None:
+        warnings.append("Could not find insertion point for freewheeling diode")
+        return code, warnings
+    
+    # Insert canonical diode snippet
+    diode_model_snippet = "circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)"
+    diode_element_snippet = "circuit.D('D1', circuit.gnd, 'Vsw', model='DMOD')  # Freewheeling diode"
+    
+    # Check if model already defined
+    model_exists = bool(re.search(r"circuit\.model\(['\"]DMOD['\"]", code, re.IGNORECASE))
+    
+    # Determine proper indentation by looking at circuit statements after insert point
+    indent = ""  # Default to no indent (module level)
+    for line in lines[insert_idx:min(insert_idx+10, len(lines))]:
+        stripped = line.lstrip()
+        if stripped.startswith('circuit.'):
+            indent = line[:len(line) - len(stripped)]
+            break
+    # Also check lines before insert point
+    if indent == "":
+        for line in lines[max(0, insert_idx-5):insert_idx]:
+            stripped = line.lstrip()
+            if stripped.startswith('circuit.'):
+                indent = line[:len(line) - len(stripped)]
+                break
+    
+    insertions = []
+    if not model_exists:
+        insertions.append(indent + diode_model_snippet)
+    insertions.append(indent + diode_element_snippet)
+    
+    for i, snippet in enumerate(insertions):
+        lines.insert(insert_idx + i, snippet)
+    
+    warnings.append("Auto-inserted freewheeling diode (DMOD + D1) for buck topology")
+    
+    return "\n".join(lines) + "\n", warnings
+
+
+def autofix_buck_diode_polarity(code: str, topology: str):
+    """Fix buck diode polarity: should be (GND, Vsw), not (Vout, Vsw)."""
+    warnings = []
+    topology_lower = topology.lower()
+    
+    # Only applies to buck converters
+    if 'buck' not in topology_lower:
+        return code, warnings
+    
+    # Find diode lines with wrong polarity: circuit.D(..., 'Vout', 'Vsw', ...) or similar
+    # Correct buck freewheel: circuit.D(..., circuit.gnd, 'Vsw', ...)
+    # Wrong pattern: anode at Vout, cathode at Vsw
+    wrong_patterns = [
+        # circuit.D(name, 'Vout', 'Vsw', ...) - wrong
+        (re.compile(r"(circuit\s*\.\s*[dD]\s*\([^)]*['\"]Vout['\"])\s*,\s*(['\"]Vsw['\"])", re.IGNORECASE),
+         r"\1_WRONG, circuit.gnd, \2"),
+    ]
+    
+    lines = code.splitlines()
+    modified = False
+    
+    for idx, line in enumerate(lines):
+        # Check for common wrong pattern: D(..., 'Vout', 'Vsw', ...)
+        # The anode should be GND for buck freewheel, not Vout
+        if re.search(r"circuit\s*\.\s*[dD]\s*\(", line, re.IGNORECASE):
+            # Extract the diode call arguments
+            match = re.search(r"circuit\s*\.\s*[dD]\s*\(\s*([^,]+)\s*,\s*([^,]+)\s*,\s*([^,\)]+)", line, re.IGNORECASE)
+            if match:
+                name_arg = match.group(1).strip()
+                anode_arg = match.group(2).strip()
+                cathode_arg = match.group(3).strip()
+                
+                # Check if anode is Vout (wrong for buck) and cathode is Vsw
+                anode_is_vout = "'vout'" in anode_arg.lower() or '"vout"' in anode_arg.lower()
+                cathode_is_vsw = "'vsw'" in cathode_arg.lower() or '"vsw"' in cathode_arg.lower()
+                
+                if anode_is_vout and cathode_is_vsw:
+                    # Fix: change anode from Vout to circuit.gnd
+                    old_call = match.group(0)
+                    new_call = f"circuit.D({name_arg}, circuit.gnd, {cathode_arg}"
+                    lines[idx] = line.replace(old_call, new_call)
+                    warnings.append(f"Fixed buck diode polarity: changed anode from Vout to GND")
+                    modified = True
+    
+    if modified:
+        return "\n".join(lines) + "\n", warnings
+    
+    return code, warnings
+
+
 def detect_structural_issues(code: str, problem_spec: dict):
     issues = []
     code_lower = code.lower()
@@ -542,6 +681,17 @@ def main():
 
             code, diode_warnings = autofix_diode_models(code)
             for warn in diode_warnings:
+                print(f"  ⚙️  {warn}")
+
+            # Auto-fix missing freewheeling diode for buck converters
+            topology = problem.get('topology', '')
+            code, diode_insert_warnings = autofix_missing_diode(code, topology)
+            for warn in diode_insert_warnings:
+                print(f"  ⚙️  {warn}")
+
+            # Auto-fix buck diode polarity (anode should be GND, not Vout)
+            code, polarity_warnings = autofix_buck_diode_polarity(code, topology)
+            for warn in polarity_warnings:
                 print(f"  ⚙️  {warn}")
 
             blocklist_issues = detect_blocklist_issues(code)

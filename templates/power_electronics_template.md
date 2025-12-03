@@ -1,6 +1,28 @@
 You aim to design a power electronic circuit topology for a given specification.
 Please ensure your designed circuit topology works properly and achieves the design requirements.
 
+## ⚠️ CRITICAL: Use VCS (Voltage-Controlled Switch) for Reliable Simulation
+
+**MOSFET models often fail in PySpice switching simulations.** Always use VCS (Voltage-Controlled Switch) for buck and boost converters:
+
+```python
+# ALWAYS USE THIS SWITCH PATTERN (not MOSFET):
+circuit.VCS('SW1', 'Vin', 'Vsw', 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+```
+
+## ⚠️ CRITICAL: Buck Diode Polarity
+
+For buck converters, the freewheeling diode connects **GND → Vsw** (NOT Vout → Vsw):
+
+```python
+# CORRECT (for buck):
+circuit.D('D1', circuit.gnd, 'Vsw', model='DMOD')  # GND is anode, Vsw is cathode
+
+# WRONG (will cause incorrect output voltage):
+circuit.D('D1', 'Vout', 'Vsw', model='DMOD')  # DO NOT DO THIS
+```
+
 ## Power Electronics Design Principles
 
 ### 1. Topology Selection
