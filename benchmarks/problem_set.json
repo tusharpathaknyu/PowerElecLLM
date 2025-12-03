@@ -34,6 +34,66 @@
         "efficiency_target": 88,
         "input_nodes": ["Vin", "GND"],
         "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 4,
+        "topology": "Buck",
+        "description": "Design a buck converter for high step-down ratio",
+        "input_voltage": 48,
+        "output_voltage": 5,
+        "output_power": 25,
+        "switching_freq": 400,
+        "efficiency_target": 88,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 5,
+        "topology": "Buck",
+        "description": "Design a buck converter for low voltage output",
+        "input_voltage": 15,
+        "output_voltage": 3.3,
+        "output_power": 5,
+        "switching_freq": 500,
+        "efficiency_target": 85,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 6,
+        "topology": "Boost",
+        "description": "Design a boost converter for high step-up ratio",
+        "input_voltage": 3.3,
+        "output_voltage": 15,
+        "output_power": 10,
+        "switching_freq": 250,
+        "efficiency_target": 85,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 7,
+        "topology": "Boost",
+        "description": "Design a boost converter for battery charging",
+        "input_voltage": 9,
+        "output_voltage": 24,
+        "output_power": 30,
+        "switching_freq": 350,
+        "efficiency_target": 90,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
+    },
+    {
+        "task_id": 8,
+        "topology": "Boost",
+        "description": "Design a boost converter for LED driver",
+        "input_voltage": 12,
+        "output_voltage": 48,
+        "output_power": 50,
+        "switching_freq": 200,
+        "efficiency_target": 92,
+        "input_nodes": ["Vin", "GND"],
+        "output_nodes": ["Vout", "GND"]
     }
 ]
 

@@ -352,6 +352,79 @@ def autofix_buck_diode_polarity(code: str, topology: str):
     return code, warnings
 
 
+def autofix_boost_switch_placement(code: str, topology: str):
+    """Fix boost converter switch: should be Vsw→GND, not Vsw→Vout."""
+    warnings = []
+    topology_lower = topology.lower()
+    
+    # Only applies to boost converters
+    if 'boost' not in topology_lower:
+        return code, warnings
+    
+    lines = code.splitlines()
+    modified = False
+    
+    # Pattern: VCS(..., 'Vsw', 'Vout', ...) should be VCS(..., 'Vsw', circuit.gnd, ...)
+    vcs_pattern = re.compile(r"circuit\s*\.\s*vcs\s*\(", re.IGNORECASE)
+    
+    for idx, line in enumerate(lines):
+        if vcs_pattern.search(line):
+            # Check if second terminal is Vout (wrong) instead of GND
+            # VCS('name', terminal1, terminal2, ctrl+, ctrl-, ...)
+            # For boost low-side switch: VCS('S1', 'Vsw', circuit.gnd, 'Vgate', circuit.gnd)
+            if "'vout'" in line.lower() or '"vout"' in line.lower():
+                # Replace Vout with circuit.gnd for the switch terminal
+                # This is a heuristic - look for 'Vsw', 'Vout' pattern
+                new_line = re.sub(
+                    r"(['\"]Vsw['\"])\s*,\s*['\"]Vout['\"]",
+                    r"\1, circuit.gnd",
+                    line,
+                    flags=re.IGNORECASE
+                )
+                if new_line != line:
+                    lines[idx] = new_line
+                    warnings.append("Fixed boost switch: terminal changed from Vout to GND (low-side)")
+                    modified = True
+    
+    if modified:
+        return "\n".join(lines) + "\n", warnings
+    
+    return code, warnings
+
+
+def autofix_boost_capacitor_ic(code: str, topology: str):
+    """Ensure boost converter output capacitor starts at 0V."""
+    warnings = []
+    topology_lower = topology.lower()
+    
+    # Only applies to boost converters
+    if 'boost' not in topology_lower:
+        return code, warnings
+    
+    lines = code.splitlines()
+    modified = False
+    
+    # Find capacitor connected to Vout
+    cap_pattern = re.compile(r"circuit\s*\.\s*c\s*\(", re.IGNORECASE)
+    
+    for idx, line in enumerate(lines):
+        if cap_pattern.search(line) and ('vout' in line.lower()):
+            # Check if initial_condition is already set
+            if 'initial_condition' not in line.lower():
+                # Add initial_condition=0@u_V
+                stripped = line.rstrip()
+                if stripped.endswith(')'):
+                    stripped = stripped[:-1] + ", initial_condition=0@u_V)"
+                    lines[idx] = stripped
+                    warnings.append("Added initial_condition=0V to boost output capacitor")
+                    modified = True
+    
+    if modified:
+        return "\n".join(lines) + "\n", warnings
+    
+    return code, warnings
+
+
 def detect_structural_issues(code: str, problem_spec: dict):
     issues = []
     code_lower = code.lower()
@@ -692,6 +765,16 @@ def main():
             # Auto-fix buck diode polarity (anode should be GND, not Vout)
             code, polarity_warnings = autofix_buck_diode_polarity(code, topology)
             for warn in polarity_warnings:
+                print(f"  ⚙️  {warn}")
+
+            # Auto-fix boost switch placement (should be Vsw→GND, not Vsw→Vout)
+            code, boost_switch_warnings = autofix_boost_switch_placement(code, topology)
+            for warn in boost_switch_warnings:
+                print(f"  ⚙️  {warn}")
+
+            # Auto-fix boost capacitor initial condition (should start at 0V)
+            code, boost_cap_warnings = autofix_boost_capacitor_ic(code, topology)
+            for warn in boost_cap_warnings:
                 print(f"  ⚙️  {warn}")
 
             blocklist_issues = detect_blocklist_issues(code)

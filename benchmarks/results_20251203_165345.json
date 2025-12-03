@@ -1,0 +1,109 @@
+{
+  "timestamp": "2025-12-03T16:53:45.250522",
+  "results": {
+    "1": [
+      {
+        "task_id": 1,
+        "success": true,
+        "output_voltage": 5.016,
+        "target_voltage": 5.0,
+        "error_pct": 0.3200000000000003,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 12,
+        "vout": 5
+      }
+    ],
+    "2": [
+      {
+        "task_id": 2,
+        "success": true,
+        "output_voltage": 12.132,
+        "target_voltage": 12.0,
+        "error_pct": 1.0999999999999974,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 24,
+        "vout": 12
+      }
+    ],
+    "3": [
+      {
+        "task_id": 3,
+        "success": false,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": "\u2717 Output voltage: 11.395V (target: 12V, error: 5.0%)",
+        "topology": "Boost",
+        "vin": 5,
+        "vout": 12
+      }
+    ],
+    "4": [
+      {
+        "task_id": 4,
+        "success": true,
+        "output_voltage": 4.716,
+        "target_voltage": 5.0,
+        "error_pct": 5.679999999999996,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 48,
+        "vout": 5
+      }
+    ],
+    "5": [
+      {
+        "task_id": 5,
+        "success": true,
+        "output_voltage": 3.2,
+        "target_voltage": 3.3,
+        "error_pct": 3.0303030303030196,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 15,
+        "vout": 3.3
+      }
+    ],
+    "6": [
+      {
+        "task_id": 6,
+        "success": false,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": "\u2717 Output voltage: 17.092V (target: 15V, error: 13.9%)",
+        "topology": "Boost",
+        "vin": 3.3,
+        "vout": 15
+      }
+    ],
+    "7": [
+      {
+        "task_id": 7,
+        "success": true,
+        "output_voltage": 23.082,
+        "target_voltage": 24.0,
+        "error_pct": 3.824999999999997,
+        "error_msg": null,
+        "topology": "Boost",
+        "vin": 9,
+        "vout": 24
+      }
+    ],
+    "8": [
+      {
+        "task_id": 8,
+        "success": true,
+        "output_voltage": 46.855,
+        "target_voltage": 48.0,
+        "error_pct": 2.385416666666673,
+        "error_msg": null,
+        "topology": "Boost",
+        "vin": 12,
+        "vout": 48
+      }
+    ]
+  }
+}
