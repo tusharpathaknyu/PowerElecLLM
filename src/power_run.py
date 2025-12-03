@@ -144,6 +144,67 @@ def sanitize_generated_code(code: str):
     return sanitized_code.strip() + "\n", warnings
 
 
+def autofix_diode_models(code: str):
+    warnings = []
+    lines = code.splitlines()
+    diode_lines = []
+    diode_call_pattern = re.compile(r"circuit\s*\.\s*d\s*\(", re.IGNORECASE)
+    diode_models_in_code = set(
+        re.findall(r"circuit\.model\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]d['\"]", code, re.IGNORECASE)
+    )
+
+    for idx, line in enumerate(lines):
+        if diode_call_pattern.search(line):
+            diode_lines.append(idx)
+
+    if not diode_lines:
+        return code, warnings
+
+    default_model_name = 'DMOD_AUTO'
+    diode_model_names = set()
+
+    for idx in diode_lines:
+        line = lines[idx]
+        model_match = re.search(r"model\s*=\s*['\"]([^'\"]+)['\"]", line)
+        if model_match:
+            model_name = model_match.group(1)
+            diode_model_names.add(model_name)
+            continue
+
+        # No model specified; append default model argument
+        stripped = line.rstrip()
+        if stripped.endswith(')'):
+            stripped = stripped[:-1] + f", model='{default_model_name}')"
+        else:
+            stripped = stripped + f", model='{default_model_name}'"
+        lines[idx] = stripped
+        warnings.append("Inserted default diode model reference 'DMOD_AUTO'")
+        diode_model_names.add(default_model_name)
+
+    missing_definitions = [
+        name for name in diode_model_names if name and name not in diode_models_in_code
+    ]
+
+    if missing_definitions:
+        insert_idx = None
+        for idx, line in enumerate(lines):
+            if 'Circuit(' in line:
+                insert_idx = idx + 1
+                break
+        if insert_idx is None:
+            insert_idx = len(lines)
+
+        for name in missing_definitions:
+            snippet = (
+                f"circuit.model('{name}', 'D', **{{'is': 1e-9}}, Rs=0.05, N=1.5)"
+            )
+            lines.insert(insert_idx, snippet)
+            insert_idx += 1
+            warnings.append(f"Inserted diode model definition for '{name}'")
+
+    return "\n".join(lines) + "\n", warnings
+
+
 def detect_blocklist_issues(code: str):
     issues = []
     for pattern, message in BLOCKLIST_PATTERNS:
@@ -163,11 +224,14 @@ def detect_structural_issues(code: str, problem_spec: dict):
     if 'sinusoidalvoltagesource' in code_lower:
         issues.append("Gate drive uses SinusoidalVoltageSource; switch to PulseVoltageSource")
 
-    diode_present = 'circuit.D(' in code or '.D(' in code
+    diode_call_pattern = re.compile(r"circuit\s*\.\s*d\s*\(", re.IGNORECASE)
+    diode_present = bool(diode_call_pattern.search(code))
     if 'buck' in topology and not diode_present:
         issues.append("Buck converter missing freewheeling diode")
     if diode_present:
-        has_diode_model = bool(re.search(r"circuit\.model\(.*['\"]D['\"]", code))
+        has_diode_model = bool(
+            re.search(r"circuit\.model\(.*['\"]d['\"]", code, re.IGNORECASE)
+        )
         if not has_diode_model:
             issues.append("Diode is instantiated but no diode model (circuit.model(... 'D' ...)) is defined")
 
@@ -475,6 +539,10 @@ def main():
             code, sanitize_warnings = sanitize_generated_code(code)
             for warn in sanitize_warnings:
                 print(f"  ⚠️  {warn}")
+
+            code, diode_warnings = autofix_diode_models(code)
+            for warn in diode_warnings:
+                print(f"  ⚙️  {warn}")
 
             blocklist_issues = detect_blocklist_issues(code)
             if blocklist_issues:
