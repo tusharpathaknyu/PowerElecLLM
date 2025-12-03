@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-12-03T17:13:41.688554",
+  "results": {
+    "9": [
+      {
+        "task_id": 9,
+        "success": true,
+        "output_voltage": 24.999,
+        "target_voltage": 24.0,
+        "error_pct": 4.162499999999994,
+        "error_msg": null,
+        "topology": "SEPIC",
+        "vin": 12,
+        "vout": 24
+      }
+    ]
+  }
+}

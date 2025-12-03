@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-12-03T17:15:03.960967",
+  "results": {
+    "11": [
+      {
+        "task_id": 11,
+        "success": true,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": null,
+        "topology": "Buck-Boost",
+        "vin": 12,
+        "vout": -15
+      }
+    ]
+  }
+}

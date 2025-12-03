@@ -576,7 +576,8 @@ def validate_circuit(code_file, problem_spec):
                 import numpy as np
 
                 vout_trace = None
-                node_candidates = ['Vout', 'vout', 'VOUT', 'out', 'Vo']
+                # Extended node candidates including negative output nodes
+                node_candidates = ['Vout', 'vout', 'VOUT', 'out', 'Vo', 'Vout_neg', 'vout_neg', 'V_out', 'output']
                 for node in node_candidates:
                     try:
                         vout_trace = np.array(analysis_obj[node])
@@ -592,7 +593,12 @@ def validate_circuit(code_file, problem_spec):
                 output_v = float(np.mean(vout_trace[-window:]))
                 validation_result['output_voltage'] = output_v
                 target_v = problem_spec['output_voltage']
-                error_pct = abs(output_v - target_v) / target_v * 100
+                
+                # Handle negative target voltages properly
+                if target_v != 0:
+                    error_pct = abs(output_v - target_v) / abs(target_v) * 100
+                else:
+                    error_pct = abs(output_v) * 100  # If target is 0, any output is error
 
                 if error_pct <= 5.0:
                     validation_result['output_voltage_ok'] = True

@@ -1,0 +1,96 @@
+{
+  "timestamp": "2025-12-03T17:28:32.832328",
+  "results": {
+    "1": [
+      {
+        "task_id": 1,
+        "success": true,
+        "output_voltage": 5.013,
+        "target_voltage": 5.0,
+        "error_pct": 0.259999999999998,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 12,
+        "vout": 5
+      }
+    ],
+    "2": [
+      {
+        "task_id": 2,
+        "success": true,
+        "output_voltage": 12.553,
+        "target_voltage": 12.0,
+        "error_pct": 4.60833333333334,
+        "error_msg": null,
+        "topology": "Buck",
+        "vin": 24,
+        "vout": 12
+      }
+    ],
+    "3": [
+      {
+        "task_id": 3,
+        "success": false,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": "\u2717 Output voltage: 10.755V (target: 12V, error: 10.4%)",
+        "topology": "Boost",
+        "vin": 5,
+        "vout": 12
+      }
+    ],
+    "9": [
+      {
+        "task_id": 9,
+        "success": false,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": "\u2717 Simulation error: NgSpiceCommandError: Command 'run' failed",
+        "topology": "SEPIC",
+        "vin": 12,
+        "vout": 24
+      }
+    ],
+    "10": [
+      {
+        "task_id": 10,
+        "success": false,
+        "output_voltage": null,
+        "target_voltage": null,
+        "error_pct": null,
+        "error_msg": "\u2717 Output voltage: 16.198V (target: 12V, error: 35.0%)",
+        "topology": "SEPIC",
+        "vin": 24,
+        "vout": 12
+      }
+    ],
+    "11": [
+      {
+        "task_id": 11,
+        "success": true,
+        "output_voltage": -15.289,
+        "target_voltage": -15.0,
+        "error_pct": 1.9266666666666648,
+        "error_msg": null,
+        "topology": "Buck-Boost",
+        "vin": 12,
+        "vout": -15
+      }
+    ],
+    "12": [
+      {
+        "task_id": 12,
+        "success": true,
+        "output_voltage": -5.057,
+        "target_voltage": -5.0,
+        "error_pct": 1.1400000000000077,
+        "error_msg": null,
+        "topology": "Buck-Boost",
+        "vin": 24,
+        "vout": -5
+      }
+    ]
+  }
+}

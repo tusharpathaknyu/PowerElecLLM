@@ -2,7 +2,16 @@
 
 ## Current Status (December 2025)
 
-### Benchmark Results
+### Reference Test Suite Results
+| Topology | Tests | Pass Rate |
+|----------|-------|-----------|
+| Buck | 4 | **100%** ✅ |
+| Boost | 4 | **100%** ✅ |
+| SEPIC | 2 | **100%** ✅ |
+| Inverting Buck-Boost | 2 | **100%** ✅ |
+| **Total** | **12** | **100%** ✅ |
+
+### LLM Benchmark Results (GPT-4o)
 | Metric | Value |
 |--------|-------|
 | Overall Success Rate | **75%** (6/8 tasks) |
@@ -11,23 +20,32 @@
 | Average Error (successful) | **2.7%** |
 
 ### What's Working
-✅ All buck converter designs pass within 5% tolerance  
-✅ Reference regression suite (8 specs) validates circuit correctness  
+✅ Reference test suite with 12 validated converter specs  
+✅ Buck, Boost, SEPIC, Inverting Buck-Boost topologies  
+✅ VCS-based switching for reliable simulation  
 ✅ Auto-fix mechanisms for common LLM errors:
-- Missing/wrong diode models
-- Buck diode polarity (GND→Vsw)
-- Missing freewheeling diode insertion
-- Boost switch placement correction
-- Boost capacitor initial condition
+- Missing/wrong diode models (`autofix_diode_models`)
+- Buck diode polarity (GND→Vsw) (`autofix_buck_diode_polarity`)
+- Missing freewheeling diode insertion (`autofix_missing_diode`)
+- Boost switch placement correction (`autofix_boost_switch_placement`)
+- Boost capacitor initial condition (`autofix_boost_capacitor_ic`)
 
-### Known Issues
-❌ Boost converters with high step-up ratios sometimes fail  
+### Available Topologies
+1. **Buck**: High-side VCS switch, freewheeling diode to GND
+2. **Boost**: Input inductor, low-side VCS switch, output diode
+3. **SEPIC**: Dual inductor, coupling capacitor, step-up or step-down
+4. **Inverting Buck-Boost**: High-side switch, negative output rail
+
+### Known Issues / TODO
+❌ **Ćuk converter**: Reference tests show incorrect polarity (needs SPICE debugging)  
+❌ **Flyback**: Not yet implemented (requires coupled inductor model)  
+❌ **Quasi-Resonant**: Not yet implemented (requires resonant tank)  
 ❌ LLM occasionally uses sinusoidal gate drive instead of PWM  
-❌ Duty cycle compensation not always accurate for boost topology  
+❌ Boost converters with high step-up ratios sometimes fail  
 
 ---
 
-## Priority 1: Improve Boost Converter Success Rate (Target: 80%+)
+## Priority 1: Improve LLM Boost Converter Success Rate (Target: 80%+)
 
 ### 1.1 Enhanced Boost Template Guidance
 - [ ] Add explicit duty cycle formula for boost: `D = 1 - (Vin/Vout)`
@@ -47,16 +65,21 @@
 
 ---
 
-## Priority 2: Expand Test Coverage (Target: 20+ tasks)
+## Priority 2: Expand Test Coverage (Target: 24+ tasks)
 
-### 2.1 Add New Topologies
-- [ ] Buck-Boost converter (inverting)
-- [ ] Synchronous buck (dual MOSFET)
+### 2.1 Fix Remaining Topologies
+- [ ] Debug Ćuk converter SPICE simulation (negative output rail issue)
+- [ ] Implement Flyback with coupled inductor model
+- [ ] Implement Quasi-Resonant with resonant tank
+
+### 2.2 Add Topology Variations
+- [x] SEPIC converter (step-up/down, positive output) ✅
+- [x] Inverting Buck-Boost ✅
+- [ ] Synchronous buck (dual switch, no diode)
 - [ ] Synchronous boost
-- [ ] SEPIC converter
-- [ ] Ćuk converter
+- [ ] Zeta converter
 
-### 2.2 Edge Case Testing
+### 2.3 Edge Case Testing
 - [ ] Very high step-down ratio (48V→1.8V)
 - [ ] Very high step-up ratio (3.3V→48V)
 - [ ] High power (>100W)
@@ -163,12 +186,27 @@
 
 | Metric | Current | Target (1mo) | Target (3mo) |
 |--------|---------|--------------|--------------|
-| Overall Success | 75% | 85% | 95% |
+| Reference Tests | 12/12 (100%) | 16/16 | 24/24 |
+| LLM Success | 75% | 85% | 95% |
 | Buck Success | 100% | 100% | 100% |
 | Boost Success | 50% | 75% | 90% |
+| SEPIC Success | TBD | 70% | 85% |
+| Inv Buck-Boost | TBD | 70% | 85% |
 | Avg Error | 2.7% | <2.0% | <1.5% |
-| Test Coverage | 8 tasks | 20 tasks | 50 tasks |
-| Topologies | 2 | 4 | 8 |
+| Benchmark Tasks | 18 | 24 | 50 |
+| Validated Topologies | 4 | 6 | 8+ |
+
+---
+
+## Available Files
+
+| File | Purpose |
+|------|---------|
+| `reference_tests/run_reference_tests.py` | Deterministic reference validation |
+| `scripts/run_benchmark.py` | LLM benchmark runner |
+| `src/power_run.py` | Main LLM workflow with auto-fixes |
+| `templates/power_electronics_template.md` | LLM prompt template |
+| `benchmarks/problem_set.json` | 18 benchmark tasks |
 
 ---
 

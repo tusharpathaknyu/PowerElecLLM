@@ -57,13 +57,19 @@ def run_task(task_id: int, num_retry: int = 3) -> dict:
         if "✅ Generation" in output and "successful" in output:
             result["success"] = True
             
-            # Extract output voltage
+            # Extract output voltage (handle negative voltages)
             import re
-            match = re.search(r"Output voltage:\s*([\d.]+)V\s*\(target:\s*([\d.]+)V", output)
+            match = re.search(r"Output voltage:\s*(-?[\d.]+)V\s*\(target:\s*(-?[\d.]+)V", output)
             if match:
                 result["output_voltage"] = float(match.group(1))
                 result["target_voltage"] = float(match.group(2))
-                result["error_pct"] = abs(result["output_voltage"] - result["target_voltage"]) / result["target_voltage"] * 100
+                # Use absolute values for error calculation with negative outputs
+                target = result["target_voltage"]
+                measured = result["output_voltage"]
+                if target != 0:
+                    result["error_pct"] = abs(measured - target) / abs(target) * 100
+                else:
+                    result["error_pct"] = 0.0 if measured == 0 else 100.0
         else:
             # Extract error message
             if "❌" in output:
@@ -121,7 +127,12 @@ def run_benchmark(task_ids: list, num_runs: int = 1, num_retry: int = 3) -> dict
             results[task_id].append(result)
             
             if result["success"]:
-                print(f"✅ {result['output_voltage']:.2f}V (error: {result['error_pct']:.1f}%)")
+                vout = result.get('output_voltage')
+                err = result.get('error_pct')
+                if vout is not None and err is not None:
+                    print(f"✅ {vout:.2f}V (error: {err:.1f}%)")
+                else:
+                    print(f"✅ (output parsing failed)")
             else:
                 print(f"❌ {result.get('error_msg', 'Unknown error')[:50]}")
     

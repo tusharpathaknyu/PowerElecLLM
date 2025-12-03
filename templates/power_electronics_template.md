@@ -36,11 +36,32 @@ Choose the appropriate converter topology based on requirements:
   - **CRITICAL:** Diode direction: Anode at switching node, Cathode at output
   - **CRITICAL:** Output cap MUST start at 0V (not pre-charged)
   - Use larger inductors (2-5× larger than buck for same specs)
+
+- **Buck-Boost (Inverting)**: Vout can be higher or lower than Vin, inverted polarity
+  - Switch: High-side (Vin to Vsw)
+  - Diode: From output to Vsw (inverted polarity output)
+  - D = Vout / (Vin + Vout)
   
-- **Buck-Boost**: Bidirectional, non-isolated
+- **SEPIC**: Non-inverting buck-boost, can step up or down
+  - Two inductors (can be coupled), coupling capacitor
+  - D = Vout / (Vin + Vout)
+  - Non-inverting output (positive to positive)
+  
+- **Ćuk Converter**: Inverted output, capacitor-coupled energy transfer
+  - Two inductors, coupling capacitor
+  - D = Vout / (Vin + Vout)
+  - Low input/output ripple current
+  
 - **Flyback**: Isolated, low-medium power (<100W)
-- **Forward**: Isolated, medium power
-- **LLC Resonant**: High efficiency, high power
+  - Uses coupled inductor (transformer with gap)
+  - Good for multiple outputs
+  
+- **Forward**: Isolated, medium power, transformer reset needed
+  
+- **Quasi-Resonant (QR)**: Soft-switching for reduced EMI
+  - Zero-Voltage Switching (ZVS) or Zero-Current Switching (ZCS)
+  - Resonant tank (Lr, Cr) shapes switching waveforms
+  - Variable frequency operation
 
 ### 2. Component Sizing Formulas
 
@@ -258,6 +279,297 @@ analysis = simulator.transient(step_time=100@u_ns, end_time=30@u_ms)
 - Larger inductor needed (100µH vs 20µH for buck)
 - Longer simulation time to allow startup ramp
 - Less sensitive to duty cycle compensation than buck
+
+## Example 3: SEPIC Converter Design (12V → 5V or 12V → 24V)
+
+SEPIC can step up OR step down with non-inverting output.
+
+```python
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+circuit = Circuit('SEPIC Converter 12V to 24V')
+
+# Input voltage
+circuit.V('in', 'Vin', circuit.gnd, 12@u_V)
+
+# Input inductor L1 (Vin to Vsw)
+circuit.L('L1', 'Vin', 'Vsw', 47@u_uH)
+
+# Coupling capacitor Cs (Vsw to Vx)
+circuit.C('s', 'Vsw', 'Vx', 10@u_uF)
+
+# Output inductor L2 (Vx to GND)
+circuit.L('L2', 'Vx', circuit.gnd, 47@u_uH)
+
+# Main switch (low-side, Vsw to GND)
+circuit.VCS('SW1', 'Vsw', circuit.gnd, 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+
+# Output diode (Vx to Vout)
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('D1', 'Vx', 'Vout', model='DMOD')
+
+# Output capacitor
+circuit.C('out', 'Vout', circuit.gnd, 100@u_uF, initial_condition=0@u_V)
+
+# Load resistor
+R_load = (24**2) / 20  # 28.8Ω for 20W at 24V
+circuit.R('load', 'Vout', circuit.gnd, R_load@u_Ω)
+
+# SEPIC duty cycle: D = Vout / (Vin + Vout)
+Vin, Vout_target = 12.0, 24.0
+D = Vout_target / (Vin + Vout_target)  # 0.667 (66.7%)
+f_sw = 200e3
+period = 1 / f_sw
+pulse_width = period * D
+
+circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=5@u_V,
+                           pulse_width=pulse_width@u_s, period=period@u_s)
+
+simulator = circuit.simulator()
+analysis = simulator.transient(step_time=100@u_ns, end_time=20@u_ms)
+```
+
+**SEPIC Key Points:**
+- Non-inverting output (unlike Ćuk or buck-boost)
+- Can step up OR step down
+- Two inductors (can be magnetically coupled to reduce ripple)
+- Coupling capacitor transfers energy between stages
+- D = Vout / (Vin + Vout) for both step-up and step-down
+
+## Example 4: Inverting Buck-Boost Converter (12V → -15V)
+
+```python
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+circuit = Circuit('Inverting Buck-Boost 12V to -15V')
+
+# Input voltage
+circuit.V('in', 'Vin', circuit.gnd, 12@u_V)
+
+# Main switch (Vin to Vsw, high-side)
+circuit.VCS('SW1', 'Vin', 'Vsw', 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+
+# Inductor (Vsw to GND)
+circuit.L('L1', 'Vsw', circuit.gnd, 100@u_uH)
+
+# Diode (Vout_neg to Vsw) - note inverted polarity!
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('D1', 'Vout_neg', 'Vsw', model='DMOD')
+
+# Output capacitor (between Vout_neg and GND)
+circuit.C('out', 'Vout_neg', circuit.gnd, 100@u_uF, initial_condition=0@u_V)
+
+# Load resistor (Vout_neg is negative relative to GND)
+R_load = (15**2) / 10  # 22.5Ω for 10W
+circuit.R('load', 'Vout_neg', circuit.gnd, R_load@u_Ω)
+
+# Buck-Boost duty cycle: D = |Vout| / (Vin + |Vout|)
+Vin, Vout_mag = 12.0, 15.0
+D = Vout_mag / (Vin + Vout_mag)  # 0.556 (55.6%)
+f_sw = 200e3
+period = 1 / f_sw
+pulse_width = period * D
+
+circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=5@u_V,
+                           pulse_width=pulse_width@u_s, period=period@u_s)
+
+simulator = circuit.simulator()
+analysis = simulator.transient(step_time=100@u_ns, end_time=15@u_ms)
+```
+
+**Inverting Buck-Boost Key Points:**
+- Output is NEGATIVE relative to input ground
+- Can produce |Vout| greater or less than Vin
+- D = |Vout| / (Vin + |Vout|)
+- Single inductor, simpler than SEPIC/Ćuk
+
+## Example 5: Ćuk Converter (12V → -5V)
+
+```python
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+circuit = Circuit('Cuk Converter 12V to -5V')
+
+# Input voltage
+circuit.V('in', 'Vin', circuit.gnd, 12@u_V)
+
+# Input inductor L1 (Vin to Vsw)
+circuit.L('L1', 'Vin', 'Vsw', 100@u_uH)
+
+# Main switch (Vsw to GND, low-side)
+circuit.VCS('SW1', 'Vsw', circuit.gnd, 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+
+# Coupling capacitor (Vsw to Vx)
+circuit.C('c', 'Vsw', 'Vx', 10@u_uF)
+
+# Diode (GND to Vx) - cathode at Vx
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('D1', circuit.gnd, 'Vx', model='DMOD')
+
+# Output inductor L2 (Vx to Vout_neg)
+circuit.L('L2', 'Vx', 'Vout_neg', 100@u_uH)
+
+# Output capacitor
+circuit.C('out', 'Vout_neg', circuit.gnd, 100@u_uF, initial_condition=0@u_V)
+
+# Load resistor
+R_load = (5**2) / 5  # 5Ω for 5W
+circuit.R('load', 'Vout_neg', circuit.gnd, R_load@u_Ω)
+
+# Ćuk duty cycle: D = |Vout| / (Vin + |Vout|)
+Vin, Vout_mag = 12.0, 5.0
+D = Vout_mag / (Vin + Vout_mag)  # 0.294 (29.4%)
+f_sw = 200e3
+period = 1 / f_sw
+pulse_width = period * D
+
+circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=5@u_V,
+                           pulse_width=pulse_width@u_s, period=period@u_s)
+
+simulator = circuit.simulator()
+analysis = simulator.transient(step_time=100@u_ns, end_time=15@u_ms)
+```
+
+**Ćuk Converter Key Points:**
+- Output is NEGATIVE (inverted polarity)
+- Two inductors provide continuous input AND output current (low ripple)
+- Capacitor-coupled energy transfer
+- D = |Vout| / (Vin + |Vout|)
+- Good for applications needing low EMI
+
+## Example 6: Quasi-Resonant Buck (ZVS) Converter
+
+```python
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+circuit = Circuit('Quasi-Resonant ZVS Buck 24V to 12V')
+
+# Input voltage
+circuit.V('in', 'Vin', circuit.gnd, 24@u_V)
+
+# Main switch with resonant tank
+circuit.VCS('SW1', 'Vin', 'Vr', 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.02, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+
+# Resonant inductor Lr (small, for resonance)
+circuit.L('r', 'Vr', 'Vsw', 1@u_uH)
+
+# Resonant capacitor Cr (across switch)
+circuit.C('r', 'Vsw', circuit.gnd, 10@u_nF)
+
+# Freewheeling diode
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('D1', circuit.gnd, 'Vsw', model='DMOD')
+
+# Output inductor (main energy storage)
+circuit.L('out', 'Vsw', 'Vout', 47@u_uH)
+
+# Output capacitor
+circuit.C('out', 'Vout', circuit.gnd, 100@u_uF)
+
+# Load
+R_load = (12**2) / 25  # 5.76Ω for 25W
+circuit.R('load', 'Vout', circuit.gnd, R_load@u_Ω)
+
+# QR operation: frequency varies, here ~200kHz nominal
+# Resonant frequency: fr = 1/(2π√(Lr×Cr)) ≈ 1.6MHz
+# Switch turns on when Vsw rings down to ~0V (ZVS)
+D = 0.55  # Slightly higher for losses
+f_sw = 200e3
+period = 1 / f_sw
+pulse_width = period * D
+
+circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=5@u_V,
+                           pulse_width=pulse_width@u_s, period=period@u_s,
+                           rise_time=10@u_ns, fall_time=10@u_ns)
+
+simulator = circuit.simulator()
+analysis = simulator.transient(step_time=10@u_ns, end_time=5@u_ms)
+```
+
+**Quasi-Resonant Key Points:**
+- Resonant tank (Lr, Cr) enables soft switching
+- ZVS: Switch turns ON when voltage across it is ~0
+- ZCS: Switch turns OFF when current through it is ~0
+- Reduced switching losses and EMI
+- Variable frequency operation in practice
+- Resonant frequency: fr = 1/(2π√(Lr×Cr))
+
+## Example 7: Flyback Converter (12V → 48V Isolated)
+
+```python
+from PySpice.Spice.Netlist import Circuit
+from PySpice.Unit import *
+
+circuit = Circuit('Flyback Converter 12V to 48V')
+
+# Input voltage
+circuit.V('in', 'Vin', circuit.gnd, 12@u_V)
+
+# Main switch (Vin through primary to GND)
+circuit.VCS('SW1', 'Vpri', circuit.gnd, 'Vgate', circuit.gnd, model='SWITCH')
+circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
+
+# Coupled inductors (transformer) - simplified as two coupled inductors
+# Primary: Vin to Vpri, Secondary: Vsec to GND_iso
+# Using transformer with turns ratio N = Vout/Vin * (1-D)/D
+# For 12V→48V with D=0.5: N = 48/12 * 0.5/0.5 = 4:1 (primary:secondary)
+
+# Primary inductance (magnetizing inductance)
+circuit.L('pri', 'Vin', 'Vpri', 100@u_uH)
+
+# Simplified: Model secondary as separate circuit with coupling factor
+# In real simulation, use K (mutual inductance) element
+# Here we use ideal transformer approximation with VCVS
+
+# Secondary side voltage source (models transformer action)
+# Vsec = Vpri * N when switch OFF, coupled through mutual inductance
+circuit.VCVS('xfmr', 'Vsec_raw', circuit.gnd, 'Vpri', circuit.gnd, voltage_gain=4)
+
+# Secondary diode (rectifies flyback pulse)
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('sec', 'Vsec_raw', 'Vout', model='DMOD')
+
+# Output capacitor
+circuit.C('out', 'Vout', circuit.gnd, 100@u_uF, initial_condition=0@u_V)
+
+# Load
+R_load = (48**2) / 20  # 115.2Ω for 20W
+circuit.R('load', 'Vout', circuit.gnd, R_load@u_Ω)
+
+# Flyback duty cycle: D = Vout / (Vout + N*Vin)
+# For N=4, Vin=12, Vout=48: D = 48/(48+48) = 0.5
+D = 0.5
+f_sw = 100e3  # Lower frequency for flyback
+period = 1 / f_sw
+pulse_width = period * D
+
+circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
+                           initial_value=0@u_V, pulsed_value=5@u_V,
+                           pulse_width=pulse_width@u_s, period=period@u_s)
+
+simulator = circuit.simulator()
+analysis = simulator.transient(step_time=200@u_ns, end_time=20@u_ms)
+```
+
+**Flyback Key Points:**
+- Provides galvanic isolation
+- Energy stored in primary, transferred to secondary when switch OFF
+- Turns ratio N affects voltage conversion
+- D = Vout / (Vout + N×Vin) in CCM
+- Good for multiple isolated outputs
+- Watch for leakage inductance spikes (add snubber in practice)
 
 ### Simulation Boilerplate Requirements (strict)
 
