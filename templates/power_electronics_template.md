@@ -258,6 +258,16 @@ analysis = simulator.transient(step_time=100@u_ns, end_time=30@u_ms)
   Do **not** write expressions like `(Vout**2 / Power) @ u_Ω`.
 - **Diode models:** Whenever you instantiate a diode, also create `circuit.model('<name>', 'D', ...)` with Schottky-like parameters and reference that model in the `circuit.D(...)` call.
 
+#### Canonical Freewheel Snippet (copy this block)
+
+```python
+# Schottky diode model + connection (assumes switching node is 'Vsw')
+circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
+circuit.D('D1', circuit.gnd, 'Vsw', model='DMOD')
+```
+
+Use the same naming if unsure; adjust node names only if your circuit uses different labels.
+
 ## Design Checklist
 
 1. ✓ Topology selected based on Vin/Vout relationship
