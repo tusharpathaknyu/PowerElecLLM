@@ -19,6 +19,27 @@ from pathlib import Path
 
 # Get project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+REFERENCE_TOLERANCE_PCT = 5.0
+SANITIZE_IMPORT_PATTERNS = [
+    r"^from PySpice\.Spice\.Simulation import .*$",
+    r"^import PySpice\.Spice\.Simulation.*$",
+    r"^from PySpice\.Probe\.WaveForm import .*$",
+]
+ESSENTIAL_IMPORTS = [
+    "from PySpice.Spice.Netlist import Circuit",
+    "from PySpice.Unit import *",
+]
+UNSUPPORTED_UNIT_PATTERNS = [
+    (re.compile(r"@u_degree[s]?"), ""),
+]
+BLOCKLIST_PATTERNS = [
+    (re.compile(r"NotImplementedError"), "code still contains NotImplementedError placeholder"),
+    (re.compile(r"TODO"), "code still contains TODO placeholder"),
+    (re.compile(r"ExportWaveForm"), "uses unsupported ExportWaveForm helper"),
+]
 
 parser = argparse.ArgumentParser(description='Power Electronics LLM Circuit Generator')
 parser.add_argument('--model', type=str, default="gpt-4o", help='LLM model to use')
@@ -27,6 +48,7 @@ parser.add_argument('--num_per_task', type=int, default=1)
 parser.add_argument('--num_of_retry', type=int, default=3)
 parser.add_argument('--task_id', type=int, default=1)
 parser.add_argument('--api_key', type=str, default=None, help='OpenAI API key (or set OPENAI_API_KEY env var)')
+parser.add_argument('--run_reference_tests', action='store_true', help='Run built-in buck/boost regression suite before generation')
 
 args = parser.parse_args()
 
@@ -93,6 +115,68 @@ def fill_template(template, problem_spec):
         filled = filled.replace(placeholder, value)
     
     return filled
+
+
+def sanitize_generated_code(code: str):
+    """Remove unsupported imports and ensure essential ones exist."""
+    warnings = []
+    sanitized_lines = []
+    for line in code.splitlines():
+        stripped = line.strip()
+        if any(re.match(pattern, stripped) for pattern in SANITIZE_IMPORT_PATTERNS):
+            warnings.append(f"Removed unsupported import: {stripped}")
+            continue
+        sanitized_lines.append(line)
+
+    sanitized_code = "\n".join(sanitized_lines)
+
+    for pattern, replacement in UNSUPPORTED_UNIT_PATTERNS:
+        sanitized_code_new, count = pattern.subn(replacement, sanitized_code)
+        if count:
+            warnings.append(f"Replaced unsupported unit pattern '{pattern.pattern}' {count} time(s)")
+            sanitized_code = sanitized_code_new
+
+    for imp in ESSENTIAL_IMPORTS:
+        if imp not in sanitized_code:
+            sanitized_code = f"{imp}\n" + sanitized_code
+            warnings.append(f"Inserted missing import: {imp}")
+
+    return sanitized_code.strip() + "\n", warnings
+
+
+def detect_blocklist_issues(code: str):
+    issues = []
+    for pattern, message in BLOCKLIST_PATTERNS:
+        if pattern.search(code):
+            issues.append(message)
+    return issues
+
+
+def detect_structural_issues(code: str, problem_spec: dict):
+    issues = []
+    code_lower = code.lower()
+    topology = problem_spec.get('topology', '').lower()
+
+    if 'pulsevoltagesource' not in code_lower:
+        issues.append("Gate drive must use PulseVoltageSource for PWM")
+
+    if 'sinusoidalvoltagesource' in code_lower:
+        issues.append("Gate drive uses SinusoidalVoltageSource; switch to PulseVoltageSource")
+
+    diode_present = 'circuit.D(' in code or '.D(' in code
+    if 'buck' in topology and not diode_present:
+        issues.append("Buck converter missing freewheeling diode")
+    if diode_present:
+        has_diode_model = bool(re.search(r"circuit\.model\(.*['\"]D['\"]", code))
+        if not has_diode_model:
+            issues.append("Diode is instantiated but no diode model (circuit.model(... 'D' ...)) is defined")
+
+    for line in code.splitlines():
+        if '@ u_Ohm' in line and any(op in line for op in ['**', '/']):
+            issues.append("Compute load resistance as a float before applying units (no expressions inside @u_Ω)")
+            break
+
+    return issues
 
 
 def call_llm(client, prompt, model="gpt-4o", temperature=0.5):
@@ -200,58 +284,53 @@ def validate_circuit(code_file, problem_spec):
         # Replace plt.show() to avoid blocking
         test_code = code.replace('plt.show()', 'pass  # Validation mode')
         test_code = test_code.replace('import matplotlib.pyplot as plt', 'import matplotlib\nmatplotlib.use("Agg")\nimport matplotlib.pyplot as plt')
-        
+
         exec_namespace = {}
         exec(test_code, exec_namespace)
-        
+
         validation_result['simulation_runs'] = True
         print("  ✓ Simulation executed successfully")
-        
-        # Try to extract output voltage for functional validation
-        try:
-            # Re-run simulation to get analysis result
-            import numpy as np
-            from PySpice.Spice.Netlist import Circuit
-            from PySpice.Unit import u_V, u_A, u_s, u_ms
-            
-            # Execute code to get circuit and analysis
-            exec_namespace_voltage = {}
-            test_code_voltage = code.replace('plt.show()', 'pass')
-            test_code_voltage = test_code_voltage.replace('import matplotlib.pyplot as plt', 'import matplotlib\nmatplotlib.use("Agg")\nimport matplotlib.pyplot as plt')
-            
-            # Add code to capture final voltage value
-            capture_code = """
-import numpy as np
-if 'analysis' in dir() and hasattr(analysis, 'Vout'):
-    _output_voltage_final = float(analysis['Vout'][-1])
-elif 'analysis' in dir() and hasattr(analysis, 'vout'):
-    _output_voltage_final = float(analysis['vout'][-1])
-else:
-    _output_voltage_final = None
-"""
-            test_code_voltage += "\n" + capture_code
-            
-            exec(test_code_voltage, exec_namespace_voltage)
-            
-            if '_output_voltage_final' in exec_namespace_voltage and exec_namespace_voltage['_output_voltage_final'] is not None:
-                output_v = exec_namespace_voltage['_output_voltage_final']
+
+        # Try to extract output voltage from the executed namespace
+        analysis_obj = exec_namespace.get('analysis')
+        if analysis_obj is None:
+            validation_result['warnings'].append("Analysis object not found; cannot measure Vout")
+        else:
+            try:
+                import numpy as np
+
+                vout_trace = None
+                node_candidates = ['Vout', 'vout', 'VOUT', 'out', 'Vo']
+                for node in node_candidates:
+                    try:
+                        vout_trace = np.array(analysis_obj[node])
+                        if vout_trace.size:
+                            break
+                    except Exception:
+                        vout_trace = None
+
+                if vout_trace is None or vout_trace.size == 0:
+                    raise ValueError("Vout waveform not found in analysis")
+
+                window = max(int(0.1 * len(vout_trace)), 10)
+                output_v = float(np.mean(vout_trace[-window:]))
                 validation_result['output_voltage'] = output_v
                 target_v = problem_spec['output_voltage']
                 error_pct = abs(output_v - target_v) / target_v * 100
-                
-                # Accept ±5% tolerance
+
                 if error_pct <= 5.0:
                     validation_result['output_voltage_ok'] = True
                     print(f"  ✓ Output voltage: {output_v:.3f}V (target: {target_v}V, error: {error_pct:.1f}%)")
                 else:
                     validation_result['output_voltage_ok'] = False
-                    validation_result['errors'].append(f"Output voltage {output_v:.3f}V is {error_pct:.1f}% off target {target_v}V (>5% tolerance)")
+                    validation_result['errors'].append(
+                        f"Output voltage {output_v:.3f}V is {error_pct:.1f}% off target {target_v}V (>5% tolerance)"
+                    )
                     print(f"  ✗ Output voltage: {output_v:.3f}V (target: {target_v}V, error: {error_pct:.1f}%)")
-        except Exception as e:
-            # Voltage extraction failed, but simulation ran
-            validation_result['warnings'].append(f"Could not extract output voltage: {e}")
-            print(f"  ⚠️  Could not validate output voltage: {e}")
-        
+            except Exception as e:
+                validation_result['warnings'].append(f"Could not extract output voltage: {e}")
+                print(f"  ⚠️  Could not validate output voltage: {e}")
+
     except Exception as e:
         error_msg = f"{type(e).__name__}: {str(e)}"
         validation_result['errors'].append(error_msg)
@@ -298,6 +377,34 @@ Provide complete, working PySpice code with PWM gate drive and duty cycle compen
     return feedback
 
 
+def run_reference_guard(tolerance_pct: float = REFERENCE_TOLERANCE_PCT) -> bool:
+    """Run deterministic buck/boost regression suite to ensure template stability."""
+    print("\n🧪 Running reference regression suite...")
+    try:
+        from reference_tests.run_reference_tests import (
+            run_reference_tests,
+            print_summary,
+            all_within_tolerance,
+        )
+    except Exception as exc:  # pragma: no cover - defensive guard
+        print(f"⚠️  Could not import reference tests: {exc}")
+        return False
+
+    try:
+        results = run_reference_tests()
+        print_summary(results, tolerance_pct)
+    except Exception as exc:
+        print(f"❌ Reference regression execution failed: {exc}")
+        return False
+
+    if not all_within_tolerance(results, tolerance_pct):
+        print("❌ Reference regression failed tolerance check. Investigate before generating new circuits.")
+        return False
+
+    print("✅ Reference regression passed; proceeding with generation.")
+    return True
+
+
 def main():
     print("PowerElecLLM - Power Electronics Circuit Generator")
     print("=" * 60)
@@ -324,6 +431,11 @@ def main():
     except Exception as e:
         print(f"❌ Error loading template: {e}")
         return
+
+    if args.run_reference_tests:
+        if not run_reference_guard():
+            print("🚫 Aborting generation because reference suite failed.")
+            return
     
     # Generate circuit code for each iteration
     output_base = PROJECT_ROOT / args.model.replace('-', '_')
@@ -357,6 +469,30 @@ def main():
             if not code:
                 print("⚠️  No code found in LLM response")
                 print("Response preview:", llm_response[:200])
+                retry_count += 1
+                continue
+
+            code, sanitize_warnings = sanitize_generated_code(code)
+            for warn in sanitize_warnings:
+                print(f"  ⚠️  {warn}")
+
+            blocklist_issues = detect_blocklist_issues(code)
+            if blocklist_issues:
+                print("  ❌ Code rejected due to placeholders:")
+                for issue in blocklist_issues:
+                    print(f"     - {issue}")
+                reminder = "\n\nReminder: Provide complete, working PySpice code with no TODOs or NotImplementedError placeholders."
+                current_prompt = current_prompt + reminder
+                retry_count += 1
+                continue
+
+            structural_issues = detect_structural_issues(code, problem)
+            if structural_issues:
+                print("  ❌ Code rejected due to structural issues:")
+                for issue in structural_issues:
+                    print(f"     - {issue}")
+                reminder = "\n\nReminder: Buck designs must include a freewheeling diode and use PulseVoltageSource PWM. Always compute numeric load values before applying units."
+                current_prompt = current_prompt + reminder
                 retry_count += 1
                 continue
             
