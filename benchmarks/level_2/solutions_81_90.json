@@ -1,0 +1,649 @@
+{
+  "level": 2,
+  "description": "Constrained design problems requiring trade-off analysis",
+  "problems": [
+    {
+      "id": "L2_081",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "Drone Flight Controller Power",
+      "problem_statement": "Design a buck converter for drone flight controller and sensors. Input: 11.1V-16.8V 4S LiPo, Output: 5V at 3A. Must survive motor startup transients (dips to 8V), weigh under 10g, and have input impedance that doesn't destabilize the battery-ESC system.",
+      "constraints": {
+        "input_voltage_range": "8V-16.8V (with transients)",
+        "output_voltage": "5V",
+        "output_current": "3A",
+        "weight": "<10g",
+        "input_impedance": "Stable with battery ESR",
+        "vibration": "Must survive drone vibration profile"
+      },
+      "solution": {
+        "design_approach": "Wide input range buck with input filter damping for stability. Use lightweight ceramic capacitors and small inductor.",
+        "switching_frequency": "1MHz",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "at_8V": "D = 5V / 8V = 0.625",
+          "at_16.8V": "D = 5V / 16.8V = 0.298"
+        },
+        "inductor": {
+          "formula": "L = V_out × (1-D_min) / (f_sw × ΔI_L)",
+          "ripple_current": "0.9A (30%)",
+          "calculation": "L = 5V × 0.702 / (1MHz × 0.9A) = 3.9μH",
+          "selected_value": "4.7μH",
+          "type": "Shielded molded inductor",
+          "current_rating": "5A",
+          "dcr": "<30mΩ",
+          "size": "4x4x2mm"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "50mV",
+          "calculation": "C_out = 0.9A / (8 × 1MHz × 50mV) = 2.25μF",
+          "selected_value": "44μF (2 × 22μF 0805 MLCCs)",
+          "type": "X5R MLCC",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "22μF (2 × 10μF 0805 MLCCs)",
+          "voltage_rating": "25V"
+        },
+        "input_filter_damping": {
+          "damping_resistor": "1Ω in series with 10μF",
+          "purpose": "Prevent negative resistance oscillation"
+        },
+        "transient_handling": {
+          "uvlo": "7V (operate to 8V)",
+          "soft_start": "2ms to avoid inrush"
+        },
+        "weight_budget": {
+          "pcb": "3g",
+          "components": "4g",
+          "total": "7g"
+        },
+        "efficiency_estimate": "92%"
+      }
+    },
+    {
+      "id": "L2_082",
+      "topology": "flyback",
+      "difficulty": "intermediate",
+      "application": "Smart Meter Isolated Power",
+      "problem_statement": "Design a flyback converter for smart electricity meter. Input: 85-265VAC (universal), Output: 3.3V at 1A isolated. Must meet IEC 62052-11 metering standards with <100mW standby power and survive 6kV surge.",
+      "constraints": {
+        "input_voltage": "85-265VAC",
+        "output_voltage": "3.3V isolated",
+        "output_current": "1A",
+        "standby_power": "<100mW",
+        "surge_immunity": "6kV/3kA combination wave",
+        "isolation": "4kVAC reinforced"
+      },
+      "solution": {
+        "design_approach": "Primary-side regulation for best standby power. Valley switching quasi-resonant for efficiency. Robust input protection for surge immunity.",
+        "topology": "Primary-side regulated QR flyback",
+        "switching_frequency": "65kHz typical (variable for QR)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in_dc_min × D_max / (V_out + V_f)",
+          "calculation": "n = 100V × 0.45 / 3.8V = 11.8:1",
+          "selected_ratio": "12:1"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in_min² × D_max² / (2 × P_out × f_sw × η)",
+          "calculation": "L_p = 100² × 0.45² / (2 × 3.3W × 65kHz × 0.8) = 5.9mH",
+          "selected_value": "6mH"
+        },
+        "transformer_specs": {
+          "core": "EE13 or EF12.6",
+          "primary": "60 turns, 0.2mm wire",
+          "secondary": "5 turns, 0.4mm wire",
+          "auxiliary": "6 turns for VCC",
+          "creepage": ">6mm for 4kVAC"
+        },
+        "output_capacitor": {
+          "selected_value": "470μF",
+          "type": "Low-ESR electrolytic",
+          "voltage_rating": "6.3V"
+        },
+        "input_capacitor": {
+          "selected_value": "4.7μF film",
+          "voltage_rating": "400V"
+        },
+        "surge_protection": {
+          "mov": "275VAC MOV at input",
+          "gas_tube": "GDT for differential surge",
+          "input_inductor": "1mH common mode choke"
+        },
+        "standby_power": {
+          "technique": "Burst mode operation",
+          "standby_consumption": "75mW at no load"
+        },
+        "efficiency_estimate": "82% at full load",
+        "safety_compliance": "IEC 62368-1, IEC 62052-11"
+      }
+    },
+    {
+      "id": "L2_083",
+      "topology": "boost",
+      "difficulty": "intermediate",
+      "application": "Thermoelectric Generator Harvester",
+      "problem_statement": "Design a boost converter for thermoelectric generator energy harvesting. Input: 0.5V-3V from TEG (varies with temperature differential), Output: 5V at 200mA maximum. Must implement MPPT and start from 0.5V input with no external supply.",
+      "constraints": {
+        "input_voltage_range": "0.5V-3V",
+        "output_voltage": "5V",
+        "max_output_current": "200mA",
+        "cold_start_voltage": "0.5V",
+        "mppt": "Required for optimal power extraction",
+        "efficiency": ">85% at 1V input"
+      },
+      "solution": {
+        "design_approach": "Two-stage approach: charge pump for cold start, then synchronous boost with MPPT. Use fractional open-circuit voltage MPPT method.",
+        "topology": "Charge pump start + synchronous boost",
+        "switching_frequency": "500kHz",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "at_0.5V": "D = 1 - 0.5V/5V = 0.9",
+          "at_3V": "D = 1 - 3V/5V = 0.4"
+        },
+        "inductor": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "0.3A at max power",
+          "calculation": "L = 1V × 0.8 / (500kHz × 0.3A) = 5.3μH",
+          "selected_value": "4.7μH",
+          "type": "Low DCR shielded inductor",
+          "current_rating": "1A",
+          "dcr": "<50mΩ critical for low voltage"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D / (f_sw × ΔV_out)",
+          "voltage_ripple": "50mV",
+          "calculation": "C_out = 0.2A × 0.8 / (500kHz × 50mV) = 6.4μF",
+          "selected_value": "22μF",
+          "type": "Ceramic X5R",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic",
+          "type": "Very low ESR for MPPT stability",
+          "voltage_rating": "6.3V"
+        },
+        "cold_start_circuit": {
+          "type": "Integrated charge pump",
+          "start_voltage": "0.3V",
+          "trickle_charge_cap": "10μF on VCC"
+        },
+        "mppt_implementation": {
+          "method": "Fractional open-circuit voltage (50%)",
+          "sample_period": "16 seconds",
+          "sample_duration": "256ms disconnect"
+        },
+        "efficiency_estimate": "88% at 1V input, 92% at 3V input",
+        "power_good": "Output valid indicator at 4.7V"
+      }
+    },
+    {
+      "id": "L2_084",
+      "topology": "full_bridge",
+      "difficulty": "intermediate",
+      "application": "EV Onboard Charger Module",
+      "problem_statement": "Design a phase-shifted full-bridge converter for EV onboard charger. Input: 400V DC bus (from PFC), Output: 200V-450V at 15A for battery charging. Must support CC/CV charging profile with 98% efficiency target.",
+      "constraints": {
+        "input_voltage": "400V DC",
+        "output_voltage_range": "200V-450V",
+        "output_current": "15A max (CC mode)",
+        "efficiency": ">98%",
+        "power_factor": ">0.99 (system)",
+        "charging_modes": "CC/CV with taper"
+      },
+      "solution": {
+        "design_approach": "Phase-shifted full-bridge with ZVS for high efficiency. Wide output range via phase shift control. Current mode control for CC mode.",
+        "topology": "Phase-shifted full-bridge with active clamp",
+        "switching_frequency": "100kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D_eff / V_out_min",
+          "effective_duty": "0.8 (allowing for ZVS transitions)",
+          "calculation": "n = 400V × 0.8 / 200V = 1.6:1",
+          "selected_ratio": "1.5:1 (for margin)"
+        },
+        "resonant_inductor": {
+          "formula": "L_r for ZVS = C_oss × V_in² / I_load²",
+          "calculation": "L_r = 500pF × 400² / 15² = 356μH",
+          "selected_value": "50μH (external + leakage)",
+          "purpose": "Enable ZVS down to 20% load"
+        },
+        "output_inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "3A (20%)",
+          "calculation": "L = 200V × 0.5 / (100kHz × 3A) = 333μH",
+          "selected_value": "330μH",
+          "type": "Amorphous or nanocrystalline core",
+          "current_rating": "20A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "1V",
+          "calculation": "C_out = 3A / (8 × 100kHz × 1V) = 3.75μF",
+          "selected_value": "40μF film (for 450V capability)",
+          "voltage_rating": "500V"
+        },
+        "input_capacitor": {
+          "selected_value": "20μF film + 470μF electrolytic",
+          "voltage_rating": "450V"
+        },
+        "transformer": {
+          "core": "PQ50/50 or equivalent",
+          "power_rating": "7kW",
+          "primary": "18 turns Litz wire",
+          "secondary": "12 turns Litz wire"
+        },
+        "zvs_analysis": {
+          "dead_time": "200ns",
+          "zvs_range": "20%-100% load"
+        },
+        "cc_cv_control": {
+          "cc_accuracy": "±1%",
+          "cv_accuracy": "±0.5%",
+          "taper_current": "0.5A termination"
+        },
+        "efficiency_estimate": "98.2% at half load, 97.5% at full load"
+      }
+    },
+    {
+      "id": "L2_085",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "Automotive ECU Core Power",
+      "problem_statement": "Design a buck converter for automotive ECU microcontroller core. Input: 5V from main regulator, Output: 1.25V at 2A. Must meet AEC-Q100 Grade 1 (-40°C to +125°C) with automotive EMC requirements (CISPR 25 Class 5).",
+      "constraints": {
+        "input_voltage": "5V ±5%",
+        "output_voltage": "1.25V",
+        "output_current": "2A",
+        "temperature": "-40°C to +125°C",
+        "emc": "CISPR 25 Class 5",
+        "qualification": "AEC-Q100"
+      },
+      "solution": {
+        "design_approach": "Use AEC-Q100 qualified components throughout. Spread-spectrum modulation for EMC. Ceramic capacitors for wide temperature range.",
+        "switching_frequency": "2.2MHz with ±10% spread spectrum",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 1.25V / 5V = 0.25"
+        },
+        "inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "0.6A (30%)",
+          "calculation": "L = 1.25V × 0.75 / (2.2MHz × 0.6A) = 710nH",
+          "selected_value": "680nH",
+          "type": "AEC-Q200 shielded power inductor",
+          "current_rating": "3.5A",
+          "dcr": "<35mΩ",
+          "temp_range": "-55°C to +155°C"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "12.5mV (1%)",
+          "calculation": "C_out = 0.6A / (8 × 2.2MHz × 12.5mV) = 2.73μF",
+          "selected_value": "22μF (2 × 10μF 0603 X7R)",
+          "type": "AEC-Q200 MLCC X7R",
+          "voltage_rating": "6.3V",
+          "temp_coefficient": "Compensated for X7R drift"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF (2 × 4.7μF 0603)",
+          "type": "AEC-Q200 MLCC X7R",
+          "voltage_rating": "10V"
+        },
+        "emc_features": {
+          "spread_spectrum": "±10% triangular modulation",
+          "input_filter": "Ferrite bead + RC snubber",
+          "layout": "Compact hot loop, ground plane"
+        },
+        "automotive_features": {
+          "uvlo": "4V with hysteresis",
+          "ovp": "6V shutdown",
+          "thermal_shutdown": "160°C",
+          "soft_start": "1ms"
+        },
+        "efficiency_estimate": "90% at 25°C, 88% at 125°C"
+      }
+    },
+    {
+      "id": "L2_086",
+      "topology": "sepic",
+      "difficulty": "intermediate",
+      "application": "Marine Navigation Light Driver",
+      "problem_statement": "Design a SEPIC converter for marine navigation LED lights. Input: 10V-32V (12V or 24V marine systems with variation), Output: 20V at 0.5A for LED string. Must withstand salt fog corrosion, operate in -20°C to +55°C, and survive reverse polarity.",
+      "constraints": {
+        "input_voltage_range": "10V-32V",
+        "output_voltage": "20V (LED forward voltage)",
+        "output_current": "0.5A constant current",
+        "temperature": "-20°C to +55°C",
+        "environment": "Salt fog, marine IP67",
+        "protection": "Reverse polarity, load dump"
+      },
+      "solution": {
+        "design_approach": "SEPIC handles wide input buck-boost requirement. Conformal coating for salt fog. Series MOSFET for reverse polarity protection.",
+        "switching_frequency": "200kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_10V": "D = 20V / (10V + 20V) = 0.667",
+          "at_32V": "D = 20V / (32V + 20V) = 0.385"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.3A",
+          "calculation": "L1 = 10V × 0.667 / (200kHz × 0.3A) = 111μH",
+          "selected_value": "100μH",
+          "type": "Sealed shielded inductor",
+          "current_rating": "1.5A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.15A",
+          "calculation": "L2 = 20V × 0.615 / (200kHz × 0.15A) = 410μH",
+          "selected_value": "470μH",
+          "current_rating": "1A"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D_max / (f_sw × ΔV_c)",
+          "calculation": "C_c = 0.5A × 0.667 / (200kHz × 1V) = 1.67μF",
+          "selected_value": "4.7μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "50V"
+        },
+        "output_capacitor": {
+          "selected_value": "22μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "selected_value": "22μF ceramic + 100μF electrolytic",
+          "voltage_rating": "50V"
+        },
+        "protection_circuits": {
+          "reverse_polarity": "P-channel MOSFET in series",
+          "load_dump": "36V TVS at input",
+          "open_led": "OVP at 25V"
+        },
+        "marine_features": {
+          "conformal_coating": "Silicone or acrylic",
+          "connector": "Marine-grade IP67",
+          "thermal_relief": "Aluminum housing contact"
+        },
+        "led_driver": {
+          "current_sense": "0.5Ω sense resistor",
+          "current_regulation": "±5% over temperature"
+        },
+        "efficiency_estimate": "90%"
+      }
+    },
+    {
+      "id": "L2_087",
+      "topology": "forward",
+      "difficulty": "intermediate",
+      "application": "Rack Server 54V to 12V Intermediate Bus",
+      "problem_statement": "Design a forward converter for server intermediate bus. Input: 54V from rack bus, Output: 12V at 30A. Must achieve >96% efficiency with current sharing capability for N+1 redundancy and hot-swap support.",
+      "constraints": {
+        "input_voltage": "54V (48V-60V range)",
+        "output_voltage": "12V",
+        "output_current": "30A",
+        "efficiency": ">96%",
+        "current_sharing": "±5% between modules",
+        "hot_swap": "Required"
+      },
+      "solution": {
+        "design_approach": "Active clamp forward for high efficiency. Droop method current sharing. ORing MOSFET for hot-swap isolation.",
+        "topology": "Active clamp forward converter",
+        "switching_frequency": "300kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D_nom / V_out",
+          "calculation": "n = 54V × 0.4 / 12V = 1.8:1",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "at_54V": "D = 12V × 2 / 54V = 0.44",
+          "at_48V": "D = 12V × 2 / 48V = 0.5"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "6A (20%)",
+          "calculation": "L = (54V/2 - 12V) × 0.44 / (300kHz × 6A) = 3.67μH",
+          "selected_value": "3.3μH",
+          "type": "Planar magnetics",
+          "current_rating": "40A",
+          "dcr": "<0.5mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "60mV",
+          "calculation": "C_out = 6A / (8 × 300kHz × 60mV) = 41.7μF",
+          "selected_value": "500μF (10 × 47μF ceramic + polymer)",
+          "type": "MLCC + polymer hybrid",
+          "voltage_rating": "16V",
+          "esr": "<2mΩ"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic + 220μF electrolytic",
+          "voltage_rating": "80V"
+        },
+        "active_clamp": {
+          "clamp_capacitor": "0.47μF film",
+          "clamp_mosfet": "100V 20A",
+          "reset_voltage": "Clamped to ~50V"
+        },
+        "current_sharing": {
+          "method": "Droop resistance sharing",
+          "droop": "5% at full load",
+          "share_bus": "Analog current share signal"
+        },
+        "hot_swap": {
+          "oring_mosfet": "30V 100A",
+          "inrush_control": "10ms soft-start",
+          "fault_isolation": "<1μs disconnect"
+        },
+        "efficiency_estimate": "96.5% at 50% load, 96% at full load"
+      }
+    },
+    {
+      "id": "L2_088",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "IoT Sensor Node Ultra-Low Iq",
+      "problem_statement": "Design a buck converter for battery-powered IoT sensor. Input: 3.0V-4.2V from single Li-Ion cell, Output: 1.8V at 100mA peak, 10μA average. Quiescent current must be under 500nA for 5-year battery life on 300mAh cell.",
+      "constraints": {
+        "input_voltage_range": "3.0V-4.2V",
+        "output_voltage": "1.8V",
+        "peak_current": "100mA",
+        "average_current": "10μA",
+        "quiescent_current": "<500nA",
+        "battery_life": "5 years on 300mAh"
+      },
+      "solution": {
+        "design_approach": "Hysteretic control for ultra-low Iq. PFM mode at light load. Operate in deep sleep with periodic wake.",
+        "control_mode": "Hysteretic with PFM",
+        "switching_frequency": "Variable, ~100kHz at full load",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "at_3V": "D = 1.8V / 3V = 0.6",
+          "at_4.2V": "D = 1.8V / 4.2V = 0.43"
+        },
+        "inductor": {
+          "formula": "For hysteretic: L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_band": "±25mV hysteresis",
+          "selected_value": "22μH",
+          "type": "Small shielded inductor",
+          "current_rating": "200mA",
+          "dcr": "<0.5Ω (acceptable for low current)"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_load × t_on / ΔV_hyst",
+          "calculation": "Sets hysteretic frequency",
+          "selected_value": "10μF",
+          "type": "Ceramic X5R",
+          "voltage_rating": "6.3V"
+        },
+        "input_capacitor": {
+          "selected_value": "4.7μF",
+          "type": "Ceramic X5R",
+          "voltage_rating": "10V"
+        },
+        "ultra_low_iq_features": {
+          "control_bias": "250nA in sleep",
+          "reference": "Sub-threshold CMOS",
+          "comparator": "Nano-power (50nA)"
+        },
+        "battery_life_calculation": {
+          "average_load": "10μA",
+          "converter_iq": "500nA",
+          "total_average": "10.5μA",
+          "battery_life": "300mAh / 10.5μA = 28,571 hours = 3.26 years",
+          "note": "Need 2x 300mAh or 600mAh for 5 years"
+        },
+        "operating_modes": {
+          "active": "100mA at 100kHz PWM",
+          "idle": "10μA at ~1kHz PFM",
+          "sleep": "500nA with output held"
+        },
+        "efficiency_estimate": "85% at 100mA, 75% at 10μA"
+      }
+    },
+    {
+      "id": "L2_089",
+      "topology": "cuk",
+      "difficulty": "intermediate",
+      "application": "Precision Strain Gauge Excitation",
+      "problem_statement": "Design a Ćuk converter for strain gauge bridge excitation. Input: 5V from USB, Output: -10V at 50mA for negative rail excitation. Must have output noise below 100μV RMS for precision measurement and excellent load regulation for bridge balance.",
+      "constraints": {
+        "input_voltage": "5V USB",
+        "output_voltage": "-10V",
+        "output_current": "50mA",
+        "output_noise": "<100μV RMS",
+        "load_regulation": "<0.1%",
+        "line_regulation": "<0.1%"
+      },
+      "solution": {
+        "design_approach": "Ćuk topology for inverted output. High switching frequency with LC post-filter for ultra-low noise. Precision reference for regulation.",
+        "switching_frequency": "500kHz",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 10V / (5V + 10V) = 0.667"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "30mA (30% of I_in)",
+          "calculation": "L1 = 5V × 0.667 / (500kHz × 30mA) = 222μH",
+          "selected_value": "220μH",
+          "type": "Shielded drum core",
+          "current_rating": "200mA"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "15mA",
+          "calculation": "L2 = 10V × 0.333 / (500kHz × 15mA) = 444μH",
+          "selected_value": "470μH",
+          "current_rating": "150mA"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D / (f_sw × ΔV_c)",
+          "calculation": "C_c = 50mA × 0.667 / (500kHz × 0.1V) = 0.67μF",
+          "selected_value": "2.2μF",
+          "type": "Ceramic C0G for stability",
+          "voltage_rating": "25V"
+        },
+        "output_capacitor": {
+          "pre_filter": "22μF ceramic",
+          "post_filter": "10μF film capacitor",
+          "voltage_rating": "16V"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF ceramic",
+          "voltage_rating": "10V"
+        },
+        "lc_post_filter": {
+          "inductor": "100μH",
+          "capacitor": "10μF film",
+          "cutoff_frequency": "5kHz",
+          "attenuation": "-40dB at 500kHz"
+        },
+        "precision_regulation": {
+          "reference": "LT6654 0.05% reference",
+          "error_amp": "Precision op-amp",
+          "feedback_divider": "0.1% thin-film resistors"
+        },
+        "noise_analysis": {
+          "switching_noise": "<10μV after filter",
+          "reference_noise": "<20μV",
+          "total_rms": "<50μV achieved"
+        },
+        "efficiency_estimate": "82%"
+      }
+    },
+    {
+      "id": "L2_090",
+      "topology": "half_bridge",
+      "difficulty": "intermediate",
+      "application": "Plasma Cutter Auxiliary Supply",
+      "problem_statement": "Design a half-bridge converter for plasma cutter auxiliary electronics. Input: 300V DC bus (from rectified 3-phase), Output: 24V at 8A. Must survive conducted EMI from plasma arc and provide stable output during arc striking transients.",
+      "constraints": {
+        "input_voltage": "300V DC (250V-350V)",
+        "output_voltage": "24V",
+        "output_current": "8A",
+        "emi_immunity": "Plasma arc conducted noise",
+        "transient_immunity": "Arc strike to 400V/100ns",
+        "hold_up_time": ">20ms for arc gap"
+      },
+      "solution": {
+        "design_approach": "Robust input filtering and TVS protection. Half-bridge for good transformer utilization. Large input capacitance for hold-up.",
+        "switching_frequency": "100kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / (2 × V_out)",
+          "calculation": "n = 300V / (2 × 24V) = 6.25:1",
+          "selected_ratio": "6:1"
+        },
+        "duty_cycle": {
+          "formula": "D = 2 × V_out × n / V_in",
+          "at_300V": "D = 2 × 24V × 6 / 300V = 0.96",
+          "effective_duty": "0.85 (with dead time)"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/2n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "1.6A (20%)",
+          "calculation": "L = (150V/6 - 24V) × 0.85 / (100kHz × 1.6A) = 8.5μH",
+          "selected_value": "10μH",
+          "type": "Powder core",
+          "current_rating": "12A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "100mV",
+          "calculation": "C_out = 1.6A / (8 × 100kHz × 100mV) = 20μF",
+          "selected_value": "470μF electrolytic + 47μF ceramic",
+          "type": "Hybrid for ESR and transient",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "formula": "C_in = P_out × t_hold / (V_in² - V_in_min²) × η",
+          "hold_up_calculation": "C_in = 192W × 20ms / (300² - 250²) × 0.9 = 155μF",
+          "selected_value": "330μF",
+          "type": "High-ripple electrolytic",
+          "voltage_rating": "450V"
+        },
+        "emi_protection": {
+          "input_tvs": "400V bidirectional TVS",
+          "cm_choke": "2.2mH common mode",
+          "input_filter": "2-stage LC with damping"
+        },
+        "transformer": {
+          "core": "ETD34",
+          "primary": "24 turns with tape layers",
+          "secondary": "4 turns",
+          "construction": "Sandwich for noise immunity"
+        },
+        "transient_handling": {
+          "ovp": "28V output clamp",
+          "input_ovp": "380V shutdown",
+          "arc_blank": "10ms output hold during strike"
+        },
+        "efficiency_estimate": "92%"
+      }
+    }
+  ]
+}

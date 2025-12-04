@@ -1,0 +1,328 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "solutions": [
+    {
+      "problem_id": "L1_121",
+      "title": "Smart Irrigation Controller",
+      "application": "WiFi-connected sprinkler controller with multiple zone control",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "I_out": 0.5,
+        "V_ripple_max": 0.1,
+        "f_sw": 400000
+      },
+      "design_approach": "Buck from 24VAC transformer to controller logic supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.792 / (400k × 0.1) = 99μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.1 / (8 × 400k × 0.1) = 312nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.5 × 0.208 / (400k × 1) = 260nF"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 1e-6,
+        "C_in": 1e-6,
+        "f_sw": 400000
+      },
+      "component_ratings": {
+        "inductor": "100μH, 0.8A, shielded",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "1μF, 50V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_122",
+      "title": "Smart Smoke Detector",
+      "application": "Interconnected smoke/CO detector with voice alerts",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 9,
+        "V_out": 3.3,
+        "I_out": 0.1,
+        "V_ripple_max": 0.03,
+        "f_sw": 1000000
+      },
+      "design_approach": "Ultra-low quiescent current buck for 10-year battery life.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 9 = 0.367",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.633 / (1M × 0.02) = 104μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.02 / (8 × 1M × 0.03) = 83nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.1 × 0.367 / (1M × 0.2) = 184nF"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 100e-9,
+        "C_in": 220e-9,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "100μH, 0.2A, small package",
+        "output_capacitor": "100nF, 6.3V, X5R",
+        "input_capacitor": "220nF, 16V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_123",
+      "title": "Drone FPV Camera Power",
+      "application": "First-person view camera and video transmitter for racing drone",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 14.8,
+        "V_out": 5,
+        "I_out": 1,
+        "V_ripple_max": 0.15,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from 4S LiPo to camera and VTX power.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 14.8 = 0.338",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.662 / (500k × 0.2) = 33.1μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.2 / (8 × 500k × 0.15) = 333nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 1 × 0.338 / (500k × 0.5) = 1.35μF"
+      },
+      "solution": {
+        "L": 33e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "33μH, 1.5A, shielded",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "2.2μF, 25V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_124",
+      "title": "Portable Air Quality Monitor",
+      "application": "Personal air quality sensor with PM2.5 and VOC detection",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 3.7,
+        "V_out": 5,
+        "I_out": 0.2,
+        "V_ripple_max": 0.05,
+        "f_sw": 1000000
+      },
+      "design_approach": "Boost from Li-ion to sensor power requirements.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 3.7/5 = 0.26",
+        "inductor": "L = V_in × D / (f × ΔI) = 3.7 × 0.26 / (1M × 0.04) = 24.1μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.2 × 0.26 / (1M × 0.05) = 1.04μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.04 / (8 × 1M × 0.1) = 50nF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 2.2e-6,
+        "C_in": 100e-9,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 0.5A, shielded",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "100nF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_125",
+      "title": "Smart Lock Keypad",
+      "application": "Touch-sensitive keypad module for electronic door lock",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 6,
+        "V_out": 3.3,
+        "I_out": 0.08,
+        "V_ripple_max": 0.02,
+        "f_sw": 1000000
+      },
+      "design_approach": "Low-power buck for keypad controller and LED backlight.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 6 = 0.55",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.45 / (1M × 0.016) = 92.8μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.016 / (8 × 1M × 0.02) = 100nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.08 × 0.55 / (1M × 0.1) = 440nF"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 100e-9,
+        "C_in": 470e-9,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "100μH, 0.15A, tiny shielded",
+        "output_capacitor": "100nF, 6.3V, X5R",
+        "input_capacitor": "470nF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_126",
+      "title": "Wireless Charger Transmitter",
+      "application": "Qi wireless charging pad transmitter coil driver",
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 9,
+        "I_out": 2,
+        "P_out": 15,
+        "f_sw": 130000
+      },
+      "design_approach": "Half-bridge inverter for wireless power transfer at Qi frequency.",
+      "formulas": {
+        "resonant_frequency": "f_r = 1/(2π√(LC)) = 130kHz",
+        "coil_inductance": "L_coil = 10μH typical Qi coil",
+        "resonant_capacitor": "C_r = 1/(4π²f²L) = 1/(4π² × 130k² × 10μ) = 150nF",
+        "DC_link": "V_dc = V_in = 12V",
+        "current_peak": "I_pk = P/(V × 0.707) = 15/(9 × 0.707) = 2.36A"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_resonant": 150e-9,
+        "C_in": 100e-6,
+        "f_sw": 130000
+      },
+      "component_ratings": {
+        "MOSFET": "30V, 5A half-bridge driver",
+        "coil": "10μH Qi transmit coil",
+        "resonant_cap": "150nF, 50V, C0G",
+        "input_capacitor": "100μF, 16V, low ESR"
+      }
+    },
+    {
+      "problem_id": "L1_127",
+      "title": "Electric Fence Energizer",
+      "application": "Solar-powered livestock electric fence charger",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 48,
+        "I_out": 0.1,
+        "V_ripple_max": 2,
+        "f_sw": 100000
+      },
+      "design_approach": "Boost to charge capacitor bank for high-voltage pulse generation.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 12/48 = 0.75",
+        "inductor": "L = V_in × D / (f × ΔI) = 12 × 0.75 / (100k × 0.03) = 3mH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.1 × 0.75 / (100k × 2) = 375nF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.03 / (8 × 100k × 0.5) = 75nF"
+      },
+      "solution": {
+        "L": 3.3e-3,
+        "C_out": 1e-6,
+        "C_in": 100e-9,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "inductor": "3.3mH, 0.2A, radial",
+        "output_capacitor": "1μF, 63V, X7R",
+        "input_capacitor": "100nF, 25V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_128",
+      "title": "MIDI Controller Power",
+      "application": "USB-powered MIDI keyboard controller with LED feedback",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 3.3,
+        "I_out": 0.4,
+        "V_ripple_max": 0.03,
+        "f_sw": 1000000
+      },
+      "design_approach": "Efficient buck from USB to microcontroller and LED supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 5 = 0.66",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.34 / (1M × 0.08) = 14μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.08 / (8 × 1M × 0.03) = 333nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.4 × 0.66 / (1M × 0.1) = 2.64μF"
+      },
+      "solution": {
+        "L": 15e-6,
+        "C_out": 1e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "15μH, 0.6A, shielded",
+        "output_capacitor": "1μF, 6.3V, X5R",
+        "input_capacitor": "4.7μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_129",
+      "title": "Night Vision Scope Power",
+      "application": "Digital night vision monocular with recording capability",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 3.7,
+        "V_out": 5,
+        "I_out": 0.5,
+        "V_ripple_max": 0.1,
+        "f_sw": 800000
+      },
+      "design_approach": "Boost from Li-ion to image sensor and IR illuminator.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 3.7/5 = 0.26",
+        "inductor": "L = V_in × D / (f × ΔI) = 3.7 × 0.26 / (800k × 0.1) = 12μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.5 × 0.26 / (800k × 0.1) = 1.63μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.1 / (8 × 800k × 0.1) = 156nF"
+      },
+      "solution": {
+        "L": 15e-6,
+        "C_out": 2.2e-6,
+        "C_in": 220e-9,
+        "f_sw": 800000
+      },
+      "component_ratings": {
+        "inductor": "15μH, 1A, shielded",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "220nF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_130",
+      "title": "Pet Feeder Controller",
+      "application": "Automatic pet feeder with WiFi scheduling and camera",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 5,
+        "I_out": 0.8,
+        "V_ripple_max": 0.1,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from AC adapter to controller, motor, and camera power.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 12 = 0.417",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.583 / (500k × 0.16) = 36.4μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.16 / (8 × 500k × 0.1) = 400nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.8 × 0.417 / (500k × 0.5) = 1.33μF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 1A, shielded",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "2.2μF, 25V, X5R"
+      }
+    }
+  ]
+}

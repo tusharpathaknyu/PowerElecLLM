@@ -54,6 +54,9 @@ api_keys.txt
 *_error_*
 token_info_*
 
+# Reference test plots (generated during testing)
+reference_tests/plots/
+
 # Model outputs
 gpt*/
 claude*/

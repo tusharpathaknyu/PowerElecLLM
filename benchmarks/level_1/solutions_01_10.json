@@ -1,0 +1,295 @@
+{
+  "level": 1,
+  "solutions": [
+    {
+      "id": "L1_001",
+      "prompt": "Design a buck converter: 12V input to 5V output, 2A load current",
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.417,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "2.5A saturation"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic or electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/12 = 0.417",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.417)/(200e3*0.4) = 36.5µH → 47µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 0.4/(8*200e3*0.025) = 10µF → 100µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 25,
+          "efficiency_est": 0.92
+        }
+      }
+    },
+    {
+      "id": "L1_002",
+      "prompt": "Design a buck converter: 24V input to 12V output, 3A load",
+      "solution": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 3.0,
+        "power": 36.0,
+        "f_sw": 250000,
+        "duty_cycle": 0.5,
+        "components": {
+          "L": {"value": 68e-6, "unit": "H", "rating": "4A saturation"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 4.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 12/24 = 0.5",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 12*(1-0.5)/(250e3*0.6) = 40µH → 68µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 0.6/(8*250e3*0.03) = 10µF → 220µF"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.94
+        }
+      }
+    },
+    {
+      "id": "L1_003",
+      "prompt": "Design a buck converter: 48V input to 5V output, 4A for USB charging",
+      "solution": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 4.0,
+        "power": 20.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.104,
+        "components": {
+          "L": {"value": 100e-6, "unit": "H", "rating": "5A saturation"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "electrolytic + 22µF ceramic"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 1.25, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/48 = 0.104",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.104)/(150e3*0.8) = 37µH → 100µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 0.8/(8*150e3*0.025) = 27µF → 330µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 25,
+          "efficiency_est": 0.90
+        }
+      }
+    },
+    {
+      "id": "L1_004",
+      "prompt": "Design a buck converter: 15V to 3.3V for microcontroller supply, 500mA",
+      "solution": {
+        "topology": "buck",
+        "vin": 15.0,
+        "vout": 3.3,
+        "iout": 0.5,
+        "power": 1.65,
+        "f_sw": 300000,
+        "duty_cycle": 0.22,
+        "components": {
+          "L": {"value": 33e-6, "unit": "H", "rating": "1A saturation"},
+          "C_out": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 6.6, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 3.3/15 = 0.22",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 3.3*(1-0.22)/(300e3*0.1) = 86µH → 33µH (higher ripple OK)",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 0.1/(8*300e3*0.02) = 2µF → 47µF"
+        },
+        "expected_results": {
+          "vout_actual": 3.3,
+          "ripple_mv": 20,
+          "efficiency_est": 0.88
+        }
+      }
+    },
+    {
+      "id": "L1_005",
+      "prompt": "Design a boost converter: 5V input to 12V output, 1A load",
+      "solution": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 12.0,
+        "iout": 1.0,
+        "power": 12.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.583,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "3A saturation"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 5/12 = 0.583",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 5*0.583/(200e3*0.5) = 29µH → 22µH",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 1*0.583/(200e3*0.12) = 24µF → 100µF"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 120,
+          "efficiency_est": 0.90
+        }
+      }
+    },
+    {
+      "id": "L1_006",
+      "prompt": "Design a boost converter: 3.7V Li-ion battery to 5V USB output, 2A",
+      "solution": {
+        "topology": "boost",
+        "vin": 3.7,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 400000,
+        "duty_cycle": 0.26,
+        "components": {
+          "L": {"value": 4.7e-6, "unit": "H", "rating": "5A saturation"},
+          "C_out": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 3.7/5 = 0.26",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 3.7*0.26/(400e3*0.6) = 4µH → 4.7µH",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 2*0.26/(400e3*0.05) = 26µF → 47µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.93
+        }
+      }
+    },
+    {
+      "id": "L1_007",
+      "prompt": "Design a boost converter: 12V to 24V, 2A for motor drive",
+      "solution": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 24.0,
+        "iout": 2.0,
+        "power": 48.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.5,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "6A saturation"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 12/24 = 0.5",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 12*0.5/(150e3*0.8) = 50µH → 47µH",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 2*0.5/(150e3*0.24) = 28µF → 220µF"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 240,
+          "efficiency_est": 0.92
+        }
+      }
+    },
+    {
+      "id": "L1_008",
+      "prompt": "Design a buck converter: 28V automotive input to 5V, 3A",
+      "solution": {
+        "topology": "buck",
+        "vin": 28.0,
+        "vout": 5.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.179,
+        "components": {
+          "L": {"value": 68e-6, "unit": "H", "rating": "4A saturation"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 1.67, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/28 = 0.179",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.179)/(200e3*0.6) = 34µH → 68µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 0.6/(8*200e3*0.025) = 15µF → 220µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 25,
+          "efficiency_est": 0.91
+        }
+      }
+    },
+    {
+      "id": "L1_009",
+      "prompt": "Design a boost converter: 9V battery to 15V, 500mA for sensor power",
+      "solution": {
+        "topology": "boost",
+        "vin": 9.0,
+        "vout": 15.0,
+        "iout": 0.5,
+        "power": 7.5,
+        "f_sw": 250000,
+        "duty_cycle": 0.4,
+        "components": {
+          "L": {"value": 33e-6, "unit": "H", "rating": "1.5A saturation"},
+          "C_out": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 30.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 9/15 = 0.4",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 9*0.4/(250e3*0.2) = 72µH → 33µH (higher ripple OK)",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 0.5*0.4/(250e3*0.075) = 11µF → 47µF"
+        },
+        "expected_results": {
+          "vout_actual": 15.0,
+          "ripple_mv": 75,
+          "efficiency_est": 0.91
+        }
+      }
+    },
+    {
+      "id": "L1_010",
+      "prompt": "Design a buck converter: 36V e-bike battery to 12V accessories, 5A",
+      "solution": {
+        "topology": "buck",
+        "vin": 36.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.333,
+        "components": {
+          "L": {"value": 100e-6, "unit": "H", "rating": "7A saturation"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.4, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 12/36 = 0.333",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 12*(1-0.333)/(150e3*1.0) = 53µH → 100µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 1.0/(8*150e3*0.06) = 14µF → 470µF"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 60,
+          "efficiency_est": 0.93
+        }
+      }
+    }
+  ]
+}

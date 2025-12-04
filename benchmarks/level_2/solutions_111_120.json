@@ -1,0 +1,447 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_111",
+      "title": "Electric Bus Auxiliary Power Unit",
+      "application": "Electric transit bus requiring auxiliary power from high-voltage battery",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 650,
+        "V_out": 24,
+        "P_out": 3000,
+        "ripple_voltage": 0.24,
+        "efficiency_target": 0.94,
+        "f_sw": 100000,
+        "automotive_grade": "AEC_Q100"
+      },
+      "constraints": [
+        "Automotive AEC-Q100 qualification",
+        "Input from 400-800V battery pack",
+        "ECE R100 safety compliance",
+        "Integration with BMS"
+      ],
+      "design_approach": "High-voltage buck with SiC MOSFETs for efficiency. Galvanically isolated gate drives. Automotive-qualified components. CAN bus interface for BMS communication.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.004,
+        "C_in": 0.00033,
+        "R_load": 0.192,
+        "duty_cycle": 0.037,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 150,
+          "V_diode": 1200,
+          "I_diode": 150,
+          "V_cap": 50,
+          "I_L_rms": 130,
+          "P_dissipation": 180
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 24 / 650 = 0.037",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 24 × 0.963 / (100000 × 1.54) = 150 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 1.54 / (8 × 100000 × 0.24) = 4000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 125 × 0.037 × 0.963 / (100000 × 0.0135) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_112",
+      "title": "5G Small Cell Power Distribution",
+      "application": "5G small cell requiring multiple voltage rails from single input",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 12,
+        "P_out": 150,
+        "ripple_voltage": 0.12,
+        "efficiency_target": 0.95,
+        "f_sw": 500000,
+        "form_factor": "DOSA_compact"
+      },
+      "constraints": [
+        "DOSA form factor compliance",
+        "Hot-swap capability",
+        "Digital PMBus interface",
+        "Low acoustic noise for pole mounting"
+      ],
+      "design_approach": "High-frequency buck with digital control. PMBus telemetry and configuration. Hot-swap with soft-start. Silent inductor design for urban installation.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 0.96,
+        "duty_cycle": 0.25,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 18,
+          "V_diode": 80,
+          "I_diode": 18,
+          "V_cap": 20,
+          "I_L_rms": 13,
+          "P_dissipation": 7.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 12 / 48 = 0.25",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 12 × 0.75 / (500000 × 0.41) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.41 / (8 × 500000 × 0.12) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 12.5 × 0.25 × 0.75 / (500000 × 0.0071) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_113",
+      "title": "Laboratory Power Supply Output Stage",
+      "application": "Programmable bench power supply requiring precision voltage control",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 40,
+        "V_out": 30,
+        "P_out": 300,
+        "ripple_voltage": 0.003,
+        "efficiency_target": 0.90,
+        "f_sw": 200000,
+        "voltage_accuracy": "0.01%"
+      },
+      "constraints": [
+        "Voltage accuracy ±0.01%",
+        "Load regulation < 0.01%",
+        "Low output noise < 1 mV RMS",
+        "Remote sense capability"
+      ],
+      "design_approach": "Precision buck with linear post-regulation. High-resolution DAC for voltage programming. Remote sense for load regulation. Multiple LC filter stages for noise reduction.",
+      "solution": {
+        "L": 0.0001,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 3.0,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 15,
+          "V_diode": 60,
+          "I_diode": 15,
+          "V_cap": 50,
+          "I_L_rms": 11,
+          "P_dissipation": 30
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 30 / 40 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 30 × 0.25 / (200000 × 0.375) = 100 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.375 / (8 × 200000 × 0.003) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 10 × 0.75 × 0.25 / (200000 × 0.0094) = 1000 µF"
+      }
+    },
+    {
+      "id": "L2_114",
+      "title": "Portable Ultrasound Scanner Power",
+      "application": "Handheld medical ultrasound requiring battery operation and patient safety",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 7.4,
+        "V_out": 12,
+        "P_out": 25,
+        "ripple_voltage": 0.12,
+        "efficiency_target": 0.92,
+        "f_sw": 400000,
+        "medical_class": "IEC_60601"
+      },
+      "constraints": [
+        "IEC 60601-1 medical safety",
+        "Battery operation 2S Li-Ion",
+        "Patient leakage current limits",
+        "Low EMI for image quality"
+      ],
+      "design_approach": "Medical-grade boost with reinforced isolation. Low-EMI design for ultrasound imaging. Patient protection circuits. Battery fuel gauging integration.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 5.76,
+        "duty_cycle": 0.383,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 6,
+          "V_diode": 20,
+          "I_diode": 6,
+          "V_cap": 20,
+          "I_L_rms": 3.8,
+          "P_dissipation": 2
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 7.4/12 = 0.383",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 7.4 × 0.383 / (400000 × 0.32) = 22 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 2.08 × 0.383 / (400000 × 0.12) = 330 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 3.38 × 0.383 / (400000 × 0.015) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_115",
+      "title": "Stadium LED Display Driver",
+      "application": "Large-format LED display requiring high-power current source with dimming",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 36,
+        "P_out": 500,
+        "ripple_voltage": 0.36,
+        "efficiency_target": 0.94,
+        "f_sw": 250000,
+        "dimming_ratio": "1000:1"
+      },
+      "constraints": [
+        "1000:1 PWM dimming ratio",
+        "Constant current output for LEDs",
+        "Outdoor temperature range",
+        "Flicker-free at any dimming level"
+      ],
+      "design_approach": "High-power buck LED driver with analog + PWM hybrid dimming. Current regulation for LED matching. Wide temperature compensation. High PWM frequency for flicker-free operation.",
+      "solution": {
+        "L": 0.000068,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 2.592,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 20,
+          "V_diode": 80,
+          "I_diode": 20,
+          "V_cap": 50,
+          "I_L_rms": 15,
+          "P_dissipation": 30
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 36 / 48 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 36 × 0.25 / (250000 × 0.53) = 68 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.53 / (8 × 250000 × 0.36) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 13.9 × 0.75 × 0.25 / (250000 × 0.0078) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_116",
+      "title": "Agricultural Sensor Node Supply",
+      "application": "Outdoor agricultural monitoring sensor with solar and battery operation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 3.3,
+        "P_out": 1,
+        "ripple_voltage": 0.033,
+        "efficiency_target": 0.88,
+        "f_sw": 500000,
+        "standby_current": "10uA"
+      },
+      "constraints": [
+        "Standby current < 10 µA",
+        "Wide input 6-20V for solar variation",
+        "IP65 outdoor operation",
+        "5-year battery life target"
+      ],
+      "design_approach": "Ultra-low quiescent buck with burst mode for light loads. Wide input range for solar/battery. Potted assembly for outdoor environment. Sleep mode power optimization.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00022,
+        "C_in": 0.0001,
+        "R_load": 10.89,
+        "duty_cycle": 0.275,
+        "component_ratings": {
+          "V_switch": 30,
+          "I_switch": 0.5,
+          "V_diode": 30,
+          "I_diode": 0.5,
+          "V_cap": 10,
+          "I_L_rms": 0.33,
+          "P_dissipation": 0.12
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 12 = 0.275",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.725 / (500000 × 0.11) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.11 / (8 × 500000 × 0.033) = 220 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.303 × 0.275 × 0.725 / (500000 × 0.0012) = 100 µF"
+      }
+    },
+    {
+      "id": "L2_117",
+      "title": "Gaming Console VRM",
+      "application": "Next-gen gaming console requiring high-current VRM for APU",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 1.1,
+        "P_out": 200,
+        "ripple_voltage": 0.011,
+        "efficiency_target": 0.90,
+        "f_sw": 500000,
+        "transient_response": "50A_in_1us"
+      },
+      "constraints": [
+        "50A load step in 1 µs",
+        "Acoustic noise < 25 dBA from PSU",
+        "Compact form factor for console",
+        "8-phase interleaved topology"
+      ],
+      "design_approach": "8-phase interleaved buck for low ripple and fast transient. DrMOS power stages for efficiency. Digital multiphase controller. Acoustic optimization for living room environment.",
+      "solution": {
+        "L": 0.0000003,
+        "C_out": 0.003,
+        "C_in": 0.001,
+        "R_load": 0.006,
+        "duty_cycle": 0.092,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 30,
+          "V_diode": 20,
+          "I_diode": 30,
+          "V_cap": 5,
+          "I_L_rms": 24,
+          "P_dissipation": 20
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 1.1 / 12 = 0.092",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 1.1 × 0.908 / (500000 × 6.66) = 300 nH per phase",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 6.66 / (8 × 500000 × 0.011) = 3000 µF total",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 182 × 0.092 × 0.908 / (500000 × 0.03) = 1000 µF"
+      }
+    },
+    {
+      "id": "L2_118",
+      "title": "Dental X-Ray Generator Supply",
+      "application": "Dental X-ray unit requiring high-voltage generation with precise exposure control",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 230,
+        "V_out": 70,
+        "P_out": 1500,
+        "ripple_voltage": 0.7,
+        "efficiency_target": 0.88,
+        "f_sw": 80000,
+        "exposure_time_accuracy": "1%"
+      },
+      "constraints": [
+        "Exposure time accuracy ±1%",
+        "IEC 60601-2-65 compliance",
+        "Low stored energy for safety",
+        "Repeatable dose delivery"
+      ],
+      "design_approach": "High-frequency flyback with precision exposure timing. Medical safety isolation. Low output capacitance for fast response. Digital exposure control with verification.",
+      "solution": {
+        "L": 0.0003,
+        "C_out": 0.002,
+        "C_in": 0.00022,
+        "R_load": 3.27,
+        "duty_cycle": 0.35,
+        "turns_ratio": 3,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 15,
+          "V_diode": 200,
+          "I_diode": 30,
+          "V_cap": 100,
+          "I_L_rms": 8,
+          "P_dissipation": 180
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 70 × 3 / (230 + 70 × 3) = 0.477, use D = 0.35",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 230 × 0.35 / (80000 × 3.35) = 300 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 21.4 × 0.35 / (80000 × 0.7) = 2000 µF",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 1500 / (230 × 80000 × 0.043 × 0.88) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_119",
+      "title": "Robotics Servo Driver Supply",
+      "application": "Industrial robot joint servo requiring fast dynamic response",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 24,
+        "P_out": 500,
+        "ripple_voltage": 0.24,
+        "efficiency_target": 0.95,
+        "f_sw": 200000,
+        "bandwidth": "20kHz"
+      },
+      "constraints": [
+        "20 kHz control bandwidth",
+        "Regenerative braking capability",
+        "Position loop stability",
+        "Vibration-hardened for robot arm"
+      ],
+      "design_approach": "Fast-response buck with high bandwidth control. Four-quadrant operation for regeneration. Optimized for servo control dynamics. Vibration-resistant component mounting.",
+      "solution": {
+        "L": 0.00012,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 1.152,
+        "duty_cycle": 0.5,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 30,
+          "V_diode": 80,
+          "I_diode": 30,
+          "V_cap": 50,
+          "I_L_rms": 22,
+          "P_dissipation": 25
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 24 / 48 = 0.5",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 24 × 0.5 / (200000 × 0.5) = 120 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.5 / (8 × 200000 × 0.24) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 20.8 × 0.5 × 0.5 / (200000 × 0.0078) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_120",
+      "title": "Stage Lighting DMX Supply",
+      "application": "Professional stage lighting fixture requiring DMX control interface",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 36,
+        "P_out": 250,
+        "ripple_voltage": 0.36,
+        "efficiency_target": 0.93,
+        "f_sw": 300000,
+        "dmx_channels": 4
+      },
+      "constraints": [
+        "DMX512 control interface",
+        "0-100% smooth dimming",
+        "Flicker-free for video",
+        "Daisy-chain capability"
+      ],
+      "design_approach": "Buck LED driver with DMX512 interface. 16-bit dimming resolution. High PWM frequency for video compatibility. Integrated thermal derating.",
+      "solution": {
+        "L": 0.000056,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 5.184,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 12,
+          "V_diode": 80,
+          "I_diode": 12,
+          "V_cap": 50,
+          "I_L_rms": 7.5,
+          "P_dissipation": 17.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 36 / 48 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 36 × 0.25 / (300000 × 0.54) = 56 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.54 / (8 × 300000 × 0.36) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 6.94 × 0.75 × 0.25 / (300000 × 0.0062) = 220 µF"
+      }
+    }
+  ]
+}

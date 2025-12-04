@@ -1,0 +1,174 @@
+{
+  "level": 2,
+  "description": "Converter design with constraints and optimization targets",
+  "problems": [
+    {
+      "id": "L2_001",
+      "prompt": "Design a buck converter: 48V to 12V, 5A. Minimize size with switching frequency above 400kHz.",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0
+      },
+      "constraints": {
+        "f_sw_min": 400000,
+        "optimization_target": "size"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_002",
+      "prompt": "Design a boost converter: 12V to 48V, 2A. Efficiency must exceed 92%, ripple under 2%.",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 48.0,
+        "iout": 2.0,
+        "power": 96.0
+      },
+      "constraints": {
+        "efficiency_min": 0.92,
+        "ripple_max_percent": 2.0,
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_003",
+      "prompt": "Design a buck converter: 24V to 3.3V, 3A. Output ripple must be under 30mV for sensitive MCU.",
+      "specs": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 3.3,
+        "iout": 3.0,
+        "power": 9.9
+      },
+      "constraints": {
+        "ripple_max_mv": 30,
+        "optimization_target": "ripple"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_004",
+      "prompt": "Design a flyback converter: 24V to 12V isolated, 3A. Minimize EMI with frequency below 150kHz.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 3.0,
+        "power": 36.0,
+        "isolated": true
+      },
+      "constraints": {
+        "f_sw_max": 150000,
+        "optimization_target": "emi"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_005",
+      "prompt": "Design a SEPIC converter: 5-15V variable input to 12V stable output, 1.5A.",
+      "specs": {
+        "topology": "sepic",
+        "vin_min": 5.0,
+        "vin_max": 15.0,
+        "vout": 12.0,
+        "iout": 1.5,
+        "power": 18.0
+      },
+      "constraints": {
+        "input_voltage_range": true,
+        "optimization_target": "regulation"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_006",
+      "prompt": "Design a buck converter: 60V to 5V, 10A. Use synchronous rectification for >95% efficiency.",
+      "specs": {
+        "topology": "buck",
+        "vin": 60.0,
+        "vout": 5.0,
+        "iout": 10.0,
+        "power": 50.0
+      },
+      "constraints": {
+        "efficiency_min": 0.95,
+        "synchronous_rectification": true,
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_007",
+      "prompt": "Design a forward converter: 48V to 5V, 8A. Keep transformer size small with f_sw > 200kHz.",
+      "specs": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 8.0,
+        "power": 40.0,
+        "isolated": true
+      },
+      "constraints": {
+        "f_sw_min": 200000,
+        "optimization_target": "transformer_size"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_008",
+      "prompt": "Design a half-bridge converter: 100V to 24V, 6A. Target 93% efficiency with 100kHz switching.",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 100.0,
+        "vout": 24.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "isolated": true
+      },
+      "constraints": {
+        "f_sw_target": 100000,
+        "efficiency_min": 0.93,
+        "optimization_target": "balanced"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_009",
+      "prompt": "Design a boost converter: 3.3V to 5V, 1A. Ultra-low ripple <10mV for audio application.",
+      "specs": {
+        "topology": "boost",
+        "vin": 3.3,
+        "vout": 5.0,
+        "iout": 1.0,
+        "power": 5.0
+      },
+      "constraints": {
+        "ripple_max_mv": 10,
+        "optimization_target": "ripple"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_010",
+      "prompt": "Design a full-bridge converter: 380V to 48V, 15A. Phase-shifted operation for soft switching.",
+      "specs": {
+        "topology": "full_bridge",
+        "vin": 380.0,
+        "vout": 48.0,
+        "iout": 15.0,
+        "power": 720.0,
+        "isolated": true
+      },
+      "constraints": {
+        "soft_switching": true,
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    }
+  ]
+}

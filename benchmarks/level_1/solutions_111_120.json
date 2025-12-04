@@ -1,0 +1,326 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "solutions": [
+    {
+      "problem_id": "L1_111",
+      "title": "Electric Toothbrush Charger",
+      "application": "Inductive charging receiver for waterproof electric toothbrush",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 4.2,
+        "I_out": 0.3,
+        "V_ripple_max": 0.02,
+        "f_sw": 1000000
+      },
+      "design_approach": "High duty-cycle buck for Li-ion charging from wireless receiver.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 4.2 / 5 = 0.84",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 4.2 × 0.16 / (1M × 0.06) = 11.2μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 1M × 0.02) = 375nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.84 / (1M × 0.1) = 2.5μF"
+      },
+      "solution": {
+        "L": 12e-6,
+        "C_out": 1e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "12μH, 0.5A, shielded",
+        "output_capacitor": "1μF, 10V, X5R",
+        "input_capacitor": "4.7μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_112",
+      "title": "Solar Battery Maintainer",
+      "application": "12V vehicle battery trickle charger with solar panel input",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 18,
+        "V_out": 14.4,
+        "I_out": 0.5,
+        "V_ripple_max": 0.2,
+        "f_sw": 200000
+      },
+      "design_approach": "MPPT buck charger from solar panel to lead-acid battery.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 14.4 / 18 = 0.8",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 14.4 × 0.2 / (200k × 0.1) = 144μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.1 / (8 × 200k × 0.2) = 312nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.5 × 0.8 / (200k × 0.5) = 4μF"
+      },
+      "solution": {
+        "L": 150e-6,
+        "C_out": 1e-6,
+        "C_in": 10e-6,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "inductor": "150μH, 1A, radial",
+        "output_capacitor": "1μF, 25V, X7R",
+        "input_capacitor": "10μF, 35V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_113",
+      "title": "Aquarium LED Controller",
+      "application": "Programmable RGB LED lighting for planted aquarium",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 12,
+        "I_out": 3,
+        "V_ripple_max": 0.2,
+        "f_sw": 300000
+      },
+      "design_approach": "Buck for LED string drive with PWM dimming per channel.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 12 / 24 = 0.5",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 12 × 0.5 / (300k × 0.6) = 33.3μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.6 / (8 × 300k × 0.2) = 1.25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 3 × 0.5 / (300k × 0.5) = 10μF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 2.2e-6,
+        "C_in": 22e-6,
+        "f_sw": 300000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 4A, shielded",
+        "output_capacitor": "2.2μF, 25V, X5R",
+        "input_capacitor": "22μF, 35V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_114",
+      "title": "RC Plane Servo Power",
+      "application": "BEC (battery eliminator circuit) for RC aircraft servos",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 11.1,
+        "V_out": 5,
+        "I_out": 3,
+        "V_ripple_max": 0.2,
+        "f_sw": 300000
+      },
+      "design_approach": "High-current buck from 3S LiPo to servo rail.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 11.1 = 0.45",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.55 / (300k × 0.6) = 15.3μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.6 / (8 × 300k × 0.2) = 1.25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 3 × 0.45 / (300k × 0.5) = 9μF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 2.2e-6,
+        "C_in": 22e-6,
+        "f_sw": 300000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 5A, low DCR",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "22μF, 25V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_115",
+      "title": "Smart Scale Display",
+      "application": "Digital bathroom scale with Bluetooth connectivity",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 6,
+        "V_out": 3.3,
+        "I_out": 0.05,
+        "V_ripple_max": 0.03,
+        "f_sw": 1000000
+      },
+      "design_approach": "Ultra-low-power buck from 4×AAA batteries for long standby.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 6 = 0.55",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.45 / (1M × 0.01) = 148.5μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.01 / (8 × 1M × 0.03) = 42nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.05 × 0.55 / (1M × 0.1) = 275nF"
+      },
+      "solution": {
+        "L": 150e-6,
+        "C_out": 100e-9,
+        "C_in": 470e-9,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "150μH, 0.1A, tiny shielded",
+        "output_capacitor": "100nF, 6.3V, X5R",
+        "input_capacitor": "470nF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_116",
+      "title": "Wireless Keyboard Power",
+      "application": "Rechargeable wireless keyboard with RGB backlighting",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 4.2,
+        "V_out": 3.3,
+        "I_out": 0.15,
+        "V_ripple_max": 0.03,
+        "f_sw": 1500000
+      },
+      "design_approach": "Efficient buck from Li-ion to keyboard logic supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 4.2 = 0.786",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.214 / (1.5M × 0.03) = 15.7μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.03 / (8 × 1.5M × 0.03) = 83nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.15 × 0.786 / (1.5M × 0.1) = 786nF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 100e-9,
+        "C_in": 1e-6,
+        "f_sw": 1500000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 0.3A, 0805 shielded",
+        "output_capacitor": "100nF, 6.3V, X5R",
+        "input_capacitor": "1μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_117",
+      "title": "Trail Camera Power System",
+      "application": "Wildlife trail camera with motion sensor and SD storage",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 6,
+        "V_out": 3.3,
+        "I_out": 0.3,
+        "V_ripple_max": 0.05,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from 4×AA batteries for months of standby operation.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 6 = 0.55",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.45 / (500k × 0.06) = 49.5μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 500k × 0.05) = 300nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.55 / (500k × 0.2) = 1.65μF"
+      },
+      "solution": {
+        "L": 56e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "56μH, 0.5A, shielded",
+        "output_capacitor": "1μF, 6.3V, X5R",
+        "input_capacitor": "2.2μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_118",
+      "title": "Laser Pointer Driver",
+      "application": "Green laser pointer module with adjustable focus",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 3,
+        "V_out": 5,
+        "I_out": 0.2,
+        "V_ripple_max": 0.05,
+        "f_sw": 1000000
+      },
+      "design_approach": "Boost from 2×AAA to laser diode driver voltage.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 3/5 = 0.4",
+        "inductor": "L = V_in × D / (f × ΔI) = 3 × 0.4 / (1M × 0.04) = 30μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.2 × 0.4 / (1M × 0.05) = 1.6μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.04 / (8 × 1M × 0.1) = 50nF"
+      },
+      "solution": {
+        "L": 33e-6,
+        "C_out": 2.2e-6,
+        "C_in": 100e-9,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "33μH, 0.4A, shielded",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "100nF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_119",
+      "title": "Smart Plug WiFi Module",
+      "application": "WiFi smart outlet with power monitoring",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 3.3,
+        "I_out": 0.3,
+        "V_ripple_max": 0.05,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from rectified AC supply to WiFi module power.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 12 = 0.275",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.725 / (500k × 0.06) = 79.8μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 500k × 0.05) = 300nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.275 / (500k × 0.5) = 330nF"
+      },
+      "solution": {
+        "L": 82e-6,
+        "C_out": 1e-6,
+        "C_in": 1e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "82μH, 0.5A, shielded",
+        "output_capacitor": "1μF, 6.3V, X5R",
+        "input_capacitor": "1μF, 25V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_120",
+      "title": "Portable Fan Power",
+      "application": "USB rechargeable desk fan with variable speed",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 3.7,
+        "I_out": 1.5,
+        "V_ripple_max": 0.1,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck for BLDC fan motor from USB power source.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.7 / 5 = 0.74",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.7 × 0.26 / (500k × 0.3) = 6.4μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.3 / (8 × 500k × 0.1) = 750nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 1.5 × 0.74 / (500k × 0.2) = 11.1μF"
+      },
+      "solution": {
+        "L": 6.8e-6,
+        "C_out": 1e-6,
+        "C_in": 22e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "6.8μH, 2A, low DCR",
+        "output_capacitor": "1μF, 10V, X5R",
+        "input_capacitor": "22μF, 10V, X5R"
+      }
+    }
+  ]
+}

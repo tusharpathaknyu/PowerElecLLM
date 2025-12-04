@@ -1,0 +1,173 @@
+{
+  "level": 2,
+  "description": "Converter design with constraints and optimization targets",
+  "problems": [
+    {
+      "id": "L2_021",
+      "prompt": "Design a buck converter: 28V to 5V, 6A. Automotive EMC compliance, spread spectrum.",
+      "specs": {
+        "topology": "buck",
+        "vin": 28.0,
+        "vout": 5.0,
+        "iout": 6.0,
+        "power": 30.0
+      },
+      "constraints": {
+        "emc_compliant": true,
+        "spread_spectrum": true,
+        "optimization_target": "emi"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_022",
+      "prompt": "Design a flyback converter: 12V battery to 400V, 50mA for Geiger counter HV.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 12.0,
+        "vout": 400.0,
+        "iout": 0.05,
+        "power": 20.0,
+        "isolated": true
+      },
+      "constraints": {
+        "high_voltage": true,
+        "optimization_target": "safety"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_023",
+      "prompt": "Design a quasi-resonant buck: 48V to 12V, 4A. EMI-sensitive application.",
+      "specs": {
+        "topology": "qr_buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 4.0,
+        "power": 48.0
+      },
+      "constraints": {
+        "soft_switching": true,
+        "optimization_target": "emi"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_024",
+      "prompt": "Design a boost converter: 12V to 170V, 200mA for nixie tube display.",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 170.0,
+        "iout": 0.2,
+        "power": 34.0
+      },
+      "constraints": {
+        "high_voltage": true,
+        "optimization_target": "voltage_stress"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_025",
+      "prompt": "Design an inverting buck-boost: 12V to -48V, 500mA for telecom bias.",
+      "specs": {
+        "topology": "inverting_buck_boost",
+        "vin": 12.0,
+        "vout": -48.0,
+        "iout": 0.5,
+        "power": 24.0
+      },
+      "constraints": {
+        "optimization_target": "regulation"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_026",
+      "prompt": "Design a buck converter: 72V EV to 12V auxiliary, 25A. Water-cooled thermal design.",
+      "specs": {
+        "topology": "buck",
+        "vin": 72.0,
+        "vout": 12.0,
+        "iout": 25.0,
+        "power": 300.0
+      },
+      "constraints": {
+        "thermal_design": "liquid_cooled",
+        "efficiency_min": 0.95,
+        "optimization_target": "thermal"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_027",
+      "prompt": "Design a forward converter: 48V PoE to 5V, 2.5A. IEEE 802.3af compliant.",
+      "specs": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 2.5,
+        "power": 12.5,
+        "isolated": true
+      },
+      "constraints": {
+        "standard": "IEEE_802.3af",
+        "optimization_target": "compliance"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_028",
+      "prompt": "Design a SEPIC converter: 3.6-6V Li-ion to 5V USB, 2.1A. Battery life optimized.",
+      "specs": {
+        "topology": "sepic",
+        "vin_min": 3.6,
+        "vin_max": 6.0,
+        "vout": 5.0,
+        "iout": 2.1,
+        "power": 10.5
+      },
+      "constraints": {
+        "input_voltage_range": true,
+        "light_load_efficiency": true,
+        "optimization_target": "battery_life"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_029",
+      "prompt": "Design a half-bridge converter: 200V to 48V, 10A. Must handle 10% input surge.",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 200.0,
+        "vin_surge": 220.0,
+        "vout": 48.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "isolated": true
+      },
+      "constraints": {
+        "surge_rating": 1.1,
+        "optimization_target": "robustness"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_030",
+      "prompt": "Design a boost converter: 24V to 380V DC bus, 1.5A for motor inverter.",
+      "specs": {
+        "topology": "boost",
+        "vin": 24.0,
+        "vout": 380.0,
+        "iout": 1.5,
+        "power": 570.0
+      },
+      "constraints": {
+        "high_voltage": true,
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    }
+  ]
+}

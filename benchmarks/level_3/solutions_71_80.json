@@ -1,0 +1,848 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_071",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Stellarator Fusion Magnet",
+      "problem_statement": "Design a half-bridge converter for stellarator coil power supply. Input: 6000V DC, Output: 500V at 10kA for superconducting coil. Must achieve 10ppm current stability, handle quench protection, and provide 24/7 operation with plasma experiments.",
+      "objectives": {
+        "primary": ["10ppm current stability", "Quench protection", "24/7 operation"],
+        "secondary": ["Efficiency >97%", "Remote control"],
+        "constraints": ["Strong magnetic field environment", "Nuclear licensing"]
+      },
+      "solution": {
+        "design_approach": "Multi-module parallel operation for massive current. Ultra-precision current regulation. Fast quench detection and energy dump.",
+        "topology": "Phase-shifted half-bridge, 100 parallel modules",
+        "switching_frequency": "20kHz",
+        "per_module_rating": {
+          "voltage": "500V",
+          "current": "100A per module",
+          "power": "50kW per module"
+        },
+        "module_transformer": {
+          "turns_ratio": "12:1",
+          "input": "6000V DC",
+          "output": "500V per module"
+        },
+        "output_inductor_per_module": {
+          "formula": "Coil inductance dominates",
+          "coil_inductance": "10H superconducting",
+          "filter_inductor": "100μH additional per module"
+        },
+        "dc_bus_capacitor": {
+          "selected_value": "1mF per module",
+          "voltage_rating": "1000V"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF per module",
+          "voltage_rating": "8kV"
+        },
+        "current_stability": {
+          "target": "10ppm = 100mA at 10kA",
+          "measurement": "DCCT array, 1ppm accuracy",
+          "regulation": "Digital PI + feed-forward",
+          "bandwidth": "10Hz (coil limited)"
+        },
+        "parallel_operation": {
+          "modules": "100 units",
+          "current_sharing": "Active balancing <2%",
+          "redundancy": "N+4 operation",
+          "failure_handling": "Hot bypass faulty module"
+        },
+        "quench_protection": {
+          "detection": "Voltage tap monitoring",
+          "threshold": "100mV imbalance",
+          "response_time": "<100ms total",
+          "energy_dump": "Resistor bank + crowbar"
+        },
+        "energy_dump_system": {
+          "stored_energy": "E = 0.5 × L × I² = 0.5 × 10H × 10kA² = 500MJ",
+          "dump_resistor": "External resistor bank",
+          "dump_time": "~100 seconds controlled",
+          "crowbar": "Thyristor bypass"
+        },
+        "24_7_operation": {
+          "maintenance": "Online module replacement",
+          "cooling": "Water cooled with redundancy",
+          "monitoring": "Continuous all parameters"
+        },
+        "magnetic_field": {
+          "stray_field": "Up to 0.5T at supply",
+          "shielding": "Mu-metal enclosures",
+          "orientation": "Field-tolerant design"
+        },
+        "efficiency_achieved": "97.5%"
+      }
+    },
+    {
+      "id": "L3_072",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Quantum Computer Dilution Fridge",
+      "problem_statement": "Design a buck converter for dilution refrigerator mixing chamber heater. Input: 12V, Output: 100mV at 10mA for thermometry calibration. Must achieve <1μK temperature stability, <100pV/√Hz electrical noise, and operate at 10mK base temperature (electronics at room temp).",
+      "objectives": {
+        "primary": ["<1μK stability", "<100pV/√Hz noise", "10mK compatibility"],
+        "secondary": ["Programmable setpoint", "Ultra-low dissipation"],
+        "constraints": ["Cryogenic wiring heat load", "Magnetic field sensitivity"]
+      },
+      "solution": {
+        "design_approach": "Room temperature precision supply with ultra-filtered DC output. Minimal wiring to cold stage. Extreme noise filtering.",
+        "topology": "Buck pre-regulator + linear post-regulator + passive filters",
+        "switching_frequency": "2MHz (far from measurement band)",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 0.5V (intermediate) / 12V = 0.042"
+        },
+        "output_stages": {
+          "buck_output": "0.5V (pre-regulation)",
+          "linear_output": "0.2V (intermediate)",
+          "filtered_output": "100mV (final)"
+        },
+        "inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "selected_value": "100μH",
+          "type": "Shielded, low-noise",
+          "dcr": "<50mΩ"
+        },
+        "output_capacitor": {
+          "selected_value": "1000μF polymer + 100μF ceramic",
+          "type": "Low-ESR for noise"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic",
+          "voltage_rating": "16V"
+        },
+        "linear_post_regulator": {
+          "type": "Ultra-low noise LDO",
+          "noise_density": "<10nV/√Hz",
+          "psrr": ">70dB at 100kHz"
+        },
+        "passive_filter_chain": {
+          "stage_1": "RC, 10kHz cutoff",
+          "stage_2": "RC, 1kHz cutoff",
+          "stage_3": "RC, 100Hz cutoff",
+          "stage_4": "RC, 10Hz cutoff",
+          "stage_5": "RC, 1Hz cutoff"
+        },
+        "noise_analysis": {
+          "buck_noise": "1mV RMS",
+          "after_ldo": "10μV RMS",
+          "after_filters": "<100pV/√Hz achieved"
+        },
+        "cryogenic_wiring": {
+          "material": "Phosphor bronze loom",
+          "gauge": "36 AWG (minimize heat load)",
+          "thermal_anchoring": "At every stage",
+          "heat_load": "<100μW to mixing chamber"
+        },
+        "temperature_stability": {
+          "voltage_stability": "1ppm/hour",
+          "resistor_stability": "0.1ppm/hour",
+          "calculated_temp_stability": "<1μK"
+        },
+        "heater_interface": {
+          "resistance": "1kΩ chip resistor at MC",
+          "power": "100mV × 0.1mA = 10μW",
+          "4_wire": "Kelvin sensing"
+        },
+        "programmability": {
+          "dac": "20-bit, 0.1μV resolution",
+          "interface": "Optical isolated",
+          "settling": "<1μK in 60 seconds"
+        },
+        "magnetic_shielding": {
+          "at_room_temp": "Mu-metal enclosure",
+          "cryogenic": "Superconducting shield",
+          "residual": "<1nT"
+        },
+        "efficiency_achieved": "N/A (precision application)"
+      }
+    },
+    {
+      "id": "L3_073",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Deep Mine Emergency Radio",
+      "problem_statement": "Design a flyback converter for through-the-earth (TTE) emergency communication system. Input: 24V UPS, Output: 200V at 5A peak for ELF transmitter. Must penetrate 500m of rock, operate in coal dust atmosphere (ATEX), and provide 8-hour emergency broadcast.",
+      "objectives": {
+        "primary": ["500m rock penetration", "ATEX compliance", "8-hour broadcast"],
+        "secondary": ["Message storage", "Auto-activation"],
+        "constraints": ["Mine safety regulations", "Low frequency propagation"]
+      },
+      "solution": {
+        "design_approach": "High-voltage pulsed output for ELF generation. Intrinsically safe design. Battery-backed UPS interface.",
+        "switching_frequency": "80kHz",
+        "transformer_turns_ratio": {
+          "formula": "n for high voltage boost",
+          "selected_ratio": "1:10"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out / (V_out + n × V_in)",
+          "calculation": "D = 200V / (200V + 10 × 24V) = 0.45"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "peak_power": "1kW",
+          "calculation": "L_p = 24² × 0.45² / (2 × 1000W × 80kHz × 0.8) = 0.91μH",
+          "selected_value": "1μH"
+        },
+        "transformer_specs": {
+          "core": "Large ferrite for high power",
+          "primary": "4 turns heavy gauge",
+          "secondary": "40 turns",
+          "construction": "Encapsulated Ex e"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF film",
+          "voltage_rating": "300V"
+        },
+        "input_capacitor": {
+          "selected_value": "1000μF electrolytic",
+          "voltage_rating": "35V"
+        },
+        "elf_transmission": {
+          "frequency": "2-20kHz (ELF band)",
+          "antenna": "Mine tunnel loop",
+          "penetration": "500m through rock",
+          "modulation": "FSK for data"
+        },
+        "rock_penetration_physics": {
+          "conductivity": "~0.01 S/m typical rock",
+          "skin_depth": "100-300m at 10kHz",
+          "signal_loss": "~20dB through 500m",
+          "required_power": "1kW peak"
+        },
+        "atex_design": {
+          "zone": "Zone 1/21 (gas and dust)",
+          "protection": "Ex d flameproof",
+          "certification": "ATEX II 2G Ex d IIB T4",
+          "enclosure": "Cast aluminum Ex d"
+        },
+        "8_hour_operation": {
+          "ups_capacity": "24V 100Ah",
+          "average_power": "200W transmit",
+          "duty_cycle": "1:4 (transmit:listen)",
+          "runtime": "100Ah × 24V / 50W = 48h standby, 8h active"
+        },
+        "message_system": {
+          "pre_recorded": "5 emergency messages",
+          "custom": "Text-to-ELF encoding",
+          "repeat": "Automatic cycle"
+        },
+        "auto_activation": {
+          "triggers": "Seismic, ventilation fail, manual",
+          "response": "<5 seconds to transmit",
+          "self_test": "Hourly beacon"
+        },
+        "surface_receiver": {
+          "antenna": "Large loop on surface",
+          "sensitivity": "1pT magnetic field",
+          "decoding": "DSP correlation receiver"
+        },
+        "efficiency_achieved": "80%"
+      }
+    },
+    {
+      "id": "L3_074",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Particle Detector Calorimeter",
+      "problem_statement": "Design a full-bridge converter for lead-glass electromagnetic calorimeter PMT array. Input: 380V AC rectified (540V DC), Output: 48V at 50A for 1000 PMT base boards. Must handle high radiation environment (1Mrad TID), survive beam-induced EMI, and provide stable voltage during collisions.",
+      "objectives": {
+        "primary": ["1Mrad radiation tolerance", "Beam EMI immunity", "Collision-stable"],
+        "secondary": ["Per-channel monitoring", "Fast trip protection"],
+        "constraints": ["Detector hall access", "Beam timing synchronization"]
+      },
+      "solution": {
+        "design_approach": "Radiation-hardened power system. Extensive shielding. Fast transient response for beam-induced effects.",
+        "topology": "Resonant full-bridge LLC",
+        "switching_frequency": "150kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / (2 × V_out)",
+          "calculation": "n = 540V / (2 × 48V) = 5.6:1",
+          "selected_ratio": "6:1"
+        },
+        "resonant_components": {
+          "L_r": "15μH",
+          "C_r": "100nF",
+          "L_m": "150μH"
+        },
+        "output_inductor": {
+          "formula": "Additional filtering only",
+          "selected_value": "10μH",
+          "type": "Air-core (rad-hard)",
+          "current_rating": "60A"
+        },
+        "output_capacitor": {
+          "formula": "C for beam transients",
+          "selected_value": "10mF (ceramic bank)",
+          "type": "Rad-hard ceramic",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF film",
+          "voltage_rating": "700V"
+        },
+        "radiation_tolerance": {
+          "tid": "1Mrad silicon",
+          "displacement": "10^14 n/cm²",
+          "components": "Rad-hard or COTS rad-lot",
+          "controller": "FPGA with TMR"
+        },
+        "radiation_hardening_methods": {
+          "mosfets": "Rad-hard SiC",
+          "capacitors": "Ceramic (no electrolytics)",
+          "magnetics": "Air-core where possible",
+          "shielding": "Local lead/tungsten"
+        },
+        "beam_emi": {
+          "source": "Beam bunch at 40MHz",
+          "transients": "±100V spikes",
+          "protection": "Multi-stage filtering",
+          "immunity": "100V/m field"
+        },
+        "collision_stability": {
+          "event_rate": "40MHz bunch crossing",
+          "load_transient": "±10A step",
+          "voltage_deviation": "<1% during event",
+          "recovery": "<10μs"
+        },
+        "pmt_distribution": {
+          "channels": "1000 PMTs",
+          "per_pmt_power": "2.5W",
+          "cabling": "Radial from central supply",
+          "protection": "Per-channel fuse"
+        },
+        "monitoring": {
+          "voltage": "Per-channel sense",
+          "current": "Group monitoring",
+          "radiation": "Dosimetry integration",
+          "interface": "Ethernet to control room"
+        },
+        "access_constraints": {
+          "location": "Inside detector",
+          "access": "Annual during shutdown",
+          "reliability": "10-year design life",
+          "remote_control": "Full remote operation"
+        },
+        "efficiency_achieved": "93%"
+      }
+    },
+    {
+      "id": "L3_075",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Electric Aircraft Emergency Power",
+      "problem_statement": "Design a boost converter for electric aircraft emergency power system. Input: 270V from main battery during emergency, Output: 540V DC bus at 50kW for critical flight systems. Must provide 30 minutes emergency power, handle rapid altitude descent (cabin pressure change), and meet DO-160G.",
+      "objectives": {
+        "primary": ["30-minute emergency", "Rapid descent survival", "DO-160G certified"],
+        "secondary": ["Efficiency >96%", "Status indication"],
+        "constraints": ["Weight critical", "FAA certification"]
+      },
+      "solution": {
+        "design_approach": "High-efficiency SiC boost with aviation-grade reliability. Pressure-insensitive design. Continuous monitoring for certification.",
+        "topology": "3-phase interleaved SiC boost",
+        "switching_frequency": "100kHz per phase",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "calculation": "D = 1 - 270V/540V = 0.5"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "15A per phase",
+          "calculation": "L = 270V × 0.5 / (100kHz × 15A) = 90μH",
+          "selected_value": "100μH per phase",
+          "type": "Aerospace-grade core",
+          "current_rating": "80A"
+        },
+        "dc_bus_capacitor": {
+          "formula": "C for 50kW transients",
+          "selected_value": "2mF film",
+          "voltage_rating": "700V",
+          "type": "Aircraft-rated film"
+        },
+        "input_capacitor": {
+          "selected_value": "500μF ceramic + film",
+          "voltage_rating": "400V"
+        },
+        "30_minute_emergency": {
+          "power": "50kW",
+          "energy": "50kW × 0.5h = 25kWh",
+          "battery_reserve": "30kWh dedicated",
+          "efficiency_factor": "25kWh / 0.96 = 26kWh from battery"
+        },
+        "altitude_pressure": {
+          "cabin_pressure_range": "8000ft to 40000ft equivalent",
+          "design": "No pressure-sensitive components",
+          "corona": "No exposed HV at low pressure",
+          "sealing": "Conformal coating all PCBs"
+        },
+        "do_160g_compliance": {
+          "section_16": "Power input (voltage transients)",
+          "section_17": "Voltage spike",
+          "section_18": "Audio frequency conducted",
+          "section_19": "Induced signal",
+          "section_20": "RF susceptibility",
+          "section_21": "RF emission"
+        },
+        "rapid_descent": {
+          "rate": "10000 ft/min possible",
+          "pressure_change": "5 psi/minute",
+          "thermal_shock": "Temperature rate handling",
+          "vibration": "Flight maneuver loads"
+        },
+        "weight_budget": {
+          "inductors": "8kg",
+          "capacitors": "5kg",
+          "semiconductors": "2kg",
+          "control_thermal": "3kg",
+          "enclosure": "4kg",
+          "total": "22kg"
+        },
+        "status_indication": {
+          "annunciator": "Cockpit panel integration",
+          "faults": "Detailed BITE",
+          "logging": "Flight data recorder interface"
+        },
+        "faa_certification": {
+          "tso": "TSO-C179a Power Supply",
+          "dqa": "Design Quality Assurance",
+          "documentation": "Full DER package"
+        },
+        "efficiency_achieved": "96.5%"
+      }
+    },
+    {
+      "id": "L3_076",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Magnetotelluric Survey",
+      "problem_statement": "Design a Ćuk converter for geophysical magnetotelluric survey equipment. Input: 12V battery, Output: -48V at 2A for magnetic sensor preamplifiers. Must achieve <1pT magnetic noise floor, operate in remote wilderness, and provide 24-hour survey capability.",
+      "objectives": {
+        "primary": ["<1pT magnetic noise", "24-hour operation", "Remote field use"],
+        "secondary": ["Wide temperature range", "Compact portable"],
+        "constraints": ["No AC power available", "Non-magnetic setup"]
+      },
+      "solution": {
+        "design_approach": "Ultra-low noise design with air-core magnetics. Complete battery operation. Non-magnetic enclosure.",
+        "switching_frequency": "200kHz (above MT measurement band)",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 48V / (12V + 48V) = 0.8"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "0.5A",
+          "calculation": "L1 = 12V × 0.8 / (200kHz × 0.5A) = 96μH",
+          "selected_value": "100μH",
+          "type": "AIR-CORE (non-magnetic mandatory)",
+          "current_rating": "5A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.4A",
+          "calculation": "L2 = 48V × 0.2 / (200kHz × 0.4A) = 120μH",
+          "selected_value": "120μH",
+          "type": "AIR-CORE"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D / (f_sw × ΔV_c)",
+          "calculation": "C_c = 2A × 0.8 / (200kHz × 2V) = 4μF",
+          "selected_value": "10μF",
+          "type": "Film (non-magnetic leads)",
+          "voltage_rating": "100V"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF film",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "selected_value": "220μF electrolytic + 47μF ceramic",
+          "voltage_rating": "16V"
+        },
+        "magnetic_noise_minimization": {
+          "inductors": "Air-core, no magnetic materials",
+          "distance": "10m cable to sensors",
+          "shielding": "Aluminum RF shield",
+          "target": "<1pT/√Hz at 1Hz"
+        },
+        "mt_measurement_band": {
+          "frequencies": "0.001Hz to 1000Hz",
+          "switching_far_above": "200kHz",
+          "filter_cutoff": "100Hz on output"
+        },
+        "non_magnetic_construction": {
+          "enclosure": "Aluminum",
+          "hardware": "Brass, plastic",
+          "pcb": "Non-magnetic plating",
+          "connectors": "BeCu contacts"
+        },
+        "24_hour_operation": {
+          "battery": "12V 100Ah LiFePO4",
+          "power": "96W + 20W overhead",
+          "runtime": "100Ah × 12V / 116W = 10h",
+          "solution": "Two batteries, swap at noon"
+        },
+        "remote_field": {
+          "weight": "5kg power system",
+          "carry": "Backpackable",
+          "setup": "Tripod mount",
+          "ruggedized": "IP65 enclosure"
+        },
+        "temperature_range": {
+          "operating": "-30°C to +50°C",
+          "storage": "-40°C to +70°C",
+          "battery_heater": "Below -20°C"
+        },
+        "sensor_interface": {
+          "coils": "Induction coil sensors",
+          "preamp": "-48V powered",
+          "bandwidth": "0.001Hz to 1000Hz"
+        },
+        "efficiency_achieved": "82% (air-core losses)"
+      }
+    },
+    {
+      "id": "L3_077",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Lunar Rover Power",
+      "problem_statement": "Design a forward converter for lunar surface rover. Input: 28V from RTG/battery hybrid, Output: 12V at 20A for electronics and motors. Must survive 300K lunar day/night thermal swing, handle lunar dust contamination, and operate for 10+ year mission.",
+      "objectives": {
+        "primary": ["300K thermal swing", "Lunar dust tolerance", "10-year life"],
+        "secondary": ["High efficiency for thermal", "Hibernation mode"],
+        "constraints": ["NASA Class B mission", "Deep space comms"]
+      },
+      "solution": {
+        "design_approach": "Wide temperature design with minimal thermal dissipation. Sealed against dust. Radiation-hardened components throughout.",
+        "switching_frequency": "100kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D / V_out",
+          "calculation": "n = 28V × 0.43 / 12V = 1:1",
+          "selected_ratio": "1:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 12V × 1 / 28V = 0.43"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "4A (20%)",
+          "calculation": "L = (28V - 12V) × 0.43 / (100kHz × 4A) = 17.2μH",
+          "selected_value": "22μH",
+          "type": "Space-qualified core",
+          "current_rating": "25A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "60mV",
+          "calculation": "C_out = 4A / (8 × 100kHz × 60mV) = 83μF",
+          "selected_value": "220μF ceramic + wet tantalum",
+          "voltage_rating": "16V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "thermal_swing_design": {
+          "lunar_day": "+127°C surface",
+          "lunar_night": "-173°C surface",
+          "electronics": "Warm box maintained",
+          "operating_range": "-40°C to +70°C internal"
+        },
+        "warm_box": {
+          "insulation": "MLI (multi-layer insulation)",
+          "heaters": "RHU (radioisotope heater units)",
+          "radiator": "Louvers for day rejection",
+          "control": "Autonomous thermal management"
+        },
+        "lunar_dust_protection": {
+          "sealing": "Hermetically sealed enclosure",
+          "connectors": "Dust-resistant design",
+          "thermal_interface": "No exposed surfaces",
+          "electrostatic": "Grounding for dust mitigation"
+        },
+        "10_year_mission": {
+          "radiation": "100krad TID",
+          "components": "NASA EEE-INST-002 Class B",
+          "redundancy": "Critical functions dual",
+          "screening": "Full lot qualification"
+        },
+        "rtg_battery_hybrid": {
+          "rtg": "MMRTG 100W average",
+          "battery": "28V Li-ion for peaks",
+          "charging": "Continuous trickle from RTG"
+        },
+        "hibernation_mode": {
+          "power": "<5W survival mode",
+          "duration": "Lunar night 14 days",
+          "wake_up": "Autonomous at sunrise",
+          "heater_power": "From RTG"
+        },
+        "deep_space_comms": {
+          "x_band": "For Earth link",
+          "uhf": "For relay",
+          "power": "25W transmitter"
+        },
+        "efficiency_achieved": "92%"
+      }
+    },
+    {
+      "id": "L3_078",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Floating Ocean Sensor",
+      "problem_statement": "Design a SEPIC converter for drifting ocean buoy sensor package. Input: 3V-6V from wave energy harvester, Output: 5V at 200mA for sensors and satellite transmitter. Must survive years of ocean deployment, handle constant wave motion, and resist biofouling.",
+      "objectives": {
+        "primary": ["Multi-year ocean deployment", "Wave motion tolerance", "Biofouling resistance"],
+        "secondary": ["Energy harvesting MPPT", "Satellite uplink"],
+        "constraints": ["No maintenance access", "Salt water immersion"]
+      },
+      "solution": {
+        "design_approach": "Fully encapsulated, pressure-compensated design. Energy buffer for variable harvesting. Anti-fouling coatings.",
+        "switching_frequency": "400kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_3V": "D = 5V / (3V + 5V) = 0.625",
+          "at_6V": "D = 5V / (6V + 5V) = 0.45"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.1A",
+          "calculation": "L1 = 3V × 0.625 / (400kHz × 0.1A) = 47μH",
+          "selected_value": "47μH",
+          "type": "Potted shielded",
+          "current_rating": "0.5A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.1A",
+          "calculation": "L2 = 5V × 0.55 / (400kHz × 0.1A) = 69μH",
+          "selected_value": "68μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "4.7μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "10V"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "22μF ceramic",
+          "voltage_rating": "10V"
+        },
+        "ocean_deployment_design": {
+          "enclosure": "Titanium sphere",
+          "sealing": "Hermetic (no organic seals)",
+          "pressure": "Rated 100m depth",
+          "potting": "Complete internal encapsulation"
+        },
+        "multi_year_life": {
+          "components": "Industrial long-life",
+          "battery": "Primary lithium backup",
+          "mtbf": ">5 years calculated",
+          "redundancy": "Dual supply paths"
+        },
+        "wave_motion": {
+          "acceleration": "±5g continuous",
+          "frequency": "0.1-1Hz wave period",
+          "mounting": "All components potted",
+          "vibration": "No resonance in band"
+        },
+        "biofouling_resistance": {
+          "external": "Copper-based antifouling paint",
+          "sensors": "Sacrificial copper anodes",
+          "cleaning": "None possible",
+          "design_life": "2 years before degradation"
+        },
+        "wave_energy_harvester": {
+          "type": "Linear generator from wave motion",
+          "output": "Variable 3-6V",
+          "power": "0.5-2W average",
+          "storage": "Supercapacitor buffer"
+        },
+        "energy_mppt": {
+          "algorithm": "Perturb and observe",
+          "efficiency": ">95% tracking",
+          "minimum_input": "2V startup"
+        },
+        "satellite_transmitter": {
+          "system": "Iridium SBD",
+          "power": "1W peak",
+          "data_rate": "340 bytes/message",
+          "frequency": "Hourly position/data"
+        },
+        "sensors": {
+          "temperature": "Sea surface",
+          "salinity": "Conductivity",
+          "gps": "Position tracking"
+        },
+        "efficiency_achieved": "86%"
+      }
+    },
+    {
+      "id": "L3_079",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Superconducting MRI Gradient",
+      "problem_statement": "Design a half-bridge converter for MRI gradient coil amplifier. Input: 600V DC, Output: ±400V at 300A for gradient coil. Must achieve 2T/m gradient strength, <1μs rise time, and operate continuously during scans without patient acoustic disturbance.",
+      "objectives": {
+        "primary": ["2T/m gradient", "<1μs rise time", "Low acoustic noise"],
+        "secondary": ["Eddy current compensation", "Duty cycle handling"],
+        "constraints": ["MRI suite EMC", "Patient safety"]
+      },
+      "solution": {
+        "design_approach": "High-bandwidth current source amplifier. Resonant transitions for EMC. Acoustic damping of all components.",
+        "topology": "H-bridge with soft switching (bidirectional)",
+        "switching_frequency": "100kHz (above audio for main PWM)",
+        "output_voltage_swing": {
+          "positive": "+400V",
+          "negative": "-400V",
+          "slew_rate": "800V/μs capability"
+        },
+        "gradient_coil": {
+          "inductance": "100μH",
+          "resistance": "10mΩ",
+          "max_current": "300A",
+          "max_dI_dt": "300A/μs"
+        },
+        "current_rise_time": {
+          "formula": "di/dt = V/L",
+          "calculation": "di/dt = 400V / 100μH = 4A/μs",
+          "to_300A": "75μs theoretical",
+          "with_control": "<1μs for small steps"
+        },
+        "dc_link_capacitor": {
+          "formula": "C for 120kW peak",
+          "selected_value": "10mF film",
+          "voltage_rating": "800V"
+        },
+        "output_filter": {
+          "formula": "Minimal for bandwidth",
+          "selected_value": "No additional (coil is inductor)",
+          "damping": "RC snubber network"
+        },
+        "input_capacitor": {
+          "selected_value": "5mF film bank",
+          "voltage_rating": "800V"
+        },
+        "acoustic_noise_control": {
+          "coil_forces": "Lorentz force causes vibration",
+          "gradient_design": "Acoustic shielded",
+          "power_supply": "No transformer hum",
+          "target": "<99dB during scan"
+        },
+        "switching_strategy": {
+          "main_pwm": "100kHz for current control",
+          "soft_switching": "ZVS transitions",
+          "spread_spectrum": "For EMC"
+        },
+        "eddy_current_compensation": {
+          "pre_emphasis": "Digital filter on reference",
+          "model_based": "Known coil/cryostat model",
+          "real_time": "Adaptive correction"
+        },
+        "duty_cycle_handling": {
+          "peak_power": "120kW",
+          "average_power": "20kW",
+          "thermal_design": "Continuous 50% duty"
+        },
+        "mri_emc": {
+          "rf_shielding": "Filtered enclosure",
+          "gradient_shielding": "Active shielding coils",
+          "emissions": "Below noise floor"
+        },
+        "patient_safety": {
+          "fault_current": "Limited by hardware",
+          "dB_dt_limit": "<100T/s for nerves",
+          "interlock": "Scanner safety system"
+        },
+        "efficiency_achieved": "94%"
+      }
+    },
+    {
+      "id": "L3_080",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Exascale Computer Power",
+      "problem_statement": "Design a buck converter for exascale supercomputer CPU power delivery. Input: 48V rack distribution, Output: 0.7V at 1000A for GPU compute die. Must achieve 1mΩ total power path, <1μs transient response, and fit within GPU interposer constraints.",
+      "objectives": {
+        "primary": ["1mΩ power path", "<1μs response", "Interposer integration"],
+        "secondary": ["Efficiency >95%", "Thermal co-design"],
+        "constraints": ["Die area budget", "3D packaging rules"]
+      },
+      "solution": {
+        "design_approach": "Integrated voltage regulator (IVR) on interposer. GaN switches for density. Advanced packaging for low impedance.",
+        "topology": "64-phase interleaved IVR",
+        "switching_frequency": "10MHz per phase (640MHz effective)",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 0.7V / 48V = 0.0146"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "5A per phase (32%)",
+          "calculation": "L = 0.7V × 0.985 / (10MHz × 5A) = 13.8nH",
+          "selected_value": "15nH per phase",
+          "type": "Thin-film magnetic on interposer",
+          "dcr": "<0.5mΩ per phase"
+        },
+        "output_capacitor": {
+          "formula": "C for <1μs response",
+          "selected_value": "50mF (MIM + deep trench)",
+          "type": "On-package capacitance",
+          "esl": "<5pH"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF per power module",
+          "voltage_rating": "63V"
+        },
+        "power_path_impedance": {
+          "target": "<1mΩ DC + <1mΩ AC",
+          "inductor_dcr": "0.5mΩ (parallel phases)",
+          "switch_rds_on": "0.3mΩ effective",
+          "pcb_resistance": "0.1mΩ",
+          "total": "0.9mΩ achieved"
+        },
+        "ivr_technology": {
+          "switches": "GaN on interposer",
+          "driver": "Integrated with switch",
+          "controller": "Digital multi-phase"
+        },
+        "transient_response": {
+          "load_step": "500A in 100ns",
+          "voltage_deviation": "±20mV",
+          "recovery": "<1μs to regulation",
+          "method": "AVP + fast phases"
+        },
+        "interposer_integration": {
+          "area": "10mm × 10mm per 16-phase module",
+          "modules": "4 modules for 64 phases",
+          "routing": "Top metal power planes",
+          "thermal": "Through-silicon vias to cooler"
+        },
+        "thermal_co_design": {
+          "power_loss": "35W at 95% efficiency",
+          "dissipation": "Shared with GPU cooler",
+          "thermal_interface": "Integrated cold plate"
+        },
+        "advanced_packaging": {
+          "technology": "2.5D with silicon interposer",
+          "interconnect": "Micro-bumps 40μm pitch",
+          "capacitors": "Deep trench in interposer"
+        },
+        "current_sharing": {
+          "method": "Average current mode",
+          "accuracy": "<3% imbalance",
+          "sensors": "Inductor DCR sensing"
+        },
+        "efficiency_achieved": "95% at full load"
+      }
+    }
+  ]
+}

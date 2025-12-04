@@ -1,0 +1,594 @@
+{
+  "level": 4,
+  "solutions": [
+    {
+      "id": "L4_001",
+      "prompt": "Design a Type III compensator for a 12V/5A buck with 50kHz crossover, 60deg phase margin",
+      "solution": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "f_sw": 300000,
+        "control_objective": {
+          "crossover_frequency": 50000,
+          "phase_margin": 60,
+          "gain_margin": 10
+        },
+        "power_stage": {
+          "L": {"value": 22e-6, "unit": "H"},
+          "C": {"value": 100e-6, "unit": "F"},
+          "ESR": {"value": 0.01, "unit": "Ω"},
+          "R_load": {"value": 2.4, "unit": "Ω"}
+        },
+        "plant_analysis": {
+          "LC_double_pole": "f_LC = 1/(2*pi*sqrt(L*C)) = 3.4kHz",
+          "ESR_zero": "f_ESR = 1/(2*pi*ESR*C) = 159kHz",
+          "DC_gain": "Vin = 24V (40*log10(24) = 27.6dB)",
+          "phase_at_50kHz": "-180 + atan(50k/159k) = -162 deg"
+        },
+        "compensator_design": {
+          "type": "Type III (3 poles, 2 zeros)",
+          "transfer_function": "Gc(s) = K * (s+wz1)(s+wz2) / (s*(s+wp1)(s+wp2))",
+          "zeros": {
+            "fz1": "3.4kHz (at LC resonance)",
+            "fz2": "10kHz (for phase boost)"
+          },
+          "poles": {
+            "fp1": "Origin (integrator)",
+            "fp2": "150kHz (half f_sw)",
+            "fp3": "150kHz (noise filtering)"
+          },
+          "gain_K": "Calculated for unity gain at 50kHz crossover"
+        },
+        "component_values": {
+          "R1": {"value": 10000, "unit": "Ω", "note": "sets DC gain"},
+          "R2": {"value": 22000, "unit": "Ω"},
+          "R3": {"value": 4700, "unit": "Ω"},
+          "C1": {"value": 4.7e-9, "unit": "F"},
+          "C2": {"value": 330e-12, "unit": "F"},
+          "C3": {"value": 1e-9, "unit": "F"}
+        },
+        "verification": {
+          "bode_analysis": {
+            "gain_at_1Hz": "60dB",
+            "gain_at_50kHz": "0dB (crossover)",
+            "phase_at_50kHz": "-120 deg",
+            "phase_margin": "60 deg",
+            "gain_margin": "12dB"
+          },
+          "step_response": {
+            "overshoot": "<10%",
+            "settling_time": "100us"
+          }
+        },
+        "expected_results": {
+          "crossover_achieved_kHz": 50,
+          "phase_margin_deg": 60,
+          "gain_margin_dB": 12
+        }
+      }
+    },
+    {
+      "id": "L4_002",
+      "prompt": "Design current mode control with slope compensation for a 48V/12V/10A buck",
+      "solution": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 10.0,
+        "f_sw": 200000,
+        "control_mode": "peak_current_mode",
+        "power_stage": {
+          "L": {"value": 33e-6, "unit": "H"},
+          "C": {"value": 220e-6, "unit": "F"},
+          "R_sense": {"value": 0.01, "unit": "Ω"},
+          "R_load": {"value": 1.2, "unit": "Ω"}
+        },
+        "current_loop_design": {
+          "duty_cycle": "D = Vout/Vin = 0.25",
+          "inductor_slope": {
+            "rising": "Sn = (Vin-Vout)/L = (48-12)/33e-6 = 1.09 A/us",
+            "falling": "Sf = Vout/L = 12/33e-6 = 0.36 A/us"
+          },
+          "subharmonic_condition": "D > 0.5 OR unstable without slope comp at D > 0.33",
+          "slope_compensation": {
+            "required_Se": "Se >= Sf/2 = 0.18 A/us minimum",
+            "selected_Se": "0.25 A/us (70% of Sf)",
+            "implementation": "Ramp from oscillator summed with current sense",
+            "ramp_voltage": "Se * Rsense * T = 0.25 * 0.01 * 5us = 12.5mV/period"
+          }
+        },
+        "voltage_loop_design": {
+          "type": "Type II compensator",
+          "inner_loop_effect": "Current loop makes power stage look like current source",
+          "effective_plant": "Single pole at f = 1/(2*pi*R*C) = 3Hz",
+          "compensator": {
+            "zero": "3Hz (cancels load pole)",
+            "pole": "50kHz (noise filter)",
+            "crossover": "10kHz"
+          }
+        },
+        "stability_analysis": {
+          "current_loop_bandwidth": ">f_sw/4 = 50kHz",
+          "voltage_loop_crossover": "10kHz",
+          "phase_margin": "65 deg"
+        },
+        "expected_results": {
+          "current_loop_stable": true,
+          "voltage_regulation": "+/-1%",
+          "transient_response_us": 50
+        }
+      }
+    },
+    {
+      "id": "L4_003",
+      "prompt": "Design a digital compensator (difference equation) for a 5V/10A buck with 100kHz sampling",
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 10.0,
+        "f_sw": 500000,
+        "f_sample": 100000,
+        "control_mode": "digital_voltage_mode",
+        "analog_compensator": {
+          "type": "Type II",
+          "Gc_s": "K * (s + wz) / (s * (s + wp))",
+          "wz": "2*pi*5000 rad/s",
+          "wp": "2*pi*40000 rad/s",
+          "K": 15000
+        },
+        "discretization": {
+          "method": "Tustin (bilinear) transform",
+          "s_to_z": "s = (2/T) * (z-1)/(z+1)",
+          "T": "10us (1/f_sample)",
+          "prewarping": "At crossover frequency 20kHz"
+        },
+        "digital_compensator": {
+          "transfer_function_z": "Gc(z) = (b0 + b1*z^-1 + b2*z^-2) / (1 + a1*z^-1 + a2*z^-2)",
+          "coefficients": {
+            "b0": 1.523,
+            "b1": 0.142,
+            "b2": -1.381,
+            "a1": -0.725,
+            "a2": -0.275
+          },
+          "difference_equation": "d[n] = b0*e[n] + b1*e[n-1] + b2*e[n-2] - a1*d[n-1] - a2*d[n-2]"
+        },
+        "implementation": {
+          "adc": {
+            "resolution": "12-bit",
+            "sample_time": "<1us",
+            "input_scaling": "5V -> 4096 counts"
+          },
+          "computation": {
+            "processor": "ARM Cortex-M4 or DSP",
+            "arithmetic": "32-bit fixed-point Q15",
+            "execution_time": "<2us"
+          },
+          "dpwm": {
+            "resolution": "10-bit",
+            "dead_time": "50ns"
+          }
+        },
+        "antiwindup": {
+          "method": "Conditional integration",
+          "saturation_limits": "D_min=0.1, D_max=0.9"
+        },
+        "expected_results": {
+          "crossover_kHz": 20,
+          "phase_margin_deg": 55,
+          "computation_delay_us": 1.5
+        }
+      }
+    },
+    {
+      "id": "L4_004",
+      "prompt": "Design an average current mode controller for a boost PFC with THD <5%",
+      "solution": {
+        "topology": "boost_pfc",
+        "vin_ac": "230VAC 50Hz",
+        "vout": 400.0,
+        "power": 1000,
+        "f_sw": 100000,
+        "control_mode": "average_current_mode",
+        "control_architecture": {
+          "outer_loop": "Voltage loop (slow, <20Hz bandwidth)",
+          "inner_loop": "Average current loop (fast, ~10kHz)",
+          "multiplier": "Iac_ref = (Vbus_error * |Vin|) / Vin_rms^2"
+        },
+        "current_loop_design": {
+          "plant": {
+            "inductor": {"value": 500e-6, "unit": "H"},
+            "equivalent_R": "Vin_peak / Iin_peak"
+          },
+          "compensator": {
+            "type": "Type II with high gain",
+            "zero": "1kHz",
+            "pole": "50kHz",
+            "integrator_gain": "High for low steady-state error"
+          },
+          "current_sense": {
+            "method": "Shunt resistor + diff amp",
+            "R_sense": "0.02 ohm",
+            "gain": 10
+          }
+        },
+        "voltage_loop_design": {
+          "bandwidth": "10Hz (below 2x line frequency)",
+          "reason": "Reject 100Hz ripple from output",
+          "compensator": {
+            "type": "PI with low-pass",
+            "Ki": 100,
+            "Kp": 0.5,
+            "filter": "10Hz LPF on Vout"
+          }
+        },
+        "feedforward": {
+          "Vin_rms_squared": "For constant power factor across line",
+          "implementation": "RMS calculation with 100ms window"
+        },
+        "thd_analysis": {
+          "sources": [
+            "Current loop tracking error",
+            "Zero-crossing distortion",
+            "Dead-time effects"
+          ],
+          "mitigation": {
+            "high_bandwidth_current_loop": "~10kHz",
+            "zero_crossing_blanking": "Disable near zero",
+            "thd_achieved": "<3%"
+          }
+        },
+        "expected_results": {
+          "power_factor": 0.995,
+          "thd_percent": 3,
+          "efficiency": 0.97
+        }
+      }
+    },
+    {
+      "id": "L4_005",
+      "prompt": "Design adaptive voltage positioning (AVP) control for a 1.0V/100A CPU VRM",
+      "solution": {
+        "topology": "multiphase_buck",
+        "vin": 12.0,
+        "vout_nominal": 1.0,
+        "iout_max": 100.0,
+        "phases": 6,
+        "f_sw": 500000,
+        "control_mode": "current_mode_with_avp",
+        "avp_specification": {
+          "loadline": {
+            "R_ll": "1.0 mOhm",
+            "Vout_no_load": "1.025V",
+            "Vout_full_load": "0.925V",
+            "droop": "100mV over 100A"
+          },
+          "purpose": [
+            "Reduce output capacitance",
+            "Better transient response",
+            "Lower peak voltage stress"
+          ]
+        },
+        "control_implementation": {
+          "current_sense": {
+            "method": "DCR sensing per phase",
+            "R_dcr": "0.5 mOhm",
+            "time_constant_matching": "L/DCR = R*C"
+          },
+          "droop_injection": {
+            "method": "Analog: sum current signal into feedback",
+            "R_droop": "Gain resistor in feedback path",
+            "calculation": "R_droop = R_ll * Gm_error_amp"
+          },
+          "compensator": {
+            "type": "Type III with current feedback",
+            "bandwidth": "100kHz",
+            "phase_margin": "55 deg"
+          }
+        },
+        "transient_optimization": {
+          "load_step": "50A in 100ns",
+          "without_avp": {
+            "undershoot": "80mV",
+            "C_required": "3000uF"
+          },
+          "with_avp": {
+            "undershoot": "50mV + 50mV droop = 100mV (in spec)",
+            "C_required": "1500uF (50% reduction)"
+          }
+        },
+        "expected_results": {
+          "loadline_accuracy": "+/-5%",
+          "transient_response_us": 10,
+          "capacitance_reduction": "50%"
+        }
+      }
+    },
+    {
+      "id": "L4_006",
+      "prompt": "Design a small-signal model and compensator for a flyback in CCM",
+      "solution": {
+        "topology": "flyback",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.33,
+        "turns_ratio": 0.5,
+        "small_signal_model": {
+          "method": "State-space averaging",
+          "key_parameters": {
+            "Lm": {"value": 100e-6, "unit": "H"},
+            "C": {"value": 220e-6, "unit": "F"},
+            "ESR": {"value": 0.02, "unit": "Ω"},
+            "R_load": {"value": 6.0, "unit": "Ω"}
+          },
+          "control_to_output": {
+            "transfer_function": "Gvd(s) = Gdo * (1 - s/w_rhpz) * (1 + s/w_esr) / ((1 + s/w_p)(1 + s/w_n)^2)",
+            "dc_gain_Gdo": "Vout/D' * n = 12/0.67 * 0.5 = 8.95V",
+            "rhp_zero": "w_rhpz = R*D'^2 / (n^2*Lm) = 6*0.45 / (0.25*100e-6) = 108 krad/s = 17.2kHz",
+            "esr_zero": "w_esr = 1/(ESR*C) = 1/(0.02*220e-6) = 227 krad/s = 36kHz",
+            "output_pole": "w_p = 2/(R*C) = 2/(6*220e-6) = 1.5 krad/s = 239Hz"
+          }
+        },
+        "compensator_design": {
+          "challenge": "RHP zero limits bandwidth to < w_rhpz/3 = 5.7kHz",
+          "type": "Type II",
+          "crossover_target": "5kHz",
+          "zero": "239Hz (cancel output pole)",
+          "pole": "30kHz (above crossover, below RHP zero)",
+          "gain": "For 0dB at 5kHz crossover"
+        },
+        "stability_analysis": {
+          "bode_plot": {
+            "crossover": "5kHz",
+            "phase_at_crossover": "-125 deg",
+            "phase_margin": "55 deg",
+            "gain_margin": "8dB"
+          },
+          "rhp_zero_effect": "Phase drops toward -270 deg above 17kHz"
+        },
+        "expected_results": {
+          "bandwidth_kHz": 5,
+          "phase_margin_deg": 55,
+          "gain_margin_dB": 8
+        }
+      }
+    },
+    {
+      "id": "L4_007",
+      "prompt": "Design V2 control architecture for a low-ESR ceramic output buck",
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 1.8,
+        "iout": 20.0,
+        "f_sw": 1000000,
+        "C_out": {"value": 200e-6, "unit": "F", "type": "MLCC", "ESR": "2mOhm"},
+        "control_mode": "V2_control",
+        "v2_architecture": {
+          "concept": "Output voltage directly modulates PWM ramp",
+          "signals": {
+            "ramp": "Vout ripple is the PWM ramp",
+            "reference": "DC setpoint",
+            "comparator": "Vout vs Reference generates PWM"
+          },
+          "benefits": [
+            "Single-cycle transient response",
+            "Simple implementation",
+            "No ESR zero needed"
+          ]
+        },
+        "implementation": {
+          "direct_method": {
+            "Vout_sense": "Direct to PWM comparator",
+            "scaling": "Resistor divider for reference",
+            "ramp_injection": "Synthetic ramp added for stability"
+          },
+          "ramp_generation": {
+            "reason": "Ceramic ESR too low for natural ramp",
+            "method": "Current sense or RC from switch node",
+            "amplitude": "50mV p-p"
+          }
+        },
+        "stability_analysis": {
+          "without_ramp": {
+            "issue": "Subharmonic oscillation at D > 0.5",
+            "cause": "No slope information from Vout"
+          },
+          "with_synthetic_ramp": {
+            "slope": "0.1V/T",
+            "stability": "Stable across load and line"
+          }
+        },
+        "transient_performance": {
+          "load_step": "10A",
+          "response_time": "1 switching cycle = 1us",
+          "undershoot": "Vout * L/(Vin-Vout)/C = 15mV"
+        },
+        "expected_results": {
+          "transient_response_us": 1,
+          "undershoot_mv": 20,
+          "phase_margin_deg": 45
+        }
+      }
+    },
+    {
+      "id": "L4_008",
+      "prompt": "Design an LLC frequency control loop for a 400V to 48V/10A resonant converter",
+      "solution": {
+        "topology": "llc_resonant",
+        "vin": 400.0,
+        "vout": 48.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "f_resonant": 100000,
+        "f_sw_range": "80kHz - 140kHz",
+        "resonant_tank": {
+          "Lr": {"value": 50e-6, "unit": "H"},
+          "Cr": {"value": 50e-9, "unit": "F"},
+          "Lm": {"value": 250e-6, "unit": "H"},
+          "fr": "1/(2*pi*sqrt(Lr*Cr)) = 100kHz",
+          "turns_ratio": 0.24
+        },
+        "gain_characteristics": {
+          "at_resonance": "M = 1 (unity gain)",
+          "below_resonance": "M > 1 (boost)",
+          "above_resonance": "M < 1 (buck)",
+          "Q_loaded": "sqrt(Lr/Cr) / R_ac = 0.7"
+        },
+        "control_design": {
+          "method": "Voltage-controlled oscillator (VCO)",
+          "error_amp": {
+            "type": "Type II compensator",
+            "bandwidth": "2kHz",
+            "phase_margin": "60 deg"
+          },
+          "vco": {
+            "gain": "10kHz/V",
+            "range": "80-140kHz",
+            "input_range": "0-6V"
+          }
+        },
+        "small_signal_model": {
+          "approach": "Extended describing function",
+          "control_to_output": {
+            "dc_gain": "Varies with operating point",
+            "dominant_pole": "Output filter pole",
+            "resonant_effects": "Complex pair near fr"
+          }
+        },
+        "burst_mode": {
+          "for_light_load": "<10% load",
+          "method": "ON/OFF cycling",
+          "frequency": "Fixed at fr during burst"
+        },
+        "expected_results": {
+          "regulation": "+/-1%",
+          "load_transient_response_us": 200,
+          "efficiency_at_resonance": 0.96
+        }
+      }
+    },
+    {
+      "id": "L4_009",
+      "prompt": "Design digital current sharing for a 4-phase interleaved buck (48V to 12V/40A)",
+      "solution": {
+        "topology": "multiphase_buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout_total": 40.0,
+        "phases": 4,
+        "iout_per_phase": 10.0,
+        "f_sw": 250000,
+        "controller": "digital",
+        "interleaving": {
+          "phase_shift": "360/4 = 90 degrees",
+          "effective_frequency": "4 * 250kHz = 1MHz",
+          "ripple_cancellation": "Maximum at D = 25%, 50%, 75%"
+        },
+        "current_sharing_architecture": {
+          "method": "Master-slave with digital averaging",
+          "current_sense": {
+            "type": "Per-phase inductor DCR",
+            "accuracy": "+/-2%",
+            "adc": "12-bit, 1MSPS per channel"
+          },
+          "sharing_algorithm": {
+            "average_calculation": "Iavg = (I1 + I2 + I3 + I4) / 4",
+            "error_per_phase": "Ierr_n = In - Iavg",
+            "adjustment": "Dn = Dn - Ki * Ierr_n (integral correction)"
+          }
+        },
+        "digital_implementation": {
+          "processor": "C2000 or similar",
+          "sample_rate": "1MHz (synchronized to PWM)",
+          "computation": {
+            "current_averaging": "<1us",
+            "duty_adjustment": "Per PWM period",
+            "limit_checking": "Phase shedding if unbalanced >20%"
+          }
+        },
+        "phase_shedding": {
+          "purpose": "Light-load efficiency",
+          "thresholds": {
+            "4_phases": ">30A",
+            "3_phases": "15-30A",
+            "2_phases": "5-15A",
+            "1_phase": "<5A"
+          },
+          "transition": "Smooth current transfer over 1ms"
+        },
+        "expected_results": {
+          "current_sharing_accuracy": "+/-3%",
+          "output_ripple_reduction": "75%",
+          "light_load_efficiency": "+5% at 10% load"
+        }
+      }
+    },
+    {
+      "id": "L4_010",
+      "prompt": "Design model predictive control (MPC) for a single-phase grid-tied inverter",
+      "solution": {
+        "topology": "h_bridge_inverter",
+        "vdc": 400.0,
+        "vac_grid": "240VAC 60Hz",
+        "power": 5000,
+        "f_sw": 20000,
+        "f_control": 20000,
+        "control_method": "finite_control_set_MPC",
+        "mpc_architecture": {
+          "prediction_horizon": "N = 1 (single step)",
+          "control_set": {
+            "states": ["+Vdc", "0", "-Vdc"],
+            "h_bridge_states": ["S1S4", "S1S3/S2S4", "S2S3"]
+          },
+          "model": {
+            "state": "x = [i_grid, v_c]",
+            "continuous": "dx/dt = A*x + B*u + E*v_grid",
+            "discrete": "x(k+1) = Ad*x(k) + Bd*u(k) + Ed*v(k)"
+          }
+        },
+        "cost_function": {
+          "formulation": "J = lambda_i*(i_ref - i_pred)^2 + lambda_sw*n_sw",
+          "terms": {
+            "current_tracking": "Primary objective",
+            "switching_reduction": "Secondary (optional)"
+          },
+          "weights": {
+            "lambda_i": 1,
+            "lambda_sw": 0.1
+          }
+        },
+        "prediction_algorithm": {
+          "for_each_state": [
+            "1. Predict i(k+1) for u = +Vdc",
+            "2. Predict i(k+1) for u = 0",
+            "3. Predict i(k+1) for u = -Vdc",
+            "4. Calculate cost J for each",
+            "5. Select u with minimum J"
+          ],
+          "computation_time": "<25us (within control period)"
+        },
+        "current_reference": {
+          "generation": "PLL-synchronized sine wave",
+          "amplitude": "From power reference",
+          "phase": "In phase with grid (unity PF)"
+        },
+        "advantages": {
+          "vs_PI": ["Fast transient", "No tuning", "Handles constraints"],
+          "vs_hysteresis": ["Fixed frequency", "Lower THD"]
+        },
+        "expected_results": {
+          "thd_current": "<3%",
+          "power_factor": 0.99,
+          "dynamic_response_cycles": 2
+        }
+      }
+    }
+  ]
+}

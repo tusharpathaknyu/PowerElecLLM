@@ -1,0 +1,448 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_141",
+      "title": "Concert Venue Wireless Mic Power",
+      "application": "Professional wireless microphone system requiring ultra-clean audio power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 9,
+        "V_out": 3.3,
+        "P_out": 2,
+        "ripple_voltage": 0.003,
+        "efficiency_target": 0.90,
+        "f_sw": 2000000,
+        "audio_snr": "120dB"
+      },
+      "constraints": [
+        "Audio SNR > 120 dB compatibility",
+        "Battery operation 2×AA or Li-Ion",
+        "RF transmission interference-free",
+        "Stage environment durability"
+      ],
+      "design_approach": "Ultra-low-noise buck for audio quality. High frequency above audio band. EMC optimization for RF transmission. Ruggedized for professional use.",
+      "solution": {
+        "L": 0.0000022,
+        "C_out": 0.00022,
+        "C_in": 0.0001,
+        "R_load": 5.445,
+        "duty_cycle": 0.367,
+        "component_ratings": {
+          "V_switch": 15,
+          "I_switch": 1,
+          "V_diode": 15,
+          "I_diode": 1,
+          "V_cap": 5,
+          "I_L_rms": 0.65,
+          "P_dissipation": 0.2
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 9 = 0.367",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.633 / (2000000 × 0.47) = 2.2 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.47 / (8 × 2000000 × 0.003) = 220 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.6 × 0.367 × 0.633 / (2000000 × 0.0007) = 100 µF"
+      }
+    },
+    {
+      "id": "L2_142",
+      "title": "Racing Vehicle Data Logger Power",
+      "application": "Motorsport data acquisition requiring high-vibration operation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 14,
+        "V_out": 5,
+        "P_out": 15,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.90,
+        "f_sw": 500000,
+        "vibration_class": "20g"
+      },
+      "constraints": [
+        "20g vibration survival",
+        "Wide input 8-18V for race battery",
+        "GPS and sensor array power",
+        "Quick-disconnect for pit stops"
+      ],
+      "design_approach": "Vibration-hardened buck with potted construction. Wide input for battery variation. Sensor and GPS power integration. Motorsport-grade connectors.",
+      "solution": {
+        "L": 0.000015,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 1.667,
+        "duty_cycle": 0.357,
+        "component_ratings": {
+          "V_switch": 30,
+          "I_switch": 5,
+          "V_diode": 30,
+          "I_diode": 5,
+          "V_cap": 10,
+          "I_L_rms": 3.3,
+          "P_dissipation": 1.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 14 = 0.357",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.643 / (500000 × 0.214) = 15 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.214 / (8 × 500000 × 0.05) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 3 × 0.357 × 0.643 / (500000 × 0.0031) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_143",
+      "title": "Smart Meter Communication Module",
+      "application": "Utility smart meter requiring cellular/RF communication power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 3.8,
+        "P_out": 8,
+        "ripple_voltage": 0.038,
+        "efficiency_target": 0.90,
+        "f_sw": 500000,
+        "lifetime": "20_years"
+      },
+      "constraints": [
+        "20-year operational lifetime",
+        "Wide temperature -40°C to +85°C",
+        "Cellular modem TX burst power",
+        "Tamper-resistant enclosure"
+      ],
+      "design_approach": "Long-life buck with industrial components. Wide temperature operation. Burst mode for cellular transmission. Meter interface integration.",
+      "solution": {
+        "L": 0.000015,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 1.805,
+        "duty_cycle": 0.317,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 4,
+          "V_diode": 20,
+          "I_diode": 4,
+          "V_cap": 10,
+          "I_L_rms": 2.3,
+          "P_dissipation": 0.8
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.8 / 12 = 0.317",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.8 × 0.683 / (500000 × 0.173) = 15 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.173 / (8 × 500000 × 0.038) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 2.1 × 0.317 × 0.683 / (500000 × 0.0021) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_144",
+      "title": "Yacht Navigation System Power",
+      "application": "Marine navigation requiring isolated power for sensitive electronics",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 12,
+        "P_out": 50,
+        "ripple_voltage": 0.12,
+        "efficiency_target": 0.87,
+        "f_sw": 150000,
+        "nmea_2000": true
+      },
+      "constraints": [
+        "NMEA 2000 bus compatibility",
+        "Marine bonding requirements",
+        "Salt spray corrosion resistance",
+        "Ground loop elimination"
+      ],
+      "design_approach": "Isolated flyback for ground loop elimination. Marine-grade construction. NMEA 2000 power and data integration. Conformal coating for salt environment.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.00068,
+        "C_in": 0.00022,
+        "R_load": 2.88,
+        "duty_cycle": 0.5,
+        "turns_ratio": 2,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 5,
+          "V_diode": 40,
+          "I_diode": 8,
+          "V_cap": 20,
+          "I_L_rms": 3,
+          "P_dissipation": 6.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 12 × 2 / (24 + 12 × 2) = 0.5",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 24 × 0.5 / (150000 × 0.53) = 150 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 4.17 × 0.5 / (150000 × 0.12) = 680 µF",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 50 / (24 × 150000 × 0.077 × 0.87) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_145",
+      "title": "Portable PA System Amplifier",
+      "application": "Battery-powered PA system requiring efficient Class-D amplifier supply",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 14.4,
+        "V_out": 28,
+        "P_out": 200,
+        "ripple_voltage": 0.28,
+        "efficiency_target": 0.94,
+        "f_sw": 300000,
+        "battery_runtime": "6hr"
+      },
+      "constraints": [
+        "6-hour runtime on battery pack",
+        "Class-D amplifier rail voltage",
+        "Bluetooth audio low latency",
+        "Portable event operation"
+      ],
+      "design_approach": "High-efficiency boost for battery runtime. Split rail generation for Class-D. Low-latency audio path. Portable ruggedized design.",
+      "solution": {
+        "L": 0.000033,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 3.92,
+        "duty_cycle": 0.486,
+        "component_ratings": {
+          "V_switch": 50,
+          "I_switch": 20,
+          "V_diode": 50,
+          "I_diode": 20,
+          "V_cap": 40,
+          "I_L_rms": 15,
+          "P_dissipation": 12
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 14.4/28 = 0.486",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 14.4 × 0.486 / (300000 × 0.71) = 33 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 7.14 × 0.486 / (300000 × 0.28) = 470 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 13.9 × 0.486 / (300000 × 0.068) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_146",
+      "title": "Industrial Barcode Scanner Power",
+      "application": "Warehouse scanner requiring fast charge and drop resistance",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 8.4,
+        "V_out": 3.3,
+        "P_out": 4,
+        "ripple_voltage": 0.033,
+        "efficiency_target": 0.91,
+        "f_sw": 1000000,
+        "drop_test": "2m"
+      },
+      "constraints": [
+        "2-meter drop test survival",
+        "Fast charging (2 hours)",
+        "Industrial temperature range",
+        "Laser/imager power management"
+      ],
+      "design_approach": "Ruggedized buck for drop survival. Fast charge compatibility. Wide temperature components. Scanner module power sequencing.",
+      "solution": {
+        "L": 0.0000033,
+        "C_out": 0.00022,
+        "C_in": 0.0001,
+        "R_load": 2.72,
+        "duty_cycle": 0.393,
+        "component_ratings": {
+          "V_switch": 15,
+          "I_switch": 2,
+          "V_diode": 15,
+          "I_diode": 2,
+          "V_cap": 5,
+          "I_L_rms": 1.3,
+          "P_dissipation": 0.36
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 8.4 = 0.393",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.607 / (1000000 × 0.61) = 3.3 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.61 / (8 × 1000000 × 0.033) = 220 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 1.21 × 0.393 × 0.607 / (1000000 × 0.0029) = 100 µF"
+      }
+    },
+    {
+      "id": "L2_147",
+      "title": "Greenhouse Grow Light Driver",
+      "application": "Horticultural LED lighting requiring spectrum control and efficiency",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 40,
+        "P_out": 300,
+        "ripple_voltage": 0.4,
+        "efficiency_target": 0.95,
+        "f_sw": 200000,
+        "spectrum_control": "red_blue_ratio"
+      },
+      "constraints": [
+        "Independent red/blue channel control",
+        "IP65 for greenhouse humidity",
+        "Sunrise/sunset simulation",
+        "PPFD uniformity optimization"
+      ],
+      "design_approach": "Multi-channel buck for spectrum control. IP65 sealed construction. Programmable daily light profiles. Dimmable 0-100% each channel.",
+      "solution": {
+        "L": 0.0002,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 5.33,
+        "duty_cycle": 0.833,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 12,
+          "V_diode": 80,
+          "I_diode": 12,
+          "V_cap": 60,
+          "I_L_rms": 8,
+          "P_dissipation": 15
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 40 / 48 = 0.833",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 40 × 0.167 / (200000 × 0.167) = 200 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.167 / (8 × 200000 × 0.4) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 7.5 × 0.833 × 0.167 / (200000 × 0.0031) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_148",
+      "title": "Electric Skateboard Controller",
+      "application": "High-performance electric skateboard requiring responsive motor control",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 42,
+        "V_out": 36,
+        "P_out": 1500,
+        "ripple_voltage": 0.36,
+        "efficiency_target": 0.95,
+        "f_sw": 150000,
+        "regen_braking": true
+      },
+      "constraints": [
+        "Regenerative braking capture",
+        "Rider weight compensation",
+        "IP54 road debris protection",
+        "BMS integration"
+      ],
+      "design_approach": "Bidirectional buck for regeneration. Responsive throttle control. Weather-resistant enclosure. Battery management interface.",
+      "solution": {
+        "L": 0.0001,
+        "C_out": 0.001,
+        "C_in": 0.00068,
+        "R_load": 0.864,
+        "duty_cycle": 0.857,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 50,
+          "V_diode": 60,
+          "I_diode": 50,
+          "V_cap": 50,
+          "I_L_rms": 43,
+          "P_dissipation": 75
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 36 / 42 = 0.857",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 36 × 0.143 / (150000 × 0.34) = 100 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.34 / (8 × 150000 × 0.36) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 41.7 × 0.857 × 0.143 / (150000 × 0.0076) = 680 µF"
+      }
+    },
+    {
+      "id": "L2_149",
+      "title": "Vending Machine Controller Power",
+      "application": "Smart vending requiring payment processing and inventory tracking",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 20,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.86,
+        "f_sw": 150000,
+        "pci_compliant": true
+      },
+      "constraints": [
+        "PCI-compliant payment isolation",
+        "Touchscreen display power",
+        "Refrigeration controller interface",
+        "24/7 unattended operation"
+      ],
+      "design_approach": "Isolated flyback for payment security. Multi-output for various subsystems. High reliability for unattended operation. Remote monitoring power.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.00068,
+        "C_in": 0.00022,
+        "R_load": 1.25,
+        "duty_cycle": 0.38,
+        "turns_ratio": 2,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 3,
+          "V_diode": 25,
+          "I_diode": 6,
+          "V_cap": 10,
+          "I_L_rms": 1.8,
+          "P_dissipation": 2.8
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 5 × 2 / (24 + 5 × 2) = 0.294, use D = 0.38",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 24 × 0.38 / (150000 × 0.41) = 150 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 4 × 0.38 / (150000 × 0.05) = 680 µF",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 20 / (24 × 150000 × 0.031 × 0.86) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_150",
+      "title": "Portable ECG Monitor Power",
+      "application": "Wearable cardiac monitor requiring ultra-low power with medical safety",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 4.2,
+        "V_out": 1.8,
+        "P_out": 0.1,
+        "ripple_voltage": 0.0018,
+        "efficiency_target": 0.88,
+        "f_sw": 1000000,
+        "medical_grade": "IEC_60601"
+      },
+      "constraints": [
+        "IEC 60601-2-47 Holter compliance",
+        "7-day continuous monitoring",
+        "Patient leakage < 10 µA",
+        "Analog front-end noise < 10 µV"
+      ],
+      "design_approach": "Ultra-low-power buck for extended monitoring. Medical-grade isolation. Low-noise design for ECG signal quality. Compact wearable form factor.",
+      "solution": {
+        "L": 0.0000033,
+        "C_out": 0.0001,
+        "C_in": 0.000047,
+        "R_load": 32.4,
+        "duty_cycle": 0.429,
+        "component_ratings": {
+          "V_switch": 8,
+          "I_switch": 0.1,
+          "V_diode": 8,
+          "I_diode": 0.1,
+          "V_cap": 3,
+          "I_L_rms": 0.06,
+          "P_dissipation": 0.012
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 1.8 / 4.2 = 0.429",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 1.8 × 0.571 / (1000000 × 0.31) = 3.3 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.31 / (8 × 1000000 × 0.0018) = 100 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.056 × 0.429 × 0.571 / (1000000 × 0.00029) = 47 µF"
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "level": 1,
+  "description": "Single converter, fixed specifications",
+  "problems": [
+    {
+      "id": "L1_011",
+      "prompt": "Design a SEPIC converter: 12V to 5V, 1A for battery-powered device",
+      "specs": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 1.0,
+        "power": 5.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_012",
+      "prompt": "Design a SEPIC converter: 9V to 12V, 800mA step-up application",
+      "specs": {
+        "topology": "sepic",
+        "vin": 9.0,
+        "vout": 12.0,
+        "iout": 0.8,
+        "power": 9.6
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_013",
+      "prompt": "Design a flyback converter: 24V to 48V isolated, 1A output",
+      "specs": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout": 48.0,
+        "iout": 1.0,
+        "power": 48.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_014",
+      "prompt": "Design a flyback converter: 12V to 5V isolated, 2A for medical device",
+      "specs": {
+        "topology": "flyback",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_015",
+      "prompt": "Design an inverting buck-boost: 12V to -15V, 500mA for op-amp supply",
+      "specs": {
+        "topology": "inverting_buck_boost",
+        "vin": 12.0,
+        "vout": -15.0,
+        "iout": 0.5,
+        "power": 7.5
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_016",
+      "prompt": "Design a Cuk converter: 15V to -12V, 1A for audio amplifier bias",
+      "specs": {
+        "topology": "cuk",
+        "vin": 15.0,
+        "vout": -12.0,
+        "iout": 1.0,
+        "power": 12.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_017",
+      "prompt": "Design a forward converter: 48V to 12V isolated, 4A for PoE",
+      "specs": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 4.0,
+        "power": 48.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_018",
+      "prompt": "Design a half-bridge converter: 100V DC bus to 24V, 4A",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 100.0,
+        "vout": 24.0,
+        "iout": 4.0,
+        "power": 96.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_019",
+      "prompt": "Design a full-bridge converter: 400V DC to 48V, 10A for server PSU",
+      "specs": {
+        "topology": "full_bridge",
+        "vin": 400.0,
+        "vout": 48.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_020",
+      "prompt": "Design a quasi-resonant buck: 24V to 5V, 2A with soft switching",
+      "specs": {
+        "topology": "qr_buck",
+        "vin": 24.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    }
+  ]
+}

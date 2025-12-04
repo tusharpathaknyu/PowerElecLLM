@@ -1,0 +1,326 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "solutions": [
+    {
+      "problem_id": "L1_081",
+      "title": "Smart Home Hub Power Supply",
+      "application": "Voice-controlled smart home hub with always-on microphone array",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 3.3,
+        "I_out": 2,
+        "V_ripple_max": 0.05,
+        "f_sw": 500000
+      },
+      "design_approach": "Standard buck converter for efficient step-down to 3.3V digital logic supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 12 = 0.275",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.725 / (500k × 0.4) = 12μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.4 / (8 × 500k × 0.05) = 2μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 2 × 0.275 / (500k × 0.1) = 11μF"
+      },
+      "solution": {
+        "L": 12e-6,
+        "C_out": 2.2e-6,
+        "C_in": 22e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "12μH, 3A, shielded",
+        "output_capacitor": "2.2μF, 10V, X7R",
+        "input_capacitor": "22μF, 16V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_082",
+      "title": "Wireless Earbuds Charging Case",
+      "application": "Portable charging case for true wireless earbuds with fast charging",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 4.2,
+        "I_out": 0.5,
+        "V_ripple_max": 0.02,
+        "f_sw": 1000000
+      },
+      "design_approach": "High duty-cycle buck for USB to Li-ion charging with minimal dropout.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 4.2 / 5 = 0.84",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 4.2 × 0.16 / (1M × 0.1) = 6.7μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.1 / (8 × 1M × 0.02) = 625nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.5 × 0.84 / (1M × 0.05) = 8.4μF"
+      },
+      "solution": {
+        "L": 6.8e-6,
+        "C_out": 1e-6,
+        "C_in": 10e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "6.8μH, 1A, 1210 package",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "10μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_083",
+      "title": "Portable Bluetooth Speaker Amplifier",
+      "application": "Stereo Class-D amplifier power supply for 20W portable speaker",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 3.7,
+        "V_out": 12,
+        "I_out": 2,
+        "V_ripple_max": 0.2,
+        "f_sw": 500000
+      },
+      "design_approach": "Boost converter to raise single Li-ion cell to amplifier supply rail.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 3.7/12 = 0.69",
+        "inductor": "L = V_in × D / (f × ΔI) = 3.7 × 0.69 / (500k × 0.6) = 8.5μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 2 × 0.69 / (500k × 0.2) = 13.8μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.6 / (8 × 500k × 0.1) = 1.5μF"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 22e-6,
+        "C_in": 10e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "10μH, 4A, low DCR",
+        "output_capacitor": "22μF, 16V, X5R",
+        "input_capacitor": "10μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_084",
+      "title": "Electronic Door Lock Power",
+      "application": "Battery-powered smart door lock with motorized deadbolt",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 6,
+        "V_out": 3,
+        "I_out": 1,
+        "V_ripple_max": 0.05,
+        "f_sw": 400000
+      },
+      "design_approach": "Buck converter from 4×AA batteries to motor and MCU supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3 / 6 = 0.5",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3 × 0.5 / (400k × 0.2) = 18.75μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.2 / (8 × 400k × 0.05) = 1.25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 1 × 0.5 / (400k × 0.1) = 12.5μF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 2.2e-6,
+        "C_in": 22e-6,
+        "f_sw": 400000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 1.5A, shielded",
+        "output_capacitor": "2.2μF, 10V, X7R",
+        "input_capacitor": "22μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_085",
+      "title": "RFID Reader Module Supply",
+      "application": "13.56MHz RFID reader requiring clean power for RF sensitivity",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 3.3,
+        "I_out": 0.3,
+        "V_ripple_max": 0.01,
+        "f_sw": 2000000
+      },
+      "design_approach": "High-frequency buck with heavy filtering for RF-sensitive application.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 5 = 0.66",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.34 / (2M × 0.06) = 9.35μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 2M × 0.01) = 375nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.66 / (2M × 0.05) = 2μF"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 1e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 2000000
+      },
+      "component_ratings": {
+        "inductor": "10μH, 0.5A, shielded",
+        "output_capacitor": "1μF, 10V, X7R + 100nF C0G",
+        "input_capacitor": "4.7μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_086",
+      "title": "Digital Signage Display Driver",
+      "application": "LED backlight driver for 32-inch commercial digital signage display",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 36,
+        "I_out": 1,
+        "V_ripple_max": 0.5,
+        "f_sw": 300000
+      },
+      "design_approach": "Boost converter for LED string voltage from 12V input.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 12/36 = 0.667",
+        "inductor": "L = V_in × D / (f × ΔI) = 12 × 0.667 / (300k × 0.3) = 88.9μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 1 × 0.667 / (300k × 0.5) = 4.4μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.3 / (8 × 300k × 0.2) = 625nF"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 10e-6,
+        "C_in": 10e-6,
+        "f_sw": 300000
+      },
+      "component_ratings": {
+        "inductor": "100μH, 2A, low DCR",
+        "output_capacitor": "10μF, 50V, X5R",
+        "input_capacitor": "10μF, 25V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_087",
+      "title": "Medical Pulse Oximeter Power",
+      "application": "Fingertip pulse oximeter with LED drive and signal processing",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 3.7,
+        "V_out": 1.8,
+        "I_out": 0.1,
+        "V_ripple_max": 0.01,
+        "f_sw": 1000000
+      },
+      "design_approach": "Efficient buck for extended battery life in medical monitoring device.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 1.8 / 3.7 = 0.486",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 1.8 × 0.514 / (1M × 0.02) = 46.3μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.02 / (8 × 1M × 0.01) = 250nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.1 × 0.486 / (1M × 0.05) = 972nF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 0.2A, tiny package",
+        "output_capacitor": "1μF, 6.3V, X5R",
+        "input_capacitor": "2.2μF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_088",
+      "title": "RC Car Motor Controller",
+      "application": "Brushed DC motor driver for 1:10 scale RC car",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 7.4,
+        "V_out": 6,
+        "I_out": 15,
+        "V_ripple_max": 0.3,
+        "f_sw": 50000
+      },
+      "design_approach": "Low-frequency buck for high-current motor drive with minimal switching losses.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 6 / 7.4 = 0.81",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 6 × 0.19 / (50k × 3) = 7.6μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 3 / (8 × 50k × 0.3) = 25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 15 × 0.81 / (50k × 0.5) = 486μF"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 47e-6,
+        "C_in": 470e-6,
+        "f_sw": 50000
+      },
+      "component_ratings": {
+        "inductor": "10μH, 20A, low DCR",
+        "output_capacitor": "47μF, 10V, low ESR",
+        "input_capacitor": "470μF, 16V, electrolytic"
+      }
+    },
+    {
+      "problem_id": "L1_089",
+      "title": "USB Power Bank Cell Balancing",
+      "application": "Cell balancing converter for multi-cell Li-ion power bank",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 4.2,
+        "V_out": 3.7,
+        "I_out": 0.5,
+        "V_ripple_max": 0.02,
+        "f_sw": 500000
+      },
+      "design_approach": "Small voltage step-down for cell-to-cell energy transfer.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.7 / 4.2 = 0.88",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.7 × 0.12 / (500k × 0.1) = 8.9μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.1 / (8 × 500k × 0.02) = 1.25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.5 × 0.88 / (500k × 0.05) = 17.6μF"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 2.2e-6,
+        "C_in": 22e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "10μH, 1A, shielded",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "22μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_090",
+      "title": "Thermostat Display Power",
+      "application": "Smart thermostat with e-ink display and WiFi connectivity",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "I_out": 0.3,
+        "V_ripple_max": 0.05,
+        "f_sw": 500000
+      },
+      "design_approach": "Wide-input buck for HVAC 24VAC rectified to 5V logic supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.792 / (500k × 0.06) = 132μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 500k × 0.05) = 300nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.208 / (500k × 0.5) = 250nF"
+      },
+      "solution": {
+        "L": 150e-6,
+        "C_out": 1e-6,
+        "C_in": 1e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "150μH, 0.5A, shielded",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "1μF, 50V, X7R"
+      }
+    }
+  ]
+}

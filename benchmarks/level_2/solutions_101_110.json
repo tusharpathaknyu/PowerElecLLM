@@ -1,0 +1,447 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_101",
+      "title": "High-Efficiency PoE++ Camera Supply",
+      "application": "4K PTZ security camera with PoE++ (90W) power requiring high efficiency for thermal management",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 52,
+        "V_out": 12,
+        "P_out": 80,
+        "ripple_voltage": 0.12,
+        "efficiency_target": 0.94,
+        "f_sw": 400000,
+        "max_temp_rise": 25
+      },
+      "constraints": [
+        "Efficiency > 94% for thermal budget",
+        "PoE++ compatibility (IEEE 802.3bt)",
+        "Temperature rise < 25°C in sealed enclosure",
+        "EMC compliance for outdoor installation"
+      ],
+      "design_approach": "High-frequency synchronous buck with GaN switches for efficiency. Optimized magnetics for minimal core loss. Thermal design for sealed enclosure heat extraction.",
+      "solution": {
+        "L": 0.000033,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 1.8,
+        "duty_cycle": 0.231,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 10,
+          "V_diode": 80,
+          "I_diode": 10,
+          "V_cap": 20,
+          "I_L_rms": 7,
+          "P_dissipation": 4.8
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 12 / 52 = 0.231",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 12 × 0.769 / (400000 × 0.70) = 33 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.70 / (8 × 400000 × 0.12) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 6.67 × 0.231 × 0.769 / (400000 × 0.027) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_102",
+      "title": "Compact Drone ESC Power Stage",
+      "application": "Racing drone electronic speed controller requiring lightweight, efficient power conversion",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 22.2,
+        "V_out": 12,
+        "P_out": 200,
+        "ripple_voltage": 0.12,
+        "efficiency_target": 0.95,
+        "f_sw": 500000,
+        "max_weight": 0.015
+      },
+      "constraints": [
+        "Weight < 15 g total",
+        "6S LiPo input voltage (18.6-25.2V)",
+        "High current transients for motor control",
+        "Vibration resistant construction"
+      ],
+      "design_approach": "Lightweight buck with thin-film inductors. GaN FETs for efficiency and size. Ceramic capacitors for vibration immunity. Minimal PCB area design.",
+      "solution": {
+        "L": 0.000012,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 0.72,
+        "duty_cycle": 0.541,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 25,
+          "V_diode": 40,
+          "I_diode": 25,
+          "V_cap": 20,
+          "I_L_rms": 18,
+          "P_dissipation": 10
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 12 / 22.2 = 0.541",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 12 × 0.459 / (500000 × 0.92) = 12 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.92 / (8 × 500000 × 0.12) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 16.67 × 0.541 × 0.459 / (500000 × 0.025) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_103",
+      "title": "Solar MPPT Charger for IoT Nodes",
+      "application": "Solar-powered IoT sensor node with MPPT charging for extended operation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 18,
+        "V_out": 4.2,
+        "P_out": 5,
+        "ripple_voltage": 0.042,
+        "efficiency_target": 0.92,
+        "f_sw": 200000,
+        "mppt_efficiency": 0.98
+      },
+      "constraints": [
+        "MPPT efficiency > 98%",
+        "Wide solar panel voltage range (10-22V)",
+        "Battery charge profile management",
+        "Ultra-low quiescent current for sleep mode"
+      ],
+      "design_approach": "Buck converter with perturb-and-observe MPPT algorithm. Integrated battery charger with CC/CV control. Low Iq design for sleep mode efficiency.",
+      "solution": {
+        "L": 0.00022,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 3.528,
+        "duty_cycle": 0.233,
+        "component_ratings": {
+          "V_switch": 30,
+          "I_switch": 2,
+          "V_diode": 30,
+          "I_diode": 2,
+          "V_cap": 10,
+          "I_L_rms": 1.3,
+          "P_dissipation": 0.4
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 4.2 / 18 = 0.233",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 4.2 × 0.767 / (200000 × 0.073) = 220 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.073 / (8 × 200000 × 0.042) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 1.19 × 0.233 × 0.767 / (200000 × 0.0048) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_104",
+      "title": "Telecom Rectifier with PFC",
+      "application": "48V telecom rectifier requiring power factor correction and high efficiency",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 200,
+        "V_out": 400,
+        "P_out": 3000,
+        "ripple_voltage": 4,
+        "efficiency_target": 0.97,
+        "f_sw": 100000,
+        "power_factor": 0.99
+      },
+      "constraints": [
+        "Power factor > 0.99",
+        "THD < 5% per IEC 61000-3-2",
+        "Hold-up time > 20 ms",
+        "Hot-swap capable"
+      ],
+      "design_approach": "CCM PFC boost with digital control for power factor. Interleaved topology for ripple cancellation. Hold-up capacitor sizing for 20 ms ride-through.",
+      "solution": {
+        "L": 0.0004,
+        "C_out": 0.001,
+        "C_in": 0.000047,
+        "R_load": 53.3,
+        "duty_cycle": 0.5,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 25,
+          "V_diode": 600,
+          "I_diode": 25,
+          "V_cap": 450,
+          "I_L_rms": 17,
+          "P_dissipation": 90
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 200/400 = 0.5",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 200 × 0.5 / (100000 × 0.25) = 400 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 7.5 × 0.5 / (100000 × 4) = 1000 µF",
+        "input_capacitance": "C_in = EMI filter capacitor = 47 µF"
+      }
+    },
+    {
+      "id": "L2_105",
+      "title": "Industrial PLC Power Supply",
+      "application": "PLC power supply requiring wide input range and industrial temperature operation",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 110,
+        "V_out": 24,
+        "P_out": 60,
+        "ripple_voltage": 0.24,
+        "efficiency_target": 0.88,
+        "f_sw": 100000,
+        "temp_range": "-40_to_70C"
+      },
+      "constraints": [
+        "Wide input 85-264 VAC universal",
+        "Operating temperature -40°C to +70°C",
+        "DIN rail mounting form factor",
+        "Overload protection 150% for 5 seconds"
+      ],
+      "design_approach": "Universal input flyback with wide-range control. Industrial temperature rated components. Conformal coating for harsh environments. Foldback current limiting for overload.",
+      "solution": {
+        "L": 0.0005,
+        "C_out": 0.002,
+        "C_in": 0.000047,
+        "R_load": 9.6,
+        "duty_cycle": 0.4,
+        "turns_ratio": 4,
+        "component_ratings": {
+          "V_switch": 400,
+          "I_switch": 2,
+          "V_diode": 100,
+          "I_diode": 5,
+          "V_cap": 50,
+          "I_L_rms": 1.2,
+          "P_dissipation": 7.2
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 24 × 4 / (110 + 24 × 4) = 0.466, use D = 0.4",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 110 × 0.4 / (100000 × 0.088) = 500 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 2.5 × 0.4 / (100000 × 0.24) = 2000 µF",
+        "input_capacitance": "C_in = EMI filter requirement = 47 µF"
+      }
+    },
+    {
+      "id": "L2_106",
+      "title": "Marine Navigation Display Power",
+      "application": "Rugged marine display requiring wide input tolerance and salt fog resistance",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 50,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.91,
+        "f_sw": 300000,
+        "protection_class": "IP67"
+      },
+      "constraints": [
+        "Input voltage 10-32V for marine systems",
+        "Salt fog and humidity resistance",
+        "IP67 enclosure compatibility",
+        "Lightning transient protection"
+      ],
+      "design_approach": "Wide-input buck with transient protection. Conformal coated PCB assembly. Sealed connectors for IP67. TVS protection for marine electrical environment.",
+      "solution": {
+        "L": 0.000033,
+        "C_out": 0.00068,
+        "C_in": 0.00033,
+        "R_load": 0.5,
+        "duty_cycle": 0.208,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 15,
+          "V_diode": 60,
+          "I_diode": 15,
+          "V_cap": 10,
+          "I_L_rms": 11,
+          "P_dissipation": 4.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.792 / (300000 × 0.40) = 33 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.40 / (8 × 300000 × 0.05) = 680 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 10 × 0.208 × 0.792 / (300000 × 0.017) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_107",
+      "title": "Railway Signaling Equipment Supply",
+      "application": "Trackside signaling equipment requiring railway safety certification",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 110,
+        "V_out": 24,
+        "P_out": 200,
+        "ripple_voltage": 0.24,
+        "efficiency_target": 0.92,
+        "f_sw": 150000,
+        "safety_class": "SIL4"
+      },
+      "constraints": [
+        "EN 50121-4 EMC compliance",
+        "SIL 4 safety integrity level",
+        "Operating temperature -40°C to +70°C",
+        "MTBF > 100,000 hours"
+      ],
+      "design_approach": "Railway-certified buck with redundant monitoring. Fail-safe output voltage limiting. EMC filtering for trackside environment. Derating for temperature extremes.",
+      "solution": {
+        "L": 0.00022,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 2.88,
+        "duty_cycle": 0.218,
+        "component_ratings": {
+          "V_switch": 200,
+          "I_switch": 12,
+          "V_diode": 200,
+          "I_diode": 12,
+          "V_cap": 50,
+          "I_L_rms": 9,
+          "P_dissipation": 16
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 24 / 110 = 0.218",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 24 × 0.782 / (150000 × 0.57) = 220 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.57 / (8 × 150000 × 0.24) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 8.33 × 0.218 × 0.782 / (150000 × 0.0095) = 470 µF"
+      }
+    },
+    {
+      "id": "L2_108",
+      "title": "Mining Equipment LED Lighting Supply",
+      "application": "Underground mining lighting requiring explosion-proof design and high reliability",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 36,
+        "P_out": 150,
+        "ripple_voltage": 0.36,
+        "efficiency_target": 0.94,
+        "f_sw": 200000,
+        "atex_zone": "Zone_1"
+      },
+      "constraints": [
+        "ATEX Zone 1 certification",
+        "Intrinsically safe design",
+        "Methane atmosphere tolerance",
+        "Impact and vibration resistant"
+      ],
+      "design_approach": "Intrinsically safe buck with current limiting at source. Energy-limited design for ATEX compliance. Ruggedized construction for mining environment.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 8.64,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 8,
+          "V_diode": 80,
+          "I_diode": 8,
+          "V_cap": 50,
+          "I_L_rms": 4.5,
+          "P_dissipation": 9
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 36 / 48 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 36 × 0.25 / (200000 × 0.30) = 150 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.30 / (8 × 200000 × 0.36) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 4.17 × 0.75 × 0.25 / (200000 × 0.012) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_109",
+      "title": "Aviation Entertainment System Supply",
+      "application": "In-flight entertainment system requiring aviation certification and low weight",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 5,
+        "P_out": 100,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.93,
+        "f_sw": 500000,
+        "do160_class": "A1"
+      },
+      "constraints": [
+        "DO-160G environmental qualification",
+        "Weight optimization for aviation",
+        "EMC per RTCA DO-160 Section 21",
+        "Altitude operation to 45,000 ft"
+      ],
+      "design_approach": "Lightweight buck with aerospace-grade components. Conformal coating for altitude derating. DO-160G tested EMC filtering. Minimum weight PCB design.",
+      "solution": {
+        "L": 0.000012,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.25,
+        "duty_cycle": 0.179,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 25,
+          "V_diode": 60,
+          "I_diode": 25,
+          "V_cap": 10,
+          "I_L_rms": 21,
+          "P_dissipation": 7
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 28 = 0.179",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.821 / (500000 × 0.34) = 12 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.34 / (8 × 500000 × 0.05) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 20 × 0.179 × 0.821 / (500000 × 0.0062) = 470 µF"
+      }
+    },
+    {
+      "id": "L2_110",
+      "title": "Wind Turbine Pitch Controller Supply",
+      "application": "Blade pitch control system requiring operation in nacelle environment",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 700,
+        "V_out": 48,
+        "P_out": 500,
+        "ripple_voltage": 0.48,
+        "efficiency_target": 0.93,
+        "f_sw": 80000,
+        "temp_range": "-30_to_60C"
+      },
+      "constraints": [
+        "Nacelle vibration immunity",
+        "Wide temperature range operation",
+        "Lightning protection integration",
+        "Fail-safe pitch control backup"
+      ],
+      "design_approach": "High-voltage buck for pitch controller. Vibration-hardened construction. Lightning surge protection. Battery backup integration for emergency pitch.",
+      "solution": {
+        "L": 0.0004,
+        "C_out": 0.001,
+        "C_in": 0.00022,
+        "R_load": 4.608,
+        "duty_cycle": 0.069,
+        "component_ratings": {
+          "V_switch": 900,
+          "I_switch": 15,
+          "V_diode": 900,
+          "I_diode": 15,
+          "V_cap": 100,
+          "I_L_rms": 11,
+          "P_dissipation": 35
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 700 = 0.069",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.931 / (80000 × 1.4) = 400 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 1.4 / (8 × 80000 × 0.48) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 10.4 × 0.069 × 0.931 / (80000 × 0.038) = 220 µF"
+      }
+    }
+  ]
+}

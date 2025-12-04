@@ -1,0 +1,109 @@
+{
+  "name": "PowerElecBench",
+  "version": "2.0.0",
+  "description": "Comprehensive power electronics converter design benchmark with 500 problems across 4 difficulty levels",
+  "total_problems": 500,
+  "levels": {
+    "level_1": {
+      "name": "Basic",
+      "description": "Fundamental DC-DC converter design with single objectives",
+      "problem_count": 150,
+      "files": [
+        "level_1/solutions_01_10.json",
+        "level_1/solutions_11_20.json",
+        "level_1/solutions_21_30.json",
+        "level_1/solutions_31_40.json",
+        "level_1/solutions_41_50.json",
+        "level_1/solutions_51_60.json",
+        "level_1/solutions_61_70.json",
+        "level_1/solutions_71_80.json",
+        "level_1/solutions_81_90.json",
+        "level_1/solutions_91_100.json",
+        "level_1/solutions_101_110.json",
+        "level_1/solutions_111_120.json",
+        "level_1/solutions_121_130.json",
+        "level_1/solutions_131_140.json",
+        "level_1/solutions_141_150.json"
+      ]
+    },
+    "level_2": {
+      "name": "Intermediate",
+      "description": "Constrained design problems with efficiency and thermal considerations",
+      "problem_count": 150,
+      "files": [
+        "level_2/solutions_01_10.json",
+        "level_2/solutions_11_20.json",
+        "level_2/solutions_21_30.json",
+        "level_2/solutions_31_40.json",
+        "level_2/solutions_41_50.json",
+        "level_2/solutions_51_60.json",
+        "level_2/solutions_61_70.json",
+        "level_2/solutions_71_80.json",
+        "level_2/solutions_81_90.json",
+        "level_2/solutions_91_100.json",
+        "level_2/solutions_101_110.json",
+        "level_2/solutions_111_120.json",
+        "level_2/solutions_121_130.json",
+        "level_2/solutions_131_140.json",
+        "level_2/solutions_141_150.json"
+      ]
+    },
+    "level_3": {
+      "name": "Advanced",
+      "description": "Multi-objective optimization with system-level trade-offs",
+      "problem_count": 100,
+      "files": [
+        "level_3/solutions_01_10.json",
+        "level_3/solutions_11_20.json",
+        "level_3/solutions_21_30.json",
+        "level_3/solutions_31_40.json",
+        "level_3/solutions_41_50.json",
+        "level_3/solutions_51_60.json",
+        "level_3/solutions_61_70.json",
+        "level_3/solutions_71_80.json",
+        "level_3/solutions_81_90.json",
+        "level_3/solutions_91_100.json"
+      ]
+    },
+    "level_4": {
+      "name": "Expert",
+      "description": "Cutting-edge integrated systems with advanced thermal, EMI, and multi-domain optimization",
+      "problem_count": 100,
+      "files": [
+        "level_4/solutions_01_10.json",
+        "level_4/solutions_11_20.json",
+        "level_4/solutions_21_30.json",
+        "level_4/solutions_31_40.json",
+        "level_4/solutions_41_50.json",
+        "level_4/solutions_51_60.json",
+        "level_4/solutions_61_70.json",
+        "level_4/solutions_71_80.json",
+        "level_4/solutions_81_90.json",
+        "level_4/solutions_91_100.json"
+      ]
+    }
+  },
+  "topologies": [
+    "buck",
+    "boost",
+    "sepic",
+    "cuk",
+    "inverting_buck_boost",
+    "quasi_resonant_buck",
+    "flyback",
+    "forward",
+    "half_bridge",
+    "full_bridge"
+  ],
+  "applications": {
+    "level_1": "Consumer electronics, IoT devices, portable gadgets, basic industrial",
+    "level_2": "Automotive, medical devices, industrial automation, renewable energy",
+    "level_3": "Aerospace, scientific instruments, high-reliability systems, advanced research",
+    "level_4": "Fusion reactors, particle accelerators, space exploration, quantum computing, defense systems"
+  },
+  "metadata": {
+    "created": "2024",
+    "framework": "PySpice with NgSpice v45",
+    "test_coverage": "98.3% (118/120 reference tests passing)"
+  }
+}

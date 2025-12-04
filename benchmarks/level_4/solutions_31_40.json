@@ -1,0 +1,441 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "solutions": [
+    {
+      "problem_id": "L4_031",
+      "title": "Space Elevator Climber Power Beaming Receiver",
+      "application": "Laser power beaming receiver for 100-ton space elevator climber at 35,786km altitude",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in_laser": 1000,
+        "V_out": 400,
+        "P_out": 2000000,
+        "beam_tracking_accuracy_mrad": 0.01,
+        "efficiency_min": 0.40,
+        "f_sw": 50000
+      },
+      "constraints": [
+        "Photovoltaic array input from 1MW laser beam",
+        "Active beam tracking with 0.01 mrad accuracy",
+        "Thermal management at vacuum interface",
+        "Fault-tolerant multi-string architecture",
+        "Emergency battery backup for cloud obscuration"
+      ],
+      "design_approach": "Distributed maximum power point tracking per PV string. Multi-level buck converter for high efficiency at extreme power. Active thermal radiator integration.",
+      "formulas": {
+        "pv_array_area": "A = P_laser / (η_pv × I_laser) = 5MW / (0.4 × 1kW/m²) = 12500m²",
+        "string_count": "N = P_total / P_string = 2MW / 50kW = 40 strings",
+        "duty_cycle": "D = V_out / V_in = 400 / 1000 = 0.4",
+        "phase_inductor": "L_ph = V_in × D × (1-D) / (f × ΔI × N) = 1000 × 0.4 × 0.6 / (50k × 50 × 8) = 12μH",
+        "dc_link_capacitor": "C_dc = P / (V × f × ΔV) = 2M / (1000 × 50k × 10) = 4000μF"
+      },
+      "solution": {
+        "L": 15e-6,
+        "C_out": 10000e-6,
+        "C_in": 5000e-6,
+        "strings": 40,
+        "phases": 8,
+        "f_sw": 50000
+      },
+      "component_ratings": {
+        "MOSFET": "1200V, 200A SiC per phase",
+        "inductor": "15μH, 300A, air-core for space",
+        "DC_link": "10mF, 500V, film capacitor",
+        "radiator": "500m² active thermal radiator"
+      }
+    },
+    {
+      "problem_id": "L4_032",
+      "title": "Muon Collider RF Cavity Power",
+      "application": "Superconducting RF cavity power coupler for muon storage ring at Fermilab",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 10000,
+        "V_out_rf": 15000,
+        "P_rf": 5000000,
+        "f_rf_MHz": 805,
+        "Q_loaded": 100000,
+        "phase_stability_deg": 0.01
+      },
+      "constraints": [
+        "Phase stability < 0.01° for beam focusing",
+        "Amplitude stability < 0.01% for acceleration",
+        "Cryogenic load < 100W at 4K",
+        "Lorentz detuning compensation",
+        "Radiation hardened in tunnel"
+      ],
+      "design_approach": "High-power klystron modulator with solid-state drivers. LLRF feedback system with μs response. Piezo tuner control for microphonics compensation.",
+      "formulas": {
+        "cavity_voltage": "V_cav = √(2 × P × R/Q × Q_L) = √(2 × 5M × 150 × 100k) = 12.2MV",
+        "beam_power": "P_beam = I_beam × V_cav × cos(φ)",
+        "klystron_efficiency": "η_kly = P_rf / P_dc = 5MW / 10MW = 50%",
+        "modulator_voltage": "V_mod = P_kly / I_kly = 10MW / 100A = 100kV",
+        "filter_ripple": "ΔV/V < 0.01% requires 80dB filter"
+      },
+      "solution": {
+        "L_filter": 100e-3,
+        "C_filter": 10e-6,
+        "C_mod": 1e-6,
+        "klystron_V": 100000,
+        "f_sw": 20000
+      },
+      "component_ratings": {
+        "IGBT_stack": "150kV, 150A modulator",
+        "filter_inductor": "100mH, 100A, oil-filled",
+        "filter_capacitor": "10μF, 150kV, film",
+        "klystron": "5MW, 805MHz, solenoid focused"
+      }
+    },
+    {
+      "problem_id": "L4_033",
+      "title": "Artificial Gravity Centrifuge Drive",
+      "application": "Variable-speed drive for 100m diameter rotating space habitat generating 0.1-1g",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 800,
+        "V_out_ac": 690,
+        "P_out": 5000000,
+        "speed_range_rpm": "0.3-3",
+        "g_range": "0.1-1",
+        "efficiency_min": 0.96
+      },
+      "constraints": [
+        "Vibration-free acceleration/deceleration",
+        "Emergency stop in < 1 revolution",
+        "Perfectly balanced rotation for comfort",
+        "Regenerative braking to solar array",
+        "50-year continuous operation capability"
+      ],
+      "design_approach": "Direct-drive permanent magnet synchronous motor with redundant inverters. Position-sensorless control for reliability. Active vibration damping through torque modulation.",
+      "formulas": {
+        "rotation_rate": "ω = √(g × r) / r = √(9.81 × 50) / 50 = 0.44 rad/s for 1g",
+        "rpm_1g": "RPM = ω × 60 / 2π = 0.44 × 60 / 2π = 4.2 rpm",
+        "torque": "T = J × α, J = 10⁹ kg⋅m² for habitat",
+        "motor_poles": "p = 120 × f / RPM = 120 × 0.1 / 3 = 4 poles",
+        "inverter_current": "I = P / (√3 × V × pf) = 5M / (√3 × 690 × 0.95) = 4400A"
+      },
+      "solution": {
+        "L_filter": 1e-3,
+        "C_dc": 50e-3,
+        "motor_poles": 4,
+        "inverters": 4,
+        "f_sw": 5000
+      },
+      "component_ratings": {
+        "IGBT": "1700V, 2400A module × 4 parallel",
+        "DC_link": "50mF, 1000V, film bank",
+        "motor": "5MW, 4-pole PMSM direct drive",
+        "brake": "Regenerative + mechanical backup"
+      }
+    },
+    {
+      "problem_id": "L4_034",
+      "title": "Antimatter Trap Penning Electrode Supply",
+      "application": "Ultra-stable electrode bias for antihydrogen trapping at ALPHA-g experiment",
+      "difficulty": "expert",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5000,
+        "I_out_nA": 100,
+        "V_stability_ppm": 0.1,
+        "V_resolution_uV": 1,
+        "noise_nV_rtHz": 10
+      },
+      "constraints": [
+        "Voltage stability < 0.1ppm for trap depth",
+        "10nV/√Hz noise for antiproton cooling",
+        "40 independent electrode channels",
+        "Magnetic field compatibility (3T)",
+        "Ultra-high vacuum feedthrough"
+      ],
+      "design_approach": "Isolated flyback with cascaded linear post-regulator. DAC-controlled output with 20-bit resolution. Ovenized reference and feedback network.",
+      "formulas": {
+        "trap_depth": "U = q × V = 1.6e-19 × 5000 = 0.8fJ",
+        "stability_requirement": "ΔV = 0.1ppm × 5000V = 0.5μV",
+        "reference_drift": "TCref × ΔT < 0.1ppm requires oven",
+        "feedback_resistor": "R_fb with 0.01ppm/°C, 10MΩ",
+        "output_filter": "τ = R × C = 10M × 100p = 1ms"
+      },
+      "solution": {
+        "L": 200e-6,
+        "C_out": 100e-9,
+        "C_in": 100e-6,
+        "n": 50,
+        "channels": 40,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "MOSFET": "60V, 2A low-noise",
+        "post_regulator": "Discrete JFET, 10μV noise",
+        "reference": "LTZ1000A ovenized, 0.05ppm/°C",
+        "DAC": "20-bit, INL < 1 LSB"
+      }
+    },
+    {
+      "problem_id": "L4_035",
+      "title": "Magnetic Levitation Launch System",
+      "application": "Electromagnetic aircraft launch system for next-generation carrier with 100MW peak power",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 13800,
+        "V_out": 6600,
+        "P_peak": 100000000,
+        "launch_force_kN": 1600,
+        "launch_time_s": 2.5,
+        "cycle_time_s": 45
+      },
+      "constraints": [
+        "Peak 100MW from shipboard power with energy storage",
+        "Precise velocity profile for aircraft safety",
+        "Zero electromagnetic interference with aircraft",
+        "Seawater corrosion resistance",
+        "Shock-resistant for combat operations"
+      ],
+      "design_approach": "Pulsed power system with flywheel energy storage. Linear synchronous motor drive with position feedback. Regenerative braking of shuttle into flywheel.",
+      "formulas": {
+        "launch_energy": "E = 0.5 × m × v² = 0.5 × 35000 × 80² = 112MJ",
+        "average_power": "P_avg = E / t = 112M / 2.5 = 44.8MW",
+        "flywheel_energy": "E_fw = 200MJ for margin",
+        "motor_force": "F = m × a = 35000 × (80/2.5) = 1.12MN",
+        "phase_current": "I = P / (3 × V × pf) = 100M / (3 × 6600 × 0.9) = 5600A"
+      },
+      "solution": {
+        "L_filter": 500e-6,
+        "C_dc": 100e-3,
+        "flywheel_MJ": 200,
+        "inverters": 6,
+        "f_sw": 5000
+      },
+      "component_ratings": {
+        "IGCT": "6.5kV, 6kA IGCT modules",
+        "flywheel": "200MJ, 15000rpm composite",
+        "DC_link": "100mF, 10kV, film bank",
+        "LSM": "Linear synchronous motor, 1.6MN"
+      }
+    },
+    {
+      "problem_id": "L4_036",
+      "title": "Cryogenic Dark Matter Detector Bias",
+      "application": "Germanium detector bias supply for SuperCDMS at SNOLAB requiring fA leakage",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 6,
+        "I_out_fA": 1,
+        "I_leakage_max_fA": 0.1,
+        "V_noise_nV_rtHz": 0.1,
+        "temperature_mK": 15
+      },
+      "constraints": [
+        "100 atto-amp leakage for WIMP detection",
+        "0.1nV/√Hz noise floor",
+        "Operation interface to 15mK cryostat",
+        "Zero radioactive contamination",
+        "Underground EMI shielding"
+      ],
+      "design_approach": "Room-temperature switching supply with extreme filtering. Guard-ring driven cables to detector. Passive final filtering at cryogenic interface.",
+      "formulas": {
+        "leakage_requirement": "I_leak < 0.1fA = 100aA",
+        "cable_capacitance": "C_cable = 100pF/m × 2m = 200pF",
+        "settling_time": "τ = R_sense × C_cable = 10¹⁴ × 200p = 20000s",
+        "noise_power": "e_n² = 4kTR = 4 × 1.38e-23 × 0.015 × 10¹⁴",
+        "johnson_noise": "e_n = √(4kTR) = 0.14nV/√Hz at 15mK"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 1e-6,
+        "C_in": 100e-6,
+        "R_filter": 1e12,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "MOSFET": "20V, 1A ultra-low leakage",
+        "filter_resistor": "1TΩ ultra-high impedance",
+        "guard_driver": "Unity gain buffer, 1fA bias",
+        "cable": "Triaxial, PTFE, radiopure"
+      }
+    },
+    {
+      "problem_id": "L4_037",
+      "title": "Solar Sail Attitude Control Thrusters",
+      "application": "Electrospray thruster array for 1km² solar sail fine attitude control",
+      "difficulty": "expert",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 10000,
+        "I_total_mA": 1,
+        "P_out": 10,
+        "thrust_uN": 1000,
+        "thrusters": 1000,
+        "efficiency_min": 0.85
+      },
+      "constraints": [
+        "1000 independent thruster channels",
+        "μN-level thrust resolution",
+        "10-year ionic liquid propellant life",
+        "Zero contamination of sail surface",
+        "Radiation tolerance for interplanetary"
+      ],
+      "design_approach": "Central high-voltage supply with distributed current limiters. MEMS-based thruster array with individual emitter control. Ionic liquid electrospray propulsion.",
+      "formulas": {
+        "specific_impulse": "Isp = v_ex / g = 3000m/s / 9.81 = 306s",
+        "thrust_per_emitter": "F_e = I × v / q = 1μA × 3000 / 1.6e-19 / 6e23 = 1μN",
+        "total_thrust": "F = N × F_e = 1000 × 1μN = 1mN",
+        "turns_ratio": "n = V_out / (V_in × D/(1-D)) = 10000 / (28 × 2.5) = 143",
+        "emitter_current": "I_emit = 1μA per emitter nominal"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 10e-9,
+        "C_in": 100e-6,
+        "n": 150,
+        "emitters": 1000,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "MOSFET": "60V, 1A rad-hard",
+        "transformer": "100μH/2.25H, space-qualified",
+        "current_limiter": "1μA per channel, ASIC",
+        "propellant": "EMI-BF4 ionic liquid"
+      }
+    },
+    {
+      "problem_id": "L4_038",
+      "title": "Extreme High-Altitude Platform Power",
+      "application": "Stratospheric solar-powered aircraft station-keeping through polar night",
+      "difficulty": "expert",
+      "topology": "boost",
+      "specifications": {
+        "V_in_solar": "50-150",
+        "V_out": 400,
+        "P_out": 20000,
+        "battery_kWh": 500,
+        "endurance_days": 180,
+        "efficiency_min": 0.97
+      },
+      "constraints": [
+        "6-month polar night survival on battery",
+        "-70°C to +80°C operating range",
+        "Regenerative fuel cell integration",
+        "Weight < 50kg for all power electronics",
+        "Autonomous fault recovery"
+      ],
+      "design_approach": "Hybrid PV/battery/fuel-cell power architecture. Interleaved boost with wide input range. Intelligent energy management for polar operations.",
+      "formulas": {
+        "night_energy": "E_night = P_avg × t = 3kW × 180days × 24h = 12960kWh",
+        "battery_cycles": "Partial discharge cycle daily during polar night",
+        "solar_tracking_power": "P_track = 500W for sun tracking motors",
+        "boost_duty_min": "D_min = 1 - V_in_max/V_out = 1 - 150/400 = 0.625",
+        "boost_duty_max": "D_max = 1 - V_in_min/V_out = 1 - 50/400 = 0.875"
+      },
+      "solution": {
+        "L": 50e-6,
+        "C_out": 200e-6,
+        "C_in": 500e-6,
+        "phases": 4,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "MOSFET": "200V, 100A GaN, -55°C rated",
+        "inductor": "50μH, 60A, lightweight core",
+        "battery": "500kWh Li-S, high specific energy",
+        "fuel_cell": "10kW reversible SOFC"
+      }
+    },
+    {
+      "problem_id": "L4_039",
+      "title": "Inertial Confinement Fusion Capacitor Bank",
+      "application": "NIF-class capacitor bank module delivering 2MJ in 20ns to laser amplifiers",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_charge": 24000,
+        "V_out_pulse": 24000,
+        "E_stored_MJ": 2,
+        "pulse_width_ns": 20,
+        "P_peak_TW": 100,
+        "rep_rate_per_day": 3
+      },
+      "constraints": [
+        "100TW peak power delivery",
+        "Shot-to-shot energy reproducibility < 0.5%",
+        "Crowbar protection within 10μs",
+        "192-beam synchronization to 10ps",
+        "25-year operational lifetime"
+      ],
+      "design_approach": "Low-inductance capacitor bank with rail-gap switches. Pulse-forming network for temporal shaping. High-current transmission lines to flashlamps.",
+      "formulas": {
+        "stored_energy": "E = 0.5 × C × V² → C = 2E/V² = 2 × 2M / 24000² = 6.9mF",
+        "peak_current": "I = C × dV/dt ≈ E / (V × t) = 2M / (24k × 20n) = 4.2MA",
+        "circuit_inductance": "L < V × t / I = 24k × 20n / 4.2M = 0.11nH",
+        "transmission_line_Z": "Z = V / I = 24000 / 4.2M = 5.7mΩ",
+        "charging_power": "P_charge = E × rep_rate / t_charge = 2M × 3 / 86400 = 69W avg"
+      },
+      "solution": {
+        "C_bank": 7e-3,
+        "L_circuit": 100e-12,
+        "switches": 96,
+        "modules": 48,
+        "V_charge": 24000
+      },
+      "component_ratings": {
+        "capacitor": "150μF, 24kV, low-inductance",
+        "switch": "Rail-gap, 200kA, 24kV",
+        "busbar": "Low-inductance parallel plate",
+        "crowbar": "Ignitron, 5MA capability"
+      }
+    },
+    {
+      "problem_id": "L4_040",
+      "title": "Asteroid Redirect Ion Engine Array",
+      "application": "High-power ion propulsion system for 500-ton asteroid redirect mission",
+      "difficulty": "expert",
+      "topology": "boost",
+      "specifications": {
+        "V_in_solar": "300-600",
+        "V_out": 2000,
+        "P_out_total": 500000,
+        "I_beam_total": 50,
+        "thrusters": 10,
+        "efficiency_min": 0.95,
+        "mission_years": 6
+      },
+      "constraints": [
+        "6-year continuous thrust operation",
+        "10× thruster redundancy (8 of 10 required)",
+        "Deep space communication compatibility",
+        "Autonomous thruster selection and balancing",
+        "Mass < 200kg for power system"
+      ],
+      "design_approach": "Modular PPU architecture with hot-swap capability. Solar array MPPT with degradation tracking. Distributed control with fault isolation.",
+      "formulas": {
+        "total_Isp": "Isp = 4000s for high-power Hall thruster",
+        "thrust": "F = P × 2η / (Isp × g) = 500k × 2 × 0.6 / (4000 × 9.81) = 15.3N",
+        "delta_v": "Δv = Isp × g × ln(m0/mf) for 6-year burn",
+        "ppu_per_thruster": "P_ppu = 50kW per thruster",
+        "input_current": "I_in = P / (V_in × η) = 50k / (400 × 0.95) = 132A per PPU"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 50e-6,
+        "C_in": 200e-6,
+        "PPUs": 10,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "1200V, 200A SiC per PPU",
+        "inductor": "100μH, 150A, space-grade",
+        "output_capacitor": "50μF, 2.5kV, ceramic",
+        "thruster": "50kW Hall effect, 4000s Isp"
+      }
+    }
+  ]
+}

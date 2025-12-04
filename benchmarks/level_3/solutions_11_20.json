@@ -1,0 +1,499 @@
+{
+  "level": 3,
+  "solutions": [
+    {
+      "id": "L3_011",
+      "prompt": "Design a wireless charging system: 19V input, 5V/9V/12V Qi output, 15W max",
+      "solution": {
+        "topology": "resonant_wireless_charger",
+        "vin": 19.0,
+        "vout_profiles": [5.0, 9.0, 12.0],
+        "power_max": 15.0,
+        "f_resonant": 110000,
+        "stages": {
+          "transmitter": {
+            "inverter": "Full-bridge",
+            "L_tx": {"value": 10e-6, "unit": "H"},
+            "C_series": {"value": 200e-9, "unit": "F"},
+            "resonant_freq": "110kHz",
+            "modulation": "Frequency and phase shift"
+          },
+          "coupling": {
+            "type": "Loosely coupled coils",
+            "k_range": "0.3-0.6",
+            "alignment_tolerance": "+/-10mm",
+            "air_gap": "3-8mm"
+          },
+          "receiver": {
+            "L_rx": {"value": 15e-6, "unit": "H"},
+            "C_rx": {"value": 150e-9, "unit": "F"},
+            "rectifier": "Synchronous full-bridge",
+            "regulator": "Buck post-regulator for voltage profiles"
+          }
+        },
+        "qi_compliance": {
+          "standard": "Qi v1.3 Extended Power Profile (EPP)",
+          "communication": "In-band via load modulation",
+          "foreign_object": "FOD via Q-factor monitoring",
+          "power_profiles": ["BPP 5W", "EPP 15W"]
+        },
+        "expected_results": {
+          "efficiency_aligned": 0.85,
+          "efficiency_misaligned": 0.75,
+          "power_profiles": [5, 7.5, 10, 15]
+        }
+      }
+    },
+    {
+      "id": "L3_012",
+      "prompt": "Design a battery balancing system for 16S Li-ion pack with active cell balancing",
+      "solution": {
+        "topology": "active_cell_balancer",
+        "pack_config": "16S",
+        "vcell_range": "2.8-4.2V",
+        "vpack_range": "44.8-67.2V",
+        "balance_current": 2.0,
+        "stages": {
+          "per_cell_converter": {
+            "topology": "Flyback bidirectional (cell to stack)",
+            "Lm": {"value": 100e-6, "unit": "H"},
+            "turns_ratio": 16,
+            "f_sw": 200000,
+            "efficiency": 0.90
+          },
+          "control": {
+            "monitor_ic": "BQ76952 or similar",
+            "resolution": "1mV per cell",
+            "balance_algorithm": "Target to average voltage"
+          },
+          "communication": {
+            "cell_to_bms": "Daisy-chain SPI",
+            "isolation": "Digital isolator per cell"
+          }
+        },
+        "balancing_strategy": {
+          "active_method": "Cell-to-pack flyback",
+          "trigger": "Delta_V > 20mV",
+          "balance_rate": "2A max per cell",
+          "energy_recovery": ">85%",
+          "passive_backup": "100mA bleed resistor"
+        },
+        "safety": {
+          "overvoltage": "Hardware comparator cutoff",
+          "undervoltage": "Pack disconnect",
+          "temperature": "NTC per 4 cells"
+        },
+        "expected_results": {
+          "balance_time_1Ah_delta": "<30min",
+          "energy_efficiency": 0.88,
+          "cell_voltage_matching": "+/-5mV"
+        }
+      }
+    },
+    {
+      "id": "L3_013",
+      "prompt": "Design a three-phase motor drive: 400VAC input, 10kW permanent magnet motor",
+      "solution": {
+        "topology": "three_phase_vfd",
+        "vin_ac": "400VAC 3-phase",
+        "vbus": 565.0,
+        "motor_power": 10000,
+        "motor_type": "PMSM",
+        "stages": {
+          "rectifier": {
+            "type": "Passive 3-phase diode bridge",
+            "vdc": "~565V (1.35 x Vac_ll)",
+            "C_bus": {"value": 2200e-6, "unit": "F", "voltage": "700V"}
+          },
+          "inverter": {
+            "topology": "3-phase 2-level VSI",
+            "switches": "6x 1200V IGBT modules",
+            "f_sw": 10000,
+            "modulation": "Space Vector PWM"
+          },
+          "output_filter": {
+            "dv_dt_filter": "RC snubber per phase",
+            "optional_sinus": "LCL filter for long cables"
+          }
+        },
+        "control": {
+          "method": "Field Oriented Control (FOC)",
+          "position_sensor": "Resolver or encoder",
+          "current_loops": {
+            "bandwidth": "1kHz",
+            "type": "PI in dq-frame"
+          },
+          "speed_loop": {
+            "bandwidth": "100Hz",
+            "type": "PI with anti-windup"
+          }
+        },
+        "motor_parameters": {
+          "Rs": "0.5 ohm",
+          "Ld": "5mH",
+          "Lq": "8mH",
+          "flux_linkage": "0.3 Wb",
+          "poles": 8
+        },
+        "expected_results": {
+          "rated_torque_Nm": 32,
+          "rated_speed_rpm": 3000,
+          "efficiency_system": 0.94,
+          "thd_current": "<5%"
+        }
+      }
+    },
+    {
+      "id": "L3_014",
+      "prompt": "Design a grid-tied solar inverter: 600V DC string, 5kW single-phase output",
+      "solution": {
+        "topology": "string_inverter",
+        "vdc_range": "200-600V",
+        "vdc_mpp": "400V",
+        "vac_out": "240VAC 60Hz",
+        "power": 5000,
+        "stages": {
+          "dc_dc_stage": {
+            "topology": "Boost (when Vdc < 340V peak)",
+            "L": {"value": 500e-6, "unit": "H"},
+            "vbus": 400.0,
+            "mppt": "Incremental conductance"
+          },
+          "inverter_stage": {
+            "topology": "H-bridge",
+            "switches": "4x 650V SiC MOSFET",
+            "f_sw": 20000,
+            "modulation": "Unipolar SPWM"
+          },
+          "output_filter": {
+            "type": "LCL",
+            "L1": {"value": 2e-3, "unit": "H"},
+            "C": {"value": 4.7e-6, "unit": "F"},
+            "L2": {"value": 1e-3, "unit": "H"},
+            "damping": "Passive RC"
+          }
+        },
+        "grid_requirements": {
+          "standard": "IEEE 1547",
+          "anti_islanding": "Active frequency shift",
+          "ride_through": "LVRT per grid code",
+          "power_factor": "Adjustable 0.8 leading to 0.8 lagging",
+          "thd_current": "<5%"
+        },
+        "protection": {
+          "ground_fault": "RCD 300mA",
+          "arc_fault": "AFCI detection",
+          "overvoltage": "MOV + fast disconnect"
+        },
+        "expected_results": {
+          "efficiency_cec": 0.97,
+          "mppt_efficiency": 0.995,
+          "thd_injected": "<3%"
+        }
+      }
+    },
+    {
+      "id": "L3_015",
+      "prompt": "Design a datacom power shelf: 240VAC to -48V, 6kW with 12 hot-plug modules",
+      "solution": {
+        "topology": "modular_power_shelf",
+        "vin_ac": "240VAC single-phase",
+        "vout": -48.0,
+        "power_total": 6000,
+        "modules": 12,
+        "power_per_module": 550,
+        "redundancy": "N+1",
+        "module_design": {
+          "topology": "Flyback with PFC",
+          "pfc": {
+            "type": "CrCM boost",
+            "L": {"value": 200e-6, "unit": "H"},
+            "vbus": 385.0
+          },
+          "dcdc": {
+            "type": "Active clamp flyback",
+            "Lm": {"value": 100e-6, "unit": "H"},
+            "f_sw": 200000,
+            "turns_ratio": 0.25
+          }
+        },
+        "shelf_management": {
+          "backplane": {
+            "power_bus": "-48V common",
+            "communication": "I2C + PMBus",
+            "connector": "Blind-mate hot-plug"
+          },
+          "current_sharing": {
+            "method": "Digital PMBus-based",
+            "accuracy": "+/-3%"
+          },
+          "fan_control": {
+            "sensors": "Per-module + ambient",
+            "curve": "Adaptive speed"
+          }
+        },
+        "monitoring": {
+          "per_module": ["Vin", "Vout", "Iout", "Temp", "Status"],
+          "system": ["Total power", "Efficiency", "Fan speed", "Alarms"],
+          "interface": "SNMP + REST API"
+        },
+        "expected_results": {
+          "system_efficiency": 0.93,
+          "power_density": "25W/in3",
+          "mtbf": ">300000 hours"
+        }
+      }
+    },
+    {
+      "id": "L3_016",
+      "prompt": "Design a plasma cutter power supply: 240VAC input, 200A cutting current, 100V OCV",
+      "solution": {
+        "topology": "inverter_plasma_supply",
+        "vin_ac": "240VAC single-phase",
+        "i_cut_max": 200.0,
+        "v_ocv": 100.0,
+        "v_arc": 80.0,
+        "power_max": 16000,
+        "stages": {
+          "input": {
+            "rectifier": "Full-bridge with PFC",
+            "vbus": 380.0,
+            "C_bus": {"value": 2000e-6, "unit": "F"}
+          },
+          "inverter": {
+            "topology": "Full-bridge",
+            "switches": "IGBT 600V/100A",
+            "f_sw": 30000
+          },
+          "transformer": {
+            "turns_ratio": 0.26,
+            "isolation": "3kV"
+          },
+          "output": {
+            "rectifier": "Fast diodes",
+            "filter": {"L": "50uH", "C": "100uF"},
+            "drooping_characteristic": "CC mode"
+          }
+        },
+        "arc_control": {
+          "start": {
+            "method": "High-frequency pilot arc",
+            "hf_voltage": "5kV peak",
+            "hf_frequency": "2MHz"
+          },
+          "transfer": "Pilot to main arc transition",
+          "cc_regulation": "+/-2A"
+        },
+        "safety": {
+          "ocv_limit": "100V max (safety class)",
+          "ground_fault": "GFCI",
+          "torch_interlock": "Trigger safety"
+        },
+        "expected_results": {
+          "cut_thickness_mild_steel": "25mm",
+          "duty_cycle_200A": "60%",
+          "efficiency": 0.85
+        }
+      }
+    },
+    {
+      "id": "L3_017",
+      "prompt": "Design an induction heater: 400VAC input, 50kW at 50kHz for metal hardening",
+      "solution": {
+        "topology": "series_resonant_induction",
+        "vin_ac": "400VAC 3-phase",
+        "power": 50000,
+        "f_resonant": 50000,
+        "stages": {
+          "rectifier": {
+            "type": "3-phase thyristor controlled",
+            "vdc_range": "0-540V",
+            "power_control": "Phase angle"
+          },
+          "inverter": {
+            "topology": "Full-bridge voltage-fed",
+            "switches": "IGBT with anti-parallel diodes",
+            "f_sw": "50kHz (fixed at resonance)"
+          },
+          "resonant_tank": {
+            "L_work_coil": {"value": 5e-6, "unit": "H"},
+            "C_resonant": {"value": 2e-6, "unit": "F"},
+            "Q_factor": 10,
+            "tank_type": "Series LC"
+          },
+          "work_coil": {
+            "turns": 10,
+            "material": "Copper tube (water-cooled)",
+            "inner_diameter": "50mm"
+          }
+        },
+        "heating_control": {
+          "method": "Frequency tracking + power control",
+          "pll": "Phase-locked loop to load resonance",
+          "temp_feedback": "Pyrometer closed loop"
+        },
+        "cooling": {
+          "inverter": "Water-cooled heatsink",
+          "coil": "Integral water flow",
+          "flow_rate": "20 L/min"
+        },
+        "expected_results": {
+          "heating_rate": "50C/s for 25mm steel",
+          "efficiency": 0.90,
+          "power_factor": 0.95
+        }
+      }
+    },
+    {
+      "id": "L3_018",
+      "prompt": "Design a 3-level NPC inverter: 800V DC bus, 100kVA grid interface",
+      "solution": {
+        "topology": "three_level_npc",
+        "vdc": 800.0,
+        "vac_out": "480VAC 3-phase",
+        "power": 100000,
+        "f_sw": 5000,
+        "stages": {
+          "dc_bus": {
+            "capacitor_bank": {
+              "upper": {"value": 4700e-6, "unit": "F", "voltage": "450V"},
+              "lower": {"value": 4700e-6, "unit": "F", "voltage": "450V"}
+            },
+            "balance_control": "Active NP voltage control"
+          },
+          "inverter": {
+            "topology": "3-level Neutral Point Clamped",
+            "switches_per_phase": "4x IGBT + 2x clamp diodes",
+            "igbt_rating": "600V/200A",
+            "levels": ["+Vdc/2", "0", "-Vdc/2"]
+          },
+          "output_filter": {
+            "type": "LCL",
+            "L1": {"value": 500e-6, "unit": "H"},
+            "C": {"value": 50e-6, "unit": "F"},
+            "L2": {"value": 200e-6, "unit": "H"}
+          }
+        },
+        "modulation": {
+          "method": "Carrier-based PWM with NP balance",
+          "carriers": 2,
+          "disposition": "Phase-disposition (PD)",
+          "deadtime": "2us"
+        },
+        "benefits": {
+          "thd": "Lower than 2-level at same f_sw",
+          "dv_dt": "Half of 2-level",
+          "efficiency": "Higher due to lower switching loss"
+        },
+        "expected_results": {
+          "vac_thd": "<2%",
+          "efficiency": 0.98,
+          "np_balance": "+/-10V"
+        }
+      }
+    },
+    {
+      "id": "L3_019",
+      "prompt": "Design a supercapacitor energy buffer: 48V system, 100F, 10kW peak charge/discharge",
+      "solution": {
+        "topology": "bidirectional_buck_boost",
+        "vbus": 48.0,
+        "vcap_range": "24-48V",
+        "capacitance": 100,
+        "power_peak": 10000,
+        "stages": {
+          "supercap_bank": {
+            "cells": "18S (2.7V per cell)",
+            "capacitance_per_cell": "3000F",
+            "total_capacitance": "167F (18S)",
+            "esr": "5mOhm",
+            "energy": "0.5 * 100 * 48^2 = 115kJ"
+          },
+          "converter": {
+            "topology": "4-phase interleaved buck-boost",
+            "L_per_phase": {"value": 50e-6, "unit": "H", "rating": "75A"},
+            "f_sw": 50000,
+            "switches": "100V GaN per phase"
+          },
+          "control": {
+            "mode": "Current-controlled bidirectional",
+            "charge_limit": "250A peak",
+            "discharge_limit": "250A peak"
+          }
+        },
+        "cell_balancing": {
+          "method": "Active cell balancing",
+          "balance_current": "5A",
+          "topology": "Flying capacitor"
+        },
+        "applications": {
+          "use_case": "Peak shaving for motor start",
+          "charge_time": "C*dV/I = 100*24/200 = 12s",
+          "discharge_time": "E/P = 115kJ/10kW = 11.5s"
+        },
+        "expected_results": {
+          "round_trip_efficiency": 0.95,
+          "peak_power": 10000,
+          "response_time_ms": 1
+        }
+      }
+    },
+    {
+      "id": "L3_020",
+      "prompt": "Design an arc welder: 240VAC input, 5-200A output, CC/CV modes",
+      "solution": {
+        "topology": "inverter_welder",
+        "vin_ac": "240VAC single-phase",
+        "iout_range": "5-200A",
+        "vout_ocv": 80.0,
+        "vout_arc": "20-30V",
+        "power_max": 6000,
+        "stages": {
+          "input": {
+            "rectifier": "Full-bridge with soft-start",
+            "vbus": 340.0,
+            "C_bus": {"value": 1000e-6, "unit": "F"}
+          },
+          "inverter": {
+            "topology": "Full-bridge phase-shifted",
+            "switches": "IGBT 600V/50A",
+            "f_sw": 50000,
+            "zvs": true
+          },
+          "transformer": {
+            "turns_ratio": 0.15,
+            "construction": "High-frequency ferrite",
+            "isolation": "2.5kV"
+          },
+          "output": {
+            "rectifier": "Fast recovery diodes",
+            "filter_L": {"value": 100e-6, "unit": "H"},
+            "filter_C": {"value": 47e-6, "unit": "F"}
+          }
+        },
+        "welding_modes": {
+          "CC_mode": {
+            "application": "SMAW (stick), TIG",
+            "regulation": "+/-2A",
+            "drooping": "2V/100A slope"
+          },
+          "CV_mode": {
+            "application": "MIG/MAG",
+            "regulation": "+/-0.5V",
+            "slope_adjust": "0-10V/100A"
+          }
+        },
+        "arc_features": {
+          "hot_start": "Boost current for 0.5s",
+          "arc_force": "Dynamic response to stick",
+          "anti_stick": "Reduce current if shorted"
+        },
+        "expected_results": {
+          "duty_cycle_200A": "35%",
+          "duty_cycle_100A": "100%",
+          "efficiency": 0.85
+        }
+      }
+    }
+  ]
+}

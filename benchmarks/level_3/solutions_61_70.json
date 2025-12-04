@@ -1,0 +1,825 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_061",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Plasma Rocket Thruster",
+      "problem_statement": "Design a forward converter for VASIMR plasma rocket engine power processing unit. Input: 300V DC from solar array, Output: 200V at 50A for RF plasma heating. Must survive 5000+ hour mission duration, handle solar array power variations, and operate in deep space thermal environment.",
+      "objectives": {
+        "primary": ["5000+ hour life", "Deep space thermal", "Solar array MPPT"],
+        "secondary": ["Efficiency >95%", "Mass <5kg"],
+        "constraints": ["NASA mission assurance", "Zero maintenance"]
+      },
+      "solution": {
+        "design_approach": "High-reliability space-grade design. Radiation-hardened components. Conservative thermal margins. MPPT for varying sun distance.",
+        "switching_frequency": "100kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D / V_out",
+          "calculation": "n = 300V × 0.67 / 200V = 1:1",
+          "selected_ratio": "1:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 200V × 1 / 300V = 0.67"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "10A (20%)",
+          "calculation": "L = (300V - 200V) × 0.67 / (100kHz × 10A) = 67μH",
+          "selected_value": "68μH",
+          "type": "Space-rated MPP core",
+          "current_rating": "60A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "1V",
+          "calculation": "C_out = 10A / (8 × 100kHz × 1V) = 12.5μF",
+          "selected_value": "100μF ceramic (space-rated)",
+          "voltage_rating": "250V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic + 100μF film",
+          "voltage_rating": "450V"
+        },
+        "mission_duration": {
+          "target": "5000+ hours",
+          "component_selection": "MIL-PRF-19500 semiconductors",
+          "capacitors": "Wet tantalum or ceramic only",
+          "derating": "60% voltage, 50% current"
+        },
+        "deep_space_thermal": {
+          "cold_case": "-100°C (eclipse)",
+          "hot_case": "+80°C (full sun)",
+          "heaters": "Survival heaters for cold",
+          "radiator": "OSR radiator panels"
+        },
+        "solar_array_mppt": {
+          "sun_distance": "1 AU to 5 AU",
+          "voltage_variation": "200V to 400V",
+          "tracking": "Fractional Voc with corrections"
+        },
+        "radiation_environment": {
+          "total_dose": "100 krad mission",
+          "seu_rate": "High in deep space",
+          "components": "Rad-hard or ELDRS-free"
+        },
+        "rf_interface": {
+          "load": "Helicon RF generator",
+          "power": "10kW plasma heating",
+          "pulsed": "Variable duty for throttling"
+        },
+        "mass_budget": {
+          "transformer": "1.5kg",
+          "inductors": "1kg",
+          "capacitors": "0.5kg",
+          "semiconductors": "0.3kg",
+          "structure_thermal": "1.5kg",
+          "total": "4.8kg"
+        },
+        "efficiency_achieved": "95.5%"
+      }
+    },
+    {
+      "id": "L3_062",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Volcanic Seismometer",
+      "problem_statement": "Design a SEPIC converter for volcano monitoring station. Input: 6V-14V from solar/battery hybrid, Output: 5V at 1A for data acquisition and telemetry. Must survive SO2 corrosive atmosphere, 200°C ground contact heat, and operate unattended for 2 years.",
+      "objectives": {
+        "primary": ["Corrosive atmosphere survival", "200°C proximity", "2-year operation"],
+        "secondary": ["Low quiescent power", "Telemetry interface"],
+        "constraints": ["Hazardous location", "Limited maintenance access"]
+      },
+      "solution": {
+        "design_approach": "Hermetically sealed electronics, thermal isolation from hot ground, corrosion-resistant materials throughout.",
+        "switching_frequency": "300kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_6V": "D = 5V / (6V + 5V) = 0.45",
+          "at_14V": "D = 5V / (14V + 5V) = 0.26"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.3A",
+          "calculation": "L1 = 6V × 0.45 / (300kHz × 0.3A) = 30μH",
+          "selected_value": "33μH",
+          "type": "Hermetically sealed",
+          "current_rating": "2A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.25A",
+          "calculation": "L2 = 5V × 0.74 / (300kHz × 0.25A) = 49μH",
+          "selected_value": "47μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "10μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "25V"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic",
+          "voltage_rating": "25V"
+        },
+        "corrosion_protection": {
+          "atmosphere": "SO2, H2S, HCl gases",
+          "enclosure": "Hermetically sealed titanium",
+          "seals": "Metal C-seals",
+          "connectors": "Glass-to-metal feedthrough"
+        },
+        "thermal_isolation": {
+          "ground_temp": "Up to 200°C",
+          "standoff": "Ceramic insulators",
+          "internal_temp": "Maintain <60°C",
+          "insulation": "Aerogel thermal barrier"
+        },
+        "2_year_operation": {
+          "solar_panel": "20W, fumarole-resistant glass",
+          "battery": "LiFePO4 12V 20Ah",
+          "capacity": "3 days autonomy",
+          "component_life": "10-year design"
+        },
+        "low_power_modes": {
+          "active": "5W sampling",
+          "sleep": "10mW monitoring",
+          "quiescent": "<100μA converter"
+        },
+        "telemetry": {
+          "radio": "900MHz spread spectrum",
+          "range": "20km line of sight",
+          "data_rate": "9600 baud"
+        },
+        "sensors": {
+          "seismometer": "Broadband 3-axis",
+          "tilt": "Electronic tiltmeter",
+          "temperature": "Ground contact probe"
+        },
+        "efficiency_achieved": "89%"
+      }
+    },
+    {
+      "id": "L3_063",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Cargo Ship Shore Power",
+      "problem_statement": "Design a half-bridge converter for container ship cold ironing system. Input: 6.6kV shore power (rectified), Output: 440V at 500A for ship electrical. Must meet maritime safety standards, handle ship-to-shore connection dynamics, and operate with salt spray exposure.",
+      "objectives": {
+        "primary": ["Maritime safety SOLAS", "Dynamic connection handling", "Salt spray immunity"],
+        "secondary": ["Efficiency >96%", "Low harmonic distortion"],
+        "constraints": ["Port emissions regulations", "Variable ship loads"]
+      },
+      "solution": {
+        "design_approach": "High-power isolated DC-DC with robust shore connection. Maritime-grade construction. Active power factor correction upstream.",
+        "topology": "Resonant half-bridge LLC",
+        "switching_frequency": "30kHz",
+        "input_voltage_rectified": {
+          "from_6.6kV_ac": "9.3kV DC peak",
+          "filtered": "9kV DC nominal"
+        },
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / V_out",
+          "calculation": "n = 9000V / 440V = 20.5:1",
+          "selected_ratio": "20:1"
+        },
+        "resonant_components": {
+          "L_r": "500μH",
+          "C_r": "50nF",
+          "resonant_frequency": "32kHz"
+        },
+        "output_filter": {
+          "inductor": "100μH per phase",
+          "capacitor": "10mF electrolytic bank",
+          "voltage_rating": "500V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF film bank",
+          "voltage_rating": "10kV"
+        },
+        "maritime_safety": {
+          "standard": "SOLAS Chapter II-1",
+          "insulation": "Marine-grade Class F",
+          "fire_rating": "A-60 enclosure",
+          "emergency_stop": "Shore and ship locations"
+        },
+        "connection_dynamics": {
+          "cable_length": "50-200m",
+          "inductance": "Variable with cable",
+          "soft_start": "60-second ramp",
+          "synchronization": "Automatic phase matching"
+        },
+        "salt_spray_protection": {
+          "standard": "IEC 60068-2-11",
+          "enclosure": "IP56 marine-rated",
+          "materials": "316 stainless, marine aluminum",
+          "coatings": "Two-part marine epoxy"
+        },
+        "shore_connection_system": {
+          "connector": "High-power marine connector",
+          "interlock": "Mechanical + electrical",
+          "grounding": "Ship-to-shore bonding"
+        },
+        "power_quality": {
+          "thd": "<5% at ship bus",
+          "power_factor": ">0.95",
+          "voltage_regulation": "±2%"
+        },
+        "ship_loads": {
+          "refrigerated_containers": "Variable cyclic",
+          "hotel_load": "Lighting, HVAC",
+          "pumps": "Ballast, bilge"
+        },
+        "efficiency_achieved": "96.5%"
+      }
+    },
+    {
+      "id": "L3_064",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Electron Microscope Lens",
+      "problem_statement": "Design a buck converter for transmission electron microscope electromagnetic lens. Input: 48V, Output: 3V at 50A for lens coil. Must achieve 1ppm current stability, <10nV/√Hz noise, and thermal drift <0.1ppm/°C for atomic resolution imaging.",
+      "objectives": {
+        "primary": ["1ppm current stability", "<10nV/√Hz noise", "0.1ppm/°C drift"],
+        "secondary": ["Fast beam steering", "Multiple lens channels"],
+        "constraints": ["Vibration isolation", "Magnetic interference"]
+      },
+      "solution": {
+        "design_approach": "Ultra-precision current source with temperature-controlled reference. Extensive filtering. Remote sense at lens.",
+        "topology": "8-phase interleaved with linear post-regulator",
+        "switching_frequency": "1MHz per phase",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 3V / 48V = 0.0625"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "1.5A per phase",
+          "calculation": "L = 3V × 0.9375 / (1MHz × 1.5A) = 1.875μH",
+          "selected_value": "2.2μH per phase",
+          "type": "Low-permeability core",
+          "dcr": "<1mΩ"
+        },
+        "output_capacitor": {
+          "formula": "Interleaved + LC filter",
+          "selected_value": "1mF ceramic + 10mF polymer",
+          "type": "Ultra-low ESR/ESL"
+        },
+        "input_capacitor": {
+          "selected_value": "470μF ceramic bank",
+          "voltage_rating": "63V"
+        },
+        "linear_post_regulator": {
+          "dropout": "500mV headroom",
+          "noise": "<1nV/√Hz added",
+          "psrr": ">80dB at 1MHz"
+        },
+        "current_stability_system": {
+          "reference": "Ovenized LTZ1000, 0.05ppm",
+          "sense_resistor": "Precision 1mΩ, 0.1ppm TCR",
+          "adc": "24-bit ΔΣ, 0.5ppm INL",
+          "temperature": "±0.01°C controlled enclosure"
+        },
+        "noise_filtering": {
+          "stage_1": "1MHz LC from switcher",
+          "stage_2": "100kHz LC second stage",
+          "stage_3": "Linear regulator",
+          "stage_4": "100Hz passive LC",
+          "stage_5": "Active noise cancellation"
+        },
+        "thermal_stability": {
+          "enclosure": "Temperature controlled ±0.01°C",
+          "reference": "Separate ovenized module",
+          "sense_resistor": "Hermetic, oil-filled",
+          "warm_up": "2 hours for specification"
+        },
+        "lens_interface": {
+          "coil_inductance": "10mH",
+          "coil_resistance": "60mΩ",
+          "remote_sense": "4-wire to lens",
+          "cable_compensation": "Active cable drop correction"
+        },
+        "beam_steering": {
+          "bandwidth": "10kHz small-signal",
+          "slew_rate": "5A/ms",
+          "settling": "1ppm in 100ms"
+        },
+        "magnetic_shielding": {
+          "electronics": "5-layer mu-metal",
+          "cables": "Shielded twisted pair",
+          "residual_field": "<0.1nT"
+        },
+        "efficiency_achieved": "85% (dominated by linear stage)"
+      }
+    },
+    {
+      "id": "L3_065",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Offshore Platform Lightning Protection",
+      "problem_statement": "Design a flyback converter for oil platform lightning warning system. Input: 24V from platform UPS, Output: 12V at 2A for electric field mill sensors. Must survive direct lightning attachment (200kA), operate in Zone 2 hazardous area, and provide continuous monitoring.",
+      "objectives": {
+        "primary": ["200kA lightning survival", "ATEX Zone 2", "Continuous operation"],
+        "secondary": ["Multiple sensor channels", "Network interface"],
+        "constraints": ["Offshore certification", "Salt fog corrosion"]
+      },
+      "solution": {
+        "design_approach": "Extreme surge protection, intrinsically safe design principles, marine-grade construction.",
+        "switching_frequency": "150kHz",
+        "transformer_turns_ratio": {
+          "formula": "n for step-down",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / (V_in + V_out × n)",
+          "calculation": "D = 12V × 2 / (24V + 12V × 2) = 0.5"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "power": "24W",
+          "calculation": "L_p = 24² × 0.5² / (2 × 24W × 150kHz × 0.85) = 23.5μH",
+          "selected_value": "22μH"
+        },
+        "transformer_specs": {
+          "core": "Gapped ferrite",
+          "primary": "10 turns",
+          "secondary": "5 turns",
+          "isolation": "8kV reinforced",
+          "construction": "Encapsulated"
+        },
+        "output_capacitor": {
+          "selected_value": "470μF polymer",
+          "voltage_rating": "16V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic + film",
+          "voltage_rating": "35V"
+        },
+        "lightning_protection": {
+          "direct_strike": "200kA 10/350μs",
+          "nearby_strike": "100kV induced",
+          "input_protection": {
+            "stage_1": "Gas discharge tube 90V",
+            "stage_2": "MOV 40V",
+            "stage_3": "TVS 33V"
+          },
+          "isolation": "8kV transformer barrier",
+          "output_protection": "TVS clamp"
+        },
+        "atex_zone_2": {
+          "certification": "ATEX II 3G Ex nA IIC T4",
+          "protection": "Non-sparking design",
+          "temperature_class": "T4 (135°C max)",
+          "enclosure": "Flameproof junction box"
+        },
+        "intrinsic_safety_approach": {
+          "energy_limiting": "Controlled under fault",
+          "spacing": "Creepage/clearance per IEC 60079-11",
+          "barriers": "Galvanic isolation throughout"
+        },
+        "field_mill_interface": {
+          "sensors": "4 independent channels",
+          "output": "12V isolated per channel",
+          "data": "RS-485 Modbus"
+        },
+        "offshore_environment": {
+          "salt_fog": "IEC 60068-2-11 severity 1",
+          "enclosure": "IP66 316L stainless",
+          "coating": "Marine-grade conformal"
+        },
+        "monitoring": {
+          "parameters": "Input/output V, I, temp",
+          "alarms": "Over/under voltage, comms fail",
+          "interface": "Ethernet to platform SCADA"
+        },
+        "efficiency_achieved": "86%"
+      }
+    },
+    {
+      "id": "L3_066",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Superconducting Cable Cooling",
+      "problem_statement": "Design a full-bridge converter for HTS superconducting power cable cryocooler. Input: 480V AC rectified (680V DC), Output: 300V at 30A for Stirling cryocooler compressor. Must maintain 77K cooling with 99.99% uptime, handle liquid nitrogen backup transition, and provide soft-start for compressor.",
+      "objectives": {
+        "primary": ["99.99% uptime", "LN2 backup transition", "Compressor soft-start"],
+        "secondary": ["Efficiency >94%", "Low acoustic noise"],
+        "constraints": ["Utility-grade reliability", "Cryogenic system integration"]
+      },
+      "solution": {
+        "design_approach": "High-reliability N+1 redundant design. Seamless transition to LN2 backup. Controlled compressor acceleration.",
+        "topology": "Phase-shifted full-bridge ZVS",
+        "switching_frequency": "60kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D_eff / V_out",
+          "calculation": "n = 680V × 0.8 / 300V = 1.8:1",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 300V × 2 / 680V = 0.88"
+        },
+        "output_inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "6A (20%)",
+          "calculation": "L = 300V × 0.12 / (60kHz × 6A) = 100μH",
+          "selected_value": "100μH",
+          "type": "Powder core, low loss",
+          "current_rating": "40A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "1.5V",
+          "calculation": "C_out = 6A / (8 × 60kHz × 1.5V) = 8.3μF",
+          "selected_value": "100μF film",
+          "voltage_rating": "400V"
+        },
+        "input_capacitor": {
+          "selected_value": "200μF film",
+          "voltage_rating": "900V"
+        },
+        "redundancy_architecture": {
+          "topology": "N+1 parallel modules",
+          "modules": "2 × 50% capacity",
+          "hot_standby": "Instant takeover",
+          "mtbf": ">100,000 hours per module"
+        },
+        "uptime_calculation": {
+          "single_module_availability": "99.9%",
+          "with_redundancy": "1 - (0.001)² = 99.9999%",
+          "achieved": "99.99% with maintenance"
+        },
+        "ln2_backup_transition": {
+          "detection": "Cryo temperature rise",
+          "switchover": "<30 seconds",
+          "ln2_reserve": "24-hour capacity",
+          "auto_refill": "Bulk tank interface"
+        },
+        "compressor_soft_start": {
+          "method": "S-curve voltage ramp",
+          "ramp_time": "10 seconds",
+          "current_limit": "150% rated",
+          "protection": "Stall detection"
+        },
+        "cryocooler_interface": {
+          "type": "Stirling cycle",
+          "capacity": "2kW at 77K",
+          "motor": "Linear compressor",
+          "frequency": "50Hz AC from inverter"
+        },
+        "acoustic_design": {
+          "switching": "60kHz (inaudible)",
+          "transformer": "Vacuum impregnated",
+          "enclosure": "Acoustic dampening"
+        },
+        "efficiency_achieved": "95%"
+      }
+    },
+    {
+      "id": "L3_067",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Tidal Turbine Generator",
+      "problem_statement": "Design a boost converter for tidal stream turbine generator interface. Input: 200V-600V variable from PMSG, Output: 750V DC bus at 50kW. Must handle bidirectional flow (tidal reversal), survive biofouling, and operate submerged at 50m for 5-year maintenance intervals.",
+      "objectives": {
+        "primary": ["5-year subsea operation", "Tidal reversal handling", "Biofouling resistance"],
+        "secondary": ["MPPT efficiency", "Grid code compliance"],
+        "constraints": ["Marine growth", "Pressure compensation"]
+      },
+      "solution": {
+        "design_approach": "Pressure-compensated oil-filled design. Bidirectional power flow capability. Anti-fouling interfaces.",
+        "switching_frequency": "20kHz (for subsea reliability)",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "at_200V": "D = 1 - 200V/750V = 0.73",
+          "at_600V": "D = 1 - 600V/750V = 0.20"
+        },
+        "inductor": {
+          "formula": "L = V_in_min × D_max / (f_sw × ΔI_L)",
+          "ripple_current": "25A (20% at max power)",
+          "calculation": "L = 200V × 0.73 / (20kHz × 25A) = 292μH",
+          "selected_value": "300μH",
+          "type": "Potted, oil-compatible",
+          "current_rating": "150A"
+        },
+        "dc_bus_capacitor": {
+          "formula": "C for grid code holdup",
+          "selected_value": "5mF film bank",
+          "voltage_rating": "900V"
+        },
+        "input_capacitor": {
+          "selected_value": "1mF film",
+          "voltage_rating": "700V"
+        },
+        "subsea_operation": {
+          "depth": "50m (5 bar)",
+          "enclosure": "Pressure-compensated oil-filled",
+          "oil": "Biodegradable dielectric",
+          "breathing": "Bellows compensator"
+        },
+        "5_year_maintenance": {
+          "components": "Industrial long-life",
+          "redundancy": "N+1 on critical paths",
+          "monitoring": "Continuous diagnostics",
+          "mtbf": ">100,000 hours"
+        },
+        "tidal_reversal": {
+          "flow_direction": "Reverses every 6 hours",
+          "generator": "Operates both directions",
+          "converter": "Bidirectional boost",
+          "transition": "Seamless through zero"
+        },
+        "biofouling_resistance": {
+          "external": "Copper-nickel alloy housing",
+          "connectors": "Bio-resistant rubber boots",
+          "cooling": "Self-cleaning heat sink design"
+        },
+        "pmsg_interface": {
+          "generator": "Permanent magnet synchronous",
+          "rectifier": "Diode bridge + boost",
+          "speed_range": "0.5-2× rated",
+          "mppt": "Hill-climbing algorithm"
+        },
+        "grid_connection": {
+          "subsea_cable": "XLPE 6.6kV",
+          "inverter": "Onshore grid-tied",
+          "power_factor": ">0.95",
+          "harmonics": "IEEE 519 compliant"
+        },
+        "diagnostics": {
+          "parameters": "V, I, T, oil quality",
+          "communication": "Fiber optic in umbilical",
+          "trending": "Predictive maintenance"
+        },
+        "efficiency_achieved": "96%"
+      }
+    },
+    {
+      "id": "L3_068",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Neutrino Detector Photomultiplier",
+      "problem_statement": "Design a Ćuk converter for photomultiplier tube (PMT) bias in neutrino detector. Input: 5V from DAQ system, Output: -1000V at 1mA per PMT (1000 channels). Must achieve <1mV ripple for single-photon counting, survive 20-year underground operation, and provide per-channel adjustment.",
+      "objectives": {
+        "primary": ["<1mV ripple", "20-year operation", "Per-channel control"],
+        "secondary": ["Channel density", "Low power"],
+        "constraints": ["Underground cavern environment", "Ultra-low radioactivity"]
+      },
+      "solution": {
+        "design_approach": "High-voltage Ćuk with Cockcroft-Walton multiplier. Ultra-low ripple filtering. Modular per-channel design.",
+        "topology": "Ćuk pre-regulator + CW multiplier",
+        "switching_frequency": "100kHz",
+        "intermediate_voltage": {
+          "cuk_output": "-100V",
+          "multiplier_stages": "10×",
+          "final_output": "-1000V"
+        },
+        "duty_cycle_cuk": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 100V / (5V + 100V) = 0.95"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "10mA",
+          "calculation": "L1 = 5V × 0.95 / (100kHz × 10mA) = 475μH",
+          "selected_value": "470μH per channel"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "calculation": "L2 = 100V × 0.05 / (100kHz × 10mA) = 500μH",
+          "selected_value": "470μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "1μF",
+          "type": "Ceramic C0G",
+          "voltage_rating": "150V"
+        },
+        "cw_multiplier": {
+          "stages": "10",
+          "capacitors": "10nF ceramic per stage",
+          "diodes": "Fast recovery HV",
+          "voltage_per_stage": "100V"
+        },
+        "output_filter": {
+          "final_capacitor": "100nF at -1000V",
+          "ripple_achieved": "0.5mV (within 1mV spec)"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF per channel",
+          "voltage_rating": "10V"
+        },
+        "ripple_analysis": {
+          "cuk_ripple": "500mV at -100V",
+          "cw_division": "10× stages",
+          "capacitor_filtering": "Additional 10×",
+          "final_ripple": "0.5mV"
+        },
+        "20_year_design": {
+          "capacitors": "C0G ceramic (no aging)",
+          "semiconductors": "Hermetic packages",
+          "encapsulation": "Silicone potting",
+          "mtbf": ">500,000 hours"
+        },
+        "per_channel_control": {
+          "dac": "12-bit DAC per channel",
+          "range": "-800V to -1200V",
+          "resolution": "100mV",
+          "interface": "SPI daisy-chain"
+        },
+        "modularity": {
+          "channels_per_board": "32",
+          "boards_per_crate": "32",
+          "total_channels": "1024 per crate"
+        },
+        "low_radioactivity": {
+          "materials": "Screened for U, Th, K",
+          "pcb": "Low-activity substrate",
+          "solder": "Low-activity alloy"
+        },
+        "underground_environment": {
+          "humidity": "100% RH possible",
+          "temperature": "Stable 15°C",
+          "radon": "Elevated levels"
+        },
+        "efficiency_achieved": "75% (HV generation losses)"
+      }
+    },
+    {
+      "id": "L3_069",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Radio Telescope LNA Bias",
+      "problem_statement": "Design a forward converter for radio telescope cryogenic low-noise amplifier. Input: 28V from receiver, Output: 1.5V at 100mA (InP HEMT bias). Must achieve <1μV RMS noise, operate at 20K cryogenic temperature, and provide magnetic-field-free operation for polarimetry.",
+      "objectives": {
+        "primary": ["<1μV RMS noise", "20K operation", "Zero magnetic field"],
+        "secondary": ["Stable over temperature", "Remote programmable"],
+        "constraints": ["Radio frequency interference", "Dewar integration"]
+      },
+      "solution": {
+        "design_approach": "Room-temperature converter with heavily filtered cable to 20K stage. Non-magnetic throughout. Extensive RFI shielding.",
+        "switching_frequency": "500kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D / V_out",
+          "calculation": "n = 28V × 0.1 / 1.5V = 1.87:1",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 1.5V × 2 / 28V = 0.107"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "20mA",
+          "calculation": "L = (14V - 1.5V) × 0.107 / (500kHz × 20mA) = 134μH",
+          "selected_value": "150μH (room temp section)"
+        },
+        "output_capacitor": {
+          "formula": "Multi-stage filtering to <1μV",
+          "room_temp": "100μF ceramic",
+          "at_dewar": "10μF ceramic",
+          "at_20k": "1μF (cold-rated)"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "noise_filtering_chain": {
+          "converter_output": "100mV ripple",
+          "stage_1_lc": "1mV after 10kHz filter",
+          "stage_2_lc": "10μV after 1kHz filter",
+          "stage_3_active": "1μV after 100Hz filter",
+          "final_rc": "<1μV at LNA"
+        },
+        "cryo_interface": {
+          "cable_to_20k": "Phosphor bronze, thin",
+          "thermal_intercepts": "At 77K and 20K",
+          "heat_load": "<5mW to 20K stage",
+          "connector": "Hermetic feedthrough"
+        },
+        "non_magnetic_design": {
+          "inductors": "Air-core at cold stage",
+          "capacitors": "Non-magnetic electrodes",
+          "hardware": "Brass or titanium",
+          "residual_field": "<1nT"
+        },
+        "rfi_shielding": {
+          "enclosure": "Double-shielded",
+          "filters": "Pi-filters on all lines",
+          "isolation": "Optical for control"
+        },
+        "lna_requirements": {
+          "device": "InP HEMT",
+          "drain_voltage": "1.0-1.5V",
+          "drain_current": "10-30mA per stage",
+          "channels": "4 for dual-polarization"
+        },
+        "programmability": {
+          "dac": "16-bit per channel",
+          "resolution": "25μV",
+          "control": "Fiber optic isolated"
+        },
+        "temperature_stability": {
+          "coefficient": "<10ppm/K",
+          "reference": "Buried zener",
+          "cold_compensation": "Lookup table"
+        },
+        "efficiency_achieved": "70% (filtering losses)"
+      }
+    },
+    {
+      "id": "L3_070",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Autonomous Mining Robot",
+      "problem_statement": "Design a SEPIC converter for underground mining inspection robot. Input: 18V-32V from lithium battery pack, Output: 24V at 10A for motor drivers and sensors. Must operate in explosive dust atmosphere (ATEX), survive 50g shock from rock falls, and provide 8-hour autonomous operation.",
+      "objectives": {
+        "primary": ["ATEX Zone 22 dust", "50g shock survival", "8-hour runtime"],
+        "secondary": ["Efficient motor drive", "Sensor suite power"],
+        "constraints": ["No sparks", "GPS-denied navigation"]
+      },
+      "solution": {
+        "design_approach": "Encapsulated intrinsically safe design. Shock-isolated internal mounting. High-efficiency for runtime.",
+        "switching_frequency": "350kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_18V": "D = 24V / (18V + 24V) = 0.57",
+          "at_32V": "D = 24V / (32V + 24V) = 0.43"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "2A",
+          "calculation": "L1 = 18V × 0.57 / (350kHz × 2A) = 14.7μH",
+          "selected_value": "15μH",
+          "type": "Shielded, potted",
+          "current_rating": "15A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "2A",
+          "calculation": "L2 = 24V × 0.57 / (350kHz × 2A) = 19.5μH",
+          "selected_value": "22μH"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D_max / (f_sw × ΔV_c)",
+          "calculation": "C_c = 10A × 0.57 / (350kHz × 2V) = 8.1μF",
+          "selected_value": "22μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "50V"
+        },
+        "output_capacitor": {
+          "selected_value": "470μF polymer",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "selected_value": "220μF ceramic + polymer",
+          "voltage_rating": "50V"
+        },
+        "atex_zone_22": {
+          "certification": "ATEX II 3D Ex tc IIIC T125°C",
+          "protection": "Encapsulation Ex tc",
+          "dust_ingress": "IP6X (dust-tight)",
+          "temperature": "T125°C surface max"
+        },
+        "encapsulation": {
+          "material": "Polyurethane potting",
+          "thickness": "3mm minimum",
+          "thermal_management": "Thermally conductive compound"
+        },
+        "shock_survival": {
+          "specification": "50g, 11ms half-sine",
+          "internal_mounting": "Silicone isolation",
+          "component_attach": "All SMD, no through-hole",
+          "cable_strain": "Reinforced entry"
+        },
+        "battery_system": {
+          "chemistry": "LiFePO4 (safer)",
+          "capacity": "25V nominal, 30Ah",
+          "energy": "750Wh",
+          "runtime": "750Wh / (240W × 1.1) = 8.5h"
+        },
+        "motor_interface": {
+          "wheels": "4× brushless hub motors",
+          "manipulator": "2× servo channels",
+          "total_power": "200W average"
+        },
+        "sensor_suite": {
+          "lidar": "360° scanner, 20W",
+          "cameras": "4× + thermal, 10W",
+          "gas_sensors": "CH4, CO, O2",
+          "total": "40W"
+        },
+        "navigation": {
+          "method": "SLAM (no GPS)",
+          "localization": "Inertial + visual",
+          "communication": "Mesh radio"
+        },
+        "efficiency_achieved": "93%"
+      }
+    }
+  ]
+}

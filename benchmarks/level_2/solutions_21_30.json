@@ -1,0 +1,434 @@
+{
+  "level": 2,
+  "solutions": [
+    {
+      "id": "L2_021",
+      "prompt": "Design a half-bridge: 400V→28V, 10A. Constraint: Phase-shift control for ZVS across 30-100% load.",
+      "solution": {
+        "topology": "half_bridge",
+        "vin": 400.0,
+        "vout": 28.0,
+        "iout": 10.0,
+        "power": 280.0,
+        "f_sw": 100000,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.28, "note": "Ns/Np"},
+          "L_out": {"value": 33e-6, "unit": "H", "rating": "15A"},
+          "L_leakage": {"value": 8e-6, "unit": "H", "note": "for ZVS"},
+          "C_split": {"value": 100e-6, "unit": "F", "note": "bus capacitors"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 2.8, "unit": "Ω"}
+        },
+        "zvs_design": {
+          "mechanism": "Phase-shift between half-bridge legs",
+          "dead_time": "150ns",
+          "energy_condition": "0.5×Llk×Ipk² > 0.5×Coss×(Vin/2)²",
+          "at_100_load": "0.5×8e-6×15² = 0.9mJ > 0.5×200e-12×200² = 4µJ ✓",
+          "at_30_load": "0.5×8e-6×4.5² = 81µJ > 4µJ ✓",
+          "circulating_current": "Maintained via magnetizing current"
+        },
+        "expected_results": {
+          "vout_actual": 28.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.94,
+          "zvs_range_percent": "30-100"
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_022",
+      "prompt": "Design a buck: 48V→5V, 8A. Constraint: Audible noise-free operation (no acoustic emissions).",
+      "solution": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 8.0,
+        "power": 40.0,
+        "f_sw": 400000,
+        "duty_cycle": 0.104,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "12A", "type": "toroid_enclosed"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "MLCC"},
+          "R_load": {"value": 0.625, "unit": "Ω"}
+        },
+        "noise_mitigation": {
+          "switching_frequency": "400kHz >> 20kHz audible range",
+          "inductor": {
+            "core": "Ferrite toroid (no air gap)",
+            "potting": "Encapsulated to prevent vibration",
+            "mounting": "Soft mount with silicone pads"
+          },
+          "capacitors": {
+            "type": "MLCC only (no piezoelectric noise)",
+            "ceramic_class": "X7R or X5R"
+          },
+          "pcb": "Thick traces to prevent vibration",
+          "spread_spectrum": "Disabled (would create beat frequencies)"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.92,
+          "audible_noise_dB": "<25"
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_023",
+      "prompt": "Design a flyback: 24V→±15V dual output, 500mA each. Constraint: Cross-regulation <5%.",
+      "solution": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout_pos": 15.0,
+        "vout_neg": -15.0,
+        "iout_each": 0.5,
+        "power": 15.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "Lm": {"value": 200e-6, "unit": "H"},
+          "turns_ratio_pos": {"value": 0.7, "note": "to +15V"},
+          "turns_ratio_neg": {"value": 0.7, "note": "to -15V"},
+          "C_out_pos": {"value": 100e-6, "unit": "F"},
+          "C_out_neg": {"value": 100e-6, "unit": "F"},
+          "R_load_pos": {"value": 30.0, "unit": "Ω"},
+          "R_load_neg": {"value": 30.0, "unit": "Ω"}
+        },
+        "cross_regulation": {
+          "challenge": "Single primary controls multiple outputs",
+          "method_1": "Weighted feedback from both outputs",
+          "method_2": "Post-regulators on unregulated output",
+          "implementation": {
+            "primary_feedback": "+15V (regulated)",
+            "secondary_post_reg": "Linear regulator on -15V",
+            "post_reg_type": "LDO 79L15",
+            "headroom": "-17V unregulated to -15V regulated"
+          },
+          "cross_reg_achieved": "<2% < 5% ✓"
+        },
+        "expected_results": {
+          "vout_pos_actual": 15.0,
+          "vout_neg_actual": -15.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.82,
+          "cross_regulation_percent": 2
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_024",
+      "prompt": "Design a SEPIC: 12V→5V, 4A. Constraint: Hold-up time >5ms at full load for ride-through.",
+      "solution": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 4.0,
+        "power": 20.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.294,
+        "components": {
+          "L1": {"value": 33e-6, "unit": "H", "rating": "6A"},
+          "L2": {"value": 33e-6, "unit": "H", "rating": "6A"},
+          "C_coupling": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "C_in_holdup": {"value": 2200e-6, "unit": "F", "type": "electrolytic"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 1.25, "unit": "Ω"}
+        },
+        "holdup_analysis": {
+          "energy_required": "P × t = 20W × 5ms = 100mJ",
+          "Vin_min_operating": "8V (converter can regulate)",
+          "energy_stored": "0.5×C×(Vnom² - Vmin²)",
+          "C_required": "2×E/(Vnom² - Vmin²) = 2×0.1/(144-64) = 2500µF",
+          "selected_C": "2200µF (provides ~4.4ms)",
+          "alternative": "Add 470µF for >5ms",
+          "total_holdup": "5.2ms > 5ms ✓"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.88,
+          "holdup_time_ms": 5.2
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_025",
+      "prompt": "Design a buck: 12V→2.5V, 15A for FPGA core. Constraint: AVP - adaptive voltage positioning ±25mV.",
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 2.5,
+        "iout": 15.0,
+        "power": 37.5,
+        "f_sw": 500000,
+        "duty_cycle": 0.208,
+        "components": {
+          "L": {"value": 1e-6, "unit": "H", "rating": "25A"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "MLCC_array"},
+          "R_load": {"value": 0.167, "unit": "Ω"}
+        },
+        "avp_implementation": {
+          "concept": "Vout decreases linearly with load",
+          "vout_no_load": "2.525V",
+          "vout_full_load": "2.475V",
+          "droop_slope": "25mV/15A = 1.67mΩ",
+          "implementation": {
+            "method": "Current sense + droop resistor in feedback",
+            "R_droop": "1.5mΩ effective",
+            "current_sense": "DCR sensing with R-C filter"
+          },
+          "benefits": [
+            "Reduced output capacitance needed",
+            "Better load transient response",
+            "Lower peak voltage stress"
+          ]
+        },
+        "expected_results": {
+          "vout_no_load": 2.525,
+          "vout_full_load": 2.475,
+          "ripple_mv": 15,
+          "efficiency_est": 0.90,
+          "avp_range_mv": 50
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_026",
+      "prompt": "Design a full-bridge: 380V→48V, 25A. Constraint: Synchronous rectification with >95% efficiency.",
+      "solution": {
+        "topology": "full_bridge",
+        "vin": 380.0,
+        "vout": 48.0,
+        "iout": 25.0,
+        "power": 1200.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.28, "note": "3.5:1"},
+          "L_out": {"value": 15e-6, "unit": "H", "rating": "35A"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 1.92, "unit": "Ω"}
+        },
+        "sync_rect_design": {
+          "MOSFETs": {
+            "part": "Low Rds_on, 100V rated",
+            "Rds_on": "3mΩ",
+            "count": 4,
+            "configuration": "full-wave center-tapped"
+          },
+          "driver": {
+            "type": "Self-driven or IC",
+            "dead_time": "50ns"
+          },
+          "efficiency_breakdown": {
+            "primary_conduction": "0.3%",
+            "primary_switching": "0.5%",
+            "transformer": "1.0%",
+            "SR_conduction": "I²×Rds = 12.5²×0.003/1200 = 0.4%",
+            "SR_body_diode": "<0.1%",
+            "output_cap": "0.1%",
+            "inductor": "0.6%",
+            "control": "0.2%",
+            "total_loss": "3.2%",
+            "efficiency": "96.8% > 95% ✓"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.965
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_027",
+      "prompt": "Design a boost: 5V→24V, 500mA. Constraint: Start-up into pre-biased output without current spike.",
+      "solution": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 24.0,
+        "iout": 0.5,
+        "power": 12.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.792,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "3A"},
+          "C_out": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 48.0, "unit": "Ω"}
+        },
+        "prebias_handling": {
+          "scenario": "Output pre-charged to 18V by another source",
+          "problem": "Normal start would discharge output through inductor",
+          "solutions": [
+            {
+              "method": "Anti-backflow diode",
+              "implementation": "Schottky in series with switch",
+              "disadvantage": "Efficiency loss"
+            },
+            {
+              "method": "Pre-bias detect",
+              "implementation": "Sense Vout, skip soft-start if pre-biased",
+              "controller": "LT8362 with pre-bias handling"
+            },
+            {
+              "method": "Forced CCM start",
+              "implementation": "Keep high-side on until Vout sensed",
+              "selected": true
+            }
+          ],
+          "implementation_detail": {
+            "sequence": "1. Check Vout, 2. If pre-biased, ramp D from calculated value",
+            "initial_D": "1 - Vin/Vout_prebias = 1 - 5/18 = 0.72"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 200,
+          "efficiency_est": 0.90,
+          "prebias_compatible": true
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_028",
+      "prompt": "Design an inverting buck-boost: 24V→-12V, 2A. Constraint: Current limiting at 3A with foldback.",
+      "solution": {
+        "topology": "inverting_buck_boost",
+        "vin": 24.0,
+        "vout": -12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.333,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "5A"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 6.0, "unit": "Ω"},
+          "R_sense": {"value": 0.01, "unit": "Ω", "note": "current sense"}
+        },
+        "current_limiting": {
+          "overcurrent_threshold": "3A",
+          "sense_method": "Low-side shunt resistor",
+          "foldback_implementation": {
+            "concept": "Reduce Ilimit as Vout drops",
+            "normal_Ilimit": "3A",
+            "at_50_Vout": "2A",
+            "at_short": "1A",
+            "curve": "Linear foldback"
+          },
+          "protection_response": {
+            "cycle_by_cycle": "Immediate pulse termination",
+            "hiccup_mode": "After 10 consecutive trips",
+            "restart_delay": "100ms"
+          },
+          "power_dissipation": {
+            "at_short": "Vin × I_foldback × D = 24 × 1 × 0.04 = 1W"
+          }
+        },
+        "expected_results": {
+          "vout_actual": -12.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.89,
+          "current_limit_A": 3,
+          "foldback_at_short_A": 1
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_029",
+      "prompt": "Design a forward: 48V→12V isolated, 5A. Constraint: Reset winding with D_max = 0.5.",
+      "solution": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "turns_ratio_ns_np": {"value": 0.56, "note": "secondary/primary"},
+          "turns_ratio_nr_np": {"value": 1.0, "note": "reset/primary"},
+          "L_out": {"value": 33e-6, "unit": "H", "rating": "8A"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 2.4, "unit": "Ω"}
+        },
+        "reset_design": {
+          "constraint": "D_max = 0.5",
+          "reset_mechanism": "Third winding",
+          "reset_winding_turns": "Equal to primary (Nr/Np = 1)",
+          "Vreset": "Vin × Np/Nr = 48V",
+          "switch_voltage_stress": "Vin + Vreset = 96V",
+          "MOSFET_rating": "150V recommended",
+          "reset_time": "(1-D)/f = 0.55/200e3 = 2.75µs",
+          "verification": {
+            "flux_balance": "integral_V_dt_on = integral_V_dt_reset",
+            "calculation": "48V x 2.25us = 48V x 2.25us OK"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.91,
+          "D_max_achieved": 0.5
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_030",
+      "prompt": "Design a Cuk: 18V→-24V, 1A. Constraint: Coupled inductors with ripple steering for zero input ripple.",
+      "solution": {
+        "topology": "cuk",
+        "vin": 18.0,
+        "vout": -24.0,
+        "iout": 1.0,
+        "power": 24.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.571,
+        "components": {
+          "L_coupled": {
+            "L1": {"value": 100e-6, "unit": "H"},
+            "L2": {"value": 180e-6, "unit": "H"},
+            "M": {"value": 110e-6, "unit": "H", "note": "mutual inductance"},
+            "coupling_k": 0.82
+          },
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "film"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 24.0, "unit": "Ω"}
+        },
+        "ripple_steering": {
+          "concept": "Mutual inductance cancels input ripple",
+          "condition_for_zero_ripple": "M = L1×(1-D)/D = 100µ×0.429/0.571 = 75µH",
+          "practical_M": "110µH (slight over-coupling)",
+          "input_ripple_achieved": "<1% of Iin_avg",
+          "output_ripple": "Still present but manageable",
+          "winding_technique": {
+            "core": "Shared E-core",
+            "L1_turns": "Primary on center leg",
+            "L2_turns": "Secondary on center leg",
+            "polarity": "Subtractive coupling"
+          }
+        },
+        "expected_results": {
+          "vout_actual": -24.0,
+          "output_ripple_mv": 150,
+          "input_ripple_percent": 0.5,
+          "efficiency_est": 0.87
+        },
+        "meets_constraint": true
+      }
+    }
+  ]
+}

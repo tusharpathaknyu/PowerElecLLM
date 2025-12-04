@@ -1,0 +1,496 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_091",
+      "title": "Plasma Propulsion Hall Thruster Power",
+      "application": "Deep space probe requiring high-Isp Hall effect thruster power processor",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 100,
+        "V_out": 500,
+        "P_out": 5000,
+        "ripple_voltage": 5,
+        "efficiency_target": 0.94,
+        "f_sw": 100000,
+        "thermal_interface": "space_radiator",
+        "ambient_temp": -50,
+        "max_junction_temp": 100,
+        "specific_impulse": "3000s",
+        "thrust": "250mN"
+      },
+      "constraints": [
+        "3000 s specific impulse operation",
+        "Xenon propellant flow control integration",
+        "Plasma discharge stability",
+        "10000-hour continuous operation",
+        "Single-fault tolerant architecture"
+      ],
+      "design_approach": "High-efficiency boost for Hall thruster discharge. Integrated cathode heater power. Xenon flow controller interface. Discharge current regulation for thrust control. Plasma ignition sequencing.",
+      "solution": {
+        "L": 0.0002,
+        "C_out": 0.0001,
+        "C_in": 0.00047,
+        "R_load": 50,
+        "duty_cycle": 0.8,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 60,
+          "V_diode": 600,
+          "I_diode": 60,
+          "V_cap": 600,
+          "I_L_rms": 53,
+          "P_dissipation": 300
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 100/500 = 0.8",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 100 × 0.8 / (100000 × 4) = 200 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 10 × 0.8 / (100000 × 5) = 100 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 50 × 0.8 / (100000 × 0.85) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_092",
+      "title": "Cryogenic Dark Matter Detector Bias",
+      "application": "Rare event search detector requiring ultra-stable bias for cryogenic bolometers",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 3,
+        "P_out": 0.1,
+        "ripple_voltage": 0.00001,
+        "efficiency_target": 0.80,
+        "f_sw": 200000,
+        "thermal_interface": "cryostat_stage",
+        "ambient_temp": -268,
+        "max_junction_temp": -200,
+        "detector_noise": "100eV_FWHM",
+        "energy_threshold": "1keV"
+      },
+      "constraints": [
+        "100 eV FWHM energy resolution",
+        "1 keV threshold for WIMP detection",
+        "Operation at 50 mK base temperature",
+        "Zero electromagnetic interference",
+        "Underground laboratory compatible"
+      ],
+      "design_approach": "Room-temperature precision buck with extensive cryogenic filtering. Multi-stage attenuation at each thermal stage. Battery operation for grid noise elimination. Faraday cage construction. Superconducting filter at cold stage.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.001,
+        "C_in": 0.00022,
+        "R_load": 90,
+        "duty_cycle": 0.25,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 0.05,
+          "V_diode": 20,
+          "I_diode": 0.05,
+          "V_cap": 5,
+          "I_L_rms": 0.037,
+          "P_dissipation": 0.02
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3 / 12 = 0.25",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3 × 0.75 / (200000 × 0.015) = 150 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.015 / (8 × 200000 × 0.00001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.033 × 0.25 × 0.75 / (200000 × 0.00003) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_093",
+      "title": "Interplanetary CubeSat Propulsion Power",
+      "application": "Deep space CubeSat requiring electrospray propulsion power in 6U form factor",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 8,
+        "V_out": 1500,
+        "P_out": 20,
+        "ripple_voltage": 15,
+        "efficiency_target": 0.85,
+        "f_sw": 200000,
+        "thermal_interface": "cubesat_chassis",
+        "ambient_temp": -40,
+        "max_junction_temp": 85,
+        "form_factor": "6U_CubeSat",
+        "mission_delta_v": "100m/s"
+      },
+      "constraints": [
+        "6U CubeSat volume constraints",
+        "100 m/s delta-V capability",
+        "Ionic liquid propellant compatible",
+        "Deep space communication thermal cycling",
+        "Solar panel degradation tolerance"
+      ],
+      "design_approach": "Multi-stage boost for high voltage ratio. Integrated ionic liquid emitter driver. Compact design for CubeSat form factor. Wide input range for degraded solar arrays. Low-power standby mode.",
+      "solution": {
+        "L": 0.00022,
+        "C_out": 0.0000033,
+        "C_in": 0.00022,
+        "R_load": 112500,
+        "duty_cycle": 0.995,
+        "component_ratings": {
+          "V_switch": 200,
+          "I_switch": 5,
+          "V_diode": 1700,
+          "I_diode": 0.1,
+          "V_cap": 1600,
+          "I_L_rms": 2.8,
+          "P_dissipation": 3
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 8/1500 = 0.995",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 8 × 0.995 / (200000 × 0.18) = 220 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 0.0133 × 0.995 / (200000 × 15) = 3.3 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 2.5 × 0.995 / (200000 × 0.056) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_094",
+      "title": "Quantum Cascade Laser Driver for Spectroscopy",
+      "application": "Mid-IR spectroscopy system requiring pulsed QCL power for gas sensing",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 12,
+        "P_out": 40,
+        "ripple_voltage": 0.01,
+        "efficiency_target": 0.90,
+        "f_sw": 1000000,
+        "thermal_interface": "TEC_cooled",
+        "ambient_temp": 25,
+        "max_junction_temp": 80,
+        "pulse_rate": "100kHz",
+        "wavelength_tuning": "5_12um"
+      },
+      "constraints": [
+        "100 kHz pulse repetition rate",
+        "Wavelength tuning 5-12 µm for multi-gas",
+        "Sub-nanosecond current rise time",
+        "TEC temperature control integration",
+        "Eye-safe operation compliance"
+      ],
+      "design_approach": "Fast buck with GaN switches for QCL pulsing. Integrated TEC controller for wavelength stability. High-bandwidth current sensing. Pulse timing synchronization with DAQ. Safety interlock for beam control.",
+      "solution": {
+        "L": 0.000012,
+        "C_out": 0.00047,
+        "C_in": 0.00022,
+        "R_load": 3.6,
+        "duty_cycle": 0.5,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 8,
+          "V_diode": 40,
+          "I_diode": 8,
+          "V_cap": 20,
+          "I_L_rms": 3.7,
+          "P_dissipation": 4
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 12 / 24 = 0.5",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 12 × 0.5 / (1000000 × 0.5) = 12 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.5 / (8 × 1000000 × 0.01) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 3.33 × 0.5 × 0.5 / (1000000 × 0.0038) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_095",
+      "title": "Offshore Wind HVDC Converter Station",
+      "application": "Offshore wind farm requiring multi-MW HVDC transmission to shore",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 66000,
+        "V_out": 320000,
+        "P_out": 500000000,
+        "ripple_voltage": 3200,
+        "efficiency_target": 0.985,
+        "f_sw": 150,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 30,
+        "max_junction_temp": 100,
+        "cable_length": "100km",
+        "wind_farm_capacity": "1GW"
+      },
+      "constraints": [
+        "1 GW wind farm capacity collection",
+        "100 km subsea cable transmission",
+        "Offshore platform space constraints",
+        "Marine environment corrosion protection",
+        "Grid code fault ride-through"
+      ],
+      "design_approach": "MMC (Modular Multilevel Converter) topology for HVDC. Press-pack IGBT modules for reliability. Redundant sub-modules for fault tolerance. Platform crane access for maintenance. Subsea cable termination design.",
+      "solution": {
+        "L": 0.1,
+        "C_out": 0.01,
+        "C_in": 0.02,
+        "R_load": 204.8,
+        "duty_cycle": 0.79,
+        "component_ratings": {
+          "V_switch": 4500,
+          "I_switch": 2000,
+          "V_diode": 4500,
+          "I_diode": 2000,
+          "V_cap": 3600,
+          "I_L_rms": 1630,
+          "P_dissipation": 7500000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 66000/320000 = 0.794",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 66000 × 0.794 / (150 × 3495) = 100 mH (arm inductor)",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 1563 × 0.794 / (150 × 3200) = 10 mF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 7576 × 0.794 / (150 × 2000) = 20 mF"
+      }
+    },
+    {
+      "id": "L4_096",
+      "title": "Quantum Repeater Entanglement Swapping Power",
+      "application": "Quantum network requiring precision power for entanglement swapping stations",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 3.3,
+        "P_out": 30,
+        "ripple_voltage": 0.001,
+        "efficiency_target": 0.88,
+        "f_sw": 2000000,
+        "thermal_interface": "rack_mount_airflow",
+        "ambient_temp": 22,
+        "max_junction_temp": 70,
+        "repeater_spacing": "50km",
+        "fidelity_target": "0.99"
+      },
+      "constraints": [
+        "0.99 entanglement fidelity requirement",
+        "50 km repeater station spacing",
+        "Single-photon detector power integration",
+        "Coincidence timing < 100 ps jitter",
+        "Field-deployable ruggedized design"
+      ],
+      "design_approach": "Ultra-low-noise buck for SNSPD and FPGA timing systems. Precision clock distribution power. Temperature-stabilized enclosure. Fiber-coupled detector integration. Remote management interface.",
+      "solution": {
+        "L": 0.0000018,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.363,
+        "duty_cycle": 0.138,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 12,
+          "V_diode": 40,
+          "I_diode": 12,
+          "V_cap": 5,
+          "I_L_rms": 9.5,
+          "P_dissipation": 3.6
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 24 = 0.138",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.862 / (2000000 × 0.79) = 1.8 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.79 / (8 × 2000000 × 0.001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 9.1 × 0.138 × 0.862 / (2000000 × 0.0023) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_097",
+      "title": "Synchrotron Booster Ring Dipole Supply",
+      "application": "Particle accelerator requiring ramping dipole magnet power for beam energy increase",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 800,
+        "V_out": 600,
+        "P_out": 100000,
+        "ripple_voltage": 0.6,
+        "efficiency_target": 0.95,
+        "f_sw": 20000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 28,
+        "max_junction_temp": 110,
+        "ramp_rate": "1GeV/s",
+        "repetition_rate": "10Hz"
+      },
+      "constraints": [
+        "1 GeV/s energy ramp rate",
+        "10 Hz injection/extraction cycle",
+        "Tracking accuracy ±10 ppm to main ring",
+        "Energy recovery during ramp-down",
+        "Beam loss interlock integration"
+      ],
+      "design_approach": "Four-quadrant converter for dipole ramping with regeneration. Precision tracking to main ring reference. DCCT current feedback. Programmable ramp profiles. Beam loss monitor interlock interface.",
+      "solution": {
+        "L": 0.0006,
+        "C_out": 0.002,
+        "C_in": 0.004,
+        "R_load": 3.6,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 200,
+          "V_diode": 1200,
+          "I_diode": 200,
+          "V_cap": 800,
+          "I_L_rms": 175,
+          "P_dissipation": 5000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 600 / 800 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 600 × 0.25 / (20000 × 12.5) = 600 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 12.5 / (8 × 20000 × 0.6) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 167 × 0.75 × 0.25 / (20000 × 0.39) = 4000 µF"
+      }
+    },
+    {
+      "id": "L4_098",
+      "title": "Asteroid Mining Drill Power System",
+      "application": "Near-Earth asteroid mining spacecraft requiring percussive drill power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 120,
+        "V_out": 48,
+        "P_out": 3000,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.93,
+        "f_sw": 80000,
+        "thermal_interface": "asteroid_contact",
+        "ambient_temp": -150,
+        "max_junction_temp": 100,
+        "mission_duration": "3years",
+        "regolith_type": "carbonaceous"
+      },
+      "constraints": [
+        "Microgravity anchoring while drilling",
+        "Carbonaceous asteroid regolith penetration",
+        "3-year autonomous operation",
+        "Sample return container integration",
+        "Communication latency tolerance"
+      ],
+      "design_approach": "Robust buck for percussive drill motor. Pulsed power capability for hammer action. Wide temperature operation. Autonomous drill control with depth sensing. Dust-sealed electronics enclosure.",
+      "solution": {
+        "L": 0.0001,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 0.768,
+        "duty_cycle": 0.4,
+        "component_ratings": {
+          "V_switch": 200,
+          "I_switch": 80,
+          "V_diode": 200,
+          "I_diode": 80,
+          "V_cap": 80,
+          "I_L_rms": 65,
+          "P_dissipation": 210
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 120 = 0.4",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.6 / (80000 × 3.6) = 100 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 3.6 / (8 × 80000 × 0.5) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 62.5 × 0.4 × 0.6 / (80000 × 0.188) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_099",
+      "title": "Brain-Computer Interface Neural Stimulator",
+      "application": "Implantable BCI requiring precision current source for neural stimulation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 4.2,
+        "V_out": 3.3,
+        "P_out": 0.5,
+        "ripple_voltage": 0.001,
+        "efficiency_target": 0.90,
+        "f_sw": 2000000,
+        "thermal_interface": "tissue_interface",
+        "ambient_temp": 37,
+        "max_junction_temp": 41,
+        "electrode_count": 1024,
+        "stimulation_resolution": "1uA"
+      },
+      "constraints": [
+        "1024-channel electrode array",
+        "1 µA current resolution per channel",
+        "Tissue temperature rise < 1°C",
+        "10-year implant lifetime",
+        "Wireless power and data (no transcutaneous wires)"
+      ],
+      "design_approach": "Ultra-low-power buck with wireless power receiver. Precision current DAC per electrode. Implant-grade hermetic packaging. Charge-balanced stimulation for tissue safety. Bidirectional neural recording.",
+      "solution": {
+        "L": 0.0000047,
+        "C_out": 0.00022,
+        "C_in": 0.0001,
+        "R_load": 21.78,
+        "duty_cycle": 0.786,
+        "component_ratings": {
+          "V_switch": 8,
+          "I_switch": 0.2,
+          "V_diode": 8,
+          "I_diode": 0.2,
+          "V_cap": 5,
+          "I_L_rms": 0.16,
+          "P_dissipation": 0.05
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 4.2 = 0.786",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.214 / (2000000 × 0.075) = 4.7 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.075 / (8 × 2000000 × 0.001) = 220 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.15 × 0.786 × 0.214 / (2000000 × 0.000125) = 100 µF"
+      }
+    },
+    {
+      "id": "L4_100",
+      "title": "Next-Gen Particle Collider Klystron Modulator",
+      "application": "Future circular collider requiring high-power klystron modulators for RF acceleration",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 10000,
+        "V_out": 120000,
+        "P_out": 10000000,
+        "ripple_voltage": 600,
+        "efficiency_target": 0.93,
+        "f_sw": 1000,
+        "thermal_interface": "oil_forced",
+        "ambient_temp": 30,
+        "max_junction_temp": 125,
+        "pulse_length": "1ms",
+        "repetition_rate": "100Hz"
+      },
+      "constraints": [
+        "1 ms pulse flat-top with ±0.1% stability",
+        "100 Hz repetition rate capability",
+        "Arc fault protection < 10 µs",
+        "Klystron collector fault ride-through",
+        "Tunnel installation (high radiation)"
+      ],
+      "design_approach": "Solid-state modulator with series-connected IGBTs for klystron drive. Bouncer circuit for droop compensation. Crowbar protection for klystron arcs. Optical control links for radiation immunity. Oil-insulated pulse transformer.",
+      "solution": {
+        "L": 0.1,
+        "C_out": 0.00015,
+        "C_in": 0.002,
+        "R_load": 1.44,
+        "duty_cycle": 0.917,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 2000,
+          "V_diode": 6500,
+          "I_diode": 2000,
+          "V_cap": 130000,
+          "I_L_rms": 1050,
+          "P_dissipation": 700000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 10000/120000 = 0.917",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 10000 × 0.917 / (1000 × 91.7) = 100 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 83.3 × 0.917 / (1000 × 600) = 150 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 1000 × 0.917 / (1000 × 458) = 2000 µF"
+      }
+    }
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_051",
+      "title": "Space Telescope Cryocooler Power System",
+      "application": "James Webb-class space telescope requiring ultra-stable cryocooler power for mid-infrared detectors",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 48,
+        "P_out": 150,
+        "ripple_voltage": 0.005,
+        "efficiency_target": 0.96,
+        "f_sw": 200000,
+        "thermal_interface": "deep_space_radiative",
+        "ambient_temp": -40,
+        "max_junction_temp": 85,
+        "emc_standard": "MIL-STD-461G_space",
+        "vibration_class": "NASA-STD-7001B",
+        "radiation_tolerance": "100krad_TID",
+        "conducted_emissions_limit": -30
+      },
+      "constraints": [
+        "Total ionizing dose survival 100 krad",
+        "Single event latchup immune design",
+        "Cryocooler ripple current < 0.1% for detector stability",
+        "Thermal cycling -40°C to +60°C for 15 years",
+        "Zero outgassing materials only"
+      ],
+      "design_approach": "Full-bridge with rad-hard SiC MOSFETs providing boost function for cryocooler compressor. LC filter with ceramic capacitors rated for space. EMI containment through mu-metal shielding. Redundant control paths.",
+      "solution": {
+        "L": 0.00012,
+        "C_out": 0.00022,
+        "C_in": 0.00033,
+        "R_load": 15.36,
+        "duty_cycle": 0.63,
+        "component_ratings": {
+          "V_switch": 150,
+          "I_switch": 8,
+          "V_diode": 150,
+          "I_diode": 8,
+          "V_cap": 100,
+          "I_L_rms": 5.5,
+          "P_dissipation": 6.0
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 28/48 = 0.417 for boost mode, effective D = 0.63",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 28 × 0.63 / (200000 × 0.735) = 120 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 3.125 × 0.63 / (200000 × 0.00024) = 220 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 5.36 × 0.63 / (200000 × 0.05) = 330 µF"
+      }
+    },
+    {
+      "id": "L4_052",
+      "title": "Hypersonic Vehicle Actuation Power System",
+      "application": "Mach 6+ vehicle requiring power for control surface actuators during atmospheric re-entry",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 270,
+        "V_out": 48,
+        "P_out": 3000,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.93,
+        "f_sw": 100000,
+        "thermal_interface": "regenerative_cooling",
+        "ambient_temp": 150,
+        "max_junction_temp": 200,
+        "emc_standard": "MIL-STD-461G",
+        "transient_response": "10ms_step_load",
+        "vibration_class": "hypersonic_20grms"
+      },
+      "constraints": [
+        "Plasma interference immunity during re-entry",
+        "Actuator response < 10 ms for flight control",
+        "Survive thermal shock 150°C to 800°C external",
+        "Operate through RF blackout conditions",
+        "Potted construction for thermal management"
+      ],
+      "design_approach": "High-temperature SiC buck converter with active thermal management. Ceramic-core inductors for high-temp operation. Potted assembly with thermally conductive compound. Redundant current sensing for actuator protection.",
+      "solution": {
+        "L": 0.0001,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.768,
+        "duty_cycle": 0.178,
+        "component_ratings": {
+          "V_switch": 400,
+          "I_switch": 80,
+          "V_diode": 400,
+          "I_diode": 80,
+          "V_cap": 100,
+          "I_L_rms": 65,
+          "P_dissipation": 210
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 270 = 0.178",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.822 / (100000 × 3.95) = 100 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 3.95 / (8 × 100000 × 0.5) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 62.5 × 0.178 × 0.822 / (100000 × 1.94) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_053",
+      "title": "Gravitational Wave Detector Seismic Isolation",
+      "application": "LIGO-class detector requiring ultra-quiet power for seismic isolation actuators",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 24,
+        "P_out": 200,
+        "ripple_voltage": 0.0001,
+        "efficiency_target": 0.94,
+        "f_sw": 500000,
+        "thermal_interface": "vacuum_conduction",
+        "ambient_temp": 20,
+        "max_junction_temp": 85,
+        "noise_spectral_density": "1e-18_m/sqrt(Hz)",
+        "magnetic_field_limit": "1nT_at_1m"
+      },
+      "constraints": [
+        "Seismic noise < 10^-18 m/√Hz at 100 Hz",
+        "Zero magnetic field emission (affects SQUID sensors)",
+        "Vacuum compatible materials (10^-9 Torr)",
+        "No acoustic noise from magnetics",
+        "Optical table vibration isolation"
+      ],
+      "design_approach": "Ultra-low-noise buck converter with air-core inductors for zero magnetic signature. Multiple LC filter stages for ripple reduction. Linear post-regulation for final noise floor. Vacuum-rated enclosure with thermal path to optical table.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.0022,
+        "C_in": 0.001,
+        "R_load": 2.88,
+        "duty_cycle": 0.5,
+        "component_ratings": {
+          "V_switch": 100,
+          "I_switch": 12,
+          "V_diode": 100,
+          "I_diode": 12,
+          "V_cap": 50,
+          "I_L_rms": 9,
+          "P_dissipation": 12
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 24 / 48 = 0.5",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 24 × 0.5 / (500000 × 1.09) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 1.09 / (8 × 500000 × 0.0001) = 2200 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 8.33 × 0.5 × 0.5 / (500000 × 0.004) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_054",
+      "title": "Quantum Error Correction FPGA Power",
+      "application": "Cryogenic FPGA array performing real-time quantum error correction requiring ultra-stable power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 0.85,
+        "P_out": 80,
+        "ripple_voltage": 0.005,
+        "efficiency_target": 0.88,
+        "f_sw": 2000000,
+        "thermal_interface": "cryo_conduction_4K",
+        "ambient_temp": -269,
+        "max_junction_temp": -250,
+        "transient_response": "1us_50A_step",
+        "dvdt_limit": "10mV/us"
+      },
+      "constraints": [
+        "Operation at 4 Kelvin cryogenic temperature",
+        "50A load transient in 1 µs for error correction bursts",
+        "dV/dt < 10 mV/µs for logic stability",
+        "Qubit coherence protection < 1 mV noise",
+        "Thermal budget 200 mW to 4K stage"
+      ],
+      "design_approach": "Cryo-optimized multiphase buck with superconducting inductors. Ceramic capacitors rated for cryogenic temps. GaN switches with cryo-enhanced mobility. Precision digital control with predictive transient response.",
+      "solution": {
+        "L": 0.0000005,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 0.009,
+        "duty_cycle": 0.071,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 120,
+          "V_diode": 20,
+          "I_diode": 120,
+          "V_cap": 5,
+          "I_L_rms": 98,
+          "P_dissipation": 9.6
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 0.85 / 12 = 0.071",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 0.85 × 0.929 / (2000000 × 790) = 500 nH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 790 / (8 × 2000000 × 0.005) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 94 × 0.071 × 0.929 / (2000000 × 0.003) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_055",
+      "title": "Stellarator Magnet Trim Coil Supply",
+      "application": "Wendelstein 7-X class stellarator requiring precision trim coil power for plasma shaping",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 120,
+        "P_out": 25000,
+        "ripple_voltage": 0.01,
+        "efficiency_target": 0.97,
+        "f_sw": 50000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 35,
+        "max_junction_temp": 125,
+        "current_accuracy": "10ppm",
+        "slew_rate": "1000A/s"
+      },
+      "constraints": [
+        "Current accuracy ±10 ppm for magnetic field precision",
+        "Slew rate 1000 A/s for plasma position control",
+        "Four-quadrant operation for field reversal",
+        "Fault current limiting in 100 µs",
+        "Interlock with plasma control system"
+      ],
+      "design_approach": "IGBT full-bridge with precision current feedback. DCCT current transducers for 10 ppm accuracy. Active damping for inductive load. Crowbar protection for superconducting coil quench scenarios. Real-time control interface.",
+      "solution": {
+        "L": 0.0005,
+        "C_out": 0.001,
+        "C_in": 0.002,
+        "R_load": 0.576,
+        "duty_cycle": 0.35,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 300,
+          "V_diode": 1200,
+          "I_diode": 300,
+          "V_cap": 200,
+          "I_L_rms": 210,
+          "P_dissipation": 750
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 120 / 600 = 0.2 (effective 0.35 with modulation)",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 120 × 0.65 / (50000 × 156) = 500 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 156 / (8 × 50000 × 0.01) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 208 × 0.35 × 0.65 / (50000 × 2.4) = 2000 µF"
+      }
+    },
+    {
+      "id": "L4_056",
+      "title": "Neuromorphic Chip Array Power Distribution",
+      "application": "Large-scale neuromorphic computing cluster requiring per-chip power optimization",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 0.7,
+        "P_out": 35,
+        "ripple_voltage": 0.007,
+        "efficiency_target": 0.87,
+        "f_sw": 3000000,
+        "thermal_interface": "chip_on_heatsink",
+        "ambient_temp": 40,
+        "max_junction_temp": 100,
+        "load_line_droop": "1mΩ",
+        "power_states": 8
+      },
+      "constraints": [
+        "8 power states for neural activity scaling",
+        "Load line droop 1 mΩ for spike response",
+        "0.1% voltage accuracy for neuron threshold stability",
+        "Per-chip telemetry via PMBus",
+        "50A transient for spike avalanche events"
+      ],
+      "design_approach": "Digital multiphase buck with adaptive phase count. Programmable load line for neural activity matching. Fast DVS for power state transitions. I2C/PMBus telemetry for system-level power management.",
+      "solution": {
+        "L": 0.0000003,
+        "C_out": 0.0015,
+        "C_in": 0.00068,
+        "R_load": 0.014,
+        "duty_cycle": 0.058,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 60,
+          "V_diode": 20,
+          "I_diode": 60,
+          "V_cap": 5,
+          "I_L_rms": 52,
+          "P_dissipation": 4.55
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 0.7 / 12 = 0.058",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 0.7 × 0.942 / (3000000 × 733) = 300 nH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 733 / (8 × 3000000 × 0.007) = 1500 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 50 × 0.058 × 0.942 / (3000000 × 0.0013) = 680 µF"
+      }
+    },
+    {
+      "id": "L4_057",
+      "title": "Directed Energy Weapon Capacitor Charger",
+      "application": "High-energy laser system requiring rapid capacitor bank charging for pulse operation",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 2000,
+        "P_out": 100000,
+        "ripple_voltage": 5,
+        "efficiency_target": 0.94,
+        "f_sw": 30000,
+        "thermal_interface": "forced_liquid",
+        "ambient_temp": 45,
+        "max_junction_temp": 125,
+        "charge_time": "2s_to_full",
+        "repetition_rate": "10Hz_burst"
+      },
+      "constraints": [
+        "Charge 500 kJ capacitor bank in 2 seconds",
+        "10 Hz burst mode operation",
+        "Constant power charging profile",
+        "Regenerative energy recovery from misfires",
+        "Explosive disconnect safety interlock"
+      ],
+      "design_approach": "IGBT boost converter with constant power control algorithm. Snubber circuits for IGBT protection. Pre-charge sequencing for capacitor bank. Hardware interlock system with explosive disconnect for personnel safety.",
+      "solution": {
+        "L": 0.001,
+        "C_out": 0.00025,
+        "C_in": 0.002,
+        "R_load": 40,
+        "duty_cycle": 0.7,
+        "component_ratings": {
+          "V_switch": 2400,
+          "I_switch": 200,
+          "V_diode": 2400,
+          "I_diode": 200,
+          "V_cap": 2500,
+          "I_L_rms": 175,
+          "P_dissipation": 6000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 600/2000 = 0.7",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 600 × 0.7 / (30000 × 14) = 1 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 50 × 0.7 / (30000 × 5) = 250 µF (plus bank)",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 167 × 0.7 / (30000 × 1.95) = 2000 µF"
+      }
+    },
+    {
+      "id": "L4_058",
+      "title": "Deep Sea Mining ROV Power System",
+      "application": "Abyssal zone ROV requiring power distribution at 6000m depth with extreme pressure",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 400,
+        "V_out": 48,
+        "P_out": 5000,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.92,
+        "f_sw": 80000,
+        "thermal_interface": "oil_filled_pressure_compensated",
+        "ambient_temp": 2,
+        "max_junction_temp": 85,
+        "pressure_rating": "600bar",
+        "tether_length": "6km"
+      },
+      "constraints": [
+        "600 bar pressure (6000m depth)",
+        "Oil-filled pressure-compensated enclosure",
+        "Tether voltage drop compensation over 6 km",
+        "Corrosion resistance to hydrogen sulfide",
+        "Operate at 2°C ambient with efficient dissipation"
+      ],
+      "design_approach": "Pressure-compensated oil-filled buck converter. Conformal coated components for deep submergence. Adaptive voltage control for tether drop compensation. Distributed heat dissipation through oil circulation.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.461,
+        "duty_cycle": 0.12,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 130,
+          "V_diode": 600,
+          "I_diode": 130,
+          "V_cap": 100,
+          "I_L_rms": 108,
+          "P_dissipation": 400
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 400 = 0.12",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.88 / (80000 × 3.52) = 150 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 3.52 / (8 × 80000 × 0.5) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 104 × 0.12 × 0.88 / (80000 × 0.29) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_059",
+      "title": "Superconducting Maglev Propulsion Inverter",
+      "application": "600 km/h maglev train requiring propulsion power from superconducting linear motor",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 3300,
+        "V_out": 2400,
+        "P_out": 500000,
+        "ripple_voltage": 10,
+        "efficiency_target": 0.98,
+        "f_sw": 10000,
+        "thermal_interface": "forced_air_ducted",
+        "ambient_temp": 40,
+        "max_junction_temp": 125,
+        "speed_range": "0_600kmh",
+        "regenerative_braking": true
+      },
+      "constraints": [
+        "Full regenerative braking capability",
+        "Speed range 0-600 km/h continuous",
+        "Vibration immunity for train-borne equipment",
+        "EMC compliance for passenger electronics",
+        "Fault ride-through for grid disturbances"
+      ],
+      "design_approach": "Three-level NPC inverter with SiC MOSFETs for reduced losses. Regenerative braking energy fed back to grid. Advanced motor control for levitation and propulsion coordination. Redundant cooling for reliability.",
+      "solution": {
+        "L": 0.002,
+        "C_out": 0.001,
+        "C_in": 0.004,
+        "R_load": 0.0115,
+        "duty_cycle": 0.73,
+        "component_ratings": {
+          "V_switch": 4500,
+          "I_switch": 600,
+          "V_diode": 4500,
+          "I_diode": 600,
+          "V_cap": 4000,
+          "I_L_rms": 210,
+          "P_dissipation": 10000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 2400 / 3300 = 0.73",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 2400 × 0.27 / (10000 × 324) = 2 mH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 324 / (8 × 10000 × 10) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 208 × 0.73 × 0.27 / (10000 × 1.03) = 4000 µF"
+      }
+    },
+    {
+      "id": "L4_060",
+      "title": "Muon Collider Kicker Magnet Pulser",
+      "application": "Next-generation muon collider requiring ultra-fast kicker magnet pulsing for beam injection",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 1000,
+        "V_out": 5000,
+        "P_out": 50000,
+        "ripple_voltage": 25,
+        "efficiency_target": 0.90,
+        "f_sw": 100000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 25,
+        "max_junction_temp": 125,
+        "rise_time": "100ns",
+        "flat_top_stability": "0.1%"
+      },
+      "constraints": [
+        "100 ns rise time for muon lifetime compatibility",
+        "Flat-top stability ±0.1% for beam quality",
+        "100 kHz burst repetition rate",
+        "Magnetic field uniformity ±0.01%",
+        "Radiation hardened for tunnel installation"
+      ],
+      "design_approach": "SiC MOSFET full-bridge with resonant charging. Pulse-forming network for flat-top generation. Thyratron crowbar for fault protection. Optical control link for radiation immunity. Precision PFN tuning for field uniformity.",
+      "solution": {
+        "L": 0.00005,
+        "C_out": 0.0001,
+        "C_in": 0.0005,
+        "R_load": 0.5,
+        "duty_cycle": 0.8,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 150,
+          "V_diode": 6500,
+          "I_diode": 150,
+          "V_cap": 6000,
+          "I_L_rms": 105,
+          "P_dissipation": 5000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 1000/5000 = 0.8",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 1000 × 0.8 / (100000 × 160) = 50 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 10 × 0.8 / (100000 × 25) = 100 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 50 × 0.8 / (100000 × 0.8) = 500 µF"
+      }
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "level": 2,
+  "solutions": [
+    {
+      "id": "L2_031",
+      "prompt": "Design a buck: 60V->24V, 6A. Constraint: 4-phase interleaved for <3% input ripple.",
+      "solution": {
+        "topology": "buck",
+        "vin": 60.0,
+        "vout": 24.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "f_sw_per_phase": 200000,
+        "effective_f_sw": 800000,
+        "duty_cycle": 0.4,
+        "phases": 4,
+        "components": {
+          "L_per_phase": {"value": 22e-6, "unit": "H", "rating": "3A"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "ceramic"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 4.0, "unit": "Ω"}
+        },
+        "interleaving_analysis": {
+          "phase_shift": "360/4 = 90 degrees",
+          "ripple_cancellation": {
+            "at_D_0_25": "75% cancellation",
+            "at_D_0_4": "60% cancellation",
+            "at_D_0_5": "100% cancellation"
+          },
+          "effective_ripple_freq": "4 x 200kHz = 800kHz",
+          "input_ripple_single": "ΔIL = 24*(1-0.4)/(200e3*22e-6) = 3.3A per phase",
+          "combined_ripple": "~0.8A after cancellation",
+          "Iin_avg": "144/(0.93*60) = 2.58A",
+          "ripple_percent": "0.8/(2*2.58) = 15% -> with 4-phase: ~2.8% < 3%"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "output_ripple_mv": 20,
+          "input_ripple_percent": 2.8,
+          "efficiency_est": 0.94
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_032",
+      "prompt": "Design a boost: 24V->48V, 3A. Constraint: Input UV lockout at 18V, OV lockout at 30V.",
+      "solution": {
+        "topology": "boost",
+        "vin_nom": 24.0,
+        "vin_min": 18.0,
+        "vin_max": 30.0,
+        "vout": 48.0,
+        "iout": 3.0,
+        "power": 144.0,
+        "f_sw": 150000,
+        "duty_cycle_nom": 0.5,
+        "components": {
+          "L": {"value": 68e-6, "unit": "H", "rating": "10A"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 16.0, "unit": "Ω"}
+        },
+        "protection_design": {
+          "UVLO": {
+            "threshold": "18V",
+            "hysteresis": "1V (restart at 19V)",
+            "implementation": "Resistor divider to UVLO pin",
+            "R1": "100kOhm",
+            "R2": "22kOhm (for 1.2V reference)"
+          },
+          "OVLO": {
+            "threshold": "30V",
+            "implementation": "Comparator to enable pin",
+            "R1": "100kOhm",
+            "R2": "15kOhm"
+          },
+          "response_time": "<10us",
+          "power_good": "Open drain output when in range"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.93,
+          "uvlo_threshold": 18,
+          "ovlo_threshold": 30
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_033",
+      "prompt": "Design a flyback: 12V->48V isolated, 500mA. Constraint: Peak current mode control with slope comp.",
+      "solution": {
+        "topology": "flyback",
+        "vin": 12.0,
+        "vout": 48.0,
+        "iout": 0.5,
+        "power": 24.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.67,
+        "isolated": true,
+        "components": {
+          "Lm": {"value": 68e-6, "unit": "H"},
+          "turns_ratio": {"value": 2.0, "note": "1:2"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 96.0, "unit": "Ω"},
+          "R_sense": {"value": 0.1, "unit": "Ω"}
+        },
+        "pcm_design": {
+          "subharmonic_oscillation": "Occurs at D > 0.5 without slope comp",
+          "slope_compensation": {
+            "required_slope": "Se > 0.5 * Sn (inductor downslope)",
+            "Sn": "Vout/(N*Lm) = 48/(2*68e-6) = 353kA/s reflected",
+            "Se_minimum": "0.5 * 353 = 176kA/s",
+            "Se_selected": "200kA/s",
+            "implementation": "Ramp from oscillator added to sense"
+          },
+          "peak_current_limit": "Vsense_max / Rsense = 0.5V / 0.1 = 5A",
+          "stability": "Eliminates subharmonic at D > 0.5"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 300,
+          "efficiency_est": 0.84,
+          "slope_comp_applied": true
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_034",
+      "prompt": "Design a half-bridge LLC: 400V->12V, 20A. Constraint: Resonant operation for EMI compliance.",
+      "solution": {
+        "topology": "llc_half_bridge",
+        "vin": 400.0,
+        "vout": 12.0,
+        "iout": 20.0,
+        "power": 240.0,
+        "f_resonant": 100000,
+        "f_sw_range": "80kHz-120kHz",
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.12, "note": "8:1"},
+          "Lr": {"value": 25e-6, "unit": "H", "note": "resonant inductor"},
+          "Cr": {"value": 100e-9, "unit": "F", "note": "resonant capacitor"},
+          "Lm": {"value": 200e-6, "unit": "H", "note": "magnetizing inductance"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 0.6, "unit": "Ω"}
+        },
+        "resonant_design": {
+          "fr": "1/(2*pi*sqrt(Lr*Cr)) = 100kHz",
+          "Qe": "sqrt(Lr/Cr)/Rac = 0.5 (loaded Q)",
+          "operation_region": "Above resonance for ZVS",
+          "gain_at_fr": "1.0 (unity gain point)",
+          "EMI_benefits": [
+            "Sinusoidal currents reduce harmonics",
+            "ZVS eliminates turn-on spikes",
+            "ZCS on secondary reduces ringing"
+          ],
+          "cispr22_margin": ">6dB below Class B"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.95,
+          "emi_compliant": true
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_035",
+      "prompt": "Design a buck: 48V->3.3V, 20A. Constraint: Hiccup mode OCP with 1s retry delay.",
+      "solution": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout": 20.0,
+        "power": 66.0,
+        "f_sw": 500000,
+        "duty_cycle": 0.069,
+        "components": {
+          "L": {"value": 1e-6, "unit": "H", "rating": "30A"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "MLCC_array"},
+          "R_load": {"value": 0.165, "unit": "Ω"},
+          "R_sense": {"value": 0.002, "unit": "Ω"}
+        },
+        "ocp_design": {
+          "overcurrent_threshold": "30A (1.5x rated)",
+          "sense_voltage": "30A * 2mOhm = 60mV",
+          "hiccup_mode": {
+            "trigger": "8 consecutive OCP events",
+            "action": "Shutdown converter",
+            "delay": "1s timer (RC or digital)",
+            "retry": "Soft-start sequence",
+            "max_retries": "Unlimited (auto-retry)"
+          },
+          "thermal_protection": {
+            "avg_power_short": "Vin*Isc*D*duty_hiccup",
+            "duty_hiccup": "~1% during retry",
+            "power_dissipation": "<1W average"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 3.3,
+          "ripple_mv": 20,
+          "efficiency_est": 0.89,
+          "ocp_threshold_A": 30,
+          "retry_delay_s": 1
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_036",
+      "prompt": "Design a SEPIC: 12V->15V, 2A. Constraint: Output disconnect during input UVLO.",
+      "solution": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 15.0,
+        "iout": 2.0,
+        "power": 30.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.556,
+        "components": {
+          "L1": {"value": 33e-6, "unit": "H", "rating": "4A"},
+          "L2": {"value": 33e-6, "unit": "H", "rating": "4A"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 7.5, "unit": "Ω"}
+        },
+        "output_disconnect": {
+          "uvlo_threshold": "9V",
+          "disconnect_method": {
+            "inherent": "SEPIC has series capacitor - no DC path",
+            "enhanced": "Add output MOSFET for hard disconnect"
+          },
+          "implementation": {
+            "Q_disconnect": "P-ch MOSFET in series with output",
+            "Rds_on": "<10mOhm",
+            "driver": "Tied to UVLO comparator",
+            "delay": "<100us disconnect time"
+          },
+          "benefits": [
+            "Prevents backfeed from output",
+            "Protects load from transients",
+            "Clean power sequencing"
+          ]
+        },
+        "expected_results": {
+          "vout_actual": 15.0,
+          "ripple_mv": 120,
+          "efficiency_est": 0.88,
+          "uvlo_disconnect": true
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_037",
+      "prompt": "Design a forward: 48V->24V isolated, 8A. Constraint: Active clamp for D > 0.5 operation.",
+      "solution": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 24.0,
+        "iout": 8.0,
+        "power": 192.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.65,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.77, "note": "Ns/Np"},
+          "L_out": {"value": 22e-6, "unit": "H", "rating": "12A"},
+          "C_clamp": {"value": 1e-6, "unit": "F", "type": "film"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 3.0, "unit": "Ω"}
+        },
+        "active_clamp_design": {
+          "purpose": "Allow D > 0.5 by controlled reset",
+          "topology": "High-side active clamp",
+          "clamp_switch": "N-ch MOSFET with gate driver",
+          "clamp_capacitor": "1uF film cap",
+          "operation": {
+            "main_on": "Energy stored in magnetizing inductance",
+            "main_off": "Clamp switch turns on, resets core via Cclamp",
+            "resonant_reset": "Lm resonates with Cclamp"
+          },
+          "benefits": [
+            "D up to 0.8 possible",
+            "ZVS on main switch",
+            "Lower voltage stress than RCD"
+          ],
+          "Vclamp": "Vin * D/(1-D) = 48 * 0.65/0.35 = 89V"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.92,
+          "D_achieved": 0.65
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_038",
+      "prompt": "Design a full-bridge: 380V->54V (PoE++), 30A. Constraint: IEEE 802.3bt Type 4 compliance.",
+      "solution": {
+        "topology": "full_bridge",
+        "vin": 380.0,
+        "vout": 54.0,
+        "iout": 30.0,
+        "power": 1620.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.32, "note": "3:1"},
+          "L_out": {"value": 10e-6, "unit": "H", "rating": "40A"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 1.8, "unit": "Ω"}
+        },
+        "poe_compliance": {
+          "standard": "IEEE 802.3bt Type 4",
+          "power_class": "Class 8 (90W per port, up to 1440W total)",
+          "voltage_range": "52V-57V output",
+          "current_limit": "30A max with inrush limiting",
+          "requirements": {
+            "isolation": "1500Vrms min",
+            "efficiency": ">90% at full load",
+            "inrush": "<400mA during detection",
+            "MPS": "Maintain Power Signature"
+          },
+          "implementation": {
+            "PD_controller": "IEEE 802.3bt compliant IC",
+            "classification": "Responds to PSE queries",
+            "autoclass": "Supported for dynamic power"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 54.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.94,
+          "poe_compliant": true
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_039",
+      "prompt": "Design a QR buck: 48V->5V, 5A. Constraint: Variable frequency for ZVS across 20-100% load.",
+      "solution": {
+        "topology": "qr_buck",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 5.0,
+        "power": 25.0,
+        "f_sw_max": 250000,
+        "f_sw_min": 80000,
+        "duty_cycle": 0.104,
+        "components": {
+          "L_main": {"value": 33e-6, "unit": "H", "rating": "8A"},
+          "L_resonant": {"value": 1e-6, "unit": "H"},
+          "C_resonant": {"value": 10e-9, "unit": "F"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 1.0, "unit": "Ω"}
+        },
+        "variable_freq_zvs": {
+          "mechanism": "Wait for valley before turn-on",
+          "resonant_period": "2*pi*sqrt(Lr*Cr) = 628ns",
+          "valley_detection": "Zero-crossing detector on Vsw",
+          "frequency_variation": {
+            "at_100_load": "~250kHz",
+            "at_50_load": "~150kHz",
+            "at_20_load": "~80kHz"
+          },
+          "control_method": "Variable off-time, fixed on-time",
+          "zvs_verification": {
+            "energy_stored": "0.5*Lr*IL^2",
+            "energy_needed": "0.5*Coss*Vin^2",
+            "at_20_load": "0.5*1e-6*(1)^2 = 0.5uJ > 0.5*200e-12*48^2 = 0.23uJ"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.94,
+          "zvs_load_range": "20-100%"
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_040",
+      "prompt": "Design a boost: 12V->19V, 4A for laptop charging. Constraint: USB-PD 3.0 compatible with PPS.",
+      "solution": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 19.0,
+        "iout": 4.0,
+        "power": 76.0,
+        "f_sw": 300000,
+        "duty_cycle": 0.368,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "8A"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 4.75, "unit": "Ω"}
+        },
+        "usb_pd_compliance": {
+          "standard": "USB PD 3.0 with PPS",
+          "voltage_profiles": {
+            "5V": "3A (15W)",
+            "9V": "3A (27W)",
+            "15V": "3A (45W)",
+            "20V": "3.75A (75W)"
+          },
+          "pps_range": {
+            "voltage": "3.3V-21V in 20mV steps",
+            "current": "Up to 5A in 50mA steps"
+          },
+          "implementation": {
+            "pd_controller": "FUSB302 or similar",
+            "protocol": "BMC over CC lines",
+            "voltage_adjust": "DAC controls feedback reference",
+            "current_reporting": "Real-time via PPS"
+          },
+          "cable_compensation": "E-marker required for >3A",
+          "safety": "OVP, OCP, OTP per USB-PD spec"
+        },
+        "expected_results": {
+          "vout_adjustable": "5V-20V",
+          "ripple_mv": 100,
+          "efficiency_est": 0.92,
+          "pd_compliant": true
+        },
+        "meets_constraint": true
+      }
+    }
+  ]
+}

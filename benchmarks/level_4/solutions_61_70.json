@@ -1,0 +1,496 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_061",
+      "title": "Antarctic Research Station Microgrid Controller",
+      "application": "Remote Antarctic station requiring reliable power integration from wind, solar, and diesel with extreme cold operation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 400,
+        "V_out": 48,
+        "P_out": 10000,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.94,
+        "f_sw": 60000,
+        "thermal_interface": "heated_enclosure",
+        "ambient_temp": -60,
+        "max_junction_temp": 85,
+        "autonomy_days": 30,
+        "renewable_fraction": 0.7
+      },
+      "constraints": [
+        "Operation at -60°C to +30°C ambient",
+        "30-day autonomous operation capability",
+        "70% renewable energy utilization",
+        "Satellite communication for remote monitoring",
+        "Hot-swap maintenance during winter darkness"
+      ],
+      "design_approach": "Cold-rated buck converter with self-heating at startup. Battery-backed power for continuous operation. MPPT integration for solar during polar summer. Diesel auto-start for renewable shortfall. Iridium satellite telemetry.",
+      "solution": {
+        "L": 0.00018,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 0.23,
+        "duty_cycle": 0.12,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 250,
+          "V_diode": 600,
+          "I_diode": 250,
+          "V_cap": 100,
+          "I_L_rms": 215,
+          "P_dissipation": 600
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 400 = 0.12",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.88 / (60000 × 3.91) = 180 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 3.91 / (8 × 60000 × 0.5) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 208 × 0.12 × 0.88 / (60000 × 0.365) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_062",
+      "title": "Hadron Therapy Gantry Magnet Power",
+      "application": "Cancer treatment proton/carbon beam gantry requiring rotating magnet power delivery",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 200,
+        "P_out": 20000,
+        "ripple_voltage": 0.02,
+        "efficiency_target": 0.96,
+        "f_sw": 40000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 25,
+        "max_junction_temp": 100,
+        "rotation_speed": "1rpm_continuous",
+        "current_accuracy": "100ppm"
+      },
+      "constraints": [
+        "360° continuous rotation capability",
+        "Current accuracy ±100 ppm for beam steering",
+        "Slip ring power transfer for rotating frame",
+        "Patient safety interlocks per IEC 60601",
+        "Magnetic field reproducibility ±0.01%"
+      ],
+      "design_approach": "High-precision buck with slip ring power transfer to rotating gantry. Precision DCCT feedback for beam steering accuracy. Medical-grade isolation for patient safety. Redundant monitoring for treatment verification.",
+      "solution": {
+        "L": 0.0004,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 2.0,
+        "duty_cycle": 0.333,
+        "component_ratings": {
+          "V_switch": 800,
+          "I_switch": 120,
+          "V_diode": 800,
+          "I_diode": 120,
+          "V_cap": 300,
+          "I_L_rms": 105,
+          "P_dissipation": 800
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 200 / 600 = 0.333",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 200 × 0.667 / (40000 × 8.33) = 400 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 8.33 / (8 × 40000 × 0.02) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 100 × 0.333 × 0.667 / (40000 × 0.555) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_063",
+      "title": "Optical Atomic Clock RF Synthesizer Power",
+      "application": "Next-gen optical atomic clock requiring ultra-stable power for RF synthesis at 10^-18 stability",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 15,
+        "ripple_voltage": 0.0001,
+        "efficiency_target": 0.88,
+        "f_sw": 1000000,
+        "thermal_interface": "temperature_controlled_chamber",
+        "ambient_temp": 25,
+        "max_junction_temp": 60,
+        "phase_noise": "-170dBc/Hz_at_1Hz",
+        "frequency_stability": "1e-18"
+      },
+      "constraints": [
+        "Phase noise < -170 dBc/Hz at 1 Hz offset",
+        "Frequency stability 10^-18 level",
+        "Temperature coefficient < 1 ppm/°C",
+        "Zero switching noise coupling to RF chain",
+        "Vibration isolation mounting required"
+      ],
+      "design_approach": "Ultra-low-noise buck with LC filtering and linear post-regulation. Faraday shielding for RF isolation. Temperature-controlled enclosure for thermal stability. Battery-backed reference to eliminate grid noise coupling.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 1.667,
+        "duty_cycle": 0.208,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 5,
+          "V_diode": 40,
+          "I_diode": 5,
+          "V_cap": 10,
+          "I_L_rms": 3.2,
+          "P_dissipation": 1.8
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.792 / (1000000 × 0.18) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.18 / (8 × 1000000 × 0.0001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 3 × 0.208 × 0.792 / (1000000 × 0.001) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_064",
+      "title": "Plasma Wakefield Accelerator Modulator",
+      "application": "Advanced accelerator requiring multi-GW power modulation for plasma wakefield generation",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 20000,
+        "V_out": 50000,
+        "P_out": 1000000,
+        "ripple_voltage": 250,
+        "efficiency_target": 0.92,
+        "f_sw": 5000,
+        "thermal_interface": "oil_immersed",
+        "ambient_temp": 30,
+        "max_junction_temp": 125,
+        "pulse_width": "10ns_to_1us",
+        "rise_time": "2ns"
+      },
+      "constraints": [
+        "2 ns rise time for plasma formation",
+        "Pulse width programmable 10 ns to 1 µs",
+        "Peak power 1 GW capability",
+        "Pulse-to-pulse stability ±0.1%",
+        "10 Hz repetition rate"
+      ],
+      "design_approach": "Solid-state Marx modulator with series-stacked SiC switches. Magnetic pulse compression for fast rise time. Oil-immersed construction for insulation. Precision PFN for pulse shaping. Digital timing synchronization.",
+      "solution": {
+        "L": 0.01,
+        "C_out": 0.0001,
+        "C_in": 0.001,
+        "R_load": 2.5,
+        "duty_cycle": 0.6,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 500,
+          "V_diode": 6500,
+          "I_diode": 500,
+          "V_cap": 60000,
+          "I_L_rms": 55,
+          "P_dissipation": 80000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 20000/50000 = 0.6",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 20000 × 0.6 / (5000 × 240) = 10 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 20 × 0.6 / (5000 × 250) = 100 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 50 × 0.6 / (5000 × 6) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_065",
+      "title": "Photonic Quantum Computer Laser Driver",
+      "application": "Photonic quantum processor requiring ultra-stable laser diode array power for qubit generation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 2,
+        "P_out": 50,
+        "ripple_voltage": 0.001,
+        "efficiency_target": 0.90,
+        "f_sw": 2000000,
+        "thermal_interface": "TEC_stabilized",
+        "ambient_temp": 22,
+        "max_junction_temp": 60,
+        "current_noise": "1nA/sqrt(Hz)",
+        "wavelength_stability": "0.1pm"
+      },
+      "constraints": [
+        "Current noise < 1 nA/√Hz for wavelength stability",
+        "Wavelength stability ±0.1 pm for entanglement",
+        "64-channel independent current control",
+        "Fast modulation for qubit preparation",
+        "Crosstalk isolation > 80 dB"
+      ],
+      "design_approach": "Ultra-low-noise buck with linear current sources for each laser. TEC temperature stabilization per channel. Precision DAC current setpoints. Optical feedback for wavelength locking. EMI shielding between channels.",
+      "solution": {
+        "L": 0.000001,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.08,
+        "duty_cycle": 0.167,
+        "component_ratings": {
+          "V_switch": 20,
+          "I_switch": 30,
+          "V_diode": 20,
+          "I_diode": 30,
+          "V_cap": 5,
+          "I_L_rms": 26,
+          "P_dissipation": 5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 2 / 12 = 0.167",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 2 × 0.833 / (2000000 × 0.833) = 1 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.833 / (8 × 2000000 × 0.001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 25 × 0.167 × 0.833 / (2000000 × 0.0037) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_066",
+      "title": "Molten Salt Reactor Pump Motor Drive",
+      "application": "Gen-IV nuclear reactor requiring high-temperature pump drives for molten salt circulation",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 480,
+        "V_out": 400,
+        "P_out": 75000,
+        "ripple_voltage": 4,
+        "efficiency_target": 0.96,
+        "f_sw": 15000,
+        "thermal_interface": "high_temp_cooling",
+        "ambient_temp": 200,
+        "max_junction_temp": 250,
+        "operating_temp_salt": "700C",
+        "seismic_class": "nuclear_grade"
+      },
+      "constraints": [
+        "Ambient temperature 200°C near reactor",
+        "Nuclear seismic Class 1E qualification",
+        "Molten salt pump continuous operation",
+        "Radiation tolerance 10 Mrad lifetime",
+        "Triple redundancy for safety critical function"
+      ],
+      "design_approach": "SiC MOSFET inverter rated for high-temperature operation. Ceramic substrate power modules. Redundant control and sensing. Remote electronics with fiber optic links. Seismically qualified mounting.",
+      "solution": {
+        "L": 0.0008,
+        "C_out": 0.002,
+        "C_in": 0.004,
+        "R_load": 2.13,
+        "duty_cycle": 0.833,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 250,
+          "V_diode": 1200,
+          "I_diode": 250,
+          "V_cap": 600,
+          "I_L_rms": 195,
+          "P_dissipation": 3000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 400 / 480 = 0.833",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 400 × 0.167 / (15000 × 5.56) = 800 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 5.56 / (8 × 15000 × 4) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 187.5 × 0.833 × 0.167 / (15000 × 0.434) = 4000 µF"
+      }
+    },
+    {
+      "id": "L4_067",
+      "title": "Superconducting Qubit Flux Bias Supply",
+      "application": "Transmon qubit array requiring ultra-precise flux bias current for frequency tuning",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 0.5,
+        "P_out": 0.05,
+        "ripple_voltage": 0.00001,
+        "efficiency_target": 0.75,
+        "f_sw": 500000,
+        "thermal_interface": "cryo_conduction_20mK",
+        "ambient_temp": -273,
+        "max_junction_temp": -269,
+        "current_resolution": "1nA",
+        "flux_noise": "1µΦ0/sqrt(Hz)"
+      },
+      "constraints": [
+        "Operation at 20 mK millikelvin stage",
+        "Current resolution 1 nA for flux precision",
+        "Flux noise < 1 µΦ₀/√Hz",
+        "100-channel parallel operation",
+        "Zero heat generation at mixing chamber"
+      ],
+      "design_approach": "Room-temperature precision buck with heavily filtered output to cryostat. Multi-stage LC filtering at each temperature stage. Superconducting twisted pair wiring. Digital-to-analog with 20-bit resolution. Magnetic shielding.",
+      "solution": {
+        "L": 0.00001,
+        "C_out": 0.0001,
+        "C_in": 0.000047,
+        "R_load": 5,
+        "duty_cycle": 0.1,
+        "component_ratings": {
+          "V_switch": 10,
+          "I_switch": 0.2,
+          "V_diode": 10,
+          "I_diode": 0.2,
+          "V_cap": 2,
+          "I_L_rms": 0.11,
+          "P_dissipation": 0.0125
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 0.5 / 5 = 0.1",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 0.5 × 0.9 / (500000 × 0.045) = 10 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.045 / (8 × 500000 × 0.00001) = 100 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.1 × 0.1 × 0.9 / (500000 × 0.00038) = 47 µF"
+      }
+    },
+    {
+      "id": "L4_068",
+      "title": "Hyperloop Pod Levitation Power System",
+      "application": "1000+ km/h hyperloop pod requiring electromagnetic levitation and propulsion power",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 800,
+        "V_out": 600,
+        "P_out": 200000,
+        "ripple_voltage": 6,
+        "efficiency_target": 0.97,
+        "f_sw": 20000,
+        "thermal_interface": "forced_air_tube_vacuum",
+        "ambient_temp": 40,
+        "max_junction_temp": 125,
+        "vacuum_level": "100Pa",
+        "max_speed": "1200kmh"
+      },
+      "constraints": [
+        "Near-vacuum operation (100 Pa pressure)",
+        "Active levitation gap control ±0.1 mm",
+        "Regenerative braking energy recovery",
+        "Battery-only operation during transit",
+        "Emergency landing capability"
+      ],
+      "design_approach": "SiC inverter for levitation magnet control with regenerative capability. Battery management for pod energy storage. Vacuum-compatible thermal design with radiative cooling. Active gap control algorithms.",
+      "solution": {
+        "L": 0.0006,
+        "C_out": 0.003,
+        "C_in": 0.005,
+        "R_load": 1.8,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 400,
+          "V_diode": 1200,
+          "I_diode": 400,
+          "V_cap": 1000,
+          "I_L_rms": 345,
+          "P_dissipation": 6000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 600 / 800 = 0.75",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 600 × 0.25 / (20000 × 12.5) = 600 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 12.5 / (8 × 20000 × 6) = 3000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 333 × 0.75 × 0.25 / (20000 × 0.625) = 5000 µF"
+      }
+    },
+    {
+      "id": "L4_069",
+      "title": "Exascale Supercomputer Power Plane",
+      "application": "Exascale HPC facility requiring 100 MW+ power distribution with extreme density",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 400,
+        "V_out": 48,
+        "P_out": 50000,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.98,
+        "f_sw": 100000,
+        "thermal_interface": "direct_liquid_cooling",
+        "ambient_temp": 35,
+        "max_junction_temp": 100,
+        "pue_target": 1.05,
+        "rack_density": "100kW_per_rack"
+      },
+      "constraints": [
+        "PUE < 1.05 for facility efficiency",
+        "100 kW per rack power density",
+        "48V bus distribution architecture",
+        "Hot-swap capability for maintenance",
+        "N+1 redundancy per compute node"
+      ],
+      "design_approach": "Ultra-high-efficiency buck for 400V to 48V rack distribution. Direct liquid cooling for power density. Digital power management with telemetry. Hot-swap design for zero-downtime maintenance.",
+      "solution": {
+        "L": 0.0001,
+        "C_out": 0.004,
+        "C_in": 0.002,
+        "R_load": 0.046,
+        "duty_cycle": 0.12,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 1200,
+          "V_diode": 600,
+          "I_diode": 1200,
+          "V_cap": 100,
+          "I_L_rms": 1080,
+          "P_dissipation": 1000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 400 = 0.12",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.88 / (100000 × 4.22) = 100 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 4.22 / (8 × 100000 × 0.5) = 4000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 1042 × 0.12 × 0.88 / (100000 × 0.55) = 2000 µF"
+      }
+    },
+    {
+      "id": "L4_070",
+      "title": "Spallation Neutron Source Chopper Drive",
+      "application": "SNS-class facility requiring precision motor drives for neutron beam choppers",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 480,
+        "P_out": 30000,
+        "ripple_voltage": 2,
+        "efficiency_target": 0.95,
+        "f_sw": 25000,
+        "thermal_interface": "air_cooling_filtered",
+        "ambient_temp": 30,
+        "max_junction_temp": 110,
+        "speed_stability": "0.001%",
+        "phase_jitter": "100ns"
+      },
+      "constraints": [
+        "Speed stability ±0.001% for neutron timing",
+        "Phase jitter < 100 ns to proton pulse",
+        "Magnetic bearing levitation coordination",
+        "Radiation area installation",
+        "Remote operation during beam-on"
+      ],
+      "design_approach": "Precision PMSM drive with encoder feedback for chopper synchronization. Sensorless backup mode for encoder failure. Magnetic bearing power coordination. Remote monitoring and control for radiation areas.",
+      "solution": {
+        "L": 0.0005,
+        "C_out": 0.001,
+        "C_in": 0.002,
+        "R_load": 7.68,
+        "duty_cycle": 0.8,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 80,
+          "V_diode": 1200,
+          "I_diode": 80,
+          "V_cap": 800,
+          "I_L_rms": 65,
+          "P_dissipation": 1500
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 480 / 600 = 0.8",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 480 × 0.2 / (25000 × 7.68) = 500 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 7.68 / (8 × 25000 × 2) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 62.5 × 0.8 × 0.2 / (25000 × 0.2) = 2000 µF"
+      }
+    }
+  ]
+}

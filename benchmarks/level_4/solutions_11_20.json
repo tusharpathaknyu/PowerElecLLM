@@ -1,0 +1,463 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "solutions": [
+    {
+      "problem_id": "L4_011",
+      "title": "Quantum Dot Display Driver with HDR Peak Luminance",
+      "application": "8K HDR quantum dot display backlight requiring 10000 nit peak luminance with microsecond local dimming zones",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 400,
+        "P_out": 2000,
+        "V_ripple_max": 0.1,
+        "I_ripple_max": 0.1,
+        "f_sw": 500000,
+        "efficiency_min": 0.97,
+        "dimming_zones": 4096,
+        "response_time_us": 10,
+        "color_accuracy": "DeltaE < 1"
+      },
+      "constraints": [
+        "Local dimming response < 10μs for HDR contrast",
+        "EMI must not interfere with quantum dot emission spectra",
+        "Thermal dissipation < 60W for panel integration",
+        "Flicker-free operation at all luminance levels",
+        "Color temperature stability ±50K over temperature"
+      ],
+      "design_approach": "Full-bridge with resonant transition for soft switching, enabling high frequency operation without excessive switching losses. Digital control with zone-by-zone current regulation for HDR local dimming.",
+      "formulas": {
+        "turns_ratio": "n = V_out / (V_in × D_max) = 400 / (48 × 0.45) = 18.5, use n = 18",
+        "primary_current": "I_pri = P_out / (V_in × η) = 2000 / (48 × 0.97) = 42.9A",
+        "transformer_inductance": "L_mag = V_in × D / (2 × f × ΔI) = 48 × 0.45 / (2 × 500k × 4.3) = 5μH",
+        "resonant_capacitor": "C_r = 1 / (4 × π² × f² × L_r) = 1 / (4 × π² × 500k² × 5μ) = 20nF",
+        "output_capacitor": "C_out = I_out × t_response / ΔV = 5 × 10μ / 0.1 = 500μF",
+        "input_capacitor": "C_in = I_pri × D / (f × ΔV_in) = 42.9 × 0.45 / (500k × 0.5) = 77μF"
+      },
+      "solution": {
+        "L": 5e-6,
+        "C_out": 500e-6,
+        "C_in": 100e-6,
+        "C_resonant": 20e-9,
+        "n": 18,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "MOSFET": "100V, 60A GaN FET with < 5mΩ Rds_on",
+        "transformer": "5μH primary, 1.6mH secondary, 2kW rated",
+        "output_capacitor": "500μF, 450V, low ESR ceramic bank",
+        "input_capacitor": "100μF, 63V, X7R ceramic",
+        "resonant_capacitor": "20nF, 200V, C0G dielectric"
+      }
+    },
+    {
+      "problem_id": "L4_012",
+      "title": "Superconducting MRI Gradient Amplifier",
+      "application": "High-performance MRI gradient coil driver for 7T research scanner requiring ultra-fast slew rates",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 800,
+        "V_out": 2000,
+        "I_out_peak": 500,
+        "P_out": 1000000,
+        "slew_rate": 200,
+        "f_sw": 100000,
+        "efficiency_min": 0.96,
+        "current_accuracy": "0.01%"
+      },
+      "constraints": [
+        "Gradient slew rate > 200 T/m/s for advanced imaging sequences",
+        "No acoustic noise coupling to scanner bore",
+        "Current THD < 0.01% for image quality",
+        "Fault response < 1μs to protect patient",
+        "EMI shielding for RF coil compatibility"
+      ],
+      "design_approach": "Interleaved full-bridge topology with parallel modules for megawatt peak power. Current-mode control with high-bandwidth current sensing for precise gradient waveform generation.",
+      "formulas": {
+        "gradient_voltage": "V_grad = L_coil × dI/dt = 500μH × 400kA/s = 200V",
+        "peak_power": "P_peak = V_out × I_peak = 2000 × 500 = 1MW",
+        "module_count": "N = P_peak / P_module = 1MW / 100kW = 10 modules",
+        "coil_inductance": "L_grad = V / (dI/dt) = 200 / 400k = 500μH",
+        "filter_inductor": "L_f = V_in / (8 × f × ΔI) = 800 / (8 × 100k × 25) = 40μH",
+        "filter_capacitor": "C_f = 1 / (4 × π² × f_c² × L_f) = 1 / (4 × π² × 10k² × 40μ) = 6.3μF"
+      },
+      "solution": {
+        "L": 40e-6,
+        "C_out": 10e-6,
+        "C_in": 5000e-6,
+        "modules": 10,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "IGBT": "1700V, 600A IGBT module per phase",
+        "filter_inductor": "40μH, 500A, laminated core",
+        "filter_capacitor": "10μF, 2500V, film capacitor",
+        "DC_link": "5000μF, 1000V, electrolytic bank"
+      }
+    },
+    {
+      "problem_id": "L4_013",
+      "title": "Neuromorphic Computing Power Architecture",
+      "application": "Brain-inspired computing chip requiring adaptive power delivery matching neural activity patterns",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 0.5,
+        "I_out_dynamic": "0.1 to 100",
+        "P_out_max": 50,
+        "V_ripple_max": 0.005,
+        "f_sw": 10000000,
+        "efficiency_min": 0.92,
+        "response_time_ns": 100
+      },
+      "constraints": [
+        "Track neural firing pattern power variations in nanoseconds",
+        "1000:1 dynamic load range for sparse neural activity",
+        "Noise floor < 1mV for analog synapse accuracy",
+        "Self-adapting efficiency optimization",
+        "Multi-phase interleaving for ripple cancellation"
+      ],
+      "design_approach": "Multiphase buck with phase shedding based on activity detection. Integrated magnetic structures using thin-film inductors for extreme bandwidth. Hybrid digital/analog control mimicking neural feedback.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 0.5 / 12 = 0.042",
+        "phase_count": "N_ph = I_out_max / I_phase = 100 / 12.5 = 8 phases",
+        "phase_inductor": "L_ph = V_in × D × (1-D) / (f × ΔI × N) = 12 × 0.042 × 0.958 / (10M × 1.25 × 8) = 4.8nH",
+        "output_capacitor": "C_out = I_step × t_response / ΔV = 100 × 100n / 0.005 = 2000μF",
+        "input_capacitor": "C_in = I_in × D / (f × ΔV_in) = 4.2 × 0.042 / (10M × 0.1) = 180nF"
+      },
+      "solution": {
+        "L": 5e-9,
+        "C_out": 2000e-6,
+        "C_in": 200e-9,
+        "phases": 8,
+        "f_sw": 10000000
+      },
+      "component_ratings": {
+        "MOSFET": "20V, 15A integrated GaN per phase",
+        "inductor": "5nH thin-film coupled inductors",
+        "output_capacitor": "2000μF MLCC array, 1V rated",
+        "input_capacitor": "200nF, 16V, X5R ceramic"
+      }
+    },
+    {
+      "problem_id": "L4_014",
+      "title": "Tokamak Plasma Position Control Supply",
+      "application": "ITER-class fusion reactor vertical stability system requiring megawatt-scale response in milliseconds",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 10000,
+        "V_out": 20000,
+        "I_out_peak": 50000,
+        "P_out_peak": 1000000000,
+        "response_time_ms": 1,
+        "f_sw": 5000,
+        "efficiency_min": 0.95
+      },
+      "constraints": [
+        "Millisecond response to prevent plasma disruption",
+        "Bidirectional power flow for position correction",
+        "Fault current limiting for coil protection",
+        "Seismic qualification for reactor environment",
+        "Neutron flux tolerance"
+      ],
+      "design_approach": "Thyristor-based H-bridge with IGBT snubber assist for fast current reversal. Supercapacitor energy storage for peak power delivery beyond grid capacity.",
+      "formulas": {
+        "coil_energy": "E = 0.5 × L × I² = 0.5 × 100mH × 50000² = 125GJ (total system)",
+        "peak_power": "P_peak = V × I = 20kV × 50kA = 1GW",
+        "supercap_bank": "C = 2 × E / V² = 2 × 5GJ / 20000² = 25F per unit",
+        "di_dt_rating": "di/dt = V / L = 20kV / 100mH = 200kA/s",
+        "filter_inductor": "L_f = V / (f × ΔI) = 10k / (5k × 500) = 4mH"
+      },
+      "solution": {
+        "L": 4e-3,
+        "C_out": 1000e-6,
+        "C_supercap": 25,
+        "modules": 100,
+        "f_sw": 5000
+      },
+      "component_ratings": {
+        "thyristor": "20kV, 60kA press-pack thyristor",
+        "IGBT_snubber": "6.5kV, 3kA IGBT modules",
+        "supercapacitor": "25F, 2.7V cells, 7500 series",
+        "filter_inductor": "4mH, 60kA, air-core"
+      }
+    },
+    {
+      "problem_id": "L4_015",
+      "title": "Photonic Quantum Computer Laser Driver",
+      "application": "Precision laser current source for photonic qubits requiring sub-ppm stability",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 2,
+        "I_out": 1,
+        "P_out": 2,
+        "I_ripple_ppm": 1,
+        "I_accuracy_ppm": 0.1,
+        "f_sw": 2000000,
+        "temperature_stability_ppm_K": 0.1
+      },
+      "constraints": [
+        "Current stability < 1 ppm for quantum coherence",
+        "No switching transients during qubit operations",
+        "Phase noise floor < -160 dBc/Hz",
+        "Cryogenic compatible to 4K operation",
+        "EMI shielding > 120dB"
+      ],
+      "design_approach": "Ultra-low-noise buck with post-regulation using low-noise LDO. Switching paused during critical qubit operations. Temperature-compensated reference with oven stabilization.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 2 / 24 = 0.083",
+        "inductor": "L = V_in × D × (1-D) / (f × ΔI) = 24 × 0.083 × 0.917 / (2M × 0.001m) = 913μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 1m / (8 × 2M × 0.001m) = 62.5nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 1 × 0.083 / (2M × 0.1) = 415nF",
+        "post_filter": "L_post = V_ripple_sw / (2 × π × f × I_ripple_final) = 1mV / (2π × 2M × 1nA) = 80H"
+      },
+      "solution": {
+        "L": 1e-3,
+        "C_out": 100e-9,
+        "C_in": 500e-9,
+        "L_post": 100,
+        "C_post": 1e-6,
+        "f_sw": 2000000
+      },
+      "component_ratings": {
+        "MOSFET": "30V, 5A low Qg MOSFET",
+        "inductor": "1mH ultra-low DCR, shielded",
+        "output_capacitor": "100nF, 10V, NP0/C0G",
+        "post_regulator": "Ovenized voltage reference + discrete LDO"
+      }
+    },
+    {
+      "problem_id": "L4_016",
+      "title": "Deep Space Ion Thruster PPU",
+      "application": "Power processing unit for interstellar probe ion engine operating decades without maintenance",
+      "difficulty": "expert",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 100,
+        "V_out": 2000,
+        "P_out": 5000,
+        "I_beam": 2.5,
+        "efficiency_min": 0.95,
+        "f_sw": 100000,
+        "lifetime_years": 50,
+        "radiation_tolerance_krad": 1000
+      },
+      "constraints": [
+        "50-year continuous operation reliability",
+        "1 Mrad total ionizing dose tolerance",
+        "Single-event upset immunity",
+        "Zero maintenance beyond Jupiter orbit",
+        "Mass budget < 10kg"
+      ],
+      "design_approach": "Radiation-hardened flyback with triple-redundant control. Ceramic capacitors throughout for radiation tolerance. Derating all components to 30% of rated values.",
+      "formulas": {
+        "turns_ratio": "n = V_out / (V_in × D / (1-D)) = 2000 / (100 × 0.4 / 0.6) = 30",
+        "primary_current": "I_pri = P_out / (V_in × D × η) = 5000 / (100 × 0.4 × 0.95) = 132A peak",
+        "magnetizing_inductance": "L_m = V_in × D / (f × ΔI) = 100 × 0.4 / (100k × 132) = 3μH",
+        "output_capacitor": "C_out = I_out / (f × ΔV) = 2.5 / (100k × 20) = 1.25μF",
+        "input_capacitor": "C_in = I_pri × D / (f × ΔV_in) = 132 × 0.4 / (100k × 5) = 106μF"
+      },
+      "solution": {
+        "L": 3e-6,
+        "C_out": 2e-6,
+        "C_in": 150e-6,
+        "n": 30,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "200V, 200A rad-hard SiC",
+        "transformer": "3μH/2.7mH, radiation-qualified",
+        "output_capacitor": "2μF, 2.5kV, ceramic COG",
+        "input_capacitor": "150μF, 150V, ceramic X7R"
+      }
+    },
+    {
+      "problem_id": "L4_017",
+      "title": "Terahertz Imaging Scanner Power Supply",
+      "application": "Security scanner terahertz source requiring ultra-stable bias for coherent imaging",
+      "difficulty": "expert",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 200,
+        "I_out": 0.01,
+        "P_out": 2,
+        "V_ripple_ppm": 10,
+        "f_sw": 5000000,
+        "phase_noise_dBc": -150
+      },
+      "constraints": [
+        "Bias stability for THz source coherence",
+        "Phase noise < -150 dBc/Hz at 1kHz offset",
+        "Ripple < 10ppm for image quality",
+        "EMI compliance for public deployment",
+        "Hot-swap capability for maintenance"
+      ],
+      "design_approach": "Multi-stage boost with intermediate regulation. Final stage LC filter with extremely high Q for ripple rejection. Active ripple cancellation loop.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 5/200 = 0.975",
+        "inductor": "L = V_in × D / (f × ΔI) = 5 × 0.975 / (5M × 0.1) = 9.75μH",
+        "intermediate_boost": "Two stages: 5V→45V→200V for lower stress",
+        "stage1_D": "D1 = 1 - 5/45 = 0.889",
+        "stage2_D": "D2 = 1 - 45/200 = 0.775",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.01 × 0.775 / (5M × 0.002) = 775pF"
+      },
+      "solution": {
+        "L1": 10e-6,
+        "L2": 20e-6,
+        "C_out": 1e-9,
+        "C_mid": 10e-6,
+        "C_in": 100e-6,
+        "f_sw": 5000000
+      },
+      "component_ratings": {
+        "MOSFET_stage1": "60V, 2A GaN FET",
+        "MOSFET_stage2": "250V, 0.5A GaN FET",
+        "inductor1": "10μH, 2A, shielded",
+        "inductor2": "20μH, 0.1A, ultra-low DCR",
+        "output_filter": "Multi-pole LC, Q>100"
+      }
+    },
+    {
+      "problem_id": "L4_018",
+      "title": "Gravitational Wave Detector Seismic Isolator",
+      "application": "LIGO active seismic isolation actuator requiring atto-meter positioning precision",
+      "difficulty": "expert",
+      "topology": "half_bridge",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 100,
+        "I_out_max": 10,
+        "P_out": 500,
+        "position_resolution_m": 1e-18,
+        "f_sw": 500000,
+        "noise_floor_V_rtHz": 1e-9
+      },
+      "constraints": [
+        "Current noise < 1nA/√Hz for atto-meter isolation",
+        "No mechanical vibration from power supply",
+        "Phase margin > 60° at all frequencies to 100kHz",
+        "Ultra-clean grounding for interferometer compatibility",
+        "Vacuum-compatible components"
+      ],
+      "design_approach": "Half-bridge with synchronous rectification and post-regulation. Multi-stage output filtering with both passive and active noise cancellation. Isolated sensing with optical coupling.",
+      "formulas": {
+        "turns_ratio": "n = V_out / (V_in × 0.5) = 100 / 24 = 4.17, use n = 4",
+        "filter_inductance": "L = V_out / (2 × π × f_bw × I_noise) = 100 / (2π × 100k × 1n) = 159H (use active filter)",
+        "output_capacitor": "C_out = 1 / (4 × π² × f² × L_filter) with active assist",
+        "input_capacitor": "C_in = P_out / (V_in × f × ΔV) = 500 / (48 × 500k × 0.5) = 42μF"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 100e-6,
+        "C_in": 50e-6,
+        "L_filter": 10e-3,
+        "n": 4,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "MOSFET": "100V, 15A ultra-low noise",
+        "transformer": "100μH primary, 1.6mH secondary",
+        "output_filter": "Multi-stage LC + active cancellation",
+        "current_sense": "Zero-flux current transformer"
+      }
+    },
+    {
+      "problem_id": "L4_019",
+      "title": "Hypersonic Vehicle Thermal Management",
+      "application": "Power supply for actively cooled leading edge of Mach 10+ vehicle during atmospheric reentry",
+      "difficulty": "expert",
+      "topology": "cuk",
+      "specifications": {
+        "V_in_range": "200-400",
+        "V_out": 300,
+        "I_out": 100,
+        "P_out": 30000,
+        "ambient_temp_C": 500,
+        "f_sw": 200000,
+        "efficiency_min": 0.94
+      },
+      "constraints": [
+        "Operating ambient to 500°C during flight",
+        "Survive 50g vibration and 20g sustained acceleration",
+        "All ceramic/SiC components for high temperature",
+        "Redundant architecture for flight safety",
+        "Weight < 15kg including thermal management"
+      ],
+      "design_approach": "Ćuk topology for continuous current on both sides reducing EMI in harsh environment. High-temperature SiC MOSFETs with ceramic magnetics. Active cooling integrated with vehicle thermal system.",
+      "formulas": {
+        "duty_cycle_nom": "D = V_out / (V_in + V_out) = 300 / (300 + 300) = 0.5",
+        "coupling_capacitor": "C_c = I_out × D / (f × ΔV_c) = 100 × 0.5 / (200k × 15) = 16.7μF",
+        "input_inductor": "L_in = V_in × D / (f × ΔI_in) = 300 × 0.5 / (200k × 10) = 75μH",
+        "output_inductor": "L_out = V_out × (1-D) / (f × ΔI_out) = 300 × 0.5 / (200k × 10) = 75μH",
+        "output_capacitor": "C_out = I_out / (8 × f × ΔV) = 100 / (8 × 200k × 3) = 21μF",
+        "input_capacitor": "C_in = I_in × D / (f × ΔV_in) = 100 × 0.5 / (200k × 10) = 25μF"
+      },
+      "solution": {
+        "L_in": 80e-6,
+        "L_out": 80e-6,
+        "C_coupling": 20e-6,
+        "C_out": 25e-6,
+        "C_in": 30e-6,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "MOSFET": "650V, 150A SiC rated to 200°C junction",
+        "inductor": "80μH, 100A, ceramic core",
+        "capacitor": "High-temp ceramic C0G, 200°C rated",
+        "thermal": "Active cooling loop integration"
+      }
+    },
+    {
+      "problem_id": "L4_020",
+      "title": "Antimatter Production Facility Power",
+      "application": "Antiproton accumulator ring magnet power supply at CERN-class facility",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 20000,
+        "V_out": 10000,
+        "I_out": 6000,
+        "P_out": 60000000,
+        "I_ripple_ppm": 10,
+        "f_sw": 10000,
+        "stability_ppm_hour": 1
+      },
+      "constraints": [
+        "Current stability < 1ppm/hour for beam containment",
+        "Ripple < 10ppm to prevent beam loss",
+        "Energy recovery during deceleration cycles",
+        "Coordinated control with RF systems",
+        "Radiation environment compatibility"
+      ],
+      "design_approach": "Thyristor phase-controlled bridge with active filter for ripple cancellation. Precision DCCT current measurement with digital servo loop. Superconducting energy storage for fast response.",
+      "formulas": {
+        "magnet_energy": "E = 0.5 × L × I² = 0.5 × 10H × 6000² = 180GJ",
+        "ripple_filter_L": "L_f = V_ripple / (2 × π × f × I_ripple) = 100 / (2π × 10k × 0.06) = 26.5mH",
+        "filter_capacitor": "C_f = 1 / (4 × π² × f² × L_f) = 1 / (4π² × 1k² × 26.5m) = 956nF",
+        "ramp_rate": "dI/dt = V / L = 10kV / 10H = 1kA/s",
+        "active_filter_power": "P_af = V_ripple × I_ripple / η = 100 × 60 / 0.9 = 6.7kW"
+      },
+      "solution": {
+        "L_filter": 30e-3,
+        "C_filter": 1e-6,
+        "C_dc_link": 10e-3,
+        "active_filter_P": 10000,
+        "f_sw": 10000
+      },
+      "component_ratings": {
+        "thyristor": "25kV, 8kA press-pack thyristor",
+        "filter_inductor": "30mH, 6kA, superconducting option",
+        "DC_link": "10mF, 25kV, film capacitor bank",
+        "DCCT": "±1ppm accuracy, 6kA range"
+      }
+    }
+  ]
+}

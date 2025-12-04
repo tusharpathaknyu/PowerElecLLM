@@ -1,0 +1,438 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "solutions": [
+    {
+      "problem_id": "L4_041",
+      "title": "Quantum Entanglement Distribution Laser",
+      "application": "Precision pump laser driver for satellite-based quantum key distribution terminals",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 2,
+        "I_out": 5,
+        "P_out": 10,
+        "I_ripple_ppm": 0.1,
+        "linewidth_kHz": 1,
+        "f_sw": 5000000
+      },
+      "constraints": [
+        "Current ripple < 0.1ppm for laser linewidth",
+        "Phase noise < -160dBc/Hz for entanglement fidelity",
+        "Space radiation tolerance to 100krad",
+        "Operational from -40°C to +70°C",
+        "Lifetime > 10 years in GEO"
+      ],
+      "design_approach": "Ultra-low-noise buck with multi-stage output filtering. Switching synchronized to avoid laser modulation bands. Post-regulation with quantum reference stabilization.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 2 / 28 = 0.071",
+        "inductor": "L = V_in × D × (1-D) / (f × ΔI) = 28 × 0.071 × 0.929 / (5M × 0.5μ) = 739μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.5μ / (8 × 5M × 0.2μ) = 62.5nF",
+        "post_filter_L": "L_post for 160dB attenuation at f_sw",
+        "input_capacitor": "C_in = I_in × D / (f × ΔV_in) = 0.4 × 0.071 / (5M × 0.3) = 19nF"
+      },
+      "solution": {
+        "L": 800e-6,
+        "C_out": 100e-9,
+        "C_in": 50e-9,
+        "L_post": 10,
+        "C_post": 10e-6,
+        "f_sw": 5000000
+      },
+      "component_ratings": {
+        "MOSFET": "40V, 10A rad-hard",
+        "inductor": "800μH, 10A, mag-shielded",
+        "post_filter": "10H + 10μF LC for >160dB",
+        "reference": "Ultra-stable space-qualified"
+      }
+    },
+    {
+      "problem_id": "L4_042",
+      "title": "Proton Beam Cancer Therapy Scanning Magnet",
+      "application": "Fast raster scanning magnet driver for pencil beam proton therapy gantry",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 800,
+        "V_out_ac": 600,
+        "I_out_peak": 400,
+        "f_scan_kHz": 10,
+        "slew_rate_kA_ms": 100,
+        "accuracy_percent": 0.01
+      },
+      "constraints": [
+        "10kHz raster scanning frequency",
+        "Current accuracy < 0.01% for dose precision",
+        "Field-current correlation < 10ppm error",
+        "EMI shielding for patient safety",
+        "Gantry rotation compatibility"
+      ],
+      "design_approach": "H-bridge current source with high-bandwidth feedback. Predictive feedforward for scanning pattern compensation. Eddy current compensation in magnet model.",
+      "formulas": {
+        "magnet_inductance": "L_mag = 500μH scanning magnet",
+        "voltage_for_slew": "V = L × dI/dt = 500μ × 100k = 50V",
+        "peak_power": "P_peak = V_out × I_peak = 600 × 400 = 240kW",
+        "filter_inductor": "L_f = V / (Δf × ΔI) = 800 / (100k × 4) = 2mH",
+        "current_ripple": "ΔI = V / (L × f) must be < 0.01%"
+      },
+      "solution": {
+        "L_filter": 2e-3,
+        "C_dc": 2000e-6,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "IGBT": "1200V, 600A fast-switching",
+        "filter_inductor": "2mH, 400A, low-loss core",
+        "DC_link": "2000μF, 900V, film",
+        "current_sensor": "Zero-flux DCCT, 10ppm"
+      }
+    },
+    {
+      "problem_id": "L4_043",
+      "title": "Metamaterial Cloaking Device Driver",
+      "application": "Active metamaterial element bias for microwave frequency selective surface",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out_array": "0-10",
+        "I_per_element_mA": 10,
+        "elements": 100000,
+        "f_update_Hz": 1000000,
+        "latency_ns": 100
+      },
+      "constraints": [
+        "100,000 independent voltage channels",
+        "100ns update latency for beam steering",
+        "MHz refresh rate for adaptive cloaking",
+        "Minimal coupling between adjacent elements",
+        "Operating frequency 1-40 GHz"
+      ],
+      "design_approach": "Central power rail with distributed DAC/driver per element. Time-multiplexed update architecture. Integrated ASIC with varactor drive capability.",
+      "formulas": {
+        "total_power": "P = N × V × I = 100000 × 5 × 10m = 5kW",
+        "update_rate": "t_update = 1 / f = 1μs per full array",
+        "element_capacitance": "C_var = 1pF typical varactor",
+        "drive_current": "I_drive = C × dV/dt = 1p × 10 / 100n = 100mA peak",
+        "bus_inductance": "L_bus < 100pH for fast switching"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 1000e-6,
+        "C_in": 100e-6,
+        "elements": 100000,
+        "f_sw": 2000000
+      },
+      "component_ratings": {
+        "MOSFET": "20V, 200A main rail",
+        "driver_ASIC": "10mA, 10V, 100ns per element",
+        "bus_capacitor": "1mF distributed along array",
+        "interconnect": "Controlled impedance, <100pH"
+      }
+    },
+    {
+      "problem_id": "L4_044",
+      "title": "Levitated Optomechanical Sensor Trap",
+      "application": "Optical levitation trap electrode bias for zeptonewton force sensing",
+      "difficulty": "expert",
+      "topology": "half_bridge",
+      "specifications": {
+        "V_in": 24,
+        "V_out_ac": 1000,
+        "f_out": 100000,
+        "V_stability_ppb": 1,
+        "noise_nV_rtHz": 1,
+        "electrode_count": 8
+      },
+      "constraints": [
+        "1 ppb voltage stability for force resolution",
+        "1nV/√Hz noise for zeptonewton sensing",
+        "8-electrode independent phase control",
+        "UHV compatible (10⁻¹¹ mbar)",
+        "Vibration isolation integration"
+      ],
+      "design_approach": "Half-bridge generating 100kHz AC with ultra-stable amplitude. Precision transformer for voltage step-up. Active noise cancellation feedback loop.",
+      "formulas": {
+        "trap_frequency": "ω_trap = √(q²×∇²V / m) = 2π × 100kHz",
+        "force_resolution": "δF = √(4 × k_B × T × m × γ) = 10⁻²¹ N",
+        "voltage_noise": "δV = δF × m × ω² × d / q",
+        "transformer_ratio": "n = V_out / V_in = 1000 / 24 = 42",
+        "stability_requirement": "δV/V < 1ppb over 1s integration"
+      },
+      "solution": {
+        "L": 50e-6,
+        "C_resonant": 50e-9,
+        "C_in": 100e-6,
+        "n": 42,
+        "electrodes": 8,
+        "f_drive": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "60V, 5A ultra-low noise",
+        "transformer": "42:1, 100kHz, ultra-stable",
+        "resonant_cap": "50nF, C0G, 0.1ppm/°C",
+        "electrode": "Gold-plated, UHV compatible"
+      }
+    },
+    {
+      "problem_id": "L4_045",
+      "title": "High-Energy Laser Weapon Thermal Battery",
+      "application": "Pulsed thermal battery discharge system for 150kW directed energy weapon",
+      "difficulty": "expert",
+      "topology": "boost",
+      "specifications": {
+        "V_battery": "20-32",
+        "V_out": 800,
+        "P_peak_kW": 150,
+        "pulse_duration_s": 10,
+        "efficiency_min": 0.94,
+        "activation_s": 0.5
+      },
+      "constraints": [
+        "Thermal battery activation in < 0.5s",
+        "150kW sustained for 10 seconds",
+        "Wide input voltage as battery depletes",
+        "Recoil and vibration tolerance",
+        "MIL-STD-461 EMI compliance"
+      ],
+      "design_approach": "Multi-phase interleaved boost with current sharing. Pre-charge of output capacitor bank during activation. Thermal management integration with laser cooling.",
+      "formulas": {
+        "battery_energy": "E = P × t = 150k × 10 = 1.5MJ",
+        "duty_cycle_range": "D = 1 - V_bat/V_out = 0.96 to 0.975",
+        "input_current": "I_in = P / (V_bat × η) = 150k / (24 × 0.94) = 6.6kA",
+        "phase_count": "N = 16 phases for current sharing",
+        "phase_inductor": "L = V × D × (1-D) / (f × ΔI × N) = 24 × 0.97 × 0.03 / (100k × 26 × 16) = 17μH"
+      },
+      "solution": {
+        "L": 20e-6,
+        "C_out": 10e-3,
+        "C_in": 50e-3,
+        "phases": 16,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "100V, 600A SiC per phase",
+        "inductor": "20μH, 500A, distributed",
+        "output_capacitor": "10mF, 900V, film bank",
+        "thermal_battery": "1.5MJ, LiCl-KCl electrolyte"
+      }
+    },
+    {
+      "problem_id": "L4_046",
+      "title": "Superconducting Quantum Interference Device Bias",
+      "application": "Ultra-low-noise flux-locked loop electronics for SQUID magnetometer",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 0.01,
+        "I_bias_uA": 10,
+        "noise_fT_rtHz": 1,
+        "bandwidth_MHz": 1,
+        "temperature_K": 4.2
+      },
+      "constraints": [
+        "1 fT/√Hz magnetic field noise",
+        "4.2K cryogenic operation interface",
+        "Flux-locked loop stability > 10⁶ Φ₀",
+        "Zero ground loop current",
+        "Shielding factor > 10⁶"
+      ],
+      "design_approach": "Battery-powered ultra-low-noise bias with optical isolation. Cryogenic preamp stage with warm electronics feedback. Multi-layer μ-metal and superconducting shields.",
+      "formulas": {
+        "flux_quantum": "Φ₀ = h / (2e) = 2.07 × 10⁻¹⁵ Wb",
+        "SQUID_sensitivity": "∂V/∂Φ = 100μV/Φ₀ typical",
+        "noise_current": "i_n = S_Φ / M = 1fT × A / M_input",
+        "bias_stability": "δI/I < 10⁻⁶ for dynamic range",
+        "feedback_bandwidth": "f_3dB = GBW / A_loop = 1MHz"
+      },
+      "solution": {
+        "L": 1e-3,
+        "C_out": 10e-6,
+        "C_in": 100e-6,
+        "I_bias": 10e-6,
+        "f_sw": 10000000
+      },
+      "component_ratings": {
+        "regulator": "Linear post-regulator, 1nV noise",
+        "inductor": "1mH, fully shielded",
+        "isolation": "Optical fiber, >10¹² Ω",
+        "shield": "5-layer μ-metal + Pb"
+      }
+    },
+    {
+      "problem_id": "L4_047",
+      "title": "Hypersonic Wind Tunnel Arc Heater",
+      "application": "20MW arc heater power supply for Mach 20 simulation facility",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 13800,
+        "V_arc": 2000,
+        "I_arc": 10000,
+        "P_out": 20000000,
+        "arc_stability_percent": 1,
+        "f_sw": 1000
+      },
+      "constraints": [
+        "Arc voltage varies 500-3000V during run",
+        "Current regulation < 1% for flow stability",
+        "5-minute continuous run capability",
+        "Electrode erosion compensation",
+        "Rapid shutdown for safety"
+      ],
+      "design_approach": "Thyristor phase-controlled rectifier with active arc stabilization. Parallel operation of multiple rectifier bridges. Water-cooled power electronics.",
+      "formulas": {
+        "arc_resistance": "R_arc = V / I = 2000 / 10000 = 0.2Ω (varies)",
+        "control_range": "V_arc = 0.5 to 3kV requires wide range",
+        "power_factor": "PF = cos(α) for phase control",
+        "filter_inductor": "L_dc = V_ripple / (6 × f × ΔI) for 6-pulse",
+        "cooling_power": "P_cool = P_loss = P × (1-η) = 20M × 0.05 = 1MW"
+      },
+      "solution": {
+        "L_filter": 10e-3,
+        "C_filter": 10e-3,
+        "bridges": 4,
+        "f_line": 60
+      },
+      "component_ratings": {
+        "thyristor": "6kV, 4kA water-cooled per bridge",
+        "filter_inductor": "10mH, 10kA, air-cooled",
+        "filter_capacitor": "10mF, 3kV, pulse rated",
+        "electrodes": "Tungsten, water-cooled"
+      }
+    },
+    {
+      "problem_id": "L4_048",
+      "title": "Molecular Beam Epitaxy Effusion Cell",
+      "application": "Ultra-stable temperature control power supply for MBE III-V semiconductor growth",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 24,
+        "P_heater": 500,
+        "T_max_C": 1400,
+        "T_stability_mK": 10,
+        "cells": 10
+      },
+      "constraints": [
+        "Temperature stability < 10mK for monolayer control",
+        "10 independent effusion cell channels",
+        "Beam equivalent pressure reproducibility",
+        "UHV compatible (10⁻¹¹ mbar)",
+        "No magnetic field interference"
+      ],
+      "design_approach": "PWM power stage with PID temperature control. Precision thermocouple measurement with cold junction compensation. Digital control with adaptive tuning.",
+      "formulas": {
+        "heater_resistance": "R = V² / P = 24² / 500 = 1.15Ω",
+        "time_constant": "τ = m × C_p / (h × A) ≈ 60s for cell",
+        "temperature_sensitivity": "dT/dP = 1400 / 500 = 2.8°C/W",
+        "power_resolution": "δP = δT / (dT/dP) = 0.01 / 2.8 = 3.6mW",
+        "duty_resolution": "δD = δP / P = 3.6m / 500 = 7.2ppm"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out": 100e-6,
+        "C_in": 200e-6,
+        "cells": 10,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "60V, 30A per cell",
+        "inductor": "100μH, 25A, non-magnetic",
+        "thermocouple": "Type C, ±0.5°C accuracy",
+        "heater": "Ta wire, 1400°C rated"
+      }
+    },
+    {
+      "problem_id": "L4_049",
+      "title": "Nuclear Fusion Pellet Injector",
+      "application": "Electromagnetic railgun pellet injector for tokamak fueling at 3km/s",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 10000,
+        "V_rails": 5000,
+        "I_peak": 500000,
+        "pellet_velocity_m_s": 3000,
+        "pellet_mass_g": 5,
+        "rep_rate_Hz": 10
+      },
+      "constraints": [
+        "3km/s pellet velocity for core fueling",
+        "10Hz repetition rate for steady-state",
+        "Pellet integrity during acceleration",
+        "Integration with plasma control system",
+        "Minimal ablation during injection"
+      ],
+      "design_approach": "Capacitor bank discharge through ignitron switches. Distributed energy storage along rail length. Active plasma armature formation.",
+      "formulas": {
+        "kinetic_energy": "E = 0.5 × m × v² = 0.5 × 0.005 × 3000² = 22.5kJ",
+        "acceleration": "a = v² / (2×L_rail) = 3000² / (2 × 1) = 4.5×10⁶ m/s²",
+        "force": "F = m × a = 0.005 × 4.5M = 22.5kN",
+        "rail_current": "I = F / (L' × L_rail) = 22.5k / (0.5μ × 1) = 45MA (distributed)",
+        "capacitor_bank": "C = 2 × E / V² = 2 × 22.5k / 5000² = 1.8mF"
+      },
+      "solution": {
+        "C_bank": 2e-3,
+        "L_rail": 1,
+        "V_charge": 5000,
+        "sections": 10,
+        "f_rep": 10
+      },
+      "component_ratings": {
+        "ignitron": "50kV, 100kA per section",
+        "capacitor": "200μF × 10, 6kV pulse rated",
+        "rail": "Copper/tungsten composite, 1m",
+        "pellet": "Frozen D-T, 5g, 4mm diameter"
+      }
+    },
+    {
+      "problem_id": "L4_050",
+      "title": "Event Horizon Telescope Maser Amplifier",
+      "application": "Hydrogen maser frequency standard power supply for VLBI clock synchronization",
+      "difficulty": "expert",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 28,
+        "V_out_multiple": [5, 12, -12, 150],
+        "P_total": 50,
+        "frequency_stability": "1e-15",
+        "phase_noise_dBc": -130,
+        "magnetic_sensitivity": "1e-12"
+      },
+      "constraints": [
+        "Frequency stability < 10⁻¹⁵ at 1000s",
+        "Multiple isolated outputs for maser subsystems",
+        "Zero magnetic field from power supply",
+        "Phase noise floor < -130dBc/Hz",
+        "Remote site operation (Antarctica, space)"
+      ],
+      "design_approach": "Multi-output flyback with post-regulators on all rails. Synchronization with maser reference for noise rejection. Triple-layer magnetic shielding of all magnetics.",
+      "formulas": {
+        "maser_frequency": "f_H = 1420405751.768 Hz",
+        "stability_definition": "σ_y(τ) = δf/f at averaging time τ",
+        "power_sensitivity": "δf/δV < 10⁻¹⁵/V",
+        "magnetic_rejection": "δf/δB < 10⁻¹² /nT",
+        "turns_ratio_150V": "n = 150 × (1-D) / (28 × D) = 5.4"
+      },
+      "solution": {
+        "L": 100e-6,
+        "C_out_5V": 1000e-6,
+        "C_out_12V": 500e-6,
+        "C_out_150V": 10e-6,
+        "C_in": 100e-6,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "MOSFET": "100V, 5A, shielded package",
+        "transformer": "Multi-winding, triple-shielded",
+        "post_reg_5V": "Ultra-low-noise LDO",
+        "post_reg_150V": "Discrete, <1μV noise",
+        "shield": "3-layer μ-metal + Co-Netic"
+      }
+    }
+  ]
+}

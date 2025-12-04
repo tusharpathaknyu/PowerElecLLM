@@ -1,0 +1,326 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "solutions": [
+    {
+      "problem_id": "L1_101",
+      "title": "Desk Lamp USB Charger",
+      "application": "LED desk lamp with integrated USB charging port",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "I_out": 2.4,
+        "V_ripple_max": 0.1,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from 24V lamp supply to USB charging voltage.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.792 / (500k × 0.48) = 16.5μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.48 / (8 × 500k × 0.1) = 1.2μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 2.4 × 0.208 / (500k × 0.5) = 2μF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 2.2e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 3A, shielded",
+        "output_capacitor": "2.2μF, 10V, X7R",
+        "input_capacitor": "4.7μF, 50V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_102",
+      "title": "Baby Monitor Camera Power",
+      "application": "WiFi baby monitor with night vision camera",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 3.3,
+        "I_out": 0.5,
+        "V_ripple_max": 0.03,
+        "f_sw": 1000000
+      },
+      "design_approach": "Efficient buck for camera processor from USB power.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 5 = 0.66",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.34 / (1M × 0.1) = 11.2μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.1 / (8 × 1M × 0.03) = 417nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.5 × 0.66 / (1M × 0.1) = 3.3μF"
+      },
+      "solution": {
+        "L": 12e-6,
+        "C_out": 1e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "12μH, 0.8A, shielded",
+        "output_capacitor": "1μF, 10V, X5R",
+        "input_capacitor": "4.7μF, 10V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_103",
+      "title": "Guitar Effects Pedal Power",
+      "application": "Digital guitar effects processor requiring clean analog supply",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 9,
+        "V_out": 5,
+        "I_out": 0.3,
+        "V_ripple_max": 0.01,
+        "f_sw": 1000000
+      },
+      "design_approach": "Low-noise buck for audio DSP from standard 9V pedal supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 9 = 0.556",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.444 / (1M × 0.06) = 37μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.06 / (8 × 1M × 0.01) = 750nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.3 × 0.556 / (1M × 0.1) = 1.67μF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 0.5A, shielded low EMI",
+        "output_capacitor": "1μF, 10V, X7R + 100nF C0G",
+        "input_capacitor": "2.2μF, 16V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_104",
+      "title": "Cordless Drill Battery Interface",
+      "application": "18V cordless tool battery to USB adapter",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 20,
+        "V_out": 5,
+        "I_out": 3,
+        "V_ripple_max": 0.15,
+        "f_sw": 400000
+      },
+      "design_approach": "High-current buck for USB fast charging from tool battery.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 20 = 0.25",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.75 / (400k × 0.6) = 15.6μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.6 / (8 × 400k × 0.15) = 1.25μF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 3 × 0.25 / (400k × 0.5) = 3.75μF"
+      },
+      "solution": {
+        "L": 22e-6,
+        "C_out": 2.2e-6,
+        "C_in": 10e-6,
+        "f_sw": 400000
+      },
+      "component_ratings": {
+        "inductor": "22μH, 4A, low DCR",
+        "output_capacitor": "2.2μF, 10V, X5R",
+        "input_capacitor": "10μF, 35V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_105",
+      "title": "Portable Photo Printer Supply",
+      "application": "Compact dye-sublimation photo printer heater driver",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 7.4,
+        "V_out": 24,
+        "I_out": 2,
+        "V_ripple_max": 0.5,
+        "f_sw": 200000
+      },
+      "design_approach": "Boost from 2S Li-ion pack to thermal print head voltage.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 7.4/24 = 0.69",
+        "inductor": "L = V_in × D / (f × ΔI) = 7.4 × 0.69 / (200k × 0.6) = 42.5μH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 2 × 0.69 / (200k × 0.5) = 13.8μF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.6 / (8 × 200k × 0.2) = 1.9μF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 22e-6,
+        "C_in": 10e-6,
+        "f_sw": 200000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 4A, low DCR",
+        "output_capacitor": "22μF, 35V, X5R",
+        "input_capacitor": "10μF, 16V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_106",
+      "title": "Fitness Tracker Supply",
+      "application": "Wrist-worn fitness band with heart rate monitor",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 4.2,
+        "V_out": 1.8,
+        "I_out": 0.05,
+        "V_ripple_max": 0.02,
+        "f_sw": 2000000
+      },
+      "design_approach": "Ultra-low-power buck for sensor and MCU from tiny Li-ion.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 1.8 / 4.2 = 0.429",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 1.8 × 0.571 / (2M × 0.01) = 51.4μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.01 / (8 × 2M × 0.02) = 31nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.05 × 0.429 / (2M × 0.05) = 215nF"
+      },
+      "solution": {
+        "L": 56e-6,
+        "C_out": 100e-9,
+        "C_in": 470e-9,
+        "f_sw": 2000000
+      },
+      "component_ratings": {
+        "inductor": "56μH, 0.1A, 0402 package",
+        "output_capacitor": "100nF, 6.3V, X5R",
+        "input_capacitor": "470nF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_107",
+      "title": "Dash Camera Power Module",
+      "application": "Vehicle dash camera with parking mode recording",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 5,
+        "I_out": 1,
+        "V_ripple_max": 0.1,
+        "f_sw": 500000
+      },
+      "design_approach": "Automotive buck with wide input tolerance for vehicle supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 12 = 0.417",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.583 / (500k × 0.2) = 29.2μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.2 / (8 × 500k × 0.1) = 500nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 1 × 0.417 / (500k × 0.5) = 1.67μF"
+      },
+      "solution": {
+        "L": 33e-6,
+        "C_out": 1e-6,
+        "C_in": 4.7e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "33μH, 1.5A, AEC-Q200",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "4.7μF, 25V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_108",
+      "title": "Smart Doorbell Power",
+      "application": "Video doorbell with WiFi and local storage",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 16,
+        "V_out": 5,
+        "I_out": 0.8,
+        "V_ripple_max": 0.1,
+        "f_sw": 500000
+      },
+      "design_approach": "Buck from doorbell transformer to camera and WiFi supply.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 16 = 0.313",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 5 × 0.687 / (500k × 0.16) = 42.9μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.16 / (8 × 500k × 0.1) = 400nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.8 × 0.313 / (500k × 0.5) = 1μF"
+      },
+      "solution": {
+        "L": 47e-6,
+        "C_out": 1e-6,
+        "C_in": 2.2e-6,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "47μH, 1A, shielded",
+        "output_capacitor": "1μF, 10V, X7R",
+        "input_capacitor": "2.2μF, 25V, X7R"
+      }
+    },
+    {
+      "problem_id": "L1_109",
+      "title": "E-Ink Badge Display",
+      "application": "Electronic conference badge with e-paper display",
+      "difficulty": "basic",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 3,
+        "V_out": 15,
+        "I_out": 0.01,
+        "V_ripple_max": 0.3,
+        "f_sw": 500000
+      },
+      "design_approach": "Boost for e-ink panel refresh voltage from CR2032 coin cell.",
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 3/15 = 0.8",
+        "inductor": "L = V_in × D / (f × ΔI) = 3 × 0.8 / (500k × 0.002) = 2.4mH",
+        "output_capacitor": "C_out = I_out × D / (f × ΔV) = 0.01 × 0.8 / (500k × 0.3) = 53nF",
+        "input_capacitor": "C_in = ΔI / (8 × f × ΔV_in) = 0.002 / (8 × 500k × 0.1) = 5nF"
+      },
+      "solution": {
+        "L": 2.2e-3,
+        "C_out": 100e-9,
+        "C_in": 10e-9,
+        "f_sw": 500000
+      },
+      "component_ratings": {
+        "inductor": "2.2mH, 20mA, tiny SMD",
+        "output_capacitor": "100nF, 25V, X5R",
+        "input_capacitor": "10nF, 6.3V, X5R"
+      }
+    },
+    {
+      "problem_id": "L1_110",
+      "title": "Handheld Game Console Power",
+      "application": "Retro handheld gaming device with LCD display",
+      "difficulty": "basic",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 5,
+        "V_out": 3.3,
+        "I_out": 0.8,
+        "V_ripple_max": 0.05,
+        "f_sw": 1000000
+      },
+      "design_approach": "Efficient buck for game processor from USB or battery power.",
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 5 = 0.66",
+        "inductor": "L = V_out × (1-D) / (f × ΔI) = 3.3 × 0.34 / (1M × 0.16) = 7μH",
+        "output_capacitor": "C_out = ΔI / (8 × f × ΔV) = 0.16 / (8 × 1M × 0.05) = 400nF",
+        "input_capacitor": "C_in = I_out × D / (f × ΔV_in) = 0.8 × 0.66 / (1M × 0.1) = 5.3μF"
+      },
+      "solution": {
+        "L": 10e-6,
+        "C_out": 1e-6,
+        "C_in": 10e-6,
+        "f_sw": 1000000
+      },
+      "component_ratings": {
+        "inductor": "10μH, 1A, shielded",
+        "output_capacitor": "1μF, 6.3V, X5R",
+        "input_capacitor": "10μF, 10V, X5R"
+      }
+    }
+  ]
+}

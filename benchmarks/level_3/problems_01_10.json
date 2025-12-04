@@ -1,0 +1,173 @@
+{
+  "level": 3,
+  "description": "Multi-stage or complex requirements",
+  "problems": [
+    {
+      "id": "L3_001",
+      "prompt": "Design a universal input (90-264VAC) to 19V/65W laptop charger with PFC.",
+      "specs": {
+        "vin_ac_min": 90.0,
+        "vin_ac_max": 264.0,
+        "vout": 19.0,
+        "power": 65.0,
+        "isolated": true
+      },
+      "constraints": {
+        "pfc_required": true,
+        "stages": ["pfc_boost", "flyback"],
+        "efficiency_min": 0.87
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_002",
+      "prompt": "Design a 48V to 1V/100A server CPU VRM with two-stage conversion.",
+      "specs": {
+        "vin": 48.0,
+        "vout": 1.0,
+        "iout": 100.0,
+        "power": 100.0
+      },
+      "constraints": {
+        "stages": ["buck_48v_to_12v", "multiphase_buck_12v_to_1v"],
+        "transient_response": "fast",
+        "efficiency_min": 0.90
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_003",
+      "prompt": "Design a solar MPPT charger: 18-45V panel to 12V battery, 200W max.",
+      "specs": {
+        "vin_min": 18.0,
+        "vin_max": 45.0,
+        "vout": 12.0,
+        "power": 200.0
+      },
+      "constraints": {
+        "mppt_required": true,
+        "battery_charging": "3_stage",
+        "topology": "buck_boost"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_004",
+      "prompt": "Design a bidirectional converter: 48V battery to 400V DC bus, 3kW for EV.",
+      "specs": {
+        "v1": 48.0,
+        "v2": 400.0,
+        "power": 3000.0,
+        "bidirectional": true
+      },
+      "constraints": {
+        "topology": "dual_active_bridge",
+        "isolated": true,
+        "efficiency_min": 0.95
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_005",
+      "prompt": "Design a 100W USB-PD charger: 90-264VAC to 5V/9V/15V/20V programmable.",
+      "specs": {
+        "vin_ac_min": 90.0,
+        "vin_ac_max": 264.0,
+        "vout_options": [5.0, 9.0, 15.0, 20.0],
+        "power": 100.0
+      },
+      "constraints": {
+        "usb_pd_compliant": true,
+        "pfc_required": true,
+        "stages": ["pfc", "flyback_cv"]
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_006",
+      "prompt": "Design a 500W ATX PC power supply: 115/230VAC to 3.3V/5V/12V/-12V/5Vsb.",
+      "specs": {
+        "vin_ac": [115.0, 230.0],
+        "vout_12v": {"voltage": 12.0, "current": 35.0},
+        "vout_5v": {"voltage": 5.0, "current": 20.0},
+        "vout_3v3": {"voltage": 3.3, "current": 20.0},
+        "vout_neg12v": {"voltage": -12.0, "current": 0.5},
+        "vout_5vsb": {"voltage": 5.0, "current": 2.5},
+        "power": 500.0
+      },
+      "constraints": {
+        "atx_compliant": true,
+        "multiple_outputs": 5,
+        "pfc_required": true
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_007",
+      "prompt": "Design a LED street light driver: 90-305VAC to 54V constant current, 150W.",
+      "specs": {
+        "vin_ac_min": 90.0,
+        "vin_ac_max": 305.0,
+        "vout": 54.0,
+        "power": 150.0
+      },
+      "constraints": {
+        "constant_current": true,
+        "dimming": "0-10V",
+        "pfc_required": true,
+        "ip_rating": "IP67"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_008",
+      "prompt": "Design an isolated DC-DC for telecom: 36-72V input to 3.3V/50A with hot-swap.",
+      "specs": {
+        "vin_min": 36.0,
+        "vin_max": 72.0,
+        "vout": 3.3,
+        "iout": 50.0,
+        "power": 165.0,
+        "isolated": true
+      },
+      "constraints": {
+        "hot_swap": true,
+        "redundancy": "N+1",
+        "topology": "full_bridge"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_009",
+      "prompt": "Design a wireless charging transmitter: 5V USB to 15W Qi coil driver.",
+      "specs": {
+        "vin": 5.0,
+        "power": 15.0,
+        "frequency": 110000.0
+      },
+      "constraints": {
+        "qi_compliant": true,
+        "topology": "half_bridge_inverter",
+        "resonant": true
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_010",
+      "prompt": "Design an EV onboard charger: 240VAC to 400V battery, 7.2kW level 2.",
+      "specs": {
+        "vin_ac": 240.0,
+        "vout_min": 250.0,
+        "vout_max": 420.0,
+        "power": 7200.0
+      },
+      "constraints": {
+        "pfc_required": true,
+        "bidirectional": false,
+        "stages": ["pfc", "isolated_dc_dc"],
+        "efficiency_min": 0.94
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}

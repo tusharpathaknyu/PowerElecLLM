@@ -1,0 +1,711 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_021",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Satellite Bus Power Distribution",
+      "problem_statement": "Design a radiation-hardened buck converter for LEO satellite bus power. Input: 28V unregulated solar bus, Output: 5V at 10A. Must balance efficiency (>92%), radiation tolerance (TID 30krad), mass (<150g), and reliability (15-year mission) while operating in -40°C to +85°C.",
+      "objectives": {
+        "primary": ["Efficiency >92%", "TID tolerance 30krad", "Mass <150g"],
+        "secondary": ["Reliability 15-year mission", "Wide temperature range"],
+        "constraints": ["Space-qualified components only", "Single event latch-up immunity"]
+      },
+      "solution": {
+        "design_approach": "Use rad-hard components with conservative derating. Synchronous rectification for efficiency. Minimize component count for reliability. Shield sensitive circuits.",
+        "component_selection_rationale": {
+          "mosfets": "Rad-hard SOI MOSFETs, SELL immune",
+          "controller": "Rad-hard PWM controller or discrete implementation",
+          "passives": "Glass-encapsulated resistors, NPO/C0G capacitors"
+        },
+        "switching_frequency": "250kHz (balance efficiency vs magnetics size)",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 5V / 28V = 0.179"
+        },
+        "inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "2A (20%)",
+          "calculation": "L = 5V × 0.821 / (250kHz × 2A) = 8.2μH",
+          "selected_value": "10μH",
+          "type": "MPP core (radiation tolerant)",
+          "current_rating": "15A",
+          "mass": "25g"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "50mV",
+          "calculation": "C_out = 2A / (8 × 250kHz × 50mV) = 20μF",
+          "selected_value": "100μF (tantalum hybrid for radiation)",
+          "type": "Wet tantalum space-grade",
+          "voltage_rating": "10V",
+          "mass": "15g"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF wet tantalum + 10μF ceramic",
+          "mass": "20g"
+        },
+        "radiation_mitigation": {
+          "tid_design": "50% margin over 30krad spec",
+          "see_protection": "Current limiting, watchdog timer",
+          "shielding": "2mm Al equivalent spot shielding"
+        },
+        "reliability_analysis": {
+          "mtbf": "500,000 hours calculated",
+          "derating": "All components derated per MIL-HDBK-1547",
+          "redundancy": "Consider N+1 for critical loads"
+        },
+        "mass_budget": {
+          "magnetics": "35g",
+          "capacitors": "35g",
+          "semiconductors": "10g",
+          "pcb_housing": "50g",
+          "total": "130g"
+        },
+        "thermal_design": {
+          "max_dissipation": "4W",
+          "heatsink": "Chassis-mounted baseplate"
+        },
+        "efficiency_achieved": "93% at 28V input"
+      }
+    },
+    {
+      "id": "L3_022",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Implantable Medical Device Charger",
+      "problem_statement": "Design a wireless power receiver flyback converter for implantable neurostimulator charging. Input: 5V-12V from rectified wireless coil, Output: 4.2V at 0.5A for Li-ion charging. Must minimize heat dissipation (<0.5W), volume (<1cm³), and magnetic emissions while achieving safe isolation.",
+      "objectives": {
+        "primary": ["Heat dissipation <0.5W", "Volume <1cm³", "EMI compliance"],
+        "secondary": ["Biocompatible encapsulation", "Safe charging termination"],
+        "constraints": ["Implant grade", "MRI conditional if possible", "FDA Class III requirements"]
+      },
+      "solution": {
+        "design_approach": "Minimize component count and losses. Use integrated flyback IC. Careful thermal design for implant safety. Non-magnetic materials where possible.",
+        "switching_frequency": "1MHz (small magnetics)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in_nom × D / (V_out + V_f)",
+          "calculation": "n = 8V × 0.4 / 4.7V = 0.68:1",
+          "selected_ratio": "1:1 (simplified)"
+        },
+        "duty_cycle": {
+          "formula": "D = (V_out + V_f) / (V_in + V_out + V_f)",
+          "calculation": "D = 4.7V / (8V + 4.7V) = 0.37"
+        },
+        "transformer_specs": {
+          "core": "1mm × 1mm × 0.5mm ferrite",
+          "type": "Chip transformer",
+          "primary_inductance": "4.7μH",
+          "turns": "3:3",
+          "volume": "0.1cm³"
+        },
+        "output_capacitor": {
+          "selected_value": "22μF",
+          "type": "0402 MLCC",
+          "volume": "0.01cm³"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF",
+          "type": "0402 MLCC"
+        },
+        "thermal_budget": {
+          "controller_loss": "0.15W",
+          "switching_loss": "0.15W",
+          "conduction_loss": "0.15W",
+          "total": "0.45W (within 0.5W budget)"
+        },
+        "volume_budget": {
+          "transformer": "0.1cm³",
+          "controller_ic": "0.05cm³",
+          "capacitors": "0.05cm³",
+          "total": "0.8cm³ (within 1cm³)"
+        },
+        "biocompatibility": {
+          "encapsulation": "Medical grade silicone or titanium",
+          "materials": "All USP Class VI compliant",
+          "no_outgassing": "Vacuum bake all components"
+        },
+        "safety_features": {
+          "overvoltage": "4.35V clamp",
+          "overcurrent": "0.6A limit",
+          "temperature": "Shutdown at 42°C",
+          "charge_termination": "C/20 current threshold"
+        },
+        "efficiency_achieved": "78% (acceptable for implant constraints)"
+      }
+    },
+    {
+      "id": "L3_023",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Formula E Regenerative Braking",
+      "problem_statement": "Design a bidirectional boost converter for Formula E battery charging during regenerative braking. Input: 400V-800V battery pack, Output: 900V DC link at 250kW peak power. Must maximize power density (>50kW/L), efficiency (>97%), and survive 3g lateral acceleration with liquid cooling.",
+      "objectives": {
+        "primary": ["Power density >50kW/L", "Efficiency >97%", "250kW peak capability"],
+        "secondary": ["Survive 3g acceleration", "Liquid cooling compatible"],
+        "constraints": ["FIA technical regulations", "Safety homologation"]
+      },
+      "solution": {
+        "design_approach": "SiC MOSFETs for high efficiency and frequency. Interleaved phases for ripple cancellation. Planar magnetics for power density. Direct liquid cooling.",
+        "topology": "4-phase interleaved bidirectional boost",
+        "mosfet_technology": "1200V SiC MOSFETs",
+        "switching_frequency": "100kHz per phase (400kHz effective)",
+        "duty_cycle": {
+          "formula": "D = 1 - V_bat / V_dc_link",
+          "at_400V": "D = 1 - 400V/900V = 0.556",
+          "at_800V": "D = 1 - 800V/900V = 0.111"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_bat × D / (f_sw × ΔI_L)",
+          "ripple_current": "30A per phase (at 400V input)",
+          "calculation": "L = 400V × 0.556 / (100kHz × 30A) = 74μH",
+          "selected_value": "75μH per phase",
+          "type": "Planar magnetics, nanocrystalline core",
+          "current_rating": "100A",
+          "volume": "0.5L per phase"
+        },
+        "dc_link_capacitor": {
+          "formula": "C = P / (V × dV/dt)",
+          "voltage_ripple": "9V (1%)",
+          "selected_value": "400μF film capacitor bank",
+          "type": "High-frequency film capacitors",
+          "volume": "1L"
+        },
+        "battery_side_capacitor": {
+          "selected_value": "1000μF (distributed bus bars)",
+          "voltage_rating": "900V"
+        },
+        "power_density_calculation": {
+          "total_power": "250kW",
+          "inductor_volume": "2L (4 phases)",
+          "capacitor_volume": "1.5L",
+          "electronics_volume": "0.8L",
+          "cooling_volume": "0.5L",
+          "total_volume": "4.8L",
+          "achieved_density": "52kW/L"
+        },
+        "efficiency_analysis": {
+          "conduction_loss": "0.8% (SiC low Rds_on)",
+          "switching_loss": "0.5% (fast SiC switching)",
+          "magnetics_loss": "0.7%",
+          "total_loss": "2%",
+          "efficiency": "98%"
+        },
+        "mechanical_design": {
+          "vibration": "Potted magnetics",
+          "acceleration": "Bolted capacitors, reinforced PCB",
+          "cooling": "Cold plate directly under MOSFETs"
+        },
+        "safety_features": {
+          "discharge_resistor": "Automatic DC link discharge",
+          "isolation_monitoring": "Real-time isolation check",
+          "fault_response": "<10μs shutdown"
+        }
+      }
+    },
+    {
+      "id": "L3_024",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Subsea Oil & Gas Equipment",
+      "problem_statement": "Design a forward converter for subsea BOP (blowout preventer) control electronics. Input: 400V from subsea power cable, Output: 24V at 15A. Must survive 3000m depth (300 bar pressure), 25-year design life, and operate in oil-filled pressure-compensated enclosure.",
+      "objectives": {
+        "primary": ["Pressure tolerance 300 bar", "25-year lifetime", "Oil-filled compatible"],
+        "secondary": ["Efficiency >90%", "EMI immunity from umbilical noise"],
+        "constraints": ["No serviceable parts", "Explosive atmosphere rated"]
+      },
+      "solution": {
+        "design_approach": "All components rated for pressure and oil immersion. Conservative derating for lifetime. Robust isolation for safety.",
+        "switching_frequency": "100kHz (conservative for reliability)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D_max / V_out",
+          "calculation": "n = 400V × 0.4 / 24V = 6.67:1",
+          "selected_ratio": "7:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 24V × 7 / 400V = 0.42"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "3A (20%)",
+          "calculation": "L = (400V/7 - 24V) × 0.42 / (100kHz × 3A) = 47.6μH",
+          "selected_value": "47μH",
+          "type": "Sealed, oil-compatible construction",
+          "current_rating": "20A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "120mV",
+          "calculation": "C_out = 3A / (8 × 100kHz × 120mV) = 31.25μF",
+          "selected_value": "470μF",
+          "type": "Wet tantalum (pressure tolerant)",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "selected_value": "22μF film + 100μF electrolytic",
+          "type": "Oil-rated film capacitors",
+          "voltage_rating": "500V"
+        },
+        "transformer": {
+          "core": "Ferrite, potted construction",
+          "construction": "Vacuum impregnated",
+          "insulation_class": "H (180°C)"
+        },
+        "subsea_design_features": {
+          "pressure_compensation": "Oil-filled enclosure",
+          "connector": "Wet-mate subsea connector",
+          "potting": "All electronics potted"
+        },
+        "lifetime_design": {
+          "capacitor_selection": "25-year rated wet tantalum",
+          "derating": "60% voltage, 50% current",
+          "mtbf_target": ">1,000,000 hours"
+        },
+        "materials_compatibility": {
+          "dielectric_fluid": "Fluorinert or Midel",
+          "pcb": "High Tg, moisture resistant",
+          "conformal_coating": "Parylene C"
+        },
+        "efficiency_achieved": "91%"
+      }
+    },
+    {
+      "id": "L3_025",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Portable X-Ray Generator",
+      "problem_statement": "Design a SEPIC converter for portable dental X-ray unit battery pack. Input: 14.4V-25.2V from 18650 pack (4S-6S), Output: 24V at 4A. Must minimize weight (<200g total), handle 2x overload for 100ms X-ray pulse, and meet IEC 60601 leakage requirements.",
+      "objectives": {
+        "primary": ["Weight <200g", "2x overload capability", "Medical safety compliance"],
+        "secondary": ["Battery state-of-charge indication", "Thermal protection"],
+        "constraints": ["IEC 60601-1 Type BF", "Drop test survival"]
+      },
+      "solution": {
+        "design_approach": "SEPIC for wide input buck-boost. Design for 8A peak capability. Lightweight materials and optimized magnetics.",
+        "switching_frequency": "350kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_14.4V": "D = 24V / (14.4V + 24V) = 0.625",
+          "at_25.2V": "D = 24V / (25.2V + 24V) = 0.488"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "2A (peak current 8A, 25% ripple)",
+          "calculation": "L1 = 14.4V × 0.625 / (350kHz × 2A) = 12.9μH",
+          "selected_value": "15μH",
+          "type": "Lightweight ferrite drum",
+          "current_rating": "10A (for 2x overload)",
+          "weight": "20g"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "2A",
+          "calculation": "L2 = 24V × 0.512 / (350kHz × 2A) = 17.6μH",
+          "selected_value": "22μH",
+          "current_rating": "10A",
+          "weight": "25g"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out_peak × D_max / (f_sw × ΔV_c)",
+          "calculation": "C_c = 8A × 0.625 / (350kHz × 1V) = 14.3μF",
+          "selected_value": "22μF ceramic",
+          "voltage_rating": "50V",
+          "weight": "2g"
+        },
+        "output_capacitor": {
+          "formula": "Large for pulse load",
+          "selected_value": "220μF (for 100ms pulse holdup)",
+          "energy_storage": "0.5 × 220μF × 24² = 63mJ",
+          "type": "Low-ESR polymer",
+          "weight": "15g"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic + polymer",
+          "weight": "10g"
+        },
+        "weight_budget": {
+          "inductors": "45g",
+          "capacitors": "27g",
+          "pcb": "30g",
+          "controller_mosfets": "15g",
+          "heatsink": "25g",
+          "connectors_misc": "15g",
+          "total": "157g (within 200g)"
+        },
+        "overload_design": {
+          "continuous": "4A",
+          "peak_100ms": "8A",
+          "thermal_limit": "10A for 10ms"
+        },
+        "medical_safety": {
+          "leakage_current": "<100μA (Type BF)",
+          "isolation": "Not required (same patient circuit)",
+          "grounding": "Protective earth connection"
+        },
+        "efficiency_achieved": "90%"
+      }
+    },
+    {
+      "id": "L3_026",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Data Center 48V to 12V Bus Converter",
+      "problem_statement": "Design a half-bridge LLC converter for hyperscale data center power shelf. Input: 48V rack bus, Output: 12V at 100A. Must achieve power density >200W/in³, efficiency >97.5%, and support current sharing across 8 parallel modules with hot-swap capability.",
+      "objectives": {
+        "primary": ["Power density >200W/in³", "Efficiency >97.5%", "100A output"],
+        "secondary": ["Hot-swap capability", "8-module current sharing"],
+        "constraints": ["OCP Open Rack V3 compliant", "Air cooling only"]
+      },
+      "solution": {
+        "design_approach": "LLC resonant for high efficiency. GaN FETs for high frequency. Matrix transformer for current handling. Droop sharing for paralleling.",
+        "topology": "Half-bridge LLC with matrix transformer",
+        "switching_frequency": "1MHz (GaN capability)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / (2 × V_out) at resonance",
+          "calculation": "n = 48V / (2 × 12V) = 2:1"
+        },
+        "resonant_components": {
+          "formula": "f_r = 1 / (2π × √(L_r × C_r))",
+          "L_r": "150nH (integrated leakage)",
+          "C_r": "170nF",
+          "L_m": "1.5μH (10× L_r)"
+        },
+        "matrix_transformer": {
+          "structure": "4 parallel secondary windings",
+          "each_winding": "25A capability",
+          "turns": "4:2 (effective 2:1)",
+          "core": "Planar E-core",
+          "volume": "0.5in³"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "60mV",
+          "calculation": "C_out = 100A / (8 × 1MHz × 60mV) = 208μF",
+          "selected_value": "500μF (ceramic bank)",
+          "type": "MLCC 1206 array",
+          "esr": "<0.5mΩ"
+        },
+        "input_capacitor": {
+          "selected_value": "200μF ceramic",
+          "voltage_rating": "63V"
+        },
+        "power_density_calculation": {
+          "output_power": "1200W",
+          "length": "3in",
+          "width": "1.5in",
+          "height": "0.6in (1/4 rack unit)",
+          "volume": "2.7in³",
+          "achieved_density": "444W/in³"
+        },
+        "efficiency_analysis": {
+          "gan_conduction": "0.3%",
+          "gan_switching": "0.2% (ZVS)",
+          "transformer": "0.5%",
+          "sr_mosfets": "0.8%",
+          "total_loss": "1.8%",
+          "efficiency": "98.2%"
+        },
+        "current_sharing": {
+          "method": "Adaptive droop",
+          "droop": "2% at full load",
+          "share_accuracy": "±3% between modules"
+        },
+        "hot_swap": {
+          "oring_device": "Smart ORing controller",
+          "inrush": "Controlled 20ms soft-start",
+          "fault_isolation": "<100μs"
+        },
+        "thermal_design": {
+          "total_loss": "21.6W",
+          "heatsink": "Extruded aluminum, forced air",
+          "airflow": "15CFM minimum"
+        }
+      }
+    },
+    {
+      "id": "L3_027",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Quantum Computer Cryogenic Power",
+      "problem_statement": "Design a buck converter for quantum computer dilution refrigerator electronics. Input: 12V at 4K stage, Output: 3.3V at 2A at 40mK stage. Must minimize heat dissipation at each stage, use cryogenic-compatible components, and maintain regulation across 4K to 40mK transition.",
+      "objectives": {
+        "primary": ["Heat load <10mW at 40mK", "Cryogenic operation", "Stable regulation"],
+        "secondary": ["Low magnetic signature", "Vibration-free operation"],
+        "constraints": ["No ferromagnetics near qubits", "Thermal isolation between stages"]
+      },
+      "solution": {
+        "design_approach": "Distribute power conversion across temperature stages. Minimize active components at lowest temperatures. Use superconducting interconnects where possible.",
+        "distributed_architecture": {
+          "4K_stage": "Main buck conversion (most heat here)",
+          "1K_stage": "LC filtering only",
+          "40mK_stage": "Linear LDO final regulation (minimal)"
+        },
+        "stage_1_buck_at_4K": {
+          "switching_frequency": "500kHz",
+          "duty_cycle": "D = 3.5V / 12V = 0.29",
+          "inductor": {
+            "value": "4.7μH",
+            "type": "Air core (no ferromagnetics)",
+            "current_rating": "3A"
+          },
+          "output_capacitor": {
+            "value": "100μF",
+            "type": "NP0/C0G ceramic (cryo stable)"
+          }
+        },
+        "stage_2_filter_at_1K": {
+          "lc_filter": {
+            "inductor": "10μH air core",
+            "capacitor": "47μF NP0"
+          },
+          "purpose": "Ripple reduction, thermal isolation"
+        },
+        "stage_3_ldo_at_40mK": {
+          "type": "Discrete JFET LDO",
+          "dropout": "200mV",
+          "quiescent": "100μA",
+          "power_dissipation": "200mV × 2A × 0.01 = 4mW"
+        },
+        "heat_budget": {
+          "4K_dissipation": "0.5W (acceptable)",
+          "1K_dissipation": "5mW (filter losses)",
+          "40mK_dissipation": "4mW (within 10mW budget)"
+        },
+        "cryogenic_components": {
+          "mosfets": "GaAs or specialized cryo FETs",
+          "capacitors": "NP0/C0G only (X7R fails)",
+          "inductors": "Air core, copper wire",
+          "resistors": "Thin film (stable at cryo)"
+        },
+        "thermal_isolation": {
+          "wiring": "Superconducting NbTi below 9K",
+          "heat_sinking": "Proper thermalization at each stage",
+          "radiation_shields": "Multi-layer insulation"
+        },
+        "magnetic_considerations": {
+          "shielding": "Mu-metal at 4K, superconducting at lower",
+          "inductor_placement": ">50cm from qubit plane",
+          "twisted_pairs": "All power wiring twisted"
+        },
+        "efficiency_achieved": "85% (4K stage), effective power delivery 80%"
+      }
+    },
+    {
+      "id": "L3_028",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "IoT Energy Harvesting Power Management",
+      "problem_statement": "Design a multi-input flyback converter for IoT sensor node harvesting solar, thermal, and vibration energy. Inputs: 0.3V-5V from various harvesters, Output: 3.3V at 50mA average. Must implement MPPT for each source, prioritize inputs, and achieve <1μA standby current.",
+      "objectives": {
+        "primary": ["Multi-source harvesting", "MPPT per source", "Standby <1μA"],
+        "secondary": ["Cold start from 0.3V", "Source prioritization"],
+        "constraints": ["Single inductor/transformer shared", "Total BOM <$2"]
+      },
+      "solution": {
+        "design_approach": "Time-multiplexed single-inductor multiple-input (SIMO) architecture. Nano-power MPPT with sample-and-hold. Priority-based source selection.",
+        "topology": "SIMO flyback with multiplexed inputs",
+        "switching_frequency": "Variable 50kHz-500kHz based on power level",
+        "input_architecture": {
+          "solar_input": "0.4V-5V, MPPT at 80% Voc",
+          "teg_input": "0.3V-1V, MPPT at 50% Voc",
+          "piezo_input": "Rectified AC, peak hold"
+        },
+        "transformer_design": {
+          "turns_ratio": "1:4 (for boost from 0.5V)",
+          "primary_inductance": "22μH",
+          "core": "EE10 ferrite",
+          "shared": "Single transformer for all inputs"
+        },
+        "input_multiplexer": {
+          "type": "P-channel MOSFET switches",
+          "selection": "Round-robin with priority override",
+          "priority": "1. Solar, 2. TEG, 3. Piezo"
+        },
+        "mppt_implementation": {
+          "method": "Fractional open-circuit voltage",
+          "solar_fraction": "0.80",
+          "teg_fraction": "0.50",
+          "sample_period": "4 seconds",
+          "sample_duration": "10ms"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF",
+          "type": "Ceramic + supercap backup",
+          "supercap": "10mF for ride-through"
+        },
+        "cold_start_circuit": {
+          "charge_pump": "Discrete voltage multiplier",
+          "start_voltage": "0.3V",
+          "start_time": "2 seconds at 0.3V input"
+        },
+        "standby_power": {
+          "mppt_circuit": "200nA",
+          "reference": "50nA",
+          "comparator": "100nA",
+          "leakage": "150nA",
+          "total": "500nA (within 1μA)"
+        },
+        "power_good_output": {
+          "threshold": "3.0V",
+          "hysteresis": "200mV"
+        },
+        "bom_cost": {
+          "controller_ic": "$0.80",
+          "transformer": "$0.50",
+          "mosfets": "$0.30",
+          "passives": "$0.30",
+          "total": "$1.90"
+        },
+        "efficiency_achieved": "75% at 1mW, 85% at 100mW"
+      }
+    },
+    {
+      "id": "L3_029",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Wind Turbine Grid-Tie Inverter",
+      "problem_statement": "Design the DC-DC stage of a 100kW wind turbine inverter. Input: 400V-800V from rectified PMSG, Output: 750V DC link. Must track variable wind speed (MPPT), survive grid faults (LVRT), and meet harmonic requirements (<3% THD contribution).",
+      "objectives": {
+        "primary": ["Wind MPPT", "LVRT compliance", "THD <3%"],
+        "secondary": ["Efficiency >98%", "Grid code compliance"],
+        "constraints": ["IEC 61400-21", "LVRT per grid code"]
+      },
+      "solution": {
+        "design_approach": "Full-bridge boost with variable duty for MPPT. Energy storage capacitor for LVRT ride-through. Active damping for stability.",
+        "topology": "Full-bridge isolated boost",
+        "switching_frequency": "20kHz (balance of losses and harmonics)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_out / (V_in_min × D_max)",
+          "calculation": "n = 750V / (400V × 0.9) = 2.08:1",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle_range": {
+          "formula": "D = V_out / (n × V_in)",
+          "at_400V": "D = 750V / (2 × 400V) = 0.94",
+          "at_800V": "D = 750V / (2 × 800V) = 0.47"
+        },
+        "primary_inductor": {
+          "formula": "L = V_in × D × (1-D) / (f_sw × ΔI)",
+          "ripple_current": "25A (10% at full power)",
+          "calculation": "L = 600V × 0.7 × 0.3 / (20kHz × 25A) = 252μH",
+          "selected_value": "250μH",
+          "type": "Amorphous C-core",
+          "current_rating": "180A RMS"
+        },
+        "dc_link_capacitor": {
+          "formula": "C = P × t_lvrt / (V² - V_min²)",
+          "lvrt_time": "150ms ride-through",
+          "calculation": "C = 100kW × 0.15s / (750² - 600²) = 74mF",
+          "selected_value": "80mF film capacitor bank"
+        },
+        "input_capacitor": {
+          "selected_value": "2mF film",
+          "voltage_rating": "900V"
+        },
+        "transformer": {
+          "core": "Amorphous tape-wound",
+          "power": "110kW",
+          "primary": "10 turns Litz",
+          "secondary": "5 turns Litz",
+          "cooling": "Oil-filled"
+        },
+        "mppt_control": {
+          "method": "Perturb and observe",
+          "step_size": "2V",
+          "period": "100ms",
+          "tracking_efficiency": ">99%"
+        },
+        "lvrt_implementation": {
+          "detection": "<20ms fault detection",
+          "response": "Reduce power, stay connected",
+          "energy_absorption": "DC link capacitor + crowbar"
+        },
+        "harmonic_mitigation": {
+          "switching_pattern": "Phase-shifted carriers",
+          "output_filter": "LCL with damping",
+          "thd_achieved": "<2.5%"
+        },
+        "efficiency_achieved": "98.3% at rated wind speed"
+      }
+    },
+    {
+      "id": "L3_030",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Photovoltaic MPPT Charge Controller",
+      "problem_statement": "Design a Ćuk converter for off-grid PV system. Input: 30V-45V from 36-cell panel, Output: 12V/24V/48V selectable for battery bank at 20A. Must implement true MPPT, handle battery equalization, and survive reverse battery connection.",
+      "objectives": {
+        "primary": ["True MPPT efficiency >99%", "Multi-voltage output", "20A capability"],
+        "secondary": ["Equalization charging", "Reverse polarity protection"],
+        "constraints": ["Outdoor installation", "Wide temperature range"]
+      },
+      "solution": {
+        "design_approach": "Ćuk topology for continuous input/output current (better for batteries). Implement P&O MPPT with adaptive step size. Selectable output via firmware and relay.",
+        "switching_frequency": "100kHz",
+        "duty_cycle_for_each_output": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "12V_output": "D = 12V / (36V + 12V) = 0.25",
+          "24V_output": "D = 24V / (36V + 24V) = 0.4",
+          "48V_output": "D = 48V / (36V + 48V) = 0.57"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "2A (10% for MPPT accuracy)",
+          "calculation": "L1 = 45V × 0.57 / (100kHz × 2A) = 128μH",
+          "selected_value": "150μH",
+          "type": "Powder core for DC bias",
+          "current_rating": "25A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out_max × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "4A (20%)",
+          "calculation": "L2 = 48V × 0.75 / (100kHz × 4A) = 90μH",
+          "selected_value": "100μH",
+          "current_rating": "25A"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D_max / (f_sw × ΔV_c)",
+          "calculation": "C_c = 20A × 0.57 / (100kHz × 2V) = 57μF",
+          "selected_value": "100μF",
+          "type": "Film capacitor",
+          "voltage_rating": "100V"
+        },
+        "output_capacitor": {
+          "selected_value": "1000μF electrolytic",
+          "type": "Long-life for outdoor",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic + 220μF electrolytic",
+          "voltage_rating": "63V"
+        },
+        "mppt_algorithm": {
+          "type": "Perturb & Observe with adaptive step",
+          "large_step": "0.5V (far from MPP)",
+          "small_step": "0.1V (near MPP)",
+          "tracking_speed": "<5 seconds",
+          "efficiency": "99.5%"
+        },
+        "voltage_selection": {
+          "method": "Relay + firmware control",
+          "auto_detect": "Measure battery voltage at startup",
+          "manual_override": "DIP switch option"
+        },
+        "battery_charging": {
+          "stages": "Bulk, absorption, float, equalization",
+          "equalization": "Monthly 30-minute boost",
+          "temperature_compensation": "-5mV/°C/cell"
+        },
+        "protection": {
+          "reverse_battery": "Series MOSFET with body diode",
+          "over_temperature": "Derate at 50°C, shutdown at 80°C",
+          "lightning": "MOV + TVS at input"
+        },
+        "efficiency_achieved": "96% at 24V output"
+      }
+    }
+  ]
+}

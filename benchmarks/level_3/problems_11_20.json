@@ -1,0 +1,163 @@
+{
+  "level": 3,
+  "description": "Multi-stage or complex requirements",
+  "problems": [
+    {
+      "id": "L3_011",
+      "prompt": "Design a UPS inverter: 48V battery bank to 120VAC/1kVA pure sine wave.",
+      "specs": {
+        "vin": 48.0,
+        "vout_ac": 120.0,
+        "power": 1000.0,
+        "waveform": "pure_sine"
+      },
+      "constraints": {
+        "topology": "full_bridge_inverter",
+        "thd_max": 0.03,
+        "transfer_time_ms": 10
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_012",
+      "prompt": "Design a grid-tied solar inverter: 200-400V DC to 240VAC, 5kW single phase.",
+      "specs": {
+        "vin_min": 200.0,
+        "vin_max": 400.0,
+        "vout_ac": 240.0,
+        "power": 5000.0
+      },
+      "constraints": {
+        "grid_tied": true,
+        "mppt_strings": 2,
+        "anti_islanding": true,
+        "efficiency_min": 0.97
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_013",
+      "prompt": "Design a MRI gradient amplifier power supply: 480VAC to ±500V/200A pulsed.",
+      "specs": {
+        "vin_ac": 480.0,
+        "vout_bipolar": 500.0,
+        "iout_peak": 200.0,
+        "power": 100000.0
+      },
+      "constraints": {
+        "pulsed_load": true,
+        "energy_storage": "capacitor_bank",
+        "slew_rate": "high"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_014",
+      "prompt": "Design a data center 48V direct bus: 380VAC to 48V, 10kW rack power shelf.",
+      "specs": {
+        "vin_ac": 380.0,
+        "vout": 48.0,
+        "power": 10000.0
+      },
+      "constraints": {
+        "efficiency_min": 0.96,
+        "power_density": "high",
+        "redundancy": "N+1"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_015",
+      "prompt": "Design an induction heating power supply: 240VAC to 50kHz/5kW for cooktop.",
+      "specs": {
+        "vin_ac": 240.0,
+        "power": 5000.0,
+        "frequency": 50000.0
+      },
+      "constraints": {
+        "topology": "resonant_inverter",
+        "power_control": "frequency_modulation"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_016",
+      "prompt": "Design a battery balancing system: 12S Li-ion pack, active cell balancing.",
+      "specs": {
+        "cells_series": 12,
+        "cell_voltage": 3.7,
+        "balance_current": 2.0,
+        "pack_voltage": 44.4
+      },
+      "constraints": {
+        "balancing_type": "active",
+        "topology": "flyback_per_cell",
+        "efficiency_min": 0.85
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_017",
+      "prompt": "Design a plasma cutter power supply: 240VAC to 150V OCV, 50A cutting current.",
+      "specs": {
+        "vin_ac": 240.0,
+        "vout_ocv": 150.0,
+        "iout_cut": 50.0,
+        "power": 7500.0
+      },
+      "constraints": {
+        "arc_starting": "hf_pilot",
+        "current_control": "drooping",
+        "duty_cycle": 0.6
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_018",
+      "prompt": "Design a supercapacitor charger: 48V bus to 16V supercap bank, 500W peak.",
+      "specs": {
+        "vin": 48.0,
+        "vout_max": 16.0,
+        "power": 500.0
+      },
+      "constraints": {
+        "constant_power_charging": true,
+        "bidirectional": true,
+        "topology": "buck_boost"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_019",
+      "prompt": "Design a fuel cell DC-DC: 24-48V variable fuel cell to 380V DC bus, 10kW.",
+      "specs": {
+        "vin_min": 24.0,
+        "vin_max": 48.0,
+        "vout": 380.0,
+        "power": 10000.0
+      },
+      "constraints": {
+        "high_boost_ratio": true,
+        "soft_start": true,
+        "topology": "interleaved_boost_full_bridge"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L3_020",
+      "prompt": "Design a motor drive power stage: 400V DC bus to 3-phase 380VAC, 15kW VFD.",
+      "specs": {
+        "vin": 400.0,
+        "vout_ac_ll": 380.0,
+        "power": 15000.0,
+        "phases": 3
+      },
+      "constraints": {
+        "topology": "three_phase_inverter",
+        "pwm_method": "SVPWM",
+        "deadtime_ns": 500
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}

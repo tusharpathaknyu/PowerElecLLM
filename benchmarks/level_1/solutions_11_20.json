@@ -1,0 +1,294 @@
+{
+  "level": 1,
+  "solutions": [
+    {
+      "id": "L1_011",
+      "prompt": "Design a SEPIC converter: 12V to 5V, 1A for battery-powered device",
+      "solution": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 1.0,
+        "power": 5.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.294,
+        "components": {
+          "L1": {"value": 47e-6, "unit": "H", "rating": "1.5A"},
+          "L2": {"value": 47e-6, "unit": "H", "rating": "1.5A"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 5.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/(Vin+Vout) = 5/(12+5) = 0.294",
+          "inductor": "L1 = L2 = Vin*D/(f_sw*ΔIL) = 12*0.294/(200e3*0.3) = 59µH → 47µH"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.88
+        }
+      }
+    },
+    {
+      "id": "L1_012",
+      "prompt": "Design a SEPIC converter: 9V to 12V, 800mA step-up application",
+      "solution": {
+        "topology": "sepic",
+        "vin": 9.0,
+        "vout": 12.0,
+        "iout": 0.8,
+        "power": 9.6,
+        "f_sw": 200000,
+        "duty_cycle": 0.571,
+        "components": {
+          "L1": {"value": 33e-6, "unit": "H", "rating": "2A"},
+          "L2": {"value": 33e-6, "unit": "H", "rating": "2A"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 15.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/(Vin+Vout) = 12/(9+12) = 0.571",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 9*0.571/(200e3*0.5) = 51µH → 33µH"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.87
+        }
+      }
+    },
+    {
+      "id": "L1_013",
+      "prompt": "Design a flyback converter: 24V to 48V isolated, 1A output",
+      "solution": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout": 48.0,
+        "iout": 1.0,
+        "power": 48.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.5,
+        "isolated": true,
+        "components": {
+          "Lm": {"value": 150e-6, "unit": "H", "note": "magnetizing inductance"},
+          "turns_ratio": {"value": 2.0, "note": "Ns/Np = Vout*D / (Vin*(1-D))"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 48.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vout/(Vin*D/(1-D)) = 48/(24*1) = 2:1",
+          "Lm": "Lm = Vin*D/(f_sw*ΔILm) = 24*0.5/(100e3*0.8) = 150µH"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 500,
+          "efficiency_est": 0.85
+        }
+      }
+    },
+    {
+      "id": "L1_014",
+      "prompt": "Design a flyback converter: 12V to 5V isolated, 2A for medical device",
+      "solution": {
+        "topology": "flyback",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "Lm": {"value": 68e-6, "unit": "H"},
+          "turns_ratio": {"value": 0.5, "note": "1:2 step-down"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 2.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D chosen for CCM operation ~0.45",
+          "turns_ratio": "N = Vout*(1-D)/(Vin*D) = 5*0.55/(12*0.45) = 0.51 → 0.5"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.84
+        }
+      }
+    },
+    {
+      "id": "L1_015",
+      "prompt": "Design an inverting buck-boost: 12V to -15V, 500mA for op-amp supply",
+      "solution": {
+        "topology": "inverting_buck_boost",
+        "vin": 12.0,
+        "vout": -15.0,
+        "iout": 0.5,
+        "power": 7.5,
+        "f_sw": 150000,
+        "duty_cycle": 0.556,
+        "components": {
+          "L": {"value": 68e-6, "unit": "H", "rating": "1.5A"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 30.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 15/(12+15) = 0.556",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 12*0.556/(150e3*0.3) = 148µH → 68µH"
+        },
+        "expected_results": {
+          "vout_actual": -15.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.85
+        }
+      }
+    },
+    {
+      "id": "L1_016",
+      "prompt": "Design a Cuk converter: 15V to -12V, 1A for audio amplifier bias",
+      "solution": {
+        "topology": "cuk",
+        "vin": 15.0,
+        "vout": -12.0,
+        "iout": 1.0,
+        "power": 12.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.444,
+        "components": {
+          "L1": {"value": 100e-6, "unit": "H", "rating": "2A"},
+          "L2": {"value": 100e-6, "unit": "H", "rating": "2A"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "film"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 12/(15+12) = 0.444",
+          "inductor": "L1 = Vin*D/(f_sw*ΔIL) = 15*0.444/(150e3*0.3) = 148µH → 100µH"
+        },
+        "expected_results": {
+          "vout_actual": -12.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.86
+        }
+      }
+    },
+    {
+      "id": "L1_017",
+      "prompt": "Design a forward converter: 48V to 12V isolated, 4A for PoE",
+      "solution": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 4.0,
+        "power": 48.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.56, "note": "Ns/Np"},
+          "L_out": {"value": 47e-6, "unit": "H", "rating": "6A"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 3.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vout/(Vin*D_max) = 12/(48*0.45) = 0.56",
+          "L_out": "L = Vout*(1-D)/(f_sw*ΔIL) = 12*(1-0.45)/(200e3*0.8) = 41µH → 47µH"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.90
+        }
+      }
+    },
+    {
+      "id": "L1_018",
+      "prompt": "Design a half-bridge converter: 100V DC bus to 24V, 4A",
+      "solution": {
+        "topology": "half_bridge",
+        "vin": 100.0,
+        "vout": 24.0,
+        "iout": 4.0,
+        "power": 96.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.48,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 1.0, "note": "Ns/Np"},
+          "L_out": {"value": 100e-6, "unit": "H", "rating": "6A"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "electrolytic"},
+          "C_split": {"value": 100e-6, "unit": "F", "note": "2x bus capacitors"},
+          "R_load": {"value": 6.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vout/(Vin/2 * D) = 24/(50*0.48) = 1.0",
+          "L_out": "Sized for 20% ripple current"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.92
+        }
+      }
+    },
+    {
+      "id": "L1_019",
+      "prompt": "Design a full-bridge converter: 400V DC to 48V, 10A for server PSU",
+      "solution": {
+        "topology": "full_bridge",
+        "vin": 400.0,
+        "vout": 48.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.45,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.27, "note": "Ns/Np = 3.7:1"},
+          "L_out": {"value": 47e-6, "unit": "H", "rating": "15A"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 4.8, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vout/(Vin*D) = 48/(400*0.45) = 0.27",
+          "L_out": "Sized for continuous conduction"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 200,
+          "efficiency_est": 0.94
+        }
+      }
+    },
+    {
+      "id": "L1_020",
+      "prompt": "Design a quasi-resonant buck: 24V to 5V, 2A with soft switching",
+      "solution": {
+        "topology": "qr_buck",
+        "vin": 24.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.208,
+        "components": {
+          "L_main": {"value": 47e-6, "unit": "H", "rating": "3A"},
+          "L_resonant": {"value": 1e-6, "unit": "H", "note": "resonant inductor"},
+          "C_resonant": {"value": 10e-9, "unit": "F", "note": "resonant capacitor"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "resonant_freq": "fr = 1/(2π√(Lr*Cr)) ≈ 1.6MHz",
+          "ZVS_condition": "Resonant period < dead time"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.93
+        }
+      }
+    }
+  ]
+}

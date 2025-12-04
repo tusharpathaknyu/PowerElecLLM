@@ -1,0 +1,865 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_081",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Mars Helicopter Power",
+      "problem_statement": "Design a flyback converter for Mars helicopter drone. Input: 28V from lander umbilical during charge, Output: 6×3.7V Li-ion cells at 2A charge. Must operate in 0.6% Earth atmospheric pressure, survive -90°C nights, and provide autonomous charging during sol.",
+      "objectives": {
+        "primary": ["Mars atmosphere operation", "-90°C survival", "Autonomous charging"],
+        "secondary": ["Mass <150g total", "Fast charge"],
+        "constraints": ["JPL design rules", "Planetary protection"]
+      },
+      "solution": {
+        "design_approach": "Vacuum-compatible design with careful thermal management. Cold-tolerant components. Solar charging during Martian day.",
+        "switching_frequency": "200kHz",
+        "transformer_turns_ratio": {
+          "formula": "n for 6-cell Li-ion charging",
+          "selected_ratio": "2:1",
+          "output_voltage": "25.2V max (6 × 4.2V)"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / (V_in + V_out × n)",
+          "calculation": "D = 25.2V × 2 / (28V + 25.2V × 2) = 0.64"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "power": "50W charge",
+          "calculation": "L_p = 28² × 0.64² / (2 × 50W × 200kHz × 0.85) = 19μH",
+          "selected_value": "22μH"
+        },
+        "transformer_specs": {
+          "core": "Small ferrite, vented for vacuum",
+          "primary": "10 turns",
+          "secondary": "5 turns",
+          "mass": "15g"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF ceramic (no electrolytic in vacuum)",
+          "type": "Ceramic X7R space-rated",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "mars_atmosphere": {
+          "pressure": "6 mbar (0.6%)",
+          "composition": "95% CO2",
+          "corona": "No exposed HV",
+          "convection": "Minimal (mostly radiation)"
+        },
+        "cold_survival": {
+          "night_temp": "-90°C",
+          "components": "Extended temp rated",
+          "heaters": "RTG-powered survival heaters",
+          "battery_heating": "Pre-charge warmup"
+        },
+        "thermal_design": {
+          "day_temp": "-20°C to +20°C",
+          "dissipation": "Radiation to structure",
+          "insulation": "Aerogel blankets"
+        },
+        "autonomous_charging": {
+          "solar_array": "On lander, 30W available",
+          "charge_time": "2 hours per flight",
+          "management": "MPPT + CC/CV battery"
+        },
+        "battery_management": {
+          "cells": "6S1P Li-ion",
+          "balancing": "Active cell balancing",
+          "protection": "Over/under voltage per cell"
+        },
+        "mass_budget": {
+          "transformer": "15g",
+          "inductors": "5g",
+          "capacitors": "10g",
+          "semiconductors": "8g",
+          "pcb_structure": "30g",
+          "total": "68g (well under 150g)"
+        },
+        "jpl_design_rules": {
+          "derating": "Standard JPL factors",
+          "radiation": "Mars surface ~30 krad/year",
+          "workmanship": "Class S equivalent"
+        },
+        "efficiency_achieved": "88%"
+      }
+    },
+    {
+      "id": "L3_082",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Hypervelocity Railgun",
+      "problem_statement": "Design a full-bridge converter for electromagnetic railgun capacitor charging. Input: 13.8kV 3-phase (rectified ~18kV DC), Output: 5kV at 500A average to charge 100MJ capacitor bank. Must charge in 60 seconds, handle regenerative energy from misfires, and meet MIL-STD-1399.",
+      "objectives": {
+        "primary": ["60-second charge", "Misfire energy recovery", "MIL-STD-1399"],
+        "secondary": ["95% charge efficiency", "Shipboard integration"],
+        "constraints": ["Naval power quality", "Shock and vibration"]
+      },
+      "solution": {
+        "design_approach": "High-power resonant topology for efficient charging. Regenerative capability for misfires. Naval-hardened construction.",
+        "topology": "Series resonant full-bridge charger",
+        "switching_frequency": "20kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / V_out",
+          "calculation": "n = 18kV / 5kV = 3.6:1",
+          "selected_ratio": "4:1"
+        },
+        "resonant_components": {
+          "L_r": "100μH",
+          "C_r": "500nF",
+          "resonant_frequency": "22.5kHz"
+        },
+        "charging_power": {
+          "energy": "100MJ",
+          "time": "60 seconds",
+          "power": "100MJ / 60s = 1.67MW average",
+          "peak": "2.5MW for regulation"
+        },
+        "output_filter": {
+          "inductor": "1mH for current smoothing",
+          "capacitor": "Load capacitor bank itself"
+        },
+        "input_capacitor": {
+          "selected_value": "10mF film",
+          "voltage_rating": "20kV"
+        },
+        "capacitor_bank": {
+          "total_energy": "100MJ",
+          "voltage": "5kV",
+          "capacitance": "C = 2E/V² = 8F",
+          "construction": "Modular PFN sections"
+        },
+        "60_second_charge": {
+          "charging_profile": "CC then CV",
+          "current": "500A initial CC",
+          "transition": "At 4kV to CV",
+          "completion": "5kV in 55s, settling 5s"
+        },
+        "misfire_recovery": {
+          "scenario": "Projectile stuck, energy returns",
+          "regenerated_energy": "Up to 50MJ",
+          "handling": "Bidirectional converter",
+          "dump": "Regenerate to ship grid"
+        },
+        "mil_std_1399": {
+          "voltage": "440V 60Hz input interface",
+          "power_quality": "Harmonics per 1399-300",
+          "transients": "Withstand per 1399-301",
+          "grounding": "Ship safety ground"
+        },
+        "naval_hardening": {
+          "shock": "MIL-S-901D Grade A",
+          "vibration": "MIL-STD-167",
+          "humidity": "MIL-STD-810 Method 507",
+          "salt_fog": "MIL-STD-810 Method 509"
+        },
+        "safety_systems": {
+          "dump_resistors": "Emergency energy dump",
+          "interlocks": "Multiple stage arming",
+          "ground_fault": "Continuous monitoring"
+        },
+        "thermal_management": {
+          "losses": "85kW at 95% efficiency",
+          "cooling": "Shipboard chilled water",
+          "flow": "500 L/min"
+        },
+        "efficiency_achieved": "95%"
+      }
+    },
+    {
+      "id": "L3_083",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Atmospheric Re-entry Vehicle",
+      "problem_statement": "Design a boost converter for re-entry vehicle electronics during blackout phase. Input: 28V from thermal battery, Output: 150V at 10A for phased array antenna. Must operate through 3000°C plasma sheath, survive 15g deceleration, and maintain comms during blackout.",
+      "objectives": {
+        "primary": ["Plasma sheath operation", "15g survival", "Blackout comms"],
+        "secondary": ["Rapid startup", "Minimal mass"],
+        "constraints": ["Single-use reliability", "Thermal battery interface"]
+      },
+      "solution": {
+        "design_approach": "Thermal battery optimized design. RF-transparent antenna for blackout. Hardened for extreme deceleration.",
+        "switching_frequency": "500kHz",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "calculation": "D = 1 - 28V/150V = 0.813"
+        },
+        "inductor": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "4A",
+          "calculation": "L = 28V × 0.813 / (500kHz × 4A) = 11.4μH",
+          "selected_value": "12μH",
+          "type": "High-temp rated core",
+          "current_rating": "15A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D / (f_sw × ΔV_out)",
+          "voltage_ripple": "1.5V",
+          "calculation": "C_out = 10A × 0.813 / (500kHz × 1.5V) = 10.8μF",
+          "selected_value": "47μF ceramic",
+          "voltage_rating": "200V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "thermal_battery": {
+          "type": "LiSi/FeS2 thermal battery",
+          "activation": "Pyrotechnic at deployment",
+          "voltage": "28V nominal",
+          "capacity": "50Ah (short duration)",
+          "life": "10 minutes active"
+        },
+        "plasma_sheath_operation": {
+          "temperature": "3000°C external",
+          "shielding": "Ablative heat shield",
+          "electronics": "Behind heat shield, <100°C",
+          "antenna": "High-temp ceramic phased array"
+        },
+        "blackout_comms": {
+          "problem": "Plasma blocks RF",
+          "solution": "EHF/optical through thin spots",
+          "frequency": "60GHz through plasma gaps",
+          "backup": "Magnetic antenna for ELF"
+        },
+        "15g_survival": {
+          "peak_decel": "15g × 10s",
+          "mounting": "Potted assembly",
+          "components": "All SMD, no leads",
+          "wire": "Strain relieved"
+        },
+        "rapid_startup": {
+          "battery_activation": "100ms to voltage",
+          "converter_start": "50ms soft-start",
+          "total": "<200ms to full power"
+        },
+        "mass_budget": {
+          "converter": "200g",
+          "thermal_battery": "2kg",
+          "antenna": "1kg",
+          "total_power_system": "3.2kg"
+        },
+        "thermal_design": {
+          "external": "3000°C plasma",
+          "heat_shield": "PICA ablator",
+          "internal": "50°C to 85°C",
+          "duration": "10 minutes"
+        },
+        "single_use_reliability": {
+          "testing": "Extensive lot qualification",
+          "screening": "100% component burn-in",
+          "margin": "50% derating all parameters"
+        },
+        "efficiency_achieved": "90%"
+      }
+    },
+    {
+      "id": "L3_084",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Gravitational Wave Seismometer",
+      "problem_statement": "Design a Ćuk converter for advanced LIGO seismometer array. Input: 24V from isolation transformer, Output: -15V at 500mA for geophone preamps. Must achieve <10⁻¹²g/√Hz noise floor, operate in ultra-high vacuum (10⁻⁹ torr), and provide isolation from ground loops.",
+      "objectives": {
+        "primary": ["10⁻¹²g/√Hz noise", "UHV compatible", "Ground loop isolation"],
+        "secondary": ["Seismic band filtering", "Remote monitoring"],
+        "constraints": ["Interferometer sensitivity", "Multi-km cabling"]
+      },
+      "solution": {
+        "design_approach": "Ultra-low noise design with transformer isolation. UHV-compatible construction. Extensive filtering for seismic band.",
+        "switching_frequency": "500kHz (far above seismic 0.01-10Hz)",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 15V / (24V + 15V) = 0.385"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "0.1A",
+          "calculation": "L1 = 24V × 0.385 / (500kHz × 0.1A) = 185μH",
+          "selected_value": "200μH",
+          "type": "Toroidal, shielded"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.1A",
+          "calculation": "L2 = 15V × 0.615 / (500kHz × 0.1A) = 185μH",
+          "selected_value": "200μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "4.7μF",
+          "type": "Film (low noise)",
+          "voltage_rating": "50V"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF film + multi-stage LC",
+          "voltage_rating": "25V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF film",
+          "voltage_rating": "35V"
+        },
+        "noise_requirements": {
+          "target": "<10⁻¹² g/√Hz",
+          "voltage_noise": "<10nV/√Hz at geophone",
+          "current_noise": "<1pA/√Hz"
+        },
+        "filtering_chain": {
+          "stage_1": "500kHz switched mode",
+          "stage_2": "LC 10kHz cutoff",
+          "stage_3": "LC 1kHz cutoff",
+          "stage_4": "LC 100Hz cutoff",
+          "stage_5": "Active filter 10Hz cutoff",
+          "final": "<10nV/√Hz achieved"
+        },
+        "uhv_compatibility": {
+          "pressure": "10⁻⁹ torr",
+          "materials": "All UHV rated",
+          "outgassing": "Baked construction",
+          "feedthroughs": "Conflat sealed"
+        },
+        "ground_loop_isolation": {
+          "input_transformer": "1:1 isolation",
+          "output": "Floating reference",
+          "common_mode": ">120dB rejection",
+          "cabling": "Differential throughout"
+        },
+        "geophone_interface": {
+          "sensor": "Broadband seismometer",
+          "bandwidth": "0.01Hz to 100Hz",
+          "noise_floor": "Matched to sensor"
+        },
+        "multi_km_cabling": {
+          "distance": "4km arm length",
+          "cable_type": "Shielded twisted pair",
+          "drive": "Differential transmit",
+          "receive": "Instrumentation amp"
+        },
+        "seismic_isolation": {
+          "platform": "Multi-stage pendulum",
+          "sensor": "Monitors ground motion",
+          "feedback": "Active isolation system"
+        },
+        "efficiency_achieved": "82%"
+      }
+    },
+    {
+      "id": "L3_085",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Cryogenic Propellant Depot",
+      "problem_statement": "Design a forward converter for orbital propellant depot cryocooler. Input: 120V DC from solar array, Output: 28V at 30A for Stirling cryocooler. Must maintain liquid hydrogen at 20K, operate for 15-year mission, and survive micrometeorite impacts.",
+      "objectives": {
+        "primary": ["20K LH2 maintenance", "15-year operation", "Impact survival"],
+        "secondary": ["Zero boil-off", "Autonomous operation"],
+        "constraints": ["On-orbit serviceability", "Propellant proximity"]
+      },
+      "solution": {
+        "design_approach": "Space-qualified long-life design. Redundant cryocoolers. Impact-tolerant distributed architecture.",
+        "switching_frequency": "100kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D / V_out",
+          "calculation": "n = 120V × 0.35 / 28V = 1.5:1",
+          "selected_ratio": "1.5:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 28V × 1.5 / 120V = 0.35"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "6A (20%)",
+          "calculation": "L = (80V - 28V) × 0.35 / (100kHz × 6A) = 30μH",
+          "selected_value": "33μH",
+          "type": "Space-qualified core",
+          "current_rating": "40A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "140mV",
+          "calculation": "C_out = 6A / (8 × 100kHz × 140mV) = 54μF",
+          "selected_value": "220μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "150V"
+        },
+        "cryocooler_system": {
+          "type": "Stirling cycle",
+          "capacity": "20W at 20K",
+          "redundancy": "3 units, 2 active",
+          "mass": "15kg per unit"
+        },
+        "20k_maintenance": {
+          "hydrogen": "Boiling point 20.3K",
+          "margin": "Operate at 19K",
+          "heat_leak": "Minimize tank insulation",
+          "boil_off": "Zero boil-off target"
+        },
+        "15_year_mission": {
+          "component_life": "Class S space parts",
+          "redundancy": "N+1 on all critical",
+          "degradation": "10% margin over life",
+          "monitoring": "Continuous telemetry"
+        },
+        "micrometeorite_survival": {
+          "probability": "Some impacts expected",
+          "shielding": "Whipple shields",
+          "distributed": "No single-point failure",
+          "isolation": "Sectioned design"
+        },
+        "autonomous_operation": {
+          "control": "Closed-loop temperature",
+          "fault_response": "Automatic switchover",
+          "ground_contact": "Daily telemetry dump"
+        },
+        "propellant_proximity": {
+          "hydrogen": "Explosive mixture awareness",
+          "oxygen": "Separate tank area",
+          "ignition_prevention": "No arcing, sealed units"
+        },
+        "on_orbit_servicing": {
+          "oru_design": "Orbital replacement unit",
+          "interface": "Standard berthing",
+          "access": "EVA or robotic"
+        },
+        "solar_array_interface": {
+          "voltage_range": "100V-140V eclipse to sun",
+          "power": "2kW average available",
+          "battery": "Eclipse power backup"
+        },
+        "efficiency_achieved": "93%"
+      }
+    },
+    {
+      "id": "L3_086",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Volcanic Tiltmeter",
+      "problem_statement": "Design a SEPIC converter for borehole tiltmeter at volcano summit. Input: 12V-18V from solar/battery, Output: 5V at 500mA for precision tilt sensor. Must achieve <1 nanoradian resolution, survive volcanic gases (SO2, H2S), and provide 5-year autonomous operation.",
+      "objectives": {
+        "primary": ["1 nanoradian noise floor", "Volcanic gas survival", "5-year autonomy"],
+        "secondary": ["Low power", "Telemetry interface"],
+        "constraints": ["Hazardous environment", "Remote access only"]
+      },
+      "solution": {
+        "design_approach": "Ultra-low noise design for precision tilt. Hermetically sealed against volcanic gases. Solar with large battery reserve.",
+        "switching_frequency": "400kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_12V": "D = 5V / (12V + 5V) = 0.29",
+          "at_18V": "D = 5V / (18V + 5V) = 0.22"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.1A",
+          "calculation": "L1 = 12V × 0.29 / (400kHz × 0.1A) = 87μH",
+          "selected_value": "100μH",
+          "type": "Shielded, low-noise",
+          "current_rating": "1A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.1A",
+          "calculation": "L2 = 5V × 0.78 / (400kHz × 0.1A) = 98μH",
+          "selected_value": "100μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "4.7μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "25V"
+        },
+        "output_capacitor": {
+          "selected_value": "47μF ceramic + LC filter",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "22μF ceramic",
+          "voltage_rating": "25V"
+        },
+        "nanoradian_resolution": {
+          "noise_requirement": "<1nrad = <50pV at sensor",
+          "power_supply_noise": "<1μV RMS",
+          "filtering": "Multi-stage LC + active"
+        },
+        "output_filtering": {
+          "stage_1": "LC 10kHz",
+          "stage_2": "LC 1kHz",
+          "stage_3": "Active 10Hz",
+          "achieved": "<500nV RMS"
+        },
+        "volcanic_gas_protection": {
+          "gases": "SO2, H2S, HCl, HF",
+          "enclosure": "Hermetically sealed stainless",
+          "seals": "Metal-to-metal, no elastomers",
+          "feedthrough": "Glass-to-metal"
+        },
+        "borehole_installation": {
+          "depth": "2-10m below surface",
+          "diameter": "100mm casing",
+          "temperature": "20-60°C",
+          "humidity": "100% possible"
+        },
+        "5_year_autonomy": {
+          "solar_panel": "10W panel, acid-resistant glass",
+          "battery": "LiFePO4 12V 50Ah",
+          "average_power": "2W total system",
+          "reserve": "7 days no sun"
+        },
+        "tiltmeter_specs": {
+          "type": "Force-balance tiltmeter",
+          "range": "±2000 μrad",
+          "resolution": "1 nrad",
+          "bandwidth": "DC to 1Hz"
+        },
+        "telemetry": {
+          "radio": "Spread spectrum 900MHz",
+          "range": "30km to base station",
+          "data_rate": "1 sample/second"
+        },
+        "efficiency_achieved": "88%"
+      }
+    },
+    {
+      "id": "L3_087",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Linear Accelerator Klystron",
+      "problem_statement": "Design a half-bridge converter for particle accelerator klystron modulator. Input: 34.5kV AC (rectified ~47kV), Output: 350kV at 500A pulse for klystron. Must achieve <0.1% flat-top droop, 3ms pulse width, and 120Hz repetition rate.",
+      "objectives": {
+        "primary": ["<0.1% flat-top droop", "3ms × 500A pulse", "120Hz rep rate"],
+        "secondary": ["Long klystron life", "Precise timing"],
+        "constraints": ["X-ray shielding", "RF synchronization"]
+      },
+      "solution": {
+        "design_approach": "PFN-based modulator with precision charging. Multi-stage pulse transformer. Bouncer circuit for droop compensation.",
+        "topology": "Half-bridge charger + PFN + pulse transformer",
+        "charging_frequency": "10kHz",
+        "pfn_design": {
+          "type": "Type E PFN",
+          "stages": "25 LC sections",
+          "impedance": "3.5Ω",
+          "pulse_width": "3ms"
+        },
+        "pulse_transformer": {
+          "turns_ratio": "1:10",
+          "input_pulse": "35kV, 5kA",
+          "output_pulse": "350kV, 500A",
+          "droop_compensation": "Bouncer circuit"
+        },
+        "pfn_capacitors": {
+          "per_stage": "850nF",
+          "voltage": "50kV",
+          "type": "Pulse-rated film",
+          "energy_per_stage": "1.06kJ"
+        },
+        "pfn_inductors": {
+          "per_stage": "10μH",
+          "current": "5kA pulse",
+          "type": "Air-core, edge-wound"
+        },
+        "charging_power": {
+          "pulse_energy": "525kJ (350kV × 500A × 3ms)",
+          "rep_rate": "120Hz",
+          "average_power": "63MW (with losses)",
+          "charge_time": "5.3ms between pulses"
+        },
+        "flat_top_requirement": {
+          "droop_spec": "<0.1% over 3ms",
+          "pfn_droop": "~3% natural",
+          "bouncer_correction": "Compensates to <0.1%"
+        },
+        "bouncer_circuit": {
+          "type": "Resonant capacitor",
+          "function": "Adds rising voltage during pulse",
+          "correction": "Matches PFN droop curve"
+        },
+        "thyratron_switch": {
+          "type": "Hydrogen thyratron",
+          "voltage": "50kV",
+          "current": "10kA peak",
+          "lifetime": "10,000 hours"
+        },
+        "klystron_interface": {
+          "tube": "Multi-beam klystron",
+          "voltage": "350kV",
+          "beam_current": "500A",
+          "rf_output": "50MW peak"
+        },
+        "timing_precision": {
+          "jitter": "<1ns",
+          "synchronization": "To RF master oscillator",
+          "delay": "Adjustable 0-100μs"
+        },
+        "x_ray_shielding": {
+          "source": "Klystron window/gun",
+          "shielding": "Lead-lined enclosure",
+          "monitoring": "Continuous dosimetry",
+          "interlock": "Area access control"
+        },
+        "dc_input_capacitor": {
+          "selected_value": "500μF",
+          "voltage_rating": "55kV"
+        },
+        "efficiency_achieved": "85% (modulator only)"
+      }
+    },
+    {
+      "id": "L3_088",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Semiconductor Fab Tool",
+      "problem_statement": "Design a buck converter for semiconductor lithography stage motion control. Input: 48V from tool power, Output: 5V at 100A for linear motor drivers. Must achieve <1nm positioning contribution, <1ppm EMI at wafer, and operate in Class 1 cleanroom.",
+      "objectives": {
+        "primary": ["<1nm noise contribution", "<1ppm wafer EMI", "Class 1 cleanroom"],
+        "secondary": ["Fast stage settling", "Low heat dissipation"],
+        "constraints": ["No particles", "No outgassing"]
+      },
+      "solution": {
+        "design_approach": "Ultra-low noise multi-phase with extensive filtering. Cleanroom-compatible construction. Zero-vibration mounting.",
+        "topology": "16-phase interleaved with linear post-regulator",
+        "switching_frequency": "2MHz per phase (32MHz effective)",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 5V / 48V = 0.104"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "1.5A per phase",
+          "calculation": "L = 5V × 0.896 / (2MHz × 1.5A) = 1.5μH",
+          "selected_value": "1.5μH per phase",
+          "type": "Shielded ferrite",
+          "dcr": "<1mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C for 1nm equivalent noise",
+          "selected_value": "10mF ceramic MLCC array",
+          "type": "Cleanroom-rated ceramic",
+          "esr": "<0.1mΩ"
+        },
+        "input_capacitor": {
+          "selected_value": "1mF ceramic bank",
+          "voltage_rating": "63V"
+        },
+        "linear_post_regulator": {
+          "type": "Precision linear",
+          "dropout": "500mV",
+          "noise": "<1nV/√Hz",
+          "bandwidth": "1MHz"
+        },
+        "nm_noise_contribution": {
+          "motor_constant": "50N/A",
+          "stage_mass": "5kg",
+          "1nm_force": "~0.1μN",
+          "current_noise": "<2nA RMS required",
+          "voltage_noise": "<10nV RMS at motor"
+        },
+        "filtering_chain": {
+          "switching_output": "10mV ripple",
+          "after_linear": "100μV ripple",
+          "after_lc_filter": "1μV ripple",
+          "after_active_filter": "<100nV RMS"
+        },
+        "emi_at_wafer": {
+          "requirement": "<1ppm effect on exposure",
+          "magnetic_shielding": "5-layer mu-metal",
+          "distance": "2m from exposure area",
+          "emissions": "<1nT at wafer"
+        },
+        "cleanroom_compatibility": {
+          "class": "ISO Class 1",
+          "particles": "No fan, liquid cooled",
+          "outgassing": "All materials certified",
+          "enclosure": "Sealed stainless"
+        },
+        "thermal_management": {
+          "power_loss": "50W at 90% efficiency",
+          "cooling": "Facility DI water",
+          "flow": "10 L/min",
+          "no_air_motion": "All conduction"
+        },
+        "vibration_isolation": {
+          "mounting": "Granite sub-frame",
+          "isolation": "Air bearings",
+          "resonance": "No excitation of stage modes"
+        },
+        "stage_interface": {
+          "motor": "Ironless linear motor",
+          "resolution": "0.1nm encoder",
+          "bandwidth": "1kHz servo"
+        },
+        "efficiency_achieved": "90% (with linear stage)"
+      }
+    },
+    {
+      "id": "L3_089",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Deep Ocean Mooring",
+      "problem_statement": "Design a flyback converter for deep ocean mooring instrumentation. Input: 12V from primary lithium pack, Output: 5V at 2A average for sensors and acoustic modem. Must operate at 6000m depth for 5 years, handle pressure cycling (recovery/redeployment), and communicate acoustically.",
+      "objectives": {
+        "primary": ["6000m × 5 years", "Pressure cycling survival", "Acoustic link"],
+        "secondary": ["Data logging", "Low standby power"],
+        "constraints": ["No maintenance", "Neutral buoyancy design"]
+      },
+      "solution": {
+        "design_approach": "Oil-filled pressure-compensated design. Conservative component selection for 5-year life. Efficient burst communication.",
+        "switching_frequency": "150kHz",
+        "transformer_turns_ratio": {
+          "formula": "n for step-down",
+          "selected_ratio": "2.5:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / (V_in + V_out × n)",
+          "calculation": "D = 5V × 2.5 / (12V + 5V × 2.5) = 0.51"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "power": "10W",
+          "calculation": "L_p = 12² × 0.51² / (2 × 10W × 150kHz × 0.85) = 14.7μH",
+          "selected_value": "15μH"
+        },
+        "transformer_specs": {
+          "core": "Ferrite, oil-compatible insulation",
+          "primary": "8 turns",
+          "secondary": "3 turns",
+          "construction": "Void-free potted"
+        },
+        "output_capacitor": {
+          "selected_value": "470μF polymer",
+          "type": "Oil-compatible solid polymer",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF polymer",
+          "voltage_rating": "16V"
+        },
+        "deep_ocean_design": {
+          "pressure": "600 bar at 6000m",
+          "housing": "Titanium sphere",
+          "compensation": "Oil-filled, bladder",
+          "seals": "Double O-ring + backup"
+        },
+        "5_year_operation": {
+          "battery": "Li-SOCl2 primary, 500Ah",
+          "average_power": "2W system",
+          "margin": "50% capacity margin",
+          "self_discharge": "1% per year"
+        },
+        "pressure_cycling": {
+          "cycles": "10 deploy/recover",
+          "rate": "100m/min ascent",
+          "thermal_shock": "2°C to 25°C",
+          "design": "No trapped gas volumes"
+        },
+        "acoustic_modem": {
+          "type": "WHOI micro-modem",
+          "range": "2km vertical to relay",
+          "power": "10W transmit burst",
+          "data_rate": "100 bps"
+        },
+        "sensors": {
+          "ctd": "Conductivity/temp/depth",
+          "adcp": "Current profiler",
+          "sampling": "Hourly average"
+        },
+        "data_logging": {
+          "storage": "256GB flash",
+          "capacity": "5 years hourly data",
+          "backup": "Dual redundant"
+        },
+        "standby_power": {
+          "sleep": "10mW monitoring",
+          "sample": "2W for 5 minutes/hour",
+          "transmit": "10W for 1 minute/day",
+          "average": "0.2W effective"
+        },
+        "efficiency_achieved": "86%"
+      }
+    },
+    {
+      "id": "L3_090",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Fusion Neutral Beam Injector",
+      "problem_statement": "Design a full-bridge converter for tokamak neutral beam injector. Input: 10kV from grid rectifier, Output: 80kV at 60A for ion accelerator. Must achieve 5-second pulse duration, recover between plasma shots, and handle beam dump scenarios.",
+      "objectives": {
+        "primary": ["5s × 60A pulse", "Inter-shot recovery", "Beam dump handling"],
+        "secondary": ["Reliability for 30-year plant life", "Grid stability"],
+        "constraints": ["Nuclear facility requirements", "Plasma timing synchronization"]
+      },
+      "solution": {
+        "design_approach": "High-power modular multi-level converter. Energy storage for pulsed operation. Fast protection for beam dumps.",
+        "topology": "Multi-module full-bridge series stack",
+        "modules": "8 series modules, each 10kV",
+        "switching_frequency": "15kHz",
+        "per_module_transformer": {
+          "turns_ratio": "1:10",
+          "input": "1.25kV",
+          "output": "10kV"
+        },
+        "energy_per_pulse": {
+          "formula": "E = V × I × t",
+          "calculation": "E = 80kV × 60A × 5s = 24MJ",
+          "plus_losses": "~28MJ total"
+        },
+        "energy_storage": {
+          "type": "Capacitor bank + flywheel",
+          "capacitors": "50MJ stored",
+          "flywheel": "Grid smoothing"
+        },
+        "dc_link_capacitor_per_module": {
+          "selected_value": "1mF film",
+          "voltage_rating": "2kV",
+          "energy": "2kJ per module"
+        },
+        "output_filter": {
+          "inductor": "100mH for current smoothing",
+          "capacitor": "Minimal (accelerator is capacitive)"
+        },
+        "5_second_pulse": {
+          "flat_top": "5 seconds",
+          "rise_time": "50ms",
+          "fall_time": "100ms",
+          "regulation": "±0.5% during pulse"
+        },
+        "inter_shot_recovery": {
+          "rep_rate": "1 shot per 10 minutes",
+          "recharge_time": "5 minutes",
+          "grid_draw": "~100kW average"
+        },
+        "beam_dump_protection": {
+          "scenario": "Beam divergence or blockage",
+          "energy_dumped": "Up to 24MJ",
+          "detection": "<1ms beam loss detect",
+          "crowbar": "Ignitron crowbar at beam"
+        },
+        "dump_resistor": {
+          "resistance": "100Ω",
+          "energy_rating": "30MJ",
+          "cooling": "Water during pulse"
+        },
+        "modular_design": {
+          "modules": "8 identical units",
+          "redundancy": "N+1 operation",
+          "maintenance": "Hot-swap capable"
+        },
+        "plasma_synchronization": {
+          "trigger": "From plasma control",
+          "jitter": "<100μs",
+          "sequence": "Ramp-up matches plasma current"
+        },
+        "nuclear_facility": {
+          "classification": "Nuclear island system",
+          "seismic": "Seismic Cat I",
+          "qc": "NQA-1 equivalent"
+        },
+        "efficiency_achieved": "92%"
+      }
+    }
+  ]
+}

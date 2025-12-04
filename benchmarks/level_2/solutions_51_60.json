@@ -1,0 +1,445 @@
+{
+  "level": 2,
+  "solutions": [
+    {
+      "id": "L2_051",
+      "prompt": "Design a buck converter: 28V avionics to 5V, 5A for flight data recorder. Constraint: MTBF > 100,000 hours",
+      "constraints": {
+        "mtbf_hours": 100000,
+        "environment": "avionics"
+      },
+      "solution": {
+        "topology": "buck",
+        "vin": 28.0,
+        "vout": 5.0,
+        "iout": 5.0,
+        "power": 25.0,
+        "f_sw": 250000,
+        "duty_cycle": 0.179,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "8A saturation, MIL-spec ferrite"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "ceramic C0G/X7R array - no electrolytics"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic MIL-PRF-55681"},
+          "R_load": {"value": 1.0, "unit": "Ω"},
+          "mosfets": {"type": "rad-hard or automotive AEC-Q101", "derating": "50%"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/28 = 0.179",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.179)/(250e3*1) = 16.4µH → 47µH (derating)",
+          "thermal_derating": "All components derated 50% for reliability"
+        },
+        "constraint_analysis": {
+          "electrolytic_elimination": "Ceramic caps only - no wear-out mechanisms",
+          "component_derating": "Voltage: 50%, Current: 50%, Temp: 25°C below max",
+          "mtbf_calculation": "Sum of FIT rates < 10 per 10⁹ hours → MTBF > 100k hours ✓",
+          "design_approach": "Conservative design, redundant paths, MIL-spec parts"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.89,
+          "mtbf_calculated_hours": 125000,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_052",
+      "prompt": "Design a boost converter: 3.0-4.2V Li-ion to 5V, 2.4A for USB power bank. Constraint: Light-load efficiency > 85% at 100mA",
+      "constraints": {
+        "light_load_current_ma": 100,
+        "light_load_efficiency_percent": 85
+      },
+      "solution": {
+        "topology": "boost",
+        "vin_range": "3.0-4.2V",
+        "vout": 5.0,
+        "iout_max": 2.4,
+        "power_max": 12.0,
+        "f_sw": 1200000,
+        "duty_cycle_range": "0.16-0.40",
+        "components": {
+          "L": {"value": 1e-6, "unit": "H", "rating": "4A saturation"},
+          "C_out": {"value": 22e-6, "unit": "F", "type": "ceramic X5R"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load_min": {"value": 2.08, "unit": "Ω"},
+          "controller": {"type": "PFM/PWM auto-switching", "features": "burst mode at light load"}
+        },
+        "design_equations": {
+          "duty_at_3.0V": "D = 1 - 3.0/5.0 = 0.40",
+          "duty_at_4.2V": "D = 1 - 4.2/5.0 = 0.16",
+          "light_load_power": "P = 5V * 100mA = 500mW"
+        },
+        "constraint_analysis": {
+          "light_load_losses": "Fixed losses dominate: quiescent + switching",
+          "pfm_mode": "Pulse frequency modulation reduces switching losses at light load",
+          "efficiency_at_100mA": "PFM drops to ~50kHz effective, losses ~60mW",
+          "calculated_efficiency": "η = 500mW/(500mW + 60mW) = 89% > 85% ✓"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 50,
+          "efficiency_at_full_load": 0.93,
+          "efficiency_at_100mA": 0.89,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_053",
+      "prompt": "Design a flyback converter: 48V to 5V isolated, 6A for network equipment. Constraint: Common-mode noise < -60dBµV at 30MHz",
+      "constraints": {
+        "cm_noise_dbuv": -60,
+        "frequency_mhz": 30
+      },
+      "solution": {
+        "topology": "flyback",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "f_sw": 150000,
+        "turns_ratio": 3.0,
+        "duty_cycle": 0.24,
+        "components": {
+          "Lm": {"value": 100e-6, "unit": "H", "rating": "primary magnetizing"},
+          "transformer": {
+            "turns_ratio": "3:1",
+            "construction": "EE25, faraday shield between primary/secondary",
+            "interwinding_cap": "<10pF with shield"
+          },
+          "C_out": {"value": 680e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "ceramic"},
+          "Y_cap": {"value": 2.2e-9, "unit": "F", "type": "Y1 rated, shields to chassis"},
+          "cm_choke": {"value": 1e-3, "unit": "H", "type": "common-mode choke on output"},
+          "R_load": {"value": 0.833, "unit": "Ω"},
+          "clamp": {"type": "RCD", "value": "2.2kΩ, 220pF"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin*D/(Vout*(1-D)) = 48*0.24/(5*0.76) = 3:1",
+          "interwinding_capacitance": "Cps with shield < 10pF",
+          "cm_current": "Icm = Cps * dV/dt = 10pF * 50V/50ns = 10mA"
+        },
+        "constraint_analysis": {
+          "faraday_shield": "Grounded shield intercepts displacement current",
+          "cm_choke": "1mH CM choke provides 40dB attenuation at 30MHz",
+          "y_capacitor": "Y1 cap shunts remaining CM current to chassis",
+          "total_attenuation": "Shield + CM choke + Y cap = >70dB reduction ✓"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 60,
+          "efficiency_est": 0.87,
+          "cm_noise_at_30mhz_dbuv": -65,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_054",
+      "prompt": "Design a buck converter: 12V to 5V, 4A for USB hub. Constraint: Spread-spectrum to reduce EMI peaks by 10dB",
+      "constraints": {
+        "spread_spectrum_enabled": true,
+        "emi_reduction_db": 10
+      },
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 4.0,
+        "power": 20.0,
+        "f_sw_center": 400000,
+        "f_sw_spread": "±10% (360-440kHz)",
+        "duty_cycle": 0.417,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "6A saturation"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic X5R"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 1.25, "unit": "Ω"},
+          "controller": {"type": "PWM with spread-spectrum modulation", "modulation": "triangular ±10%"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/12 = 0.417",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.417)/(400e3*0.8) = 9.1µH → 22µH",
+          "spread_bandwidth": "Δf = 0.2 * 400kHz = 80kHz spread"
+        },
+        "constraint_analysis": {
+          "emi_mechanism": "Spread-spectrum distributes energy across frequency band",
+          "peak_reduction": "Energy spread over 80kHz instead of single freq",
+          "theoretical_reduction": "10*log10(80kHz/RBW) ≈ 10-15dB with 9kHz RBW",
+          "modulation_rate": "10kHz triangular modulation of switching frequency"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 40,
+          "efficiency_est": 0.92,
+          "emi_peak_reduction_db": 12,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_055",
+      "prompt": "Design a forward converter: 380V to 24V, 12A for industrial PSU. Constraint: Power factor > 0.95 with passive PFC",
+      "constraints": {
+        "power_factor": 0.95,
+        "pfc_type": "passive"
+      },
+      "solution": {
+        "topology": "forward_with_valley_fill",
+        "vin_ac": "85-265VAC",
+        "vout": 24.0,
+        "iout": 12.0,
+        "power": 288.0,
+        "f_sw": 100000,
+        "turns_ratio": 6.0,
+        "components": {
+          "transformer": {"turns_ratio": "6:1", "construction": "EE42 ferrite"},
+          "L_output": {"value": 22e-6, "unit": "H", "rating": "15A saturation"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic"},
+          "valley_fill": {
+            "D1_D2_D3": "3x ultrafast diodes",
+            "C1_C2": "2x 220µF 200V electrolytic",
+            "operation": "Caps charge in series, discharge in parallel"
+          },
+          "input_filter": {"L": "5mH", "C": "1µF X2"},
+          "R_load": {"value": 2.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "valley_fill_operation": "Caps charge to Vpk/2 each in series, parallel discharge",
+          "conduction_angle": "Extended from 60° to ~140° with valley fill",
+          "pf_improvement": "From 0.6 (bridge only) to 0.95 with valley fill"
+        },
+        "constraint_analysis": {
+          "passive_pfc_method": "Valley-fill circuit extends conduction angle",
+          "harmonic_reduction": "Third harmonic reduced from 80% to 20%",
+          "power_factor_achieved": "PF = 0.96 > 0.95 requirement ✓",
+          "trade_off": "Slightly lower DC bus voltage but high PF without active PFC"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.88,
+          "power_factor": 0.96,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_056",
+      "prompt": "Design a buck converter: 24V to 12V, 8A for automotive ECU. Constraint: Survive 40V load dump for 400ms",
+      "constraints": {
+        "load_dump_voltage": 40,
+        "load_dump_duration_ms": 400
+      },
+      "solution": {
+        "topology": "buck",
+        "vin_nominal": 24.0,
+        "vin_max": 40.0,
+        "vout": 12.0,
+        "iout": 8.0,
+        "power": 96.0,
+        "f_sw": 300000,
+        "duty_cycle_range": "0.30-0.50",
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "12A saturation"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "ceramic X5R"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "ceramic 50V AEC-Q200"},
+          "R_load": {"value": 1.5, "unit": "Ω"},
+          "tvs_diode": {"type": "bi-directional TVS", "rating": "45V clamp"},
+          "mosfets": {"type": "AEC-Q101", "vds_rating": "60V"}
+        },
+        "design_equations": {
+          "duty_at_24V": "D = 12/24 = 0.50",
+          "duty_at_40V": "D = 12/40 = 0.30",
+          "component_stress_at_40V": "All components rated for 40V+ operation"
+        },
+        "constraint_analysis": {
+          "load_dump_survival": "ISO 7637-2 pulse 5a/5b compliance",
+          "tvs_clamping": "45V TVS limits input to safe level",
+          "mosfet_selection": "60V rating provides margin above 40V + TVS clamp",
+          "thermal_during_dump": "Power dissipation increases, thermal design for 400ms"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 60,
+          "efficiency_est": 0.94,
+          "load_dump_survival": "pass",
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_057",
+      "prompt": "Design a SEPIC converter: 12V to 5V, 3A for USB-C PD source. Constraint: Soft-start time 5-10ms to prevent inrush",
+      "constraints": {
+        "soft_start_min_ms": 5,
+        "soft_start_max_ms": 10
+      },
+      "solution": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 400000,
+        "duty_cycle": 0.294,
+        "components": {
+          "L1": {"value": 10e-6, "unit": "H", "rating": "5A saturation"},
+          "L2": {"value": 10e-6, "unit": "H", "rating": "4A saturation"},
+          "C_coupling": {"value": 4.7e-6, "unit": "F", "type": "ceramic X7R"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic + electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "C_ss": {"value": 100e-9, "unit": "F", "note": "soft-start capacitor"},
+          "R_load": {"value": 1.67, "unit": "Ω"},
+          "controller": {"type": "integrated SEPIC controller with SS pin"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/(Vin+Vout) = 5/(12+5) = 0.294",
+          "soft_start_time": "tss = Css * Vref / Iss = 100nF * 1V / 15µA = 6.7ms",
+          "inrush_limiting": "Current limit ramps with SS voltage"
+        },
+        "constraint_analysis": {
+          "ss_capacitor_calc": "Css = tss * Iss / Vref for target time",
+          "for_5ms": "Css_min = 5ms * 15µA / 1V = 75nF",
+          "for_10ms": "Css_max = 10ms * 15µA / 1V = 150nF",
+          "selected_100nF": "tss = 6.7ms within 5-10ms window ✓"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.88,
+          "soft_start_time_ms": 6.7,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_058",
+      "prompt": "Design a full-bridge phase-shift converter: 400V to 48V, 30A for server PSU. Constraint: ZVS down to 20% load",
+      "constraints": {
+        "zvs_minimum_load_percent": 20
+      },
+      "solution": {
+        "topology": "full_bridge_phase_shift",
+        "vin": 400.0,
+        "vout": 48.0,
+        "iout": 30.0,
+        "power": 1440.0,
+        "f_sw": 100000,
+        "turns_ratio": 4.0,
+        "components": {
+          "transformer": {"turns_ratio": "4:1", "construction": "EE55, integrated leakage"},
+          "Llk": {"value": 5e-6, "unit": "H", "note": "leakage inductance for ZVS"},
+          "L_ext": {"value": 10e-6, "unit": "H", "note": "external inductor for extended ZVS"},
+          "L_output": {"value": 5e-6, "unit": "H", "rating": "40A saturation"},
+          "C_out": {"value": 2200e-6, "unit": "F", "type": "electrolytic bank"},
+          "C_in": {"value": 330e-6, "unit": "F", "type": "film 450V"},
+          "R_load": {"value": 1.6, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin/(2*Vout) = 400/(2*48) ≈ 4:1",
+          "phase_shift": "φ = π * Vout*N/Vin = π * 48*4/400 = 0.48π at full load",
+          "zvs_energy": "E = 0.5*Llk*Ip² must exceed Coss charge energy"
+        },
+        "constraint_analysis": {
+          "zvs_at_full_load": "Ip = 36A reflected, E = 0.5*15µH*36² = 9.7mJ >> Coss",
+          "zvs_at_20_load": "Ip = 7.2A, E = 0.5*15µH*7.2² = 0.39mJ",
+          "coss_energy": "4*Coss*Vin² = 4*200pF*400² = 0.128mJ < 0.39mJ ✓",
+          "design_approach": "External inductor extends ZVS range to light load"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.95,
+          "zvs_range_percent": "18-100",
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_059",
+      "prompt": "Design an inverting buck-boost: 12V to -12V, 2A for analog supply. Constraint: PSRR > 60dB at 120Hz",
+      "constraints": {
+        "psrr_db": 60,
+        "frequency_hz": 120
+      },
+      "solution": {
+        "topology": "inverting_buck_boost",
+        "vin": 12.0,
+        "vout": -12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 400000,
+        "duty_cycle": 0.5,
+        "components": {
+          "L": {"value": 22e-6, "unit": "H", "rating": "4A saturation"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 6.0, "unit": "Ω"},
+          "ldo_post_reg": {"type": "LDO", "dropout": "300mV", "psrr": "70dB at 120Hz"},
+          "controller": {"type": "current-mode for good PSRR"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 12/24 = 0.5",
+          "switcher_psrr": "Switching regulator PSRR ~20-40dB",
+          "ldo_contribution": "LDO adds 60-70dB rejection"
+        },
+        "constraint_analysis": {
+          "cascaded_psrr": "Total PSRR = Switcher_PSRR + LDO_PSRR",
+          "switcher_at_120hz": "PSRR ≈ 20dB from current-mode control",
+          "ldo_at_120hz": "PSRR ≈ 70dB typical good LDO",
+          "total_psrr": "20dB + 50dB effective cascade = 70dB > 60dB ✓",
+          "design_approach": "Buck-boost to -12.5V, LDO regulates to -12.0V"
+        },
+        "expected_results": {
+          "vout_actual": -12.0,
+          "ripple_mv": 5,
+          "efficiency_est": 0.84,
+          "psrr_at_120hz_db": 72,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_060",
+      "prompt": "Design a boost converter: 5V to 24V, 500mA for sensor excitation. Constraint: Output capacitor < 10µF (space limited)",
+      "constraints": {
+        "max_output_capacitance_uf": 10
+      },
+      "solution": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 24.0,
+        "iout": 0.5,
+        "power": 12.0,
+        "f_sw": 1000000,
+        "duty_cycle": 0.792,
+        "components": {
+          "L": {"value": 4.7e-6, "unit": "H", "rating": "3A saturation"},
+          "C_out": {"value": 4.7e-6, "unit": "F", "type": "ceramic X5R 35V"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 48.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 5/24 = 0.792",
+          "output_ripple": "ΔVout = Iout*D/(f_sw*Cout)",
+          "high_frequency": "1MHz switching allows small cap with acceptable ripple"
+        },
+        "constraint_analysis": {
+          "ripple_calculation": "ΔVout = 0.5*0.792/(1e6*4.7µF) = 84mV",
+          "ripple_percent": "84mV/24V = 0.35% - acceptable for sensor",
+          "cap_selected": "4.7µF << 10µF limit ✓",
+          "design_approach": "High fsw reduces capacitor requirement proportionally"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 84,
+          "efficiency_est": 0.87,
+          "output_capacitance_uf": 4.7,
+          "constraint_met": true
+        }
+      }
+    }
+  ]
+}

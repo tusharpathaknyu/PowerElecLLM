@@ -1,0 +1,447 @@
+{
+  "level": 2,
+  "solutions": [
+    {
+      "id": "L2_061",
+      "prompt": "Design a buck converter: 48V to 1.8V, 20A for DDR4 memory. Constraint: Output impedance < 1mΩ at 1MHz",
+      "constraints": {
+        "output_impedance_mohm": 1,
+        "frequency_mhz": 1
+      },
+      "solution": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 1.8,
+        "iout": 20.0,
+        "power": 36.0,
+        "f_sw": 500000,
+        "duty_cycle": 0.0375,
+        "phases": 2,
+        "components": {
+          "L_per_phase": {"value": 220e-9, "unit": "H", "rating": "15A, ultra-low DCR"},
+          "C_out": {"value": 2000e-6, "unit": "F", "type": "MLCC array 22µF×90 + POSCAP"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 0.09, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 1.8/48 = 0.0375",
+          "output_impedance": "Zout = ESR || (1/jωC) || closed-loop Zo",
+          "esr_parallel": "ESR_total = ESR_single/N_caps"
+        },
+        "constraint_analysis": {
+          "mlcc_esr": "22µF X5R ≈ 2mΩ, 90 parallel → 22µΩ",
+          "impedance_at_1mhz": "1/(2π*1MHz*2000µF) = 0.08mΩ capacitive",
+          "total_impedance": "Dominated by ESL at 1MHz, ~0.5mΩ with proper layout",
+          "design_approach": "Massive MLCC array with interleaved layout"
+        },
+        "expected_results": {
+          "vout_actual": 1.8,
+          "ripple_mv": 10,
+          "efficiency_est": 0.88,
+          "output_impedance_at_1mhz_mohm": 0.8,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_062",
+      "prompt": "Design a flyback converter: 24V to 12V isolated, 2A for medical isolation. Constraint: Leakage current < 100µA per IEC 60601",
+      "constraints": {
+        "leakage_current_ua": 100,
+        "safety_standard": "IEC 60601"
+      },
+      "solution": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 150000,
+        "turns_ratio": 1.0,
+        "duty_cycle": 0.50,
+        "components": {
+          "Lm": {"value": 150e-6, "unit": "H", "rating": "primary magnetizing"},
+          "transformer": {
+            "turns_ratio": "1:1",
+            "construction": "EE20, 4kV isolation, <5pF interwinding",
+            "insulation": "Triple layer reinforced"
+          },
+          "C_out": {"value": 220e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 6.0, "unit": "Ω"},
+          "y_capacitor": {"value": 100e-12, "unit": "F", "type": "Y1 - minimize for low leakage"},
+          "clamp": {"type": "RCD"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = N*Vout/(Vin + N*Vout) = 12/(24+12) = 0.50",
+          "leakage_current": "Ilk = Vpk * 2πf * Cps for each capacitive path",
+          "y_cap_leakage": "Ilk_y = 24V * 2π * 150kHz * 100pF = 2.3µA"
+        },
+        "constraint_analysis": {
+          "interwinding_leakage": "Ilk_xfmr = 24V * 2π * 150kHz * 5pF = 0.11µA",
+          "total_leakage": "2.3µA + 0.11µA = 2.4µA << 100µA ✓",
+          "hipot_rating": "4kV isolation exceeds 2xMOPP requirement",
+          "design_approach": "Minimize Y-cap, use low-Cps transformer design"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.85,
+          "leakage_current_ua": 2.4,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_063",
+      "prompt": "Design a boost converter: 48V to 380V, 1A for PFC pre-regulator. Constraint: Input current THD < 5%",
+      "constraints": {
+        "input_thd_percent": 5
+      },
+      "solution": {
+        "topology": "boost_ccm_pfc",
+        "vin_range": "36-60V DC (from rectified 48VAC)",
+        "vout": 380.0,
+        "iout": 1.0,
+        "power": 380.0,
+        "f_sw": 100000,
+        "duty_cycle_range": "0.84-0.91",
+        "components": {
+          "L": {"value": 500e-6, "unit": "H", "rating": "4A saturation, CCM operation"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "electrolytic 450V"},
+          "C_in": {"value": 4.7e-6, "unit": "F", "type": "film X2 for EMI filter"},
+          "R_load": {"value": 380.0, "unit": "Ω"},
+          "controller": {"type": "average current mode PFC controller"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout varies with input voltage",
+          "inductor_ccm": "L > Vin*D*(1-D)/(2*f_sw*Icrit) for CCM at all loads",
+          "current_shaping": "Average current mode forces Iin to follow Vin"
+        },
+        "constraint_analysis": {
+          "ccm_operation": "Large L ensures CCM for smooth input current",
+          "current_loop": "Average current mode provides <2% current error",
+          "thd_sources": "Crossover distortion, switching ripple, dead time",
+          "measured_thd": "With proper loop design, THD < 3% achievable ✓"
+        },
+        "expected_results": {
+          "vout_actual": 380.0,
+          "ripple_mv": 2000,
+          "efficiency_est": 0.95,
+          "input_thd_percent": 3.5,
+          "power_factor": 0.99,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_064",
+      "prompt": "Design a half-bridge converter: 400V to 12V, 25A for server. Constraint: Synchronous rectification for > 95% efficiency",
+      "constraints": {
+        "efficiency_percent": 95,
+        "rectification": "synchronous"
+      },
+      "solution": {
+        "topology": "half_bridge_sr",
+        "vin": 400.0,
+        "vout": 12.0,
+        "iout": 25.0,
+        "power": 300.0,
+        "f_sw": 200000,
+        "turns_ratio": 8.0,
+        "components": {
+          "transformer": {"turns_ratio": "8:1", "construction": "planar EI core"},
+          "L_output": {"value": 2.2e-6, "unit": "H", "rating": "35A, very low DCR"},
+          "C_out": {"value": 1500e-6, "unit": "F", "type": "MLCC + polymer array"},
+          "C_split": {"value": 47e-6, "unit": "F", "type": "film 250V"},
+          "C_in": {"value": 100e-6, "unit": "F", "type": "film 450V"},
+          "R_load": {"value": 0.48, "unit": "Ω"},
+          "sr_fets": {"type": "dual N-ch MOSFET", "rdson": "1.5mΩ", "driver": "self-driven or IC"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin/(4*Vout) = 400/48 ≈ 8:1",
+          "sr_conduction_loss": "Psr = 2 * Irms² * Rdson = 2 * 25² * 0.0015 = 1.9W",
+          "diode_loss_comparison": "Pdiode = 2 * Iavg * Vf = 2 * 25 * 0.4 = 20W"
+        },
+        "constraint_analysis": {
+          "sr_benefit": "20W - 1.9W = 18.1W saved by sync rect",
+          "total_losses": "Primary: 4W, Transformer: 3W, SR: 2W, Output: 2W = 11W",
+          "efficiency_calc": "η = 300/(300+11) = 96.4% > 95% ✓",
+          "sr_timing": "Precise gate timing prevents shoot-through and body diode conduction"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.96,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_065",
+      "prompt": "Design a buck converter: 12V to 5V, 3A for automotive camera. Constraint: Operating temp -40°C to +125°C",
+      "constraints": {
+        "temp_min_c": -40,
+        "temp_max_c": 125
+      },
+      "solution": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 500000,
+        "duty_cycle": 0.417,
+        "components": {
+          "L": {"value": 10e-6, "unit": "H", "rating": "5A, NP0/X7R, AEC-Q200"},
+          "C_out": {"value": 47e-6, "unit": "F", "type": "ceramic X7R AEC-Q200 - no electrolytics"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic X7R"},
+          "R_load": {"value": 1.67, "unit": "Ω"},
+          "controller": {"type": "AEC-Q100 grade 0 (-40 to +150°C)"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/12 = 0.417",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*0.583/(500e3*0.6) = 9.7µH → 10µH"
+        },
+        "constraint_analysis": {
+          "electrolytic_prohibition": "Electrolytics fail at -40°C and degrade at +125°C",
+          "ceramic_selection": "X7R: -55 to +125°C, ±15% capacitance change",
+          "inductor_core": "NiZn or powdered iron stable over temp",
+          "controller_grade": "AEC-Q100 Grade 0 rated to +150°C ✓"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.91,
+          "temp_range_verified": "-40 to +125°C",
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_066",
+      "prompt": "Design a Ćuk converter: 18V to -18V, 1A for precision instrumentation. Constraint: Output noise < 1mV RMS",
+      "constraints": {
+        "output_noise_mv_rms": 1
+      },
+      "solution": {
+        "topology": "cuk",
+        "vin": 18.0,
+        "vout": -18.0,
+        "iout": 1.0,
+        "power": 18.0,
+        "f_sw": 250000,
+        "duty_cycle": 0.5,
+        "components": {
+          "L1": {"value": 100e-6, "unit": "H", "rating": "2A saturation, shielded"},
+          "L2": {"value": 100e-6, "unit": "H", "rating": "1.5A saturation, shielded"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "film polypropylene"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "film + ceramic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 18.0, "unit": "Ω"},
+          "post_filter": {
+            "L_filter": {"value": 100e-6, "unit": "H"},
+            "C_filter": {"value": 100e-6, "unit": "F", "type": "film"},
+            "ldo": {"type": "-18V LDO", "vin": "-19V from Ćuk"}
+          }
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 18/36 = 0.5",
+          "cuk_ripple": "Inherently low output ripple due to L2 in series",
+          "post_filter_fc": "fc = 1/(2π√(100µH*100µF)) = 1.6kHz"
+        },
+        "constraint_analysis": {
+          "cuk_output_ripple": "~5mV with L2 filtering",
+          "lc_filter_attenuation": "-60dB at 250kHz switching",
+          "ldo_noise": "Good LDO adds <100µV RMS noise",
+          "total_noise": "5mV * 0.001 + 0.1mV = 0.1mV RMS << 1mV ✓"
+        },
+        "expected_results": {
+          "vout_actual": -18.0,
+          "ripple_mv": 0.5,
+          "efficiency_est": 0.82,
+          "output_noise_mv_rms": 0.15,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_067",
+      "prompt": "Design a forward converter: 48V to 3.3V, 20A for telecom DSP. Constraint: Current sharing < 5% between parallel modules",
+      "constraints": {
+        "current_share_error_percent": 5,
+        "modules": 2
+      },
+      "solution": {
+        "topology": "forward_parallel",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout_total": 20.0,
+        "iout_per_module": 10.0,
+        "power_total": 66.0,
+        "f_sw": 300000,
+        "turns_ratio": 5.0,
+        "components_per_module": {
+          "transformer": {"turns_ratio": "5:1", "construction": "EE25"},
+          "L_output": {"value": 3.3e-6, "unit": "H", "rating": "15A saturation"},
+          "C_out_shared": {"value": 1000e-6, "unit": "F", "type": "MLCC array"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "current_sense": {"type": "DCR sensing or Hall effect"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin*D/Vout = 48*0.35/3.3 ≈ 5:1",
+          "duty_cycle": "D = Vout*N/Vin = 3.3*5/48 = 0.34"
+        },
+        "constraint_analysis": {
+          "sharing_method": "Active current sharing with droop compensation",
+          "droop_resistance": "Rdroop = ΔV_allowed / Iout = 33mV/10A = 3.3mΩ",
+          "current_sense_accuracy": "±1% sense accuracy → ±2% current error",
+          "total_imbalance": "2% sense + 2% Rds_on mismatch = 4% < 5% ✓"
+        },
+        "expected_results": {
+          "vout_actual": 3.3,
+          "ripple_mv": 30,
+          "efficiency_est": 0.89,
+          "current_share_error_percent": 4,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_068",
+      "prompt": "Design a buck converter: 72V to 24V, 6A for golf cart accessories. Constraint: Reverse polarity protection without significant loss",
+      "constraints": {
+        "reverse_polarity_protected": true,
+        "protection_loss_percent": 1
+      },
+      "solution": {
+        "topology": "buck",
+        "vin": 72.0,
+        "vout": 24.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.333,
+        "components": {
+          "L": {"value": 68e-6, "unit": "H", "rating": "8A saturation"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic 100V"},
+          "R_load": {"value": 4.0, "unit": "Ω"},
+          "reverse_protection": {
+            "type": "P-channel MOSFET",
+            "part": "100V P-FET, 10mΩ Rdson",
+            "connection": "High-side series with body diode blocking reverse"
+          }
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 24/72 = 0.333",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 24*0.667/(200e3*1.2) = 67µH → 68µH"
+        },
+        "constraint_analysis": {
+          "mosfet_loss": "P = I²*Rdson = 2² * 10mΩ = 40mW (Iin avg)",
+          "loss_percent": "40mW / 144W = 0.03% << 1% ✓",
+          "vs_diode": "Schottky would be 0.4V * 2A = 0.8W = 0.6%",
+          "design_approach": "P-FET conducts when Vin positive, blocks when reversed"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.93,
+          "protection_loss_percent": 0.03,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_069",
+      "prompt": "Design a boost converter: 24V to 48V, 4A for hybrid vehicle auxiliary. Constraint: Bidirectional operation for regeneration",
+      "constraints": {
+        "bidirectional": true,
+        "reverse_power_w": 192
+      },
+      "solution": {
+        "topology": "bidirectional_boost_buck",
+        "v_low": 24.0,
+        "v_high": 48.0,
+        "i_low_max": 8.0,
+        "i_high_max": 4.0,
+        "power": 192.0,
+        "f_sw": 100000,
+        "components": {
+          "L": {"value": 100e-6, "unit": "H", "rating": "10A saturation bidirectional"},
+          "C_low": {"value": 470e-6, "unit": "F", "type": "electrolytic 35V"},
+          "C_high": {"value": 220e-6, "unit": "F", "type": "electrolytic 63V"},
+          "Q_low": {"type": "N-ch MOSFET", "rating": "60V 15mΩ", "role": "boost switch/buck sync"},
+          "Q_high": {"type": "N-ch MOSFET", "rating": "80V 20mΩ", "role": "boost sync/buck switch"}
+        },
+        "design_equations": {
+          "boost_mode": "Q_low switches, Q_high synchronous, 24V→48V",
+          "buck_mode": "Q_high switches, Q_low synchronous, 48V→24V",
+          "duty_boost": "D = 1 - 24/48 = 0.5",
+          "duty_buck": "D = 24/48 = 0.5"
+        },
+        "constraint_analysis": {
+          "bidirectional_topology": "Half-bridge with inductor to midpoint",
+          "boost_operation": "Motor drive: 24V battery to 48V bus",
+          "buck_operation": "Regen: 48V bus charges 24V battery",
+          "seamless_transition": "Current-mode control handles direction change ✓"
+        },
+        "expected_results": {
+          "efficiency_boost": 0.94,
+          "efficiency_buck": 0.95,
+          "ripple_mv": 100,
+          "bidirectional_verified": true,
+          "constraint_met": true
+        }
+      }
+    },
+    {
+      "id": "L2_070",
+      "prompt": "Design a flyback converter: 12V to 5V isolated, 2A for USB isolator. Constraint: Isolation voltage > 2.5kV RMS",
+      "constraints": {
+        "isolation_voltage_kv_rms": 2.5
+      },
+      "solution": {
+        "topology": "flyback",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 200000,
+        "turns_ratio": 1.0,
+        "duty_cycle": 0.29,
+        "components": {
+          "Lm": {"value": 47e-6, "unit": "H", "rating": "primary magnetizing"},
+          "transformer": {
+            "turns_ratio": "1:1",
+            "construction": "EP13 core, 5kV isolation",
+            "insulation": "Triple-insulated wire or reinforced tape",
+            "creepage": "8mm minimum slot in bobbin",
+            "clearance": "6mm air gap"
+          },
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic + electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.5, "unit": "Ω"},
+          "clamp": {"type": "RCD", "value": "1kΩ, 100pF"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin*D/(Vout*(1-D)) = 12*0.29/(5*0.71) = 1:1",
+          "duty_cycle": "D = N*Vout/(Vin + N*Vout) = 5/(12+5) = 0.29"
+        },
+        "constraint_analysis": {
+          "transformer_isolation": "5kV rated transformer > 2.5kV ✓",
+          "hipot_test": "5kV DC for 1 minute or 3.5kV RMS for 1 minute",
+          "creepage_clearance": "IEC 60950 / 62368 reinforced insulation",
+          "partial_discharge": "<10pC at 1.5x working voltage"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.82,
+          "isolation_achieved_kv": 5.0,
+          "constraint_met": true
+        }
+      }
+    }
+  ]
+}

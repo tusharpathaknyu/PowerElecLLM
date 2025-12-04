@@ -1,0 +1,444 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "solutions": [
+    {
+      "problem_id": "L4_021",
+      "title": "Stellarator Fusion Coil Power Supply",
+      "application": "Complex 3D superconducting coil power for Wendelstein 7-X class stellarator",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 15000,
+        "V_out": 2000,
+        "I_out": 20000,
+        "P_out": 40000000,
+        "I_ripple_ppm": 50,
+        "field_accuracy_ppm": 10,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "Field accuracy < 10ppm for plasma confinement",
+        "50+ independent coil supplies synchronized",
+        "Quench detection in < 100ms",
+        "Energy dump capability 1GJ in 10s",
+        "Non-planar coil inductance compensation"
+      ],
+      "design_approach": "Distributed thyristor converters with central coordination. Active current sharing between parallel supplies. Quench protection with crowbar and dump resistor systems.",
+      "formulas": {
+        "coil_energy": "E = 0.5 × L × I² = 0.5 × 5H × 20000² = 1GJ",
+        "dump_resistor": "R_dump = 2 × E / (I² × t) = 2 × 1G / (20k² × 10) = 0.5Ω",
+        "dump_power": "P_dump = I² × R = 20000² × 0.5 = 200MW peak",
+        "ripple_filter": "L_f = V / (2π × f × ΔI) = 2000 / (2π × 5k × 1) = 63.7mH",
+        "di_dt_limit": "di/dt_max = V / L = 2000 / 5 = 400A/s"
+      },
+      "solution": {
+        "L_filter": 70e-3,
+        "C_filter": 100e-6,
+        "R_dump": 0.5,
+        "modules": 50,
+        "f_sw": 5000
+      },
+      "component_ratings": {
+        "thyristor": "20kV, 25kA phase-controlled converter",
+        "dump_resistor": "0.5Ω, 200MW pulse rated",
+        "crowbar": "25kA solid-state crowbar",
+        "filter_inductor": "70mH, 20kA, iron-core"
+      }
+    },
+    {
+      "problem_id": "L4_022",
+      "title": "Brain-Computer Interface Stimulator Array",
+      "application": "High-density cortical stimulation array with 10,000 independent channels",
+      "difficulty": "expert",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 3.3,
+        "V_out_range": "0.1-3",
+        "I_per_channel_uA": 100,
+        "channels": 10000,
+        "P_total": 3,
+        "pulse_resolution_us": 1,
+        "f_sw": 4000000
+      },
+      "constraints": [
+        "10,000 independent current sources",
+        "Charge-balanced stimulation for tissue safety",
+        "Inter-channel crosstalk < -60dB",
+        "Implant power budget < 10mW total",
+        "MRI conditional design"
+      ],
+      "design_approach": "Single high-efficiency buck with distributed current mirrors. Time-multiplexed stimulus generation with local sample-hold. Ultra-low quiescent current design.",
+      "formulas": {
+        "total_current": "I_total = N × I_ch = 10000 × 100μA = 1A (if all active)",
+        "duty_cycle_avg": "D = V_out_avg / V_in = 1.5 / 3.3 = 0.45",
+        "inductor": "L = V_in × D × (1-D) / (f × ΔI) = 3.3 × 0.45 × 0.55 / (4M × 0.1) = 2μH",
+        "output_capacitor": "C_out = I_step / (f × ΔV) = 0.1 / (4M × 0.01) = 2.5μF",
+        "channel_capacitor": "C_ch = I_ch × t_pulse / ΔV = 100μ × 100μ / 0.05 = 200pF"
+      },
+      "solution": {
+        "L": 2e-6,
+        "C_out": 3e-6,
+        "C_in": 10e-6,
+        "C_channel": 200e-12,
+        "f_sw": 4000000
+      },
+      "component_ratings": {
+        "MOSFET": "5V, 2A integrated power stage",
+        "inductor": "2μH, 2A, thin-film",
+        "current_mirror": "100μA full scale, 8-bit",
+        "MUX": "1000:1 time-division multiplexer"
+      }
+    },
+    {
+      "problem_id": "L4_023",
+      "title": "Spacecraft Solar Electric Propulsion System",
+      "application": "Hall thruster cluster power for deep space mission with 50kW total electric propulsion",
+      "difficulty": "expert",
+      "topology": "boost",
+      "specifications": {
+        "V_in_solar": "80-150",
+        "V_out": 400,
+        "P_out": 50000,
+        "thrusters": 4,
+        "efficiency_min": 0.96,
+        "f_sw": 100000,
+        "mission_years": 15
+      },
+      "constraints": [
+        "Wide input range for solar array degradation over 15 years",
+        "Hot redundancy with any 3 of 4 thrusters",
+        "Graceful degradation capability",
+        "Autonomous fault recovery without ground command",
+        "Mass < 30kg total"
+      ],
+      "design_approach": "Interleaved boost with input current sharing. Modular architecture with N+1 redundancy. Digital control with adaptive MPPT tracking solar array aging.",
+      "formulas": {
+        "duty_cycle_min": "D_min = 1 - V_in_max/V_out = 1 - 150/400 = 0.625",
+        "duty_cycle_max": "D_max = 1 - V_in_min/V_out = 1 - 80/400 = 0.8",
+        "phase_count": "N = 4 for 90° interleave",
+        "phase_inductor": "L_ph = V_in × D × (1-D) / (f × ΔI) = 100 × 0.7 × 0.3 / (100k × 13) = 16μH",
+        "output_capacitor": "C_out = I_out × D / (N × f × ΔV) = 125 × 0.7 / (4 × 100k × 4) = 55μF",
+        "input_capacitor": "C_in = P / (V_in × f × ΔV_in) = 50k / (100 × 100k × 5) = 100μF"
+      },
+      "solution": {
+        "L": 20e-6,
+        "C_out": 60e-6,
+        "C_in": 100e-6,
+        "phases": 4,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "200V, 80A GaN space-grade",
+        "inductor": "20μH, 40A per phase, rad-hard",
+        "output_capacitor": "60μF, 450V, ceramic",
+        "diode": "600V, 50A SiC Schottky"
+      }
+    },
+    {
+      "problem_id": "L4_024",
+      "title": "Particle Therapy Synchrotron Kicker Magnet",
+      "application": "Fast beam extraction kicker for carbon ion therapy with nanosecond rise time",
+      "difficulty": "expert",
+      "topology": "half_bridge",
+      "specifications": {
+        "V_in": 80000,
+        "V_out_pulse": 60000,
+        "I_peak": 5000,
+        "rise_time_ns": 50,
+        "pulse_width_us": 1,
+        "rep_rate_Hz": 1,
+        "efficiency_min": 0.85
+      },
+      "constraints": [
+        "50ns rise time for beam extraction window",
+        "Field flatness < 0.1% during pulse",
+        "Jitter < 1ns for synchronization",
+        "Recovery < 1ms for next cycle",
+        "Radiation hardened for tunnel location"
+      ],
+      "design_approach": "Pulse-forming network with thyratron switch replaced by solid-state stack. Blumlein transmission line for impedance matching. Magnetic compression for final rise time.",
+      "formulas": {
+        "characteristic_impedance": "Z0 = V / I = 60000 / 5000 = 12Ω",
+        "PFN_capacitance": "C_PFN = t_pulse / (2 × Z0) = 1μ / (2 × 12) = 42nF",
+        "PFN_inductance": "L_PFN = t_pulse × Z0 / 2 = 1μ × 12 / 2 = 6μH",
+        "stored_energy": "E = 0.5 × C × V² = 0.5 × 42n × 60000² = 75.6J",
+        "rise_time_L_C": "t_r = 2.2 × √(L×C) / N_sections"
+      },
+      "solution": {
+        "L_PFN": 6e-6,
+        "C_PFN": 45e-9,
+        "sections": 10,
+        "Z0": 12,
+        "f_rep": 1
+      },
+      "component_ratings": {
+        "thyristor_stack": "100kV, 10kA ultra-fast",
+        "PFN_capacitor": "45nF per section, 80kV ceramic",
+        "PFN_inductor": "6μH per section, air-core",
+        "magnetic_switch": "Saturable inductor for compression"
+      }
+    },
+    {
+      "problem_id": "L4_025",
+      "title": "Molten Salt Reactor Pump Power",
+      "application": "Primary loop pump motor drive for 500MWth molten salt nuclear reactor",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 6600,
+        "V_out": 4160,
+        "P_out": 2000000,
+        "motor_poles": 4,
+        "speed_rpm": 1800,
+        "efficiency_min": 0.97,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "Class 1E nuclear safety qualification",
+        "700°C salt temperature proximity",
+        "Seismic Category I rated",
+        "Loss of coolant accident ride-through",
+        "100-year design life with maintenance"
+      ],
+      "design_approach": "Redundant parallel inverters with seamless transfer capability. Passive cooling for first 72 hours without AC power. Nuclear-qualified components throughout.",
+      "formulas": {
+        "motor_torque": "T = P / ω = 2MW / (1800 × 2π/60) = 10.6kNm",
+        "phase_current": "I_ph = P / (√3 × V × pf × η) = 2M / (√3 × 4160 × 0.9 × 0.97) = 327A",
+        "DC_link_voltage": "V_dc = √2 × V_ll = √2 × 6600 = 9333V",
+        "DC_link_capacitor": "C_dc = P / (V × f × ΔV) = 2M / (9333 × 5k × 100) = 428μF",
+        "output_filter": "L_f = V_dc / (8 × f × ΔI) = 9333 / (8 × 5k × 33) = 7.1mH"
+      },
+      "solution": {
+        "L_filter": 8e-3,
+        "C_dc": 500e-6,
+        "modules": 2,
+        "f_sw": 5000
+      },
+      "component_ratings": {
+        "IGBT": "6.5kV, 500A press-pack IGBT",
+        "DC_link": "500μF, 10kV, film capacitor",
+        "filter_inductor": "8mH, 400A, reactor grade",
+        "cooling": "Passive heat sink + emergency fans"
+      }
+    },
+    {
+      "problem_id": "L4_026",
+      "title": "Quantum Cascade Laser Cryocooler Driver",
+      "application": "Stirling cryocooler motor drive for space-based infrared spectrometer",
+      "difficulty": "expert",
+      "topology": "half_bridge",
+      "specifications": {
+        "V_in": 28,
+        "V_out_ac": 24,
+        "I_out": 3,
+        "f_out": 60,
+        "P_out": 72,
+        "efficiency_min": 0.94,
+        "vibration_mg": 0.1
+      },
+      "constraints": [
+        "Vibration export < 0.1mg for telescope pointing",
+        "Phase-locked to spacecraft master clock",
+        "5-year continuous cryogenic operation",
+        "Cold redundancy with hot swap",
+        "EMI compatible with sensitive detectors"
+      ],
+      "design_approach": "Sinusoidal drive with active vibration cancellation using dual-opposed pistons. Digital phase-locked loop for frequency stability. Closed-loop position control for stroke optimization.",
+      "formulas": {
+        "piston_force": "F = P × A = 3 × 24 / v_peak, balanced by dual opposed",
+        "motor_constant": "K_m = F / I = 24N / 3A = 8 N/A",
+        "drive_voltage": "V_pk = √2 × V_rms = √2 × 24 = 34V",
+        "filter_inductor": "L_f = V_dc / (4 × f_sw × ΔI) = 28 / (4 × 100k × 0.3) = 233μH",
+        "output_filter": "C_f = 1 / (4 × π² × f_c² × L_f), f_c = 600Hz"
+      },
+      "solution": {
+        "L_filter": 250e-6,
+        "C_filter": 22e-6,
+        "C_in": 100e-6,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "60V, 10A space-grade",
+        "filter_inductor": "250μH, 5A, shielded",
+        "filter_capacitor": "22μF, 50V, ceramic X7R",
+        "position_sensor": "LVDT, 0.1μm resolution"
+      }
+    },
+    {
+      "problem_id": "L4_027",
+      "title": "Extreme Ultraviolet Lithography Source Driver",
+      "application": "50kW CO2 laser pre-pulse driver for EUV tin droplet plasma generation",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 480,
+        "V_out": 30000,
+        "P_out": 50000,
+        "pulse_width_ns": 10,
+        "rep_rate": 50000,
+        "efficiency_min": 0.85,
+        "jitter_ps": 100
+      },
+      "constraints": [
+        "100ps jitter for droplet synchronization",
+        "50kHz repetition rate continuous operation",
+        "Pulse-to-pulse energy stability < 1%",
+        "24/7 semiconductor fab operation",
+        "Clean room compatible cooling"
+      ],
+      "design_approach": "Resonant charging of pulse-forming network with solid-state switching. Active pulse shaping for optimal plasma formation. Real-time feedback from EUV sensor.",
+      "formulas": {
+        "pulse_energy": "E_pulse = P_avg / f_rep = 50000 / 50000 = 1J",
+        "peak_power": "P_peak = E / t_pulse = 1 / 10n = 100MW",
+        "PFN_capacitance": "C = 2 × E / V² = 2 × 1 / 30000² = 2.2nF",
+        "charging_power": "P_charge = E × f = 1 × 50000 = 50kW",
+        "resonant_inductor": "L_r = 1 / (4 × π² × f_r² × C)"
+      },
+      "solution": {
+        "C_PFN": 2.5e-9,
+        "L_resonant": 10e-6,
+        "C_storage": 100e-6,
+        "f_rep": 50000
+      },
+      "component_ratings": {
+        "IGBT_stack": "40kV, 100A ultra-fast",
+        "PFN_capacitor": "2.5nF, 40kV, ceramic",
+        "storage_capacitor": "100μF, 1kV, film",
+        "thyratron": "Solid-state replacement, 10ns"
+      }
+    },
+    {
+      "problem_id": "L4_028",
+      "title": "Cryogenic Particle Detector Bias Supply",
+      "application": "Liquid argon TPC drift field supply for neutrino detector at -186°C",
+      "difficulty": "expert",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 200000,
+        "I_out_uA": 100,
+        "P_out": 20,
+        "V_ripple_ppm": 1,
+        "temperature_C": -186,
+        "field_uniformity": "0.01%"
+      },
+      "constraints": [
+        "Operation at liquid argon temperature (-186°C)",
+        "Field uniformity < 0.01% over 10m drift",
+        "Ripple < 1ppm for electron drift consistency",
+        "Spark-over protection with μs response",
+        "10-year underground operation"
+      ],
+      "design_approach": "Cockcroft-Walton multiplier fed by flyback. Resistive field grading with precision divider. Active ripple cancellation using piezo-electric filter.",
+      "formulas": {
+        "multiplier_stages": "N = V_out / V_stage = 200000 / 10000 = 20 stages",
+        "stage_capacitance": "C = I / (N × f × ΔV) = 100μ / (20 × 100k × 0.2) = 250pF",
+        "flyback_voltage": "V_fly = V_stage × 2 = 20kV peak",
+        "field_grading_R": "R_total = V / I = 200000 / 100μ = 2GΩ",
+        "input_power": "P_in = P_out / η = 20 / 0.8 = 25W"
+      },
+      "solution": {
+        "L": 500e-6,
+        "C_stage": 300e-12,
+        "C_in": 100e-6,
+        "stages": 20,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "100V, 2A cryogenic-rated",
+        "multiplier_cap": "300pF, 15kV, ceramic",
+        "multiplier_diode": "15kV, 1mA, fast recovery",
+        "field_resistor": "100MΩ × 20, 1% tolerance"
+      }
+    },
+    {
+      "problem_id": "L4_029",
+      "title": "Plasma Wakefield Accelerator Modulator",
+      "application": "Drive beam modulator for plasma-based TeV particle accelerator research",
+      "difficulty": "expert",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 30000,
+        "V_out_pulse": 500000,
+        "I_pulse": 3000,
+        "pulse_width_ps": 100,
+        "rep_rate": 10,
+        "energy_J": 150
+      },
+      "constraints": [
+        "100ps pulse width for plasma wake excitation",
+        "Bunch-to-bunch timing < 10ps",
+        "Energy per pulse = 150J",
+        "5MV/m gradient generation",
+        "Synchronization with laser systems"
+      ],
+      "design_approach": "Marx generator with solid-state switching feeding pulse compression system. Magnetic switches for final compression to picosecond regime. Water-insulated transmission lines.",
+      "formulas": {
+        "marx_stages": "N = V_out / V_charge = 500000 / 25000 = 20",
+        "stage_capacitance": "C = 2 × E / (N × V²) = 2 × 150 / (20 × 25000²) = 24nF",
+        "characteristic_impedance": "Z = V / I = 500000 / 3000 = 167Ω",
+        "compression_ratio": "CR = t_initial / t_final = 1μs / 100ps = 10000",
+        "magnetic_stages": "Each gives ~10×, need 4 stages"
+      },
+      "solution": {
+        "C_marx": 25e-9,
+        "marx_stages": 20,
+        "L_compress": 1e-6,
+        "compression_stages": 4,
+        "f_rep": 10
+      },
+      "component_ratings": {
+        "spark_gap": "Replaced by solid-state 30kV, 5kA",
+        "marx_capacitor": "25nF, 30kV, pulse rated",
+        "transmission_line": "167Ω, water-insulated",
+        "magnetic_switch": "Saturable inductor, ns rise"
+      }
+    },
+    {
+      "problem_id": "L4_030",
+      "title": "Ocean Floor Observatory Power System",
+      "application": "Deep sea cabled observatory node at 6000m depth requiring 25-year service life",
+      "difficulty": "expert",
+      "topology": "forward",
+      "specifications": {
+        "V_in": 10000,
+        "V_out": 48,
+        "P_out": 5000,
+        "depth_m": 6000,
+        "cable_length_km": 100,
+        "efficiency_min": 0.92,
+        "lifetime_years": 25
+      },
+      "constraints": [
+        "600 bar pressure rated enclosure",
+        "25-year maintenance-free operation",
+        "Seawater ground fault protection",
+        "Cable break detection and isolation",
+        "Hot-pluggable instrument ports"
+      ],
+      "design_approach": "Oil-filled pressure-compensated housing with forward converter. Series-connected power segments for cable fault tolerance. Redundant communication and power paths.",
+      "formulas": {
+        "cable_resistance": "R_cable = ρ × L / A = 0.017 × 100k / 50mm² = 34Ω",
+        "cable_loss": "P_loss = I² × R = 0.5² × 34 = 8.5W (per wire)",
+        "turns_ratio": "n = V_in × D / V_out = 10000 × 0.4 / 48 = 83",
+        "magnetizing_inductance": "L_m = V_in × D / (f × ΔI_m) = 10k × 0.4 / (100k × 0.5) = 80mH",
+        "output_capacitor": "C_out = I_out / (f × ΔV) = 104 / (100k × 0.5) = 2100μF"
+      },
+      "solution": {
+        "L_m": 80e-3,
+        "L_out": 200e-6,
+        "C_out": 2200e-6,
+        "C_in": 10e-6,
+        "n": 83,
+        "f_sw": 100000
+      },
+      "component_ratings": {
+        "MOSFET": "15kV SiC, oil-immersed",
+        "transformer": "80mH magnetizing, 83:1 ratio",
+        "output_capacitor": "2200μF, 63V, long-life electrolytic",
+        "housing": "Titanium, 600 bar rated"
+      }
+    }
+  ]
+}

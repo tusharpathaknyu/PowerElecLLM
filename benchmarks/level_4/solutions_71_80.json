@@ -1,0 +1,497 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_071",
+      "title": "Magnetic Confinement Fusion Plasma Heating RF Supply",
+      "application": "ITER-class tokamak requiring high-power RF generation for ion cyclotron heating",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 10000,
+        "V_out": 25000,
+        "P_out": 2000000,
+        "ripple_voltage": 100,
+        "efficiency_target": 0.92,
+        "f_sw": 8000,
+        "thermal_interface": "deionized_water",
+        "ambient_temp": 35,
+        "max_junction_temp": 125,
+        "rf_frequency": "40_55MHz",
+        "pulse_length": "1000s"
+      },
+      "constraints": [
+        "RF frequency tunable 40-55 MHz for ICRH",
+        "1000-second pulse length capability",
+        "Plasma load impedance variation 10:1",
+        "Fast shutdown < 10 µs for plasma disruption",
+        "Radiation hardened controls"
+      ],
+      "design_approach": "IGBT bridge feeding high-power tetrode amplifier chain. Cavity resonator for RF generation. Fast crowbar for plasma disruption protection. Water-cooled coaxial transmission to antenna. Impedance matching network.",
+      "solution": {
+        "L": 0.02,
+        "C_out": 0.0002,
+        "C_in": 0.002,
+        "R_load": 0.3125,
+        "duty_cycle": 0.6,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 500,
+          "V_diode": 6500,
+          "I_diode": 500,
+          "V_cap": 30000,
+          "I_L_rms": 105,
+          "P_dissipation": 160000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 10000/25000 = 0.6",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 10000 × 0.6 / (8000 × 37.5) = 20 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 80 × 0.6 / (8000 × 100) = 200 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 200 × 0.6 / (8000 × 7.5) = 2000 µF"
+      }
+    },
+    {
+      "id": "L4_072",
+      "title": "Extreme UV Lithography Source Power",
+      "application": "EUV scanner requiring pulsed power for laser-produced plasma light source",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 2000,
+        "P_out": 30000,
+        "ripple_voltage": 10,
+        "efficiency_target": 0.93,
+        "f_sw": 100000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 23,
+        "max_junction_temp": 100,
+        "euv_power": "500W_in_band",
+        "dose_stability": "0.1%"
+      },
+      "constraints": [
+        "EUV dose stability ±0.1% for lithography",
+        "50 kHz droplet repetition rate",
+        "Tin debris mitigation compatibility",
+        "Cleanroom Class 1 compatible",
+        "CO2 laser pre-pulse synchronization"
+      ],
+      "design_approach": "High-frequency full-bridge driving CO2 laser pumping. Precision timing for droplet-laser synchronization. Cleanroom-compatible sealed enclosure. Fast feedback for dose control. Debris shield power management.",
+      "solution": {
+        "L": 0.00005,
+        "C_out": 0.00015,
+        "C_in": 0.0005,
+        "R_load": 133.3,
+        "duty_cycle": 0.7,
+        "component_ratings": {
+          "V_switch": 2400,
+          "I_switch": 60,
+          "V_diode": 2400,
+          "I_diode": 60,
+          "V_cap": 2500,
+          "I_L_rms": 53,
+          "P_dissipation": 2100
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 600/2000 = 0.7",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 600 × 0.7 / (100000 × 8.4) = 50 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 15 × 0.7 / (100000 × 10) = 150 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 50 × 0.7 / (100000 × 0.7) = 500 µF"
+      }
+    },
+    {
+      "id": "L4_073",
+      "title": "Satellite Formation Flying Propulsion",
+      "application": "Precision formation flying satellites requiring micro-Newton thrust control",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 300,
+        "P_out": 200,
+        "ripple_voltage": 3,
+        "efficiency_target": 0.90,
+        "f_sw": 200000,
+        "thermal_interface": "radiative_space",
+        "ambient_temp": -20,
+        "max_junction_temp": 100,
+        "thrust_resolution": "100nN",
+        "position_accuracy": "1mm"
+      },
+      "constraints": [
+        "Thrust resolution 100 nN for formation control",
+        "Position accuracy ±1 mm over 100 km baseline",
+        "Propellant-free electrospray thrusters",
+        "10-year mission lifetime",
+        "Inter-satellite link coordination"
+      ],
+      "design_approach": "Boost converter for electrospray thruster high voltage. Precision current control for thrust modulation. Radiation-tolerant design for GEO operation. Autonomous formation keeping algorithms. Redundant thruster arrays.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.000022,
+        "C_in": 0.00022,
+        "R_load": 450,
+        "duty_cycle": 0.907,
+        "component_ratings": {
+          "V_switch": 400,
+          "I_switch": 10,
+          "V_diode": 400,
+          "I_diode": 10,
+          "V_cap": 400,
+          "I_L_rms": 7.8,
+          "P_dissipation": 20
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 28/300 = 0.907",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 28 × 0.907 / (200000 × 0.85) = 150 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 0.667 × 0.907 / (200000 × 3) = 22 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 7.14 × 0.907 / (200000 × 0.147) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_074",
+      "title": "HVDC Cable Monitoring Power Injection",
+      "application": "Subsea HVDC transmission requiring distributed monitoring power along cable route",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 500,
+        "V_out": 24,
+        "P_out": 50,
+        "ripple_voltage": 0.2,
+        "efficiency_target": 0.88,
+        "f_sw": 100000,
+        "thermal_interface": "subsea_conduction",
+        "ambient_temp": 4,
+        "max_junction_temp": 85,
+        "depth_rating": "3000m",
+        "cable_voltage": "525kV"
+      },
+      "constraints": [
+        "525 kV HVDC cable coupling",
+        "3000 m depth pressure rating",
+        "25-year maintenance-free operation",
+        "Fiber optic data link integration",
+        "Corrosion resistant for seawater"
+      ],
+      "design_approach": "Isolated flyback extracting power from cable magnetic field. Pressure-compensated oil-filled enclosure. Titanium housing for corrosion resistance. Optical fiber communication to shore. Self-powered from cable field.",
+      "solution": {
+        "L": 0.0005,
+        "C_out": 0.001,
+        "C_in": 0.000047,
+        "R_load": 11.52,
+        "duty_cycle": 0.3,
+        "turns_ratio": 6,
+        "component_ratings": {
+          "V_switch": 800,
+          "I_switch": 0.5,
+          "V_diode": 100,
+          "I_diode": 3,
+          "V_cap": 50,
+          "I_L_rms": 0.35,
+          "P_dissipation": 6
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 24 × 6 / (500 + 24 × 6) = 0.224, use D = 0.3",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 500 × 0.3 / (100000 × 0.3) = 500 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 2.08 × 0.3 / (100000 × 0.2) = 1000 µF",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 50 / (500 × 100000 × 0.012 × 0.88) = 47 µF"
+      }
+    },
+    {
+      "id": "L4_075",
+      "title": "Quantum Memory Magneto-Optical Trap Power",
+      "application": "Quantum network node requiring ultra-stable power for atomic ensemble trapping",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 100,
+        "ripple_voltage": 0.0005,
+        "efficiency_target": 0.89,
+        "f_sw": 1000000,
+        "thermal_interface": "optical_table_conduction",
+        "ambient_temp": 22,
+        "max_junction_temp": 70,
+        "magnetic_field_noise": "1nT/sqrt(Hz)",
+        "trap_lifetime": "1s"
+      },
+      "constraints": [
+        "Magnetic field noise < 1 nT/√Hz for trap stability",
+        "Atom trap lifetime > 1 second",
+        "Zero vibration for optical alignment",
+        "Optical pumping laser power stability ±0.01%",
+        "UHV chamber compatibility (10^-11 Torr)"
+      ],
+      "design_approach": "Ultra-low-noise buck with mu-metal shielded inductors. Multi-stage LC filtering for MOT coil power. Linear post-regulation for final noise floor. Vibration-isolated mounting. Remote power stage placement.",
+      "solution": {
+        "L": 0.000012,
+        "C_out": 0.002,
+        "C_in": 0.001,
+        "R_load": 0.25,
+        "duty_cycle": 0.208,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 25,
+          "V_diode": 40,
+          "I_diode": 25,
+          "V_cap": 10,
+          "I_L_rms": 21,
+          "P_dissipation": 11
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.792 / (1000000 × 0.33) = 12 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.33 / (8 × 1000000 × 0.0005) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 20 × 0.208 × 0.792 / (1000000 × 0.0033) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_076",
+      "title": "Free Electron Laser Undulator Trim Supply",
+      "application": "X-ray FEL requiring precision undulator trim coil power for photon beam tuning",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 10,
+        "P_out": 500,
+        "ripple_voltage": 0.001,
+        "efficiency_target": 0.92,
+        "f_sw": 200000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 25,
+        "max_junction_temp": 85,
+        "current_stability": "10ppm",
+        "field_uniformity": "0.01%"
+      },
+      "constraints": [
+        "Current stability ±10 ppm for beam quality",
+        "Field uniformity ±0.01% along undulator",
+        "32 independent channels per segment",
+        "Radiation tunnel installation",
+        "Remote diagnostics via fiber optic"
+      ],
+      "design_approach": "Precision buck with DCCT feedback for each trim coil. Digital control with 24-bit DAC resolution. Fiber optic links to control room. Water-cooled for tunnel installation. Automatic field mapping calibration.",
+      "solution": {
+        "L": 0.00005,
+        "C_out": 0.003,
+        "C_in": 0.001,
+        "R_load": 0.2,
+        "duty_cycle": 0.208,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 60,
+          "V_diode": 80,
+          "I_diode": 60,
+          "V_cap": 20,
+          "I_L_rms": 52,
+          "P_dissipation": 40
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 10 / 48 = 0.208",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 10 × 0.792 / (200000 × 0.79) = 50 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.79 / (8 × 200000 × 0.001) = 3000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 50 × 0.208 × 0.792 / (200000 × 0.04) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_077",
+      "title": "Cryogenic Hydrogen Storage Pump Drive",
+      "application": "Liquid hydrogen infrastructure requiring pumping power at 20 Kelvin",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 480,
+        "V_out": 400,
+        "P_out": 50000,
+        "ripple_voltage": 4,
+        "efficiency_target": 0.95,
+        "f_sw": 20000,
+        "thermal_interface": "cryogenic_cooling",
+        "ambient_temp": -253,
+        "max_junction_temp": -200,
+        "hydrogen_purity": "99.999%",
+        "flow_rate": "1000kg/hr"
+      },
+      "constraints": [
+        "Operation in liquid hydrogen at 20 K",
+        "Zero ignition source (hydrogen atmosphere)",
+        "1000 kg/hr flow rate control",
+        "Hermetically sealed motor-pump assembly",
+        "Boil-off minimization through efficiency"
+      ],
+      "design_approach": "Cryo-compatible inverter with superconducting motor drive. Hermetically sealed power electronics. Intrinsically safe design for hydrogen. Variable speed control for flow modulation. Heat load minimization.",
+      "solution": {
+        "L": 0.0004,
+        "C_out": 0.002,
+        "C_in": 0.003,
+        "R_load": 3.2,
+        "duty_cycle": 0.833,
+        "component_ratings": {
+          "V_switch": 1200,
+          "I_switch": 160,
+          "V_diode": 1200,
+          "I_diode": 160,
+          "V_cap": 600,
+          "I_L_rms": 130,
+          "P_dissipation": 2500
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 400 / 480 = 0.833",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 400 × 0.167 / (20000 × 8.33) = 400 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 8.33 / (8 × 20000 × 4) = 2000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 125 × 0.833 × 0.167 / (20000 × 0.29) = 3000 µF"
+      }
+    },
+    {
+      "id": "L4_078",
+      "title": "Gravitational Reference Sensor Power",
+      "application": "Space-based gravitational wave detector requiring ultra-quiet proof mass control",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 5,
+        "P_out": 10,
+        "ripple_voltage": 0.00001,
+        "efficiency_target": 0.85,
+        "f_sw": 500000,
+        "thermal_interface": "radiative_space",
+        "ambient_temp": 20,
+        "max_junction_temp": 60,
+        "acceleration_noise": "1e-15_m/s2/sqrt(Hz)",
+        "drag_free_residual": "1e-14_m/s2"
+      },
+      "constraints": [
+        "Acceleration noise < 10^-15 m/s²/√Hz",
+        "Drag-free residual < 10^-14 m/s²",
+        "Electrostatic actuation noise floor",
+        "Zero magnetic materials in assembly",
+        "Capacitive position sensing ±1 pm"
+      ],
+      "design_approach": "Ultra-low-noise buck with extensive filtering for proof mass actuation. Air-core inductors for zero magnetic signature. Battery-backed for noise isolation. Precision DAC for electrostatic actuation. Capacitive bridge sensing.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 2.5,
+        "duty_cycle": 0.179,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 3,
+          "V_diode": 40,
+          "I_diode": 3,
+          "V_cap": 10,
+          "I_L_rms": 2.2,
+          "P_dissipation": 1.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 28 = 0.179",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.821 / (500000 × 0.373) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.373 / (8 × 500000 × 0.00001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 2 × 0.179 × 0.821 / (500000 × 0.0006) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_079",
+      "title": "Antimatter Trap Electrode Power System",
+      "application": "CERN-class antihydrogen experiment requiring Penning trap electrode power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 10,
+        "P_out": 5,
+        "ripple_voltage": 0.0001,
+        "efficiency_target": 0.85,
+        "f_sw": 500000,
+        "thermal_interface": "cryogenic_conduction",
+        "ambient_temp": 4,
+        "max_junction_temp": 77,
+        "voltage_stability": "1ppm",
+        "trap_depth": "500mK"
+      },
+      "constraints": [
+        "Voltage stability ±1 ppm for trap depth",
+        "Operation at 4 K cryogenic temperature",
+        "Magnetic field compatibility (1 Tesla)",
+        "Ultra-high vacuum (10^-17 Torr)",
+        "Annihilation detector compatibility"
+      ],
+      "design_approach": "Room-temperature precision buck with cryogenic filtering. Multiple filter stages at 77 K and 4 K. Precision voltage reference chain. Non-magnetic construction throughout. Optical fiber control links.",
+      "solution": {
+        "L": 0.000047,
+        "C_out": 0.001,
+        "C_in": 0.00022,
+        "R_load": 20,
+        "duty_cycle": 0.417,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 1,
+          "V_diode": 40,
+          "I_diode": 1,
+          "V_cap": 20,
+          "I_L_rms": 0.55,
+          "P_dissipation": 0.75
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 10 / 24 = 0.417",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 10 × 0.583 / (500000 × 0.247) = 47 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.247 / (8 × 500000 × 0.0001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.5 × 0.417 × 0.583 / (500000 × 0.00055) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_080",
+      "title": "Synchrotron Light Source Insertion Device Power",
+      "application": "4th generation synchrotron requiring wiggler/undulator magnet power supply",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 600,
+        "V_out": 100,
+        "P_out": 15000,
+        "ripple_voltage": 0.01,
+        "efficiency_target": 0.95,
+        "f_sw": 50000,
+        "thermal_interface": "water_cooling",
+        "ambient_temp": 25,
+        "max_junction_temp": 100,
+        "current_ripple": "10ppm",
+        "field_stability": "0.001%"
+      },
+      "constraints": [
+        "Current ripple < 10 ppm for photon stability",
+        "Field stability ±0.001% for beam brightness",
+        "Energy recovery from gap changes",
+        "Fast field ramp for energy scanning",
+        "Radiation tunnel compatible"
+      ],
+      "design_approach": "Precision buck with active ripple cancellation. DCCT current transducer for 10 ppm feedback. Regenerative capability for gap changes. Digital control with feed-forward for field ramping. Water-cooled power stage.",
+      "solution": {
+        "L": 0.0003,
+        "C_out": 0.004,
+        "C_in": 0.002,
+        "R_load": 0.667,
+        "duty_cycle": 0.167,
+        "component_ratings": {
+          "V_switch": 800,
+          "I_switch": 180,
+          "V_diode": 800,
+          "I_diode": 180,
+          "V_cap": 150,
+          "I_L_rms": 155,
+          "P_dissipation": 750
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 100 / 600 = 0.167",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 100 × 0.833 / (50000 × 5.55) = 300 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 5.55 / (8 × 50000 × 0.01) = 4000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 150 × 0.167 × 0.833 / (50000 × 0.417) = 2000 µF"
+      }
+    }
+  ]
+}

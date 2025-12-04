@@ -1,0 +1,175 @@
+{
+  "level": 2,
+  "description": "Converter design with constraints and optimization targets",
+  "problems": [
+    {
+      "id": "L2_031",
+      "prompt": "Design a buck converter: 24V to 9V, 4A. Output capacitor limited to 100uF ceramic.",
+      "specs": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 9.0,
+        "iout": 4.0,
+        "power": 36.0
+      },
+      "constraints": {
+        "cout_max_uf": 100,
+        "cap_type": "ceramic",
+        "optimization_target": "size"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_032",
+      "prompt": "Design a full-bridge converter: 350V to 28V, 25A welding power supply.",
+      "specs": {
+        "topology": "full_bridge",
+        "vin": 350.0,
+        "vout": 28.0,
+        "iout": 25.0,
+        "power": 700.0,
+        "isolated": true
+      },
+      "constraints": {
+        "application": "welding",
+        "current_limit": true,
+        "optimization_target": "current_capability"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_033",
+      "prompt": "Design a flyback converter: 24V to ±15V dual output, 500mA each for op-amps.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout_pos": 15.0,
+        "vout_neg": -15.0,
+        "iout": 0.5,
+        "power": 15.0,
+        "isolated": true,
+        "dual_output": true
+      },
+      "constraints": {
+        "output_tracking": true,
+        "optimization_target": "regulation"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_034",
+      "prompt": "Design a buck converter: 5V to 1.0V CPU core, 30A. Transient response < 50mV.",
+      "specs": {
+        "topology": "buck",
+        "vin": 5.0,
+        "vout": 1.0,
+        "iout": 30.0,
+        "power": 30.0
+      },
+      "constraints": {
+        "transient_max_mv": 50,
+        "optimization_target": "transient"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_035",
+      "prompt": "Design a boost converter: 18V to 24V, 5A. Minimum 50% duty cycle headroom.",
+      "specs": {
+        "topology": "boost",
+        "vin": 18.0,
+        "vout": 24.0,
+        "iout": 5.0,
+        "power": 120.0
+      },
+      "constraints": {
+        "duty_max": 0.5,
+        "optimization_target": "headroom"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_036",
+      "prompt": "Design a forward converter: 60V to 24V, 6A. Active clamp reset topology.",
+      "specs": {
+        "topology": "forward",
+        "vin": 60.0,
+        "vout": 24.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "isolated": true
+      },
+      "constraints": {
+        "reset_method": "active_clamp",
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_037",
+      "prompt": "Design a Cuk converter: 12V to -5V, 3A. Coupled inductor for size reduction.",
+      "specs": {
+        "topology": "cuk",
+        "vin": 12.0,
+        "vout": -5.0,
+        "iout": 3.0,
+        "power": 15.0
+      },
+      "constraints": {
+        "coupled_inductor": true,
+        "optimization_target": "size"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_038",
+      "prompt": "Design a half-bridge converter: 120V to 15V, 8A. LLC resonant topology.",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 120.0,
+        "vout": 15.0,
+        "iout": 8.0,
+        "power": 120.0,
+        "isolated": true
+      },
+      "constraints": {
+        "resonant": "LLC",
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_039",
+      "prompt": "Design a buck converter: 48V to 24V, 8A. Hot-swap capable with inrush limiting.",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 24.0,
+        "iout": 8.0,
+        "power": 192.0
+      },
+      "constraints": {
+        "hot_swap": true,
+        "inrush_limit": true,
+        "optimization_target": "protection"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_040",
+      "prompt": "Design a SEPIC converter: 24V to 12V, 3A. Must handle reverse polarity input.",
+      "specs": {
+        "topology": "sepic",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 3.0,
+        "power": 36.0
+      },
+      "constraints": {
+        "reverse_polarity_protection": true,
+        "optimization_target": "protection"
+      },
+      "difficulty": "intermediate"
+    }
+  ]
+}

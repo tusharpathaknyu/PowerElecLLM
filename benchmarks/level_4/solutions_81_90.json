@@ -1,0 +1,496 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_081",
+      "title": "Tokamak Central Solenoid Fast Discharge",
+      "application": "Fusion reactor requiring controlled energy extraction during plasma disruption",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 1000,
+        "V_out": 20000,
+        "P_out": 500000,
+        "ripple_voltage": 100,
+        "efficiency_target": 0.85,
+        "f_sw": 5000,
+        "thermal_interface": "oil_immersed",
+        "ambient_temp": 35,
+        "max_junction_temp": 125,
+        "discharge_time": "10ms",
+        "energy_dump": "500MJ"
+      },
+      "constraints": [
+        "500 MJ energy extraction in 10 ms",
+        "Resistor bank thermal management",
+        "Superconducting coil quench protection",
+        "Fault current limiting capability",
+        "Plasma disruption synchronization"
+      ],
+      "design_approach": "Thyristor-based discharge switch with IGBT assisted turn-off. Stainless steel resistor bank for energy dump. Varistor clamping for voltage transients. Optical trigger for plasma disruption sensing. Redundant discharge paths.",
+      "solution": {
+        "L": 0.05,
+        "C_out": 0.00005,
+        "C_in": 0.001,
+        "R_load": 0.8,
+        "duty_cycle": 0.95,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 1000,
+          "V_diode": 6500,
+          "I_diode": 1000,
+          "V_cap": 25000,
+          "I_L_rms": 280,
+          "P_dissipation": 75000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 1000/20000 = 0.95",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 1000 × 0.95 / (5000 × 3.8) = 50 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 25 × 0.95 / (5000 × 100) = 50 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 500 × 0.95 / (5000 × 95) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_082",
+      "title": "Inertial Confinement Fusion Pulse Power",
+      "application": "NIF-class laser requiring multi-MJ capacitor bank charging system",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 800,
+        "V_out": 24000,
+        "P_out": 200000,
+        "ripple_voltage": 100,
+        "efficiency_target": 0.90,
+        "f_sw": 10000,
+        "thermal_interface": "forced_air",
+        "ambient_temp": 25,
+        "max_junction_temp": 125,
+        "charge_time": "300s",
+        "shot_rate": "1_per_4_hours"
+      },
+      "constraints": [
+        "3 MJ capacitor bank charge in 300 s",
+        "192-beam synchronization",
+        "Constant power charging mode",
+        "Shot-to-shot energy reproducibility ±0.1%",
+        "Arc fault protection"
+      ],
+      "design_approach": "Multi-stage boost with IGBT switches for high voltage. Constant power charging algorithm. Precision voltage monitoring for shot reproducibility. Crowbar discharge for abort scenarios. Interlock with target chamber.",
+      "solution": {
+        "L": 0.02,
+        "C_out": 0.00008,
+        "C_in": 0.001,
+        "R_load": 2.88,
+        "duty_cycle": 0.967,
+        "component_ratings": {
+          "V_switch": 3300,
+          "I_switch": 350,
+          "V_diode": 3300,
+          "I_diode": 350,
+          "V_cap": 25000,
+          "I_L_rms": 270,
+          "P_dissipation": 20000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 800/24000 = 0.967",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 800 × 0.967 / (10000 × 3.87) = 20 mH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 8.33 × 0.967 / (10000 × 100) = 80 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 250 × 0.967 / (10000 × 24.2) = 1000 µF"
+      }
+    },
+    {
+      "id": "L4_083",
+      "title": "Quantum Dot Display Backlight Driver",
+      "application": "8K quantum dot display requiring precision LED backlight power for HDR",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 48,
+        "P_out": 500,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.94,
+        "f_sw": 500000,
+        "thermal_interface": "chassis_conduction",
+        "ambient_temp": 45,
+        "max_junction_temp": 100,
+        "dimming_ratio": "10000:1",
+        "color_gamut": "99%_DCI_P3"
+      },
+      "constraints": [
+        "10000:1 dimming ratio for HDR",
+        "99% DCI-P3 color gamut preservation",
+        "256-zone local dimming control",
+        "PWM dimming at 480 Hz for video sync",
+        "Zero audible noise (coil whine)"
+      ],
+      "design_approach": "High-frequency boost for LED string power. Hybrid analog/PWM dimming for wide range. Zone-by-zone current control. Silent inductor design with bonded construction. Thermal path to display chassis.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00047,
+        "C_in": 0.00022,
+        "R_load": 4.608,
+        "duty_cycle": 0.75,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 50,
+          "V_diode": 80,
+          "I_diode": 50,
+          "V_cap": 60,
+          "I_L_rms": 45,
+          "P_dissipation": 30
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 12/48 = 0.75",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 12 × 0.75 / (500000 × 0.41) = 22 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 10.4 × 0.75 / (500000 × 0.05) = 470 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 41.7 × 0.75 / (500000 × 0.142) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_084",
+      "title": "Mars Helicopter Rotor Motor Drive",
+      "application": "Mars rotorcraft requiring high-power motor drives in 1% Earth atmospheric density",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 24,
+        "P_out": 350,
+        "ripple_voltage": 0.2,
+        "efficiency_target": 0.92,
+        "f_sw": 100000,
+        "thermal_interface": "mars_convection",
+        "ambient_temp": -60,
+        "max_junction_temp": 85,
+        "rotor_rpm": "2400",
+        "altitude_ceiling": "15m"
+      },
+      "constraints": [
+        "1% Earth atmospheric density operation",
+        "Solar + battery power source",
+        "Dust storm survival mode",
+        "Temperature cycling -90°C to +20°C",
+        "Autonomous flight control integration"
+      ],
+      "design_approach": "Lightweight BLDC motor drive with GaN switches. Thermal design for thin Mars atmosphere. Dust-sealed enclosure. Integrated power and control electronics. Solar charging with battery buffering.",
+      "solution": {
+        "L": 0.000033,
+        "C_out": 0.00047,
+        "C_in": 0.00033,
+        "R_load": 1.646,
+        "duty_cycle": 0.857,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 20,
+          "V_diode": 60,
+          "I_diode": 20,
+          "V_cap": 40,
+          "I_L_rms": 15.5,
+          "P_dissipation": 28
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 24 / 28 = 0.857",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 24 × 0.143 / (100000 × 1.04) = 33 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 1.04 / (8 × 100000 × 0.2) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 14.6 × 0.857 × 0.143 / (100000 × 0.054) = 330 µF"
+      }
+    },
+    {
+      "id": "L4_085",
+      "title": "Particle Detector Silicon Tracker Bias",
+      "application": "LHC-class detector requiring silicon strip/pixel detector bias power",
+      "topology": "boost",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 500,
+        "P_out": 100,
+        "ripple_voltage": 0.5,
+        "efficiency_target": 0.88,
+        "f_sw": 200000,
+        "thermal_interface": "detector_cooling",
+        "ambient_temp": -20,
+        "max_junction_temp": 60,
+        "leakage_current_limit": "1mA",
+        "radiation_dose": "100Mrad"
+      },
+      "constraints": [
+        "100 Mrad total ionizing dose survival",
+        "Leakage current limiting for irradiated sensors",
+        "256-channel independent control",
+        "Ramp rate control for sensor protection",
+        "Interlock with detector safety system"
+      ],
+      "design_approach": "Radiation-hardened boost for sensor bias. Current limiting for radiation-damaged sensors. LVDS control links for radiation immunity. Programmable ramp rates. Hardware interlocks for over-current.",
+      "solution": {
+        "L": 0.00022,
+        "C_out": 0.000022,
+        "C_in": 0.00022,
+        "R_load": 2500,
+        "duty_cycle": 0.976,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 12,
+          "V_diode": 600,
+          "I_diode": 2,
+          "V_cap": 600,
+          "I_L_rms": 9.5,
+          "P_dissipation": 12
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = 1 - V_in/V_out = 1 - 12/500 = 0.976",
+        "inductance": "L = V_in × D / (f_sw × ΔI_L) = 12 × 0.976 / (200000 × 0.27) = 220 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 0.2 × 0.976 / (200000 × 0.5) = 22 µF",
+        "input_capacitance": "C_in = I_in × D / (f_sw × ΔV_in) = 8.33 × 0.976 / (200000 × 0.185) = 220 µF"
+      }
+    },
+    {
+      "id": "L4_086",
+      "title": "Superconducting Magnetic Energy Storage Interface",
+      "application": "Grid-scale SMES requiring bidirectional power converter for energy storage",
+      "topology": "full_bridge",
+      "specifications": {
+        "V_in": 13800,
+        "V_out": 4000,
+        "P_out": 10000000,
+        "ripple_voltage": 40,
+        "efficiency_target": 0.98,
+        "f_sw": 2000,
+        "thermal_interface": "forced_air",
+        "ambient_temp": 30,
+        "max_junction_temp": 125,
+        "stored_energy": "1GJ",
+        "response_time": "1ms"
+      },
+      "constraints": [
+        "1 GJ stored energy capacity",
+        "1 ms response time for grid support",
+        "Four-quadrant operation",
+        "Superconducting coil protection",
+        "Grid code compliance (NERC)"
+      ],
+      "design_approach": "IGCT-based four-quadrant converter for SMES interface. Thyristor bypass for fault protection. Active filtering for grid harmonics. Fast response for grid stabilization. Superconducting coil health monitoring.",
+      "solution": {
+        "L": 0.05,
+        "C_out": 0.005,
+        "C_in": 0.01,
+        "R_load": 0.0016,
+        "duty_cycle": 0.29,
+        "component_ratings": {
+          "V_switch": 6500,
+          "I_switch": 3000,
+          "V_diode": 6500,
+          "I_diode": 3000,
+          "V_cap": 6000,
+          "I_L_rms": 2600,
+          "P_dissipation": 200000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 4000 / 13800 = 0.29",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 4000 × 0.71 / (2000 × 56.8) = 50 mH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 56.8 / (8 × 2000 × 40) = 5000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 2500 × 0.29 × 0.71 / (2000 × 25.8) = 10000 µF"
+      }
+    },
+    {
+      "id": "L4_087",
+      "title": "Atomic Magnetometer Array Power",
+      "application": "MEG brain imaging system requiring ultra-low-noise sensor array power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 50,
+        "ripple_voltage": 0.0001,
+        "efficiency_target": 0.88,
+        "f_sw": 1000000,
+        "thermal_interface": "heatsink_conduction",
+        "ambient_temp": 25,
+        "max_junction_temp": 70,
+        "magnetic_noise": "10fT/sqrt(Hz)",
+        "channel_count": 128
+      },
+      "constraints": [
+        "Magnetic noise < 10 fT/√Hz for brain signal",
+        "128-channel OPM sensor array",
+        "Zero magnetic signature from power supply",
+        "Wearable helmet form factor",
+        "Battery operation for mobility"
+      ],
+      "design_approach": "Non-magnetic buck converter with air-core inductors. Extensive EMI filtering and shielding. Remote power stage with long filtered leads to sensor head. Battery operation eliminates grid noise coupling.",
+      "solution": {
+        "L": 0.000012,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.5,
+        "duty_cycle": 0.208,
+        "component_ratings": {
+          "V_switch": 40,
+          "I_switch": 12,
+          "V_diode": 40,
+          "I_diode": 12,
+          "V_cap": 10,
+          "I_L_rms": 10.5,
+          "P_dissipation": 6
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 24 = 0.208",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.792 / (1000000 × 0.33) = 12 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.33 / (8 × 1000000 × 0.0001) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 10 × 0.208 × 0.792 / (1000000 × 0.0035) = 470 µF"
+      }
+    },
+    {
+      "id": "L4_088",
+      "title": "Compact Muon Solenoid Upgrade Power",
+      "application": "HL-LHC detector upgrade requiring high-density power distribution",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 300,
+        "V_out": 1.2,
+        "P_out": 2000,
+        "ripple_voltage": 0.012,
+        "efficiency_target": 0.85,
+        "f_sw": 1000000,
+        "thermal_interface": "CO2_cooling",
+        "ambient_temp": -35,
+        "max_junction_temp": 60,
+        "radiation_tolerance": "1Grad",
+        "power_density": "100W/cm3"
+      },
+      "constraints": [
+        "1 Grad total ionizing dose (10-year operation)",
+        "100 W/cm³ power density",
+        "Serial powering chain topology",
+        "CO2 evaporative cooling at -35°C",
+        "Single-event upset tolerant control"
+      ],
+      "design_approach": "Rad-hard DC-DC for serial powering scheme. Radiation-tolerant GaN switches. Shunt regulation for failed module bypass. SEU-hardened digital control. Direct CO2 cooling attachment.",
+      "solution": {
+        "L": 0.0000002,
+        "C_out": 0.004,
+        "C_in": 0.00033,
+        "R_load": 0.00072,
+        "duty_cycle": 0.004,
+        "component_ratings": {
+          "V_switch": 400,
+          "I_switch": 1800,
+          "V_diode": 400,
+          "I_diode": 1800,
+          "V_cap": 5,
+          "I_L_rms": 1700,
+          "P_dissipation": 300
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 1.2 / 300 = 0.004",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 1.2 × 0.996 / (1000000 × 5980) = 200 nH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 5980 / (8 × 1000000 × 0.012) = 4000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 1667 × 0.004 × 0.996 / (1000000 × 0.02) = 330 µF"
+      }
+    },
+    {
+      "id": "L4_089",
+      "title": "Lunar Gateway Station Power Distribution",
+      "application": "Cislunar space station requiring 50 kW power distribution from solar arrays",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 120,
+        "V_out": 28,
+        "P_out": 50000,
+        "ripple_voltage": 0.28,
+        "efficiency_target": 0.96,
+        "f_sw": 100000,
+        "thermal_interface": "space_radiator",
+        "ambient_temp": -100,
+        "max_junction_temp": 100,
+        "eclipse_duration": "90min",
+        "lifetime": "15years"
+      },
+      "constraints": [
+        "90-minute eclipse battery operation",
+        "15-year operational lifetime",
+        "Galactic cosmic ray tolerance",
+        "Module hot-swap capability",
+        "ISS-derived architecture compatibility"
+      ],
+      "design_approach": "Sequential shunt regulation from solar arrays. Buck converters for bus conditioning. Battery charge/discharge management. Rad-hard design for deep space. Redundant architecture for crew safety.",
+      "solution": {
+        "L": 0.00005,
+        "C_out": 0.005,
+        "C_in": 0.002,
+        "R_load": 0.0157,
+        "duty_cycle": 0.233,
+        "component_ratings": {
+          "V_switch": 200,
+          "I_switch": 2000,
+          "V_diode": 200,
+          "I_diode": 2000,
+          "V_cap": 50,
+          "I_L_rms": 1850,
+          "P_dissipation": 2000
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 28 / 120 = 0.233",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 28 × 0.767 / (100000 × 4.3) = 50 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 4.3 / (8 × 100000 × 0.28) = 5000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 1786 × 0.233 × 0.767 / (100000 × 1.6) = 2000 µF"
+      }
+    },
+    {
+      "id": "L4_090",
+      "title": "Extreme Ultraviolet Solar Imager Power",
+      "application": "Solar observation satellite requiring stable power for EUV imaging instruments",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 28,
+        "V_out": 5,
+        "P_out": 100,
+        "ripple_voltage": 0.005,
+        "efficiency_target": 0.91,
+        "f_sw": 400000,
+        "thermal_interface": "spacecraft_radiator",
+        "ambient_temp": -20,
+        "max_junction_temp": 85,
+        "solar_pointing": "1arcsec",
+        "orbital_period": "96min"
+      },
+      "constraints": [
+        "Solar pointing stability 1 arcsecond",
+        "Orbital day/night thermal cycling",
+        "CCD detector noise isolation",
+        "Magnetic torquer compatibility",
+        "10-year mission lifetime"
+      ],
+      "design_approach": "Low-noise buck for CCD detector systems. EMI filtered for minimal interference with attitude control. Thermal design for orbital cycling. Radiation-tolerant parts selection. Redundant power paths.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.001,
+        "C_in": 0.00047,
+        "R_load": 0.25,
+        "duty_cycle": 0.179,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 25,
+          "V_diode": 60,
+          "I_diode": 25,
+          "V_cap": 10,
+          "I_L_rms": 21,
+          "P_dissipation": 9
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 28 = 0.179",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.821 / (400000 × 0.47) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.47 / (8 × 400000 × 0.005) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 20 × 0.179 × 0.821 / (400000 × 0.0062) = 470 µF"
+      }
+    }
+  ]
+}

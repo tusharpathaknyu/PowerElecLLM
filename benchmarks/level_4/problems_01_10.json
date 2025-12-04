@@ -1,0 +1,191 @@
+{
+  "level": 4,
+  "description": "Control design included - loop compensation and stability",
+  "problems": [
+    {
+      "id": "L4_001",
+      "prompt": "Design a voltage-mode buck: 12V to 3.3V, 5A. 10kHz bandwidth, 60° phase margin.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 3.3,
+        "iout": 5.0,
+        "power": 16.5
+      },
+      "control": {
+        "mode": "voltage_mode",
+        "bandwidth_hz": 10000,
+        "phase_margin_deg": 60,
+        "compensator": "type_3"
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_002",
+      "prompt": "Design a peak current-mode buck: 24V to 5V, 10A. 20kHz bandwidth, 45° phase margin.",
+      "specs": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 5.0,
+        "iout": 10.0,
+        "power": 50.0
+      },
+      "control": {
+        "mode": "peak_current_mode",
+        "bandwidth_hz": 20000,
+        "phase_margin_deg": 45,
+        "slope_compensation": true
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_003",
+      "prompt": "Design an average current-mode boost: 12V to 24V, 3A. 5kHz bandwidth for PFC.",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 24.0,
+        "iout": 3.0,
+        "power": 72.0
+      },
+      "control": {
+        "mode": "average_current_mode",
+        "bandwidth_hz": 5000,
+        "phase_margin_deg": 50,
+        "inner_loop": "current",
+        "outer_loop": "voltage"
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_004",
+      "prompt": "Design a COT (constant on-time) buck: 5V to 1.2V, 20A. Fast transient < 3% deviation.",
+      "specs": {
+        "topology": "buck",
+        "vin": 5.0,
+        "vout": 1.2,
+        "iout": 20.0,
+        "power": 24.0
+      },
+      "control": {
+        "mode": "constant_on_time",
+        "transient_deviation_max": 0.03,
+        "recovery_time_us": 50
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_005",
+      "prompt": "Design a digitally controlled buck: 48V to 12V, 8A. Digital type-3 compensator.",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 8.0,
+        "power": 96.0
+      },
+      "control": {
+        "mode": "digital_voltage_mode",
+        "sampling_frequency": 200000,
+        "bandwidth_hz": 15000,
+        "phase_margin_deg": 55,
+        "compensator": "digital_type_3"
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_006",
+      "prompt": "Design a flyback with optocoupler feedback: 24V to 5V isolated, 2A. 3kHz crossover.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 24.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "isolated": true
+      },
+      "control": {
+        "mode": "voltage_mode",
+        "feedback": "optocoupler_tl431",
+        "bandwidth_hz": 3000,
+        "phase_margin_deg": 60
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_007",
+      "prompt": "Design a multiphase buck: 12V to 1.0V, 4-phase, 80A total. Current sharing < 5%.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 1.0,
+        "iout": 80.0,
+        "power": 80.0,
+        "phases": 4
+      },
+      "control": {
+        "mode": "multiphase_current_mode",
+        "current_sharing_error_max": 0.05,
+        "interleaving_deg": 90,
+        "bandwidth_hz": 50000
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_008",
+      "prompt": "Design a LLC resonant converter controller: 380V to 12V, 500W. Frequency control.",
+      "specs": {
+        "topology": "llc_resonant",
+        "vin": 380.0,
+        "vout": 12.0,
+        "power": 500.0,
+        "isolated": true
+      },
+      "control": {
+        "mode": "frequency_modulation",
+        "resonant_frequency": 100000,
+        "operating_range": [80000, 150000],
+        "gain_min": 0.8,
+        "gain_max": 1.2
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_009",
+      "prompt": "Design a PFC boost with DCM/CCM transition: 90-264VAC, 400W. THD < 5%.",
+      "specs": {
+        "topology": "boost_pfc",
+        "vin_ac_min": 90.0,
+        "vin_ac_max": 264.0,
+        "vout": 400.0,
+        "power": 400.0
+      },
+      "control": {
+        "mode": "average_current_mode",
+        "thd_max": 0.05,
+        "power_factor_min": 0.99,
+        "voltage_loop_bandwidth": 20,
+        "current_loop_bandwidth": 5000
+      },
+      "difficulty": "expert"
+    },
+    {
+      "id": "L4_010",
+      "prompt": "Design an adaptive voltage positioning buck: 12V to 1.8V, 25A. AVP droop 1mΩ.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 1.8,
+        "iout": 25.0,
+        "power": 45.0
+      },
+      "control": {
+        "mode": "avp_voltage_mode",
+        "droop_resistance_mohm": 1.0,
+        "load_line": "adaptive",
+        "bandwidth_hz": 30000
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

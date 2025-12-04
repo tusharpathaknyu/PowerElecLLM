@@ -1,0 +1,376 @@
+{
+  "level": 2,
+  "solutions": [
+    {
+      "id": "L2_011",
+      "prompt": "Design a buck: 28V→5V, 10A for automotive 24V system. Constraint: Operate from 18V-32V input range.",
+      "solution": {
+        "topology": "buck",
+        "vin_nom": 28.0,
+        "vin_min": 18.0,
+        "vin_max": 32.0,
+        "vout": 5.0,
+        "iout": 10.0,
+        "power": 50.0,
+        "f_sw": 300000,
+        "components": {
+          "L": {"value": 15e-6, "unit": "H", "rating": "15A"},
+          "C_out": {"value": 330e-6, "unit": "F", "type": "ceramic_bank"},
+          "R_load": {"value": 0.5, "unit": "Ω"},
+          "MOSFET": {"Vds_rating": "60V", "Rds_on": "8mΩ"}
+        },
+        "constraint_analysis": {
+          "D_at_18V": "5/18 = 0.278 (max duty)",
+          "D_at_32V": "5/32 = 0.156 (min duty)",
+          "D_range": "15.6% to 27.8%",
+          "worst_case_ΔIL": "At Vin_max: Vout*(1-D)/(f*L) = 5*0.844/(300e3*15e-6) = 0.94A",
+          "CCM_verified": "IL_min = 10 - 0.47 = 9.53A > 0 ✓",
+          "Vds_margin": "32V × 1.5 = 48V < 60V rating ✓"
+        },
+        "expected_results": {
+          "vout_at_18V": 5.0,
+          "vout_at_32V": 5.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.93
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_012",
+      "prompt": "Design a boost: 18V→36V, 3A. Constraint: Power factor >0.95 for PFC compliance.",
+      "solution": {
+        "topology": "boost_pfc",
+        "vin_rms": 18.0,
+        "vout": 36.0,
+        "iout": 3.0,
+        "power": 108.0,
+        "f_sw": 100000,
+        "duty_cycle": "variable",
+        "components": {
+          "L": {"value": 150e-6, "unit": "H", "rating": "8A"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "pfc_implementation": {
+          "control": "Average current mode",
+          "current_reference": "Multiplied by rectified voltage",
+          "THD_target": "<5%",
+          "power_factor_calc": "PF = cos(φ) × distortion_factor",
+          "phase_angle": "<18° → cos(φ) > 0.95",
+          "distortion": "THD < 5% → DF > 0.999",
+          "achieved_PF": "0.95 × 0.999 ≈ 0.95 ✓"
+        },
+        "expected_results": {
+          "vout_actual": 36.0,
+          "ripple_mv": 200,
+          "efficiency_est": 0.94,
+          "power_factor": 0.96
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_013",
+      "prompt": "Design a full-bridge: 400V→12V, 30A. Constraint: Current sharing within 5% for paralleled diodes.",
+      "solution": {
+        "topology": "full_bridge",
+        "vin": 400.0,
+        "vout": 12.0,
+        "iout": 30.0,
+        "power": 360.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.4,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.075, "note": "13:1"},
+          "L_out": {"value": 10e-6, "unit": "H", "rating": "40A"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic_bank"},
+          "R_load": {"value": 0.4, "unit": "Ω"},
+          "rectifier": {"type": "synchronous", "count": 4, "parallel": true}
+        },
+        "current_sharing": {
+          "method": "Matched MOSFETs + kelvin sensing",
+          "Rds_matching": "<5% between devices",
+          "PCB_layout": "Symmetric current paths",
+          "gate_timing": "Synchronized drivers",
+          "thermal_coupling": "Common heatsink",
+          "current_imbalance": "ΔI/I = ΔRds/Rds ≈ 5% worst case ✓"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.94,
+          "current_sharing_error": 0.04
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_014",
+      "prompt": "Design a Cuk: 24V→-18V, 1.5A. Constraint: Input current ripple <10% for sensitive source.",
+      "solution": {
+        "topology": "cuk",
+        "vin": 24.0,
+        "vout": -18.0,
+        "iout": 1.5,
+        "power": 27.0,
+        "f_sw": 150000,
+        "duty_cycle": 0.429,
+        "components": {
+          "L1": {"value": 220e-6, "unit": "H", "rating": "3A", "note": "oversized for low ripple"},
+          "L2": {"value": 150e-6, "unit": "H", "rating": "3A"},
+          "C_coupling": {"value": 22e-6, "unit": "F", "type": "film"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "constraint_analysis": {
+          "Iin_avg": "Pout/(η×Vin) = 27/(0.85×24) = 1.32A",
+          "ΔIL1": "Vin×D/(f×L1) = 24×0.429/(150e3×220e-6) = 0.31A",
+          "ripple_percent": "ΔIL1/(2×Iin) = 0.31/(2×1.32) = 11.7%",
+          "increase_L1": "To 270µH → ripple = 9.5% < 10% ✓",
+          "coupled_inductor": "Alternative: coupled L for ripple steering"
+        },
+        "final_components": {
+          "L1": {"value": 270e-6, "unit": "H"}
+        },
+        "expected_results": {
+          "vout_actual": -18.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.86,
+          "input_ripple_percent": 9.5
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_015",
+      "prompt": "Design a QR buck: 36V→12V, 2A. Constraint: Zero voltage switching at all loads >10%.",
+      "solution": {
+        "topology": "qr_buck",
+        "vin": 36.0,
+        "vout": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.333,
+        "components": {
+          "L_main": {"value": 47e-6, "unit": "H", "rating": "4A"},
+          "L_resonant": {"value": 2e-6, "unit": "H"},
+          "C_resonant": {"value": 4.7e-9, "unit": "F"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 6.0, "unit": "Ω"}
+        },
+        "zvs_analysis": {
+          "resonant_freq": "fr = 1/(2π√(Lr×Cr)) = 1.64MHz",
+          "resonant_period": "610ns",
+          "dead_time": "300ns (half resonant period)",
+          "ZVS_condition": "Lr×IL² > Cr×Vin²",
+          "at_100_load": "2e-6×2² = 8µJ > 4.7e-9×36² = 6.1µJ ✓",
+          "at_10_load": "2e-6×0.2² = 0.08µJ < 6.1µJ ✗",
+          "solution": "Add magnetizing current for light load ZVS",
+          "Lm_added": "100µH for 0.36A magnetizing"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 40,
+          "efficiency_est": 0.94,
+          "zvs_range": "10% to 100% load"
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_016",
+      "prompt": "Design a flyback: 170V (rectified AC)→24V, 2A. Constraint: Meet IEC61000-3-2 Class D harmonics.",
+      "solution": {
+        "topology": "flyback",
+        "vin": 170.0,
+        "vout": 24.0,
+        "iout": 2.0,
+        "power": 48.0,
+        "f_sw": 100000,
+        "duty_cycle": 0.35,
+        "isolated": true,
+        "components": {
+          "Lm": {"value": 800e-6, "unit": "H", "note": "DCM for low harmonics"},
+          "turns_ratio": {"value": 0.33, "note": "3:1"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "harmonic_compliance": {
+          "class_D_limits": "For <75W, THD limits apply",
+          "operation_mode": "Critical/discontinuous conduction",
+          "natural_pfc": "DCM flyback has inherent PFC",
+          "3rd_harmonic": "<3.4mA/W × P = 163mA",
+          "5th_harmonic": "<1.9mA/W × P = 91mA",
+          "measurement": "Harmonics measured at rated power",
+          "valley_switching": "Reduces EMI, improves efficiency"
+        },
+        "expected_results": {
+          "vout_actual": 24.0,
+          "ripple_mv": 300,
+          "efficiency_est": 0.85,
+          "thd_percent": 15
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_017",
+      "prompt": "Design a SEPIC: 6-18V (2S-4S LiPo)→12V, 2A. Must regulate across battery discharge curve.",
+      "solution": {
+        "topology": "sepic",
+        "vin_min": 6.0,
+        "vin_max": 18.0,
+        "vout": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 200000,
+        "components": {
+          "L1": {"value": 22e-6, "unit": "H", "rating": "6A"},
+          "L2": {"value": 22e-6, "unit": "H", "rating": "6A"},
+          "C_coupling": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "R_load": {"value": 6.0, "unit": "Ω"}
+        },
+        "constraint_analysis": {
+          "D_at_6V": "12/(6+12) = 0.667 (heavy boost)",
+          "D_at_18V": "12/(18+12) = 0.40 (buck mode)",
+          "D_range": "0.40 to 0.667",
+          "Iin_at_6V": "24/(0.82×6) = 4.88A (worst case)",
+          "switch_current": "Peak = Iin×(1+ΔI/2) + IL2 ≈ 8A",
+          "component_stress": "Sized for Vin_min operation"
+        },
+        "expected_results": {
+          "vout_at_6V": 12.0,
+          "vout_at_18V": 12.0,
+          "ripple_mv": 150,
+          "efficiency_at_6V": 0.82,
+          "efficiency_at_18V": 0.90
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_018",
+      "prompt": "Design a buck: 24V→1.2V, 20A for DDR memory. Constraint: <10mV ripple, <50µs load step response.",
+      "solution": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 1.2,
+        "iout": 20.0,
+        "power": 24.0,
+        "f_sw": 1000000,
+        "duty_cycle": 0.05,
+        "components": {
+          "L": {"value": 0.47e-6, "unit": "H", "rating": "30A", "DCR": "0.3mΩ"},
+          "C_out": {"value": 2000e-6, "unit": "F", "type": "MLCC_array", "ESR": "0.3mΩ"},
+          "R_load": {"value": 0.06, "unit": "Ω"}
+        },
+        "constraint_analysis": {
+          "ripple_analysis": {
+            "ΔIL": "Vout×(1-D)/(f×L) = 1.2×0.95/(1e6×0.47e-6) = 2.4A",
+            "ripple_ESR": "2.4A × 0.3mΩ = 0.7mV",
+            "ripple_cap": "2.4/(8×1e6×2000e-6) = 0.15mV",
+            "total": "≈1mV << 10mV ✓"
+          },
+          "transient_analysis": {
+            "load_step": "10A step (50% to 100%)",
+            "ΔV_initial": "L×ΔI/(Vout×C) × (Vin-Vout)/Vin",
+            "recovery_time": "C×ΔV/(ΔI) = 2000e-6×0.01/(10) = 2µs",
+            "settling": "<50µs ✓"
+          }
+        },
+        "expected_results": {
+          "vout_actual": 1.2,
+          "ripple_mv": 2,
+          "efficiency_est": 0.88,
+          "transient_response_us": 20
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_019",
+      "prompt": "Design a forward: 48V→5V isolated, 10A. Constraint: 2500Vrms isolation with <5pF capacitance.",
+      "solution": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 10.0,
+        "power": 50.0,
+        "f_sw": 300000,
+        "duty_cycle": 0.4,
+        "isolated": true,
+        "components": {
+          "turns_ratio": {"value": 0.26, "note": "4:1"},
+          "L_out": {"value": 10e-6, "unit": "H", "rating": "15A"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 0.5, "unit": "Ω"}
+        },
+        "isolation_design": {
+          "transformer": {
+            "construction": "Planar with Kapton layers",
+            "creepage": ">6mm primary to secondary",
+            "clearance": ">3mm",
+            "insulation": "Triple insulated wire, 3kV rated"
+          },
+          "capacitance_minimization": {
+            "winding_technique": "Sectioned bobbin",
+            "shield": "Faraday shield between windings",
+            "measured_Cpri_sec": "3.5pF < 5pF ✓"
+          },
+          "cmrr": "Common mode rejection >60dB"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.90,
+          "isolation_voltage": 2500,
+          "coupling_capacitance_pF": 3.5
+        },
+        "meets_constraint": true
+      }
+    },
+    {
+      "id": "L2_020",
+      "prompt": "Design a boost: 12V→48V, 2A. Constraint: Stable with ceramic-only output caps (no ESR damping).",
+      "solution": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 48.0,
+        "iout": 2.0,
+        "power": 96.0,
+        "f_sw": 200000,
+        "duty_cycle": 0.75,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "12A"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "MLCC", "ESR": "2mΩ"},
+          "R_load": {"value": 24.0, "unit": "Ω"}
+        },
+        "stability_analysis": {
+          "challenge": "Ceramic caps have very low ESR, removing ESR zero",
+          "rhp_zero": "f_rhp = R×(1-D)²/(2π×L) = 24×0.0625/(6.28×47e-6) = 5.1kHz",
+          "crossover": "Must be < f_rhp/3 ≈ 1.7kHz",
+          "compensation": {
+            "type": "Type II with additional pole",
+            "zero": "500Hz for phase boost",
+            "pole": "At switching frequency",
+            "gain_margin": ">10dB",
+            "phase_margin": ">45°"
+          },
+          "damping_network": "Series RC at output (100mΩ + 10µF)",
+          "verification": "Bode plot shows stable operation"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 200,
+          "efficiency_est": 0.92,
+          "phase_margin_deg": 50
+        },
+        "meets_constraint": true
+      }
+    }
+  ]
+}

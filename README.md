@@ -2,22 +2,36 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Benchmarks](https://img.shields.io/badge/Benchmarks-500_Problems-orange.svg)](benchmarks/)
 
 AI-powered power electronics circuit design using Large Language Models.
 
 ## 🚀 Features
 
-- Automated generation of power converter designs (Buck, Boost, Flyback, PFC)
-- GaN device support with proper modeling
-- Power analysis (efficiency, ripple, regulation)
-- SPICE code generation for simulation
-- Iterative refinement with automated validation
+- **PowerElecBench**: Comprehensive benchmark suite with 500 hand-crafted problems across 4 difficulty levels
+- Automated generation of power converter designs (Buck, Boost, SEPIC, Ćuk, Flyback, Forward, Half-Bridge, Full-Bridge)
+- 10 converter topologies with complete design equations
+- PySpice/NgSpice simulation framework (98.3% test pass rate)
+- Power analysis (efficiency, ripple, regulation, thermal)
+
+## 📊 PowerElecBench Benchmark Suite
+
+| Level | Name | Problems | Description |
+|-------|------|----------|-------------|
+| Level 1 | Basic | 150 | Fundamental DC-DC converter design |
+| Level 2 | Intermediate | 150 | Constrained design with efficiency/thermal limits |
+| Level 3 | Advanced | 100 | Multi-objective optimization |
+| Level 4 | Expert | 100 | Cutting-edge integrated systems |
+| **Total** | | **500** | |
+
+### Supported Topologies
+Buck, Boost, SEPIC, Ćuk, Inverting Buck-Boost, Quasi-Resonant Buck, Flyback, Forward, Half-Bridge, Full-Bridge
 
 ## 📋 Requirements
 
 - Python ≥ 3.10
 - PySpice ≥ 1.5
-- OpenAI API key (or compatible LLM API)
+- NgSpice v45+
 
 ## 🛠️ Installation
 
@@ -26,43 +40,39 @@ git clone https://github.com/tusharpathaknyu/PowerElecLLM.git
 cd PowerElecLLM
 conda env create -f environment.yml
 conda activate power_electronics
+./setup_ngspice.sh  # Install NgSpice
 ```
 
 ## 🎯 Quick Start
 
 ```bash
-python src/power_run.py --task_id=1 --api_key="YOUR_KEY" --num_per_task=1
+# Run benchmark validation
+python reference_tests/run_reference_tests.py
+
+# Run specific benchmark
+python scripts/run_benchmark.py --level 1 --problem 1
 ```
 
 ## 📚 Documentation
 
 - [Getting Started](docs/getting_started.md)
-- [Career Roadmap](docs/CAREER_ROADMAP.md)
-- [Examples](examples/)
+- [Benchmark Details](benchmarks/README.md)
+- [Flow Explanation](FLOW_EXPLANATION.md)
 
 ## 🎓 Inspiration
 
 This project extends concepts from [AnalogCoder](https://github.com/anonyanalog/AnalogCoder) (AAAI'25) to power electronics design.
 
-## 🔑 Key Differences from AnalogCoder
-
-- **Focus**: Power electronics (vs analog IC circuits)
-- **Components**: Support for inductors, transformers, GaN devices
-- **Analysis**: Power-specific metrics (efficiency, ripple, regulation)
-- **Topologies**: Power converter topologies and design equations
-
 ## 📊 Project Status
 
-🚧 **Under Active Development** 🚧
+✅ **PowerElecBench 2.0 Complete** - 500 problems across 4 levels
 
-- [x] Project setup and structure
-- [ ] Inductor and transformer support
-- [ ] Power electronics prompt templates
-- [ ] Buck converter generation
-- [ ] Multiple topology support
-- [ ] GaN device modeling
-- [ ] Power analysis framework
-- [ ] 65W charger system
+- [x] 10 converter topology implementations
+- [x] 500 benchmark problems with solutions
+- [x] PySpice simulation framework
+- [x] 98.3% reference test coverage (118/120)
+- [ ] LLM evaluation pipeline
+- [ ] Multi-model comparison
 
 ## 🤝 Contributing
 

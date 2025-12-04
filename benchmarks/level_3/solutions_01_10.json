@@ -1,0 +1,484 @@
+{
+  "level": 3,
+  "solutions": [
+    {
+      "id": "L3_001",
+      "prompt": "Design a universal input (85-265VAC) to 12V/5A isolated flyback for worldwide adapter",
+      "solution": {
+        "topology": "flyback",
+        "vin_ac_min": 85.0,
+        "vin_ac_max": 265.0,
+        "vin_dc_min": 100.0,
+        "vin_dc_max": 375.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "f_sw": 100000,
+        "isolated": true,
+        "stages": {
+          "input": {
+            "rectifier": "Full-bridge diode",
+            "filter": "Pi-filter for EMI",
+            "bulk_cap": "100uF 400V electrolytic"
+          },
+          "power_stage": {
+            "Lm": {"value": 300e-6, "unit": "H"},
+            "turns_ratio": {"value": 0.15, "note": "7:1 primary to secondary"},
+            "primary_switch": "800V MOSFET",
+            "secondary_diode": "100V Schottky"
+          },
+          "output": {
+            "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic"},
+            "post_filter": "LC for ripple reduction"
+          }
+        },
+        "design_for_range": {
+          "D_at_85VAC": "0.55 (max duty)",
+          "D_at_265VAC": "0.25 (min duty)",
+          "worst_case": "Max D at low line = highest stress",
+          "bulk_cap_sizing": "100uF provides ~20ms holdup",
+          "valley_switching": "DCM/CrCM for wide range efficiency"
+        },
+        "safety_compliance": {
+          "isolation": "4kVac reinforced",
+          "creepage": ">8mm",
+          "standards": ["IEC62368", "UL", "CE"]
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 120,
+          "efficiency_85V": 0.87,
+          "efficiency_230V": 0.90
+        }
+      }
+    },
+    {
+      "id": "L3_002",
+      "prompt": "Design a two-stage 48V/20A server PSU: PFC front-end + LLC resonant",
+      "solution": {
+        "topology": "two_stage_pfc_llc",
+        "vin_ac": "180-264VAC",
+        "vbus": 400.0,
+        "vout": 48.0,
+        "iout": 20.0,
+        "power": 960.0,
+        "stages": {
+          "pfc_stage": {
+            "topology": "CCM boost PFC",
+            "L_pfc": {"value": 400e-6, "unit": "H"},
+            "C_bus": {"value": 470e-6, "unit": "F", "voltage": "450V"},
+            "f_sw": 100000,
+            "controller": "UC3854 or digital",
+            "power_factor": ">0.99",
+            "thd": "<5%"
+          },
+          "llc_stage": {
+            "topology": "Half-bridge LLC",
+            "Lr": {"value": 30e-6, "unit": "H"},
+            "Cr": {"value": 47e-9, "unit": "F"},
+            "Lm": {"value": 200e-6, "unit": "H"},
+            "turns_ratio": {"value": 0.24, "note": "4:1"},
+            "f_resonant": 130000,
+            "f_sw_range": "100kHz-200kHz",
+            "C_out": {"value": 1000e-6, "unit": "F"}
+          }
+        },
+        "system_design": {
+          "holdup_time": "20ms at full load",
+          "efficiency_target": ">94% (80+ Titanium)",
+          "power_density": ">30W/in3",
+          "cooling": "Forced air with fan curve"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 200,
+          "overall_efficiency": 0.945,
+          "power_factor": 0.995
+        }
+      }
+    },
+    {
+      "id": "L3_003",
+      "prompt": "Design a solar MPPT charge controller: 150V panel to 48V battery, 20A",
+      "solution": {
+        "topology": "buck_mppt",
+        "vpanel_max": 150.0,
+        "vpanel_mpp": 120.0,
+        "vbatt": 48.0,
+        "iout_max": 20.0,
+        "power": 960.0,
+        "f_sw": 100000,
+        "stages": {
+          "input": {
+            "protection": {
+              "reverse_polarity": "Series diode or P-FET",
+              "overvoltage": "TVS + crowbar",
+              "surge": "MOV for lightning"
+            },
+            "filter": "LC input filter"
+          },
+          "power_stage": {
+            "topology": "Synchronous buck",
+            "L": {"value": 220e-6, "unit": "H", "rating": "25A"},
+            "C_out": {"value": 470e-6, "unit": "F"},
+            "switch": "200V MOSFET"
+          },
+          "mppt_algorithm": {
+            "method": "Perturb and Observe",
+            "sample_rate": "100Hz",
+            "step_size": "0.5V",
+            "tracking_efficiency": ">99%"
+          }
+        },
+        "battery_management": {
+          "charge_profile": "3-stage (Bulk, Absorption, Float)",
+          "bulk_voltage": "57.6V",
+          "float_voltage": "54.0V",
+          "equalization": "58.4V (optional)",
+          "temp_compensation": "-5mV/C per cell"
+        },
+        "expected_results": {
+          "max_power_tracking": 0.995,
+          "conversion_efficiency": 0.96,
+          "battery_charge_current": 20
+        }
+      }
+    },
+    {
+      "id": "L3_004",
+      "prompt": "Design an EV on-board charger: 240VAC to 400V battery, 11kW Level 2",
+      "solution": {
+        "topology": "three_stage_obc",
+        "vin_ac": "240VAC single-phase",
+        "vbatt_range": "300-450V",
+        "power": 11000.0,
+        "iout_max": 32.0,
+        "stages": {
+          "pfc_stage": {
+            "topology": "Totem-pole bridgeless PFC",
+            "L": {"value": 200e-6, "unit": "H", "rating": "50A"},
+            "vbus": 450.0,
+            "C_bus": {"value": 1000e-6, "unit": "F"},
+            "efficiency": ">99%",
+            "f_sw": 100000
+          },
+          "dcdc_stage": {
+            "topology": "Dual-active-bridge (DAB)",
+            "Llk": {"value": 15e-6, "unit": "H"},
+            "turns_ratio": 1.0,
+            "f_sw": 100000,
+            "bidirectional": true
+          },
+          "output": {
+            "C_batt": {"value": 100e-6, "unit": "F", "note": "DC link"},
+            "filter": "Additional LC for ripple"
+          }
+        },
+        "control_system": {
+          "pfc_control": "Average current mode",
+          "dab_control": "Single phase shift",
+          "communication": "CAN bus to BMS",
+          "v2g_capable": true
+        },
+        "safety": {
+          "isolation": "4kV reinforced",
+          "ground_fault": "GFCI detection",
+          "standards": ["SAE J1772", "IEC 61851"]
+        },
+        "expected_results": {
+          "max_power": 11000,
+          "overall_efficiency": 0.94,
+          "power_factor": 0.99,
+          "thd": "<5%"
+        }
+      }
+    },
+    {
+      "id": "L3_005",
+      "prompt": "Design a UPS system: 120VAC in, 12V/100Ah battery, 1000VA inverter output",
+      "solution": {
+        "topology": "double_conversion_ups",
+        "vin_ac": "120VAC 60Hz",
+        "vbatt": 12.0,
+        "batt_capacity": 100,
+        "vout_ac": "120VAC 60Hz",
+        "power_va": 1000,
+        "stages": {
+          "rectifier_charger": {
+            "topology": "PFC rectifier + buck charger",
+            "vbus": 170.0,
+            "charger_output": "14.4V float, 10A max",
+            "efficiency": 0.92
+          },
+          "battery": {
+            "type": "AGM lead-acid",
+            "voltage": "12V",
+            "capacity": "100Ah",
+            "backup_time": "~60min at 1kW"
+          },
+          "inverter": {
+            "topology": "Full-bridge with LC filter",
+            "L_filter": {"value": 1e-3, "unit": "H"},
+            "C_filter": {"value": 10e-6, "unit": "F"},
+            "modulation": "Unipolar SPWM",
+            "f_sw": 20000,
+            "THD": "<3%"
+          },
+          "bypass": {
+            "static_switch": "SCR-based",
+            "transfer_time": "<4ms"
+          }
+        },
+        "control": {
+          "mode": "Double-conversion online",
+          "output_regulation": "+/-2%",
+          "frequency_regulation": "+/-0.1Hz"
+        },
+        "expected_results": {
+          "output_power_w": 800,
+          "efficiency_online": 0.88,
+          "backup_time_min": 60,
+          "thd_percent": 2.5
+        }
+      }
+    },
+    {
+      "id": "L3_006",
+      "prompt": "Design a multi-output medical PSU: 24V/3A, 12V/2A, 5V/5A, -12V/500mA isolated",
+      "solution": {
+        "topology": "flyback_multi_output",
+        "vin_ac": "100-240VAC",
+        "outputs": {
+          "primary_regulated": {"voltage": 24, "current": 3, "power": 72},
+          "semi_regulated_1": {"voltage": 12, "current": 2, "power": 24},
+          "semi_regulated_2": {"voltage": 5, "current": 5, "power": 25},
+          "semi_regulated_3": {"voltage": -12, "current": 0.5, "power": 6}
+        },
+        "total_power": 127,
+        "f_sw": 100000,
+        "isolated": true,
+        "stages": {
+          "input": {
+            "filter": "Medical-grade EMI filter",
+            "rectifier": "Full-bridge with NTC inrush"
+          },
+          "flyback": {
+            "Lm": {"value": 400e-6, "unit": "H"},
+            "windings": {
+              "primary": "Np turns",
+              "sec_24V": "N24 = Np * 24/Vbus * factor",
+              "sec_12V": "N12 = N24 * 12/24",
+              "sec_5V": "N5 = N24 * 5/24",
+              "sec_neg12V": "Nneg = N24 * 12/24 (reversed)"
+            }
+          },
+          "post_regulators": {
+            "12V": "LDO from 15V pre-regulated",
+            "5V": "LDO from 8V pre-regulated",
+            "-12V": "Inverting LDO"
+          }
+        },
+        "medical_compliance": {
+          "isolation": "4kVac (2xMOPP)",
+          "leakage_current": "<100uA patient",
+          "standards": ["IEC60601-1", "UL60601"]
+        },
+        "expected_results": {
+          "regulation_24V": "+/-2%",
+          "cross_regulation": "<5%",
+          "efficiency": 0.85
+        }
+      }
+    },
+    {
+      "id": "L3_007",
+      "prompt": "Design a telecom rectifier: -48V bus, 50A capacity, hot-swap modules",
+      "solution": {
+        "topology": "modular_rectifier_system",
+        "vin_ac": "180-264VAC 3-phase",
+        "vout": -48.0,
+        "iout_total": 50.0,
+        "power_per_module": 1000,
+        "modules": 3,
+        "redundancy": "N+1",
+        "per_module_design": {
+          "pfc": {
+            "topology": "Vienna rectifier (3-phase)",
+            "f_sw": 70000,
+            "efficiency": 0.98
+          },
+          "dcdc": {
+            "topology": "Phase-shifted full-bridge",
+            "f_sw": 100000,
+            "isolation": "3kV",
+            "efficiency": 0.96
+          }
+        },
+        "system_features": {
+          "current_sharing": {
+            "method": "Droop sharing",
+            "accuracy": "+/-5%",
+            "bus_connection": "ORing diode per module"
+          },
+          "hot_swap": {
+            "connector": "Blind-mate",
+            "inrush_control": "Pre-charge circuit",
+            "insertion_time": "<100ms to full power"
+          },
+          "monitoring": {
+            "protocol": "SNMP over Ethernet",
+            "alarms": ["OV", "UV", "OC", "OT", "Fan fail"]
+          }
+        },
+        "expected_results": {
+          "vout_actual": -48.0,
+          "total_capacity_A": 60,
+          "system_efficiency": 0.94,
+          "redundancy": "N+1"
+        }
+      }
+    },
+    {
+      "id": "L3_008",
+      "prompt": "Design a 48V to 1V/300A point-of-load for AI accelerator with transient <50mV",
+      "solution": {
+        "topology": "multi_phase_vrm",
+        "vin": 48.0,
+        "vout": 1.0,
+        "iout": 300.0,
+        "power": 300.0,
+        "phases": 12,
+        "f_sw_per_phase": 500000,
+        "architecture": {
+          "stage_1": {
+            "topology": "48V to 12V intermediate bus",
+            "type": "Sigma converter or unregulated DCX",
+            "efficiency": 0.97
+          },
+          "stage_2": {
+            "topology": "12-phase buck VRM",
+            "L_per_phase": {"value": 0.15e-6, "unit": "H"},
+            "controller": "Digital multi-phase with AVP",
+            "DrMOS": "Integrated driver + MOSFETs"
+          }
+        },
+        "transient_design": {
+          "load_step": "150A in 100ns",
+          "initial_droop": "L*dI/dt / C",
+          "C_out_total": {"value": 5000e-6, "unit": "F", "type": "MLCC_array"},
+          "decoupling": {
+            "bulk": "10x 470uF POSCAP",
+            "mid": "100x 22uF MLCC",
+            "high_freq": "200x 100nF MLCC"
+          },
+          "transient_response": "<30mV undershoot"
+        },
+        "thermal": {
+          "loss_per_phase": "~2W",
+          "cooling": "Direct liquid cooling",
+          "junction_temp": "<100C"
+        },
+        "expected_results": {
+          "vout_actual": 1.0,
+          "ripple_mv": 10,
+          "transient_mv": 30,
+          "efficiency": 0.90
+        }
+      }
+    },
+    {
+      "id": "L3_009",
+      "prompt": "Design a bidirectional DC-DC for energy storage: 400V bus to 48V battery pack, 10kW",
+      "solution": {
+        "topology": "dual_active_bridge",
+        "vbus": 400.0,
+        "vbatt_range": "42-58V",
+        "power_bidirectional": 10000,
+        "f_sw": 100000,
+        "stages": {
+          "primary_bridge": {
+            "switches": "4x 650V SiC MOSFET",
+            "Rds_on": "25mOhm"
+          },
+          "transformer": {
+            "turns_ratio": {"value": 0.125, "note": "8:1"},
+            "Llk": {"value": 20e-6, "unit": "H"},
+            "construction": "Planar with interleaved windings"
+          },
+          "secondary_bridge": {
+            "switches": "4x 100V GaN HEMT",
+            "Rds_on": "5mOhm"
+          },
+          "capacitors": {
+            "C_hv": {"value": 100e-6, "unit": "F", "voltage": "500V"},
+            "C_lv": {"value": 1000e-6, "unit": "F", "voltage": "80V"}
+          }
+        },
+        "control": {
+          "modulation": "Single phase shift (SPS)",
+          "power_control": "Phase angle proportional to power",
+          "zvs_range": "Achieved across 20-100% power",
+          "direction_control": "Seamless mode transition"
+        },
+        "applications": {
+          "grid_to_battery": "Charging mode",
+          "battery_to_grid": "Discharge/V2G mode",
+          "response_time": "<1ms direction change"
+        },
+        "expected_results": {
+          "efficiency_charge": 0.96,
+          "efficiency_discharge": 0.96,
+          "power_bidirectional": 10000
+        }
+      }
+    },
+    {
+      "id": "L3_010",
+      "prompt": "Design a high-voltage LED driver: 400V input, 300V/1A constant current for street lighting",
+      "solution": {
+        "topology": "llc_led_driver",
+        "vin": 400.0,
+        "vout": 300.0,
+        "iout": 1.0,
+        "power": 300.0,
+        "f_sw_resonant": 100000,
+        "isolated": true,
+        "stages": {
+          "llc_converter": {
+            "Lr": {"value": 100e-6, "unit": "H"},
+            "Cr": {"value": 25e-9, "unit": "F"},
+            "Lm": {"value": 500e-6, "unit": "H"},
+            "turns_ratio": {"value": 1.33, "note": "3:4"},
+            "f_resonant": 100000
+          },
+          "current_regulation": {
+            "method": "Frequency modulation",
+            "sense_resistor": "0.1 ohm",
+            "accuracy": "+/-3%"
+          },
+          "dimming": {
+            "method": "PWM dimming via frequency shift",
+            "range": "10-100%",
+            "flicker_free": ">1kHz effective"
+          }
+        },
+        "led_string": {
+          "forward_voltage": "300V (100 LEDs in series)",
+          "current": "1A",
+          "lumen_output": "~30,000lm"
+        },
+        "protection": {
+          "open_led": "Output voltage clamp",
+          "short_led": "Current limiting",
+          "surge": "4kV per IEC61000-4-5"
+        },
+        "expected_results": {
+          "iout_actual": 1.0,
+          "current_ripple_percent": 5,
+          "efficiency": 0.94,
+          "dimming_range": "10-100%"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "level": 1,
+  "solutions": [
+    {
+      "id": "L1_031",
+      "prompt": "Design a buck converter: 28V avionics bus to 5V, 6A for flight computer",
+      "solution": {
+        "topology": "buck",
+        "vin": 28.0,
+        "vout": 5.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "f_sw": 400000,
+        "duty_cycle": 0.179,
+        "components": {
+          "L": {"value": 15e-6, "unit": "H", "rating": "8A saturation, low DCR"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "ceramic MLCC array + bulk"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 0.833, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 5/28 = 0.179",
+          "inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 5*(1-0.179)/(400e3*1.2) = 8.6µH → 15µH",
+          "capacitor": "C = ΔIL/(8*f_sw*ΔVout) = 1.2/(8*400e3*0.025) = 15µF → 220µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 20,
+          "efficiency_est": 0.91
+        }
+      }
+    },
+    {
+      "id": "L1_032",
+      "prompt": "Design a boost converter: 3.7V Li-ion to 5V, 2A for USB OTG",
+      "solution": {
+        "topology": "boost",
+        "vin": 3.7,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 1000000,
+        "duty_cycle": 0.26,
+        "components": {
+          "L": {"value": 2.2e-6, "unit": "H", "rating": "4A saturation"},
+          "C_out": {"value": 22e-6, "unit": "F", "type": "ceramic X5R"},
+          "C_in": {"value": 10e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = 1 - Vin/Vout = 1 - 3.7/5 = 0.26",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 3.7*0.26/(1e6*0.5) = 1.9µH → 2.2µH",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 2*0.26/(1e6*0.025) = 21µF → 22µF"
+        },
+        "expected_results": {
+          "vout_actual": 5.0,
+          "ripple_mv": 25,
+          "efficiency_est": 0.93
+        }
+      }
+    },
+    {
+      "id": "L1_033",
+      "prompt": "Design a SEPIC converter: 12V to 15V, 2A for audio preamp",
+      "solution": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 15.0,
+        "iout": 2.0,
+        "power": 30.0,
+        "f_sw": 250000,
+        "duty_cycle": 0.556,
+        "components": {
+          "L1": {"value": 33e-6, "unit": "H", "rating": "4A saturation"},
+          "L2": {"value": 33e-6, "unit": "H", "rating": "3A saturation"},
+          "C_coupling": {"value": 4.7e-6, "unit": "F", "type": "ceramic X7R"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic low ESR"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 7.5, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/(Vin+Vout) = 15/(12+15) = 0.556",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 12*0.556/(250e3*0.8) = 33µH",
+          "coupling_cap": "Cc > 10*Iout*D/(f_sw*ΔVc) = 4.7µF for <5% ripple"
+        },
+        "expected_results": {
+          "vout_actual": 15.0,
+          "ripple_mv": 80,
+          "efficiency_est": 0.88
+        }
+      }
+    },
+    {
+      "id": "L1_034",
+      "prompt": "Design a Ćuk converter: 24V to -15V, 1.5A for op-amp negative rail",
+      "solution": {
+        "topology": "cuk",
+        "vin": 24.0,
+        "vout": -15.0,
+        "iout": 1.5,
+        "power": 22.5,
+        "f_sw": 200000,
+        "duty_cycle": 0.385,
+        "components": {
+          "L1": {"value": 100e-6, "unit": "H", "rating": "2A saturation"},
+          "L2": {"value": 100e-6, "unit": "H", "rating": "2A saturation"},
+          "C_coupling": {"value": 10e-6, "unit": "F", "type": "film capacitor"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 10.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 15/(24+15) = 0.385",
+          "inductor": "L1 = L2 = Vin*D/(f_sw*ΔIL) = 24*0.385/(200e3*0.45) = 103µH → 100µH",
+          "coupling_cap": "Cc handles full power transfer, use film for low ESR"
+        },
+        "expected_results": {
+          "vout_actual": -15.0,
+          "ripple_mv": 60,
+          "efficiency_est": 0.87
+        }
+      }
+    },
+    {
+      "id": "L1_035",
+      "prompt": "Design an inverting buck-boost: 12V to -12V, 1A for symmetric audio supply",
+      "solution": {
+        "topology": "inverting_buck_boost",
+        "vin": 12.0,
+        "vout": -12.0,
+        "iout": 1.0,
+        "power": 12.0,
+        "f_sw": 300000,
+        "duty_cycle": 0.5,
+        "components": {
+          "L": {"value": 47e-6, "unit": "H", "rating": "2.5A saturation"},
+          "C_out": {"value": 100e-6, "unit": "F", "type": "electrolytic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 12.0, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = |Vout|/(Vin+|Vout|) = 12/(12+12) = 0.5",
+          "inductor": "L = Vin*D/(f_sw*ΔIL) = 12*0.5/(300e3*0.4) = 50µH → 47µH",
+          "capacitor": "C = Iout*D/(f_sw*ΔVout) = 1*0.5/(300e3*0.06) = 28µF → 100µF"
+        },
+        "expected_results": {
+          "vout_actual": -12.0,
+          "ripple_mv": 50,
+          "efficiency_est": 0.89
+        }
+      }
+    },
+    {
+      "id": "L1_036",
+      "prompt": "Design a flyback converter: 48V telecom to 3.3V, 5A isolated for digital logic",
+      "solution": {
+        "topology": "flyback",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout": 5.0,
+        "power": 16.5,
+        "f_sw": 150000,
+        "turns_ratio": 4.0,
+        "duty_cycle": 0.22,
+        "components": {
+          "Lm": {"value": 150e-6, "unit": "H", "rating": "primary magnetizing inductance"},
+          "transformer": {"turns_ratio": "4:1", "construction": "EE25 ferrite core"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic + ceramic"},
+          "C_in": {"value": 22e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 0.66, "unit": "Ω"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin_nom*D_max / (Vout*(1-D_max)) ≈ 4:1",
+          "duty_cycle": "D = N*Vout / (Vin + N*Vout) = 4*3.3/(48+4*3.3) = 0.22",
+          "magnetizing_L": "Lm = Vin*D / (f_sw*ΔIm) = 48*0.22/(150e3*0.3) = 150µH"
+        },
+        "expected_results": {
+          "vout_actual": 3.3,
+          "ripple_mv": 40,
+          "efficiency_est": 0.85
+        }
+      }
+    },
+    {
+      "id": "L1_037",
+      "prompt": "Design a forward converter: 380V DC bus to 12V, 15A for server auxiliary",
+      "solution": {
+        "topology": "forward",
+        "vin": 380.0,
+        "vout": 12.0,
+        "iout": 15.0,
+        "power": 180.0,
+        "f_sw": 200000,
+        "turns_ratio": 10.0,
+        "duty_cycle": 0.32,
+        "components": {
+          "transformer": {"turns_ratio": "10:1", "construction": "EE40 ferrite, split bobbin"},
+          "L_output": {"value": 22e-6, "unit": "H", "rating": "20A saturation"},
+          "C_out": {"value": 1000e-6, "unit": "F", "type": "electrolytic bank"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "film"},
+          "R_load": {"value": 0.8, "unit": "Ω"},
+          "reset_winding": {"ratio": "1:1 to primary"}
+        },
+        "design_equations": {
+          "turns_ratio": "N = Vin_min / (2*Vout*D_max) = 340/(2*12*0.45) ≈ 10:1",
+          "duty_cycle": "D = Vout*N / Vin = 12*10/380 = 0.32",
+          "output_inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 12*(1-0.32)/(200e3*3) = 14µH → 22µH"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 60,
+          "efficiency_est": 0.92
+        }
+      }
+    },
+    {
+      "id": "L1_038",
+      "prompt": "Design a half-bridge converter: 400V DC to 48V, 10A for telecom rectifier",
+      "solution": {
+        "topology": "half_bridge",
+        "vin": 400.0,
+        "vout": 48.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "f_sw": 100000,
+        "turns_ratio": 4.0,
+        "duty_cycle": 0.48,
+        "components": {
+          "transformer": {"turns_ratio": "4:1", "construction": "EE55 ferrite"},
+          "L_output": {"value": 33e-6, "unit": "H", "rating": "15A saturation"},
+          "C_out": {"value": 470e-6, "unit": "F", "type": "electrolytic"},
+          "C_split": {"value": 100e-6, "unit": "F", "type": "film, 250V each"},
+          "C_in": {"value": 220e-6, "unit": "F", "type": "electrolytic 450V"},
+          "R_load": {"value": 4.8, "unit": "Ω"}
+        },
+        "design_equations": {
+          "voltage_gain": "Vout = Vin*D / (2*N) → D = 2*N*Vout/Vin = 2*4*48/400 = 0.48",
+          "transformer": "N = Vin/(4*Vout) = 400/(4*48) ≈ 4:1",
+          "output_inductor": "L = Vout*(1-2D)/(f_sw*ΔIL) = 33µH"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 100,
+          "efficiency_est": 0.94
+        }
+      }
+    },
+    {
+      "id": "L1_039",
+      "prompt": "Design a full-bridge converter: 800V DC to 48V, 50A for EV fast charger",
+      "solution": {
+        "topology": "full_bridge",
+        "vin": 800.0,
+        "vout": 48.0,
+        "iout": 50.0,
+        "power": 2400.0,
+        "f_sw": 80000,
+        "turns_ratio": 8.0,
+        "duty_cycle": 0.48,
+        "components": {
+          "transformer": {"turns_ratio": "8:1", "construction": "EE65 ferrite, Litz wire"},
+          "L_output": {"value": 15e-6, "unit": "H", "rating": "60A, powder core"},
+          "C_out": {"value": 2200e-6, "unit": "F", "type": "electrolytic bank"},
+          "C_in": {"value": 470e-6, "unit": "F", "type": "film 900V"},
+          "R_load": {"value": 0.96, "unit": "Ω"},
+          "snubber": {"type": "RCD", "value": "100Ω, 10nF, ultrafast diode"}
+        },
+        "design_equations": {
+          "voltage_gain": "Vout = Vin*D / N → D = N*Vout/Vin = 8*48/800 = 0.48",
+          "transformer": "N = Vin_nom/(2*Vout) = 800/(2*48) ≈ 8:1",
+          "output_inductor": "L = Vout*(1-D)/(f_sw*ΔIL) = 48*(1-0.48)/(80e3*10) = 31µH → 15µH"
+        },
+        "expected_results": {
+          "vout_actual": 48.0,
+          "ripple_mv": 150,
+          "efficiency_est": 0.95
+        }
+      }
+    },
+    {
+      "id": "L1_040",
+      "prompt": "Design a quasi-resonant buck: 48V to 12V, 5A for low-EMI telecom board",
+      "solution": {
+        "topology": "qr_buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "f_sw": 300000,
+        "duty_cycle": 0.25,
+        "components": {
+          "L_main": {"value": 22e-6, "unit": "H", "rating": "7A saturation"},
+          "L_resonant": {"value": 1e-6, "unit": "H", "note": "resonant tank"},
+          "C_resonant": {"value": 2.2e-9, "unit": "F", "type": "C0G ceramic"},
+          "C_out": {"value": 220e-6, "unit": "F", "type": "ceramic + electrolytic"},
+          "C_in": {"value": 47e-6, "unit": "F", "type": "ceramic"},
+          "R_load": {"value": 2.4, "unit": "Ω"}
+        },
+        "design_equations": {
+          "duty_cycle": "D = Vout/Vin = 12/48 = 0.25",
+          "resonant_freq": "fr = 1/(2π√(Lr*Cr)) = 1/(2π√(1µH*2.2nF)) = 3.4MHz",
+          "zvs_condition": "fr >> f_sw ensures ZVS at turn-on, reduces EMI"
+        },
+        "expected_results": {
+          "vout_actual": 12.0,
+          "ripple_mv": 30,
+          "efficiency_est": 0.93
+        }
+      }
+    }
+  ]
+}

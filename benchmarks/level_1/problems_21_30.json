@@ -1,0 +1,140 @@
+{
+  "level": 1,
+  "description": "Single converter, fixed specifications",
+  "problems": [
+    {
+      "id": "L1_021",
+      "prompt": "Design a buck converter: 60V solar panel to 24V battery charging, 8A",
+      "specs": {
+        "topology": "buck",
+        "vin": 60.0,
+        "vout": 24.0,
+        "iout": 8.0,
+        "power": 192.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_022",
+      "prompt": "Design a boost converter: 24V to 48V for telecom backup, 3A",
+      "specs": {
+        "topology": "boost",
+        "vin": 24.0,
+        "vout": 48.0,
+        "iout": 3.0,
+        "power": 144.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_023",
+      "prompt": "Design a buck converter: 18V tool battery to 5V USB, 2.4A",
+      "specs": {
+        "topology": "buck",
+        "vin": 18.0,
+        "vout": 5.0,
+        "iout": 2.4,
+        "power": 12.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_024",
+      "prompt": "Design a flyback converter: 48V PoE to 3.3V, 1.5A isolated",
+      "specs": {
+        "topology": "flyback",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout": 1.5,
+        "power": 5.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_025",
+      "prompt": "Design a SEPIC converter: 18V to 24V, 1.5A LED driver",
+      "specs": {
+        "topology": "sepic",
+        "vin": 18.0,
+        "vout": 24.0,
+        "iout": 1.5,
+        "power": 36.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_026",
+      "prompt": "Design a forward converter: 24V to 5V isolated, 6A",
+      "specs": {
+        "topology": "forward",
+        "vin": 24.0,
+        "vout": 5.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_027",
+      "prompt": "Design a half-bridge converter: 72V EV auxiliary to 12V, 8A",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 72.0,
+        "vout": 12.0,
+        "iout": 8.0,
+        "power": 96.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_028",
+      "prompt": "Design a buck converter: 42V input to 14V lead-acid charging, 10A",
+      "specs": {
+        "topology": "buck",
+        "vin": 42.0,
+        "vout": 14.0,
+        "iout": 10.0,
+        "power": 140.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_029",
+      "prompt": "Design a boost converter: 5V USB to 9V quick charge, 2A",
+      "specs": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 9.0,
+        "iout": 2.0,
+        "power": 18.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_030",
+      "prompt": "Design a full-bridge converter: 200V DC to 24V isolated, 8A",
+      "specs": {
+        "topology": "full_bridge",
+        "vin": 200.0,
+        "vout": 24.0,
+        "iout": 8.0,
+        "power": 192.0,
+        "isolated": true
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_131",
+      "title": "Electric Scooter Controller Power",
+      "application": "Shared electric scooter requiring efficient motor control with GPS tracking power",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 42,
+        "V_out": 5,
+        "P_out": 10,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.90,
+        "f_sw": 500000,
+        "always_on": true
+      },
+      "constraints": [
+        "GPS always-on power for fleet tracking",
+        "Wide input 30-54V for battery SOC range",
+        "Weatherproof operation",
+        "Low standby drain for parked scooters"
+      ],
+      "design_approach": "Wide-input buck with ultra-low quiescent current. Always-on GPS and cellular module power. Weather-sealed construction. Battery monitoring integration.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00022,
+        "C_in": 0.0001,
+        "R_load": 2.5,
+        "duty_cycle": 0.119,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 3,
+          "V_diode": 60,
+          "I_diode": 3,
+          "V_cap": 10,
+          "I_L_rms": 2.2,
+          "P_dissipation": 1
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 42 = 0.119",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.881 / (500000 × 0.20) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.20 / (8 × 500000 × 0.05) = 220 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 2 × 0.119 × 0.881 / (500000 × 0.0042) = 100 µF"
+      }
+    },
+    {
+      "id": "L2_132",
+      "title": "Point-of-Sale Terminal Supply",
+      "application": "Retail POS terminal requiring multiple outputs with payment security",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 24,
+        "V_out": 5,
+        "P_out": 30,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.86,
+        "f_sw": 150000,
+        "pci_compliance": true
+      },
+      "constraints": [
+        "PCI-DSS security compliance",
+        "Receipt printer power output",
+        "Card reader isolated supply",
+        "24/7 retail operation"
+      ],
+      "design_approach": "Multi-output flyback with security-grade isolation. Separate outputs for card reader and printer. Tamper-resistant design. Commercial temperature range.",
+      "solution": {
+        "L": 0.00015,
+        "C_out": 0.001,
+        "C_in": 0.00022,
+        "R_load": 0.833,
+        "duty_cycle": 0.38,
+        "turns_ratio": 2,
+        "component_ratings": {
+          "V_switch": 60,
+          "I_switch": 5,
+          "V_diode": 25,
+          "I_diode": 10,
+          "V_cap": 10,
+          "I_L_rms": 3,
+          "P_dissipation": 4.2
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out × n / (V_in + V_out × n) = 5 × 2 / (24 + 5 × 2) = 0.294, use D = 0.38",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 24 × 0.38 / (150000 × 0.41) = 150 µH",
+        "output_capacitance": "C_out = I_out × D / (f_sw × ΔV_out) = 6 × 0.38 / (150000 × 0.05) = 1000 µF",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 30 / (24 × 150000 × 0.048 × 0.86) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_133",
+      "title": "Precision Agriculture Sprayer Control",
+      "application": "GPS-guided sprayer requiring nozzle control power with position accuracy",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 5,
+        "P_out": 25,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.90,
+        "f_sw": 400000,
+        "gps_accuracy": "RTK_2cm"
+      },
+      "constraints": [
+        "RTK GPS power (±2 cm accuracy)",
+        "12V/24V tractor electrical compatibility",
+        "Vibration from field operation",
+        "Chemical spray environment"
+      ],
+      "design_approach": "Ruggedized buck for agricultural environment. Wide input for 12V/24V tractors. Conformal coated for chemical exposure. EMC compliance for GPS performance.",
+      "solution": {
+        "L": 0.000022,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 1.0,
+        "duty_cycle": 0.417,
+        "component_ratings": {
+          "V_switch": 30,
+          "I_switch": 8,
+          "V_diode": 30,
+          "I_diode": 8,
+          "V_cap": 10,
+          "I_L_rms": 5.5,
+          "P_dissipation": 2.5
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 12 = 0.417",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.583 / (400000 × 0.33) = 22 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.33 / (8 × 400000 × 0.05) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 5 × 0.417 × 0.583 / (400000 × 0.0055) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_134",
+      "title": "Museum Display Lighting Supply",
+      "application": "Gallery lighting requiring UV-free illumination with color accuracy",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 30,
+        "P_out": 75,
+        "ripple_voltage": 0.03,
+        "efficiency_target": 0.93,
+        "f_sw": 300000,
+        "cri": 97
+      },
+      "constraints": [
+        "CRI > 97 LED driver compatibility",
+        "Flicker-free for photography",
+        "DALI dimming interface",
+        "Silent operation for galleries"
+      ],
+      "design_approach": "High-CRI LED driver with DALI dimming. Ultra-low ripple for flicker-free operation. Silent construction for quiet spaces. Precision current control for color consistency.",
+      "solution": {
+        "L": 0.00012,
+        "C_out": 0.00033,
+        "C_in": 0.00022,
+        "R_load": 12,
+        "duty_cycle": 0.625,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 5,
+          "V_diode": 80,
+          "I_diode": 5,
+          "V_cap": 50,
+          "I_L_rms": 2.8,
+          "P_dissipation": 5.25
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 30 / 48 = 0.625",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 30 × 0.375 / (300000 × 0.31) = 120 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.31 / (8 × 300000 × 0.03) = 330 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 2.5 × 0.625 × 0.375 / (300000 × 0.0027) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_135",
+      "title": "Electric Aircraft Avionics Bus",
+      "application": "eVTOL aircraft requiring certified avionics power distribution",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 400,
+        "V_out": 28,
+        "P_out": 500,
+        "ripple_voltage": 0.28,
+        "efficiency_target": 0.94,
+        "f_sw": 150000,
+        "do254_dal": "A"
+      },
+      "constraints": [
+        "DO-254 DAL A certification",
+        "DO-160G environmental testing",
+        "Lightning protection per DO-160 Section 22",
+        "Weight critical for eVTOL"
+      ],
+      "design_approach": "Aviation-certified buck with DO-254 compliant design. Lightning transient protection. Minimum weight construction. Triple-redundant monitoring for flight critical.",
+      "solution": {
+        "L": 0.00022,
+        "C_out": 0.001,
+        "C_in": 0.00033,
+        "R_load": 1.568,
+        "duty_cycle": 0.07,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 25,
+          "V_diode": 600,
+          "I_diode": 25,
+          "V_cap": 50,
+          "I_L_rms": 19,
+          "P_dissipation": 30
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 28 / 400 = 0.07",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 28 × 0.93 / (150000 × 0.79) = 220 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.79 / (8 × 150000 × 0.28) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 17.9 × 0.07 × 0.93 / (150000 × 0.0035) = 330 µF"
+      }
+    },
+    {
+      "id": "L2_136",
+      "title": "Smart Lock Battery Power",
+      "application": "Connected door lock requiring years of battery operation",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 6,
+        "V_out": 3.3,
+        "P_out": 0.5,
+        "ripple_voltage": 0.033,
+        "efficiency_target": 0.92,
+        "f_sw": 1000000,
+        "battery_life": "3_years"
+      },
+      "constraints": [
+        "3-year battery life on 4×AA",
+        "Motor drive peak power 2W",
+        "BLE communication power",
+        "Sub-10 µA standby current"
+      ],
+      "design_approach": "Ultra-low Iq buck with burst mode. Peak power capability for motor drive. BLE-optimized power profile. Sleep mode with instant wake-up.",
+      "solution": {
+        "L": 0.0000047,
+        "C_out": 0.0001,
+        "C_in": 0.000047,
+        "R_load": 21.78,
+        "duty_cycle": 0.55,
+        "component_ratings": {
+          "V_switch": 10,
+          "I_switch": 0.5,
+          "V_diode": 10,
+          "I_diode": 0.5,
+          "V_cap": 5,
+          "I_L_rms": 0.17,
+          "P_dissipation": 0.04
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 3.3 / 6 = 0.55",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 3.3 × 0.45 / (1000000 × 0.32) = 4.7 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.32 / (8 × 1000000 × 0.033) = 100 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 0.15 × 0.55 × 0.45 / (1000000 × 0.00079) = 47 µF"
+      }
+    },
+    {
+      "id": "L2_137",
+      "title": "Digital Signage Media Player",
+      "application": "4K digital signage player requiring fanless operation in retail environment",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 19,
+        "V_out": 5,
+        "P_out": 50,
+        "ripple_voltage": 0.05,
+        "efficiency_target": 0.92,
+        "f_sw": 500000,
+        "fanless": true
+      },
+      "constraints": [
+        "Fanless passive cooling",
+        "24/7 retail operation",
+        "4K video decode power budget",
+        "Compact media player form factor"
+      ],
+      "design_approach": "High-efficiency buck for fanless thermal budget. Compact design for media player housing. High-quality output for SOC power. Thermal spreading to enclosure.",
+      "solution": {
+        "L": 0.000015,
+        "C_out": 0.00047,
+        "C_in": 0.00022,
+        "R_load": 0.5,
+        "duty_cycle": 0.263,
+        "component_ratings": {
+          "V_switch": 30,
+          "I_switch": 15,
+          "V_diode": 30,
+          "I_diode": 15,
+          "V_cap": 10,
+          "I_L_rms": 11,
+          "P_dissipation": 4
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 5 / 19 = 0.263",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 5 × 0.737 / (500000 × 0.49) = 15 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.49 / (8 × 500000 × 0.05) = 470 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 10 × 0.263 × 0.737 / (500000 × 0.0087) = 220 µF"
+      }
+    },
+    {
+      "id": "L2_138",
+      "title": "Portable Defibrillator Charger",
+      "application": "AED requiring fast capacitor charging with patient safety",
+      "topology": "flyback",
+      "specifications": {
+        "V_in": 12,
+        "V_out": 1800,
+        "P_out": 200,
+        "ripple_voltage": 18,
+        "efficiency_target": 0.85,
+        "f_sw": 80000,
+        "charge_time": "10s"
+      },
+      "constraints": [
+        "200J charge in 10 seconds",
+        "IEC 60601-2-4 defibrillator safety",
+        "Battery operation (internal AED battery)",
+        "Capacitor monitoring and safety discharge"
+      ],
+      "design_approach": "High-voltage flyback with energy monitoring. Medical safety isolation per IEC 60601. Safety discharge circuit for unused energy. Battery-operated portable design.",
+      "solution": {
+        "L": 0.00005,
+        "C_out": 0.00012,
+        "C_in": 0.002,
+        "R_load": 16200,
+        "duty_cycle": 0.4,
+        "turns_ratio": 50,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 25,
+          "V_diode": 2000,
+          "I_diode": 0.5,
+          "V_cap": 2000,
+          "I_L_rms": 18,
+          "P_dissipation": 30
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / (n × V_in + V_out) = 1800 / (50 × 12 + 1800) = 0.75, use D = 0.4 for CCM",
+        "inductance": "L_mag = V_in × D / (f_sw × ΔI_L) = 12 × 0.4 / (80000 × 1.2) = 50 µH",
+        "output_capacitance": "C = 2 × E / V² = 2 × 200 / 1800² = 120 µF (energy storage)",
+        "input_capacitance": "C_in = P_out / (V_in × f_sw × ΔV_in × η) = 200 / (12 × 80000 × 0.122 × 0.85) = 2000 µF"
+      }
+    },
+    {
+      "id": "L2_139",
+      "title": "Construction Site LED Tower",
+      "application": "Portable light tower requiring generator-compatible power conversion",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 48,
+        "V_out": 42,
+        "P_out": 1000,
+        "ripple_voltage": 0.42,
+        "efficiency_target": 0.95,
+        "f_sw": 150000,
+        "generator_compatible": true
+      },
+      "constraints": [
+        "Generator voltage variation ±20%",
+        "Outdoor rain and dust operation",
+        "Transportable on trailer",
+        "Manual height adjustment motor power"
+      ],
+      "design_approach": "Ruggedized buck for construction environment. Wide input tolerance for generators. IP65 outdoor enclosure. Integrated motor control for mast adjustment.",
+      "solution": {
+        "L": 0.00033,
+        "C_out": 0.001,
+        "C_in": 0.00068,
+        "R_load": 1.764,
+        "duty_cycle": 0.875,
+        "component_ratings": {
+          "V_switch": 80,
+          "I_switch": 35,
+          "V_diode": 80,
+          "I_diode": 35,
+          "V_cap": 60,
+          "I_L_rms": 25,
+          "P_dissipation": 50
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 42 / 48 = 0.875",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 42 × 0.125 / (150000 × 0.106) = 330 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 0.106 / (8 × 150000 × 0.42) = 1000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 23.8 × 0.875 × 0.125 / (150000 × 0.0038) = 680 µF"
+      }
+    },
+    {
+      "id": "L2_140",
+      "title": "Home Energy Storage Inverter",
+      "application": "Residential battery storage requiring bidirectional grid-tie capability",
+      "topology": "buck",
+      "specifications": {
+        "V_in": 400,
+        "V_out": 48,
+        "P_out": 5000,
+        "ripple_voltage": 0.48,
+        "efficiency_target": 0.96,
+        "f_sw": 80000,
+        "bidirectional": true
+      },
+      "constraints": [
+        "Bidirectional charge/discharge",
+        "Grid-tie anti-islanding",
+        "LFP battery compatibility",
+        "Time-of-use optimization ready"
+      ],
+      "design_approach": "Bidirectional buck/boost for battery interface. Grid-tie H-bridge with anti-islanding. BMS CAN communication. Smart grid tariff optimization capability.",
+      "solution": {
+        "L": 0.0002,
+        "C_out": 0.004,
+        "C_in": 0.001,
+        "R_load": 0.461,
+        "duty_cycle": 0.12,
+        "component_ratings": {
+          "V_switch": 600,
+          "I_switch": 130,
+          "V_diode": 600,
+          "I_diode": 130,
+          "V_cap": 80,
+          "I_L_rms": 108,
+          "P_dissipation": 200
+        }
+      },
+      "formulas": {
+        "duty_cycle": "D = V_out / V_in = 48 / 400 = 0.12",
+        "inductance": "L = V_out × (1-D) / (f_sw × ΔI_L) = 48 × 0.88 / (80000 × 2.64) = 200 µH",
+        "output_capacitance": "C_out = ΔI_L / (8 × f_sw × ΔV_out) = 2.64 / (8 × 80000 × 0.48) = 4000 µF",
+        "input_capacitance": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in) = 104 × 0.12 × 0.88 / (80000 × 0.137) = 1000 µF"
+      }
+    }
+  ]
+}

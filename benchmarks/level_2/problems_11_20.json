@@ -1,0 +1,171 @@
+{
+  "level": 2,
+  "description": "Converter design with constraints and optimization targets",
+  "problems": [
+    {
+      "id": "L2_011",
+      "prompt": "Design a buck converter: 12V to 1.8V for FPGA core, 15A. Ripple under 20mV.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 1.8,
+        "iout": 15.0,
+        "power": 27.0
+      },
+      "constraints": {
+        "ripple_max_mv": 20,
+        "optimization_target": "ripple"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_012",
+      "prompt": "Design a flyback converter: 48V to 24V isolated, 2A. Cost-optimized, single output.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 48.0,
+        "vout": 24.0,
+        "iout": 2.0,
+        "power": 48.0,
+        "isolated": true
+      },
+      "constraints": {
+        "optimization_target": "cost"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_013",
+      "prompt": "Design a boost converter: 9-16V automotive input to 19V laptop, 3.5A.",
+      "specs": {
+        "topology": "boost",
+        "vin_min": 9.0,
+        "vin_max": 16.0,
+        "vout": 19.0,
+        "iout": 3.5,
+        "power": 66.5
+      },
+      "constraints": {
+        "input_voltage_range": true,
+        "optimization_target": "regulation"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_014",
+      "prompt": "Design a Cuk converter: 24V to -12V, 2A. Low input current ripple required.",
+      "specs": {
+        "topology": "cuk",
+        "vin": 24.0,
+        "vout": -12.0,
+        "iout": 2.0,
+        "power": 24.0
+      },
+      "constraints": {
+        "input_ripple_low": true,
+        "optimization_target": "input_ripple"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_015",
+      "prompt": "Design a buck converter: 48V telecom to 3.3V, 20A. Interleaved for ripple cancellation.",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout": 20.0,
+        "power": 66.0
+      },
+      "constraints": {
+        "interleaved": true,
+        "optimization_target": "ripple"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_016",
+      "prompt": "Design a forward converter: 36V to 12V, 5A. Maximize efficiency, target >90%.",
+      "specs": {
+        "topology": "forward",
+        "vin": 36.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "isolated": true
+      },
+      "constraints": {
+        "efficiency_min": 0.90,
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_017",
+      "prompt": "Design a SEPIC converter: 12V to 18V, 2A. Must operate in CCM at all loads.",
+      "specs": {
+        "topology": "sepic",
+        "vin": 12.0,
+        "vout": 18.0,
+        "iout": 2.0,
+        "power": 36.0
+      },
+      "constraints": {
+        "mode": "CCM",
+        "optimization_target": "stability"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_018",
+      "prompt": "Design a half-bridge converter: 150V to 28V, 5A. Frequency must be 80-120kHz.",
+      "specs": {
+        "topology": "half_bridge",
+        "vin": 150.0,
+        "vout": 28.0,
+        "iout": 5.0,
+        "power": 140.0,
+        "isolated": true
+      },
+      "constraints": {
+        "f_sw_min": 80000,
+        "f_sw_max": 120000,
+        "optimization_target": "balanced"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_019",
+      "prompt": "Design a boost converter: 5V to 28V LED string, 700mA constant current.",
+      "specs": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 28.0,
+        "iout": 0.7,
+        "power": 19.6
+      },
+      "constraints": {
+        "constant_current": true,
+        "optimization_target": "current_regulation"
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "L2_020",
+      "prompt": "Design a full-bridge converter: 400V to 56V, 20A. ZVS operation required.",
+      "specs": {
+        "topology": "full_bridge",
+        "vin": 400.0,
+        "vout": 56.0,
+        "iout": 20.0,
+        "power": 1120.0,
+        "isolated": true
+      },
+      "constraints": {
+        "soft_switching": "ZVS",
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate"
+    }
+  ]
+}

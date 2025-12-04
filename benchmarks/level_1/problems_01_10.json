@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Single converter, fixed specifications",
+  "problems": [
+    {
+      "id": "L1_001",
+      "prompt": "Design a buck converter: 12V input to 5V output, 2A load current",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_002",
+      "prompt": "Design a buck converter: 24V input to 12V output, 3A load",
+      "specs": {
+        "topology": "buck",
+        "vin": 24.0,
+        "vout": 12.0,
+        "iout": 3.0,
+        "power": 36.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_003",
+      "prompt": "Design a buck converter: 48V input to 5V output, 4A for USB charging",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 4.0,
+        "power": 20.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_004",
+      "prompt": "Design a buck converter: 15V to 3.3V for microcontroller supply, 500mA",
+      "specs": {
+        "topology": "buck",
+        "vin": 15.0,
+        "vout": 3.3,
+        "iout": 0.5,
+        "power": 1.65
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_005",
+      "prompt": "Design a boost converter: 5V input to 12V output, 1A load",
+      "specs": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 12.0,
+        "iout": 1.0,
+        "power": 12.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_006",
+      "prompt": "Design a boost converter: 3.7V Li-ion battery to 5V USB output, 2A",
+      "specs": {
+        "topology": "boost",
+        "vin": 3.7,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_007",
+      "prompt": "Design a boost converter: 12V to 24V, 2A for motor drive",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 24.0,
+        "iout": 2.0,
+        "power": 48.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_008",
+      "prompt": "Design a buck converter: 28V automotive input to 5V, 3A",
+      "specs": {
+        "topology": "buck",
+        "vin": 28.0,
+        "vout": 5.0,
+        "iout": 3.0,
+        "power": 15.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_009",
+      "prompt": "Design a boost converter: 9V battery to 15V, 500mA for sensor power",
+      "specs": {
+        "topology": "boost",
+        "vin": 9.0,
+        "vout": 15.0,
+        "iout": 0.5,
+        "power": 7.5
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    },
+    {
+      "id": "L1_010",
+      "prompt": "Design a buck converter: 36V e-bike battery to 12V accessories, 5A",
+      "specs": {
+        "topology": "buck",
+        "vin": 36.0,
+        "vout": 12.0,
+        "iout": 5.0,
+        "power": 60.0
+      },
+      "constraints": {},
+      "difficulty": "beginner"
+    }
+  ]
+}

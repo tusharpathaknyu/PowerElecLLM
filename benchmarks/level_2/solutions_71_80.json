@@ -1,0 +1,595 @@
+{
+  "level": 2,
+  "description": "Constrained design problems requiring trade-off analysis",
+  "problems": [
+    {
+      "id": "L2_071",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "5G Base Station Power",
+      "problem_statement": "Design a buck converter for 5G small cell base station equipment. Input: 48V DC from PoE++, Output: 12V at 6A. The converter must meet strict EMI requirements with conducted emissions below 60dBμV from 150kHz-30MHz. Switching frequency must be above 500kHz for size constraints.",
+      "constraints": {
+        "input_voltage": "48V",
+        "output_voltage": "12V",
+        "output_current": "6A",
+        "conducted_emissions": "<60dBμV (150kHz-30MHz)",
+        "min_switching_frequency": "500kHz",
+        "max_size": "30x30mm PCB area"
+      },
+      "solution": {
+        "design_approach": "For EMI compliance, use spread-spectrum modulation and careful input filter design. Higher frequency reduces filter size but increases switching losses.",
+        "switching_frequency": "600kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 12V / 48V = 0.25"
+        },
+        "inductor": {
+          "formula": "L = (V_in - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "1.8A (30% of I_out)",
+          "calculation": "L = (48V - 12V) × 0.25 / (600kHz × 1.8A) = 8.33μH",
+          "selected_value": "10μH",
+          "type": "Shielded ferrite drum core for EMI",
+          "current_rating": "8A",
+          "dcr": "<15mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "60mV (0.5%)",
+          "calculation": "C_out = 1.8A / (8 × 600kHz × 60mV) = 6.25μF",
+          "selected_value": "100μF (2 × 47μF ceramic)",
+          "type": "MLCC X7R",
+          "voltage_rating": "25V",
+          "esr": "<5mΩ"
+        },
+        "input_capacitor": {
+          "formula": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in)",
+          "voltage_ripple": "480mV (1%)",
+          "calculation": "C_in = 6A × 0.25 × 0.75 / (600kHz × 480mV) = 3.9μF",
+          "selected_value": "22μF (2 × 10μF ceramic + EMI filter)",
+          "type": "MLCC X7R with CM choke",
+          "voltage_rating": "100V"
+        },
+        "emi_filter": {
+          "cm_choke": "2.2mH common mode choke",
+          "dm_inductor": "1μH differential mode",
+          "y_capacitors": "2 × 4.7nF to chassis"
+        },
+        "efficiency_estimate": "94%",
+        "thermal_analysis": "P_loss = 72W × 0.06 = 4.3W, requires airflow"
+      }
+    },
+    {
+      "id": "L2_072",
+      "topology": "boost",
+      "difficulty": "intermediate",
+      "application": "Hybrid Vehicle 12V-48V Mild Hybrid",
+      "problem_statement": "Design a bidirectional boost converter for 48V mild hybrid system. Input: 12V lead-acid battery, Output: 48V lithium pack at 50A (boost mode). The converter operates in regenerative braking (buck mode) at up to 60A. Must survive load dump to 54V and cold crank at 6V input.",
+      "constraints": {
+        "input_voltage_range": "6V-16V (cold crank to load dump)",
+        "output_voltage": "48V nominal (42V-54V range)",
+        "boost_current": "50A output",
+        "buck_current": "60A to 12V",
+        "ambient_temp": "-40°C to +85°C",
+        "efficiency": ">95% at full load"
+      },
+      "solution": {
+        "design_approach": "Multiphase interleaved design for current sharing and ripple cancellation. Design for worst case 6V input during cold crank.",
+        "topology": "4-phase interleaved bidirectional boost",
+        "switching_frequency": "100kHz per phase (400kHz effective)",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "nominal": "D = 1 - 12V/48V = 0.75",
+          "cold_crank": "D = 1 - 6V/48V = 0.875"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "6.25A per phase (50% at cold crank)",
+          "calculation": "L = 6V × 0.875 / (100kHz × 6.25A) = 8.4μH",
+          "selected_value": "10μH per phase",
+          "type": "Sendust powder core for DC bias",
+          "current_rating": "25A",
+          "dcr": "<2mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D / (f_sw × ΔV_out)",
+          "voltage_ripple": "500mV",
+          "calculation": "C_out = 50A × 0.75 / (400kHz × 0.5V) = 187.5μF",
+          "selected_value": "500μF (bank of 10 × 47μF MLCCs + 2 × 100μF electrolytics)",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "formula": "For 4-phase, ripple cancellation reduces requirement",
+          "selected_value": "2000μF (4 × 470μF low-ESR electrolytics)",
+          "type": "Automotive grade AEC-Q200",
+          "voltage_rating": "25V"
+        },
+        "mosfet_selection": {
+          "low_side": "4 × 40V 200A automotive MOSFETs, Rds_on < 1mΩ",
+          "high_side": "4 × 80V 100A automotive MOSFETs, Rds_on < 2mΩ"
+        },
+        "efficiency_estimate": "96% at nominal, 93% at cold crank",
+        "cooling": "Liquid cooling plate required"
+      }
+    },
+    {
+      "id": "L2_073",
+      "topology": "flyback",
+      "difficulty": "intermediate",
+      "application": "Medical Isolated Auxiliary Supply",
+      "problem_statement": "Design a flyback converter for medical equipment auxiliary power. Input: 24V DC, Output: 15V isolated at 2A. Must meet 2xMOPP (Means of Patient Protection) with 4kVAC isolation and leakage current below 10μA.",
+      "constraints": {
+        "input_voltage": "24V DC (18V-28V)",
+        "output_voltage": "15V isolated",
+        "output_current": "2A",
+        "isolation": "4kVAC (2xMOPP)",
+        "leakage_current": "<10μA",
+        "safety_standard": "IEC 60601-1"
+      },
+      "solution": {
+        "design_approach": "Use triple-insulated wire, low coupling capacitance transformer, and Y1 safety capacitors. Optocoupler feedback for isolation.",
+        "switching_frequency": "150kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D_max / (V_out + V_f) / (1 - D_max)",
+          "calculation": "n = 24V × 0.45 / (15V + 0.5V) / 0.55 = 1.27:1",
+          "selected_ratio": "4:3 (1.33:1)"
+        },
+        "duty_cycle": {
+          "formula": "D = n × (V_out + V_f) / (V_in + n × (V_out + V_f))",
+          "calculation": "D = 1.33 × 15.5V / (24V + 1.33 × 15.5V) = 0.46"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "calculation": "L_p = 24² × 0.46² / (2 × 30W × 150kHz × 0.88) = 69μH",
+          "selected_value": "68μH"
+        },
+        "transformer_specs": {
+          "core": "EE16 or EFD15",
+          "primary": "12 turns, triple-insulated",
+          "secondary": "9 turns, triple-insulated",
+          "interwinding_capacitance": "<5pF",
+          "creepage_clearance": ">8mm"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out / (f_sw × ΔV_out)",
+          "voltage_ripple": "75mV (0.5%)",
+          "calculation": "C_out = 2A / (150kHz × 75mV) = 177μF",
+          "selected_value": "220μF",
+          "type": "Medical grade low-ESR electrolytic",
+          "voltage_rating": "25V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF",
+          "type": "Low-ESR electrolytic",
+          "voltage_rating": "50V"
+        },
+        "safety_components": {
+          "optocoupler": "Medical certified, CTR > 100%",
+          "y_capacitors": "2 × 10pF Y1 rated",
+          "fuse": "Slow-blow 2A medical grade"
+        },
+        "leakage_current": "<5μA (well under 10μA limit)",
+        "efficiency_estimate": "88%"
+      }
+    },
+    {
+      "id": "L2_074",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "GPU HBM Memory Power",
+      "problem_statement": "Design a buck converter for HBM (High Bandwidth Memory) power in a high-end GPU. Input: 12V, Output: 1.2V at 15A with fast transient response. Load step of 10A in 100ns must cause less than 40mV deviation.",
+      "constraints": {
+        "input_voltage": "12V",
+        "output_voltage": "1.2V",
+        "output_current": "15A",
+        "load_step": "10A in 100ns",
+        "voltage_deviation": "<40mV",
+        "output_ripple": "<12mV"
+      },
+      "solution": {
+        "design_approach": "Multi-phase design with very low output impedance. High bandwidth control loop with fast transient response. Ceramic capacitor bank for low ESR/ESL.",
+        "topology": "3-phase buck with coupled inductors",
+        "switching_frequency": "1MHz per phase (3MHz effective)",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 1.2V / 12V = 0.1"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "5A per phase (100%)",
+          "calculation": "L = 1.2V × 0.9 / (1MHz × 5A) = 216nH",
+          "selected_value": "220nH coupled inductor",
+          "type": "Coupled inductor for faster transient",
+          "dcr": "<0.5mΩ per phase"
+        },
+        "output_capacitor": {
+          "transient_formula": "C_out = I_step × t_response / ΔV",
+          "calculation_transient": "C_out = 10A × 2μs / 40mV = 500μF",
+          "ripple_formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "calculation_ripple": "C_out = 5A / (8 × 3MHz × 12mV) = 17.4μF",
+          "selected_value": "600μF (30 × 22μF 0402 MLCCs)",
+          "type": "X5R MLCC array",
+          "voltage_rating": "6.3V (derated)",
+          "esl": "<50pH total"
+        },
+        "input_capacitor": {
+          "formula": "C_in = I_out × D / (f_sw × ΔV_in)",
+          "selected_value": "100μF (10 × 10μF MLCCs)",
+          "voltage_rating": "25V"
+        },
+        "transient_analysis": {
+          "output_impedance": "Z_out < 4mΩ at 100kHz",
+          "control_bandwidth": "300kHz",
+          "phase_margin": ">45°"
+        },
+        "efficiency_estimate": "91% at full load",
+        "thermal": "3W loss, requires thermal vias to internal planes"
+      }
+    },
+    {
+      "id": "L2_075",
+      "topology": "sepic",
+      "difficulty": "intermediate",
+      "application": "Portable Ultrasound Power",
+      "problem_statement": "Design a SEPIC converter for portable ultrasound equipment. Input: 12V-24V from battery or AC adapter, Output: 18V at 3A. Must provide stable output across full input range with soft-start to prevent transducer damage.",
+      "constraints": {
+        "input_voltage_range": "12V-24V",
+        "output_voltage": "18V",
+        "output_current": "3A",
+        "soft_start_time": ">10ms",
+        "output_overshoot": "<5% during startup",
+        "ripple": "<100mV"
+      },
+      "solution": {
+        "design_approach": "SEPIC topology handles buck-boost operation naturally. Implement controlled soft-start ramp and output current limiting.",
+        "switching_frequency": "250kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_12V": "D = 18V / (12V + 18V) = 0.6",
+          "at_24V": "D = 18V / (24V + 18V) = 0.43"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.9A (30% of I_in at 12V)",
+          "calculation": "L1 = 12V × 0.6 / (250kHz × 0.9A) = 32μH",
+          "selected_value": "33μH",
+          "current_rating": "5A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.9A",
+          "calculation": "L2 = 18V × 0.57 / (250kHz × 0.9A) = 45.6μH",
+          "selected_value": "47μH",
+          "current_rating": "5A"
+        },
+        "coupling_capacitor": {
+          "formula": "C_c = I_out × D_max / (f_sw × ΔV_c)",
+          "voltage_ripple": "500mV",
+          "calculation": "C_c = 3A × 0.6 / (250kHz × 0.5V) = 14.4μF",
+          "selected_value": "22μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "50V"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D_max / (f_sw × ΔV_out)",
+          "calculation": "C_out = 3A × 0.6 / (250kHz × 100mV) = 72μF",
+          "selected_value": "100μF",
+          "type": "Low-ESR electrolytic + 22μF ceramic",
+          "voltage_rating": "25V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF ceramic + 100μF electrolytic",
+          "voltage_rating": "35V"
+        },
+        "soft_start": {
+          "ramp_time": "15ms",
+          "method": "Reference voltage ramp with SS pin capacitor",
+          "ss_capacitor": "100nF for 15ms ramp"
+        },
+        "efficiency_estimate": "90% at 18V input, 88% at extremes"
+      }
+    },
+    {
+      "id": "L2_076",
+      "topology": "forward",
+      "difficulty": "intermediate",
+      "application": "Industrial PLC Backplane Power",
+      "problem_statement": "Design a forward converter for industrial PLC backplane power distribution. Input: 24V DC, Output: 5V at 20A. Must operate in -25°C to +70°C industrial environment with 20-year design life and MTBF > 500,000 hours.",
+      "constraints": {
+        "input_voltage": "24V DC (20V-28V)",
+        "output_voltage": "5V",
+        "output_current": "20A",
+        "temperature_range": "-25°C to +70°C",
+        "mtbf": ">500,000 hours",
+        "design_life": "20 years"
+      },
+      "solution": {
+        "design_approach": "Conservative derating for long life. Use high-reliability components, generous thermal margins, and proven topology.",
+        "switching_frequency": "200kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in_min × D_max / V_out",
+          "calculation": "n = 20V × 0.45 / 5V = 1.8:1",
+          "selected_ratio": "2:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "at_24V": "D = 5V × 2 / 24V = 0.42",
+          "at_20V": "D = 5V × 2 / 20V = 0.5"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "4A (20%)",
+          "calculation": "L = (24V/2 - 5V) × 0.42 / (200kHz × 4A) = 3.15μH",
+          "selected_value": "4.7μH",
+          "type": "Powder core with 50% current margin",
+          "current_rating": "30A",
+          "dcr": "<2mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "50mV (1%)",
+          "calculation": "C_out = 4A / (8 × 200kHz × 50mV) = 50μF",
+          "selected_value": "1000μF (conservative for MTBF)",
+          "type": "Long-life polymer aluminum electrolytic",
+          "voltage_rating": "10V",
+          "lifetime": "20,000 hours at 105°C"
+        },
+        "input_capacitor": {
+          "selected_value": "470μF",
+          "type": "Long-life electrolytic",
+          "voltage_rating": "50V"
+        },
+        "transformer": {
+          "core": "ETD29 ferrite",
+          "primary": "10 turns",
+          "secondary": "5 turns",
+          "reset_winding": "10 turns"
+        },
+        "derating_analysis": {
+          "capacitor_voltage": "50% derated",
+          "semiconductor_current": "60% derated",
+          "operating_temp": "30°C below max"
+        },
+        "mtbf_calculation": "Estimated 650,000 hours at 55°C ambient",
+        "efficiency_estimate": "92%"
+      }
+    },
+    {
+      "id": "L2_077",
+      "topology": "buck",
+      "difficulty": "intermediate",
+      "application": "SSD Controller Power with Ripple Spec",
+      "problem_statement": "Design a buck converter for NVMe SSD controller. Input: 3.3V, Output: 1.1V at 4A. The controller is sensitive to power supply noise and requires output ripple below 8mV pk-pk with no switching noise spikes above 20mV.",
+      "constraints": {
+        "input_voltage": "3.3V ±5%",
+        "output_voltage": "1.1V",
+        "output_current": "4A",
+        "output_ripple": "<8mV pk-pk",
+        "noise_spikes": "<20mV",
+        "pcb_area": "<50mm²"
+      },
+      "solution": {
+        "design_approach": "High frequency operation with post-regulator LDO option. Focus on minimizing switching noise through careful layout and filtering.",
+        "switching_frequency": "2MHz",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 1.1V / 3.3V = 0.33"
+        },
+        "inductor": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "0.8A (20%)",
+          "calculation": "L = 1.1V × 0.67 / (2MHz × 0.8A) = 460nH",
+          "selected_value": "470nH",
+          "type": "Molded power inductor (shielded)",
+          "current_rating": "6A",
+          "dcr": "<10mΩ"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "calculation": "C_out = 0.8A / (8 × 2MHz × 8mV) = 6.25μF",
+          "selected_value": "66μF (3 × 22μF MLCCs)",
+          "type": "X5R MLCC low ESL",
+          "voltage_rating": "4V",
+          "esr": "<3mΩ",
+          "esl": "<300pH"
+        },
+        "input_capacitor": {
+          "formula": "C_in = I_out × D × (1-D) / (f_sw × ΔV_in)",
+          "selected_value": "22μF (2 × 10μF MLCCs)",
+          "voltage_rating": "6.3V"
+        },
+        "noise_filtering": {
+          "ferrite_bead": "600Ω at 100MHz on output",
+          "post_filter": "10Ω + 10μF RC filter option",
+          "layout": "Kelvin sensing, star ground"
+        },
+        "ripple_analysis": {
+          "capacitor_ripple": "6mV from ESR",
+          "inductor_ripple": "2mV from ESL",
+          "total": "<8mV with margin"
+        },
+        "efficiency_estimate": "88%"
+      }
+    },
+    {
+      "id": "L2_078",
+      "topology": "cuk",
+      "difficulty": "intermediate",
+      "application": "Audio Amplifier Split Rail Supply",
+      "problem_statement": "Design a Ćuk converter providing split rails for Class AB audio amplifier. Input: 12V DC, Outputs: ±15V at 2A each. Must have very low output ripple for audio quality and common-mode rejection better than 60dB.",
+      "constraints": {
+        "input_voltage": "12V DC",
+        "output_voltages": "+15V and -15V",
+        "output_current": "2A per rail",
+        "output_ripple": "<5mV (audio requirement)",
+        "cmrr": ">60dB",
+        "switching_noise": "Out of audio band (>20kHz)"
+      },
+      "solution": {
+        "design_approach": "Use synchronized dual Ćuk converters with common clock for CMRR. Switching frequency well above audio band with LC post-filtering.",
+        "switching_frequency": "500kHz (25x above 20kHz)",
+        "topology": "Dual Ćuk with coupled inductors",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 15V / (12V + 15V) = 0.556"
+        },
+        "input_inductor_per_rail": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "0.6A (30% of I_in)",
+          "calculation": "L1 = 12V × 0.556 / (500kHz × 0.6A) = 22.2μH",
+          "selected_value": "22μH",
+          "type": "Toroidal powder core",
+          "current_rating": "4A"
+        },
+        "output_inductor_per_rail": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.6A",
+          "calculation": "L2 = 15V × 0.444 / (500kHz × 0.6A) = 22.2μH",
+          "selected_value": "22μH",
+          "current_rating": "4A"
+        },
+        "coupling_capacitor_per_rail": {
+          "formula": "C_c = I_out × D / (f_sw × ΔV_c)",
+          "calculation": "C_c = 2A × 0.556 / (500kHz × 1V) = 2.2μF",
+          "selected_value": "4.7μF",
+          "type": "Film capacitor for audio",
+          "voltage_rating": "50V"
+        },
+        "output_capacitor_per_rail": {
+          "pre_filter": "100μF electrolytic",
+          "post_filter": "22μF film capacitor",
+          "total_value": "122μF effective per rail",
+          "voltage_rating": "25V"
+        },
+        "input_capacitor": {
+          "selected_value": "220μF electrolytic + 10μF film",
+          "voltage_rating": "25V"
+        },
+        "lc_post_filter": {
+          "inductor": "100μH per rail",
+          "capacitor": "22μF film",
+          "cutoff": "3.4kHz (well below switching)"
+        },
+        "ripple_achieved": "<3mV after filtering",
+        "cmrr": "65dB with matched components",
+        "efficiency_estimate": "87%"
+      }
+    },
+    {
+      "id": "L2_079",
+      "topology": "half_bridge",
+      "difficulty": "intermediate",
+      "application": "Laboratory Power Supply Module",
+      "problem_statement": "Design a half-bridge LLC converter for precision laboratory power supply. Input: 400V DC bus, Output: 48V at 10A. Requires regulation to ±0.1% with remote sensing and temperature coefficient below 50ppm/°C.",
+      "constraints": {
+        "input_voltage": "400V DC (380V-420V)",
+        "output_voltage": "48V ±0.1%",
+        "output_current": "10A",
+        "load_regulation": "<0.05%",
+        "line_regulation": "<0.05%",
+        "temp_coefficient": "<50ppm/°C"
+      },
+      "solution": {
+        "design_approach": "LLC resonant converter for high efficiency, followed by precision linear post-regulator for tight regulation. Use temperature-compensated reference.",
+        "topology": "Half-bridge LLC with linear post-regulator",
+        "llc_output": "52V (4V headroom for linear reg)",
+        "resonant_frequency": "150kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / (2 × V_out_llc)",
+          "calculation": "n = 400V / (2 × 52V) = 3.85:1",
+          "selected_ratio": "4:1"
+        },
+        "resonant_components": {
+          "formula": "f_r = 1 / (2π × √(L_r × C_r))",
+          "L_r": "50μH (integrated in transformer)",
+          "C_r": "22nF (2 × 10nF in series)",
+          "L_m": "200μH (4× L_r)"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out / (4 × f_sw × ΔV_out)",
+          "calculation": "C_out = 10A / (4 × 150kHz × 0.5V) = 33μF",
+          "selected_value": "220μF",
+          "type": "Low-ESR electrolytic",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF film + 47μF electrolytic",
+          "voltage_rating": "450V"
+        },
+        "linear_post_regulator": {
+          "input": "52V from LLC",
+          "output": "48V at 10A",
+          "dropout": "4V",
+          "power_dissipation": "40W",
+          "type": "Precision linear with 0.05% reference",
+          "cooling": "Large heatsink with fan"
+        },
+        "precision_features": {
+          "reference": "LM399 0.0001%/°C",
+          "remote_sense": "4-wire Kelvin connection",
+          "error_amplifier": "Precision op-amp <10ppm/°C"
+        },
+        "overall_efficiency": "88% (LLC 96% × Linear 92%)",
+        "output_accuracy": "±0.05% achievable"
+      }
+    },
+    {
+      "id": "L2_080",
+      "topology": "boost",
+      "difficulty": "intermediate",
+      "application": "Electric Scooter LED Headlight Driver",
+      "problem_statement": "Design a boost converter for electric scooter LED headlight. Input: 36V-54V lithium pack, Output: 60V at 1.5A for 90W LED array. Must handle input transients from regenerative braking (up to 65V spikes) and provide PWM dimming capability.",
+      "constraints": {
+        "input_voltage_range": "36V-54V nominal, 65V transient",
+        "output_voltage": "60V",
+        "output_current": "1.5A",
+        "transient_survival": "65V for 100ms",
+        "dimming": "PWM dimming 10%-100%",
+        "led_current_accuracy": "±3%"
+      },
+      "solution": {
+        "design_approach": "Design for worst-case transient with TVS protection. Implement constant current control for LED drive with analog dimming via PWM at enable.",
+        "switching_frequency": "300kHz",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "at_36V": "D = 1 - 36V/60V = 0.4",
+          "at_54V": "D = 1 - 54V/60V = 0.1",
+          "at_65V_transient": "D = 0 (passthrough mode)"
+        },
+        "inductor": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "0.75A (30% at 36V input)",
+          "calculation": "L = 36V × 0.4 / (300kHz × 0.75A) = 64μH",
+          "selected_value": "68μH",
+          "type": "Shielded power inductor",
+          "current_rating": "4A",
+          "saturation_current": "5A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D / (f_sw × ΔV_out)",
+          "voltage_ripple": "600mV (1%)",
+          "calculation": "C_out = 1.5A × 0.4 / (300kHz × 0.6V) = 3.3μF",
+          "selected_value": "22μF",
+          "type": "Ceramic X7R",
+          "voltage_rating": "100V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF electrolytic + 10μF ceramic",
+          "voltage_rating": "80V"
+        },
+        "transient_protection": {
+          "tvs_diode": "70V bidirectional TVS at input",
+          "input_voltage_clamp": "Internal OVP at 70V",
+          "soft_recovery": "2ms ramp after transient"
+        },
+        "led_driver_features": {
+          "current_sense": "100mΩ sense resistor",
+          "current_accuracy": "±2% with precision reference",
+          "pwm_dimming_freq": "1kHz",
+          "dimming_range": "10:1"
+        },
+        "efficiency_estimate": "94% at 48V input",
+        "thermal": "5.4W loss, requires heatsink fins"
+      }
+    }
+  ]
+}

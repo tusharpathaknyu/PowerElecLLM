@@ -1,0 +1,45 @@
+{
+  "name": "PowerElecBench",
+  "version": "1.0.0",
+  "description": "Benchmark dataset for evaluating AI systems on power electronics converter design",
+  "total_problems": 100,
+  "levels": {
+    "level_1": {
+      "count": 30, 
+      "description": "Single converter, fixed specs", 
+      "problem_files": ["level_1/problems_01_10.json", "level_1/problems_11_20.json", "level_1/problems_21_30.json"],
+      "solution_files": ["level_1/solutions_01_10.json", "level_1/solutions_11_20.json", "level_1/solutions_21_30.json"]
+    },
+    "level_2": {
+      "count": 40, 
+      "description": "Constraints + optimization target", 
+      "problem_files": ["level_2/problems_01_10.json", "level_2/problems_11_20.json", "level_2/problems_21_30.json", "level_2/problems_31_40.json"],
+      "solution_files": ["level_2/solutions_01_10.json", "level_2/solutions_11_20.json", "level_2/solutions_21_30.json", "level_2/solutions_31_40.json"]
+    },
+    "level_3": {
+      "count": 20, 
+      "description": "Multi-stage or complex requirements", 
+      "problem_files": ["level_3/problems_01_10.json", "level_3/problems_11_20.json"],
+      "solution_files": ["level_3/solutions_01_10.json", "level_3/solutions_11_20.json"]
+    },
+    "level_4": {
+      "count": 10, 
+      "description": "Control design included", 
+      "problem_files": ["level_4/problems_01_10.json"],
+      "solution_files": ["level_4/solutions_01_10.json"]
+    }
+  },
+  "evaluation_metrics": {
+    "output_voltage_accuracy": "Target < 5% error from specified Vout",
+    "output_ripple": "Must meet ripple specification if given",
+    "efficiency": "Estimated efficiency based on component losses",
+    "component_count": "Number of components used",
+    "switching_frequency": "Must be within specified range",
+    "control_stability": "Phase margin and bandwidth for Level 4"
+  },
+  "topologies_covered": [
+    "buck", "boost", "sepic", "cuk", "inverting_buck_boost",
+    "qr_buck", "flyback", "forward", "half_bridge", "full_bridge",
+    "llc_resonant", "dual_active_bridge", "pfc_boost", "three_phase_inverter"
+  ]
+}

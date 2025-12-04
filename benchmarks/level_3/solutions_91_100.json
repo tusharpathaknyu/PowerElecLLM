@@ -1,0 +1,872 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_091",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Airship Station-Keeping",
+      "problem_statement": "Design a boost converter for stratospheric airship station-keeping propulsion. Input: 200V-400V from thin-film solar on envelope, Output: 600V DC bus at 50kW for electric thrusters. Must operate at 20km altitude (5% atmosphere), handle 24-hour day/night cycle, and provide 5-year endurance.",
+      "objectives": {
+        "primary": ["20km altitude operation", "24-hour autonomy", "5-year endurance"],
+        "secondary": ["Lightweight", "Solar MPPT"],
+        "constraints": ["Helium envelope integration", "Minimal mass"]
+      },
+      "solution": {
+        "design_approach": "High-altitude low-pressure design. Lightweight construction. Battery buffer for night operation.",
+        "topology": "4-phase interleaved boost",
+        "switching_frequency": "150kHz per phase",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "at_200V": "D = 1 - 200V/600V = 0.67",
+          "at_400V": "D = 1 - 400V/600V = 0.33"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "10A per phase (at max duty)",
+          "calculation": "L = 200V × 0.67 / (150kHz × 10A) = 89μH",
+          "selected_value": "100μH per phase",
+          "type": "Lightweight nanocrystalline",
+          "current_rating": "50A"
+        },
+        "dc_bus_capacitor": {
+          "formula": "C for thruster transients",
+          "selected_value": "2mF film",
+          "voltage_rating": "800V",
+          "type": "Lightweight film"
+        },
+        "input_capacitor": {
+          "selected_value": "500μF ceramic",
+          "voltage_rating": "500V"
+        },
+        "altitude_design": {
+          "pressure": "50mbar (5% sea level)",
+          "temperature": "-60°C to +40°C",
+          "corona": "Increased risk - encapsulate HV",
+          "convection": "Poor - radiation cooling"
+        },
+        "thermal_management": {
+          "heat_rejection": "Radiative to space (cold side)",
+          "absorptivity": "Low α top, high ε bottom",
+          "temperature_control": "Passive balance"
+        },
+        "24_hour_cycle": {
+          "day": "Solar charging + operation",
+          "night": "Battery only",
+          "battery": "Li-ion 100kWh",
+          "solar_array": "80kW peak on envelope"
+        },
+        "solar_mppt": {
+          "algorithm": "Distributed MPPT",
+          "tracking": "Per-string optimization",
+          "efficiency": ">99%"
+        },
+        "5_year_endurance": {
+          "components": "High-reliability selection",
+          "redundancy": "N+1 critical paths",
+          "replacement": "Ground recovery for major work"
+        },
+        "mass_budget": {
+          "power_electronics": "20kg",
+          "inductors": "10kg",
+          "capacitors": "5kg",
+          "thermal": "5kg",
+          "total": "40kg (for 50kW)"
+        },
+        "thruster_interface": {
+          "type": "Electric propulsion",
+          "motors": "Brushless DC",
+          "propellers": "Variable pitch"
+        },
+        "efficiency_achieved": "97%"
+      }
+    },
+    {
+      "id": "L3_092",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Precision Gravimeter",
+      "problem_statement": "Design a Ćuk converter for superconducting gravimeter electronics. Input: 24V, Output: -5V at 1A for SQUID controller. Must achieve <1μGal noise contribution, operate at 4K cryogenic interface, and provide continuous years of recording.",
+      "objectives": {
+        "primary": ["<1μGal noise", "4K interface", "Continuous operation"],
+        "secondary": ["Low drift", "Remote monitoring"],
+        "constraints": ["Helium consumption impact", "Non-magnetic"]
+      },
+      "solution": {
+        "design_approach": "Ultra-low noise design with room temperature electronics. Filtered connection to 4K. Non-magnetic construction throughout.",
+        "switching_frequency": "1MHz (far above gravity signal band)",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 5V / (24V + 5V) = 0.172"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "0.2A",
+          "calculation": "L1 = 24V × 0.172 / (1MHz × 0.2A) = 20.6μH",
+          "selected_value": "22μH",
+          "type": "Toroidal, non-magnetic core"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.15A",
+          "calculation": "L2 = 5V × 0.828 / (1MHz × 0.15A) = 27.6μH",
+          "selected_value": "33μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "10μF",
+          "type": "Film (low noise)",
+          "voltage_rating": "35V"
+        },
+        "output_capacitor": {
+          "selected_value": "100μF film + multi-stage LC",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "47μF film",
+          "voltage_rating": "35V"
+        },
+        "ugal_noise_floor": {
+          "gravity_band": "DC to 1mHz",
+          "noise_target": "<1μGal = 10⁻⁸ m/s²",
+          "voltage_equivalent": "<1nV/√Hz at SQUID"
+        },
+        "noise_filtering": {
+          "stage_1": "1MHz LC from switcher",
+          "stage_2": "10kHz LC",
+          "stage_3": "100Hz LC",
+          "stage_4": "1Hz active filter",
+          "achieved": "<100pV/√Hz"
+        },
+        "4k_interface": {
+          "location": "Electronics at room temp",
+          "cable": "Superconducting leads to 4K",
+          "heat_load": "<1mW to 4K stage",
+          "thermal_anchoring": "At 77K and 4K"
+        },
+        "non_magnetic_design": {
+          "enclosure": "Aluminum",
+          "inductors": "Ferrite-free toroidal",
+          "hardware": "Brass, plastic",
+          "residual_field": "<10nT"
+        },
+        "squid_controller": {
+          "device": "DC SQUID",
+          "bias_current": "Precision <1ppm",
+          "noise_temp": "<10μK equivalent"
+        },
+        "continuous_operation": {
+          "design_life": "10+ years",
+          "redundancy": "Dual supply option",
+          "monitoring": "Continuous telemetry",
+          "drift": "<10ppm/year"
+        },
+        "helium_consumption": {
+          "base": "Minimize electronics heat",
+          "cable_load": "<1mW contribution",
+          "total_cryostat": "~1L/day"
+        },
+        "efficiency_achieved": "85%"
+      }
+    },
+    {
+      "id": "L3_093",
+      "topology": "forward",
+      "difficulty": "advanced",
+      "application": "Geothermal Well Logging",
+      "problem_statement": "Design a forward converter for geothermal well logging tool. Input: 200V DC from wireline, Output: 12V at 5A for electronics. Must operate at 300°C ambient, survive 3000 bar pressure, and withstand H2S corrosive environment.",
+      "objectives": {
+        "primary": ["300°C operation", "3000 bar pressure", "H2S survival"],
+        "secondary": ["Wireline power optimization", "Data telemetry"],
+        "constraints": ["Tool diameter <50mm", "Continuous logging"]
+      },
+      "solution": {
+        "design_approach": "High-temperature SOI electronics. Pressure-balanced oil-filled construction. Corrosion-resistant materials throughout.",
+        "switching_frequency": "500kHz (high-temp magnetics limit)",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in × D / V_out",
+          "calculation": "n = 200V × 0.15 / 12V = 2.5:1",
+          "selected_ratio": "2.5:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / V_in",
+          "calculation": "D = 12V × 2.5 / 200V = 0.15"
+        },
+        "output_inductor": {
+          "formula": "L = (V_in/n - V_out) × D / (f_sw × ΔI_L)",
+          "ripple_current": "1A (20%)",
+          "calculation": "L = (80V - 12V) × 0.15 / (500kHz × 1A) = 20.4μH",
+          "selected_value": "22μH",
+          "type": "High-temp ferrite, 300°C rated",
+          "current_rating": "7A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = ΔI_L / (8 × f_sw × ΔV_out)",
+          "voltage_ripple": "60mV",
+          "calculation": "C_out = 1A / (8 × 500kHz × 60mV) = 4.2μF",
+          "selected_value": "22μF ceramic COG",
+          "type": "High-temp COG (to 300°C)",
+          "voltage_rating": "25V"
+        },
+        "input_capacitor": {
+          "selected_value": "4.7μF ceramic COG",
+          "voltage_rating": "250V"
+        },
+        "300_degree_operation": {
+          "semiconductors": "SOI (Silicon-on-insulator)",
+          "capacitors": "Ceramic COG only",
+          "magnetics": "High-Curie-temp ferrite",
+          "resistors": "Thin-film high-temp"
+        },
+        "transformer_high_temp": {
+          "core": "NiZn ferrite (Tc > 450°C)",
+          "wire": "Silver-plated copper",
+          "insulation": "Mica tape + ceramic"
+        },
+        "pressure_design": {
+          "housing": "Inconel 718",
+          "wall_thickness": "10mm",
+          "compensation": "Oil-filled with bellows",
+          "seals": "Metal-to-metal"
+        },
+        "h2s_corrosion": {
+          "materials": "Ni-based alloys",
+          "no_copper_exposure": "All copper protected",
+          "seals": "Perfluoroelastomer or metal",
+          "coating": "Electroless nickel"
+        },
+        "wireline_interface": {
+          "cable_length": "Up to 10km",
+          "voltage_drop": "200V at tool, 600V at surface",
+          "current": "Limited by cable heating",
+          "telemetry": "Modem on wireline"
+        },
+        "tool_diameter": {
+          "electronics": "43mm OD PCB",
+          "housing": "48mm OD",
+          "construction": "Cylindrical stack"
+        },
+        "logging_sensors": {
+          "gamma": "Spectral gamma ray",
+          "resistivity": "Induction",
+          "temperature": "Calibrated RTD"
+        },
+        "efficiency_achieved": "82%"
+      }
+    },
+    {
+      "id": "L3_094",
+      "topology": "sepic",
+      "difficulty": "advanced",
+      "application": "Wildlife Tracking Collar",
+      "problem_statement": "Design a SEPIC converter for large mammal GPS tracking collar. Input: 3.6V from lithium primary (declining to 2.5V), Output: 3.3V at 200mA for GPS and satellite uplink. Must achieve 3-year tracking life, survive animal behavior (impact, water), and minimize collar mass.",
+      "objectives": {
+        "primary": ["3-year battery life", "Animal behavior survival", "Minimal mass"],
+        "secondary": ["GPS acquisition speed", "Satellite uplink"],
+        "constraints": ["Animal welfare", "Drop-off mechanism"]
+      },
+      "solution": {
+        "design_approach": "SEPIC for full lithium discharge utilization. Ultra-low quiescent current. Ruggedized miniature design.",
+        "switching_frequency": "600kHz",
+        "duty_cycle": {
+          "formula": "D = V_out / (V_in + V_out)",
+          "at_3.6V": "D = 3.3V / (3.6V + 3.3V) = 0.48",
+          "at_2.5V": "D = 3.3V / (2.5V + 3.3V) = 0.57"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in_min × D_max / (f_sw × ΔI_L1)",
+          "ripple_current": "0.05A",
+          "calculation": "L1 = 2.5V × 0.57 / (600kHz × 0.05A) = 47.5μH",
+          "selected_value": "47μH",
+          "type": "Miniature shielded",
+          "current_rating": "0.5A"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D_min) / (f_sw × ΔI_L2)",
+          "ripple_current": "0.05A",
+          "calculation": "L2 = 3.3V × 0.52 / (600kHz × 0.05A) = 57.2μH",
+          "selected_value": "47μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "2.2μF",
+          "type": "Ceramic X5R",
+          "voltage_rating": "10V"
+        },
+        "output_capacitor": {
+          "selected_value": "22μF ceramic",
+          "voltage_rating": "6.3V"
+        },
+        "input_capacitor": {
+          "selected_value": "10μF ceramic",
+          "voltage_rating": "6.3V"
+        },
+        "3_year_battery_life": {
+          "battery": "Li-SOCl2 D-cell, 19Ah",
+          "gps_power": "50mW acquisition, 20mW tracking",
+          "duty_cycle": "4 fixes per day",
+          "average_current": "0.5mA",
+          "life": "19Ah / 0.5mA = 38,000h = 4.3 years"
+        },
+        "quiescent_current": {
+          "target": "<5μA shutdown",
+          "achieved": "3μA",
+          "wakeup": "RTC interrupt"
+        },
+        "animal_behavior_survival": {
+          "impact": "Potted electronics",
+          "water": "IP68 (30m immersion)",
+          "temperature": "-40°C to +60°C",
+          "uv_exposure": "UV-stable housing"
+        },
+        "mass_budget": {
+          "battery": "90g (D-cell)",
+          "electronics": "15g",
+          "gps_antenna": "10g",
+          "housing": "50g",
+          "total_collar": "<300g target"
+        },
+        "gps_module": {
+          "type": "Low-power GPS",
+          "ttff": "<30s cold, <1s warm",
+          "accuracy": "3m CEP"
+        },
+        "satellite_uplink": {
+          "system": "Argos or Iridium",
+          "power": "1W transmit",
+          "frequency": "Daily position upload"
+        },
+        "drop_off_mechanism": {
+          "type": "Programmable release",
+          "actuation": "Burn wire",
+          "trigger": "Timer or command"
+        },
+        "animal_welfare": {
+          "weight": "<3% body mass",
+          "fit": "Expandable collar",
+          "padding": "Neoprene lining"
+        },
+        "efficiency_achieved": "89%"
+      }
+    },
+    {
+      "id": "L3_095",
+      "topology": "half_bridge",
+      "difficulty": "advanced",
+      "application": "Plasma Gasification",
+      "problem_statement": "Design a half-bridge converter for plasma gasification reactor arc power. Input: 480V 3-phase (rectified ~680V), Output: 200V at 500A for plasma torch. Must handle arc instability (millisecond current spikes), operate 24/7 in waste processing, and survive harsh thermal environment.",
+      "objectives": {
+        "primary": ["Arc instability handling", "24/7 industrial operation", "Harsh environment"],
+        "secondary": ["Efficiency >92%", "Fast arc re-strike"],
+        "constraints": ["Waste processing regulations", "Process gas interface"]
+      },
+      "solution": {
+        "design_approach": "Current-mode controlled for arc characteristics. Robust industrial design. Fast response for arc dynamics.",
+        "topology": "Phase-shifted half-bridge with current mode",
+        "switching_frequency": "30kHz",
+        "transformer_turns_ratio": {
+          "formula": "n = V_in / V_arc",
+          "calculation": "n = 680V / 200V = 3.4:1",
+          "selected_ratio": "3.5:1"
+        },
+        "output_inductor": {
+          "formula": "L = V_arc / (di/dt_max)",
+          "di_dt_max": "10kA/ms for arc dynamics",
+          "calculation": "L = 200V / 10kA/ms = 20μH",
+          "selected_value": "22μH",
+          "type": "Air-core (saturation-proof)",
+          "current_rating": "700A"
+        },
+        "dc_link_capacitor": {
+          "formula": "C for arc transients",
+          "selected_value": "10mF electrolytic bank",
+          "voltage_rating": "800V"
+        },
+        "output_capacitor": {
+          "selected_value": "Minimal (current source)",
+          "note": "Arc is resistive, doesn't need cap"
+        },
+        "input_capacitor": {
+          "selected_value": "5mF electrolytic",
+          "voltage_rating": "800V"
+        },
+        "arc_characteristics": {
+          "voltage": "100-300V depending on length",
+          "current": "300-700A operating range",
+          "resistance": "0.3-0.5Ω (negative temperature coeff)"
+        },
+        "arc_instability_handling": {
+          "short_circuits": "Current limit at 800A",
+          "open_circuits": "Voltage limit at 400V",
+          "re_strike": "High-frequency ignition pulse"
+        },
+        "current_mode_control": {
+          "loop_bandwidth": "10kHz",
+          "response_time": "100μs to current step",
+          "stability": "Handles negative arc resistance"
+        },
+        "24_7_operation": {
+          "uptime": ">95% availability",
+          "redundancy": "Parallel supplies N+1",
+          "maintenance": "Online filter change",
+          "cooling": "Industrial water cooling"
+        },
+        "harsh_environment": {
+          "ambient": "Up to 50°C",
+          "dust": "IP54 enclosure",
+          "corrosive_gas": "Sealed electronics",
+          "vibration": "Process equipment levels"
+        },
+        "plasma_torch_interface": {
+          "type": "Non-transferred arc",
+          "gas": "Air, oxygen, or steam",
+          "temperature": "5000-10000K plasma",
+          "cooling": "Water-cooled electrodes"
+        },
+        "waste_processing": {
+          "throughput": "1 ton/hour typical",
+          "material": "Municipal solid waste",
+          "output": "Syngas for power generation"
+        },
+        "process_control": {
+          "setpoint": "Current control primary",
+          "feedback": "Arc voltage monitoring",
+          "interface": "4-20mA to DCS"
+        },
+        "efficiency_achieved": "93%"
+      }
+    },
+    {
+      "id": "L3_096",
+      "topology": "buck",
+      "difficulty": "advanced",
+      "application": "Electron Beam Welder",
+      "problem_statement": "Design a buck converter for electron beam welding gun focus coil. Input: 300V from welding power supply, Output: 24V at 40A for focus/deflection coils. Must achieve <1μm beam positioning, operate in 10⁻⁴ torr vacuum, and handle 50kW reflected beam power during workpiece arcing.",
+      "objectives": {
+        "primary": ["<1μm beam positioning", "Vacuum operation", "Arc reflection survival"],
+        "secondary": ["Fast beam deflection", "Seam tracking"],
+        "constraints": ["X-ray shielding", "High vacuum compatibility"]
+      },
+      "solution": {
+        "design_approach": "High-bandwidth current source for magnetic deflection. Vacuum-compatible and radiation-tolerant. Fast protection for arc events.",
+        "topology": "8-phase interleaved buck with linear output stage",
+        "switching_frequency": "500kHz per phase",
+        "duty_cycle": {
+          "formula": "D = V_out / V_in",
+          "calculation": "D = 24V / 300V = 0.08"
+        },
+        "inductor_per_phase": {
+          "formula": "L = V_out × (1-D) / (f_sw × ΔI_L)",
+          "ripple_current": "1A per phase",
+          "calculation": "L = 24V × 0.92 / (500kHz × 1A) = 44.2μH",
+          "selected_value": "47μH per phase",
+          "type": "Low-EMI shielded",
+          "current_rating": "8A"
+        },
+        "output_capacitor": {
+          "formula": "For μm positioning, ultra-low noise",
+          "selected_value": "1mF ceramic + linear stage",
+          "type": "Ultra-low ESR"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF film",
+          "voltage_rating": "400V"
+        },
+        "linear_output_stage": {
+          "purpose": "Final noise filtering",
+          "bandwidth": "100kHz for deflection",
+          "noise": "<10μA RMS"
+        },
+        "1um_positioning": {
+          "coil_sensitivity": "0.1mm/A",
+          "current_accuracy": "10μA = 1μm",
+          "noise_floor": "<10μA RMS achieved"
+        },
+        "focus_coil_specs": {
+          "inductance": "5mH focus coil",
+          "resistance": "0.5Ω",
+          "current_range": "0-40A",
+          "bandwidth": "DC focus, 10kHz deflection"
+        },
+        "vacuum_operation": {
+          "pressure": "10⁻⁴ torr",
+          "location": "Outside chamber, feedthrough",
+          "feedthrough": "High-current hermetic",
+          "cooling": "Conduction to chamber wall"
+        },
+        "arc_reflection_protection": {
+          "scenario": "Workpiece arc reflects beam",
+          "energy": "50kW × 1ms = 50J pulse",
+          "protection": "Fast beam blanking <10μs",
+          "clamping": "TVS on focus coil"
+        },
+        "beam_blanking": {
+          "method": "Deflection to aperture",
+          "response": "<10μs",
+          "trigger": "Arc current sense"
+        },
+        "seam_tracking": {
+          "deflection": "X-Y beam steering",
+          "frequency": "Up to 1kHz tracking",
+          "amplitude": "±5mm deflection range"
+        },
+        "x_ray_shielding": {
+          "source": "100kV electron beam",
+          "shielding": "Lead-lined chamber",
+          "monitoring": "Continuous dosimetry"
+        },
+        "weld_control": {
+          "interface": "CNC integration",
+          "parameters": "Focus, deflection, pattern",
+          "feedback": "Beam current monitoring"
+        },
+        "efficiency_achieved": "88%"
+      }
+    },
+    {
+      "id": "L3_097",
+      "topology": "flyback",
+      "difficulty": "advanced",
+      "application": "Earthquake Early Warning",
+      "problem_statement": "Design a flyback converter for seismic P-wave early warning sensor. Input: 12V-24V from solar/battery, Output: 5V at 1A for accelerometer and radio. Must detect P-waves within 50ms of arrival, operate through M7+ earthquakes (2g shaking), and provide 99.99% uptime.",
+      "objectives": {
+        "primary": ["50ms P-wave detection", "2g shake survival", "99.99% uptime"],
+        "secondary": ["Low latency telemetry", "Self-test capability"],
+        "constraints": ["Remote installation", "Autonomous operation"]
+      },
+      "solution": {
+        "design_approach": "High-reliability design with seismic isolation. Continuous operation with battery backup. Fast wake-up for event detection.",
+        "switching_frequency": "300kHz",
+        "transformer_turns_ratio": {
+          "formula": "n for wide input range",
+          "selected_ratio": "3:1"
+        },
+        "duty_cycle": {
+          "formula": "D = V_out × n / (V_in + V_out × n)",
+          "at_12V": "D = 5V × 3 / (12V + 5V × 3) = 0.56",
+          "at_24V": "D = 5V × 3 / (24V + 5V × 3) = 0.38"
+        },
+        "primary_inductance": {
+          "formula": "L_p = V_in² × D² / (2 × P_out × f_sw × η)",
+          "power": "5W",
+          "calculation": "L_p = 12² × 0.56² / (2 × 5W × 300kHz × 0.85) = 17.7μH",
+          "selected_value": "22μH"
+        },
+        "transformer_specs": {
+          "core": "EE core, gapped",
+          "primary": "8 turns",
+          "secondary": "3 turns (approx.)",
+          "construction": "Potted for vibration"
+        },
+        "output_capacitor": {
+          "selected_value": "220μF polymer",
+          "voltage_rating": "10V"
+        },
+        "input_capacitor": {
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "35V"
+        },
+        "50ms_p_wave": {
+          "p_wave_speed": "6 km/s in rock",
+          "warning_distance": "P-S wave gap at 50km = 7s",
+          "detection_latency": "<10ms sensor to processing",
+          "transmission_latency": "<40ms to warning center"
+        },
+        "accelerometer_interface": {
+          "type": "MEMS triaxial",
+          "range": "±4g",
+          "bandwidth": "DC to 200Hz",
+          "noise": "<1mg RMS"
+        },
+        "2g_survival": {
+          "mounting": "Seismically isolated platform",
+          "electronics": "All SMD, potted",
+          "connectors": "Locking type",
+          "battery": "Mechanically secured"
+        },
+        "99_99_uptime": {
+          "mtbf": ">100,000 hours",
+          "mttr": "4 hours (remote access)",
+          "availability": "99.996% calculated",
+          "redundancy": "Dual sensor option"
+        },
+        "power_system": {
+          "solar": "20W panel",
+          "battery": "12V 40Ah LiFePO4",
+          "autonomy": "7 days no sun",
+          "charge_controller": "Integrated MPPT"
+        },
+        "telemetry": {
+          "primary": "Cellular LTE",
+          "backup": "Satellite Iridium",
+          "latency": "<100ms end-to-end",
+          "protocol": "UDP for speed"
+        },
+        "self_test": {
+          "frequency": "Hourly",
+          "tests": "Sensor, comms, power",
+          "reporting": "Automatic to monitoring"
+        },
+        "efficiency_achieved": "87%"
+      }
+    },
+    {
+      "id": "L3_098",
+      "topology": "full_bridge",
+      "difficulty": "advanced",
+      "application": "Superconducting Motor Drive",
+      "problem_statement": "Design a full-bridge converter for superconducting ship propulsion motor. Input: 6.6kV AC (rectified ~9kV DC), Output: 4160V AC at 36MW for HTS motor. Must operate with cryogenic motor at 30K, handle motor flux pumping, and meet naval shock requirements.",
+      "objectives": {
+        "primary": ["36MW HTS motor drive", "Cryogenic interface", "Naval shock"],
+        "secondary": ["Efficiency >98%", "Low acoustic signature"],
+        "constraints": ["Shipboard integration", "LN2 cooling system"]
+      },
+      "solution": {
+        "design_approach": "Multi-level inverter for high voltage. SiC for efficiency. Coordinated with cryo-cooling system.",
+        "topology": "5-level active NPC full-bridge inverter",
+        "switching_frequency": "5kHz (fundamental), PWM carrier 10kHz",
+        "dc_link_voltage": {
+          "input": "9kV DC",
+          "per_level": "1.8kV"
+        },
+        "motor_specifications": {
+          "type": "HTS synchronous",
+          "power": "36MW",
+          "voltage": "4160V AC",
+          "current": "5kA",
+          "speed": "120 RPM (ship propeller)"
+        },
+        "dc_link_capacitor": {
+          "per_level": "5mF film",
+          "voltage_rating": "2.5kV",
+          "total_energy": "225kJ"
+        },
+        "output_filter": {
+          "inductor": "500μH per phase",
+          "dv_dt_limit": "1kV/μs for motor insulation"
+        },
+        "cryogenic_interface": {
+          "motor_temp": "30K (HTS)",
+          "cooling": "LN2 circulation",
+          "power_leads": "HTS current leads",
+          "heat_load": "<5kW to 30K"
+        },
+        "hts_current_leads": {
+          "type": "High-Tc superconductor",
+          "temperature_gradient": "300K to 30K",
+          "heat_leak": "Minimized"
+        },
+        "flux_pumping": {
+          "purpose": "Maintain rotor field current",
+          "method": "Thermally-switched flux pump",
+          "interface": "DC link tap"
+        },
+        "naval_shock": {
+          "standard": "MIL-S-901D Grade A",
+          "mounting": "Shock isolated",
+          "capacitors": "Film type (no liquid)",
+          "connections": "Flexible bus bars"
+        },
+        "efficiency": {
+          "converter": "98.5%",
+          "motor": "99% (superconducting)",
+          "cryo_system": "Included in ship aux",
+          "system": "97.5% overall"
+        },
+        "acoustic_signature": {
+          "target": "Below ambient ship noise",
+          "method": "PWM above 20kHz harmonics",
+          "enclosure": "Acoustic dampening"
+        },
+        "propulsion_control": {
+          "speed_range": "0-120 RPM",
+          "torque_control": "Field-oriented control",
+          "response": "<1s to full torque"
+        },
+        "shipboard_integration": {
+          "space": "Engine room location",
+          "cooling": "Ship's chilled water + LN2",
+          "interface": "Ship's power management"
+        },
+        "efficiency_achieved": "98.5%"
+      }
+    },
+    {
+      "id": "L3_099",
+      "topology": "boost",
+      "difficulty": "advanced",
+      "application": "Atmospheric Water Harvester",
+      "problem_statement": "Design a boost converter for fog/dew collection water harvester. Input: 6V-12V from thermoelectric generator, Output: 48V at 3A for Peltier coolers. Must operate on temperature differential (day/night), provide potable water in arid regions, and run maintenance-free for 3 years.",
+      "objectives": {
+        "primary": ["TEG-powered operation", "Potable water output", "3-year maintenance-free"],
+        "secondary": ["Water yield optimization", "Remote monitoring"],
+        "constraints": ["Arid environment", "No grid power"]
+      },
+      "solution": {
+        "design_approach": "TEG MPPT for maximum power extraction. Efficient Peltier driving. Robust desert construction.",
+        "switching_frequency": "250kHz",
+        "duty_cycle": {
+          "formula": "D = 1 - V_in / V_out",
+          "at_6V": "D = 1 - 6V/48V = 0.875",
+          "at_12V": "D = 1 - 12V/48V = 0.75"
+        },
+        "inductor": {
+          "formula": "L = V_in × D / (f_sw × ΔI_L)",
+          "ripple_current": "1A",
+          "calculation": "L = 6V × 0.875 / (250kHz × 1A) = 21μH",
+          "selected_value": "22μH",
+          "type": "High-temp rated",
+          "current_rating": "5A"
+        },
+        "output_capacitor": {
+          "formula": "C_out = I_out × D / (f_sw × ΔV_out)",
+          "voltage_ripple": "0.5V",
+          "calculation": "C_out = 3A × 0.875 / (250kHz × 0.5V) = 21μF",
+          "selected_value": "100μF ceramic",
+          "voltage_rating": "63V"
+        },
+        "input_capacitor": {
+          "selected_value": "220μF ceramic + tantalum",
+          "voltage_rating": "16V"
+        },
+        "teg_system": {
+          "type": "Bismuth telluride TEG array",
+          "hot_side": "Solar-heated absorber (day)",
+          "cold_side": "Ground-coupled heatsink",
+          "delta_t": "30-60°C typical"
+        },
+        "teg_mppt": {
+          "algorithm": "Fractional Voc",
+          "tracking": "Every 10 seconds",
+          "efficiency": ">99% tracking"
+        },
+        "day_night_operation": {
+          "day": "Solar heats TEG hot side",
+          "night": "Sky radiative cooling of cold side",
+          "transition": "Automatic mode switching"
+        },
+        "peltier_system": {
+          "coolers": "4 × 50W TEC modules",
+          "cold_surface": "Condensation plates",
+          "hot_rejection": "Ground-coupled"
+        },
+        "water_yield": {
+          "dew_point_depression": "15-20°C below ambient",
+          "yield": "2-10 L/day depending on humidity",
+          "collection": "Gravity to reservoir"
+        },
+        "potable_water": {
+          "filtration": "Pre-filter debris",
+          "uv_treatment": "UV-C sterilization",
+          "storage": "Food-grade tank"
+        },
+        "3_year_maintenance": {
+          "components": "Industrial grade",
+          "filters": "Self-cleaning design",
+          "moving_parts": "None (solid-state)",
+          "mtbf": ">50,000 hours"
+        },
+        "arid_environment": {
+          "temperature": "-10°C to +55°C",
+          "dust": "IP65 sealed",
+          "uv": "UV-stable materials",
+          "humidity": "5% to 100% RH"
+        },
+        "remote_monitoring": {
+          "cellular": "Low-power IoT modem",
+          "data": "Water level, power, status",
+          "alerts": "Tank full, fault conditions"
+        },
+        "efficiency_achieved": "90%"
+      }
+    },
+    {
+      "id": "L3_100",
+      "topology": "cuk",
+      "difficulty": "advanced",
+      "application": "Particle Physics Tracker",
+      "problem_statement": "Design a Ćuk converter for silicon pixel detector in particle physics experiment. Input: 48V from counting room, Output: -1.8V at 100A total for 10,000 pixel chips. Must achieve <10mV ripple across all channels, survive 500 Mrad TID over detector lifetime, and provide per-channel adjustment.",
+      "objectives": {
+        "primary": ["<10mV ripple", "500 Mrad radiation", "10,000 channel control"],
+        "secondary": ["Minimal material", "Remote programming"],
+        "constraints": ["Tracker material budget", "Trigger latency"]
+      },
+      "solution": {
+        "design_approach": "Distributed architecture with local regulators. Radiation-hardened or rad-tolerant components. Serial programming interface.",
+        "topology": "Central Ćuk + distributed linear regulators",
+        "central_converter": {
+          "input": "48V",
+          "output": "-2.5V intermediate bus",
+          "current": "100A total"
+        },
+        "switching_frequency": "500kHz",
+        "duty_cycle": {
+          "formula": "D = |V_out| / (V_in + |V_out|)",
+          "calculation": "D = 2.5V / (48V + 2.5V) = 0.05"
+        },
+        "input_inductor": {
+          "formula": "L1 = V_in × D / (f_sw × ΔI_L1)",
+          "ripple_current": "10A",
+          "calculation": "L1 = 48V × 0.05 / (500kHz × 10A) = 0.48μH",
+          "selected_value": "0.5μH",
+          "type": "Air-core (rad-hard)"
+        },
+        "output_inductor": {
+          "formula": "L2 = V_out × (1-D) / (f_sw × ΔI_L2)",
+          "ripple_current": "10A",
+          "calculation": "L2 = 2.5V × 0.95 / (500kHz × 10A) = 0.475μH",
+          "selected_value": "0.5μH"
+        },
+        "coupling_capacitor": {
+          "selected_value": "100μF ceramic",
+          "type": "Rad-tolerant ceramic",
+          "voltage_rating": "63V"
+        },
+        "local_regulators": {
+          "type": "Linear LDO per chip group",
+          "groups": "100 LDOs, each 1A",
+          "dropout": "0.5V (2.5V to 1.8V)",
+          "rad_hardness": "500 Mrad"
+        },
+        "10mv_ripple": {
+          "cuk_output": "100mV ripple",
+          "after_ldo": "<5mV",
+          "local_bypass": "1μF per chip"
+        },
+        "radiation_hardening": {
+          "tid": "500 Mrad over 10 years",
+          "displacement": "High fluence environment",
+          "approach": "Rad-hard or COTS with screening"
+        },
+        "rad_hard_components": {
+          "mosfets": "SEGR-resistant SiC",
+          "capacitors": "Ceramic only",
+          "controller": "RHBD ASIC",
+          "ldo": "Custom rad-hard design"
+        },
+        "per_channel_control": {
+          "dac": "8-bit per LDO",
+          "range": "-1.6V to -2.0V",
+          "resolution": "1.5mV",
+          "interface": "I2C serial chain"
+        },
+        "programming_interface": {
+          "protocol": "I2C at 400kHz",
+          "chain": "100 devices daisy-chained",
+          "address": "7-bit per device"
+        },
+        "material_budget": {
+          "constraint": "0.5% X0 per layer",
+          "cabling": "Aluminum, minimal Cu",
+          "location": "Power outside tracking volume"
+        },
+        "pixel_chip_interface": {
+          "voltage": "-1.8V nominal",
+          "current": "10mA per chip",
+          "chips_total": "10,000",
+          "power": "180W total"
+        },
+        "efficiency_achieved": "75% (central), LDO loss additional"
+      }
+    }
+  ]
+}
