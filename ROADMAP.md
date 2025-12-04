@@ -13,26 +13,24 @@ This roadmap outlines the development plan for PowerElecLLM, focusing on high-im
 |------|----------------|--------|--------|
 | Add Forward converter | Covers isolated single-switch applications | Medium | ✅ Done |
 | Add Full-Bridge converter | High power (500W-5kW+), bidirectional | Medium | ✅ Done |
-| Add Half-Bridge converter | Mid-power (100W-500W), simpler than full-bridge | Medium | ⚠️ Implemented but disabled |
+| Add Half-Bridge converter | Mid-power (100W-500W), simpler than full-bridge | Medium | ✅ Done |
 | Efficiency estimation (losses breakdown) | Differentiates from "just works" to "works and tells you why" | Medium | 🔲 |
 | CCM/DCM auto-detection | Prevents incorrect designs, shows engineering rigor | Low | 🔲 |
 | Clean up codebase, add docstrings | Required for open-source adoption and paper reproducibility | Low | 🔲 |
 
-**Deliverable:** 9 topologies working, 22 test cases passing
+**Deliverable:** 10 topologies working, 24 test cases passing ✅
 
-**Current Topologies (9 working):**
-- ✅ Buck
-- ✅ Boost
-- ✅ SEPIC
-- ✅ Ćuk
-- ✅ Inverting Buck-Boost
-- ✅ Quasi-Resonant Buck
-- ✅ Flyback
-- ✅ Forward
-- ✅ Full-Bridge
-
-**Implemented but disabled:**
-- 🔲 Half-Bridge (convergence issues in SPICE)
+**Current Topologies (10 working):**
+- ✅ Buck (4 test cases)
+- ✅ Boost (4 test cases)
+- ✅ SEPIC (2 test cases)
+- ✅ Ćuk (2 test cases)
+- ✅ Inverting Buck-Boost (2 test cases)
+- ✅ Quasi-Resonant Buck (2 test cases)
+- ✅ Flyback (2 test cases)
+- ✅ Forward (2 test cases)
+- ✅ Half-Bridge (2 test cases)
+- ✅ Full-Bridge (2 test cases)
 
 ---
 

@@ -871,66 +871,34 @@ def _build_forward_converter(
     return circuit, duty, vin, duration_ms
 
 
-def _build_half_bridge_converter(
+def _build_half_bridge_circuit_for_duty(
     name: str,
     vin: float,
     vout_target: float,
-    power: float,
+    r_load: float,
+    n_ratio: float,
+    l_pri: float,
+    l_out: float,
     f_sw: float,
-    duration_ms: float,
-) -> Tuple[Circuit, float, float, float]:
-    """
-    Half-Bridge Converter - Two-switch isolated topology.
-    
-    Simplified model: Uses capacitor divider to create Vin/2, then
-    acts like a forward converter with half the input voltage.
-    
-    Voltage relationship: Vout ≈ N * (Vin/2) * 2D = N * Vin * D
-    where N = turns ratio and D ≤ 0.5 (per switch)
-    
-    Good for 100W-500W applications.
-    """
-    r_load = vout_target**2 / power
-    i_out = power / vout_target
-    
-    # For half-bridge, effective primary voltage is Vin/2 (from cap divider)
-    # But we get both half-cycles, so effective D can be up to ~0.9
-    # Vout = N * Vin * D_eff where D_eff accounts for both phases
-    d_target = 0.4
-    n_ratio = vout_target / (vin * d_target * 0.5)  # Vin/2 effective
-    n_ratio = max(n_ratio, 0.1)
-    
-    # Inductances
-    l_pri = 200e-6
+    duty: float,
+) -> Circuit:
+    """Helper to build half-bridge circuit with specific duty cycle."""
     l_sec = l_pri * (n_ratio ** 2)
-    
-    # Output filter
-    delta_i = max(0.3 * i_out, 0.1)
-    l_out = vout_target * (1 - d_target) / (delta_i * f_sw)
-    l_out = max(l_out, 22e-6)
     c_out = 220e-6
-    
-    # Duty cycle
-    v_diode = 0.5
-    duty = (vout_target + v_diode) / (n_ratio * vin * 0.5)
-    duty = min(max(duty, 0.15), 0.48)
-    
     period = 1.0 / f_sw
-    r_switch = 0.015
+    r_switch = 0.01
 
     circuit = Circuit(name)
     circuit.V('in', 'Vin', circuit.gnd, vin@u_V)
     
-    # Capacitor divider creates Vin/2 midpoint
-    circuit.C('div1', 'Vin', 'Vmid', 100@u_uF, initial_condition=(vin/2)@u_V)
-    circuit.C('div2', 'Vmid', circuit.gnd, 100@u_uF, initial_condition=(vin/2)@u_V)
-    circuit.R('mid_bleed', 'Vmid', circuit.gnd, 100@u_kΩ)
+    # Voltage source to represent Vin/2 midpoint (avoids cap divider instability)
+    circuit.V('mid', 'Vmid', circuit.gnd, (vin/2)@u_V)
     
-    # Simplified: Single switch from Vin to primary, return to Vmid
+    # Main switch: Vin → Vpri_h
     circuit.VCS('SW1', 'Vin', 'Vpri_h', 'Vgate', circuit.gnd, model='SMOD')
     circuit.model('SMOD', 'SW', Ron=r_switch@u_Ω, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
     
-    # Primary winding: Vpri_h → Vmid (sees Vin/2)
+    # Primary winding: Vpri_h → Vmid (sees Vin/2 when switch is on)
     circuit.L('pri', 'Vpri_h', 'Vmid', l_pri@u_H)
     
     # Secondary winding
@@ -940,7 +908,7 @@ def _build_half_bridge_converter(
     # Coupling
     circuit.CoupledInductor('K1', 'pri', 'sec', 0.998)
     
-    # Switch node marker for plotting
+    # Switch node marker
     circuit.R('sw_sense', 'Vpri_h', 'Vsw', 0.001@u_Ω)
     
     # Rectifier and freewheeling diode
@@ -967,6 +935,110 @@ def _build_half_bridge_converter(
         rise_time=20@u_ns,
         fall_time=20@u_ns,
     )
+    
+    return circuit
+
+
+def _find_optimal_half_bridge_duty(
+    name: str,
+    vin: float,
+    vout_target: float,
+    r_load: float,
+    n_ratio: float,
+    l_pri: float,
+    l_out: float,
+    f_sw: float,
+) -> float:
+    """Binary search to find optimal duty cycle for half-bridge."""
+    # Half-bridge: Vout = N * (Vin/2) * D
+    d_theory = vout_target / (n_ratio * vin * 0.5)
+    
+    d_low = max(0.1, d_theory - 0.15)
+    d_high = min(0.48, d_theory + 0.15)
+    
+    best_duty = d_theory
+    best_error = float('inf')
+    
+    for iteration in range(12):
+        d_mid = (d_low + d_high) / 2
+        
+        try:
+            circuit = _build_half_bridge_circuit_for_duty(
+                f"{name}_search", vin, vout_target, r_load, n_ratio, l_pri, l_out, f_sw, d_mid
+            )
+            
+            simulator = circuit.simulator(temperature=25, nominal_temperature=25)
+            period = 1.0 / f_sw
+            analysis = simulator.transient(step_time=(period/200)@u_s, end_time=10e-3@u_s, use_initial_condition=True)
+            
+            vout = np.array(analysis['Vout'])
+            n = len(vout)
+            vout_avg = float(np.mean(vout[int(0.85*n):]))
+            
+            error = vout_avg - vout_target
+            
+            if abs(error) < best_error:
+                best_error = abs(error)
+                best_duty = d_mid
+            
+            if abs(error / vout_target) < 0.02:
+                return d_mid
+            
+            if error < 0:
+                d_low = d_mid
+            else:
+                d_high = d_mid
+                
+        except Exception:
+            d_low = d_low + 0.02
+            d_high = d_high - 0.02
+    
+    return best_duty
+
+
+def _build_half_bridge_converter(
+    name: str,
+    vin: float,
+    vout_target: float,
+    power: float,
+    f_sw: float,
+    duration_ms: float,
+) -> Tuple[Circuit, float, float, float]:
+    """
+    Half-Bridge Converter - Two-switch isolated topology.
+    
+    Uses voltage source to model Vin/2 midpoint for SPICE stability.
+    Primary swings between Vin and Vin/2.
+    
+    Voltage relationship: Vout ≈ N * (Vin/2) * D
+    
+    Good for 100W-500W applications.
+    """
+    r_load = vout_target**2 / power
+    i_out = power / vout_target
+    
+    # Turns ratio: Vout = N * (Vin/2) * D, target D ~ 0.4
+    d_target = 0.4
+    n_ratio = vout_target / (vin * 0.5 * d_target)
+    n_ratio = max(n_ratio, 0.1)
+    
+    # Inductances
+    l_pri = 200e-6
+    
+    # Output filter
+    delta_i = max(0.3 * i_out, 0.1)
+    l_out = vout_target * (1 - d_target) / (delta_i * f_sw)
+    l_out = max(l_out, 22e-6)
+    
+    # Use binary search for optimal duty
+    duty = _find_optimal_half_bridge_duty(name, vin, vout_target, r_load, n_ratio, l_pri, l_out, f_sw)
+    
+    # Build final circuit
+    circuit = _build_half_bridge_circuit_for_duty(
+        name, vin, vout_target, r_load, n_ratio, l_pri, l_out, f_sw, duty
+    )
+
+    return circuit, duty, vin, duration_ms
 
     return circuit, duty, vin, duration_ms
 
@@ -1174,20 +1246,20 @@ def run_reference_tests() -> List[ConverterResult]:
         except Exception as e:
             print(f"Forward test {name} failed: {e}")
 
-    # Half-Bridge converter tests - DISABLED due to convergence issues
-    # The capacitor divider topology needs more careful tuning for SPICE stability
-    # TODO: Revisit with better damping/snubber circuits
-    # half_bridge_specs = [
-    #     ("half_bridge_400v_to_12v", 400.0, 12.0, 200.0, 100e3, 15.0),
-    #     ("half_bridge_48v_to_5v", 48.0, 5.0, 50.0, 150e3, 12.0),
-    # ]
-    # for name, vin, vout, power, f_sw, duration in half_bridge_specs:
-    #     try:
-    #         circuit, duty, vin_ref, duration_ms = _build_half_bridge_converter(name, vin, vout, power, f_sw, duration)
-    #         result = _simulate_circuit(circuit, f_sw, duration_ms, name, vout, duty, vin_ref)
-    #         cases.append(result)
-    #     except Exception as e:
-    #         print(f"Half-Bridge test {name} failed: {e}")
+    # Half-Bridge converter tests (two-switch isolated topology)
+    # Uses simplified voltage source model for SPICE stability
+    # Good for 100W-500W applications
+    half_bridge_specs = [
+        ("half_bridge_48v_to_12v", 48.0, 12.0, 50.0, 100e3, 15.0),  # 4:1 ratio, moderate power
+        ("half_bridge_100v_to_24v", 100.0, 24.0, 100.0, 100e3, 15.0),  # ~4:1 ratio
+    ]
+    for name, vin, vout, power, f_sw, duration in half_bridge_specs:
+        try:
+            circuit, duty, vin_ref, duration_ms = _build_half_bridge_converter(name, vin, vout, power, f_sw, duration)
+            result = _simulate_circuit(circuit, f_sw, duration_ms, name, vout, duty, vin_ref)
+            cases.append(result)
+        except Exception as e:
+            print(f"Half-Bridge test {name} failed: {e}")
 
     # Full-Bridge converter tests (four-switch isolated topology)
     # Highest power capability: 500W-5kW+
