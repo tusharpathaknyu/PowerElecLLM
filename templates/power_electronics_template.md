@@ -408,32 +408,35 @@ circuit.VCS('SW1', 'Vsw', circuit.gnd, 'Vgate', circuit.gnd, model='SWITCH')
 circuit.model('SWITCH', 'SW', Ron=0.05, Roff=1@u_MΩ, Vt=2.5, Vh=0.5)
 
 # Coupling capacitor (Vsw to Vx)
-circuit.C('c', 'Vsw', 'Vx', 10@u_uF)
+circuit.C('1', 'Vsw', 'Vx', 10@u_uF)
 
-# Diode (GND to Vx) - cathode at Vx
+# CRITICAL: Diode orientation - anode at Vx, cathode at GND
+# When switch is OFF, current flows: Vin → L1 → Vsw → C1 → Vx → D → GND
 circuit.model('DMOD', 'D', **{'is': 1e-9}, Rs=0.05, N=1.5)
-circuit.D('D1', circuit.gnd, 'Vx', model='DMOD')
+circuit.D('D1', 'Vx', circuit.gnd, model='DMOD')  # Vx→GND (NOT GND→Vx!)
 
-# Output inductor L2 (Vx to Vout_neg)
-circuit.L('L2', 'Vx', 'Vout_neg', 100@u_uH)
+# Output inductor L2 (Vx to Vout) - Vout goes negative
+circuit.L('L2', 'Vx', 'Vout', 100@u_uH)
 
-# Output capacitor
-circuit.C('out', 'Vout_neg', circuit.gnd, 100@u_uF, initial_condition=0@u_V)
-
-# Load resistor
+# Output capacitor and load - arranged so Vout is negative
+# Current flows: GND → load → Vout, making Vout negative
+circuit.C('out', circuit.gnd, 'Vout', 100@u_uF, initial_condition=0@u_V)
 R_load = (5**2) / 5  # 5Ω for 5W
-circuit.R('load', 'Vout_neg', circuit.gnd, R_load@u_Ω)
+circuit.R('load', circuit.gnd, 'Vout', R_load@u_Ω)
 
 # Ćuk duty cycle: D = |Vout| / (Vin + |Vout|)
+# Add ~8% compensation for losses
 Vin, Vout_mag = 12.0, 5.0
-D = Vout_mag / (Vin + Vout_mag)  # 0.294 (29.4%)
-f_sw = 200e3
+D_ideal = Vout_mag / (Vin + Vout_mag)  # 0.294 (29.4%)
+D = D_ideal * 1.08  # Compensated for losses
+f_sw = 150e3
 period = 1 / f_sw
 pulse_width = period * D
 
 circuit.PulseVoltageSource('gate', 'Vgate', circuit.gnd,
                            initial_value=0@u_V, pulsed_value=5@u_V,
-                           pulse_width=pulse_width@u_s, period=period@u_s)
+                           pulse_width=pulse_width@u_s, period=period@u_s,
+                           delay_time=0@u_ns, rise_time=50@u_ns, fall_time=50@u_ns)
 
 simulator = circuit.simulator()
 analysis = simulator.transient(step_time=100@u_ns, end_time=15@u_ms)
@@ -441,9 +444,10 @@ analysis = simulator.transient(step_time=100@u_ns, end_time=15@u_ms)
 
 **Ćuk Converter Key Points:**
 - Output is NEGATIVE (inverted polarity)
+- **CRITICAL**: Diode anode at Vx, cathode at GND (D1: Vx → GND)
 - Two inductors provide continuous input AND output current (low ripple)
 - Capacitor-coupled energy transfer
-- D = |Vout| / (Vin + |Vout|)
+- D = |Vout| / (Vin + |Vout|), add ~8% for loss compensation
 - Good for applications needing low EMI
 
 ## Example 6: Quasi-Resonant Buck (ZVS) Converter
