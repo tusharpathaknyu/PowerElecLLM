@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_121",
+      "prompt": "Electric Bicycle Hub Motor Controller: E-bike motor controller requiring regenerative braking and compact design",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "power": 750,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Regenerative braking support",
+        "IP65 water resistance",
+        "EN 15194 e-bike compliance",
+        "Compact in-hub mounting"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "E-bike motor controller requiring regenerative braking and compact design"
+    },
+    {
+      "id": "L2_122",
+      "prompt": "Commercial Refrigeration Controller: Supermarket refrigeration unit requiring efficient compressor control",
+      "specs": {
+        "vout": 380,
+        "vin": 200,
+        "power": 2000,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Power factor correction > 0.98",
+        "Variable speed compressor drive",
+        "Operating range -30\u00b0C to +50\u00b0C",
+        "Network monitoring interface"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Supermarket refrigeration unit requiring efficient compressor control"
+    },
+    {
+      "id": "L2_123",
+      "prompt": "Fitness Equipment Display Power: Commercial treadmill requiring display and control power from motor bus",
+      "specs": {
+        "vout": 12,
+        "vin": 150,
+        "power": 60,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Motor noise immunity",
+        "Touch screen display quality",
+        "Heart rate monitor power",
+        "Safety interlock support"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Commercial treadmill requiring display and control power from motor bus"
+    },
+    {
+      "id": "L2_124",
+      "prompt": "Smart Building BMS Power: Building management system hub requiring reliable multi-output power",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 25,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "Multiple isolated outputs (5V, 12V, 3.3V)",
+        "BACnet/Modbus interface power",
+        "24/7 operation reliability",
+        "Wide input 18-32V for battery backup"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Building management system hub requiring reliable multi-output power"
+    },
+    {
+      "id": "L2_125",
+      "prompt": "Broadcast Camera CCU Supply: Professional broadcast camera control unit requiring clean power for video",
+      "specs": {
+        "vout": 12,
+        "vin": 48,
+        "power": 100,
+        "f_sw": 400000
+      },
+      "constraints": [
+        "Video SNR > 60 dB compatibility",
+        "PoE+ power delivery",
+        "Broadcast-grade grounding",
+        "Hot-swap for live production"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Professional broadcast camera control unit requiring clean power for video"
+    },
+    {
+      "id": "L2_126",
+      "prompt": "Solar Inverter Grid-Tie Stage: Residential solar inverter requiring grid-tied operation with anti-islanding",
+      "specs": {
+        "vout": 400,
+        "vin": 300,
+        "power": 5000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Anti-islanding protection",
+        "THD < 3% per IEEE 1547",
+        "Ground fault detection",
+        "Utility communication interface"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Residential solar inverter requiring grid-tied operation with anti-islanding"
+    },
+    {
+      "id": "L2_127",
+      "prompt": "Industrial Welder Control Power: MIG welder requiring control power derived from welding transformer",
+      "specs": {
+        "vout": 24,
+        "vin": 80,
+        "power": 100,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Welding arc noise immunity",
+        "Wide input 40-120V from transformer",
+        "Wire feed motor power",
+        "Display and control interface"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "MIG welder requiring control power derived from welding transformer"
+    },
+    {
+      "id": "L2_128",
+      "prompt": "Warehouse AGV Battery Charger: Automated guided vehicle requiring fast charging with battery management",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "CC/CV charge profile",
+        "CAN bus battery interface",
+        "Opportunity charging support",
+        "Temperature-compensated charging"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Automated guided vehicle requiring fast charging with battery management"
+    },
+    {
+      "id": "L2_129",
+      "prompt": "Professional Audio Amplifier Supply: Class-D amplifier requiring high-power rails with audio-grade noise floor",
+      "specs": {
+        "vout": 80,
+        "vin": 48,
+        "power": 1000,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "THD+N < 0.01% contribution",
+        "Rail voltage tracking for B+ supplies",
+        "Soft-start for inrush limiting",
+        "Thermal management for rack mount"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Class-D amplifier requiring high-power rails with audio-grade noise floor"
+    },
+    {
+      "id": "L2_130",
+      "prompt": "Telecommunications Site Backup Power: Cell site requiring battery backup converter for extended outage operation",
+      "specs": {
+        "vout": 48,
+        "vin": 54,
+        "power": 2000,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "8-hour backup time requirement",
+        "Battery string voltage variation 42-58V",
+        "Hot-swap capability",
+        "SNMP network management"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Cell site requiring battery backup converter for extended outage operation"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_061",
+      "prompt": "Design a forward converter for VASIMR plasma rocket engine power processing unit. Input: 300V DC from solar array, Output: 200V at 50A for RF plasma heating. Must survive 5000+ hour mission duration, handle solar array power variations, and operate in deep space thermal environment.",
+      "specs": {
+        "vout": 200.0,
+        "vin": 300.0
+      },
+      "constraints": {
+        "primary": [
+          "5000+ hour life",
+          "Deep space thermal",
+          "Solar array MPPT"
+        ],
+        "secondary": [
+          "Efficiency >95%",
+          "Mass <5kg"
+        ],
+        "constraints": [
+          "NASA mission assurance",
+          "Zero maintenance"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Plasma Rocket Thruster",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_062",
+      "prompt": "Design a SEPIC converter for volcano monitoring station. Input: 6V-14V from solar/battery hybrid, Output: 5V at 1A for data acquisition and telemetry. Must survive SO2 corrosive atmosphere, 200\u00b0C ground contact heat, and operate unattended for 2 years.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 6.0
+      },
+      "constraints": {
+        "primary": [
+          "Corrosive atmosphere survival",
+          "200\u00b0C proximity",
+          "2-year operation"
+        ],
+        "secondary": [
+          "Low quiescent power",
+          "Telemetry interface"
+        ],
+        "constraints": [
+          "Hazardous location",
+          "Limited maintenance access"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Volcanic Seismometer",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_063",
+      "prompt": "Design a half-bridge converter for container ship cold ironing system. Input: 6.6kV shore power (rectified), Output: 440V at 500A for ship electrical. Must meet maritime safety standards, handle ship-to-shore connection dynamics, and operate with salt spray exposure.",
+      "specs": {
+        "vout": 440.0
+      },
+      "constraints": {
+        "primary": [
+          "Maritime safety SOLAS",
+          "Dynamic connection handling",
+          "Salt spray immunity"
+        ],
+        "secondary": [
+          "Efficiency >96%",
+          "Low harmonic distortion"
+        ],
+        "constraints": [
+          "Port emissions regulations",
+          "Variable ship loads"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Cargo Ship Shore Power",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_064",
+      "prompt": "Design a buck converter for transmission electron microscope electromagnetic lens. Input: 48V, Output: 3V at 50A for lens coil. Must achieve 1ppm current stability, <10nV/\u221aHz noise, and thermal drift <0.1ppm/\u00b0C for atomic resolution imaging.",
+      "specs": {
+        "vout": 3.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "1ppm current stability",
+          "<10nV/\u221aHz noise",
+          "0.1ppm/\u00b0C drift"
+        ],
+        "secondary": [
+          "Fast beam steering",
+          "Multiple lens channels"
+        ],
+        "constraints": [
+          "Vibration isolation",
+          "Magnetic interference"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Electron Microscope Lens",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_065",
+      "prompt": "Design a flyback converter for oil platform lightning warning system. Input: 24V from platform UPS, Output: 12V at 2A for electric field mill sensors. Must survive direct lightning attachment (200kA), operate in Zone 2 hazardous area, and provide continuous monitoring.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "200kA lightning survival",
+          "ATEX Zone 2",
+          "Continuous operation"
+        ],
+        "secondary": [
+          "Multiple sensor channels",
+          "Network interface"
+        ],
+        "constraints": [
+          "Offshore certification",
+          "Salt fog corrosion"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Offshore Platform Lightning Protection",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_066",
+      "prompt": "Design a full-bridge converter for HTS superconducting power cable cryocooler. Input: 480V AC rectified (680V DC), Output: 300V at 30A for Stirling cryocooler compressor. Must maintain 77K cooling with 99.99% uptime, handle liquid nitrogen backup transition, and provide soft-start for compressor.",
+      "specs": {
+        "vout": 300.0,
+        "vin": 480.0
+      },
+      "constraints": {
+        "primary": [
+          "99.99% uptime",
+          "LN2 backup transition",
+          "Compressor soft-start"
+        ],
+        "secondary": [
+          "Efficiency >94%",
+          "Low acoustic noise"
+        ],
+        "constraints": [
+          "Utility-grade reliability",
+          "Cryogenic system integration"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Superconducting Cable Cooling",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_067",
+      "prompt": "Design a boost converter for tidal stream turbine generator interface. Input: 200V-600V variable from PMSG, Output: 750V DC bus at 50kW. Must handle bidirectional flow (tidal reversal), survive biofouling, and operate submerged at 50m for 5-year maintenance intervals.",
+      "specs": {
+        "vout": 750.0,
+        "vin": 200.0
+      },
+      "constraints": {
+        "primary": [
+          "5-year subsea operation",
+          "Tidal reversal handling",
+          "Biofouling resistance"
+        ],
+        "secondary": [
+          "MPPT efficiency",
+          "Grid code compliance"
+        ],
+        "constraints": [
+          "Marine growth",
+          "Pressure compensation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Tidal Turbine Generator",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_068",
+      "prompt": "Design a \u0106uk converter for photomultiplier tube (PMT) bias in neutrino detector. Input: 5V from DAQ system, Output: -1000V at 1mA per PMT (1000 channels). Must achieve <1mV ripple for single-photon counting, survive 20-year underground operation, and provide per-channel adjustment.",
+      "specs": {
+        "vin": 5.0
+      },
+      "constraints": {
+        "primary": [
+          "<1mV ripple",
+          "20-year operation",
+          "Per-channel control"
+        ],
+        "secondary": [
+          "Channel density",
+          "Low power"
+        ],
+        "constraints": [
+          "Underground cavern environment",
+          "Ultra-low radioactivity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Neutrino Detector Photomultiplier",
+      "topology": "cuk"
+    },
+    {
+      "id": "L3_069",
+      "prompt": "Design a forward converter for radio telescope cryogenic low-noise amplifier. Input: 28V from receiver, Output: 1.5V at 100mA (InP HEMT bias). Must achieve <1\u03bcV RMS noise, operate at 20K cryogenic temperature, and provide magnetic-field-free operation for polarimetry.",
+      "specs": {
+        "vout": 1.5,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "<1\u03bcV RMS noise",
+          "20K operation",
+          "Zero magnetic field"
+        ],
+        "secondary": [
+          "Stable over temperature",
+          "Remote programmable"
+        ],
+        "constraints": [
+          "Radio frequency interference",
+          "Dewar integration"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Radio Telescope LNA Bias",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_070",
+      "prompt": "Design a SEPIC converter for underground mining inspection robot. Input: 18V-32V from lithium battery pack, Output: 24V at 10A for motor drivers and sensors. Must operate in explosive dust atmosphere (ATEX), survive 50g shock from rock falls, and provide 8-hour autonomous operation.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 18.0
+      },
+      "constraints": {
+        "primary": [
+          "ATEX Zone 22 dust",
+          "50g shock survival",
+          "8-hour runtime"
+        ],
+        "secondary": [
+          "Efficient motor drive",
+          "Sensor suite power"
+        ],
+        "constraints": [
+          "No sparks",
+          "GPS-denied navigation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Autonomous Mining Robot",
+      "topology": "sepic"
+    }
+  ]
+}

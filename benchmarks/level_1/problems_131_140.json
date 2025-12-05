@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_131",
+      "prompt": "Handheld Metal Detector: Hobbyist metal detector with discrimination mode",
+      "specs": {
+        "vout": 12,
+        "vin": 9,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Hobbyist metal detector with discrimination mode"
+    },
+    {
+      "id": "L1_132",
+      "prompt": "Electronic Dice Display: LED display electronic dice with random number generation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 9,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "LED display electronic dice with random number generation"
+    },
+    {
+      "id": "L1_133",
+      "prompt": "Portable Oscilloscope Power: Handheld digital oscilloscope with touchscreen display",
+      "specs": {
+        "vout": 5,
+        "vin": 7.4,
+        "f_sw": 800000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Handheld digital oscilloscope with touchscreen display"
+    },
+    {
+      "id": "L1_134",
+      "prompt": "Smart Plant Monitor: Soil moisture and light sensor with cloud connectivity",
+      "specs": {
+        "vout": 3.3,
+        "vin": 3.7,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Soil moisture and light sensor with cloud connectivity"
+    },
+    {
+      "id": "L1_135",
+      "prompt": "Guitar Tuner Pedal: Stage tuner pedal with bright LED display",
+      "specs": {
+        "vout": 5,
+        "vin": 9,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Stage tuner pedal with bright LED display"
+    },
+    {
+      "id": "L1_136",
+      "prompt": "Action Camera Power: Compact action camera with 4K recording capability",
+      "specs": {
+        "vout": 1.2,
+        "vin": 4.2,
+        "f_sw": 2000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Compact action camera with 4K recording capability"
+    },
+    {
+      "id": "L1_137",
+      "prompt": "Electronic Stethoscope: Digital stethoscope with Bluetooth audio streaming",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3.7,
+        "f_sw": 1500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Digital stethoscope with Bluetooth audio streaming"
+    },
+    {
+      "id": "L1_138",
+      "prompt": "Retro Game Cartridge: Flash cartridge for retro gaming console emulation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Flash cartridge for retro gaming console emulation"
+    },
+    {
+      "id": "L1_139",
+      "prompt": "Bike Headlight Boost: Rechargeable bicycle headlight with multiple brightness modes",
+      "specs": {
+        "vout": 12,
+        "vin": 3.7,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Rechargeable bicycle headlight with multiple brightness modes"
+    },
+    {
+      "id": "L1_140",
+      "prompt": "Wireless Temperature Sensor: Battery-powered temperature/humidity sensor with LoRa connectivity",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Battery-powered temperature/humidity sensor with LoRa connectivity"
+    }
+  ]
+}

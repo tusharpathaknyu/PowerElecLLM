@@ -1,0 +1,156 @@
+{
+  "level": 1,
+  "description": "Level 1 problems",
+  "problems": [
+    {
+      "id": "L1_061",
+      "prompt": "Design a buck converter: 60V industrial bus to 24V, 10A for PLC power",
+      "specs": {
+        "vout": 24.0,
+        "vin": 60.0,
+        "iout": 10.0,
+        "power": 240.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L1_062",
+      "prompt": "Design a boost converter: 12V to 170V, 200mA for IGBT gate driver",
+      "specs": {
+        "vout": 170.0,
+        "vin": 12.0,
+        "iout": 0.2,
+        "power": 34.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L1_063",
+      "prompt": "Design a SEPIC converter: 9-18V input to 12V, 4A for automotive LED array",
+      "specs": {
+        "vout": 12.0,
+        "vin": 12.0,
+        "iout": 4.0,
+        "power": 48.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L1_064",
+      "prompt": "Design a \u0106uk converter: 12V to -9V, 2A for audio bipolar supply",
+      "specs": {
+        "vout": -9.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 18.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L1_065",
+      "prompt": "Design an inverting buck-boost: 5V USB to -5V, 1A for RS-232 interface",
+      "specs": {
+        "vout": -5.0,
+        "vin": 5.0,
+        "iout": 1.0,
+        "power": 5.0,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L1_066",
+      "prompt": "Design a flyback converter: 240VAC rectified to 24V, 2.5A for industrial control",
+      "specs": {
+        "vout": 24.0,
+        "vin": 340.0,
+        "iout": 2.5,
+        "power": 60.0,
+        "f_sw": 80000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L1_067",
+      "prompt": "Design a forward converter: 110VAC rectified to 5V, 20A for industrial power supply",
+      "specs": {
+        "vout": 5.0,
+        "vin": 155.0,
+        "iout": 20.0,
+        "power": 100.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L1_068",
+      "prompt": "Design a half-bridge converter: 270V DC to 5V, 40A for aerospace processor",
+      "specs": {
+        "vout": 5.0,
+        "vin": 270.0,
+        "iout": 40.0,
+        "power": 200.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_069",
+      "prompt": "Design a full-bridge converter: 540V DC to 14V, 100A for mining rig PSU",
+      "specs": {
+        "vout": 14.0,
+        "vin": 540.0,
+        "iout": 100.0,
+        "power": 1400.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "full_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_070",
+      "prompt": "Design a quasi-resonant buck: 12V to 1.8V, 10A for DDR memory power",
+      "specs": {
+        "vout": 1.8,
+        "vin": 12.0,
+        "iout": 10.0,
+        "power": 18.0,
+        "f_sw": 600000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "qr_buck",
+      "application": ""
+    }
+  ]
+}

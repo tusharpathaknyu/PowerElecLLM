@@ -1,0 +1,263 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_051",
+      "prompt": "Design a boost converter for polar seismic monitoring station. Input: 6V-12V from radioisotope thermoelectric generator, Output: 28V at 3A for communications. Must operate at -70\u00b0C ambient, survive polar bear tampering (3000N force), and run unattended for 10 years.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 6.0
+      },
+      "constraints": {
+        "primary": [
+          "-70\u00b0C operation",
+          "10-year unattended life",
+          "Tamper resistant"
+        ],
+        "secondary": [
+          "Efficiency >85%",
+          "Satellite uplink power"
+        ],
+        "constraints": [
+          "RTG interface",
+          "No maintenance access"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Arctic Seismic Station",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_052",
+      "prompt": "Design a flyback converter for electronic mining detonator system. Input: 3V from lithium primary cell, Output: 500V at 10mA for igniter charging. Must be safe (no accidental discharge), survive 10-year shelf life, and arm only with coded signal.",
+      "specs": {
+        "vout": 500.0,
+        "vin": 3.0
+      },
+      "constraints": {
+        "primary": [
+          "Inherent safety",
+          "10-year shelf storage",
+          "Coded arming"
+        ],
+        "secondary": [
+          "Small size (<5cm\u00b3)",
+          "Rapid charge"
+        ],
+        "constraints": [
+          "Mining safety standards",
+          "ESD immunity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Explosive Detonator Power",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_053",
+      "prompt": "Design a forward converter for superconducting NMR magnet heater and sensors. Input: 48V external, Output: 24V at 10A. Must operate at 4K liquid helium temperature (electronics at room temp), minimize heat leak into cryostat, and provide ultra-stable current for shimming.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "Minimal cryostat heat leak",
+          "Ultra-stable output",
+          "4K interface"
+        ],
+        "secondary": [
+          "Efficiency >90%",
+          "Remote control"
+        ],
+        "constraints": [
+          "Strong magnetic field >20T",
+          "Helium consumption minimization"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Cryogenic NMR Magnet",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_054",
+      "prompt": "Design a SEPIC converter for avalanche rescue transceiver. Input: 3V-4.5V from 3\u00d7AAA alkaline, Output: 3.3V at 500mA peak for RF transceiver. Must operate in -40\u00b0C snow conditions, survive burial, and provide 250-hour battery life in standby with periodic transmit.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 3.0
+      },
+      "constraints": {
+        "primary": [
+          "-40\u00b0C operation",
+          "250-hour battery life",
+          "Burial survival"
+        ],
+        "secondary": [
+          "Fast wake-up",
+          "Water resistant"
+        ],
+        "constraints": [
+          "457kHz beacon compatibility",
+          "One-hand operation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Avalanche Beacon Power",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_055",
+      "prompt": "Design a half-bridge converter for electromagnetic levitation coil driver. Input: 750V DC from third rail, Output: \u00b1300V at 200A peak for levitation magnet. Must provide 500Hz position bandwidth, handle 1g lateral accelerations, and fail gracefully with 50ms safe descent.",
+      "specs": {
+        "vin": 750.0
+      },
+      "constraints": {
+        "primary": [
+          "500Hz position bandwidth",
+          "1g lateral handling",
+          "Graceful failure"
+        ],
+        "secondary": [
+          "Efficiency >94%",
+          "Low acoustic noise"
+        ],
+        "constraints": [
+          "Railway EMC",
+          "Traction power compatibility"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Maglev Train Levitation",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_056",
+      "prompt": "Design a buck converter for proton therapy gantry steering magnets. Input: 48V, Output: 10V at 400A for dipole magnet. Must achieve 1ppm current stability, support 360\u00b0 gantry rotation, and allow 10ms field changes for spot scanning.",
+      "specs": {
+        "vout": 10.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "1ppm current stability",
+          "360\u00b0 rotation compatible",
+          "10ms spot scan"
+        ],
+        "secondary": [
+          "Efficiency >93%",
+          "Minimal stray field"
+        ],
+        "constraints": [
+          "Medical device regulations",
+          "Patient safety"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Hadron Therapy Magnet",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_057",
+      "prompt": "Design a flyback converter for ROV thruster motor controller. Input: 300V DC from surface, Output: 48V at 5A for brushless motor driver. Must operate at 6000m depth (600 bar), handle oil-filled pressure compensation, and survive umbilical hotplug events.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 300.0
+      },
+      "constraints": {
+        "primary": [
+          "6000m depth operation",
+          "Oil immersion compatible",
+          "Hotplug survival"
+        ],
+        "secondary": [
+          "Efficiency >88%",
+          "Compact for pressure housing"
+        ],
+        "constraints": [
+          "Umbilical voltage drop",
+          "Thruster dynamics"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Deep-Sea ROV Thruster",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_058",
+      "prompt": "Design a full-bridge converter for particle accelerator kicker magnet pulse generator. Input: 800V DC, Output: 25kV pulse at 500A peak for 1\u03bcs. Must achieve <50ns rise time, 1Hz repetition rate, and 0.1% pulse-to-pulse amplitude repeatability.",
+      "specs": {
+        "vin": 800.0
+      },
+      "constraints": {
+        "primary": [
+          "<50ns rise time",
+          "0.1% repeatability",
+          "25kV output"
+        ],
+        "secondary": [
+          "Reliable triggering",
+          "Low jitter"
+        ],
+        "constraints": [
+          "Radiation environment",
+          "Precise timing"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Synchrotron Kicker Magnet",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_059",
+      "prompt": "Design a boost converter for high-altitude balloon payload. Input: 5V-8V from flexible solar array, Output: 28V at 2A for payload electronics. Must operate at 35km altitude (-60\u00b0C, 1% atmosphere), survive cosmic ray events, and handle 50% solar cell degradation.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 5.0
+      },
+      "constraints": {
+        "primary": [
+          "35km altitude operation",
+          "Cosmic ray tolerance",
+          "Solar degradation handling"
+        ],
+        "secondary": [
+          "MPPT efficiency",
+          "Weight <200g"
+        ],
+        "constraints": [
+          "Near-space environment",
+          "Limited thermal mass"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Stratospheric Balloon Power",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_060",
+      "prompt": "Design a \u0106uk converter for LIGO-style gravitational wave detector laser stabilization. Input: 24V, Output: -12V at 2A for photodetector bias. Must achieve <1nV/\u221aHz output noise, operate in ultra-high vacuum (10\u207b\u2079 torr), and be magnetically shielded to <1nT.",
+      "specs": {
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "<1nV/\u221aHz noise",
+          "UHV compatible",
+          "Magnetic shielding"
+        ],
+        "secondary": [
+          "Long-term stability",
+          "Remote operation"
+        ],
+        "constraints": [
+          "Seismic isolation",
+          "Interferometer compatibility"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Gravitational Wave Detector",
+      "topology": "cuk"
+    }
+  ]
+}

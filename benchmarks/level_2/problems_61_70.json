@@ -1,0 +1,177 @@
+{
+  "level": 2,
+  "description": "Level 2 problems",
+  "problems": [
+    {
+      "id": "L2_061",
+      "prompt": "Design a buck converter: 48V to 1.8V, 20A for DDR4 memory. Constraint: Output impedance < 1m\u03a9 at 1MHz",
+      "specs": {
+        "vout": 1.8,
+        "vin": 48.0,
+        "iout": 20.0,
+        "power": 36.0,
+        "f_sw": 500000
+      },
+      "constraints": {
+        "output_impedance_mohm": 1,
+        "frequency_mhz": 1
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_062",
+      "prompt": "Design a flyback converter: 24V to 12V isolated, 2A for medical isolation. Constraint: Leakage current < 100\u00b5A per IEC 60601",
+      "specs": {
+        "vout": 12.0,
+        "vin": 24.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 150000
+      },
+      "constraints": {
+        "leakage_current_ua": 100,
+        "safety_standard": "IEC 60601"
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L2_063",
+      "prompt": "Design a boost converter: 48V to 380V, 1A for PFC pre-regulator. Constraint: Input current THD < 5%",
+      "specs": {
+        "vout": 380.0,
+        "iout": 1.0,
+        "power": 380.0,
+        "f_sw": 100000
+      },
+      "constraints": {
+        "input_thd_percent": 5
+      },
+      "difficulty": "intermediate",
+      "topology": "boost_ccm_pfc",
+      "application": ""
+    },
+    {
+      "id": "L2_064",
+      "prompt": "Design a half-bridge converter: 400V to 12V, 25A for server. Constraint: Synchronous rectification for > 95% efficiency",
+      "specs": {
+        "vout": 12.0,
+        "vin": 400.0,
+        "iout": 25.0,
+        "power": 300.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "efficiency_percent": 95,
+        "rectification": "synchronous"
+      },
+      "difficulty": "intermediate",
+      "topology": "half_bridge_sr",
+      "application": ""
+    },
+    {
+      "id": "L2_065",
+      "prompt": "Design a buck converter: 12V to 5V, 3A for automotive camera. Constraint: Operating temp -40\u00b0C to +125\u00b0C",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 500000
+      },
+      "constraints": {
+        "temp_min_c": -40,
+        "temp_max_c": 125
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_066",
+      "prompt": "Design a \u0106uk converter: 18V to -18V, 1A for precision instrumentation. Constraint: Output noise < 1mV RMS",
+      "specs": {
+        "vout": -18.0,
+        "vin": 18.0,
+        "iout": 1.0,
+        "power": 18.0,
+        "f_sw": 250000
+      },
+      "constraints": {
+        "output_noise_mv_rms": 1
+      },
+      "difficulty": "intermediate",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L2_067",
+      "prompt": "Design a forward converter: 48V to 3.3V, 20A for telecom DSP. Constraint: Current sharing < 5% between parallel modules",
+      "specs": {
+        "vout": 3.3,
+        "vin": 48.0,
+        "f_sw": 300000
+      },
+      "constraints": {
+        "current_share_error_percent": 5,
+        "modules": 2
+      },
+      "difficulty": "intermediate",
+      "topology": "forward_parallel",
+      "application": ""
+    },
+    {
+      "id": "L2_068",
+      "prompt": "Design a buck converter: 72V to 24V, 6A for golf cart accessories. Constraint: Reverse polarity protection without significant loss",
+      "specs": {
+        "vout": 24.0,
+        "vin": 72.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "reverse_polarity_protected": true,
+        "protection_loss_percent": 1
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_069",
+      "prompt": "Design a boost converter: 24V to 48V, 4A for hybrid vehicle auxiliary. Constraint: Bidirectional operation for regeneration",
+      "specs": {
+        "power": 192.0,
+        "f_sw": 100000
+      },
+      "constraints": {
+        "bidirectional": true,
+        "reverse_power_w": 192
+      },
+      "difficulty": "intermediate",
+      "topology": "bidirectional_boost_buck",
+      "application": ""
+    },
+    {
+      "id": "L2_070",
+      "prompt": "Design a flyback converter: 12V to 5V isolated, 2A for USB isolator. Constraint: Isolation voltage > 2.5kV RMS",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "isolation_voltage_kv_rms": 2.5
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": ""
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_021",
+      "prompt": "Design a radiation-hardened buck converter for LEO satellite bus power. Input: 28V unregulated solar bus, Output: 5V at 10A. Must balance efficiency (>92%), radiation tolerance (TID 30krad), mass (<150g), and reliability (15-year mission) while operating in -40\u00b0C to +85\u00b0C.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "Efficiency >92%",
+          "TID tolerance 30krad",
+          "Mass <150g"
+        ],
+        "secondary": [
+          "Reliability 15-year mission",
+          "Wide temperature range"
+        ],
+        "constraints": [
+          "Space-qualified components only",
+          "Single event latch-up immunity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Satellite Bus Power Distribution",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_022",
+      "prompt": "Design a wireless power receiver flyback converter for implantable neurostimulator charging. Input: 5V-12V from rectified wireless coil, Output: 4.2V at 0.5A for Li-ion charging. Must minimize heat dissipation (<0.5W), volume (<1cm\u00b3), and magnetic emissions while achieving safe isolation.",
+      "specs": {
+        "vout": 4.2,
+        "vin": 5.0
+      },
+      "constraints": {
+        "primary": [
+          "Heat dissipation <0.5W",
+          "Volume <1cm\u00b3",
+          "EMI compliance"
+        ],
+        "secondary": [
+          "Biocompatible encapsulation",
+          "Safe charging termination"
+        ],
+        "constraints": [
+          "Implant grade",
+          "MRI conditional if possible",
+          "FDA Class III requirements"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Implantable Medical Device Charger",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_023",
+      "prompt": "Design a bidirectional boost converter for Formula E battery charging during regenerative braking. Input: 400V-800V battery pack, Output: 900V DC link at 250kW peak power. Must maximize power density (>50kW/L), efficiency (>97%), and survive 3g lateral acceleration with liquid cooling.",
+      "specs": {
+        "vout": 900.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "primary": [
+          "Power density >50kW/L",
+          "Efficiency >97%",
+          "250kW peak capability"
+        ],
+        "secondary": [
+          "Survive 3g acceleration",
+          "Liquid cooling compatible"
+        ],
+        "constraints": [
+          "FIA technical regulations",
+          "Safety homologation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Formula E Regenerative Braking",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_024",
+      "prompt": "Design a forward converter for subsea BOP (blowout preventer) control electronics. Input: 400V from subsea power cable, Output: 24V at 15A. Must survive 3000m depth (300 bar pressure), 25-year design life, and operate in oil-filled pressure-compensated enclosure.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "primary": [
+          "Pressure tolerance 300 bar",
+          "25-year lifetime",
+          "Oil-filled compatible"
+        ],
+        "secondary": [
+          "Efficiency >90%",
+          "EMI immunity from umbilical noise"
+        ],
+        "constraints": [
+          "No serviceable parts",
+          "Explosive atmosphere rated"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Subsea Oil & Gas Equipment",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_025",
+      "prompt": "Design a SEPIC converter for portable dental X-ray unit battery pack. Input: 14.4V-25.2V from 18650 pack (4S-6S), Output: 24V at 4A. Must minimize weight (<200g total), handle 2x overload for 100ms X-ray pulse, and meet IEC 60601 leakage requirements.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 14.4
+      },
+      "constraints": {
+        "primary": [
+          "Weight <200g",
+          "2x overload capability",
+          "Medical safety compliance"
+        ],
+        "secondary": [
+          "Battery state-of-charge indication",
+          "Thermal protection"
+        ],
+        "constraints": [
+          "IEC 60601-1 Type BF",
+          "Drop test survival"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Portable X-Ray Generator",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_026",
+      "prompt": "Design a half-bridge LLC converter for hyperscale data center power shelf. Input: 48V rack bus, Output: 12V at 100A. Must achieve power density >200W/in\u00b3, efficiency >97.5%, and support current sharing across 8 parallel modules with hot-swap capability.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "Power density >200W/in\u00b3",
+          "Efficiency >97.5%",
+          "100A output"
+        ],
+        "secondary": [
+          "Hot-swap capability",
+          "8-module current sharing"
+        ],
+        "constraints": [
+          "OCP Open Rack V3 compliant",
+          "Air cooling only"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Data Center 48V to 12V Bus Converter",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_027",
+      "prompt": "Design a buck converter for quantum computer dilution refrigerator electronics. Input: 12V at 4K stage, Output: 3.3V at 2A at 40mK stage. Must minimize heat dissipation at each stage, use cryogenic-compatible components, and maintain regulation across 4K to 40mK transition.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "Heat load <10mW at 40mK",
+          "Cryogenic operation",
+          "Stable regulation"
+        ],
+        "secondary": [
+          "Low magnetic signature",
+          "Vibration-free operation"
+        ],
+        "constraints": [
+          "No ferromagnetics near qubits",
+          "Thermal isolation between stages"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Quantum Computer Cryogenic Power",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_028",
+      "prompt": "Design a multi-input flyback converter for IoT sensor node harvesting solar, thermal, and vibration energy. Inputs: 0.3V-5V from various harvesters, Output: 3.3V at 50mA average. Must implement MPPT for each source, prioritize inputs, and achieve <1\u03bcA standby current.",
+      "specs": {
+        "vout": 3.3
+      },
+      "constraints": {
+        "primary": [
+          "Multi-source harvesting",
+          "MPPT per source",
+          "Standby <1\u03bcA"
+        ],
+        "secondary": [
+          "Cold start from 0.3V",
+          "Source prioritization"
+        ],
+        "constraints": [
+          "Single inductor/transformer shared",
+          "Total BOM <$2"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "IoT Energy Harvesting Power Management",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_029",
+      "prompt": "Design the DC-DC stage of a 100kW wind turbine inverter. Input: 400V-800V from rectified PMSG, Output: 750V DC link. Must track variable wind speed (MPPT), survive grid faults (LVRT), and meet harmonic requirements (<3% THD contribution).",
+      "specs": {
+        "vout": 750.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "primary": [
+          "Wind MPPT",
+          "LVRT compliance",
+          "THD <3%"
+        ],
+        "secondary": [
+          "Efficiency >98%",
+          "Grid code compliance"
+        ],
+        "constraints": [
+          "IEC 61400-21",
+          "LVRT per grid code"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Wind Turbine Grid-Tie Inverter",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_030",
+      "prompt": "Design a \u0106uk converter for off-grid PV system. Input: 30V-45V from 36-cell panel, Output: 12V/24V/48V selectable for battery bank at 20A. Must implement true MPPT, handle battery equalization, and survive reverse battery connection.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 30.0
+      },
+      "constraints": {
+        "primary": [
+          "True MPPT efficiency >99%",
+          "Multi-voltage output",
+          "20A capability"
+        ],
+        "secondary": [
+          "Equalization charging",
+          "Reverse polarity protection"
+        ],
+        "constraints": [
+          "Outdoor installation",
+          "Wide temperature range"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Photovoltaic MPPT Charge Controller",
+      "topology": "cuk"
+    }
+  ]
+}

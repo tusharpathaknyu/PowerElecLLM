@@ -1,0 +1,263 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_091",
+      "prompt": "Design a boost converter for stratospheric airship station-keeping propulsion. Input: 200V-400V from thin-film solar on envelope, Output: 600V DC bus at 50kW for electric thrusters. Must operate at 20km altitude (5% atmosphere), handle 24-hour day/night cycle, and provide 5-year endurance.",
+      "specs": {
+        "vout": 600.0,
+        "vin": 200.0
+      },
+      "constraints": {
+        "primary": [
+          "20km altitude operation",
+          "24-hour autonomy",
+          "5-year endurance"
+        ],
+        "secondary": [
+          "Lightweight",
+          "Solar MPPT"
+        ],
+        "constraints": [
+          "Helium envelope integration",
+          "Minimal mass"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Airship Station-Keeping",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_092",
+      "prompt": "Design a \u0106uk converter for superconducting gravimeter electronics. Input: 24V, Output: -5V at 1A for SQUID controller. Must achieve <1\u03bcGal noise contribution, operate at 4K cryogenic interface, and provide continuous years of recording.",
+      "specs": {
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "<1\u03bcGal noise",
+          "4K interface",
+          "Continuous operation"
+        ],
+        "secondary": [
+          "Low drift",
+          "Remote monitoring"
+        ],
+        "constraints": [
+          "Helium consumption impact",
+          "Non-magnetic"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Precision Gravimeter",
+      "topology": "cuk"
+    },
+    {
+      "id": "L3_093",
+      "prompt": "Design a forward converter for geothermal well logging tool. Input: 200V DC from wireline, Output: 12V at 5A for electronics. Must operate at 300\u00b0C ambient, survive 3000 bar pressure, and withstand H2S corrosive environment.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 200.0
+      },
+      "constraints": {
+        "primary": [
+          "300\u00b0C operation",
+          "3000 bar pressure",
+          "H2S survival"
+        ],
+        "secondary": [
+          "Wireline power optimization",
+          "Data telemetry"
+        ],
+        "constraints": [
+          "Tool diameter <50mm",
+          "Continuous logging"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Geothermal Well Logging",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_094",
+      "prompt": "Design a SEPIC converter for large mammal GPS tracking collar. Input: 3.6V from lithium primary (declining to 2.5V), Output: 3.3V at 200mA for GPS and satellite uplink. Must achieve 3-year tracking life, survive animal behavior (impact, water), and minimize collar mass.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 3.6
+      },
+      "constraints": {
+        "primary": [
+          "3-year battery life",
+          "Animal behavior survival",
+          "Minimal mass"
+        ],
+        "secondary": [
+          "GPS acquisition speed",
+          "Satellite uplink"
+        ],
+        "constraints": [
+          "Animal welfare",
+          "Drop-off mechanism"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Wildlife Tracking Collar",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_095",
+      "prompt": "Design a half-bridge converter for plasma gasification reactor arc power. Input: 480V 3-phase (rectified ~680V), Output: 200V at 500A for plasma torch. Must handle arc instability (millisecond current spikes), operate 24/7 in waste processing, and survive harsh thermal environment.",
+      "specs": {
+        "vout": 200.0,
+        "vin": 480.0
+      },
+      "constraints": {
+        "primary": [
+          "Arc instability handling",
+          "24/7 industrial operation",
+          "Harsh environment"
+        ],
+        "secondary": [
+          "Efficiency >92%",
+          "Fast arc re-strike"
+        ],
+        "constraints": [
+          "Waste processing regulations",
+          "Process gas interface"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Plasma Gasification",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_096",
+      "prompt": "Design a buck converter for electron beam welding gun focus coil. Input: 300V from welding power supply, Output: 24V at 40A for focus/deflection coils. Must achieve <1\u03bcm beam positioning, operate in 10\u207b\u2074 torr vacuum, and handle 50kW reflected beam power during workpiece arcing.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 300.0
+      },
+      "constraints": {
+        "primary": [
+          "<1\u03bcm beam positioning",
+          "Vacuum operation",
+          "Arc reflection survival"
+        ],
+        "secondary": [
+          "Fast beam deflection",
+          "Seam tracking"
+        ],
+        "constraints": [
+          "X-ray shielding",
+          "High vacuum compatibility"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Electron Beam Welder",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_097",
+      "prompt": "Design a flyback converter for seismic P-wave early warning sensor. Input: 12V-24V from solar/battery, Output: 5V at 1A for accelerometer and radio. Must detect P-waves within 50ms of arrival, operate through M7+ earthquakes (2g shaking), and provide 99.99% uptime.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "50ms P-wave detection",
+          "2g shake survival",
+          "99.99% uptime"
+        ],
+        "secondary": [
+          "Low latency telemetry",
+          "Self-test capability"
+        ],
+        "constraints": [
+          "Remote installation",
+          "Autonomous operation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Earthquake Early Warning",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_098",
+      "prompt": "Design a full-bridge converter for superconducting ship propulsion motor. Input: 6.6kV AC (rectified ~9kV DC), Output: 4160V AC at 36MW for HTS motor. Must operate with cryogenic motor at 30K, handle motor flux pumping, and meet naval shock requirements.",
+      "specs": {
+        "vout": 4160.0
+      },
+      "constraints": {
+        "primary": [
+          "36MW HTS motor drive",
+          "Cryogenic interface",
+          "Naval shock"
+        ],
+        "secondary": [
+          "Efficiency >98%",
+          "Low acoustic signature"
+        ],
+        "constraints": [
+          "Shipboard integration",
+          "LN2 cooling system"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Superconducting Motor Drive",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_099",
+      "prompt": "Design a boost converter for fog/dew collection water harvester. Input: 6V-12V from thermoelectric generator, Output: 48V at 3A for Peltier coolers. Must operate on temperature differential (day/night), provide potable water in arid regions, and run maintenance-free for 3 years.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 6.0
+      },
+      "constraints": {
+        "primary": [
+          "TEG-powered operation",
+          "Potable water output",
+          "3-year maintenance-free"
+        ],
+        "secondary": [
+          "Water yield optimization",
+          "Remote monitoring"
+        ],
+        "constraints": [
+          "Arid environment",
+          "No grid power"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Atmospheric Water Harvester",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_100",
+      "prompt": "Design a \u0106uk converter for silicon pixel detector in particle physics experiment. Input: 48V from counting room, Output: -1.8V at 100A total for 10,000 pixel chips. Must achieve <10mV ripple across all channels, survive 500 Mrad TID over detector lifetime, and provide per-channel adjustment.",
+      "specs": {
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "<10mV ripple",
+          "500 Mrad radiation",
+          "10,000 channel control"
+        ],
+        "secondary": [
+          "Minimal material",
+          "Remote programming"
+        ],
+        "constraints": [
+          "Tracker material budget",
+          "Trigger latency"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Particle Physics Tracker",
+      "topology": "cuk"
+    }
+  ]
+}

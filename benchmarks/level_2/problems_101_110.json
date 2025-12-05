@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_101",
+      "prompt": "High-Efficiency PoE++ Camera Supply: 4K PTZ security camera with PoE++ (90W) power requiring high efficiency for thermal management",
+      "specs": {
+        "vout": 12,
+        "vin": 52,
+        "power": 80,
+        "f_sw": 400000
+      },
+      "constraints": [
+        "Efficiency > 94% for thermal budget",
+        "PoE++ compatibility (IEEE 802.3bt)",
+        "Temperature rise < 25\u00b0C in sealed enclosure",
+        "EMC compliance for outdoor installation"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "4K PTZ security camera with PoE++ (90W) power requiring high efficiency for thermal management"
+    },
+    {
+      "id": "L2_102",
+      "prompt": "Compact Drone ESC Power Stage: Racing drone electronic speed controller requiring lightweight, efficient power conversion",
+      "specs": {
+        "vout": 12,
+        "vin": 22.2,
+        "power": 200,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Weight < 15 g total",
+        "6S LiPo input voltage (18.6-25.2V)",
+        "High current transients for motor control",
+        "Vibration resistant construction"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Racing drone electronic speed controller requiring lightweight, efficient power conversion"
+    },
+    {
+      "id": "L2_103",
+      "prompt": "Solar MPPT Charger for IoT Nodes: Solar-powered IoT sensor node with MPPT charging for extended operation",
+      "specs": {
+        "vout": 4.2,
+        "vin": 18,
+        "power": 5,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "MPPT efficiency > 98%",
+        "Wide solar panel voltage range (10-22V)",
+        "Battery charge profile management",
+        "Ultra-low quiescent current for sleep mode"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Solar-powered IoT sensor node with MPPT charging for extended operation"
+    },
+    {
+      "id": "L2_104",
+      "prompt": "Telecom Rectifier with PFC: 48V telecom rectifier requiring power factor correction and high efficiency",
+      "specs": {
+        "vout": 400,
+        "vin": 200,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Power factor > 0.99",
+        "THD < 5% per IEC 61000-3-2",
+        "Hold-up time > 20 ms",
+        "Hot-swap capable"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "48V telecom rectifier requiring power factor correction and high efficiency"
+    },
+    {
+      "id": "L2_105",
+      "prompt": "Industrial PLC Power Supply: PLC power supply requiring wide input range and industrial temperature operation",
+      "specs": {
+        "vout": 24,
+        "vin": 110,
+        "power": 60,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Wide input 85-264 VAC universal",
+        "Operating temperature -40\u00b0C to +70\u00b0C",
+        "DIN rail mounting form factor",
+        "Overload protection 150% for 5 seconds"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "PLC power supply requiring wide input range and industrial temperature operation"
+    },
+    {
+      "id": "L2_106",
+      "prompt": "Marine Navigation Display Power: Rugged marine display requiring wide input tolerance and salt fog resistance",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 50,
+        "f_sw": 300000
+      },
+      "constraints": [
+        "Input voltage 10-32V for marine systems",
+        "Salt fog and humidity resistance",
+        "IP67 enclosure compatibility",
+        "Lightning transient protection"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Rugged marine display requiring wide input tolerance and salt fog resistance"
+    },
+    {
+      "id": "L2_107",
+      "prompt": "Railway Signaling Equipment Supply: Trackside signaling equipment requiring railway safety certification",
+      "specs": {
+        "vout": 24,
+        "vin": 110,
+        "power": 200,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "EN 50121-4 EMC compliance",
+        "SIL 4 safety integrity level",
+        "Operating temperature -40\u00b0C to +70\u00b0C",
+        "MTBF > 100,000 hours"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Trackside signaling equipment requiring railway safety certification"
+    },
+    {
+      "id": "L2_108",
+      "prompt": "Mining Equipment LED Lighting Supply: Underground mining lighting requiring explosion-proof design and high reliability",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "power": 150,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "ATEX Zone 1 certification",
+        "Intrinsically safe design",
+        "Methane atmosphere tolerance",
+        "Impact and vibration resistant"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Underground mining lighting requiring explosion-proof design and high reliability"
+    },
+    {
+      "id": "L2_109",
+      "prompt": "Aviation Entertainment System Supply: In-flight entertainment system requiring aviation certification and low weight",
+      "specs": {
+        "vout": 5,
+        "vin": 28,
+        "power": 100,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "DO-160G environmental qualification",
+        "Weight optimization for aviation",
+        "EMC per RTCA DO-160 Section 21",
+        "Altitude operation to 45,000 ft"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "In-flight entertainment system requiring aviation certification and low weight"
+    },
+    {
+      "id": "L2_110",
+      "prompt": "Wind Turbine Pitch Controller Supply: Blade pitch control system requiring operation in nacelle environment",
+      "specs": {
+        "vout": 48,
+        "vin": 700,
+        "power": 500,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Nacelle vibration immunity",
+        "Wide temperature range operation",
+        "Lightning protection integration",
+        "Fail-safe pitch control backup"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Blade pitch control system requiring operation in nacelle environment"
+    }
+  ]
+}

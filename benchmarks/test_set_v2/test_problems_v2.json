@@ -1,0 +1,3764 @@
+{
+  "version": "2.0",
+  "description": "PowerElecBench Test Set v2 - ALL TOPOLOGIES",
+  "generated": "2025-12-05T14:35:15.111342",
+  "distribution": {
+    "1": 45,
+    "2": 45,
+    "3": 35,
+    "4": 25
+  },
+  "total": 150,
+  "problems": [
+    {
+      "id": "TEST_L1_001",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 7V DC\n- Output voltage: 9.0V DC\n- Output power: 12W\n- Switching frequency: 66kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 7,
+        "vout": 9.0,
+        "power": 12,
+        "fsw": 66693,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 9.0,
+        "components": {
+          "L": 4.3733e-05,
+          "C": 2.4682e-05,
+          "D": 0.2222,
+          "R_load": 6.75,
+          "fsw": 66693,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_002",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 13V DC\n- Output voltage: 3.3V DC\n- Output power: 21W\n- Switching frequency: 194kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 13,
+        "vout": 3.3,
+        "power": 21,
+        "fsw": 194095,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 3.3,
+        "components": {
+          "L": 4.984e-06,
+          "C": 2.4838e-05,
+          "D": 0.2538,
+          "R_load": 0.519,
+          "fsw": 194095,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_003",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 12V DC\n- Output voltage: 9.0V DC\n- Output power: 29W\n- Switching frequency: 70kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 12,
+        "vout": 9.0,
+        "power": 29,
+        "fsw": 70106,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 2.4901e-05,
+          "C": 1.2767e-05,
+          "D": 0.75,
+          "R_load": 2.793,
+          "fsw": 70106,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_004",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 24V DC\n- Output voltage: 28.0V DC\n- Output power: 39W\n- Switching frequency: 67kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 24,
+        "vout": 28.0,
+        "power": 39,
+        "fsw": 67606,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 9.1025e-05,
+          "C": 5.256e-06,
+          "D": 0.1429,
+          "R_load": 20.103,
+          "fsw": 67606,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_005",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 24V DC\n- Output voltage: 104.8V DC\n- Output power: 50W\n- Switching frequency: 187kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 24,
+        "vout": 104.8,
+        "power": 50,
+        "fsw": 187916,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 104.8,
+        "components": {
+          "L": 0.000515975,
+          "C": 1e-06,
+          "D": 0.771,
+          "R_load": 219.661,
+          "fsw": 187916,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_006",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 40V DC\n- Output voltage: 5.0V DC\n- Output power: 37W\n- Switching frequency: 68kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 40,
+        "vout": 5.0,
+        "power": 37,
+        "fsw": 68475,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 5.0,
+        "components": {
+          "L": 2.1585e-05,
+          "C": 5.4034e-05,
+          "D": 0.125,
+          "R_load": 0.676,
+          "fsw": 68475,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_007",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 33V DC\n- Output voltage: 24.0V DC\n- Output power: 34W\n- Switching frequency: 112kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 33,
+        "vout": 24.0,
+        "power": 34,
+        "fsw": 112782,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 24.0,
+        "components": {
+          "L": 0.000102417,
+          "C": 1.308e-06,
+          "D": 0.7273,
+          "R_load": 16.941,
+          "fsw": 112782,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_008",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 18V DC\n- Output voltage: 48.0V DC\n- Output power: 18W\n- Switching frequency: 141kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 18,
+        "vout": 48.0,
+        "power": 18,
+        "fsw": 141083,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000531602,
+          "C": 1.73e-06,
+          "D": 0.625,
+          "R_load": 128.0,
+          "fsw": 141083,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_009",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 10V DC\n- Output voltage: 15.0V DC\n- Output power: 40W\n- Switching frequency: 122kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 10,
+        "vout": 15.0,
+        "power": 40,
+        "fsw": 122071,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 2.56e-05,
+          "C": 2.4272e-05,
+          "D": 0.3333,
+          "R_load": 5.625,
+          "fsw": 122071,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_010",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 12V DC\n- Output voltage: 15.0V DC\n- Output power: 27W\n- Switching frequency: 56kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 12,
+        "vout": 15.0,
+        "power": 27,
+        "fsw": 56946,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 5.8535e-05,
+          "C": 2.1073e-05,
+          "D": 0.2,
+          "R_load": 8.333,
+          "fsw": 56946,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_011",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 18V DC\n- Output voltage: 24.0V DC\n- Output power: 33W\n- Switching frequency: 106kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 18,
+        "vout": 24.0,
+        "power": 33,
+        "fsw": 106296,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 24.0,
+        "components": {
+          "L": 7.6972e-05,
+          "C": 6.737e-06,
+          "D": 0.25,
+          "R_load": 17.455,
+          "fsw": 106296,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_012",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 21V DC\n- Output voltage: 48.0V DC\n- Output power: 37W\n- Switching frequency: 75kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 21,
+        "vout": 48.0,
+        "power": 37,
+        "fsw": 75906,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000504714,
+          "C": 5.95e-06,
+          "D": 0.5625,
+          "R_load": 62.27,
+          "fsw": 75906,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_013",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 32V DC\n- Output voltage: 24.0V DC\n- Output power: 31W\n- Switching frequency: 82kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 32,
+        "vout": 24.0,
+        "power": 31,
+        "fsw": 82133,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 24.0,
+        "components": {
+          "L": 0.000141391,
+          "C": 1.638e-06,
+          "D": 0.75,
+          "R_load": 18.581,
+          "fsw": 82133,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_014",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 22V DC\n- Output voltage: 36.0V DC\n- Output power: 15W\n- Switching frequency: 93kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 22,
+        "vout": 36.0,
+        "power": 15,
+        "fsw": 93072,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000551544,
+          "C": 2.418e-06,
+          "D": 0.3889,
+          "R_load": 86.4,
+          "fsw": 93072,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_015",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 16V DC\n- Output voltage: 18.0V DC\n- Output power: 38W\n- Switching frequency: 194kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 16,
+        "vout": 18.0,
+        "power": 38,
+        "fsw": 194362,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 18.0,
+        "components": {
+          "L": 1.0832e-05,
+          "C": 3.352e-06,
+          "D": 0.1111,
+          "R_load": 8.526,
+          "fsw": 194362,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_016",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 11V DC\n- Output voltage: 15.0V DC\n- Output power: 17W\n- Switching frequency: 140kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 11,
+        "vout": 15.0,
+        "power": 17,
+        "fsw": 140621,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 4.6014e-05,
+          "C": 7.164e-06,
+          "D": 0.2667,
+          "R_load": 13.235,
+          "fsw": 140621,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_017",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 19V DC\n- Output voltage: 12.0V DC\n- Output power: 49W\n- Switching frequency: 156kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 19,
+        "vout": 12.0,
+        "power": 49,
+        "fsw": 156843,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 1.7258e-05,
+          "C": 5.424e-06,
+          "D": 0.6316,
+          "R_load": 2.939,
+          "fsw": 156843,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_018",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 18V DC\n- Output voltage: 24.0V DC\n- Output power: 7W\n- Switching frequency: 104kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 18,
+        "vout": 24.0,
+        "power": 7,
+        "fsw": 104544,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 24.0,
+        "components": {
+          "L": 0.000368949,
+          "C": 1.453e-06,
+          "D": 0.25,
+          "R_load": 82.286,
+          "fsw": 104544,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_019",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 24V DC\n- Output voltage: 64.9V DC\n- Output power: 42W\n- Switching frequency: 103kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 24,
+        "vout": 64.9,
+        "power": 42,
+        "fsw": 103699,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 64.9,
+        "components": {
+          "L": 0.000563444,
+          "C": 3.03e-06,
+          "D": 0.6302,
+          "R_load": 100.286,
+          "fsw": 103699,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_020",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 10V DC\n- Output voltage: 15.0V DC\n- Output power: 41W\n- Switching frequency: 100kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 10,
+        "vout": 15.0,
+        "power": 41,
+        "fsw": 100593,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 3.0308e-05,
+          "C": 3.0191e-05,
+          "D": 0.3333,
+          "R_load": 5.488,
+          "fsw": 100593,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_021",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 18V DC\n- Output voltage: 12.0V DC\n- Output power: 24W\n- Switching frequency: 65kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 18,
+        "vout": 12.0,
+        "power": 24,
+        "fsw": 65299,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 7.6571e-05,
+          "C": 6.381e-06,
+          "D": 0.6667,
+          "R_load": 6.0,
+          "fsw": 65299,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_022",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 16V DC\n- Output voltage: 28.0V DC\n- Output power: 47W\n- Switching frequency: 147kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 16,
+        "vout": 28.0,
+        "power": 47,
+        "fsw": 147428,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 6.9273e-05,
+          "C": 8.714e-06,
+          "D": 0.4286,
+          "R_load": 16.681,
+          "fsw": 147428,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_023",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 14V DC\n- Output voltage: 18.0V DC\n- Output power: 41W\n- Switching frequency: 143kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 14,
+        "vout": 18.0,
+        "power": 41,
+        "fsw": 143737,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 18.0,
+        "components": {
+          "L": 2.3756e-05,
+          "C": 9.782e-06,
+          "D": 0.2222,
+          "R_load": 7.902,
+          "fsw": 143737,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_024",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 47V DC\n- Output voltage: 9.0V DC\n- Output power: 17W\n- Switching frequency: 84kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 47,
+        "vout": 9.0,
+        "power": 17,
+        "fsw": 84704,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 0.000113699,
+          "C": 6.194e-06,
+          "D": 0.1915,
+          "R_load": 4.765,
+          "fsw": 84704,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_025",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 32V DC\n- Output voltage: 18.0V DC\n- Output power: 22W\n- Switching frequency: 134kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 32,
+        "vout": 18.0,
+        "power": 22,
+        "fsw": 134274,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 18.0,
+        "components": {
+          "L": 0.000119963,
+          "C": 1.264e-06,
+          "D": 0.5625,
+          "R_load": 14.727,
+          "fsw": 134274,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_026",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 8V DC\n- Output voltage: 12.0V DC\n- Output power: 8W\n- Switching frequency: 97kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 8,
+        "vout": 12.0,
+        "power": 8,
+        "fsw": 97244,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 12.0,
+        "components": {
+          "L": 0.000102834,
+          "C": 9.522e-06,
+          "D": 0.3333,
+          "R_load": 18.0,
+          "fsw": 97244,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_027",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 24V DC\n- Output voltage: 9.0V DC\n- Output power: 25W\n- Switching frequency: 184kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 24,
+        "vout": 9.0,
+        "power": 25,
+        "fsw": 184575,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 2.7428e-05,
+          "C": 4.18e-06,
+          "D": 0.375,
+          "R_load": 3.24,
+          "fsw": 184575,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_028",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 35V DC\n- Output voltage: 12.0V DC\n- Output power: 26W\n- Switching frequency: 70kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 35,
+        "vout": 12.0,
+        "power": 26,
+        "fsw": 70493,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 0.000129075,
+          "C": 6.403e-06,
+          "D": 0.3429,
+          "R_load": 5.538,
+          "fsw": 70493,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_029",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 47V DC\n- Output voltage: 36.0V DC\n- Output power: 48W\n- Switching frequency: 98kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 47,
+        "vout": 36.0,
+        "power": 48,
+        "fsw": 98940,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000159671,
+          "C": 1e-06,
+          "D": 0.766,
+          "R_load": 27.0,
+          "fsw": 98940,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_030",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 19V DC\n- Output voltage: 36.0V DC\n- Output power: 9W\n- Switching frequency: 86kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 19,
+        "vout": 36.0,
+        "power": 9,
+        "fsw": 86999,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 0.001031302,
+          "C": 1.885e-06,
+          "D": 0.4722,
+          "R_load": 144.0,
+          "fsw": 86999,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_031",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 43V DC\n- Output voltage: 36.0V DC\n- Output power: 50W\n- Switching frequency: 198kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 43,
+        "vout": 36.0,
+        "power": 50,
+        "fsw": 198072,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 36.0,
+        "components": {
+          "L": 5.3258e-05,
+          "C": 1e-06,
+          "D": 0.8372,
+          "R_load": 25.92,
+          "fsw": 198072,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_032",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 11V DC\n- Output voltage: 36.0V DC\n- Output power: 29W\n- Switching frequency: 165kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 11,
+        "vout": 36.0,
+        "power": 29,
+        "fsw": 165214,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000143492,
+          "C": 4.703e-06,
+          "D": 0.6944,
+          "R_load": 44.69,
+          "fsw": 165214,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_033",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 32V DC\n- Output voltage: 12.0V DC\n- Output power: 35W\n- Switching frequency: 187kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 32,
+        "vout": 12.0,
+        "power": 35,
+        "fsw": 187110,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 3.4357e-05,
+          "C": 3.247e-06,
+          "D": 0.375,
+          "R_load": 4.114,
+          "fsw": 187110,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_034",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 20V DC\n- Output voltage: 2.5V DC\n- Output power: 48W\n- Switching frequency: 82kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 20,
+        "vout": 2.5,
+        "power": 48,
+        "fsw": 82670,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 2.5,
+        "components": {
+          "L": 3.445e-06,
+          "C": 0.000232249,
+          "D": 0.125,
+          "R_load": 0.13,
+          "fsw": 82670,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_035",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 44V DC\n- Output voltage: 28.0V DC\n- Output power: 23W\n- Switching frequency: 169kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 44,
+        "vout": 28.0,
+        "power": 23,
+        "fsw": 169429,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 28.0,
+        "components": {
+          "L": 0.000182898,
+          "C": 1e-06,
+          "D": 0.6364,
+          "R_load": 34.087,
+          "fsw": 169429,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_036",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 14V DC\n- Output voltage: 18.0V DC\n- Output power: 23W\n- Switching frequency: 59kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 14,
+        "vout": 18.0,
+        "power": 23,
+        "fsw": 59686,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 18.0,
+        "components": {
+          "L": 0.000101983,
+          "C": 1.3215e-05,
+          "D": 0.2222,
+          "R_load": 14.087,
+          "fsw": 59686,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_037",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 43V DC\n- Output voltage: 15.0V DC\n- Output power: 28W\n- Switching frequency: 170kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 43,
+        "vout": 15.0,
+        "power": 28,
+        "fsw": 170502,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 15.0,
+        "components": {
+          "L": 7.6723e-05,
+          "C": 1.825e-06,
+          "D": 0.3488,
+          "R_load": 8.036,
+          "fsw": 170502,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_038",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 34V DC\n- Output voltage: 3.3V DC\n- Output power: 28W\n- Switching frequency: 119kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 34,
+        "vout": 3.3,
+        "power": 28,
+        "fsw": 119363,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 3.3,
+        "components": {
+          "L": 7.578e-06,
+          "C": 5.3852e-05,
+          "D": 0.1,
+          "R_load": 0.389,
+          "fsw": 119363,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_039",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 12V DC\n- Output voltage: 9.0V DC\n- Output power: 21W\n- Switching frequency: 81kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 12,
+        "vout": 9.0,
+        "power": 21,
+        "fsw": 81324,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 2.9643e-05,
+          "C": 7.97e-06,
+          "D": 0.75,
+          "R_load": 3.857,
+          "fsw": 81324,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_040",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 15V DC\n- Output voltage: 28.0V DC\n- Output power: 32W\n- Switching frequency: 199kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 15,
+        "vout": 28.0,
+        "power": 32,
+        "fsw": 199746,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 7.6269e-05,
+          "C": 4.744e-06,
+          "D": 0.4643,
+          "R_load": 24.5,
+          "fsw": 199746,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_041",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 47V DC\n- Output voltage: 24.0V DC\n- Output power: 33W\n- Switching frequency: 137kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 47,
+        "vout": 24.0,
+        "power": 33,
+        "fsw": 137847,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 24.0,
+        "components": {
+          "L": 0.000154911,
+          "C": 1.039e-06,
+          "D": 0.5106,
+          "R_load": 17.455,
+          "fsw": 137847,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_042",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter with:\n- Input voltage: 32V DC\n- Output voltage: 18.0V DC\n- Output power: 48W\n- Switching frequency: 86kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 32,
+        "vout": 18.0,
+        "power": 48,
+        "fsw": 86971,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 18.0,
+        "components": {
+          "L": 8.4888e-05,
+          "C": 4.259e-06,
+          "D": 0.5625,
+          "R_load": 6.75,
+          "fsw": 86971,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_043",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 23V DC\n- Output voltage: 28.0V DC\n- Output power: 49W\n- Switching frequency: 160kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 23,
+        "vout": 28.0,
+        "power": 49,
+        "fsw": 160565,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 3.6542e-05,
+          "C": 3.475e-06,
+          "D": 0.1786,
+          "R_load": 16.0,
+          "fsw": 160565,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_044",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 6V DC\n- Output voltage: 24.0V DC\n- Output power: 27W\n- Switching frequency: 98kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 6,
+        "vout": 24.0,
+        "power": 27,
+        "fsw": 98514,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 24.0,
+        "components": {
+          "L": 0.000101508,
+          "C": 1.7843e-05,
+          "D": 0.75,
+          "R_load": 21.333,
+          "fsw": 98514,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L1_045",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter with:\n- Input voltage: 20V DC\n- Output voltage: 36.0V DC\n- Output power: 37W\n- Switching frequency: 87kHz\n\nCalculate the duty cycle, inductor value, and capacitor value.",
+      "specs": {
+        "vin": 20,
+        "vout": 36.0,
+        "power": 37,
+        "fsw": 87456,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000247229,
+          "C": 7.254e-06,
+          "D": 0.4444,
+          "R_load": 35.027,
+          "fsw": 87456,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_001",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 321V DC\n- Output voltage: 72.6V DC\n- Output power: 191W\n- Switching frequency: 218kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 321,
+        "vout": 72.6,
+        "power": 191,
+        "fsw": 218575,
+        "n": 0.39
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 72.6,
+        "components": {
+          "L": 0.000341499,
+          "C": 5.526e-06,
+          "D": 0.3671,
+          "R_load": 27.596,
+          "fsw": 218575,
+          "n": 0.39
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_002",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 321V DC\n- Output voltage: 36.0V DC\n- Output power: 173W\n- Switching frequency: 326kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 321,
+        "vout": 36.0,
+        "power": 173,
+        "fsw": 326611,
+        "n": 0.51
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 36.0,
+        "components": {
+          "L": 7.4956e-05,
+          "C": 1.3624e-05,
+          "D": 0.2199,
+          "R_load": 7.491,
+          "fsw": 326611,
+          "n": 0.51
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_003",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 15V DC\n- Output voltage: 9.0V DC\n- Output power: 28W\n- Switching frequency: 499kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 15,
+        "vout": 9.0,
+        "power": 28,
+        "fsw": 499839,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 7.717e-06,
+          "C": 1.729e-06,
+          "D": 0.6,
+          "R_load": 2.893,
+          "fsw": 499839,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_004",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 358V DC\n- Output voltage: 67.7V DC\n- Output power: 85W\n- Switching frequency: 296kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 358,
+        "vout": 67.7,
+        "power": 85,
+        "fsw": 296170,
+        "n": 0.54
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 67.7,
+        "components": {
+          "L": 0.000561917,
+          "C": 2.087e-06,
+          "D": 0.3502,
+          "R_load": 53.921,
+          "fsw": 296170,
+          "n": 0.54
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_005",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 229V DC\n- Output voltage: 36.0V DC\n- Output power: 137W\n- Switching frequency: 285kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 229,
+        "vout": 36.0,
+        "power": 137,
+        "fsw": 285234,
+        "n": 0.46
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000120164,
+          "C": 1.2354e-05,
+          "D": 0.3418,
+          "R_load": 9.46,
+          "fsw": 285234,
+          "n": 0.46
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_006",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 30V DC\n- Output voltage: 5.0V DC\n- Output power: 20W\n- Switching frequency: 162kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 30,
+        "vout": 5.0,
+        "power": 20,
+        "fsw": 162247,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 5.0,
+        "components": {
+          "L": 2.1401e-05,
+          "C": 1.2327e-05,
+          "D": 0.1667,
+          "R_load": 1.25,
+          "fsw": 162247,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_007",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 18V DC\n- Output voltage: 12.0V DC\n- Output power: 82W\n- Switching frequency: 386kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 18,
+        "vout": 12.0,
+        "power": 82,
+        "fsw": 386280,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 5.051e-06,
+          "C": 3.685e-06,
+          "D": 0.6667,
+          "R_load": 1.756,
+          "fsw": 386280,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_008",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 231V DC\n- Output voltage: 48.0V DC\n- Output power: 47W\n- Switching frequency: 348kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 231,
+        "vout": 48.0,
+        "power": 47,
+        "fsw": 348010,
+        "n": 0.5
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000331693,
+          "C": 1.954e-06,
+          "D": 0.2936,
+          "R_load": 49.021,
+          "fsw": 348010,
+          "n": 0.5
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_009",
+      "level": 2,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter meeting these specifications:\n- Input voltage: 15V DC\n- Output voltage: 9.0V DC(inverted)\n- Output power: 191W\n- Switching frequency: 139kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 15,
+        "vout": -9.0,
+        "power": 191,
+        "fsw": 139125,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -9.0,
+        "components": {
+          "L": 6.35e-06,
+          "C": 0.000423724,
+          "D": 0.375,
+          "R_load": 0.424,
+          "fsw": 139125,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_010",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 24V DC\n- Output voltage: 36.0V DC\n- Output power: 26W\n- Switching frequency: 446kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 24,
+        "vout": 36.0,
+        "power": 26,
+        "fsw": 446779,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 8.2643e-05,
+          "C": 1e-06,
+          "D": 0.3333,
+          "R_load": 49.846,
+          "fsw": 446779,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_011",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 22V DC\n- Output voltage: 28.0V DC\n- Output power: 196W\n- Switching frequency: 412kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 22,
+        "vout": 28.0,
+        "power": 196,
+        "fsw": 412336,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 5.444e-06,
+          "C": 8.661e-06,
+          "D": 0.2143,
+          "R_load": 4.0,
+          "fsw": 412336,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_012",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 152V DC\n- Output voltage: 48.0V DC\n- Output power: 118W\n- Switching frequency: 263kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 152,
+        "vout": 48.0,
+        "power": 118,
+        "fsw": 263089,
+        "n": 0.42
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 48.0,
+        "components": {
+          "L": 0.00016811,
+          "C": 6.489e-06,
+          "D": 0.4292,
+          "R_load": 19.525,
+          "fsw": 263089,
+          "n": 0.42
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_013",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 358V DC\n- Output voltage: 68.5V DC\n- Output power: 25W\n- Switching frequency: 463kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 358,
+        "vout": 68.5,
+        "power": 25,
+        "fsw": 463135,
+        "n": 0.38
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 68.5,
+        "components": {
+          "L": 0.001182189,
+          "C": 1e-06,
+          "D": 0.3349,
+          "R_load": 187.69,
+          "fsw": 463135,
+          "n": 0.38
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_014",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 15V DC\n- Output voltage: 62.5V DC\n- Output power: 116W\n- Switching frequency: 180kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 15,
+        "vout": 62.5,
+        "power": 116,
+        "fsw": 180812,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 62.5,
+        "components": {
+          "L": 0.000113234,
+          "C": 8.321e-06,
+          "D": 0.76,
+          "R_load": 33.675,
+          "fsw": 180812,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_015",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 134V DC\n- Output voltage: 24.0V DC\n- Output power: 91W\n- Switching frequency: 475kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 134,
+        "vout": 24.0,
+        "power": 91,
+        "fsw": 475138,
+        "n": 0.64
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 24.0,
+        "components": {
+          "L": 3.4692e-05,
+          "C": 1.1084e-05,
+          "D": 0.2799,
+          "R_load": 6.33,
+          "fsw": 475138,
+          "n": 0.64
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_016",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 180V DC\n- Output voltage: 48.0V DC\n- Output power: 49W\n- Switching frequency: 224kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 180,
+        "vout": 48.0,
+        "power": 49,
+        "fsw": 224206,
+        "n": 0.6
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000582555,
+          "C": 3.162e-06,
+          "D": 0.4444,
+          "R_load": 47.02,
+          "fsw": 224206,
+          "n": 0.6
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_017",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 206V DC\n- Output voltage: 28.0V DC\n- Output power: 186W\n- Switching frequency: 442kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 206,
+        "vout": 28.0,
+        "power": 186,
+        "fsw": 442582,
+        "n": 0.58
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 28.0,
+        "components": {
+          "L": 2.7367e-05,
+          "C": 1.7868e-05,
+          "D": 0.2343,
+          "R_load": 4.215,
+          "fsw": 442582,
+          "n": 0.58
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_018",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 367V DC\n- Output voltage: 48.0V DC\n- Output power: 40W\n- Switching frequency: 243kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 367,
+        "vout": 48.0,
+        "power": 40,
+        "fsw": 243344,
+        "n": 0.4
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000743238,
+          "C": 2.378e-06,
+          "D": 0.2464,
+          "R_load": 57.6,
+          "fsw": 243344,
+          "n": 0.4
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_019",
+      "level": 2,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter meeting these specifications:\n- Input voltage: 18V DC\n- Output voltage: 24.0V DC(inverted)\n- Output power: 160W\n- Switching frequency: 158kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 18,
+        "vout": -24.0,
+        "power": 160,
+        "fsw": 158428,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -24.0,
+        "components": {
+          "L": 3.2462e-05,
+          "C": 6.6794e-05,
+          "D": 0.5714,
+          "R_load": 3.6,
+          "fsw": 158428,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_020",
+      "level": 2,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter meeting these specifications:\n- Input voltage: 28V DC\n- Output voltage: 12.0V DC(inverted)\n- Output power: 166W\n- Switching frequency: 120kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 28,
+        "vout": -12.0,
+        "power": 166,
+        "fsw": 120407,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -12.0,
+        "components": {
+          "L": 1.681e-05,
+          "C": 0.00019148,
+          "D": 0.3,
+          "R_load": 0.867,
+          "fsw": 120407,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_021",
+      "level": 2,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter meeting these specifications:\n- Input voltage: 27V DC\n- Output voltage: 9.0V DC(inverted)\n- Output power: 196W\n- Switching frequency: 291kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 27,
+        "vout": -9.0,
+        "power": 196,
+        "fsw": 291346,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -9.0,
+        "components": {
+          "L": 3.546e-06,
+          "C": 0.000138424,
+          "D": 0.25,
+          "R_load": 0.413,
+          "fsw": 291346,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_022",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 232V DC\n- Output voltage: 100.8V DC\n- Output power: 171W\n- Switching frequency: 405kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 232,
+        "vout": 100.8,
+        "power": 171,
+        "fsw": 405882,
+        "n": 0.48
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 100.8,
+        "components": {
+          "L": 0.000266808,
+          "C": 1.382e-06,
+          "D": 0.4751,
+          "R_load": 59.419,
+          "fsw": 405882,
+          "n": 0.48
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_023",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 360V DC\n- Output voltage: 48.0V DC\n- Output power: 144W\n- Switching frequency: 137kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 360,
+        "vout": 48.0,
+        "power": 144,
+        "fsw": 137997,
+        "n": 0.48
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000402585,
+          "C": 1.5097e-05,
+          "D": 0.2778,
+          "R_load": 16.0,
+          "fsw": 137997,
+          "n": 0.48
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_024",
+      "level": 2,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter meeting these specifications:\n- Input voltage: 20V DC\n- Output voltage: 28.0V DC(inverted)\n- Output power: 156W\n- Switching frequency: 383kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 20,
+        "vout": -28.0,
+        "power": 156,
+        "fsw": 383899,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -28.0,
+        "components": {
+          "L": 1.8182e-05,
+          "C": 2.0157e-05,
+          "D": 0.5833,
+          "R_load": 5.026,
+          "fsw": 383899,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_025",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 166V DC\n- Output voltage: 24.0V DC\n- Output power: 123W\n- Switching frequency: 310kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 166,
+        "vout": 24.0,
+        "power": 123,
+        "fsw": 310935,
+        "n": 0.42
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 24.0,
+        "components": {
+          "L": 5.9765e-05,
+          "C": 2.2892e-05,
+          "D": 0.3442,
+          "R_load": 4.683,
+          "fsw": 310935,
+          "n": 0.42
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_026",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 338V DC\n- Output voltage: 15.0V DC\n- Output power: 162W\n- Switching frequency: 419kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 338,
+        "vout": 15.0,
+        "power": 162,
+        "fsw": 419546,
+        "n": 0.12
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 15.0,
+        "components": {
+          "L": 3.3565e-05,
+          "C": 5.7205e-05,
+          "D": 0.27,
+          "R_load": 1.389,
+          "fsw": 419546,
+          "n": 0.12
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_027",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 230V DC\n- Output voltage: 60.7V DC\n- Output power: 185W\n- Switching frequency: 341kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 230,
+        "vout": 60.7,
+        "power": 185,
+        "fsw": 341547,
+        "n": 0.71
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 60.7,
+        "components": {
+          "L": 0.000136882,
+          "C": 4.9e-06,
+          "D": 0.3717,
+          "R_load": 19.916,
+          "fsw": 341547,
+          "n": 0.71
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_028",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 140V DC\n- Output voltage: 36.0V DC\n- Output power: 53W\n- Switching frequency: 155kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 140,
+        "vout": 36.0,
+        "power": 53,
+        "fsw": 155503,
+        "n": 0.41
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000392844,
+          "C": 8.766e-06,
+          "D": 0.3854,
+          "R_load": 24.453,
+          "fsw": 155503,
+          "n": 0.41
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_029",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 114V DC\n- Output voltage: 18.0V DC\n- Output power: 170W\n- Switching frequency: 243kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 114,
+        "vout": 18.0,
+        "power": 170,
+        "fsw": 243868,
+        "n": 0.32
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 18.0,
+        "components": {
+          "L": 2.7256e-05,
+          "C": 7.1718e-05,
+          "D": 0.3304,
+          "R_load": 1.906,
+          "fsw": 243868,
+          "n": 0.32
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_030",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 38V DC\n- Output voltage: 24.0V DC\n- Output power: 75W\n- Switching frequency: 125kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 38,
+        "vout": 24.0,
+        "power": 75,
+        "fsw": 125694,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 24.0,
+        "components": {
+          "L": 7.5036e-05,
+          "C": 2.59e-06,
+          "D": 0.6316,
+          "R_load": 7.68,
+          "fsw": 125694,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_031",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 16V DC\n- Output voltage: 3.3V DC\n- Output power: 26W\n- Switching frequency: 259kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 16,
+        "vout": 3.3,
+        "power": 26,
+        "fsw": 259543,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 3.3,
+        "components": {
+          "L": 4.27e-06,
+          "C": 2.2997e-05,
+          "D": 0.2062,
+          "R_load": 0.419,
+          "fsw": 259543,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_032",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 254V DC\n- Output voltage: 28.0V DC\n- Output power: 157W\n- Switching frequency: 165kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 254,
+        "vout": 28.0,
+        "power": 157,
+        "fsw": 165424,
+        "n": 0.34
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 28.0,
+        "components": {
+          "L": 0.000147975,
+          "C": 4.0352e-05,
+          "D": 0.3242,
+          "R_load": 4.994,
+          "fsw": 165424,
+          "n": 0.34
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_033",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 45V DC\n- Output voltage: 28.0V DC\n- Output power: 176W\n- Switching frequency: 306kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 45,
+        "vout": 28.0,
+        "power": 176,
+        "fsw": 306343,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 28.0,
+        "components": {
+          "L": 1.8311e-05,
+          "C": 1.832e-06,
+          "D": 0.6222,
+          "R_load": 4.455,
+          "fsw": 306343,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_034",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 10V DC\n- Output voltage: 12.0V DC\n- Output power: 124W\n- Switching frequency: 102kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 10,
+        "vout": 12.0,
+        "power": 124,
+        "fsw": 102932,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 12.0,
+        "components": {
+          "L": 5.223e-06,
+          "C": 9.2954e-05,
+          "D": 0.1667,
+          "R_load": 1.161,
+          "fsw": 102932,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_035",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 229V DC\n- Output voltage: 48.0V DC\n- Output power: 158W\n- Switching frequency: 398kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 229,
+        "vout": 48.0,
+        "power": 158,
+        "fsw": 398164,
+        "n": 0.56
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000108999,
+          "C": 5.741e-06,
+          "D": 0.3743,
+          "R_load": 14.582,
+          "fsw": 398164,
+          "n": 0.56
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_036",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 22V DC\n- Output voltage: 28.0V DC\n- Output power: 114W\n- Switching frequency: 122kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 22,
+        "vout": 28.0,
+        "power": 114,
+        "fsw": 122555,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 3.1493e-05,
+          "C": 1.695e-05,
+          "D": 0.2143,
+          "R_load": 6.877,
+          "fsw": 122555,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_037",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 378V DC\n- Output voltage: 88.1V DC\n- Output power: 43W\n- Switching frequency: 191kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 378,
+        "vout": 88.1,
+        "power": 43,
+        "fsw": 191004,
+        "n": 0.39
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 88.1,
+        "components": {
+          "L": 0.002527864,
+          "C": 1e-06,
+          "D": 0.3741,
+          "R_load": 180.503,
+          "fsw": 191004,
+          "n": 0.39
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_038",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 356V DC\n- Output voltage: 48.0V DC\n- Output power: 123W\n- Switching frequency: 420kHz\n- Target efficiency: >95%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 356,
+        "vout": 48.0,
+        "power": 123,
+        "fsw": 420660,
+        "n": 0.7
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000106022,
+          "C": 4.23e-06,
+          "D": 0.1926,
+          "R_load": 18.732,
+          "fsw": 420660,
+          "n": 0.7
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_039",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 21V DC\n- Output voltage: 48.0V DC\n- Output power: 147W\n- Switching frequency: 237kHz\n- Target efficiency: >90%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 21,
+        "vout": 48.0,
+        "power": 147,
+        "fsw": 237878,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 48.0,
+        "components": {
+          "L": 5.4049e-05,
+          "C": 1.0058e-05,
+          "D": 0.5625,
+          "R_load": 15.673,
+          "fsw": 237878,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_040",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter meeting these specifications:\n- Input voltage: 12V DC\n- Output voltage: 28.0V DC\n- Output power: 173W\n- Switching frequency: 430kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 12,
+        "vout": 28.0,
+        "power": 173,
+        "fsw": 430455,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 8.594e-06,
+          "C": 1.9529e-05,
+          "D": 0.5714,
+          "R_load": 4.532,
+          "fsw": 430455,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_041",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 122V DC\n- Output voltage: 15.0V DC\n- Output power: 34W\n- Switching frequency: 315kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 122,
+        "vout": 15.0,
+        "power": 34,
+        "fsw": 315857,
+        "n": 0.31
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 15.0,
+        "components": {
+          "L": 8.0654e-05,
+          "C": 1.5947e-05,
+          "D": 0.284,
+          "R_load": 6.618,
+          "fsw": 315857,
+          "n": 0.31
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_042",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward converter meeting these specifications:\n- Input voltage: 150V DC\n- Output voltage: 28.0V DC\n- Output power: 129W\n- Switching frequency: 191kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 150,
+        "vout": 28.0,
+        "power": 129,
+        "fsw": 191504,
+        "n": 0.77
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 28.0,
+        "components": {
+          "L": 6.8692e-05,
+          "C": 2.864e-05,
+          "D": 0.2424,
+          "R_load": 6.078,
+          "fsw": 191504,
+          "n": 0.77
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_043",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 18V DC\n- Output voltage: 5.0V DC\n- Output power: 49W\n- Switching frequency: 216kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 18,
+        "vout": 5.0,
+        "power": 49,
+        "fsw": 216635,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 5.0,
+        "components": {
+          "L": 5.67e-06,
+          "C": 2.2619e-05,
+          "D": 0.2778,
+          "R_load": 0.51,
+          "fsw": 216635,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_044",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter meeting these specifications:\n- Input voltage: 39V DC\n- Output voltage: 9.0V DC\n- Output power: 178W\n- Switching frequency: 480kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 39,
+        "vout": 9.0,
+        "power": 178,
+        "fsw": 480135,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 2.43e-06,
+          "C": 1.1442e-05,
+          "D": 0.2308,
+          "R_load": 0.455,
+          "fsw": 480135,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L2_045",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter meeting these specifications:\n- Input voltage: 125V DC\n- Output voltage: 48.0V DC\n- Output power: 90W\n- Switching frequency: 369kHz\n- Target efficiency: >92%\n\nProvide duty cycle, L, C values and verify Vout.",
+      "specs": {
+        "vin": 125,
+        "vout": 48.0,
+        "power": 90,
+        "fsw": 369917,
+        "n": 0.46
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 48.0,
+        "components": {
+          "L": 0.00013666,
+          "C": 3.52e-06,
+          "D": 0.455,
+          "R_load": 25.6,
+          "fsw": 369917,
+          "n": 0.46
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_001",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 550V DC\n- Output: 146.1V DC\n- Power: 159W\n- Frequency: 163kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.32",
+      "specs": {
+        "vin": 550,
+        "vout": 146.1,
+        "power": 159,
+        "fsw": 163802,
+        "n": 0.32
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 146.1,
+        "components": {
+          "L": 0.003201431,
+          "C": 2.274e-06,
+          "D": 0.4151,
+          "R_load": 134.247,
+          "fsw": 163802,
+          "n": 0.32
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_002",
+      "level": 3,
+      "topology": "sepic",
+      "prompt": "Design a sepic converter with these requirements:\n- Input: 23V DC\n- Output: 12.0V DC\n- Power: 387W\n- Frequency: 158kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 23,
+        "vout": 12.0,
+        "power": 387,
+        "fsw": 158617,
+        "n": null
+      },
+      "solution": {
+        "topology": "sepic",
+        "vout": 12.0,
+        "components": {
+          "L": 7.708e-06,
+          "C": 0.000580914,
+          "D": 0.3429,
+          "R_load": 0.372,
+          "fsw": 158617,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_003",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 26V DC\n- Output: 48.0V DC (inverted polarity)\n- Power: 240W\n- Frequency: 299kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 26,
+        "vout": -48.0,
+        "power": 240,
+        "fsw": 299855,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -48.0,
+        "components": {
+          "L": 5.6243e-05,
+          "C": 2.2533e-05,
+          "D": 0.6486,
+          "R_load": 9.6,
+          "fsw": 299855,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_004",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 6V DC\n- Output: 12.0V DC\n- Power: 61W\n- Frequency: 132kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 6,
+        "vout": 12.0,
+        "power": 61,
+        "fsw": 132645,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 12.0,
+        "components": {
+          "L": 2.2246e-05,
+          "C": 0.000159679,
+          "D": 0.5,
+          "R_load": 2.361,
+          "fsw": 132645,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_005",
+      "level": 3,
+      "topology": "cuk",
+      "prompt": "Design a cuk converter with these requirements:\n- Input: 24V DC\n- Output: 18.0V DC (inverted polarity)\n- Power: 457W\n- Frequency: 137kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 24,
+        "vout": -18.0,
+        "power": 457,
+        "fsw": 137287,
+        "n": null
+      },
+      "solution": {
+        "topology": "cuk",
+        "vout": -18.0,
+        "components": {
+          "L": 1.4755e-05,
+          "C": 0.000440317,
+          "D": 0.4286,
+          "R_load": 0.709,
+          "fsw": 137287,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_006",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 7V DC\n- Output: 15.0V DC\n- Power: 485W\n- Frequency: 189kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 7,
+        "vout": 15.0,
+        "power": 485,
+        "fsw": 189391,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 3.048e-06,
+          "C": 0.000607014,
+          "D": 0.5333,
+          "R_load": 0.464,
+          "fsw": 189391,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_007",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 539V DC\n- Output: 189.2V DC\n- Power: 307W\n- Frequency: 168kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.39",
+      "specs": {
+        "vin": 539,
+        "vout": 189.2,
+        "power": 307,
+        "fsw": 168944,
+        "n": 0.39
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 189.2,
+        "components": {
+          "L": 0.002212109,
+          "C": 2.538e-06,
+          "D": 0.45,
+          "R_load": 116.601,
+          "fsw": 168944,
+          "n": 0.39
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_008",
+      "level": 3,
+      "topology": "cuk",
+      "prompt": "Design a cuk converter with these requirements:\n- Input: 29V DC\n- Output: 15.0V DC (inverted polarity)\n- Power: 198W\n- Frequency: 293kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 29,
+        "vout": -15.0,
+        "power": 198,
+        "fsw": 293352,
+        "n": null
+      },
+      "solution": {
+        "topology": "cuk",
+        "vout": -15.0,
+        "components": {
+          "L": 1.2766e-05,
+          "C": 0.000102266,
+          "D": 0.3409,
+          "R_load": 1.136,
+          "fsw": 293352,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_009",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 324V DC\n- Output: 86.2V DC\n- Power: 376W\n- Frequency: 284kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.35",
+      "specs": {
+        "vin": 324,
+        "vout": 86.2,
+        "power": 376,
+        "fsw": 284910,
+        "n": 0.35
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 86.2,
+        "components": {
+          "L": 0.00024772,
+          "C": 8.88e-06,
+          "D": 0.3801,
+          "R_load": 19.762,
+          "fsw": 284910,
+          "n": 0.35
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_010",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 340V DC\n- Output: 121.2V DC\n- Power: 55W\n- Frequency: 52kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.36",
+      "specs": {
+        "vin": 340,
+        "vout": 121.2,
+        "power": 55,
+        "fsw": 52396,
+        "n": 0.36
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 121.2,
+        "components": {
+          "L": 0.01,
+          "C": 3.573e-06,
+          "D": 0.4951,
+          "R_load": 267.081,
+          "fsw": 52396,
+          "n": 0.36
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_011",
+      "level": 3,
+      "topology": "cuk",
+      "prompt": "Design a cuk converter with these requirements:\n- Input: 27V DC\n- Output: 36.0V DC (inverted polarity)\n- Power: 291W\n- Frequency: 125kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 27,
+        "vout": -36.0,
+        "power": 291,
+        "fsw": 125418,
+        "n": null
+      },
+      "solution": {
+        "topology": "cuk",
+        "vout": -36.0,
+        "components": {
+          "L": 7.6093e-05,
+          "C": 0.000102303,
+          "D": 0.5714,
+          "R_load": 4.454,
+          "fsw": 125418,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_012",
+      "level": 3,
+      "topology": "buck",
+      "prompt": "Design a buck converter with these requirements:\n- Input: 44V DC\n- Output: 6.8V DC\n- Power: 248W\n- Frequency: 157kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 44,
+        "vout": 6.8,
+        "power": 248,
+        "fsw": 157419,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 6.8,
+        "components": {
+          "L": 5.007e-06,
+          "C": 8.5176e-05,
+          "D": 0.1545,
+          "R_load": 0.186,
+          "fsw": 157419,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_013",
+      "level": 3,
+      "topology": "forward",
+      "prompt": "Design a forward converter with these requirements:\n- Input: 121V DC\n- Output: 24.0V DC\n- Power: 180W\n- Frequency: 132kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.7",
+      "specs": {
+        "vin": 121,
+        "vout": 24.0,
+        "power": 180,
+        "fsw": 132151,
+        "n": 0.7
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 24.0,
+        "components": {
+          "L": 8.6481e-05,
+          "C": 0.000118236,
+          "D": 0.2834,
+          "R_load": 3.2,
+          "fsw": 132151,
+          "n": 0.7
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_014",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 23V DC\n- Output: 48.0V DC\n- Power: 398W\n- Frequency: 132kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 23,
+        "vout": 48.0,
+        "power": 398,
+        "fsw": 132147,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 48.0,
+        "components": {
+          "L": 5.4664e-05,
+          "C": 6.8084e-05,
+          "D": 0.5208,
+          "R_load": 5.789,
+          "fsw": 132147,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_015",
+      "level": 3,
+      "topology": "buck",
+      "prompt": "Design a buck converter with these requirements:\n- Input: 30V DC\n- Output: 15.0V DC\n- Power: 100W\n- Frequency: 136kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 30,
+        "vout": 15.0,
+        "power": 100,
+        "fsw": 136143,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 15.0,
+        "components": {
+          "L": 4.1317e-05,
+          "C": 8.161e-06,
+          "D": 0.5,
+          "R_load": 2.25,
+          "fsw": 136143,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_016",
+      "level": 3,
+      "topology": "half_bridge",
+      "prompt": "Design a half bridge converter with these requirements:\n- Input: 330V DC\n- Output: 48.0V DC\n- Power: 364W\n- Frequency: 119kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.29",
+      "specs": {
+        "vin": 330,
+        "vout": 48.0,
+        "power": 364,
+        "fsw": 119762,
+        "n": 0.29
+      },
+      "solution": {
+        "topology": "half_bridge",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000455621,
+          "C": 6.5958e-05,
+          "D": 0.5016,
+          "R_load": 6.33,
+          "fsw": 119762,
+          "n": 0.29
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_017",
+      "level": 3,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter with these requirements:\n- Input: 249V DC\n- Output: 71.8V DC\n- Power: 281W\n- Frequency: 267kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.31",
+      "specs": {
+        "vin": 249,
+        "vout": 71.8,
+        "power": 281,
+        "fsw": 267154,
+        "n": 0.31
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 71.8,
+        "components": {
+          "L": 0.000286922,
+          "C": 1.0202e-05,
+          "D": 0.4819,
+          "R_load": 18.346,
+          "fsw": 267154,
+          "n": 0.31
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_018",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 473V DC\n- Output: 176.7V DC\n- Power: 430W\n- Frequency: 107kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.39",
+      "specs": {
+        "vin": 473,
+        "vout": 176.7,
+        "power": 430,
+        "fsw": 107816,
+        "n": 0.39
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 176.7,
+        "components": {
+          "L": 0.002158573,
+          "C": 6.387e-06,
+          "D": 0.4789,
+          "R_load": 72.611,
+          "fsw": 107816,
+          "n": 0.39
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_019",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 375V DC\n- Output: 133.7V DC\n- Power: 412W\n- Frequency: 98kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.36",
+      "specs": {
+        "vin": 375,
+        "vout": 133.7,
+        "power": 412,
+        "fsw": 98918,
+        "n": 0.36
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 133.7,
+        "components": {
+          "L": 0.001522993,
+          "C": 1.165e-05,
+          "D": 0.4952,
+          "R_load": 43.388,
+          "fsw": 98918,
+          "n": 0.36
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_020",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 35V DC\n- Output: 28.0V DC (inverted polarity)\n- Power: 118W\n- Frequency: 137kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 35,
+        "vout": -28.0,
+        "power": 118,
+        "fsw": 137717,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -28.0,
+        "components": {
+          "L": 0.000134012,
+          "C": 4.8573e-05,
+          "D": 0.4444,
+          "R_load": 6.644,
+          "fsw": 137717,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_021",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 19V DC\n- Output: 28.0V DC (inverted polarity)\n- Power: 357W\n- Frequency: 293kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 19,
+        "vout": -28.0,
+        "power": 357,
+        "fsw": 293093,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -28.0,
+        "components": {
+          "L": 1.5145e-05,
+          "C": 9.2556e-05,
+          "D": 0.5957,
+          "R_load": 2.196,
+          "fsw": 293093,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_022",
+      "level": 3,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter with these requirements:\n- Input: 380V DC\n- Output: 132.8V DC\n- Power: 342W\n- Frequency: 87kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.38",
+      "specs": {
+        "vin": 380,
+        "vout": 132.8,
+        "power": 342,
+        "fsw": 87173,
+        "n": 0.38
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 132.8,
+        "components": {
+          "L": 0.002027302,
+          "C": 1.1123e-05,
+          "D": 0.4791,
+          "R_load": 51.567,
+          "fsw": 87173,
+          "n": 0.38
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_023",
+      "level": 3,
+      "topology": "half_bridge",
+      "prompt": "Design a half bridge converter with these requirements:\n- Input: 298V DC\n- Output: 48.0V DC\n- Power: 102W\n- Frequency: 257kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.36",
+      "specs": {
+        "vin": 298,
+        "vout": 48.0,
+        "power": 102,
+        "fsw": 257702,
+        "n": 0.36
+      },
+      "solution": {
+        "topology": "half_bridge",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000608698,
+          "C": 8.59e-06,
+          "D": 0.4474,
+          "R_load": 22.588,
+          "fsw": 257702,
+          "n": 0.36
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_024",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 15V DC\n- Output: 24.0V DC\n- Power: 357W\n- Frequency: 232kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 15,
+        "vout": 24.0,
+        "power": 357,
+        "fsw": 232634,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 24.0,
+        "components": {
+          "L": 8.128e-06,
+          "C": 9.9909e-05,
+          "D": 0.375,
+          "R_load": 1.613,
+          "fsw": 232634,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_025",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 34V DC\n- Output: 36.0V DC (inverted polarity)\n- Power: 394W\n- Frequency: 242kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 34,
+        "vout": -36.0,
+        "power": 394,
+        "fsw": 242579,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -36.0,
+        "components": {
+          "L": 3.2931e-05,
+          "C": 6.4453e-05,
+          "D": 0.5143,
+          "R_load": 3.289,
+          "fsw": 242579,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_026",
+      "level": 3,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter with these requirements:\n- Input: 375V DC\n- Output: 48.0V DC\n- Power: 55W\n- Frequency: 113kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.22",
+      "specs": {
+        "vin": 375,
+        "vout": 48.0,
+        "power": 55,
+        "fsw": 113107,
+        "n": 0.22
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 48.0,
+        "components": {
+          "L": 0.00266067,
+          "C": 1.0553e-05,
+          "D": 0.3678,
+          "R_load": 41.891,
+          "fsw": 113107,
+          "n": 0.22
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_027",
+      "level": 3,
+      "topology": "half_bridge",
+      "prompt": "Design a half bridge converter with these requirements:\n- Input: 341V DC\n- Output: 81.1V DC\n- Power: 235W\n- Frequency: 190kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.57",
+      "specs": {
+        "vin": 341,
+        "vout": 81.1,
+        "power": 235,
+        "fsw": 190189,
+        "n": 0.57
+      },
+      "solution": {
+        "topology": "half_bridge",
+        "vout": 81.1,
+        "components": {
+          "L": 0.000645437,
+          "C": 9.393e-06,
+          "D": 0.4172,
+          "R_load": 27.988,
+          "fsw": 190189,
+          "n": 0.57
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_028",
+      "level": 3,
+      "topology": "full_bridge",
+      "prompt": "Design a full bridge converter with these requirements:\n- Input: 527V DC\n- Output: 155.9V DC\n- Power: 363W\n- Frequency: 230kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <30% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.3",
+      "specs": {
+        "vin": 527,
+        "vout": 155.9,
+        "power": 363,
+        "fsw": 230913,
+        "n": 0.3
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 155.9,
+        "components": {
+          "L": 0.001208164,
+          "C": 3.234e-06,
+          "D": 0.493,
+          "R_load": 66.955,
+          "fsw": 230913,
+          "n": 0.3
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_029",
+      "level": 3,
+      "topology": "sepic",
+      "prompt": "Design a sepic converter with these requirements:\n- Input: 20V DC\n- Output: 36.0V DC\n- Power: 182W\n- Frequency: 113kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 20,
+        "vout": 36.0,
+        "power": 182,
+        "fsw": 113595,
+        "n": null
+      },
+      "solution": {
+        "topology": "sepic",
+        "vout": 36.0,
+        "components": {
+          "L": 0.00011194,
+          "C": 7.9473e-05,
+          "D": 0.6429,
+          "R_load": 7.121,
+          "fsw": 113595,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_030",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 34V DC\n- Output: 12.0V DC (inverted polarity)\n- Power: 307W\n- Frequency: 106kHz\n- Output voltage ripple: <2%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 34,
+        "vout": -12.0,
+        "power": 307,
+        "fsw": 106294,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -12.0,
+        "components": {
+          "L": 1.6308e-05,
+          "C": 0.000523227,
+          "D": 0.2609,
+          "R_load": 0.469,
+          "fsw": 106294,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_031",
+      "level": 3,
+      "topology": "flyback",
+      "prompt": "Design a flyback converter with these requirements:\n- Input: 342V DC\n- Output: 108.5V DC\n- Power: 481W\n- Frequency: 171kHz\n- Output voltage ripple: <3%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.44",
+      "specs": {
+        "vin": 342,
+        "vout": 108.5,
+        "power": 481,
+        "fsw": 171009,
+        "n": 0.44
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 108.5,
+        "components": {
+          "L": 0.000472493,
+          "C": 1.1946e-05,
+          "D": 0.419,
+          "R_load": 24.475,
+          "fsw": 171009,
+          "n": 0.44
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_032",
+      "level": 3,
+      "topology": "buck_boost",
+      "prompt": "Design a buck boost converter with these requirements:\n- Input: 20V DC\n- Output: 24.0V DC (inverted polarity)\n- Power: 475W\n- Frequency: 169kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 20,
+        "vout": -24.0,
+        "power": 475,
+        "fsw": 169145,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -24.0,
+        "components": {
+          "L": 1.6294e-05,
+          "C": 0.000265932,
+          "D": 0.5455,
+          "R_load": 1.213,
+          "fsw": 169145,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_033",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 8V DC\n- Output: 15.0V DC\n- Power: 102W\n- Frequency: 104kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <20% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 8,
+        "vout": 15.0,
+        "power": 102,
+        "fsw": 104239,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 15.0,
+        "components": {
+          "L": 2.6335e-05,
+          "C": 0.000202952,
+          "D": 0.4667,
+          "R_load": 2.206,
+          "fsw": 104239,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_034",
+      "level": 3,
+      "topology": "forward",
+      "prompt": "Design a forward converter with these requirements:\n- Input: 359V DC\n- Output: 48.0V DC\n- Power: 408W\n- Frequency: 121kHz\n- Output voltage ripple: <1%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.\n- Transformer turns ratio: 0.52",
+      "specs": {
+        "vin": 359,
+        "vout": 48.0,
+        "power": 408,
+        "fsw": 121193,
+        "n": 0.52
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000224017,
+          "C": 7.3058e-05,
+          "D": 0.2571,
+          "R_load": 5.647,
+          "fsw": 121193,
+          "n": 0.52
+        }
+      }
+    },
+    {
+      "id": "TEST_L3_035",
+      "level": 3,
+      "topology": "boost",
+      "prompt": "Design a boost converter with these requirements:\n- Input: 5V DC\n- Output: 7.1V DC\n- Power: 393W\n- Frequency: 54kHz\n- Output voltage ripple: <5%\n- Inductor current ripple: <40% of average\n\nCalculate all component values ensuring CCM operation.",
+      "specs": {
+        "vin": 5,
+        "vout": 7.1,
+        "power": 393,
+        "fsw": 54812,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 7.1,
+        "components": {
+          "L": 2.437e-06,
+          "C": 0.00420689,
+          "D": 0.2958,
+          "R_load": 0.128,
+          "fsw": 54812,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_001",
+      "level": 4,
+      "topology": "boost",
+      "prompt": "Design a high-performance boost converter:\n\nSpecifications:\n- Input voltage range: 19V to 24V DC\n- Output voltage: 62.3V DC \u00b11%\n- Output power: 1808W\n- Switching frequency: 82kHz\n- Output ripple: <2% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 22,
+        "vout": 62.3,
+        "power": 1808,
+        "fsw": 82322,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 62.3,
+        "components": {
+          "L": 3.9712e-05,
+          "C": 0.000732071,
+          "D": 0.6469,
+          "R_load": 2.147,
+          "fsw": 82322,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_002",
+      "level": 4,
+      "topology": "buck_boost",
+      "prompt": "Design a high-performance buck boost converter:\n\nSpecifications:\n- Input voltage range: 31V to 38V DC\n- Output voltage: 48.0V DC (negative rail) \u00b11%\n- Output power: 1019W\n- Switching frequency: 27kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <20% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 35,
+        "vout": -48.0,
+        "power": 1019,
+        "fsw": 27110,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -48.0,
+        "components": {
+          "L": 0.000234465,
+          "C": 0.001886928,
+          "D": 0.5783,
+          "R_load": 2.261,
+          "fsw": 27110,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_003",
+      "level": 4,
+      "topology": "boost",
+      "prompt": "Design a high-performance boost converter:\n\nSpecifications:\n- Input voltage range: 18V to 23V DC\n- Output voltage: 28.0V DC \u00b11%\n- Output power: 1785W\n- Switching frequency: 84kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 21,
+        "vout": 28.0,
+        "power": 1785,
+        "fsw": 84261,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 28.0,
+        "components": {
+          "L": 6.516e-06,
+          "C": 0.001351032,
+          "D": 0.25,
+          "R_load": 0.439,
+          "fsw": 84261,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_004",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 350V to 427V DC\n- Output voltage: 73.6V DC \u00b11%\n- Output power: 326W\n- Switching frequency: 53kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.24",
+      "specs": {
+        "vin": 389,
+        "vout": 73.6,
+        "power": 326,
+        "fsw": 53337,
+        "n": 0.24
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 73.6,
+        "components": {
+          "L": 0.00216345,
+          "C": 0.000112832,
+          "D": 0.3942,
+          "R_load": 16.616,
+          "fsw": 53337,
+          "n": 0.24
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_005",
+      "level": 4,
+      "topology": "flyback",
+      "prompt": "Design a high-performance flyback converter:\n\nSpecifications:\n- Input voltage range: 252V to 309V DC\n- Output voltage: 68.9V DC \u00b11%\n- Output power: 1408W\n- Switching frequency: 77kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.43",
+      "specs": {
+        "vin": 281,
+        "vout": 68.9,
+        "power": 1408,
+        "fsw": 77410,
+        "n": 0.43
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 68.9,
+        "components": {
+          "L": 0.000215024,
+          "C": 0.000383149,
+          "D": 0.3631,
+          "R_load": 3.372,
+          "fsw": 77410,
+          "n": 0.43
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_006",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design a high-performance buck converter:\n\nSpecifications:\n- Input voltage range: 20V to 25V DC\n- Output voltage: 9.0V DC \u00b11%\n- Output power: 751W\n- Switching frequency: 72kHz\n- Output ripple: <2% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 23,
+        "vout": 9.0,
+        "power": 751,
+        "fsw": 72718,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 6.019e-06,
+          "C": 0.000478128,
+          "D": 0.3913,
+          "R_load": 0.108,
+          "fsw": 72718,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_007",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design a high-performance buck converter:\n\nSpecifications:\n- Input voltage range: 18V to 22V DC\n- Output voltage: 9.0V DC \u00b11%\n- Output power: 319W\n- Switching frequency: 111kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 20,
+        "vout": 9.0,
+        "power": 319,
+        "fsw": 111338,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 9.0,
+        "components": {
+          "L": 8.362e-06,
+          "C": 0.000132646,
+          "D": 0.45,
+          "R_load": 0.254,
+          "fsw": 111338,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_008",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 427V to 522V DC\n- Output voltage: 123.4V DC \u00b11%\n- Output power: 1740W\n- Switching frequency: 52kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <20% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.32",
+      "specs": {
+        "vin": 475,
+        "vout": 123.4,
+        "power": 1740,
+        "fsw": 52466,
+        "n": 0.32
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 123.4,
+        "components": {
+          "L": 0.000868764,
+          "C": 0.000217792,
+          "D": 0.4059,
+          "R_load": 8.751,
+          "fsw": 52466,
+          "n": 0.32
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_009",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design a high-performance buck converter:\n\nSpecifications:\n- Input voltage range: 40V to 49V DC\n- Output voltage: 12.0V DC \u00b11%\n- Output power: 956W\n- Switching frequency: 148kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 45,
+        "vout": 12.0,
+        "power": 956,
+        "fsw": 148055,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck",
+        "vout": 12.0,
+        "components": {
+          "L": 4.974e-06,
+          "C": 0.000168153,
+          "D": 0.2667,
+          "R_load": 0.151,
+          "fsw": 148055,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_010",
+      "level": 4,
+      "topology": "buck_boost",
+      "prompt": "Design a high-performance buck boost converter:\n\nSpecifications:\n- Input voltage range: 25V to 30V DC\n- Output voltage: 28.0V DC (negative rail) \u00b11%\n- Output power: 1815W\n- Switching frequency: 36kHz\n- Output ripple: <2% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 28,
+        "vout": -28.0,
+        "power": 1815,
+        "fsw": 36037,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -28.0,
+        "components": {
+          "L": 3.9955e-05,
+          "C": 0.006424095,
+          "D": 0.5,
+          "R_load": 0.432,
+          "fsw": 36037,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_011",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 391V to 478V DC\n- Output voltage: 67.4V DC \u00b11%\n- Output power: 1921W\n- Switching frequency: 103kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.22",
+      "specs": {
+        "vin": 435,
+        "vout": 67.4,
+        "power": 1921,
+        "fsw": 103612,
+        "n": 0.22
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 67.4,
+        "components": {
+          "L": 0.000172905,
+          "C": 0.000408129,
+          "D": 0.3521,
+          "R_load": 2.365,
+          "fsw": 103612,
+          "n": 0.22
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_012",
+      "level": 4,
+      "topology": "boost",
+      "prompt": "Design a high-performance boost converter:\n\nSpecifications:\n- Input voltage range: 11V to 14V DC\n- Output voltage: 24.0V DC \u00b11%\n- Output power: 666W\n- Switching frequency: 40kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 13,
+        "vout": 24.0,
+        "power": 666,
+        "fsw": 40286,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 24.0,
+        "components": {
+          "L": 3.5532e-05,
+          "C": 0.002630928,
+          "D": 0.4583,
+          "R_load": 0.865,
+          "fsw": 40286,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_013",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 426V to 521V DC\n- Output voltage: 48.0V DC \u00b11%\n- Output power: 807W\n- Switching frequency: 58kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.11",
+      "specs": {
+        "vin": 474,
+        "vout": 48.0,
+        "power": 807,
+        "fsw": 58008,
+        "n": 0.11
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000745722,
+          "C": 0.000603814,
+          "D": 0.4603,
+          "R_load": 2.855,
+          "fsw": 58008,
+          "n": 0.11
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_014",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 293V to 358V DC\n- Output voltage: 83.9V DC \u00b11%\n- Output power: 960W\n- Switching frequency: 21kHz\n- Output ripple: <2% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.3",
+      "specs": {
+        "vin": 326,
+        "vout": 83.9,
+        "power": 960,
+        "fsw": 21778,
+        "n": 0.3
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 83.9,
+        "components": {
+          "L": 0.001870519,
+          "C": 0.000626223,
+          "D": 0.4289,
+          "R_load": 7.333,
+          "fsw": 21778,
+          "n": 0.3
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_015",
+      "level": 4,
+      "topology": "flyback",
+      "prompt": "Design a high-performance flyback converter:\n\nSpecifications:\n- Input voltage range: 124V to 151V DC\n- Output voltage: 18.0V DC \u00b11%\n- Output power: 264W\n- Switching frequency: 128kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <20% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.18",
+      "specs": {
+        "vin": 138,
+        "vout": 18.0,
+        "power": 264,
+        "fsw": 128988,
+        "n": 0.18
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 18.0,
+        "components": {
+          "L": 0.000102165,
+          "C": 0.000631698,
+          "D": 0.4202,
+          "R_load": 1.227,
+          "fsw": 128988,
+          "n": 0.18
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_016",
+      "level": 4,
+      "topology": "sepic",
+      "prompt": "Design a high-performance sepic converter:\n\nSpecifications:\n- Input voltage range: 34V to 41V DC\n- Output voltage: 62.8V DC \u00b11%\n- Output power: 954W\n- Switching frequency: 121kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 38,
+        "vout": 62.8,
+        "power": 954,
+        "fsw": 121581,
+        "n": null
+      },
+      "solution": {
+        "topology": "sepic",
+        "vout": 62.8,
+        "components": {
+          "L": 8.5455e-05,
+          "C": 0.000247909,
+          "D": 0.623,
+          "R_load": 4.134,
+          "fsw": 121581,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_017",
+      "level": 4,
+      "topology": "push_pull",
+      "prompt": "Design a high-performance push pull converter:\n\nSpecifications:\n- Input voltage range: 37V to 46V DC\n- Output voltage: 15.0V DC \u00b11%\n- Output power: 636W\n- Switching frequency: 89kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.5",
+      "specs": {
+        "vin": 42,
+        "vout": 15.0,
+        "power": 636,
+        "fsw": 89387,
+        "n": 0.5
+      },
+      "solution": {
+        "topology": "push_pull",
+        "vout": 15.0,
+        "components": {
+          "L": 1.3193e-05,
+          "C": 0.003162279,
+          "D": 0.3571,
+          "R_load": 0.354,
+          "fsw": 89387,
+          "n": 0.5
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_018",
+      "level": 4,
+      "topology": "flyback",
+      "prompt": "Design a high-performance flyback converter:\n\nSpecifications:\n- Input voltage range: 131V to 160V DC\n- Output voltage: 24.0V DC \u00b11%\n- Output power: 759W\n- Switching frequency: 129kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.47",
+      "specs": {
+        "vin": 146,
+        "vout": 24.0,
+        "power": 759,
+        "fsw": 129888,
+        "n": 0.47
+      },
+      "solution": {
+        "topology": "flyback",
+        "vout": 24.0,
+        "components": {
+          "L": 3.07e-05,
+          "C": 0.001014496,
+          "D": 0.2591,
+          "R_load": 0.759,
+          "fsw": 129888,
+          "n": 0.47
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_019",
+      "level": 4,
+      "topology": "push_pull",
+      "prompt": "Design a high-performance push pull converter:\n\nSpecifications:\n- Input voltage range: 74V to 91V DC\n- Output voltage: 28.0V DC \u00b11%\n- Output power: 750W\n- Switching frequency: 125kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <20% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.48",
+      "specs": {
+        "vin": 83,
+        "vout": 28.0,
+        "power": 750,
+        "fsw": 125134,
+        "n": 0.48
+      },
+      "solution": {
+        "topology": "push_pull",
+        "vout": 28.0,
+        "components": {
+          "L": 2.9006e-05,
+          "C": 0.000764487,
+          "D": 0.3514,
+          "R_load": 1.045,
+          "fsw": 125134,
+          "n": 0.48
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_020",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 315V to 386V DC\n- Output voltage: 117.2V DC \u00b11%\n- Output power: 1553W\n- Switching frequency: 134kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.39",
+      "specs": {
+        "vin": 351,
+        "vout": 117.2,
+        "power": 1553,
+        "fsw": 134133,
+        "n": 0.39
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 117.2,
+        "components": {
+          "L": 0.000281794,
+          "C": 8.4291e-05,
+          "D": 0.4281,
+          "R_load": 8.845,
+          "fsw": 134133,
+          "n": 0.39
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_021",
+      "level": 4,
+      "topology": "buck_boost",
+      "prompt": "Design a high-performance buck boost converter:\n\nSpecifications:\n- Input voltage range: 27V to 34V DC\n- Output voltage: 12.0V DC (negative rail) \u00b11%\n- Output power: 530W\n- Switching frequency: 61kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 31,
+        "vout": -12.0,
+        "power": 530,
+        "fsw": 61710,
+        "n": null
+      },
+      "solution": {
+        "topology": "buck_boost",
+        "vout": -12.0,
+        "components": {
+          "L": 2.1161e-05,
+          "C": 0.003328899,
+          "D": 0.2791,
+          "R_load": 0.272,
+          "fsw": 61710,
+          "n": null
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_022",
+      "level": 4,
+      "topology": "forward",
+      "prompt": "Design a high-performance forward converter:\n\nSpecifications:\n- Input voltage range: 161V to 196V DC\n- Output voltage: 48.0V DC \u00b11%\n- Output power: 915W\n- Switching frequency: 104kHz\n- Output ripple: <1% peak-to-peak\n- Current ripple: <25% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.77",
+      "specs": {
+        "vin": 179,
+        "vout": 48.0,
+        "power": 915,
+        "fsw": 104617,
+        "n": 0.77
+      },
+      "solution": {
+        "topology": "forward",
+        "vout": 48.0,
+        "components": {
+          "L": 0.000104195,
+          "C": 0.000379609,
+          "D": 0.3483,
+          "R_load": 2.518,
+          "fsw": 104617,
+          "n": 0.77
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_023",
+      "level": 4,
+      "topology": "half_bridge",
+      "prompt": "Design a high-performance half bridge converter:\n\nSpecifications:\n- Input voltage range: 272V to 333V DC\n- Output voltage: 36.0V DC \u00b11%\n- Output power: 1590W\n- Switching frequency: 58kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.3",
+      "specs": {
+        "vin": 303,
+        "vout": 36.0,
+        "power": 1590,
+        "fsw": 58402,
+        "n": 0.3
+      },
+      "solution": {
+        "topology": "half_bridge",
+        "vout": 36.0,
+        "components": {
+          "L": 0.000155074,
+          "C": 0.002100702,
+          "D": 0.396,
+          "R_load": 0.815,
+          "fsw": 58402,
+          "n": 0.3
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_024",
+      "level": 4,
+      "topology": "full_bridge",
+      "prompt": "Design a high-performance full bridge converter:\n\nSpecifications:\n- Input voltage range: 518V to 633V DC\n- Output voltage: 110.8V DC \u00b11%\n- Output power: 1596W\n- Switching frequency: 126kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <20% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis\n- Transformer turns ratio: 0.2",
+      "specs": {
+        "vin": 576,
+        "vout": 110.8,
+        "power": 1596,
+        "fsw": 126145,
+        "n": 0.2
+      },
+      "solution": {
+        "topology": "full_bridge",
+        "vout": 110.8,
+        "components": {
+          "L": 0.000508154,
+          "C": 0.000103058,
+          "D": 0.4809,
+          "R_load": 7.692,
+          "fsw": 126145,
+          "n": 0.2
+        }
+      }
+    },
+    {
+      "id": "TEST_L4_025",
+      "level": 4,
+      "topology": "boost",
+      "prompt": "Design a high-performance boost converter:\n\nSpecifications:\n- Input voltage range: 18V to 22V DC\n- Output voltage: 36.0V DC \u00b11%\n- Output power: 638W\n- Switching frequency: 107kHz\n- Output ripple: <0.5% peak-to-peak\n- Current ripple: <15% for CCM\n- Efficiency target: >92%\n\nProvide:\n1. Duty cycle range for input variation\n2. Minimum inductance for CCM at light load (20% rated)\n3. Output capacitor for ripple spec\n4. Component stress analysis",
+      "specs": {
+        "vin": 20,
+        "vout": 36.0,
+        "power": 638,
+        "fsw": 107239,
+        "n": null
+      },
+      "solution": {
+        "topology": "boost",
+        "vout": 36.0,
+        "components": {
+          "L": 3.1181e-05,
+          "C": 0.000408047,
+          "D": 0.4444,
+          "R_load": 2.031,
+          "fsw": 107239,
+          "n": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "level": 1,
+  "description": "Level 1 problems",
+  "problems": [
+    {
+      "id": "L1_031",
+      "prompt": "Design a buck converter: 28V avionics bus to 5V, 6A for flight computer",
+      "specs": {
+        "vout": 5.0,
+        "vin": 28.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L1_032",
+      "prompt": "Design a boost converter: 3.7V Li-ion to 5V, 2A for USB OTG",
+      "specs": {
+        "vout": 5.0,
+        "vin": 3.7,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L1_033",
+      "prompt": "Design a SEPIC converter: 12V to 15V, 2A for audio preamp",
+      "specs": {
+        "vout": 15.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 30.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L1_034",
+      "prompt": "Design a \u0106uk converter: 24V to -15V, 1.5A for op-amp negative rail",
+      "specs": {
+        "vout": -15.0,
+        "vin": 24.0,
+        "iout": 1.5,
+        "power": 22.5,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L1_035",
+      "prompt": "Design an inverting buck-boost: 12V to -12V, 1A for symmetric audio supply",
+      "specs": {
+        "vout": -12.0,
+        "vin": 12.0,
+        "iout": 1.0,
+        "power": 12.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L1_036",
+      "prompt": "Design a flyback converter: 48V telecom to 3.3V, 5A isolated for digital logic",
+      "specs": {
+        "vout": 3.3,
+        "vin": 48.0,
+        "iout": 5.0,
+        "power": 16.5,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L1_037",
+      "prompt": "Design a forward converter: 380V DC bus to 12V, 15A for server auxiliary",
+      "specs": {
+        "vout": 12.0,
+        "vin": 380.0,
+        "iout": 15.0,
+        "power": 180.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L1_038",
+      "prompt": "Design a half-bridge converter: 400V DC to 48V, 10A for telecom rectifier",
+      "specs": {
+        "vout": 48.0,
+        "vin": 400.0,
+        "iout": 10.0,
+        "power": 480.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_039",
+      "prompt": "Design a full-bridge converter: 800V DC to 48V, 50A for EV fast charger",
+      "specs": {
+        "vout": 48.0,
+        "vin": 800.0,
+        "iout": 50.0,
+        "power": 2400.0,
+        "f_sw": 80000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "full_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_040",
+      "prompt": "Design a quasi-resonant buck: 48V to 12V, 5A for low-EMI telecom board",
+      "specs": {
+        "vout": 12.0,
+        "vin": 48.0,
+        "iout": 5.0,
+        "power": 60.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "qr_buck",
+      "application": ""
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_041",
+      "prompt": "Quantum Entanglement Distribution Laser: Precision pump laser driver for satellite-based quantum key distribution terminals",
+      "specs": {
+        "vout": 2,
+        "vin": 28,
+        "power": 10,
+        "f_sw": 5000000
+      },
+      "constraints": [
+        "Current ripple < 0.1ppm for laser linewidth",
+        "Phase noise < -160dBc/Hz for entanglement fidelity",
+        "Space radiation tolerance to 100krad",
+        "Operational from -40\u00b0C to +70\u00b0C",
+        "Lifetime > 10 years in GEO"
+      ],
+      "difficulty": "expert",
+      "application": "Precision pump laser driver for satellite-based quantum key distribution terminals",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_042",
+      "prompt": "Proton Beam Cancer Therapy Scanning Magnet: Fast raster scanning magnet driver for pencil beam proton therapy gantry",
+      "specs": {
+        "vin": 800
+      },
+      "constraints": [
+        "10kHz raster scanning frequency",
+        "Current accuracy < 0.01% for dose precision",
+        "Field-current correlation < 10ppm error",
+        "EMI shielding for patient safety",
+        "Gantry rotation compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "Fast raster scanning magnet driver for pencil beam proton therapy gantry",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_043",
+      "prompt": "Metamaterial Cloaking Device Driver: Active metamaterial element bias for microwave frequency selective surface",
+      "specs": {
+        "vin": 12
+      },
+      "constraints": [
+        "100,000 independent voltage channels",
+        "100ns update latency for beam steering",
+        "MHz refresh rate for adaptive cloaking",
+        "Minimal coupling between adjacent elements",
+        "Operating frequency 1-40 GHz"
+      ],
+      "difficulty": "expert",
+      "application": "Active metamaterial element bias for microwave frequency selective surface",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_044",
+      "prompt": "Levitated Optomechanical Sensor Trap: Optical levitation trap electrode bias for zeptonewton force sensing",
+      "specs": {
+        "vin": 24
+      },
+      "constraints": [
+        "1 ppb voltage stability for force resolution",
+        "1nV/\u221aHz noise for zeptonewton sensing",
+        "8-electrode independent phase control",
+        "UHV compatible (10\u207b\u00b9\u00b9 mbar)",
+        "Vibration isolation integration"
+      ],
+      "difficulty": "expert",
+      "application": "Optical levitation trap electrode bias for zeptonewton force sensing",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L4_045",
+      "prompt": "High-Energy Laser Weapon Thermal Battery: Pulsed thermal battery discharge system for 150kW directed energy weapon",
+      "specs": {
+        "vout": 800,
+        "efficiency_min": 0.94
+      },
+      "constraints": [
+        "Thermal battery activation in < 0.5s",
+        "150kW sustained for 10 seconds",
+        "Wide input voltage as battery depletes",
+        "Recoil and vibration tolerance",
+        "MIL-STD-461 EMI compliance"
+      ],
+      "difficulty": "expert",
+      "application": "Pulsed thermal battery discharge system for 150kW directed energy weapon",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_046",
+      "prompt": "Superconducting Quantum Interference Device Bias: Ultra-low-noise flux-locked loop electronics for SQUID magnetometer",
+      "specs": {
+        "vout": 0.01,
+        "vin": 5
+      },
+      "constraints": [
+        "1 fT/\u221aHz magnetic field noise",
+        "4.2K cryogenic operation interface",
+        "Flux-locked loop stability > 10\u2076 \u03a6\u2080",
+        "Zero ground loop current",
+        "Shielding factor > 10\u2076"
+      ],
+      "difficulty": "expert",
+      "application": "Ultra-low-noise flux-locked loop electronics for SQUID magnetometer",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_047",
+      "prompt": "Hypersonic Wind Tunnel Arc Heater: 20MW arc heater power supply for Mach 20 simulation facility",
+      "specs": {
+        "vin": 13800,
+        "power": 20000000,
+        "f_sw": 1000
+      },
+      "constraints": [
+        "Arc voltage varies 500-3000V during run",
+        "Current regulation < 1% for flow stability",
+        "5-minute continuous run capability",
+        "Electrode erosion compensation",
+        "Rapid shutdown for safety"
+      ],
+      "difficulty": "expert",
+      "application": "20MW arc heater power supply for Mach 20 simulation facility",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_048",
+      "prompt": "Molecular Beam Epitaxy Effusion Cell: Ultra-stable temperature control power supply for MBE III-V semiconductor growth",
+      "specs": {
+        "vout": 24,
+        "vin": 48
+      },
+      "constraints": [
+        "Temperature stability < 10mK for monolayer control",
+        "10 independent effusion cell channels",
+        "Beam equivalent pressure reproducibility",
+        "UHV compatible (10\u207b\u00b9\u00b9 mbar)",
+        "No magnetic field interference"
+      ],
+      "difficulty": "expert",
+      "application": "Ultra-stable temperature control power supply for MBE III-V semiconductor growth",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_049",
+      "prompt": "Nuclear Fusion Pellet Injector: Electromagnetic railgun pellet injector for tokamak fueling at 3km/s",
+      "specs": {
+        "vin": 10000
+      },
+      "constraints": [
+        "3km/s pellet velocity for core fueling",
+        "10Hz repetition rate for steady-state",
+        "Pellet integrity during acceleration",
+        "Integration with plasma control system",
+        "Minimal ablation during injection"
+      ],
+      "difficulty": "expert",
+      "application": "Electromagnetic railgun pellet injector for tokamak fueling at 3km/s",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_050",
+      "prompt": "Event Horizon Telescope Maser Amplifier: Hydrogen maser frequency standard power supply for VLBI clock synchronization",
+      "specs": {
+        "vin": 28
+      },
+      "constraints": [
+        "Frequency stability < 10\u207b\u00b9\u2075 at 1000s",
+        "Multiple isolated outputs for maser subsystems",
+        "Zero magnetic field from power supply",
+        "Phase noise floor < -130dBc/Hz",
+        "Remote site operation (Antarctica, space)"
+      ],
+      "difficulty": "expert",
+      "application": "Hydrogen maser frequency standard power supply for VLBI clock synchronization",
+      "topology": "flyback"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "level": 1,
+  "description": "Level 1 problems",
+  "problems": [
+    {
+      "id": "L1_051",
+      "prompt": "Design a buck converter: 400V DC bus to 48V, 12A for server intermediate bus",
+      "specs": {
+        "vout": 48.0,
+        "vin": 400.0,
+        "iout": 12.0,
+        "power": 576.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L1_052",
+      "prompt": "Design a boost converter: 24V solar panel to 48V battery, 5A for off-grid storage",
+      "specs": {
+        "vout": 48.0,
+        "vin": 24.0,
+        "iout": 5.0,
+        "power": 240.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L1_053",
+      "prompt": "Design a SEPIC converter: 5V USB to 9V, 2A for Quick Charge adapter",
+      "specs": {
+        "vout": 9.0,
+        "vin": 5.0,
+        "iout": 2.0,
+        "power": 18.0,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L1_054",
+      "prompt": "Design a \u0106uk converter: 18V to -48V, 0.5A for telecom bias supply",
+      "specs": {
+        "vout": -48.0,
+        "vin": 18.0,
+        "iout": 0.5,
+        "power": 24.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L1_055",
+      "prompt": "Design an inverting buck-boost: 48V to -15V, 3A for motor drive negative rail",
+      "specs": {
+        "vout": -15.0,
+        "vin": 48.0,
+        "iout": 3.0,
+        "power": 45.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L1_056",
+      "prompt": "Design a flyback converter: 120VAC rectified to 12V, 3A for LED driver",
+      "specs": {
+        "vout": 12.0,
+        "vin": 170.0,
+        "iout": 3.0,
+        "power": 36.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L1_057",
+      "prompt": "Design a forward converter: 270V DC aircraft bus to 28V, 10A for avionics",
+      "specs": {
+        "vout": 28.0,
+        "vin": 270.0,
+        "iout": 10.0,
+        "power": 280.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L1_058",
+      "prompt": "Design a half-bridge converter: 380V PFC output to 12V, 20A for server PSU",
+      "specs": {
+        "vout": 12.0,
+        "vin": 380.0,
+        "iout": 20.0,
+        "power": 240.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_059",
+      "prompt": "Design a full-bridge converter: 750V DC to 400V, 15A for EV DC fast charger",
+      "specs": {
+        "vout": 400.0,
+        "vin": 750.0,
+        "iout": 15.0,
+        "power": 6000.0,
+        "f_sw": 50000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "full_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_060",
+      "prompt": "Design a quasi-resonant buck: 36V to 5V, 6A for low-noise measurement equipment",
+      "specs": {
+        "vout": 5.0,
+        "vin": 36.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "f_sw": 350000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "qr_buck",
+      "application": ""
+    }
+  ]
+}

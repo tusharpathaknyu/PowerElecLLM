@@ -1,0 +1,267 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_031",
+      "prompt": "Design a buck converter for hypersonic vehicle flight computer. Input: 270V DC MIL-STD-704F bus, Output: 28V at 15A. Must survive 5000\u00b0C external temperature with active cooling, handle 50g vibration, and maintain operation through plasma communication blackout.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 270.0
+      },
+      "constraints": {
+        "primary": [
+          "Extreme temperature survival",
+          "50g vibration tolerance",
+          "270V input handling"
+        ],
+        "secondary": [
+          "EMI immunity during plasma blackout",
+          "Fault tolerance"
+        ],
+        "constraints": [
+          "MIL-STD-704F",
+          "MIL-STD-810G",
+          "Weight <2kg"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Hypersonic Vehicle Avionics",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_032",
+      "prompt": "Design a flyback converter for nuclear reactor containment instrumentation. Input: 125V DC safety bus, Output: 24V isolated at 5A. Must survive 40-year design life, 10\u2078 rad total dose, and seismic Category I (0.5g SSE) requirements.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 125.0
+      },
+      "constraints": {
+        "primary": [
+          "40-year lifetime",
+          "Radiation tolerance 10\u2078 rad",
+          "Seismic Cat I"
+        ],
+        "secondary": [
+          "Single failure proof",
+          "IEEE 323/344 qualification"
+        ],
+        "constraints": [
+          "Nuclear safety class 1E",
+          "No firmware (hardwired only)"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Nuclear Reactor Instrumentation",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_033",
+      "prompt": "Design a boost converter for radioisotope thermoelectric generator (RTG) interface on deep space probe. Input: 28V-32V from RTG (decreasing over mission), Output: 100V at 2A for ion thruster PPU. Must operate for 20-year mission with no maintenance, survive Jupiter radiation belts.",
+      "specs": {
+        "vout": 100.0,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "20-year reliability",
+          "Jupiter radiation survival",
+          "RTG MPPT"
+        ],
+        "secondary": [
+          "Mass <500g",
+          "Efficiency >95%"
+        ],
+        "constraints": [
+          "Deep space environment",
+          "No repairs possible",
+          "Plutonium RTG interface"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Deep Space Probe RTG Interface",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_034",
+      "prompt": "Design a forward converter for electric aircraft emergency power distribution. Input: 540V DC from main bus, Output: 28V at 50A. Must provide 30 minutes backup from emergency battery during dual engine failure, meet DO-160G, and survive lightning strike (Level 3).",
+      "specs": {
+        "vout": 28.0,
+        "vin": 540.0
+      },
+      "constraints": {
+        "primary": [
+          "DO-160G qualification",
+          "30-min backup",
+          "Lightning Level 3"
+        ],
+        "secondary": [
+          "Efficiency >95%",
+          "Weight <5kg"
+        ],
+        "constraints": [
+          "Dual-channel redundant",
+          "Fire containment zone rated"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Electric Aircraft Emergency Bus",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_035",
+      "prompt": "Design a SEPIC converter for AUV main power. Input: 21V-33.6V from 7S Li-ion pack, Output: 24V at 10A for propulsion and sensors. Must survive 6000m depth (600 bar), operate in pressure-compensated oil, and handle 3-month submerged missions without maintenance.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 21.0
+      },
+      "constraints": {
+        "primary": [
+          "6000m depth rating",
+          "3-month mission",
+          "Oil-filled operation"
+        ],
+        "secondary": [
+          "Efficiency >92%",
+          "Pressure cycling tolerance"
+        ],
+        "constraints": [
+          "Pressure-compensated housing",
+          "No air pockets",
+          "Deep ocean temperature 2\u00b0C"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Autonomous Underwater Vehicle",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_036",
+      "prompt": "Design a half-bridge resonant converter for superconducting magnet power supply. Input: 480V 3-phase rectified (650V DC), Output: 10V at 1000A for dipole magnet. Must achieve <10ppm current stability, survive quench events, and ramp at 100A/s controllably.",
+      "specs": {
+        "vout": 10.0,
+        "vin": 480.0
+      },
+      "constraints": {
+        "primary": [
+          "Current stability <10ppm",
+          "Quench protection",
+          "100A/s ramping"
+        ],
+        "secondary": [
+          "Efficiency >95%",
+          "Low stored energy"
+        ],
+        "constraints": [
+          "Superconducting magnet interface",
+          "Energy extraction during quench"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Particle Accelerator Magnet Power",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_037",
+      "prompt": "Design a buck converter for EV battery thermal management heater. Input: 400V battery pack, Output: 300V at 20A (6kW) for PTC heater. Must provide smooth power modulation from 0-6kW, survive -40\u00b0C cold soak, and integrate with vehicle CAN bus for BMS control.",
+      "specs": {
+        "vout": 300.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "primary": [
+          "0-6kW smooth modulation",
+          "-40\u00b0C operation",
+          "BMS integration"
+        ],
+        "secondary": [
+          "Efficiency >98%",
+          "EMC automotive compliance"
+        ],
+        "constraints": [
+          "Functional safety ASIL-B",
+          "CAN interface required"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Electric Vehicle Battery Heater",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_038",
+      "prompt": "Design a flyback converter for space telescope CCD bias supply. Input: 28V from spacecraft bus, Output: -40V at 50mA for CCD substrate bias. Must achieve <100\u03bcV noise, survive total dose 100krad, and operate in cryogenic environment (-150\u00b0C).",
+      "specs": {
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "Noise <100\u03bcV RMS",
+          "100krad TID",
+          "Cryogenic operation"
+        ],
+        "secondary": [
+          "Mass <100g",
+          "Stability <0.1%/year"
+        ],
+        "constraints": [
+          "Space qualification",
+          "Detector proximity operation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Space Telescope Detector Bias",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_039",
+      "prompt": "Design a full-bridge converter for high-speed train (350km/h) HVAC and lighting. Input: 1500V DC from catenary via main transformer, Output: 400V 3-phase AC at 50kVA. Must survive pantograph bouncing, meet EN 50121 EMC, and operate in tunnels (restricted ventilation).",
+      "specs": {
+        "vout": 400.0,
+        "vin": 1500.0
+      },
+      "constraints": {
+        "primary": [
+          "Catenary voltage variations",
+          "EN 50121 EMC",
+          "Tunnel operation"
+        ],
+        "secondary": [
+          "Efficiency >94%",
+          "Noise <65dBA"
+        ],
+        "constraints": [
+          "Fire safety EN 45545",
+          "Weight limit for axle loading"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "High-Speed Train Auxiliary Converter",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_040",
+      "prompt": "Design a \u0106uk converter for mass spectrometer ion source. Input: 24V lab supply, Output: -150V at 100mA. Must achieve <1mV ripple, <10ppm/\u00b0C temperature coefficient, and survive high-voltage arc events from the ion source.",
+      "specs": {
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "Ripple <1mV",
+          "Tempco <10ppm/\u00b0C",
+          "Arc immunity"
+        ],
+        "secondary": [
+          "Fast transient response",
+          "Remote sensing"
+        ],
+        "constraints": [
+          "Lab safety standards",
+          "EMI quiet for sensitive detector"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Precision Scientific Instrument",
+      "topology": "cuk"
+    }
+  ]
+}

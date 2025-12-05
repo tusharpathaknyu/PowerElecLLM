@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_131",
+      "prompt": "Electric Scooter Controller Power: Shared electric scooter requiring efficient motor control with GPS tracking power",
+      "specs": {
+        "vout": 5,
+        "vin": 42,
+        "power": 10,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "GPS always-on power for fleet tracking",
+        "Wide input 30-54V for battery SOC range",
+        "Weatherproof operation",
+        "Low standby drain for parked scooters"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Shared electric scooter requiring efficient motor control with GPS tracking power"
+    },
+    {
+      "id": "L2_132",
+      "prompt": "Point-of-Sale Terminal Supply: Retail POS terminal requiring multiple outputs with payment security",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 30,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "PCI-DSS security compliance",
+        "Receipt printer power output",
+        "Card reader isolated supply",
+        "24/7 retail operation"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Retail POS terminal requiring multiple outputs with payment security"
+    },
+    {
+      "id": "L2_133",
+      "prompt": "Precision Agriculture Sprayer Control: GPS-guided sprayer requiring nozzle control power with position accuracy",
+      "specs": {
+        "vout": 5,
+        "vin": 12,
+        "power": 25,
+        "f_sw": 400000
+      },
+      "constraints": [
+        "RTK GPS power (\u00b12 cm accuracy)",
+        "12V/24V tractor electrical compatibility",
+        "Vibration from field operation",
+        "Chemical spray environment"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "GPS-guided sprayer requiring nozzle control power with position accuracy"
+    },
+    {
+      "id": "L2_134",
+      "prompt": "Museum Display Lighting Supply: Gallery lighting requiring UV-free illumination with color accuracy",
+      "specs": {
+        "vout": 30,
+        "vin": 48,
+        "power": 75,
+        "f_sw": 300000
+      },
+      "constraints": [
+        "CRI > 97 LED driver compatibility",
+        "Flicker-free for photography",
+        "DALI dimming interface",
+        "Silent operation for galleries"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Gallery lighting requiring UV-free illumination with color accuracy"
+    },
+    {
+      "id": "L2_135",
+      "prompt": "Electric Aircraft Avionics Bus: eVTOL aircraft requiring certified avionics power distribution",
+      "specs": {
+        "vout": 28,
+        "vin": 400,
+        "power": 500,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "DO-254 DAL A certification",
+        "DO-160G environmental testing",
+        "Lightning protection per DO-160 Section 22",
+        "Weight critical for eVTOL"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "eVTOL aircraft requiring certified avionics power distribution"
+    },
+    {
+      "id": "L2_136",
+      "prompt": "Smart Lock Battery Power: Connected door lock requiring years of battery operation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 6,
+        "power": 0.5,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "3-year battery life on 4\u00d7AA",
+        "Motor drive peak power 2W",
+        "BLE communication power",
+        "Sub-10 \u00b5A standby current"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Connected door lock requiring years of battery operation"
+    },
+    {
+      "id": "L2_137",
+      "prompt": "Digital Signage Media Player: 4K digital signage player requiring fanless operation in retail environment",
+      "specs": {
+        "vout": 5,
+        "vin": 19,
+        "power": 50,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Fanless passive cooling",
+        "24/7 retail operation",
+        "4K video decode power budget",
+        "Compact media player form factor"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "4K digital signage player requiring fanless operation in retail environment"
+    },
+    {
+      "id": "L2_138",
+      "prompt": "Portable Defibrillator Charger: AED requiring fast capacitor charging with patient safety",
+      "specs": {
+        "vout": 1800,
+        "vin": 12,
+        "power": 200,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "200J charge in 10 seconds",
+        "IEC 60601-2-4 defibrillator safety",
+        "Battery operation (internal AED battery)",
+        "Capacitor monitoring and safety discharge"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "AED requiring fast capacitor charging with patient safety"
+    },
+    {
+      "id": "L2_139",
+      "prompt": "Construction Site LED Tower: Portable light tower requiring generator-compatible power conversion",
+      "specs": {
+        "vout": 42,
+        "vin": 48,
+        "power": 1000,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "Generator voltage variation \u00b120%",
+        "Outdoor rain and dust operation",
+        "Transportable on trailer",
+        "Manual height adjustment motor power"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Portable light tower requiring generator-compatible power conversion"
+    },
+    {
+      "id": "L2_140",
+      "prompt": "Home Energy Storage Inverter: Residential battery storage requiring bidirectional grid-tie capability",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 5000,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Bidirectional charge/discharge",
+        "Grid-tie anti-islanding",
+        "LFP battery compatibility",
+        "Time-of-use optimization ready"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Residential battery storage requiring bidirectional grid-tie capability"
+    }
+  ]
+}

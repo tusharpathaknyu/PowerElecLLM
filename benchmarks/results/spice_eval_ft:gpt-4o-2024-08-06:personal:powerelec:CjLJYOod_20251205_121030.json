@@ -1,0 +1,122 @@
+{
+  "model": "ft:gpt-4o-2024-08-06:personal:powerelec:CjLJYOod",
+  "timestamp": "2025-12-05T12:10:46.220322",
+  "total_problems": 3,
+  "summary": {
+    "total": 3,
+    "passed": 0,
+    "by_level": {
+      "L3": {
+        "total": 3,
+        "passed": 0,
+        "accuracy": 0.0,
+        "avg_score": 30.00898570765977
+      }
+    },
+    "overall_accuracy": 0.0
+  },
+  "results": [
+    {
+      "success": false,
+      "spice_success": true,
+      "total_score": 45.02695712297931,
+      "vout_score": 0,
+      "ripple_score": 40.10782849191725,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 0,
+      "simulated_vout": 175.5580009655507,
+      "target_vout": 60,
+      "vout_error_pct": 192.5966682759178,
+      "ripple_pct": 3.197843430161655,
+      "efficiency_pct": 92.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 1.0,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "R_load": 11.009174311926605
+      },
+      "error": null,
+      "problem_id": "TEST_L3_001",
+      "level": 3,
+      "latency": 5.431550979614258,
+      "parsed_values": {
+        "vout": 60.0,
+        "duty": 1.0,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "topology": "boost"
+      },
+      "llm_response_length": 981
+    },
+    {
+      "success": false,
+      "spice_success": true,
+      "total_score": 45.0,
+      "vout_score": 0,
+      "ripple_score": 0,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 100,
+      "simulated_vout": 101.73434532817338,
+      "target_vout": 12,
+      "vout_error_pct": 747.7862110681115,
+      "ripple_pct": 27.22898536442311,
+      "efficiency_pct": 92.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": -30.666666666666668,
+        "L": 0.0003,
+        "C": 0.00047,
+        "R_load": 0.3050847457627119
+      },
+      "error": null,
+      "problem_id": "TEST_L3_002",
+      "level": 3,
+      "latency": 4.5219361782073975,
+      "parsed_values": {
+        "vout": 12.0,
+        "duty": null,
+        "L": 0.0003,
+        "C": 0.00047,
+        "topology": "boost"
+      },
+      "llm_response_length": 842
+    },
+    {
+      "success": false,
+      "spice_success": false,
+      "total_score": 0,
+      "vout_score": 0.0,
+      "ripple_score": 0.0,
+      "efficiency_score": 0.0,
+      "current_score": 0.0,
+      "stress_score": 0.0,
+      "simulated_vout": 0.0,
+      "target_vout": 450,
+      "vout_error_pct": 100,
+      "ripple_pct": 0.0,
+      "efficiency_pct": 0.0,
+      "ccm_mode": false,
+      "components_used": {
+        "D": 0.5294117647058824,
+        "L": 0.0001,
+        "C": 0.00047,
+        "R_load": 34.41536369816451
+      },
+      "error": "Unknown topology: full_bridge",
+      "problem_id": "TEST_L3_003",
+      "level": 3,
+      "latency": 4.932713985443115,
+      "parsed_values": {
+        "vout": 450.0,
+        "duty": null,
+        "L": null,
+        "C": 0.00047,
+        "topology": null
+      },
+      "llm_response_length": 1072
+    }
+  ]
+}

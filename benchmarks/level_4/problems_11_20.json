@@ -1,0 +1,209 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_011",
+      "prompt": "Quantum Dot Display Driver with HDR Peak Luminance: 8K HDR quantum dot display backlight requiring 10000 nit peak luminance with microsecond local dimming zones",
+      "specs": {
+        "vout": 400,
+        "vin": 48,
+        "power": 2000,
+        "efficiency_min": 0.97,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Local dimming response < 10\u03bcs for HDR contrast",
+        "EMI must not interfere with quantum dot emission spectra",
+        "Thermal dissipation < 60W for panel integration",
+        "Flicker-free operation at all luminance levels",
+        "Color temperature stability \u00b150K over temperature"
+      ],
+      "difficulty": "expert",
+      "application": "8K HDR quantum dot display backlight requiring 10000 nit peak luminance with microsecond local dimming zones",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_012",
+      "prompt": "Superconducting MRI Gradient Amplifier: High-performance MRI gradient coil driver for 7T research scanner requiring ultra-fast slew rates",
+      "specs": {
+        "vout": 2000,
+        "vin": 800,
+        "power": 1000000,
+        "efficiency_min": 0.96,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Gradient slew rate > 200 T/m/s for advanced imaging sequences",
+        "No acoustic noise coupling to scanner bore",
+        "Current THD < 0.01% for image quality",
+        "Fault response < 1\u03bcs to protect patient",
+        "EMI shielding for RF coil compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "High-performance MRI gradient coil driver for 7T research scanner requiring ultra-fast slew rates",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_013",
+      "prompt": "Neuromorphic Computing Power Architecture: Brain-inspired computing chip requiring adaptive power delivery matching neural activity patterns",
+      "specs": {
+        "vout": 0.5,
+        "vin": 12,
+        "efficiency_min": 0.92,
+        "f_sw": 10000000
+      },
+      "constraints": [
+        "Track neural firing pattern power variations in nanoseconds",
+        "1000:1 dynamic load range for sparse neural activity",
+        "Noise floor < 1mV for analog synapse accuracy",
+        "Self-adapting efficiency optimization",
+        "Multi-phase interleaving for ripple cancellation"
+      ],
+      "difficulty": "expert",
+      "application": "Brain-inspired computing chip requiring adaptive power delivery matching neural activity patterns",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_014",
+      "prompt": "Tokamak Plasma Position Control Supply: ITER-class fusion reactor vertical stability system requiring megawatt-scale response in milliseconds",
+      "specs": {
+        "vout": 20000,
+        "vin": 10000,
+        "efficiency_min": 0.95,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "Millisecond response to prevent plasma disruption",
+        "Bidirectional power flow for position correction",
+        "Fault current limiting for coil protection",
+        "Seismic qualification for reactor environment",
+        "Neutron flux tolerance"
+      ],
+      "difficulty": "expert",
+      "application": "ITER-class fusion reactor vertical stability system requiring megawatt-scale response in milliseconds",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_015",
+      "prompt": "Photonic Quantum Computer Laser Driver: Precision laser current source for photonic qubits requiring sub-ppm stability",
+      "specs": {
+        "vout": 2,
+        "vin": 24,
+        "power": 2,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "Current stability < 1 ppm for quantum coherence",
+        "No switching transients during qubit operations",
+        "Phase noise floor < -160 dBc/Hz",
+        "Cryogenic compatible to 4K operation",
+        "EMI shielding > 120dB"
+      ],
+      "difficulty": "expert",
+      "application": "Precision laser current source for photonic qubits requiring sub-ppm stability",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_016",
+      "prompt": "Deep Space Ion Thruster PPU: Power processing unit for interstellar probe ion engine operating decades without maintenance",
+      "specs": {
+        "vout": 2000,
+        "vin": 100,
+        "power": 5000,
+        "efficiency_min": 0.95,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "50-year continuous operation reliability",
+        "1 Mrad total ionizing dose tolerance",
+        "Single-event upset immunity",
+        "Zero maintenance beyond Jupiter orbit",
+        "Mass budget < 10kg"
+      ],
+      "difficulty": "expert",
+      "application": "Power processing unit for interstellar probe ion engine operating decades without maintenance",
+      "topology": "flyback"
+    },
+    {
+      "id": "L4_017",
+      "prompt": "Terahertz Imaging Scanner Power Supply: Security scanner terahertz source requiring ultra-stable bias for coherent imaging",
+      "specs": {
+        "vout": 200,
+        "vin": 5,
+        "power": 2,
+        "f_sw": 5000000
+      },
+      "constraints": [
+        "Bias stability for THz source coherence",
+        "Phase noise < -150 dBc/Hz at 1kHz offset",
+        "Ripple < 10ppm for image quality",
+        "EMI compliance for public deployment",
+        "Hot-swap capability for maintenance"
+      ],
+      "difficulty": "expert",
+      "application": "Security scanner terahertz source requiring ultra-stable bias for coherent imaging",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_018",
+      "prompt": "Gravitational Wave Detector Seismic Isolator: LIGO active seismic isolation actuator requiring atto-meter positioning precision",
+      "specs": {
+        "vout": 100,
+        "vin": 48,
+        "power": 500,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Current noise < 1nA/\u221aHz for atto-meter isolation",
+        "No mechanical vibration from power supply",
+        "Phase margin > 60\u00b0 at all frequencies to 100kHz",
+        "Ultra-clean grounding for interferometer compatibility",
+        "Vacuum-compatible components"
+      ],
+      "difficulty": "expert",
+      "application": "LIGO active seismic isolation actuator requiring atto-meter positioning precision",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L4_019",
+      "prompt": "Hypersonic Vehicle Thermal Management: Power supply for actively cooled leading edge of Mach 10+ vehicle during atmospheric reentry",
+      "specs": {
+        "vout": 300,
+        "power": 30000,
+        "efficiency_min": 0.94,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Operating ambient to 500\u00b0C during flight",
+        "Survive 50g vibration and 20g sustained acceleration",
+        "All ceramic/SiC components for high temperature",
+        "Redundant architecture for flight safety",
+        "Weight < 15kg including thermal management"
+      ],
+      "difficulty": "expert",
+      "application": "Power supply for actively cooled leading edge of Mach 10+ vehicle during atmospheric reentry",
+      "topology": "cuk"
+    },
+    {
+      "id": "L4_020",
+      "prompt": "Antimatter Production Facility Power: Antiproton accumulator ring magnet power supply at CERN-class facility",
+      "specs": {
+        "vout": 10000,
+        "vin": 20000,
+        "power": 60000000,
+        "f_sw": 10000
+      },
+      "constraints": [
+        "Current stability < 1ppm/hour for beam containment",
+        "Ripple < 10ppm to prevent beam loss",
+        "Energy recovery during deceleration cycles",
+        "Coordinated control with RF systems",
+        "Radiation environment compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "Antiproton accumulator ring magnet power supply at CERN-class facility",
+      "topology": "full_bridge"
+    }
+  ]
+}

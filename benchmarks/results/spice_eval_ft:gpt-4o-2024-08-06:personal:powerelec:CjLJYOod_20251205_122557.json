@@ -1,0 +1,190 @@
+{
+  "model": "ft:gpt-4o-2024-08-06:personal:powerelec:CjLJYOod",
+  "timestamp": "2025-12-05T12:26:36.801098",
+  "total_problems": 5,
+  "summary": {
+    "total": 5,
+    "passed": 2,
+    "by_level": {
+      "L3": {
+        "total": 5,
+        "passed": 2,
+        "accuracy": 40.0,
+        "avg_score": 55.70098729025788
+      }
+    },
+    "overall_accuracy": 40.0
+  },
+  "results": [
+    {
+      "success": true,
+      "spice_success": true,
+      "total_score": 60.0,
+      "vout_score": 0,
+      "ripple_score": 100,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 0,
+      "simulated_vout": 185.2328858272683,
+      "target_vout": 54,
+      "vout_error_pct": 243.02386264308944,
+      "ripple_pct": 1.870078298747781,
+      "efficiency_pct": 92.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 1.0,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "R_load": 24.3
+      },
+      "error": null,
+      "problem_id": "TEST_L3_001",
+      "level": 3,
+      "latency": 10.838742017745972,
+      "parsed_values": {
+        "vout": 54.0,
+        "duty": 1.0,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "topology": "boost"
+      },
+      "llm_response_length": 910
+    },
+    {
+      "success": true,
+      "spice_success": true,
+      "total_score": 74.87624085331741,
+      "vout_score": 100,
+      "ripple_score": 48.31560387426201,
+      "efficiency_score": 100,
+      "current_score": 18.64893256501268,
+      "stress_score": 100,
+      "simulated_vout": 12.180377576027396,
+      "target_vout": 12,
+      "vout_error_pct": 1.5031464668949703,
+      "ripple_pct": 4.202127535088559,
+      "efficiency_pct": 95.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 0.25,
+        "L": 1.4999999999999999e-05,
+        "C": 0.00047,
+        "R_load": 0.7955801104972375
+      },
+      "error": null,
+      "problem_id": "TEST_L3_002",
+      "level": 3,
+      "latency": 9.750652313232422,
+      "parsed_values": {
+        "vout": 12.0,
+        "duty": null,
+        "L": 1.4999999999999999e-05,
+        "C": 0.00047,
+        "topology": "buck"
+      },
+      "llm_response_length": 1064
+    },
+    {
+      "success": false,
+      "spice_success": true,
+      "total_score": 45.74402022628497,
+      "vout_score": 35.81340075428323,
+      "ripple_score": 0,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 0,
+      "simulated_vout": 52.10572217482993,
+      "target_vout": 48,
+      "vout_error_pct": 8.553587864229018,
+      "ripple_pct": 35.462093660273325,
+      "efficiency_pct": 90.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 0.8,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "R_load": 17.454545454545453
+      },
+      "error": null,
+      "problem_id": "TEST_L3_003",
+      "level": 3,
+      "latency": 3.4397521018981934,
+      "parsed_values": {
+        "vout": 48.0,
+        "duty": null,
+        "L": 4.7e-05,
+        "C": 0.00021999999999999998,
+        "topology": "buck_boost"
+      },
+      "llm_response_length": 582
+    },
+    {
+      "success": false,
+      "spice_success": true,
+      "total_score": 43.36635062242218,
+      "vout_score": 0,
+      "ripple_score": 33.465402489688735,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 0,
+      "simulated_vout": 154.3418426055313,
+      "target_vout": 54,
+      "vout_error_pct": 185.81822704728017,
+      "ripple_pct": 5.984151701237352,
+      "efficiency_pct": 92.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 1.0,
+        "L": 6.8e-05,
+        "C": 0.00021999999999999998,
+        "R_load": 15.1875
+      },
+      "error": null,
+      "problem_id": "TEST_L3_004",
+      "level": 3,
+      "latency": 6.062036991119385,
+      "parsed_values": {
+        "vout": 54.0,
+        "duty": 1.0,
+        "L": 6.8e-05,
+        "C": 0.00021999999999999998,
+        "topology": "boost"
+      },
+      "llm_response_length": 910
+    },
+    {
+      "success": false,
+      "spice_success": true,
+      "total_score": 54.51832474926483,
+      "vout_score": 28.818718490831984,
+      "ripple_score": 3.4908368080609375,
+      "efficiency_score": 100,
+      "current_score": 100,
+      "stress_score": 100,
+      "simulated_vout": 10.82248431940197,
+      "target_vout": 12,
+      "vout_error_pct": 9.812630671650242,
+      "ripple_pct": 9.581099583032687,
+      "efficiency_pct": 95.0,
+      "ccm_mode": true,
+      "components_used": {
+        "D": 0.2222222222222222,
+        "L": 3.2999999999999996e-05,
+        "C": 0.0021999999999999997,
+        "R_load": 0.5581395348837209
+      },
+      "error": null,
+      "problem_id": "TEST_L3_005",
+      "level": 3,
+      "latency": 7.390949726104736,
+      "parsed_values": {
+        "vout": 12.0,
+        "duty": null,
+        "L": 3.2999999999999996e-05,
+        "C": 0.0021999999999999997,
+        "topology": "buck"
+      },
+      "llm_response_length": 1027
+    }
+  ]
+}

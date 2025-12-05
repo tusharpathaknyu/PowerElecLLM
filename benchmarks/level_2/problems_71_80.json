@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design problems requiring trade-off analysis",
+  "problems": [
+    {
+      "id": "L2_071",
+      "prompt": "Design a buck converter for 5G small cell base station equipment. Input: 48V DC from PoE++, Output: 12V at 6A. The converter must meet strict EMI requirements with conducted emissions below 60dB\u03bcV from 150kHz-30MHz. Switching frequency must be above 500kHz for size constraints.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "input_voltage": "48V",
+        "output_voltage": "12V",
+        "output_current": "6A",
+        "conducted_emissions": "<60dB\u03bcV (150kHz-30MHz)",
+        "min_switching_frequency": "500kHz",
+        "max_size": "30x30mm PCB area"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "5G Base Station Power"
+    },
+    {
+      "id": "L2_072",
+      "prompt": "Design a bidirectional boost converter for 48V mild hybrid system. Input: 12V lead-acid battery, Output: 48V lithium pack at 50A (boost mode). The converter operates in regenerative braking (buck mode) at up to 60A. Must survive load dump to 54V and cold crank at 6V input.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage_range": "6V-16V (cold crank to load dump)",
+        "output_voltage": "48V nominal (42V-54V range)",
+        "boost_current": "50A output",
+        "buck_current": "60A to 12V",
+        "ambient_temp": "-40\u00b0C to +85\u00b0C",
+        "efficiency": ">95% at full load"
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Hybrid Vehicle 12V-48V Mild Hybrid"
+    },
+    {
+      "id": "L2_073",
+      "prompt": "Design a flyback converter for medical equipment auxiliary power. Input: 24V DC, Output: 15V isolated at 2A. Must meet 2xMOPP (Means of Patient Protection) with 4kVAC isolation and leakage current below 10\u03bcA.",
+      "specs": {
+        "vout": 15.0,
+        "vin": 24.0
+      },
+      "constraints": {
+        "input_voltage": "24V DC (18V-28V)",
+        "output_voltage": "15V isolated",
+        "output_current": "2A",
+        "isolation": "4kVAC (2xMOPP)",
+        "leakage_current": "<10\u03bcA",
+        "safety_standard": "IEC 60601-1"
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Medical Isolated Auxiliary Supply"
+    },
+    {
+      "id": "L2_074",
+      "prompt": "Design a buck converter for HBM (High Bandwidth Memory) power in a high-end GPU. Input: 12V, Output: 1.2V at 15A with fast transient response. Load step of 10A in 100ns must cause less than 40mV deviation.",
+      "specs": {
+        "vout": 1.2,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage": "12V",
+        "output_voltage": "1.2V",
+        "output_current": "15A",
+        "load_step": "10A in 100ns",
+        "voltage_deviation": "<40mV",
+        "output_ripple": "<12mV"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "GPU HBM Memory Power"
+    },
+    {
+      "id": "L2_075",
+      "prompt": "Design a SEPIC converter for portable ultrasound equipment. Input: 12V-24V from battery or AC adapter, Output: 18V at 3A. Must provide stable output across full input range with soft-start to prevent transducer damage.",
+      "specs": {
+        "vout": 18.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage_range": "12V-24V",
+        "output_voltage": "18V",
+        "output_current": "3A",
+        "soft_start_time": ">10ms",
+        "output_overshoot": "<5% during startup",
+        "ripple": "<100mV"
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": "Portable Ultrasound Power"
+    },
+    {
+      "id": "L2_076",
+      "prompt": "Design a forward converter for industrial PLC backplane power distribution. Input: 24V DC, Output: 5V at 20A. Must operate in -25\u00b0C to +70\u00b0C industrial environment with 20-year design life and MTBF > 500,000 hours.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 24.0
+      },
+      "constraints": {
+        "input_voltage": "24V DC (20V-28V)",
+        "output_voltage": "5V",
+        "output_current": "20A",
+        "temperature_range": "-25\u00b0C to +70\u00b0C",
+        "mtbf": ">500,000 hours",
+        "design_life": "20 years"
+      },
+      "difficulty": "intermediate",
+      "topology": "forward",
+      "application": "Industrial PLC Backplane Power"
+    },
+    {
+      "id": "L2_077",
+      "prompt": "Design a buck converter for NVMe SSD controller. Input: 3.3V, Output: 1.1V at 4A. The controller is sensitive to power supply noise and requires output ripple below 8mV pk-pk with no switching noise spikes above 20mV.",
+      "specs": {
+        "vout": 1.1,
+        "vin": 3.3
+      },
+      "constraints": {
+        "input_voltage": "3.3V \u00b15%",
+        "output_voltage": "1.1V",
+        "output_current": "4A",
+        "output_ripple": "<8mV pk-pk",
+        "noise_spikes": "<20mV",
+        "pcb_area": "<50mm\u00b2"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "SSD Controller Power with Ripple Spec"
+    },
+    {
+      "id": "L2_078",
+      "prompt": "Design a \u0106uk converter providing split rails for Class AB audio amplifier. Input: 12V DC, Outputs: \u00b115V at 2A each. Must have very low output ripple for audio quality and common-mode rejection better than 60dB.",
+      "specs": {
+        "vout": 15.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage": "12V DC",
+        "output_voltages": "+15V and -15V",
+        "output_current": "2A per rail",
+        "output_ripple": "<5mV (audio requirement)",
+        "cmrr": ">60dB",
+        "switching_noise": "Out of audio band (>20kHz)"
+      },
+      "difficulty": "intermediate",
+      "topology": "cuk",
+      "application": "Audio Amplifier Split Rail Supply"
+    },
+    {
+      "id": "L2_079",
+      "prompt": "Design a half-bridge LLC converter for precision laboratory power supply. Input: 400V DC bus, Output: 48V at 10A. Requires regulation to \u00b10.1% with remote sensing and temperature coefficient below 50ppm/\u00b0C.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "input_voltage": "400V DC (380V-420V)",
+        "output_voltage": "48V \u00b10.1%",
+        "output_current": "10A",
+        "load_regulation": "<0.05%",
+        "line_regulation": "<0.05%",
+        "temp_coefficient": "<50ppm/\u00b0C"
+      },
+      "difficulty": "intermediate",
+      "topology": "half_bridge",
+      "application": "Laboratory Power Supply Module"
+    },
+    {
+      "id": "L2_080",
+      "prompt": "Design a boost converter for electric scooter LED headlight. Input: 36V-54V lithium pack, Output: 60V at 1.5A for 90W LED array. Must handle input transients from regenerative braking (up to 65V spikes) and provide PWM dimming capability.",
+      "specs": {
+        "vout": 60.0,
+        "vin": 36.0
+      },
+      "constraints": {
+        "input_voltage_range": "36V-54V nominal, 65V transient",
+        "output_voltage": "60V",
+        "output_current": "1.5A",
+        "transient_survival": "65V for 100ms",
+        "dimming": "PWM dimming 10%-100%",
+        "led_current_accuracy": "\u00b13%"
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Electric Scooter LED Headlight Driver"
+    }
+  ]
+}

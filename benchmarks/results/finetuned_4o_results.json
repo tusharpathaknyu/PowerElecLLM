@@ -1,0 +1,5002 @@
+[
+  {
+    "id": "L1_001",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 134
+  },
+  {
+    "id": "L1_002",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_003",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 131
+  },
+  {
+    "id": "L1_004",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 125
+  },
+  {
+    "id": "L1_005",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 124
+  },
+  {
+    "id": "L1_006",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 182
+  },
+  {
+    "id": "L1_007",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 130
+  },
+  {
+    "id": "L1_008",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 179,
+    "tokens_out": 132
+  },
+  {
+    "id": "L1_009",
+    "level": 1,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 157
+  },
+  {
+    "id": "L1_010",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 185
+  },
+  {
+    "id": "L1_101",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 132
+  },
+  {
+    "id": "L1_102",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 140
+  },
+  {
+    "id": "L1_103",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 137
+  },
+  {
+    "id": "L1_104",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 138
+  },
+  {
+    "id": "L1_105",
+    "level": 1,
+    "gt_vout": 24,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 134
+  },
+  {
+    "id": "L1_106",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 3.3,
+    "error_pct": 83.33333333333331,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 153
+  },
+  {
+    "id": "L1_107",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 173,
+    "tokens_out": 161
+  },
+  {
+    "id": "L1_108",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 125
+  },
+  {
+    "id": "L1_109",
+    "level": 1,
+    "gt_vout": 15,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 141
+  },
+  {
+    "id": "L1_110",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 118
+  },
+  {
+    "id": "L1_111",
+    "level": 1,
+    "gt_vout": 4.2,
+    "llm_vout": 5.0,
+    "error_pct": 19.047619047619044,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 129
+  },
+  {
+    "id": "L1_112",
+    "level": 1,
+    "gt_vout": 14.4,
+    "llm_vout": 13.5,
+    "error_pct": 6.250000000000003,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 146
+  },
+  {
+    "id": "L1_113",
+    "level": 1,
+    "gt_vout": 12,
+    "llm_vout": 24.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 129
+  },
+  {
+    "id": "L1_114",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 6.0,
+    "error_pct": 20.0,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 119
+  },
+  {
+    "id": "L1_115",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 171,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_116",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.7,
+    "error_pct": 12.121212121212132,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 130
+  },
+  {
+    "id": "L1_117",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 158
+  },
+  {
+    "id": "L1_118",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 150.0,
+    "error_pct": 2900.0,
+    "success": false,
+    "tokens_in": 172,
+    "tokens_out": 135
+  },
+  {
+    "id": "L1_119",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 162
+  },
+  {
+    "id": "L1_120",
+    "level": 1,
+    "gt_vout": 3.7,
+    "llm_vout": 5.0,
+    "error_pct": 35.13513513513512,
+    "success": false,
+    "tokens_in": 172,
+    "tokens_out": 123
+  },
+  {
+    "id": "L1_011",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 165
+  },
+  {
+    "id": "L1_012",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 152
+  },
+  {
+    "id": "L1_013",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 159
+  },
+  {
+    "id": "L1_014",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 191
+  },
+  {
+    "id": "L1_015",
+    "level": 1,
+    "gt_vout": -15.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 188
+  },
+  {
+    "id": "L1_016",
+    "level": 1,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 161
+  },
+  {
+    "id": "L1_017",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 187
+  },
+  {
+    "id": "L1_018",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 168
+  },
+  {
+    "id": "L1_019",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 190
+  },
+  {
+    "id": "L1_020",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 190
+  },
+  {
+    "id": "L1_121",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 141
+  },
+  {
+    "id": "L1_122",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 138
+  },
+  {
+    "id": "L1_123",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 154
+  },
+  {
+    "id": "L1_124",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 3.3,
+    "error_pct": 34.0,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_125",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 156
+  },
+  {
+    "id": "L1_126",
+    "level": 1,
+    "gt_vout": 9,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_127",
+    "level": 1,
+    "gt_vout": 48,
+    "llm_vout": 6000.0,
+    "error_pct": 12400.0,
+    "success": false,
+    "tokens_in": 172,
+    "tokens_out": 165
+  },
+  {
+    "id": "L1_128",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 136
+  },
+  {
+    "id": "L1_129",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 136
+  },
+  {
+    "id": "L1_130",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 141
+  },
+  {
+    "id": "L1_131",
+    "level": 1,
+    "gt_vout": 12,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 140
+  },
+  {
+    "id": "L1_132",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 129
+  },
+  {
+    "id": "L1_133",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 12.0,
+    "error_pct": 140.0,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 136
+  },
+  {
+    "id": "L1_134",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 173,
+    "tokens_out": 140
+  },
+  {
+    "id": "L1_135",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 146
+  },
+  {
+    "id": "L1_136",
+    "level": 1,
+    "gt_vout": 1.2,
+    "llm_vout": 5.0,
+    "error_pct": 316.66666666666663,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 134
+  },
+  {
+    "id": "L1_137",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 3.3,
+    "error_pct": 83.33333333333331,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 135
+  },
+  {
+    "id": "L1_138",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 173,
+    "tokens_out": 121
+  },
+  {
+    "id": "L1_139",
+    "level": 1,
+    "gt_vout": 12,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 151
+  },
+  {
+    "id": "L1_140",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 3.3,
+    "error_pct": 83.33333333333331,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 115
+  },
+  {
+    "id": "L1_141",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 148
+  },
+  {
+    "id": "L1_142",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 5.0,
+    "error_pct": 177.7777777777778,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 102
+  },
+  {
+    "id": "L1_143",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 48.0,
+    "error_pct": 1354.5454545454547,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 146
+  },
+  {
+    "id": "L1_144",
+    "level": 1,
+    "gt_vout": 4.2,
+    "llm_vout": 3.7,
+    "error_pct": 11.904761904761903,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 136
+  },
+  {
+    "id": "L1_145",
+    "level": 1,
+    "gt_vout": 12,
+    "llm_vout": 5.0,
+    "error_pct": 58.333333333333336,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 142
+  },
+  {
+    "id": "L1_146",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 173,
+    "tokens_out": 131
+  },
+  {
+    "id": "L1_147",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 29
+  },
+  {
+    "id": "L1_148",
+    "level": 1,
+    "gt_vout": 6,
+    "llm_vout": 9.0,
+    "error_pct": 50.0,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 135
+  },
+  {
+    "id": "L1_149",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 3.3,
+    "error_pct": 83.33333333333331,
+    "success": false,
+    "tokens_in": 172,
+    "tokens_out": 147
+  },
+  {
+    "id": "L1_150",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 147
+  },
+  {
+    "id": "L1_021",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 130
+  },
+  {
+    "id": "L1_022",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 140
+  },
+  {
+    "id": "L1_023",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 134
+  },
+  {
+    "id": "L1_024",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 164
+  },
+  {
+    "id": "L1_025",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 153
+  },
+  {
+    "id": "L1_026",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 178,
+    "tokens_out": 180
+  },
+  {
+    "id": "L1_027",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 172
+  },
+  {
+    "id": "L1_028",
+    "level": 1,
+    "gt_vout": 14.0,
+    "llm_vout": 14.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 143
+  },
+  {
+    "id": "L1_029",
+    "level": 1,
+    "gt_vout": 9.0,
+    "llm_vout": 9.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 168
+  },
+  {
+    "id": "L1_030",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 178
+  },
+  {
+    "id": "L1_031",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 131
+  },
+  {
+    "id": "L1_032",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 124
+  },
+  {
+    "id": "L1_033",
+    "level": 1,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 180
+  },
+  {
+    "id": "L1_034",
+    "level": 1,
+    "gt_vout": -15.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 140
+  },
+  {
+    "id": "L1_035",
+    "level": 1,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 164
+  },
+  {
+    "id": "L1_036",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 162
+  },
+  {
+    "id": "L1_037",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 185
+  },
+  {
+    "id": "L1_038",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 153
+  },
+  {
+    "id": "L1_039",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 177
+  },
+  {
+    "id": "L1_040",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 181
+  },
+  {
+    "id": "L1_041",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 132
+  },
+  {
+    "id": "L1_042",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 142
+  },
+  {
+    "id": "L1_043",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 48.0,
+    "error_pct": 300.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 100
+  },
+  {
+    "id": "L1_044",
+    "level": 1,
+    "gt_vout": -24.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 162
+  },
+  {
+    "id": "L1_045",
+    "level": 1,
+    "gt_vout": -5.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 209
+  },
+  {
+    "id": "L1_046",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 151
+  },
+  {
+    "id": "L1_047",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 196
+  },
+  {
+    "id": "L1_048",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 190
+  },
+  {
+    "id": "L1_049",
+    "level": 1,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 147
+  },
+  {
+    "id": "L1_050",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 141
+  },
+  {
+    "id": "L1_051",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 118
+  },
+  {
+    "id": "L1_052",
+    "level": 1,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 152
+  },
+  {
+    "id": "L1_053",
+    "level": 1,
+    "gt_vout": 9.0,
+    "llm_vout": 9.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 162
+  },
+  {
+    "id": "L1_054",
+    "level": 1,
+    "gt_vout": -48.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 162
+  },
+  {
+    "id": "L1_055",
+    "level": 1,
+    "gt_vout": -15.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 157
+  },
+  {
+    "id": "L1_056",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 201
+  },
+  {
+    "id": "L1_057",
+    "level": 1,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 182
+  },
+  {
+    "id": "L1_058",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 171
+  },
+  {
+    "id": "L1_059",
+    "level": 1,
+    "gt_vout": 400.0,
+    "llm_vout": 400.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 180
+  },
+  {
+    "id": "L1_060",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 142
+  },
+  {
+    "id": "L1_061",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 157
+  },
+  {
+    "id": "L1_062",
+    "level": 1,
+    "gt_vout": 170.0,
+    "llm_vout": 170.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 128
+  },
+  {
+    "id": "L1_063",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 174
+  },
+  {
+    "id": "L1_064",
+    "level": 1,
+    "gt_vout": -9.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 147
+  },
+  {
+    "id": "L1_065",
+    "level": 1,
+    "gt_vout": -5.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 125
+  },
+  {
+    "id": "L1_066",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 165
+  },
+  {
+    "id": "L1_067",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 157
+  },
+  {
+    "id": "L1_068",
+    "level": 1,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 172
+  },
+  {
+    "id": "L1_069",
+    "level": 1,
+    "gt_vout": 14.0,
+    "llm_vout": 14.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 160
+  },
+  {
+    "id": "L1_070",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 175
+  },
+  {
+    "id": "L1_071",
+    "level": 1,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 182,
+    "tokens_out": 145
+  },
+  {
+    "id": "L1_072",
+    "level": 1,
+    "gt_vout": 36.0,
+    "llm_vout": 36.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 146
+  },
+  {
+    "id": "L1_073",
+    "level": 1,
+    "gt_vout": 19.0,
+    "llm_vout": 19.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 176
+  },
+  {
+    "id": "L1_074",
+    "level": 1,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 172
+  },
+  {
+    "id": "L1_075",
+    "level": 1,
+    "gt_vout": -9.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 192,
+    "tokens_out": 174
+  },
+  {
+    "id": "L1_076",
+    "level": 1,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 187
+  },
+  {
+    "id": "L1_077",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 209
+  },
+  {
+    "id": "L1_078",
+    "level": 1,
+    "gt_vout": 36.0,
+    "llm_vout": 36.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 159
+  },
+  {
+    "id": "L1_079",
+    "level": 1,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 185
+  },
+  {
+    "id": "L1_080",
+    "level": 1,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 186
+  },
+  {
+    "id": "L1_081",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 154
+  },
+  {
+    "id": "L1_082",
+    "level": 1,
+    "gt_vout": 4.2,
+    "llm_vout": 5.0,
+    "error_pct": 19.047619047619044,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 156
+  },
+  {
+    "id": "L1_083",
+    "level": 1,
+    "gt_vout": 12,
+    "llm_vout": 19.0,
+    "error_pct": 58.333333333333336,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 145
+  },
+  {
+    "id": "L1_084",
+    "level": 1,
+    "gt_vout": 3,
+    "llm_vout": 3.3,
+    "error_pct": 9.999999999999993,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 143
+  },
+  {
+    "id": "L1_085",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 138
+  },
+  {
+    "id": "L1_086",
+    "level": 1,
+    "gt_vout": 36,
+    "llm_vout": 60.0,
+    "error_pct": 66.66666666666666,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_087",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 181,
+    "tokens_out": 106
+  },
+  {
+    "id": "L1_088",
+    "level": 1,
+    "gt_vout": 6,
+    "llm_vout": 12.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 203
+  },
+  {
+    "id": "L1_089",
+    "level": 1,
+    "gt_vout": 3.7,
+    "llm_vout": 3.7,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 178,
+    "tokens_out": 137
+  },
+  {
+    "id": "L1_090",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 3.3,
+    "error_pct": 34.0,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 139
+  },
+  {
+    "id": "L1_091",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 128
+  },
+  {
+    "id": "L1_092",
+    "level": 1,
+    "gt_vout": 1.8,
+    "llm_vout": 3.3,
+    "error_pct": 83.33333333333331,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 151
+  },
+  {
+    "id": "L1_093",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 141
+  },
+  {
+    "id": "L1_094",
+    "level": 1,
+    "gt_vout": 3.3,
+    "llm_vout": 3.7,
+    "error_pct": 12.121212121212132,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 137
+  },
+  {
+    "id": "L1_095",
+    "level": 1,
+    "gt_vout": 4.6,
+    "llm_vout": 15.0,
+    "error_pct": 226.08695652173915,
+    "success": false,
+    "tokens_in": 173,
+    "tokens_out": 173
+  },
+  {
+    "id": "L1_096",
+    "level": 1,
+    "gt_vout": 36,
+    "llm_vout": 32.0,
+    "error_pct": 11.11111111111111,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 142
+  },
+  {
+    "id": "L1_097",
+    "level": 1,
+    "gt_vout": 2.5,
+    "llm_vout": 1.8,
+    "error_pct": 27.999999999999996,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 119
+  },
+  {
+    "id": "L1_098",
+    "level": 1,
+    "gt_vout": 18,
+    "llm_vout": 48.0,
+    "error_pct": 166.66666666666669,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 149
+  },
+  {
+    "id": "L1_099",
+    "level": 1,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 178,
+    "tokens_out": 133
+  },
+  {
+    "id": "L1_100",
+    "level": 1,
+    "gt_vout": 9,
+    "llm_vout": 48.0,
+    "error_pct": 433.3333333333333,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 135
+  },
+  {
+    "id": "L2_001",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 144
+  },
+  {
+    "id": "L2_002",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 189,
+    "tokens_out": 224
+  },
+  {
+    "id": "L2_003",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 193,
+    "tokens_out": 142
+  },
+  {
+    "id": "L2_004",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 172
+  },
+  {
+    "id": "L2_005",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 167
+  },
+  {
+    "id": "L2_006",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 188,
+    "tokens_out": 167
+  },
+  {
+    "id": "L2_007",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 179
+  },
+  {
+    "id": "L2_008",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 162
+  },
+  {
+    "id": "L2_009",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 124
+  },
+  {
+    "id": "L2_010",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 189,
+    "tokens_out": 178
+  },
+  {
+    "id": "L2_101",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 193,
+    "tokens_out": 175
+  },
+  {
+    "id": "L2_102",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 11.1,
+    "error_pct": 7.500000000000003,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 179
+  },
+  {
+    "id": "L2_103",
+    "level": 2,
+    "gt_vout": 4.2,
+    "llm_vout": 3.3,
+    "error_pct": 21.428571428571434,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 168
+  },
+  {
+    "id": "L2_104",
+    "level": 2,
+    "gt_vout": 400,
+    "llm_vout": 48.0,
+    "error_pct": 88.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 128
+  },
+  {
+    "id": "L2_105",
+    "level": 2,
+    "gt_vout": 24,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 157
+  },
+  {
+    "id": "L2_106",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 19.0,
+    "error_pct": 280.0,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 143
+  },
+  {
+    "id": "L2_107",
+    "level": 2,
+    "gt_vout": 24,
+    "llm_vout": 48.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 144
+  },
+  {
+    "id": "L2_108",
+    "level": 2,
+    "gt_vout": 36,
+    "llm_vout": 48.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 132
+  },
+  {
+    "id": "L2_109",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 48.0,
+    "error_pct": 860.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 158
+  },
+  {
+    "id": "L2_110",
+    "level": 2,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 178,
+    "tokens_out": 149
+  },
+  {
+    "id": "L2_111",
+    "level": 2,
+    "gt_vout": 24,
+    "llm_vout": 48.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 112
+  },
+  {
+    "id": "L2_112",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 143
+  },
+  {
+    "id": "L2_113",
+    "level": 2,
+    "gt_vout": 30,
+    "llm_vout": 12.0,
+    "error_pct": 60.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 138
+  },
+  {
+    "id": "L2_114",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 15.0,
+    "error_pct": 25.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 156
+  },
+  {
+    "id": "L2_115",
+    "level": 2,
+    "gt_vout": 36,
+    "llm_vout": 48.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 123
+  },
+  {
+    "id": "L2_116",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 174
+  },
+  {
+    "id": "L2_117",
+    "level": 2,
+    "gt_vout": 1.1,
+    "llm_vout": 0.95,
+    "error_pct": 13.636363636363647,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 180
+  },
+  {
+    "id": "L2_118",
+    "level": 2,
+    "gt_vout": 70,
+    "llm_vout": 70000.0,
+    "error_pct": 99900.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 170
+  },
+  {
+    "id": "L2_119",
+    "level": 2,
+    "gt_vout": 24,
+    "llm_vout": 48.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 125
+  },
+  {
+    "id": "L2_120",
+    "level": 2,
+    "gt_vout": 36,
+    "llm_vout": 24.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 112
+  },
+  {
+    "id": "L2_011",
+    "level": 2,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 129
+  },
+  {
+    "id": "L2_012",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 185
+  },
+  {
+    "id": "L2_013",
+    "level": 2,
+    "gt_vout": 19.0,
+    "llm_vout": 19.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 193
+  },
+  {
+    "id": "L2_014",
+    "level": 2,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 209
+  },
+  {
+    "id": "L2_015",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 188,
+    "tokens_out": 173
+  },
+  {
+    "id": "L2_016",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 162
+  },
+  {
+    "id": "L2_017",
+    "level": 2,
+    "gt_vout": 18.0,
+    "llm_vout": 18.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 93
+  },
+  {
+    "id": "L2_018",
+    "level": 2,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 187
+  },
+  {
+    "id": "L2_019",
+    "level": 2,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 146
+  },
+  {
+    "id": "L2_020",
+    "level": 2,
+    "gt_vout": 56.0,
+    "llm_vout": 56.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 194
+  },
+  {
+    "id": "L2_121",
+    "level": 2,
+    "gt_vout": 36,
+    "llm_vout": 48.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 126
+  },
+  {
+    "id": "L2_122",
+    "level": 2,
+    "gt_vout": 380,
+    "llm_vout": 48.0,
+    "error_pct": 87.36842105263159,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 150
+  },
+  {
+    "id": "L2_123",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 130
+  },
+  {
+    "id": "L2_124",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 12.0,
+    "error_pct": 140.0,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 145
+  },
+  {
+    "id": "L2_125",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 15.0,
+    "error_pct": 25.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 138
+  },
+  {
+    "id": "L2_126",
+    "level": 2,
+    "gt_vout": 400,
+    "llm_vout": 230.0,
+    "error_pct": 42.5,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 135
+  },
+  {
+    "id": "L2_127",
+    "level": 2,
+    "gt_vout": 24,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 154
+  },
+  {
+    "id": "L2_128",
+    "level": 2,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 159
+  },
+  {
+    "id": "L2_129",
+    "level": 2,
+    "gt_vout": 80,
+    "llm_vout": 60.0,
+    "error_pct": 25.0,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 146
+  },
+  {
+    "id": "L2_130",
+    "level": 2,
+    "gt_vout": 48,
+    "llm_vout": 52.0,
+    "error_pct": 8.333333333333332,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 136
+  },
+  {
+    "id": "L2_131",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 48.0,
+    "error_pct": 860.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 125
+  },
+  {
+    "id": "L2_132",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 177,
+    "tokens_out": 146
+  },
+  {
+    "id": "L2_133",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 12.0,
+    "error_pct": 140.0,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 124
+  },
+  {
+    "id": "L2_134",
+    "level": 2,
+    "gt_vout": 30,
+    "llm_vout": 24.0,
+    "error_pct": 20.0,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 129
+  },
+  {
+    "id": "L2_135",
+    "level": 2,
+    "gt_vout": 28,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 178,
+    "tokens_out": 117
+  },
+  {
+    "id": "L2_136",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 174,
+    "tokens_out": 140
+  },
+  {
+    "id": "L2_137",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 12.0,
+    "error_pct": 140.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 126
+  },
+  {
+    "id": "L2_138",
+    "level": 2,
+    "gt_vout": 1800,
+    "llm_vout": 2000.0,
+    "error_pct": 11.11111111111111,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 144
+  },
+  {
+    "id": "L2_139",
+    "level": 2,
+    "gt_vout": 42,
+    "llm_vout": 250.0,
+    "error_pct": 495.23809523809524,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 131
+  },
+  {
+    "id": "L2_140",
+    "level": 2,
+    "gt_vout": 48,
+    "llm_vout": 230.0,
+    "error_pct": 379.16666666666663,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 145
+  },
+  {
+    "id": "L2_141",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 176,
+    "tokens_out": 152
+  },
+  {
+    "id": "L2_142",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 176,
+    "tokens_out": 127
+  },
+  {
+    "id": "L2_143",
+    "level": 2,
+    "gt_vout": 3.8,
+    "llm_vout": 3.3,
+    "error_pct": 13.157894736842104,
+    "success": false,
+    "tokens_in": 175,
+    "tokens_out": 121
+  },
+  {
+    "id": "L2_144",
+    "level": 2,
+    "gt_vout": 12,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 137
+  },
+  {
+    "id": "L2_145",
+    "level": 2,
+    "gt_vout": 28,
+    "llm_vout": 48.0,
+    "error_pct": 71.42857142857143,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 131
+  },
+  {
+    "id": "L2_146",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 128
+  },
+  {
+    "id": "L2_147",
+    "level": 2,
+    "gt_vout": 40,
+    "llm_vout": 36.0,
+    "error_pct": 10.0,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 138
+  },
+  {
+    "id": "L2_148",
+    "level": 2,
+    "gt_vout": 36,
+    "llm_vout": 24.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 174,
+    "tokens_out": 168
+  },
+  {
+    "id": "L2_149",
+    "level": 2,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 175,
+    "tokens_out": 152
+  },
+  {
+    "id": "L2_150",
+    "level": 2,
+    "gt_vout": 1.8,
+    "llm_vout": 2.8,
+    "error_pct": 55.55555555555555,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 139
+  },
+  {
+    "id": "L2_021",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 144
+  },
+  {
+    "id": "L2_022",
+    "level": 2,
+    "gt_vout": 400.0,
+    "llm_vout": 400.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 122
+  },
+  {
+    "id": "L2_023",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 157
+  },
+  {
+    "id": "L2_024",
+    "level": 2,
+    "gt_vout": 170.0,
+    "llm_vout": 170.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 123
+  },
+  {
+    "id": "L2_025",
+    "level": 2,
+    "gt_vout": -48.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 190
+  },
+  {
+    "id": "L2_026",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 149
+  },
+  {
+    "id": "L2_027",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 177
+  },
+  {
+    "id": "L2_028",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 160
+  },
+  {
+    "id": "L2_029",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 188,
+    "tokens_out": 142
+  },
+  {
+    "id": "L2_030",
+    "level": 2,
+    "gt_vout": 380.0,
+    "llm_vout": 380.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 147
+  },
+  {
+    "id": "L2_031",
+    "level": 2,
+    "gt_vout": 9.0,
+    "llm_vout": 9.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 188,
+    "tokens_out": 148
+  },
+  {
+    "id": "L2_032",
+    "level": 2,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 169
+  },
+  {
+    "id": "L2_033",
+    "level": 2,
+    "gt_vout": null,
+    "llm_vout": 15.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 181
+  },
+  {
+    "id": "L2_034",
+    "level": 2,
+    "gt_vout": 1.0,
+    "llm_vout": 1.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 160
+  },
+  {
+    "id": "L2_035",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 172
+  },
+  {
+    "id": "L2_036",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 183,
+    "tokens_out": 201
+  },
+  {
+    "id": "L2_037",
+    "level": 2,
+    "gt_vout": -5.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 167
+  },
+  {
+    "id": "L2_038",
+    "level": 2,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 194
+  },
+  {
+    "id": "L2_039",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 190
+  },
+  {
+    "id": "L2_040",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 185,
+    "tokens_out": 141
+  },
+  {
+    "id": "L2_041",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 132
+  },
+  {
+    "id": "L2_042",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 153
+  },
+  {
+    "id": "L2_043",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 169
+  },
+  {
+    "id": "L2_044",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 199,
+    "tokens_out": 129
+  },
+  {
+    "id": "L2_045",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 181
+  },
+  {
+    "id": "L2_046",
+    "level": 2,
+    "gt_vout": 1.0,
+    "llm_vout": 1.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 196,
+    "tokens_out": 195
+  },
+  {
+    "id": "L2_047",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 164
+  },
+  {
+    "id": "L2_048",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 201
+  },
+  {
+    "id": "L2_049",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 142
+  },
+  {
+    "id": "L2_050",
+    "level": 2,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 200,
+    "tokens_out": 163
+  },
+  {
+    "id": "L2_051",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 141
+  },
+  {
+    "id": "L2_052",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 206,
+    "tokens_out": 148
+  },
+  {
+    "id": "L2_053",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 199,
+    "tokens_out": 216
+  },
+  {
+    "id": "L2_054",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 136
+  },
+  {
+    "id": "L2_055",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 162
+  },
+  {
+    "id": "L2_056",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 147
+  },
+  {
+    "id": "L2_057",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 198,
+    "tokens_out": 224
+  },
+  {
+    "id": "L2_058",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 196,
+    "tokens_out": 170
+  },
+  {
+    "id": "L2_059",
+    "level": 2,
+    "gt_vout": -12.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 197,
+    "tokens_out": 144
+  },
+  {
+    "id": "L2_060",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 195,
+    "tokens_out": 116
+  },
+  {
+    "id": "L2_061",
+    "level": 2,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 154
+  },
+  {
+    "id": "L2_062",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 197,
+    "tokens_out": 130
+  },
+  {
+    "id": "L2_063",
+    "level": 2,
+    "gt_vout": 380.0,
+    "llm_vout": 380.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 142
+  },
+  {
+    "id": "L2_064",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 214
+  },
+  {
+    "id": "L2_065",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 121
+  },
+  {
+    "id": "L2_066",
+    "level": 2,
+    "gt_vout": -18.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 193,
+    "tokens_out": 184
+  },
+  {
+    "id": "L2_067",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 154
+  },
+  {
+    "id": "L2_068",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 170
+  },
+  {
+    "id": "L2_069",
+    "level": 2,
+    "gt_vout": null,
+    "llm_vout": 48.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 189,
+    "tokens_out": 129
+  },
+  {
+    "id": "L2_070",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 196,
+    "tokens_out": 176
+  },
+  {
+    "id": "L2_071",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 147
+  },
+  {
+    "id": "L2_072",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 186
+  },
+  {
+    "id": "L2_073",
+    "level": 2,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 219,
+    "tokens_out": 213
+  },
+  {
+    "id": "L2_074",
+    "level": 2,
+    "gt_vout": 1.2,
+    "llm_vout": 1.2,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 223,
+    "tokens_out": 200
+  },
+  {
+    "id": "L2_075",
+    "level": 2,
+    "gt_vout": 18.0,
+    "llm_vout": 18.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 212,
+    "tokens_out": 215
+  },
+  {
+    "id": "L2_076",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 218,
+    "tokens_out": 192
+  },
+  {
+    "id": "L2_077",
+    "level": 2,
+    "gt_vout": 1.1,
+    "llm_vout": 1.1,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 222,
+    "tokens_out": 139
+  },
+  {
+    "id": "L2_078",
+    "level": 2,
+    "gt_vout": 15.0,
+    "llm_vout": 15.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 214,
+    "tokens_out": 199
+  },
+  {
+    "id": "L2_079",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 214,
+    "tokens_out": 214
+  },
+  {
+    "id": "L2_080",
+    "level": 2,
+    "gt_vout": 60.0,
+    "llm_vout": 60.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 168
+  },
+  {
+    "id": "L2_081",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 275
+  },
+  {
+    "id": "L2_082",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 204
+  },
+  {
+    "id": "L2_083",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 223,
+    "tokens_out": 167
+  },
+  {
+    "id": "L2_084",
+    "level": 2,
+    "gt_vout": 200.0,
+    "llm_vout": 325.0,
+    "error_pct": 62.5,
+    "success": false,
+    "tokens_in": 218,
+    "tokens_out": 187
+  },
+  {
+    "id": "L2_085",
+    "level": 2,
+    "gt_vout": 1.25,
+    "llm_vout": 1.25,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 155
+  },
+  {
+    "id": "L2_086",
+    "level": 2,
+    "gt_vout": 20.0,
+    "llm_vout": 20.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 228,
+    "tokens_out": 168
+  },
+  {
+    "id": "L2_087",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 210,
+    "tokens_out": 190
+  },
+  {
+    "id": "L2_088",
+    "level": 2,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 235,
+    "tokens_out": 148
+  },
+  {
+    "id": "L2_089",
+    "level": 2,
+    "gt_vout": 10.0,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 217,
+    "tokens_out": 169
+  },
+  {
+    "id": "L2_090",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 215,
+    "tokens_out": 189
+  },
+  {
+    "id": "L2_091",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 171
+  },
+  {
+    "id": "L2_092",
+    "level": 2,
+    "gt_vout": 9.0,
+    "llm_vout": 24.0,
+    "error_pct": 166.66666666666669,
+    "success": false,
+    "tokens_in": 219,
+    "tokens_out": 152
+  },
+  {
+    "id": "L2_093",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 229,
+    "tokens_out": 132
+  },
+  {
+    "id": "L2_094",
+    "level": 2,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 226
+  },
+  {
+    "id": "L2_095",
+    "level": 2,
+    "gt_vout": 2.8,
+    "llm_vout": 2.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 216,
+    "tokens_out": 146
+  },
+  {
+    "id": "L2_096",
+    "level": 2,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 217,
+    "tokens_out": 349
+  },
+  {
+    "id": "L2_097",
+    "level": 2,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 221,
+    "tokens_out": 173
+  },
+  {
+    "id": "L2_098",
+    "level": 2,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 222,
+    "tokens_out": 161
+  },
+  {
+    "id": "L2_099",
+    "level": 2,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 156
+  },
+  {
+    "id": "L2_100",
+    "level": 2,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 226,
+    "tokens_out": 236
+  },
+  {
+    "id": "L3_001",
+    "level": 3,
+    "gt_vout": 19.0,
+    "llm_vout": 19.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 195
+  },
+  {
+    "id": "L3_002",
+    "level": 3,
+    "gt_vout": 1.0,
+    "llm_vout": 12.0,
+    "error_pct": 1100.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 129
+  },
+  {
+    "id": "L3_003",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 14.4,
+    "error_pct": 20.000000000000004,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 123
+  },
+  {
+    "id": "L3_004",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 400.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 105
+  },
+  {
+    "id": "L3_005",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 20.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 191,
+    "tokens_out": 222
+  },
+  {
+    "id": "L3_006",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 12.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 197,
+    "tokens_out": 265
+  },
+  {
+    "id": "L3_007",
+    "level": 3,
+    "gt_vout": 54.0,
+    "llm_vout": 54.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 179
+  },
+  {
+    "id": "L3_008",
+    "level": 3,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 140
+  },
+  {
+    "id": "L3_009",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 153
+  },
+  {
+    "id": "L3_010",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 400.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 136
+  },
+  {
+    "id": "L3_011",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 120.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 168
+  },
+  {
+    "id": "L3_012",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 240.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 148
+  },
+  {
+    "id": "L3_013",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 1000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 151
+  },
+  {
+    "id": "L3_014",
+    "level": 3,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 178
+  },
+  {
+    "id": "L3_015",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 165
+  },
+  {
+    "id": "L3_016",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 139
+  },
+  {
+    "id": "L3_017",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 150.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 164
+  },
+  {
+    "id": "L3_018",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 16.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 148
+  },
+  {
+    "id": "L3_019",
+    "level": 3,
+    "gt_vout": 380.0,
+    "llm_vout": 380.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 189,
+    "tokens_out": 145
+  },
+  {
+    "id": "L3_020",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 380.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 188,
+    "tokens_out": 181
+  },
+  {
+    "id": "L3_021",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 235,
+    "tokens_out": 232
+  },
+  {
+    "id": "L3_022",
+    "level": 3,
+    "gt_vout": 4.2,
+    "llm_vout": 4.2,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 197
+  },
+  {
+    "id": "L3_023",
+    "level": 3,
+    "gt_vout": 900.0,
+    "llm_vout": 900.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 227,
+    "tokens_out": 148
+  },
+  {
+    "id": "L3_024",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 230,
+    "tokens_out": 208
+  },
+  {
+    "id": "L3_025",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 239,
+    "tokens_out": 199
+  },
+  {
+    "id": "L3_026",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 214
+  },
+  {
+    "id": "L3_027",
+    "level": 3,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 230,
+    "tokens_out": 159
+  },
+  {
+    "id": "L3_028",
+    "level": 3,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 231,
+    "tokens_out": 189
+  },
+  {
+    "id": "L3_029",
+    "level": 3,
+    "gt_vout": 750.0,
+    "llm_vout": 750.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 226,
+    "tokens_out": 190
+  },
+  {
+    "id": "L3_030",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 191
+  },
+  {
+    "id": "L3_031",
+    "level": 3,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 223,
+    "tokens_out": 162
+  },
+  {
+    "id": "L3_032",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 198
+  },
+  {
+    "id": "L3_033",
+    "level": 3,
+    "gt_vout": 100.0,
+    "llm_vout": 100.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 232,
+    "tokens_out": 225
+  },
+  {
+    "id": "L3_034",
+    "level": 3,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 143
+  },
+  {
+    "id": "L3_035",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 233,
+    "tokens_out": 151
+  },
+  {
+    "id": "L3_036",
+    "level": 3,
+    "gt_vout": 10.0,
+    "llm_vout": 10.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 229,
+    "tokens_out": 192
+  },
+  {
+    "id": "L3_037",
+    "level": 3,
+    "gt_vout": 300.0,
+    "llm_vout": 300.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 230,
+    "tokens_out": 172
+  },
+  {
+    "id": "L3_038",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 223,
+    "tokens_out": 194
+  },
+  {
+    "id": "L3_039",
+    "level": 3,
+    "gt_vout": 400.0,
+    "llm_vout": 400.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 231,
+    "tokens_out": 203
+  },
+  {
+    "id": "L3_040",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 222,
+    "tokens_out": 239
+  },
+  {
+    "id": "L3_041",
+    "level": 3,
+    "gt_vout": 2.0,
+    "llm_vout": 2.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 227,
+    "tokens_out": 154
+  },
+  {
+    "id": "L3_042",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 237,
+    "tokens_out": 190
+  },
+  {
+    "id": "L3_043",
+    "level": 3,
+    "gt_vout": 650.0,
+    "llm_vout": 650.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 220,
+    "tokens_out": 130
+  },
+  {
+    "id": "L3_044",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 217,
+    "tokens_out": 170
+  },
+  {
+    "id": "L3_045",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 229,
+    "tokens_out": 131
+  },
+  {
+    "id": "L3_046",
+    "level": 3,
+    "gt_vout": 120.0,
+    "llm_vout": 120.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 229,
+    "tokens_out": 175
+  },
+  {
+    "id": "L3_047",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 233,
+    "tokens_out": 132
+  },
+  {
+    "id": "L3_048",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 230,
+    "tokens_out": 120
+  },
+  {
+    "id": "L3_049",
+    "level": 3,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 222,
+    "tokens_out": 207
+  },
+  {
+    "id": "L3_050",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 227,
+    "tokens_out": 190
+  },
+  {
+    "id": "L3_051",
+    "level": 3,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 227,
+    "tokens_out": 197
+  },
+  {
+    "id": "L3_052",
+    "level": 3,
+    "gt_vout": 500.0,
+    "llm_vout": 500.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 220,
+    "tokens_out": 207
+  },
+  {
+    "id": "L3_053",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 212
+  },
+  {
+    "id": "L3_054",
+    "level": 3,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 232,
+    "tokens_out": 241
+  },
+  {
+    "id": "L3_055",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 225,
+    "tokens_out": 166
+  },
+  {
+    "id": "L3_056",
+    "level": 3,
+    "gt_vout": 10.0,
+    "llm_vout": 10.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 220,
+    "tokens_out": 144
+  },
+  {
+    "id": "L3_057",
+    "level": 3,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 235
+  },
+  {
+    "id": "L3_058",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 25000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 228,
+    "tokens_out": 228
+  },
+  {
+    "id": "L3_059",
+    "level": 3,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 228,
+    "tokens_out": 173
+  },
+  {
+    "id": "L3_060",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 236,
+    "tokens_out": 218
+  },
+  {
+    "id": "L3_061",
+    "level": 3,
+    "gt_vout": 200.0,
+    "llm_vout": 200.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 155
+  },
+  {
+    "id": "L3_062",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 223,
+    "tokens_out": 178
+  },
+  {
+    "id": "L3_063",
+    "level": 3,
+    "gt_vout": 440.0,
+    "llm_vout": 440.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 222,
+    "tokens_out": 184
+  },
+  {
+    "id": "L3_064",
+    "level": 3,
+    "gt_vout": 3.0,
+    "llm_vout": 3.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 189
+  },
+  {
+    "id": "L3_065",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 220,
+    "tokens_out": 184
+  },
+  {
+    "id": "L3_066",
+    "level": 3,
+    "gt_vout": 300.0,
+    "llm_vout": 300.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 237,
+    "tokens_out": 186
+  },
+  {
+    "id": "L3_067",
+    "level": 3,
+    "gt_vout": 750.0,
+    "llm_vout": 750.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 228,
+    "tokens_out": 159
+  },
+  {
+    "id": "L3_068",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 238,
+    "tokens_out": 168
+  },
+  {
+    "id": "L3_069",
+    "level": 3,
+    "gt_vout": 1.5,
+    "llm_vout": 1.5,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 232,
+    "tokens_out": 172
+  },
+  {
+    "id": "L3_070",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 227,
+    "tokens_out": 160
+  },
+  {
+    "id": "L3_071",
+    "level": 3,
+    "gt_vout": 500.0,
+    "llm_vout": 500.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 222
+  },
+  {
+    "id": "L3_072",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 0.1,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 228,
+    "tokens_out": 148
+  },
+  {
+    "id": "L3_073",
+    "level": 3,
+    "gt_vout": 200.0,
+    "llm_vout": 200.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 224,
+    "tokens_out": 163
+  },
+  {
+    "id": "L3_074",
+    "level": 3,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 233,
+    "tokens_out": 176
+  },
+  {
+    "id": "L3_075",
+    "level": 3,
+    "gt_vout": 540.0,
+    "llm_vout": 540.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 164
+  },
+  {
+    "id": "L3_076",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 225,
+    "tokens_out": 177
+  },
+  {
+    "id": "L3_077",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 236
+  },
+  {
+    "id": "L3_078",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 222,
+    "tokens_out": 153
+  },
+  {
+    "id": "L3_079",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 400.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 219,
+    "tokens_out": 191
+  },
+  {
+    "id": "L3_080",
+    "level": 3,
+    "gt_vout": 0.7,
+    "llm_vout": 0.7,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 225,
+    "tokens_out": 151
+  },
+  {
+    "id": "L3_081",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 22.2,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 228,
+    "tokens_out": 183
+  },
+  {
+    "id": "L3_082",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 5000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 236,
+    "tokens_out": 154
+  },
+  {
+    "id": "L3_083",
+    "level": 3,
+    "gt_vout": 150.0,
+    "llm_vout": 150.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 221,
+    "tokens_out": 175
+  },
+  {
+    "id": "L3_084",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 236,
+    "tokens_out": 360
+  },
+  {
+    "id": "L3_085",
+    "level": 3,
+    "gt_vout": 28.0,
+    "llm_vout": 28.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 226,
+    "tokens_out": 206
+  },
+  {
+    "id": "L3_086",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 232,
+    "tokens_out": 199
+  },
+  {
+    "id": "L3_087",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 350000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 236,
+    "tokens_out": 202
+  },
+  {
+    "id": "L3_088",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 220,
+    "tokens_out": 152
+  },
+  {
+    "id": "L3_089",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 226,
+    "tokens_out": 229
+  },
+  {
+    "id": "L3_090",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": 80000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 218,
+    "tokens_out": 156
+  },
+  {
+    "id": "L3_091",
+    "level": 3,
+    "gt_vout": 600.0,
+    "llm_vout": 600.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 235,
+    "tokens_out": 147
+  },
+  {
+    "id": "L3_092",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 219,
+    "tokens_out": 201
+  },
+  {
+    "id": "L3_093",
+    "level": 3,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 217,
+    "tokens_out": 171
+  },
+  {
+    "id": "L3_094",
+    "level": 3,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 172
+  },
+  {
+    "id": "L3_095",
+    "level": 3,
+    "gt_vout": 200.0,
+    "llm_vout": 200.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 228,
+    "tokens_out": 151
+  },
+  {
+    "id": "L3_096",
+    "level": 3,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 143
+  },
+  {
+    "id": "L3_097",
+    "level": 3,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 234,
+    "tokens_out": 165
+  },
+  {
+    "id": "L3_098",
+    "level": 3,
+    "gt_vout": 4160.0,
+    "llm_vout": 4160.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 230,
+    "tokens_out": 180
+  },
+  {
+    "id": "L3_099",
+    "level": 3,
+    "gt_vout": 48.0,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 230,
+    "tokens_out": 160
+  },
+  {
+    "id": "L3_100",
+    "level": 3,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 233,
+    "tokens_out": 171
+  },
+  {
+    "id": "L4_001",
+    "level": 4,
+    "gt_vout": 3.3,
+    "llm_vout": 3.3,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 193,
+    "tokens_out": 193
+  },
+  {
+    "id": "L4_002",
+    "level": 4,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 192,
+    "tokens_out": 170
+  },
+  {
+    "id": "L4_003",
+    "level": 4,
+    "gt_vout": 24.0,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 189,
+    "tokens_out": 125
+  },
+  {
+    "id": "L4_004",
+    "level": 4,
+    "gt_vout": 1.2,
+    "llm_vout": 1.2,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 194,
+    "tokens_out": 134
+  },
+  {
+    "id": "L4_005",
+    "level": 4,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 145
+  },
+  {
+    "id": "L4_006",
+    "level": 4,
+    "gt_vout": 5.0,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 189
+  },
+  {
+    "id": "L4_007",
+    "level": 4,
+    "gt_vout": 1.0,
+    "llm_vout": 1.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 193,
+    "tokens_out": 221
+  },
+  {
+    "id": "L4_008",
+    "level": 4,
+    "gt_vout": 12.0,
+    "llm_vout": 12.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 184,
+    "tokens_out": 148
+  },
+  {
+    "id": "L4_009",
+    "level": 4,
+    "gt_vout": 400.0,
+    "llm_vout": 390.0,
+    "error_pct": 2.5,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 119
+  },
+  {
+    "id": "L4_010",
+    "level": 4,
+    "gt_vout": 1.8,
+    "llm_vout": 1.8,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 191,
+    "tokens_out": 126
+  },
+  {
+    "id": "L4_011",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 80.0,
+    "error_pct": 80.0,
+    "success": false,
+    "tokens_in": 196,
+    "tokens_out": 127
+  },
+  {
+    "id": "L4_012",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 400.0,
+    "error_pct": 80.0,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 160
+  },
+  {
+    "id": "L4_013",
+    "level": 4,
+    "gt_vout": 0.5,
+    "llm_vout": 0.9,
+    "error_pct": 80.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 133
+  },
+  {
+    "id": "L4_014",
+    "level": 4,
+    "gt_vout": 20000,
+    "llm_vout": 10000.0,
+    "error_pct": 50.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 145
+  },
+  {
+    "id": "L4_015",
+    "level": 4,
+    "gt_vout": 2,
+    "llm_vout": 1.5,
+    "error_pct": 25.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 172
+  },
+  {
+    "id": "L4_016",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 3000.0,
+    "error_pct": 50.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 145
+  },
+  {
+    "id": "L4_017",
+    "level": 4,
+    "gt_vout": 200,
+    "llm_vout": 30.0,
+    "error_pct": 85.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 154
+  },
+  {
+    "id": "L4_018",
+    "level": 4,
+    "gt_vout": 100,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 132
+  },
+  {
+    "id": "L4_019",
+    "level": 4,
+    "gt_vout": 300,
+    "llm_vout": 28.0,
+    "error_pct": 90.66666666666666,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 145
+  },
+  {
+    "id": "L4_020",
+    "level": 4,
+    "gt_vout": 10000,
+    "llm_vout": 400.0,
+    "error_pct": 96.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 142
+  },
+  {
+    "id": "L4_021",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 30000.0,
+    "error_pct": 1400.0,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 178
+  },
+  {
+    "id": "L4_022",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 3.3,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 135
+  },
+  {
+    "id": "L4_023",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 350.0,
+    "error_pct": 12.5,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 141
+  },
+  {
+    "id": "L4_024",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 5000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 131
+  },
+  {
+    "id": "L4_025",
+    "level": 4,
+    "gt_vout": 4160,
+    "llm_vout": 480.0,
+    "error_pct": 88.46153846153845,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 160
+  },
+  {
+    "id": "L4_026",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 48.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 140
+  },
+  {
+    "id": "L4_027",
+    "level": 4,
+    "gt_vout": 30000,
+    "llm_vout": 6000.0,
+    "error_pct": 80.0,
+    "success": false,
+    "tokens_in": 189,
+    "tokens_out": 156
+  },
+  {
+    "id": "L4_028",
+    "level": 4,
+    "gt_vout": 200000,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 134
+  },
+  {
+    "id": "L4_029",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 120000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 168
+  },
+  {
+    "id": "L4_030",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 137
+  },
+  {
+    "id": "L4_031",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 480.0,
+    "error_pct": 20.0,
+    "success": false,
+    "tokens_in": 190,
+    "tokens_out": 151
+  },
+  {
+    "id": "L4_032",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 2500.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 156
+  },
+  {
+    "id": "L4_033",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 240.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 187,
+    "tokens_out": 151
+  },
+  {
+    "id": "L4_034",
+    "level": 4,
+    "gt_vout": 5000,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 163
+  },
+  {
+    "id": "L4_035",
+    "level": 4,
+    "gt_vout": 6600,
+    "llm_vout": 5000.0,
+    "error_pct": 24.242424242424242,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 142
+  },
+  {
+    "id": "L4_036",
+    "level": 4,
+    "gt_vout": 6,
+    "llm_vout": 200.0,
+    "error_pct": 3233.3333333333335,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 141
+  },
+  {
+    "id": "L4_037",
+    "level": 4,
+    "gt_vout": 10000,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 36
+  },
+  {
+    "id": "L4_038",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 48.0,
+    "error_pct": 88.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 134
+  },
+  {
+    "id": "L4_039",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 10000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 190,
+    "tokens_out": 177
+  },
+  {
+    "id": "L4_040",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 3000.0,
+    "error_pct": 50.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 135
+  },
+  {
+    "id": "L4_041",
+    "level": 4,
+    "gt_vout": 2,
+    "llm_vout": 3.3,
+    "error_pct": 64.99999999999999,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 144
+  },
+  {
+    "id": "L4_042",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 400.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 162
+  },
+  {
+    "id": "L4_043",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 3.3,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 151
+  },
+  {
+    "id": "L4_044",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 1.8,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 85
+  },
+  {
+    "id": "L4_045",
+    "level": 4,
+    "gt_vout": 800,
+    "llm_vout": 5000.0,
+    "error_pct": 525.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 175
+  },
+  {
+    "id": "L4_046",
+    "level": 4,
+    "gt_vout": 0.01,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 122
+  },
+  {
+    "id": "L4_047",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 10000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 177
+  },
+  {
+    "id": "L4_048",
+    "level": 4,
+    "gt_vout": 24,
+    "llm_vout": 0.001,
+    "error_pct": 99.99583333333332,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 136
+  },
+  {
+    "id": "L4_049",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": 5000.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 136
+  },
+  {
+    "id": "L4_050",
+    "level": 4,
+    "gt_vout": null,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 106
+  },
+  {
+    "id": "L4_051",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 190,
+    "tokens_out": 169
+  },
+  {
+    "id": "L4_052",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 186,
+    "tokens_out": 100
+  },
+  {
+    "id": "L4_053",
+    "level": 4,
+    "gt_vout": 24,
+    "llm_vout": 0.0,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 138
+  },
+  {
+    "id": "L4_054",
+    "level": 4,
+    "gt_vout": 0.85,
+    "llm_vout": 1.2,
+    "error_pct": 41.17647058823529,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 137
+  },
+  {
+    "id": "L4_055",
+    "level": 4,
+    "gt_vout": 120,
+    "llm_vout": 30.0,
+    "error_pct": 75.0,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 132
+  },
+  {
+    "id": "L4_056",
+    "level": 4,
+    "gt_vout": 0.7,
+    "llm_vout": 1.2,
+    "error_pct": 71.42857142857143,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 124
+  },
+  {
+    "id": "L4_057",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 1500.0,
+    "error_pct": 25.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 153
+  },
+  {
+    "id": "L4_058",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 187,
+    "tokens_out": 146
+  },
+  {
+    "id": "L4_059",
+    "level": 4,
+    "gt_vout": 2400,
+    "llm_vout": 6000.0,
+    "error_pct": 150.0,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 152
+  },
+  {
+    "id": "L4_060",
+    "level": 4,
+    "gt_vout": 5000,
+    "llm_vout": 10000.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 146
+  },
+  {
+    "id": "L4_061",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 380.0,
+    "error_pct": 691.6666666666667,
+    "success": false,
+    "tokens_in": 188,
+    "tokens_out": 150
+  },
+  {
+    "id": "L4_062",
+    "level": 4,
+    "gt_vout": 200,
+    "llm_vout": 450.0,
+    "error_pct": 125.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 144
+  },
+  {
+    "id": "L4_063",
+    "level": 4,
+    "gt_vout": 5,
+    "llm_vout": 3.3,
+    "error_pct": 34.0,
+    "success": false,
+    "tokens_in": 190,
+    "tokens_out": 144
+  },
+  {
+    "id": "L4_064",
+    "level": 4,
+    "gt_vout": 50000,
+    "llm_vout": 100000.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 148
+  },
+  {
+    "id": "L4_065",
+    "level": 4,
+    "gt_vout": 2,
+    "llm_vout": 3.3,
+    "error_pct": 64.99999999999999,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 127
+  },
+  {
+    "id": "L4_066",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 440.0,
+    "error_pct": 10.0,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 129
+  },
+  {
+    "id": "L4_067",
+    "level": 4,
+    "gt_vout": 0.5,
+    "llm_vout": 0.001,
+    "error_pct": 99.8,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 135
+  },
+  {
+    "id": "L4_068",
+    "level": 4,
+    "gt_vout": 600,
+    "llm_vout": 500.0,
+    "error_pct": 16.666666666666664,
+    "success": false,
+    "tokens_in": 185,
+    "tokens_out": 207
+  },
+  {
+    "id": "L4_069",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 400.0,
+    "error_pct": 733.3333333333333,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 193
+  },
+  {
+    "id": "L4_070",
+    "level": 4,
+    "gt_vout": 480,
+    "llm_vout": 320.0,
+    "error_pct": 33.33333333333333,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 156
+  },
+  {
+    "id": "L4_071",
+    "level": 4,
+    "gt_vout": 25000,
+    "llm_vout": 1000000.0,
+    "error_pct": 3900.0,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 115
+  },
+  {
+    "id": "L4_072",
+    "level": 4,
+    "gt_vout": 2000,
+    "llm_vout": 3000.0,
+    "error_pct": 50.0,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 143
+  },
+  {
+    "id": "L4_073",
+    "level": 4,
+    "gt_vout": 300,
+    "llm_vout": 5.0,
+    "error_pct": 98.33333333333333,
+    "success": false,
+    "tokens_in": 177,
+    "tokens_out": 135
+  },
+  {
+    "id": "L4_074",
+    "level": 4,
+    "gt_vout": 24,
+    "llm_vout": 24.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 144
+  },
+  {
+    "id": "L4_075",
+    "level": 4,
+    "gt_vout": 5,
+    "llm_vout": 12.0,
+    "error_pct": 140.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 119
+  },
+  {
+    "id": "L4_076",
+    "level": 4,
+    "gt_vout": 10,
+    "llm_vout": 2.5,
+    "error_pct": 75.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 142
+  },
+  {
+    "id": "L4_077",
+    "level": 4,
+    "gt_vout": 400,
+    "llm_vout": 48.0,
+    "error_pct": 88.0,
+    "success": false,
+    "tokens_in": 178,
+    "tokens_out": 160
+  },
+  {
+    "id": "L4_078",
+    "level": 4,
+    "gt_vout": 5,
+    "llm_vout": 5.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 130
+  },
+  {
+    "id": "L4_079",
+    "level": 4,
+    "gt_vout": 10,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 134
+  },
+  {
+    "id": "L4_080",
+    "level": 4,
+    "gt_vout": 100,
+    "llm_vout": 300.0,
+    "error_pct": 200.0,
+    "success": false,
+    "tokens_in": 189,
+    "tokens_out": 126
+  },
+  {
+    "id": "L4_081",
+    "level": 4,
+    "gt_vout": 20000,
+    "llm_vout": 500.0,
+    "error_pct": 97.5,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 145
+  },
+  {
+    "id": "L4_082",
+    "level": 4,
+    "gt_vout": 24000,
+    "llm_vout": 20000.0,
+    "error_pct": 16.666666666666664,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 186
+  },
+  {
+    "id": "L4_083",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 200.0,
+    "error_pct": 316.66666666666663,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 148
+  },
+  {
+    "id": "L4_084",
+    "level": 4,
+    "gt_vout": 24,
+    "llm_vout": 48.0,
+    "error_pct": 100.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 118
+  },
+  {
+    "id": "L4_085",
+    "level": 4,
+    "gt_vout": 500,
+    "llm_vout": 400.0,
+    "error_pct": 20.0,
+    "success": false,
+    "tokens_in": 179,
+    "tokens_out": 175
+  },
+  {
+    "id": "L4_086",
+    "level": 4,
+    "gt_vout": 4000,
+    "llm_vout": 380.0,
+    "error_pct": 90.5,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 187
+  },
+  {
+    "id": "L4_087",
+    "level": 4,
+    "gt_vout": 5,
+    "llm_vout": 3.3,
+    "error_pct": 34.0,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 81
+  },
+  {
+    "id": "L4_088",
+    "level": 4,
+    "gt_vout": 1.2,
+    "llm_vout": 1.2,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 179,
+    "tokens_out": 132
+  },
+  {
+    "id": "L4_089",
+    "level": 4,
+    "gt_vout": 28,
+    "llm_vout": 400.0,
+    "error_pct": 1328.5714285714287,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 157
+  },
+  {
+    "id": "L4_090",
+    "level": 4,
+    "gt_vout": 5,
+    "llm_vout": 48.0,
+    "error_pct": 860.0,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 185
+  },
+  {
+    "id": "L4_091",
+    "level": 4,
+    "gt_vout": 500,
+    "llm_vout": 600.0,
+    "error_pct": 20.0,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 149
+  },
+  {
+    "id": "L4_092",
+    "level": 4,
+    "gt_vout": 3,
+    "llm_vout": 20.0,
+    "error_pct": 566.6666666666667,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 126
+  },
+  {
+    "id": "L4_093",
+    "level": 4,
+    "gt_vout": 1500,
+    "llm_vout": 150.0,
+    "error_pct": 90.0,
+    "success": false,
+    "tokens_in": 186,
+    "tokens_out": 139
+  },
+  {
+    "id": "L4_094",
+    "level": 4,
+    "gt_vout": 12,
+    "llm_vout": 5.0,
+    "error_pct": 58.333333333333336,
+    "success": false,
+    "tokens_in": 183,
+    "tokens_out": 123
+  },
+  {
+    "id": "L4_095",
+    "level": 4,
+    "gt_vout": 320000,
+    "llm_vout": null,
+    "error_pct": null,
+    "success": false,
+    "tokens_in": 181,
+    "tokens_out": 151
+  },
+  {
+    "id": "L4_096",
+    "level": 4,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 182,
+    "tokens_out": 101
+  },
+  {
+    "id": "L4_097",
+    "level": 4,
+    "gt_vout": 600,
+    "llm_vout": 7500.0,
+    "error_pct": 1150.0,
+    "success": false,
+    "tokens_in": 184,
+    "tokens_out": 152
+  },
+  {
+    "id": "L4_098",
+    "level": 4,
+    "gt_vout": 48,
+    "llm_vout": 48.0,
+    "error_pct": 0.0,
+    "success": true,
+    "tokens_in": 180,
+    "tokens_out": 142
+  },
+  {
+    "id": "L4_099",
+    "level": 4,
+    "gt_vout": 3.3,
+    "llm_vout": 5.0,
+    "error_pct": 51.51515151515152,
+    "success": false,
+    "tokens_in": 180,
+    "tokens_out": 129
+  },
+  {
+    "id": "L4_100",
+    "level": 4,
+    "gt_vout": 120000,
+    "llm_vout": 100000.0,
+    "error_pct": 16.666666666666664,
+    "success": false,
+    "tokens_in": 188,
+    "tokens_out": 173
+  }
+]

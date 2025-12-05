@@ -1,0 +1,2305 @@
+{
+  "timestamp": "2025-12-04T12:44:18.530910",
+  "model": "gpt-5-mini",
+  "total_problems": 80,
+  "results": [
+    {
+      "problem_id": "L1_001",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 12V input to 5V output, 2A load current",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "2.5A saturation"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "ceramic or electrolytic"
+        },
+        "C_in": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 2.5,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_002",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 24V input to 12V output, 3A load",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L": {
+          "value": 6.8e-05,
+          "unit": "H",
+          "rating": "4A saturation"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "electrolytic + ceramic"
+        },
+        "C_in": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 4.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_003",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 48V input to 5V output, 4A for USB charging",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 0.0001,
+          "unit": "H",
+          "rating": "5A saturation"
+        },
+        "C_out": {
+          "value": 0.00033,
+          "unit": "F",
+          "type": "electrolytic + 22\u00b5F ceramic"
+        },
+        "C_in": {
+          "value": 1e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 1.25,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_004",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 15V to 3.3V for microcontroller supply, 500mA",
+      "gt_vout": 3.3,
+      "gt_components": {
+        "L": {
+          "value": 3.3e-05,
+          "unit": "H",
+          "rating": "1A saturation"
+        },
+        "C_out": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "C_in": {
+          "value": 1e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 6.6,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_005",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter: 5V input to 12V output, 1A load",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L": {
+          "value": 2.2e-05,
+          "unit": "H",
+          "rating": "3A saturation"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "C_in": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_006",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter: 3.7V Li-ion battery to 5V USB output, 2A",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-06,
+          "unit": "H",
+          "rating": "5A saturation"
+        },
+        "C_out": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "C_in": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 2.5,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_007",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter: 12V to 24V, 2A for motor drive",
+      "gt_vout": 24.0,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "6A saturation"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "C_in": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_008",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 28V automotive input to 5V, 3A",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 6.8e-05,
+          "unit": "H",
+          "rating": "4A saturation"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "C_in": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 1.67,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_009",
+      "level": 1,
+      "topology": "boost",
+      "prompt": "Design a boost converter: 9V battery to 15V, 500mA for sensor power",
+      "gt_vout": 15.0,
+      "gt_components": {
+        "L": {
+          "value": 3.3e-05,
+          "unit": "H",
+          "rating": "1.5A saturation"
+        },
+        "C_out": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "C_in": {
+          "value": 1e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 30.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_010",
+      "level": 1,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 36V e-bike battery to 12V accessories, 5A",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L": {
+          "value": 0.0001,
+          "unit": "H",
+          "rating": "7A saturation"
+        },
+        "C_out": {
+          "value": 0.00047,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "C_in": {
+          "value": 4.7e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 2.4,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_101",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_102",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_103",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_104",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_105",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a boost: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_106",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_107",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_108",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_109",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a boost: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L1_110",
+      "level": 1,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_001",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck converter: 24V\u21925V, 3A with <50mV ripple. Constraint: Vout ripple must be under 50mV peak-to-peak.",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 2.2e-05,
+          "unit": "H",
+          "rating": "5A",
+          "justification": "Higher f_sw allows smaller L"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "ceramic_bank",
+          "ESR": "5m\u03a9"
+        },
+        "R_load": {
+          "value": 1.67,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_002",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost converter: 5V\u219212V, 1A with >90% efficiency target.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L": {
+          "value": 2.2e-05,
+          "unit": "H",
+          "rating": "4A",
+          "DCR": "15m\u03a9"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "ceramic",
+          "ESR": "10m\u03a9"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        },
+        "MOSFET": {
+          "Rds_on": "15m\u03a9",
+          "Qg": "10nC"
+        },
+        "diode": {
+          "Vf": "0.3V",
+          "type": "schottky"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_003",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback: 48V\u21925V isolated, 2A. Constraint: Output ripple <100mV, transformer isolation 3kV.",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "Lm": {
+          "value": 0.00015,
+          "unit": "H"
+        },
+        "turns_ratio": {
+          "value": 0.25,
+          "note": "4:1"
+        },
+        "C_out": {
+          "value": 0.00033,
+          "unit": "F",
+          "type": "low_ESR",
+          "ESR": "30m\u03a9"
+        },
+        "R_load": {
+          "value": 2.5,
+          "unit": "\u03a9"
+        },
+        "transformer": {
+          "isolation": "3kV",
+          "type": "triple_insulated"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_004",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck: 12V\u21923.3V, 5A with <1% load regulation.",
+      "gt_vout": 3.3,
+      "gt_components": {
+        "L": {
+          "value": 1e-05,
+          "unit": "H",
+          "rating": "8A"
+        },
+        "C_out": {
+          "value": 0.00033,
+          "unit": "F",
+          "type": "MLCC_bank",
+          "ESR": "3m\u03a9"
+        },
+        "R_load": {
+          "value": 0.66,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_005",
+      "level": 2,
+      "topology": "sepic",
+      "prompt": "Design a SEPIC: 9-18V input range \u2192 12V, 1.5A. Must regulate across full input range.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L1": {
+          "value": 3.3e-05,
+          "unit": "H",
+          "rating": "4A"
+        },
+        "L2": {
+          "value": 3.3e-05,
+          "unit": "H",
+          "rating": "4A"
+        },
+        "C_coupling": {
+          "value": 1e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 8.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_006",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck: 48V\u219212V, 4A. Thermal constraint: Junction temp <100\u00b0C at 40\u00b0C ambient.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L": {
+          "value": 6.8e-05,
+          "unit": "H",
+          "rating": "6A"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 3.0,
+          "unit": "\u03a9"
+        },
+        "MOSFET": {
+          "part": "low_Rds_on",
+          "Rds_on": "10m\u03a9",
+          "package": "PowerPAK"
+        },
+        "heatsink": {
+          "Rth_sa": "5\u00b0C/W"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_007",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost: 12V\u219224V, 2A. EMI constraint: Conducted emissions below CISPR22 Class B.",
+      "gt_vout": 24.0,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "6A",
+          "shielded": true
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "low_ESL"
+        },
+        "C_in": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "ceramic_bank"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_008",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward: 48V\u21923.3V isolated, 15A. Constraint: <30mV ripple for CPU VRM.",
+      "gt_vout": 3.3,
+      "gt_components": {
+        "turns_ratio": {
+          "value": 0.2,
+          "note": "5:1"
+        },
+        "L_out": {
+          "value": 1.5e-06,
+          "unit": "H",
+          "rating": "25A",
+          "DCR": "0.5m\u03a9"
+        },
+        "C_out": {
+          "value": 0.001,
+          "unit": "F",
+          "type": "MLCC_array",
+          "ESR": "0.5m\u03a9"
+        },
+        "R_load": {
+          "value": 0.22,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_009",
+      "level": 2,
+      "topology": "inverting_buck_boost",
+      "prompt": "Design an inverting buck-boost: 12V\u2192-12V, 1A. Constraint: Startup inrush <5A.",
+      "gt_vout": -12.0,
+      "gt_components": {
+        "L": {
+          "value": 6.8e-05,
+          "unit": "H",
+          "rating": "3A"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_010",
+      "level": 2,
+      "topology": "half_bridge",
+      "prompt": "Design a half-bridge: 300V\u219248V isolated, 6A. Constraint: Soft-switching (ZVS) required.",
+      "gt_vout": 48.0,
+      "gt_components": {
+        "turns_ratio": {
+          "value": 0.71,
+          "note": "Ns/Np"
+        },
+        "L_out": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "10A"
+        },
+        "L_resonant": {
+          "value": 1e-05,
+          "unit": "H",
+          "note": "for ZVS"
+        },
+        "C_split": {
+          "value": 0.0001,
+          "unit": "F",
+          "note": "2x bus caps"
+        },
+        "C_out": {
+          "value": 0.00022,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 8.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_011",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck: 28V\u21925V, 10A for automotive 24V system. Constraint: Operate from 18V-32V input range.",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "L": {
+          "value": 1.5e-05,
+          "unit": "H",
+          "rating": "15A"
+        },
+        "C_out": {
+          "value": 0.00033,
+          "unit": "F",
+          "type": "ceramic_bank"
+        },
+        "R_load": {
+          "value": 0.5,
+          "unit": "\u03a9"
+        },
+        "MOSFET": {
+          "Vds_rating": "60V",
+          "Rds_on": "8m\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_012",
+      "level": 2,
+      "topology": "boost_pfc",
+      "prompt": "Design a boost: 18V\u219236V, 3A. Constraint: Power factor >0.95 for PFC compliance.",
+      "gt_vout": 36.0,
+      "gt_components": {
+        "L": {
+          "value": 0.00015,
+          "unit": "H",
+          "rating": "8A"
+        },
+        "C_out": {
+          "value": 0.00047,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_013",
+      "level": 2,
+      "topology": "full_bridge",
+      "prompt": "Design a full-bridge: 400V\u219212V, 30A. Constraint: Current sharing within 5% for paralleled diodes.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "turns_ratio": {
+          "value": 0.075,
+          "note": "13:1"
+        },
+        "L_out": {
+          "value": 1e-05,
+          "unit": "H",
+          "rating": "40A"
+        },
+        "C_out": {
+          "value": 0.001,
+          "unit": "F",
+          "type": "electrolytic_bank"
+        },
+        "R_load": {
+          "value": 0.4,
+          "unit": "\u03a9"
+        },
+        "rectifier": {
+          "type": "synchronous",
+          "count": 4,
+          "parallel": true
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_014",
+      "level": 2,
+      "topology": "cuk",
+      "prompt": "Design a Cuk: 24V\u2192-18V, 1.5A. Constraint: Input current ripple <10% for sensitive source.",
+      "gt_vout": -18.0,
+      "gt_components": {
+        "L1": {
+          "value": 0.00022,
+          "unit": "H",
+          "rating": "3A",
+          "note": "oversized for low ripple"
+        },
+        "L2": {
+          "value": 0.00015,
+          "unit": "H",
+          "rating": "3A"
+        },
+        "C_coupling": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "film"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_015",
+      "level": 2,
+      "topology": "qr_buck",
+      "prompt": "Design a QR buck: 36V\u219212V, 2A. Constraint: Zero voltage switching at all loads >10%.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L_main": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "4A"
+        },
+        "L_resonant": {
+          "value": 2e-06,
+          "unit": "H"
+        },
+        "C_resonant": {
+          "value": 4.7e-09,
+          "unit": "F"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 6.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_016",
+      "level": 2,
+      "topology": "flyback",
+      "prompt": "Design a flyback: 170V (rectified AC)\u219224V, 2A. Constraint: Meet IEC61000-3-2 Class D harmonics.",
+      "gt_vout": 24.0,
+      "gt_components": {
+        "Lm": {
+          "value": 0.0008,
+          "unit": "H",
+          "note": "DCM for low harmonics"
+        },
+        "turns_ratio": {
+          "value": 0.33,
+          "note": "3:1"
+        },
+        "C_out": {
+          "value": 0.00047,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 12.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_017",
+      "level": 2,
+      "topology": "sepic",
+      "prompt": "Design a SEPIC: 6-18V (2S-4S LiPo)\u219212V, 2A. Must regulate across battery discharge curve.",
+      "gt_vout": 12.0,
+      "gt_components": {
+        "L1": {
+          "value": 2.2e-05,
+          "unit": "H",
+          "rating": "6A"
+        },
+        "L2": {
+          "value": 2.2e-05,
+          "unit": "H",
+          "rating": "6A"
+        },
+        "C_coupling": {
+          "value": 2.2e-05,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "electrolytic"
+        },
+        "R_load": {
+          "value": 6.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_018",
+      "level": 2,
+      "topology": "buck",
+      "prompt": "Design a buck: 24V\u21921.2V, 20A for DDR memory. Constraint: <10mV ripple, <50\u00b5s load step response.",
+      "gt_vout": 1.2,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-07,
+          "unit": "H",
+          "rating": "30A",
+          "DCR": "0.3m\u03a9"
+        },
+        "C_out": {
+          "value": 0.002,
+          "unit": "F",
+          "type": "MLCC_array",
+          "ESR": "0.3m\u03a9"
+        },
+        "R_load": {
+          "value": 0.06,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_019",
+      "level": 2,
+      "topology": "forward",
+      "prompt": "Design a forward: 48V\u21925V isolated, 10A. Constraint: 2500Vrms isolation with <5pF capacitance.",
+      "gt_vout": 5.0,
+      "gt_components": {
+        "turns_ratio": {
+          "value": 0.26,
+          "note": "4:1"
+        },
+        "L_out": {
+          "value": 1e-05,
+          "unit": "H",
+          "rating": "15A"
+        },
+        "C_out": {
+          "value": 0.00047,
+          "unit": "F",
+          "type": "ceramic"
+        },
+        "R_load": {
+          "value": 0.5,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L2_020",
+      "level": 2,
+      "topology": "boost",
+      "prompt": "Design a boost: 12V\u219248V, 2A. Constraint: Stable with ceramic-only output caps (no ESR damping).",
+      "gt_vout": 48.0,
+      "gt_components": {
+        "L": {
+          "value": 4.7e-05,
+          "unit": "H",
+          "rating": "12A"
+        },
+        "C_out": {
+          "value": 0.0001,
+          "unit": "F",
+          "type": "MLCC",
+          "ESR": "2m\u03a9"
+        },
+        "R_load": {
+          "value": 24.0,
+          "unit": "\u03a9"
+        }
+      },
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_001",
+      "level": 3,
+      "topology": "flyback",
+      "prompt": "Design a universal input (85-265VAC) to 12V/5A isolated flyback for worldwide adapter",
+      "gt_vout": 12.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_002",
+      "level": 3,
+      "topology": "two_stage_pfc_llc",
+      "prompt": "Design a two-stage 48V/20A server PSU: PFC front-end + LLC resonant",
+      "gt_vout": 48.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_003",
+      "level": 3,
+      "topology": "buck_mppt",
+      "prompt": "Design a solar MPPT charge controller: 150V panel to 48V battery, 20A",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_004",
+      "level": 3,
+      "topology": "three_stage_obc",
+      "prompt": "Design an EV on-board charger: 240VAC to 400V battery, 11kW Level 2",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_005",
+      "level": 3,
+      "topology": "double_conversion_ups",
+      "prompt": "Design a UPS system: 120VAC in, 12V/100Ah battery, 1000VA inverter output",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_006",
+      "level": 3,
+      "topology": "flyback_multi_output",
+      "prompt": "Design a multi-output medical PSU: 24V/3A, 12V/2A, 5V/5A, -12V/500mA isolated",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_007",
+      "level": 3,
+      "topology": "modular_rectifier_system",
+      "prompt": "Design a telecom rectifier: -48V bus, 50A capacity, hot-swap modules",
+      "gt_vout": -48.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_008",
+      "level": 3,
+      "topology": "multi_phase_vrm",
+      "prompt": "Design a 48V to 1V/300A point-of-load for AI accelerator with transient <50mV",
+      "gt_vout": 1.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_009",
+      "level": 3,
+      "topology": "dual_active_bridge",
+      "prompt": "Design a bidirectional DC-DC for energy storage: 400V bus to 48V battery pack, 10kW",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_010",
+      "level": 3,
+      "topology": "llc_led_driver",
+      "prompt": "Design a high-voltage LED driver: 400V input, 300V/1A constant current for street lighting",
+      "gt_vout": 300.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_011",
+      "level": 3,
+      "topology": "resonant_wireless_charger",
+      "prompt": "Design a wireless charging system: 19V input, 5V/9V/12V Qi output, 15W max",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_012",
+      "level": 3,
+      "topology": "active_cell_balancer",
+      "prompt": "Design a battery balancing system for 16S Li-ion pack with active cell balancing",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_013",
+      "level": 3,
+      "topology": "three_phase_vfd",
+      "prompt": "Design a three-phase motor drive: 400VAC input, 10kW permanent magnet motor",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_014",
+      "level": 3,
+      "topology": "string_inverter",
+      "prompt": "Design a grid-tied solar inverter: 600V DC string, 5kW single-phase output",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_015",
+      "level": 3,
+      "topology": "modular_power_shelf",
+      "prompt": "Design a datacom power shelf: 240VAC to -48V, 6kW with 12 hot-plug modules",
+      "gt_vout": -48.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_016",
+      "level": 3,
+      "topology": "inverter_plasma_supply",
+      "prompt": "Design a plasma cutter power supply: 240VAC input, 200A cutting current, 100V OCV",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_017",
+      "level": 3,
+      "topology": "series_resonant_induction",
+      "prompt": "Design an induction heater: 400VAC input, 50kW at 50kHz for metal hardening",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_018",
+      "level": 3,
+      "topology": "three_level_npc",
+      "prompt": "Design a 3-level NPC inverter: 800V DC bus, 100kVA grid interface",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_019",
+      "level": 3,
+      "topology": "bidirectional_buck_boost",
+      "prompt": "Design a supercapacitor energy buffer: 48V system, 100F, 10kW peak charge/discharge",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L3_020",
+      "level": 3,
+      "topology": "inverter_welder",
+      "prompt": "Design an arc welder: 240VAC input, 5-200A output, CC/CV modes",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_001",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design a Type III compensator for a 12V/5A buck with 50kHz crossover, 60deg phase margin",
+      "gt_vout": 12.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_002",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design current mode control with slope compensation for a 48V/12V/10A buck",
+      "gt_vout": 12.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_003",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design a digital compensator (difference equation) for a 5V/10A buck with 100kHz sampling",
+      "gt_vout": 5.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_004",
+      "level": 4,
+      "topology": "boost_pfc",
+      "prompt": "Design an average current mode controller for a boost PFC with THD <5%",
+      "gt_vout": 400.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_005",
+      "level": 4,
+      "topology": "multiphase_buck",
+      "prompt": "Design adaptive voltage positioning (AVP) control for a 1.0V/100A CPU VRM",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_006",
+      "level": 4,
+      "topology": "flyback",
+      "prompt": "Design a small-signal model and compensator for a flyback in CCM",
+      "gt_vout": 12.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_007",
+      "level": 4,
+      "topology": "buck",
+      "prompt": "Design V2 control architecture for a low-ESR ceramic output buck",
+      "gt_vout": 1.8,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_008",
+      "level": 4,
+      "topology": "llc_resonant",
+      "prompt": "Design an LLC frequency control loop for a 400V to 48V/10A resonant converter",
+      "gt_vout": 48.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_009",
+      "level": 4,
+      "topology": "multiphase_buck",
+      "prompt": "Design digital current sharing for a 4-phase interleaved buck (48V to 12V/40A)",
+      "gt_vout": 12.0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_010",
+      "level": 4,
+      "topology": "h_bridge_inverter",
+      "prompt": "Design model predictive control (MPC) for a single-phase grid-tied inverter",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_011",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a full_bridge: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_012",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a full_bridge: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_013",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_014",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a full_bridge: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_015",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a buck: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_016",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a flyback: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_017",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a boost: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_018",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a half_bridge: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_019",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a cuk: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    },
+    {
+      "problem_id": "L4_020",
+      "level": 4,
+      "topology": "unknown",
+      "prompt": "Design a full_bridge: ",
+      "gt_vout": 0,
+      "gt_components": {},
+      "llm_response": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}",
+      "llm_vout": null,
+      "llm_components": null,
+      "parse_success": false,
+      "vout_error_pct": null,
+      "component_match_score": null,
+      "simulation_success": false,
+      "sim_vout": null,
+      "sim_error_pct": null,
+      "latency_ms": 0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "error_msg": "ERROR: Error code: 400 - {'error': {'message': \"Unsupported value: 'temperature' does not support 0.1 with this model. Only the default (1) value is supported.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}"
+    }
+  ]
+}

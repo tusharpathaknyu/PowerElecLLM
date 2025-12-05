@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_141",
+      "prompt": "Garage Door Opener Controller: WiFi-enabled garage door controller with status monitoring",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi-enabled garage door controller with status monitoring"
+    },
+    {
+      "id": "L1_142",
+      "prompt": "Digital Tire Gauge: Handheld digital tire pressure gauge with backlit display",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Handheld digital tire pressure gauge with backlit display"
+    },
+    {
+      "id": "L1_143",
+      "prompt": "Streaming Microphone Power: USB condenser microphone with RGB lighting effects",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "USB condenser microphone with RGB lighting effects"
+    },
+    {
+      "id": "L1_144",
+      "prompt": "Electric Razor Power: Rechargeable electric shaver with cleaning station",
+      "specs": {
+        "vout": 4.2,
+        "vin": 5,
+        "f_sw": 800000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Rechargeable electric shaver with cleaning station"
+    },
+    {
+      "id": "L1_145",
+      "prompt": "Fish Finder Display: Portable sonar fish finder with color LCD display",
+      "specs": {
+        "vout": 12,
+        "vin": 7.4,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Portable sonar fish finder with color LCD display"
+    },
+    {
+      "id": "L1_146",
+      "prompt": "Smart Pill Dispenser: WiFi medication reminder with locked compartments",
+      "specs": {
+        "vout": 5,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi medication reminder with locked compartments"
+    },
+    {
+      "id": "L1_147",
+      "prompt": "Dash Camera Loop Recording: Dual-channel dash camera with GPS and WiFi",
+      "specs": {
+        "vout": 5,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Dual-channel dash camera with GPS and WiFi"
+    },
+    {
+      "id": "L1_148",
+      "prompt": "Karaoke Microphone Power: Wireless karaoke microphone with built-in speaker",
+      "specs": {
+        "vout": 6,
+        "vin": 3.7,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Wireless karaoke microphone with built-in speaker"
+    },
+    {
+      "id": "L1_149",
+      "prompt": "Smart Water Bottle: Temperature tracking water bottle with hydration reminders",
+      "specs": {
+        "vout": 1.8,
+        "vin": 4.2,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Temperature tracking water bottle with hydration reminders"
+    },
+    {
+      "id": "L1_150",
+      "prompt": "VR Controller Power: Virtual reality hand controller with haptic feedback",
+      "specs": {
+        "vout": 3.3,
+        "vin": 4.2,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Virtual reality hand controller with haptic feedback"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_071",
+      "prompt": "Magnetic Confinement Fusion Plasma Heating RF Supply: ITER-class tokamak requiring high-power RF generation for ion cyclotron heating",
+      "specs": {
+        "vout": 25000,
+        "vin": 10000,
+        "power": 2000000,
+        "f_sw": 8000
+      },
+      "constraints": [
+        "RF frequency tunable 40-55 MHz for ICRH",
+        "1000-second pulse length capability",
+        "Plasma load impedance variation 10:1",
+        "Fast shutdown < 10 \u00b5s for plasma disruption",
+        "Radiation hardened controls"
+      ],
+      "difficulty": "expert",
+      "application": "ITER-class tokamak requiring high-power RF generation for ion cyclotron heating",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_072",
+      "prompt": "Extreme UV Lithography Source Power: EUV scanner requiring pulsed power for laser-produced plasma light source",
+      "specs": {
+        "vout": 2000,
+        "vin": 600,
+        "power": 30000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "EUV dose stability \u00b10.1% for lithography",
+        "50 kHz droplet repetition rate",
+        "Tin debris mitigation compatibility",
+        "Cleanroom Class 1 compatible",
+        "CO2 laser pre-pulse synchronization"
+      ],
+      "difficulty": "expert",
+      "application": "EUV scanner requiring pulsed power for laser-produced plasma light source",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_073",
+      "prompt": "Satellite Formation Flying Propulsion: Precision formation flying satellites requiring micro-Newton thrust control",
+      "specs": {
+        "vout": 300,
+        "vin": 28,
+        "power": 200,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Thrust resolution 100 nN for formation control",
+        "Position accuracy \u00b11 mm over 100 km baseline",
+        "Propellant-free electrospray thrusters",
+        "10-year mission lifetime",
+        "Inter-satellite link coordination"
+      ],
+      "difficulty": "expert",
+      "application": "Precision formation flying satellites requiring micro-Newton thrust control",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_074",
+      "prompt": "HVDC Cable Monitoring Power Injection: Subsea HVDC transmission requiring distributed monitoring power along cable route",
+      "specs": {
+        "vout": 24,
+        "vin": 500,
+        "power": 50,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "525 kV HVDC cable coupling",
+        "3000 m depth pressure rating",
+        "25-year maintenance-free operation",
+        "Fiber optic data link integration",
+        "Corrosion resistant for seawater"
+      ],
+      "difficulty": "expert",
+      "application": "Subsea HVDC transmission requiring distributed monitoring power along cable route",
+      "topology": "flyback"
+    },
+    {
+      "id": "L4_075",
+      "prompt": "Quantum Memory Magneto-Optical Trap Power: Quantum network node requiring ultra-stable power for atomic ensemble trapping",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 100,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "Magnetic field noise < 1 nT/\u221aHz for trap stability",
+        "Atom trap lifetime > 1 second",
+        "Zero vibration for optical alignment",
+        "Optical pumping laser power stability \u00b10.01%",
+        "UHV chamber compatibility (10^-11 Torr)"
+      ],
+      "difficulty": "expert",
+      "application": "Quantum network node requiring ultra-stable power for atomic ensemble trapping",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_076",
+      "prompt": "Free Electron Laser Undulator Trim Supply: X-ray FEL requiring precision undulator trim coil power for photon beam tuning",
+      "specs": {
+        "vout": 10,
+        "vin": 48,
+        "power": 500,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Current stability \u00b110 ppm for beam quality",
+        "Field uniformity \u00b10.01% along undulator",
+        "32 independent channels per segment",
+        "Radiation tunnel installation",
+        "Remote diagnostics via fiber optic"
+      ],
+      "difficulty": "expert",
+      "application": "X-ray FEL requiring precision undulator trim coil power for photon beam tuning",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_077",
+      "prompt": "Cryogenic Hydrogen Storage Pump Drive: Liquid hydrogen infrastructure requiring pumping power at 20 Kelvin",
+      "specs": {
+        "vout": 400,
+        "vin": 480,
+        "power": 50000,
+        "f_sw": 20000
+      },
+      "constraints": [
+        "Operation in liquid hydrogen at 20 K",
+        "Zero ignition source (hydrogen atmosphere)",
+        "1000 kg/hr flow rate control",
+        "Hermetically sealed motor-pump assembly",
+        "Boil-off minimization through efficiency"
+      ],
+      "difficulty": "expert",
+      "application": "Liquid hydrogen infrastructure requiring pumping power at 20 Kelvin",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_078",
+      "prompt": "Gravitational Reference Sensor Power: Space-based gravitational wave detector requiring ultra-quiet proof mass control",
+      "specs": {
+        "vout": 5,
+        "vin": 28,
+        "power": 10,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Acceleration noise < 10^-15 m/s\u00b2/\u221aHz",
+        "Drag-free residual < 10^-14 m/s\u00b2",
+        "Electrostatic actuation noise floor",
+        "Zero magnetic materials in assembly",
+        "Capacitive position sensing \u00b11 pm"
+      ],
+      "difficulty": "expert",
+      "application": "Space-based gravitational wave detector requiring ultra-quiet proof mass control",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_079",
+      "prompt": "Antimatter Trap Electrode Power System: CERN-class antihydrogen experiment requiring Penning trap electrode power",
+      "specs": {
+        "vout": 10,
+        "vin": 24,
+        "power": 5,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Voltage stability \u00b11 ppm for trap depth",
+        "Operation at 4 K cryogenic temperature",
+        "Magnetic field compatibility (1 Tesla)",
+        "Ultra-high vacuum (10^-17 Torr)",
+        "Annihilation detector compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "CERN-class antihydrogen experiment requiring Penning trap electrode power",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_080",
+      "prompt": "Synchrotron Light Source Insertion Device Power: 4th generation synchrotron requiring wiggler/undulator magnet power supply",
+      "specs": {
+        "vout": 100,
+        "vin": 600,
+        "power": 15000,
+        "f_sw": 50000
+      },
+      "constraints": [
+        "Current ripple < 10 ppm for photon stability",
+        "Field stability \u00b10.001% for beam brightness",
+        "Energy recovery from gap changes",
+        "Fast field ramp for energy scanning",
+        "Radiation tunnel compatible"
+      ],
+      "difficulty": "expert",
+      "application": "4th generation synchrotron requiring wiggler/undulator magnet power supply",
+      "topology": "buck"
+    }
+  ]
+}

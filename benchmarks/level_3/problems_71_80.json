@@ -1,0 +1,263 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_071",
+      "prompt": "Design a half-bridge converter for stellarator coil power supply. Input: 6000V DC, Output: 500V at 10kA for superconducting coil. Must achieve 10ppm current stability, handle quench protection, and provide 24/7 operation with plasma experiments.",
+      "specs": {
+        "vout": 500.0,
+        "vin": 6000.0
+      },
+      "constraints": {
+        "primary": [
+          "10ppm current stability",
+          "Quench protection",
+          "24/7 operation"
+        ],
+        "secondary": [
+          "Efficiency >97%",
+          "Remote control"
+        ],
+        "constraints": [
+          "Strong magnetic field environment",
+          "Nuclear licensing"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Stellarator Fusion Magnet",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_072",
+      "prompt": "Design a buck converter for dilution refrigerator mixing chamber heater. Input: 12V, Output: 100mV at 10mA for thermometry calibration. Must achieve <1\u03bcK temperature stability, <100pV/\u221aHz electrical noise, and operate at 10mK base temperature (electronics at room temp).",
+      "specs": {
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "<1\u03bcK stability",
+          "<100pV/\u221aHz noise",
+          "10mK compatibility"
+        ],
+        "secondary": [
+          "Programmable setpoint",
+          "Ultra-low dissipation"
+        ],
+        "constraints": [
+          "Cryogenic wiring heat load",
+          "Magnetic field sensitivity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Quantum Computer Dilution Fridge",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_073",
+      "prompt": "Design a flyback converter for through-the-earth (TTE) emergency communication system. Input: 24V UPS, Output: 200V at 5A peak for ELF transmitter. Must penetrate 500m of rock, operate in coal dust atmosphere (ATEX), and provide 8-hour emergency broadcast.",
+      "specs": {
+        "vout": 200.0,
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "500m rock penetration",
+          "ATEX compliance",
+          "8-hour broadcast"
+        ],
+        "secondary": [
+          "Message storage",
+          "Auto-activation"
+        ],
+        "constraints": [
+          "Mine safety regulations",
+          "Low frequency propagation"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Deep Mine Emergency Radio",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_074",
+      "prompt": "Design a full-bridge converter for lead-glass electromagnetic calorimeter PMT array. Input: 380V AC rectified (540V DC), Output: 48V at 50A for 1000 PMT base boards. Must handle high radiation environment (1Mrad TID), survive beam-induced EMI, and provide stable voltage during collisions.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 380.0
+      },
+      "constraints": {
+        "primary": [
+          "1Mrad radiation tolerance",
+          "Beam EMI immunity",
+          "Collision-stable"
+        ],
+        "secondary": [
+          "Per-channel monitoring",
+          "Fast trip protection"
+        ],
+        "constraints": [
+          "Detector hall access",
+          "Beam timing synchronization"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Particle Detector Calorimeter",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_075",
+      "prompt": "Design a boost converter for electric aircraft emergency power system. Input: 270V from main battery during emergency, Output: 540V DC bus at 50kW for critical flight systems. Must provide 30 minutes emergency power, handle rapid altitude descent (cabin pressure change), and meet DO-160G.",
+      "specs": {
+        "vout": 540.0,
+        "vin": 270.0
+      },
+      "constraints": {
+        "primary": [
+          "30-minute emergency",
+          "Rapid descent survival",
+          "DO-160G certified"
+        ],
+        "secondary": [
+          "Efficiency >96%",
+          "Status indication"
+        ],
+        "constraints": [
+          "Weight critical",
+          "FAA certification"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Electric Aircraft Emergency Power",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_076",
+      "prompt": "Design a \u0106uk converter for geophysical magnetotelluric survey equipment. Input: 12V battery, Output: -48V at 2A for magnetic sensor preamplifiers. Must achieve <1pT magnetic noise floor, operate in remote wilderness, and provide 24-hour survey capability.",
+      "specs": {
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "<1pT magnetic noise",
+          "24-hour operation",
+          "Remote field use"
+        ],
+        "secondary": [
+          "Wide temperature range",
+          "Compact portable"
+        ],
+        "constraints": [
+          "No AC power available",
+          "Non-magnetic setup"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Magnetotelluric Survey",
+      "topology": "cuk"
+    },
+    {
+      "id": "L3_077",
+      "prompt": "Design a forward converter for lunar surface rover. Input: 28V from RTG/battery hybrid, Output: 12V at 20A for electronics and motors. Must survive 300K lunar day/night thermal swing, handle lunar dust contamination, and operate for 10+ year mission.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "300K thermal swing",
+          "Lunar dust tolerance",
+          "10-year life"
+        ],
+        "secondary": [
+          "High efficiency for thermal",
+          "Hibernation mode"
+        ],
+        "constraints": [
+          "NASA Class B mission",
+          "Deep space comms"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Lunar Rover Power",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_078",
+      "prompt": "Design a SEPIC converter for drifting ocean buoy sensor package. Input: 3V-6V from wave energy harvester, Output: 5V at 200mA for sensors and satellite transmitter. Must survive years of ocean deployment, handle constant wave motion, and resist biofouling.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 3.0
+      },
+      "constraints": {
+        "primary": [
+          "Multi-year ocean deployment",
+          "Wave motion tolerance",
+          "Biofouling resistance"
+        ],
+        "secondary": [
+          "Energy harvesting MPPT",
+          "Satellite uplink"
+        ],
+        "constraints": [
+          "No maintenance access",
+          "Salt water immersion"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Floating Ocean Sensor",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_079",
+      "prompt": "Design a half-bridge converter for MRI gradient coil amplifier. Input: 600V DC, Output: \u00b1400V at 300A for gradient coil. Must achieve 2T/m gradient strength, <1\u03bcs rise time, and operate continuously during scans without patient acoustic disturbance.",
+      "specs": {
+        "vin": 600.0
+      },
+      "constraints": {
+        "primary": [
+          "2T/m gradient",
+          "<1\u03bcs rise time",
+          "Low acoustic noise"
+        ],
+        "secondary": [
+          "Eddy current compensation",
+          "Duty cycle handling"
+        ],
+        "constraints": [
+          "MRI suite EMC",
+          "Patient safety"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Superconducting MRI Gradient",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_080",
+      "prompt": "Design a buck converter for exascale supercomputer CPU power delivery. Input: 48V rack distribution, Output: 0.7V at 1000A for GPU compute die. Must achieve 1m\u03a9 total power path, <1\u03bcs transient response, and fit within GPU interposer constraints.",
+      "specs": {
+        "vout": 0.7,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "1m\u03a9 power path",
+          "<1\u03bcs response",
+          "Interposer integration"
+        ],
+        "secondary": [
+          "Efficiency >95%",
+          "Thermal co-design"
+        ],
+        "constraints": [
+          "Die area budget",
+          "3D packaging rules"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Exascale Computer Power",
+      "topology": "buck"
+    }
+  ]
+}

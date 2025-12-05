@@ -1,0 +1,188 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_031",
+      "prompt": "Space Elevator Climber Power Beaming Receiver: Laser power beaming receiver for 100-ton space elevator climber at 35,786km altitude",
+      "specs": {
+        "vout": 400,
+        "power": 2000000,
+        "efficiency_min": 0.4,
+        "f_sw": 50000
+      },
+      "constraints": [
+        "Photovoltaic array input from 1MW laser beam",
+        "Active beam tracking with 0.01 mrad accuracy",
+        "Thermal management at vacuum interface",
+        "Fault-tolerant multi-string architecture",
+        "Emergency battery backup for cloud obscuration"
+      ],
+      "difficulty": "expert",
+      "application": "Laser power beaming receiver for 100-ton space elevator climber at 35,786km altitude",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_032",
+      "prompt": "Muon Collider RF Cavity Power: Superconducting RF cavity power coupler for muon storage ring at Fermilab",
+      "specs": {
+        "vin": 10000
+      },
+      "constraints": [
+        "Phase stability < 0.01\u00b0 for beam focusing",
+        "Amplitude stability < 0.01% for acceleration",
+        "Cryogenic load < 100W at 4K",
+        "Lorentz detuning compensation",
+        "Radiation hardened in tunnel"
+      ],
+      "difficulty": "expert",
+      "application": "Superconducting RF cavity power coupler for muon storage ring at Fermilab",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_033",
+      "prompt": "Artificial Gravity Centrifuge Drive: Variable-speed drive for 100m diameter rotating space habitat generating 0.1-1g",
+      "specs": {
+        "vin": 800,
+        "power": 5000000,
+        "efficiency_min": 0.96
+      },
+      "constraints": [
+        "Vibration-free acceleration/deceleration",
+        "Emergency stop in < 1 revolution",
+        "Perfectly balanced rotation for comfort",
+        "Regenerative braking to solar array",
+        "50-year continuous operation capability"
+      ],
+      "difficulty": "expert",
+      "application": "Variable-speed drive for 100m diameter rotating space habitat generating 0.1-1g",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_034",
+      "prompt": "Antimatter Trap Penning Electrode Supply: Ultra-stable electrode bias for antihydrogen trapping at ALPHA-g experiment",
+      "specs": {
+        "vout": 5000,
+        "vin": 24
+      },
+      "constraints": [
+        "Voltage stability < 0.1ppm for trap depth",
+        "10nV/\u221aHz noise for antiproton cooling",
+        "40 independent electrode channels",
+        "Magnetic field compatibility (3T)",
+        "Ultra-high vacuum feedthrough"
+      ],
+      "difficulty": "expert",
+      "application": "Ultra-stable electrode bias for antihydrogen trapping at ALPHA-g experiment",
+      "topology": "flyback"
+    },
+    {
+      "id": "L4_035",
+      "prompt": "Magnetic Levitation Launch System: Electromagnetic aircraft launch system for next-generation carrier with 100MW peak power",
+      "specs": {
+        "vout": 6600,
+        "vin": 13800
+      },
+      "constraints": [
+        "Peak 100MW from shipboard power with energy storage",
+        "Precise velocity profile for aircraft safety",
+        "Zero electromagnetic interference with aircraft",
+        "Seawater corrosion resistance",
+        "Shock-resistant for combat operations"
+      ],
+      "difficulty": "expert",
+      "application": "Electromagnetic aircraft launch system for next-generation carrier with 100MW peak power",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_036",
+      "prompt": "Cryogenic Dark Matter Detector Bias: Germanium detector bias supply for SuperCDMS at SNOLAB requiring fA leakage",
+      "specs": {
+        "vout": 6,
+        "vin": 12
+      },
+      "constraints": [
+        "100 atto-amp leakage for WIMP detection",
+        "0.1nV/\u221aHz noise floor",
+        "Operation interface to 15mK cryostat",
+        "Zero radioactive contamination",
+        "Underground EMI shielding"
+      ],
+      "difficulty": "expert",
+      "application": "Germanium detector bias supply for SuperCDMS at SNOLAB requiring fA leakage",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_037",
+      "prompt": "Solar Sail Attitude Control Thrusters: Electrospray thruster array for 1km\u00b2 solar sail fine attitude control",
+      "specs": {
+        "vout": 10000,
+        "vin": 28,
+        "power": 10,
+        "efficiency_min": 0.85
+      },
+      "constraints": [
+        "1000 independent thruster channels",
+        "\u03bcN-level thrust resolution",
+        "10-year ionic liquid propellant life",
+        "Zero contamination of sail surface",
+        "Radiation tolerance for interplanetary"
+      ],
+      "difficulty": "expert",
+      "application": "Electrospray thruster array for 1km\u00b2 solar sail fine attitude control",
+      "topology": "flyback"
+    },
+    {
+      "id": "L4_038",
+      "prompt": "Extreme High-Altitude Platform Power: Stratospheric solar-powered aircraft station-keeping through polar night",
+      "specs": {
+        "vout": 400,
+        "power": 20000,
+        "efficiency_min": 0.97
+      },
+      "constraints": [
+        "6-month polar night survival on battery",
+        "-70\u00b0C to +80\u00b0C operating range",
+        "Regenerative fuel cell integration",
+        "Weight < 50kg for all power electronics",
+        "Autonomous fault recovery"
+      ],
+      "difficulty": "expert",
+      "application": "Stratospheric solar-powered aircraft station-keeping through polar night",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_039",
+      "prompt": "Inertial Confinement Fusion Capacitor Bank: NIF-class capacitor bank module delivering 2MJ in 20ns to laser amplifiers",
+      "specs": {},
+      "constraints": [
+        "100TW peak power delivery",
+        "Shot-to-shot energy reproducibility < 0.5%",
+        "Crowbar protection within 10\u03bcs",
+        "192-beam synchronization to 10ps",
+        "25-year operational lifetime"
+      ],
+      "difficulty": "expert",
+      "application": "NIF-class capacitor bank module delivering 2MJ in 20ns to laser amplifiers",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_040",
+      "prompt": "Asteroid Redirect Ion Engine Array: High-power ion propulsion system for 500-ton asteroid redirect mission",
+      "specs": {
+        "vout": 2000,
+        "efficiency_min": 0.95
+      },
+      "constraints": [
+        "6-year continuous thrust operation",
+        "10\u00d7 thruster redundancy (8 of 10 required)",
+        "Deep space communication compatibility",
+        "Autonomous thruster selection and balancing",
+        "Mass < 200kg for power system"
+      ],
+      "difficulty": "expert",
+      "application": "High-power ion propulsion system for 500-ton asteroid redirect mission",
+      "topology": "boost"
+    }
+  ]
+}

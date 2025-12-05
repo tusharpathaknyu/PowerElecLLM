@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_091",
+      "prompt": "Garden Solar Light Controller: Solar-powered garden path light with dusk-to-dawn operation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 1.2,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Solar-powered garden path light with dusk-to-dawn operation"
+    },
+    {
+      "id": "L1_092",
+      "prompt": "Bicycle Computer Power: Wireless cycling computer with GPS and ANT+ sensors",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3.7,
+        "f_sw": 1500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Wireless cycling computer with GPS and ANT+ sensors"
+    },
+    {
+      "id": "L1_093",
+      "prompt": "Pet Tracking Collar Supply: GPS pet tracker with cellular connectivity for location updates",
+      "specs": {
+        "vout": 3.3,
+        "vin": 4.2,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "GPS pet tracker with cellular connectivity for location updates"
+    },
+    {
+      "id": "L1_094",
+      "prompt": "Wireless Mouse Power: Rechargeable wireless gaming mouse with RGB lighting",
+      "specs": {
+        "vout": 3.3,
+        "vin": 4.2,
+        "f_sw": 1500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Rechargeable wireless gaming mouse with RGB lighting"
+    },
+    {
+      "id": "L1_095",
+      "prompt": "Smart Watch OLED Driver: AMOLED display power supply for fitness smartwatch",
+      "specs": {
+        "vout": 4.6,
+        "vin": 3.7,
+        "f_sw": 2000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "AMOLED display power supply for fitness smartwatch"
+    },
+    {
+      "id": "L1_096",
+      "prompt": "Motion Sensor Floodlight: Outdoor motion-activated LED floodlight with 30W output",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Outdoor motion-activated LED floodlight with 30W output"
+    },
+    {
+      "id": "L1_097",
+      "prompt": "Hearing Aid Battery Supply: Zinc-air battery to hearing aid amplifier supply",
+      "specs": {
+        "vout": 2.5,
+        "vin": 1.4,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Zinc-air battery to hearing aid amplifier supply"
+    },
+    {
+      "id": "L1_098",
+      "prompt": "Cordless Vacuum Motor Drive: Brushless DC motor controller for handheld vacuum cleaner",
+      "specs": {
+        "vout": 18,
+        "vin": 22,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Brushless DC motor controller for handheld vacuum cleaner"
+    },
+    {
+      "id": "L1_099",
+      "prompt": "Electric Skateboard Battery Interface: Battery management system power for 10S Li-ion pack",
+      "specs": {
+        "vout": 5,
+        "vin": 42,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Battery management system power for 10S Li-ion pack"
+    },
+    {
+      "id": "L1_100",
+      "prompt": "Smart Light Bulb Driver: WiFi-connected LED bulb with color temperature control",
+      "specs": {
+        "vout": 9,
+        "vin": 12,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi-connected LED bulb with color temperature control"
+    }
+  ]
+}

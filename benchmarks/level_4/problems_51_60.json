@@ -1,0 +1,206 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_051",
+      "prompt": "Space Telescope Cryocooler Power System: James Webb-class space telescope requiring ultra-stable cryocooler power for mid-infrared detectors",
+      "specs": {
+        "vout": 48,
+        "vin": 28,
+        "power": 150,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Total ionizing dose survival 100 krad",
+        "Single event latchup immune design",
+        "Cryocooler ripple current < 0.1% for detector stability",
+        "Thermal cycling -40\u00b0C to +60\u00b0C for 15 years",
+        "Zero outgassing materials only"
+      ],
+      "difficulty": "expert",
+      "application": "James Webb-class space telescope requiring ultra-stable cryocooler power for mid-infrared detectors",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_052",
+      "prompt": "Hypersonic Vehicle Actuation Power System: Mach 6+ vehicle requiring power for control surface actuators during atmospheric re-entry",
+      "specs": {
+        "vout": 48,
+        "vin": 270,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Plasma interference immunity during re-entry",
+        "Actuator response < 10 ms for flight control",
+        "Survive thermal shock 150\u00b0C to 800\u00b0C external",
+        "Operate through RF blackout conditions",
+        "Potted construction for thermal management"
+      ],
+      "difficulty": "expert",
+      "application": "Mach 6+ vehicle requiring power for control surface actuators during atmospheric re-entry",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_053",
+      "prompt": "Gravitational Wave Detector Seismic Isolation: LIGO-class detector requiring ultra-quiet power for seismic isolation actuators",
+      "specs": {
+        "vout": 24,
+        "vin": 48,
+        "power": 200,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Seismic noise < 10^-18 m/\u221aHz at 100 Hz",
+        "Zero magnetic field emission (affects SQUID sensors)",
+        "Vacuum compatible materials (10^-9 Torr)",
+        "No acoustic noise from magnetics",
+        "Optical table vibration isolation"
+      ],
+      "difficulty": "expert",
+      "application": "LIGO-class detector requiring ultra-quiet power for seismic isolation actuators",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_054",
+      "prompt": "Quantum Error Correction FPGA Power: Cryogenic FPGA array performing real-time quantum error correction requiring ultra-stable power",
+      "specs": {
+        "vout": 0.85,
+        "vin": 12,
+        "power": 80,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "Operation at 4 Kelvin cryogenic temperature",
+        "50A load transient in 1 \u00b5s for error correction bursts",
+        "dV/dt < 10 mV/\u00b5s for logic stability",
+        "Qubit coherence protection < 1 mV noise",
+        "Thermal budget 200 mW to 4K stage"
+      ],
+      "difficulty": "expert",
+      "application": "Cryogenic FPGA array performing real-time quantum error correction requiring ultra-stable power",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_055",
+      "prompt": "Stellarator Magnet Trim Coil Supply: Wendelstein 7-X class stellarator requiring precision trim coil power for plasma shaping",
+      "specs": {
+        "vout": 120,
+        "vin": 600,
+        "power": 25000,
+        "f_sw": 50000
+      },
+      "constraints": [
+        "Current accuracy \u00b110 ppm for magnetic field precision",
+        "Slew rate 1000 A/s for plasma position control",
+        "Four-quadrant operation for field reversal",
+        "Fault current limiting in 100 \u00b5s",
+        "Interlock with plasma control system"
+      ],
+      "difficulty": "expert",
+      "application": "Wendelstein 7-X class stellarator requiring precision trim coil power for plasma shaping",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_056",
+      "prompt": "Neuromorphic Chip Array Power Distribution: Large-scale neuromorphic computing cluster requiring per-chip power optimization",
+      "specs": {
+        "vout": 0.7,
+        "vin": 12,
+        "power": 35,
+        "f_sw": 3000000
+      },
+      "constraints": [
+        "8 power states for neural activity scaling",
+        "Load line droop 1 m\u03a9 for spike response",
+        "0.1% voltage accuracy for neuron threshold stability",
+        "Per-chip telemetry via PMBus",
+        "50A transient for spike avalanche events"
+      ],
+      "difficulty": "expert",
+      "application": "Large-scale neuromorphic computing cluster requiring per-chip power optimization",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_057",
+      "prompt": "Directed Energy Weapon Capacitor Charger: High-energy laser system requiring rapid capacitor bank charging for pulse operation",
+      "specs": {
+        "vout": 2000,
+        "vin": 600,
+        "power": 100000,
+        "f_sw": 30000
+      },
+      "constraints": [
+        "Charge 500 kJ capacitor bank in 2 seconds",
+        "10 Hz burst mode operation",
+        "Constant power charging profile",
+        "Regenerative energy recovery from misfires",
+        "Explosive disconnect safety interlock"
+      ],
+      "difficulty": "expert",
+      "application": "High-energy laser system requiring rapid capacitor bank charging for pulse operation",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_058",
+      "prompt": "Deep Sea Mining ROV Power System: Abyssal zone ROV requiring power distribution at 6000m depth with extreme pressure",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 5000,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "600 bar pressure (6000m depth)",
+        "Oil-filled pressure-compensated enclosure",
+        "Tether voltage drop compensation over 6 km",
+        "Corrosion resistance to hydrogen sulfide",
+        "Operate at 2\u00b0C ambient with efficient dissipation"
+      ],
+      "difficulty": "expert",
+      "application": "Abyssal zone ROV requiring power distribution at 6000m depth with extreme pressure",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_059",
+      "prompt": "Superconducting Maglev Propulsion Inverter: 600 km/h maglev train requiring propulsion power from superconducting linear motor",
+      "specs": {
+        "vout": 2400,
+        "vin": 3300,
+        "power": 500000,
+        "f_sw": 10000
+      },
+      "constraints": [
+        "Full regenerative braking capability",
+        "Speed range 0-600 km/h continuous",
+        "Vibration immunity for train-borne equipment",
+        "EMC compliance for passenger electronics",
+        "Fault ride-through for grid disturbances"
+      ],
+      "difficulty": "expert",
+      "application": "600 km/h maglev train requiring propulsion power from superconducting linear motor",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_060",
+      "prompt": "Muon Collider Kicker Magnet Pulser: Next-generation muon collider requiring ultra-fast kicker magnet pulsing for beam injection",
+      "specs": {
+        "vout": 5000,
+        "vin": 1000,
+        "power": 50000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "100 ns rise time for muon lifetime compatibility",
+        "Flat-top stability \u00b10.1% for beam quality",
+        "100 kHz burst repetition rate",
+        "Magnetic field uniformity \u00b10.01%",
+        "Radiation hardened for tunnel installation"
+      ],
+      "difficulty": "expert",
+      "application": "Next-generation muon collider requiring ultra-fast kicker magnet pulsing for beam injection",
+      "topology": "full_bridge"
+    }
+  ]
+}

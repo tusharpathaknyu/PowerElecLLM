@@ -1,0 +1,206 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_061",
+      "prompt": "Antarctic Research Station Microgrid Controller: Remote Antarctic station requiring reliable power integration from wind, solar, and diesel with extreme cold operation",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 10000,
+        "f_sw": 60000
+      },
+      "constraints": [
+        "Operation at -60\u00b0C to +30\u00b0C ambient",
+        "30-day autonomous operation capability",
+        "70% renewable energy utilization",
+        "Satellite communication for remote monitoring",
+        "Hot-swap maintenance during winter darkness"
+      ],
+      "difficulty": "expert",
+      "application": "Remote Antarctic station requiring reliable power integration from wind, solar, and diesel with extreme cold operation",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_062",
+      "prompt": "Hadron Therapy Gantry Magnet Power: Cancer treatment proton/carbon beam gantry requiring rotating magnet power delivery",
+      "specs": {
+        "vout": 200,
+        "vin": 600,
+        "power": 20000,
+        "f_sw": 40000
+      },
+      "constraints": [
+        "360\u00b0 continuous rotation capability",
+        "Current accuracy \u00b1100 ppm for beam steering",
+        "Slip ring power transfer for rotating frame",
+        "Patient safety interlocks per IEC 60601",
+        "Magnetic field reproducibility \u00b10.01%"
+      ],
+      "difficulty": "expert",
+      "application": "Cancer treatment proton/carbon beam gantry requiring rotating magnet power delivery",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_063",
+      "prompt": "Optical Atomic Clock RF Synthesizer Power: Next-gen optical atomic clock requiring ultra-stable power for RF synthesis at 10^-18 stability",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 15,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "Phase noise < -170 dBc/Hz at 1 Hz offset",
+        "Frequency stability 10^-18 level",
+        "Temperature coefficient < 1 ppm/\u00b0C",
+        "Zero switching noise coupling to RF chain",
+        "Vibration isolation mounting required"
+      ],
+      "difficulty": "expert",
+      "application": "Next-gen optical atomic clock requiring ultra-stable power for RF synthesis at 10^-18 stability",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_064",
+      "prompt": "Plasma Wakefield Accelerator Modulator: Advanced accelerator requiring multi-GW power modulation for plasma wakefield generation",
+      "specs": {
+        "vout": 50000,
+        "vin": 20000,
+        "power": 1000000,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "2 ns rise time for plasma formation",
+        "Pulse width programmable 10 ns to 1 \u00b5s",
+        "Peak power 1 GW capability",
+        "Pulse-to-pulse stability \u00b10.1%",
+        "10 Hz repetition rate"
+      ],
+      "difficulty": "expert",
+      "application": "Advanced accelerator requiring multi-GW power modulation for plasma wakefield generation",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_065",
+      "prompt": "Photonic Quantum Computer Laser Driver: Photonic quantum processor requiring ultra-stable laser diode array power for qubit generation",
+      "specs": {
+        "vout": 2,
+        "vin": 12,
+        "power": 50,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "Current noise < 1 nA/\u221aHz for wavelength stability",
+        "Wavelength stability \u00b10.1 pm for entanglement",
+        "64-channel independent current control",
+        "Fast modulation for qubit preparation",
+        "Crosstalk isolation > 80 dB"
+      ],
+      "difficulty": "expert",
+      "application": "Photonic quantum processor requiring ultra-stable laser diode array power for qubit generation",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_066",
+      "prompt": "Molten Salt Reactor Pump Motor Drive: Gen-IV nuclear reactor requiring high-temperature pump drives for molten salt circulation",
+      "specs": {
+        "vout": 400,
+        "vin": 480,
+        "power": 75000,
+        "f_sw": 15000
+      },
+      "constraints": [
+        "Ambient temperature 200\u00b0C near reactor",
+        "Nuclear seismic Class 1E qualification",
+        "Molten salt pump continuous operation",
+        "Radiation tolerance 10 Mrad lifetime",
+        "Triple redundancy for safety critical function"
+      ],
+      "difficulty": "expert",
+      "application": "Gen-IV nuclear reactor requiring high-temperature pump drives for molten salt circulation",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_067",
+      "prompt": "Superconducting Qubit Flux Bias Supply: Transmon qubit array requiring ultra-precise flux bias current for frequency tuning",
+      "specs": {
+        "vout": 0.5,
+        "vin": 5,
+        "power": 0.05,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Operation at 20 mK millikelvin stage",
+        "Current resolution 1 nA for flux precision",
+        "Flux noise < 1 \u00b5\u03a6\u2080/\u221aHz",
+        "100-channel parallel operation",
+        "Zero heat generation at mixing chamber"
+      ],
+      "difficulty": "expert",
+      "application": "Transmon qubit array requiring ultra-precise flux bias current for frequency tuning",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_068",
+      "prompt": "Hyperloop Pod Levitation Power System: 1000+ km/h hyperloop pod requiring electromagnetic levitation and propulsion power",
+      "specs": {
+        "vout": 600,
+        "vin": 800,
+        "power": 200000,
+        "f_sw": 20000
+      },
+      "constraints": [
+        "Near-vacuum operation (100 Pa pressure)",
+        "Active levitation gap control \u00b10.1 mm",
+        "Regenerative braking energy recovery",
+        "Battery-only operation during transit",
+        "Emergency landing capability"
+      ],
+      "difficulty": "expert",
+      "application": "1000+ km/h hyperloop pod requiring electromagnetic levitation and propulsion power",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_069",
+      "prompt": "Exascale Supercomputer Power Plane: Exascale HPC facility requiring 100 MW+ power distribution with extreme density",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 50000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "PUE < 1.05 for facility efficiency",
+        "100 kW per rack power density",
+        "48V bus distribution architecture",
+        "Hot-swap capability for maintenance",
+        "N+1 redundancy per compute node"
+      ],
+      "difficulty": "expert",
+      "application": "Exascale HPC facility requiring 100 MW+ power distribution with extreme density",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_070",
+      "prompt": "Spallation Neutron Source Chopper Drive: SNS-class facility requiring precision motor drives for neutron beam choppers",
+      "specs": {
+        "vout": 480,
+        "vin": 600,
+        "power": 30000,
+        "f_sw": 25000
+      },
+      "constraints": [
+        "Speed stability \u00b10.001% for neutron timing",
+        "Phase jitter < 100 ns to proton pulse",
+        "Magnetic bearing levitation coordination",
+        "Radiation area installation",
+        "Remote operation during beam-on"
+      ],
+      "difficulty": "expert",
+      "application": "SNS-class facility requiring precision motor drives for neutron beam choppers",
+      "topology": "full_bridge"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "level": 2,
+  "description": "Constrained design problems requiring trade-off analysis",
+  "problems": [
+    {
+      "id": "L2_081",
+      "prompt": "Design a buck converter for drone flight controller and sensors. Input: 11.1V-16.8V 4S LiPo, Output: 5V at 3A. Must survive motor startup transients (dips to 8V), weigh under 10g, and have input impedance that doesn't destabilize the battery-ESC system.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 11.1
+      },
+      "constraints": {
+        "input_voltage_range": "8V-16.8V (with transients)",
+        "output_voltage": "5V",
+        "output_current": "3A",
+        "weight": "<10g",
+        "input_impedance": "Stable with battery ESR",
+        "vibration": "Must survive drone vibration profile"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Drone Flight Controller Power"
+    },
+    {
+      "id": "L2_082",
+      "prompt": "Design a flyback converter for smart electricity meter. Input: 85-265VAC (universal), Output: 3.3V at 1A isolated. Must meet IEC 62052-11 metering standards with <100mW standby power and survive 6kV surge.",
+      "specs": {
+        "vout": 3.3
+      },
+      "constraints": {
+        "input_voltage": "85-265VAC",
+        "output_voltage": "3.3V isolated",
+        "output_current": "1A",
+        "standby_power": "<100mW",
+        "surge_immunity": "6kV/3kA combination wave",
+        "isolation": "4kVAC reinforced"
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Smart Meter Isolated Power"
+    },
+    {
+      "id": "L2_083",
+      "prompt": "Design a boost converter for thermoelectric generator energy harvesting. Input: 0.5V-3V from TEG (varies with temperature differential), Output: 5V at 200mA maximum. Must implement MPPT and start from 0.5V input with no external supply.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 0.5
+      },
+      "constraints": {
+        "input_voltage_range": "0.5V-3V",
+        "output_voltage": "5V",
+        "max_output_current": "200mA",
+        "cold_start_voltage": "0.5V",
+        "mppt": "Required for optimal power extraction",
+        "efficiency": ">85% at 1V input"
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Thermoelectric Generator Harvester"
+    },
+    {
+      "id": "L2_084",
+      "prompt": "Design a phase-shifted full-bridge converter for EV onboard charger. Input: 400V DC bus (from PFC), Output: 200V-450V at 15A for battery charging. Must support CC/CV charging profile with 98% efficiency target.",
+      "specs": {
+        "vout": 200.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "input_voltage": "400V DC",
+        "output_voltage_range": "200V-450V",
+        "output_current": "15A max (CC mode)",
+        "efficiency": ">98%",
+        "power_factor": ">0.99 (system)",
+        "charging_modes": "CC/CV with taper"
+      },
+      "difficulty": "intermediate",
+      "topology": "full_bridge",
+      "application": "EV Onboard Charger Module"
+    },
+    {
+      "id": "L2_085",
+      "prompt": "Design a buck converter for automotive ECU microcontroller core. Input: 5V from main regulator, Output: 1.25V at 2A. Must meet AEC-Q100 Grade 1 (-40\u00b0C to +125\u00b0C) with automotive EMC requirements (CISPR 25 Class 5).",
+      "specs": {
+        "vout": 1.25,
+        "vin": 5.0
+      },
+      "constraints": {
+        "input_voltage": "5V \u00b15%",
+        "output_voltage": "1.25V",
+        "output_current": "2A",
+        "temperature": "-40\u00b0C to +125\u00b0C",
+        "emc": "CISPR 25 Class 5",
+        "qualification": "AEC-Q100"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Automotive ECU Core Power"
+    },
+    {
+      "id": "L2_086",
+      "prompt": "Design a SEPIC converter for marine navigation LED lights. Input: 10V-32V (12V or 24V marine systems with variation), Output: 20V at 0.5A for LED string. Must withstand salt fog corrosion, operate in -20\u00b0C to +55\u00b0C, and survive reverse polarity.",
+      "specs": {
+        "vout": 20.0,
+        "vin": 10.0
+      },
+      "constraints": {
+        "input_voltage_range": "10V-32V",
+        "output_voltage": "20V (LED forward voltage)",
+        "output_current": "0.5A constant current",
+        "temperature": "-20\u00b0C to +55\u00b0C",
+        "environment": "Salt fog, marine IP67",
+        "protection": "Reverse polarity, load dump"
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": "Marine Navigation Light Driver"
+    },
+    {
+      "id": "L2_087",
+      "prompt": "Design a forward converter for server intermediate bus. Input: 54V from rack bus, Output: 12V at 30A. Must achieve >96% efficiency with current sharing capability for N+1 redundancy and hot-swap support.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 54.0
+      },
+      "constraints": {
+        "input_voltage": "54V (48V-60V range)",
+        "output_voltage": "12V",
+        "output_current": "30A",
+        "efficiency": ">96%",
+        "current_sharing": "\u00b15% between modules",
+        "hot_swap": "Required"
+      },
+      "difficulty": "intermediate",
+      "topology": "forward",
+      "application": "Rack Server 54V to 12V Intermediate Bus"
+    },
+    {
+      "id": "L2_088",
+      "prompt": "Design a buck converter for battery-powered IoT sensor. Input: 3.0V-4.2V from single Li-Ion cell, Output: 1.8V at 100mA peak, 10\u03bcA average. Quiescent current must be under 500nA for 5-year battery life on 300mAh cell.",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3.0
+      },
+      "constraints": {
+        "input_voltage_range": "3.0V-4.2V",
+        "output_voltage": "1.8V",
+        "peak_current": "100mA",
+        "average_current": "10\u03bcA",
+        "quiescent_current": "<500nA",
+        "battery_life": "5 years on 300mAh"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "IoT Sensor Node Ultra-Low Iq"
+    },
+    {
+      "id": "L2_089",
+      "prompt": "Design a \u0106uk converter for strain gauge bridge excitation. Input: 5V from USB, Output: -10V at 50mA for negative rail excitation. Must have output noise below 100\u03bcV RMS for precision measurement and excellent load regulation for bridge balance.",
+      "specs": {
+        "vout": 10.0,
+        "vin": 5.0
+      },
+      "constraints": {
+        "input_voltage": "5V USB",
+        "output_voltage": "-10V",
+        "output_current": "50mA",
+        "output_noise": "<100\u03bcV RMS",
+        "load_regulation": "<0.1%",
+        "line_regulation": "<0.1%"
+      },
+      "difficulty": "intermediate",
+      "topology": "cuk",
+      "application": "Precision Strain Gauge Excitation"
+    },
+    {
+      "id": "L2_090",
+      "prompt": "Design a half-bridge converter for plasma cutter auxiliary electronics. Input: 300V DC bus (from rectified 3-phase), Output: 24V at 8A. Must survive conducted EMI from plasma arc and provide stable output during arc striking transients.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 300.0
+      },
+      "constraints": {
+        "input_voltage": "300V DC (250V-350V)",
+        "output_voltage": "24V",
+        "output_current": "8A",
+        "emi_immunity": "Plasma arc conducted noise",
+        "transient_immunity": "Arc strike to 400V/100ns",
+        "hold_up_time": ">20ms for arc gap"
+      },
+      "difficulty": "intermediate",
+      "topology": "half_bridge",
+      "application": "Plasma Cutter Auxiliary Supply"
+    }
+  ]
+}

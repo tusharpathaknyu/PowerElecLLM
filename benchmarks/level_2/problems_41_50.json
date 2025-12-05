@@ -1,0 +1,180 @@
+{
+  "level": 2,
+  "description": "Level 2 problems",
+  "problems": [
+    {
+      "id": "L2_041",
+      "prompt": "Design a buck converter: 48V to 5V, 8A for PoE powered device. Constraint: Input current ripple < 500mA peak-to-peak",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0,
+        "iout": 8.0,
+        "power": 40.0,
+        "f_sw": 300000
+      },
+      "constraints": {
+        "input_current_ripple_pp_ma": 500
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_042",
+      "prompt": "Design a boost converter: 12V to 48V, 2A for LED string. Constraint: Switch peak current < 10A",
+      "specs": {
+        "vout": 48.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 96.0,
+        "f_sw": 150000
+      },
+      "constraints": {
+        "switch_peak_current_a": 10
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L2_043",
+      "prompt": "Design a SEPIC converter: 9-36V to 12V, 2A for automotive accessory. Constraint: Maintain regulation over full input range",
+      "specs": {
+        "vout": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 300000
+      },
+      "constraints": {
+        "vin_min": 9,
+        "vin_max": 36,
+        "line_regulation_percent": 1
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L2_044",
+      "prompt": "Design a buck converter: 24V to 3.3V, 6A for SoC power. Constraint: Load transient response < 100mV for 3A step",
+      "specs": {
+        "vout": 3.3,
+        "vin": 24.0,
+        "iout": 6.0,
+        "power": 19.8,
+        "f_sw": 500000
+      },
+      "constraints": {
+        "load_step_a": 3,
+        "transient_response_mv": 100
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_045",
+      "prompt": "Design a flyback converter: 85-265VAC to 5V, 3A isolated USB charger. Constraint: Meet IEC 62368 safety creepage/clearance",
+      "specs": {
+        "vout": 5.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 65000
+      },
+      "constraints": {
+        "input_voltage_range": "85-265VAC",
+        "safety_standard": "IEC 62368",
+        "creepage_mm": 6.4,
+        "clearance_mm": 5.5
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L2_046",
+      "prompt": "Design a buck converter: 12V to 1.0V, 30A for CPU VRM. Constraint: Efficiency > 90% at 50% load",
+      "specs": {
+        "vout": 1.0,
+        "vin": 12.0,
+        "iout": 30.0,
+        "power": 30.0,
+        "f_sw": 400000
+      },
+      "constraints": {
+        "efficiency_at_half_load_percent": 90
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_047",
+      "prompt": "Design a forward converter: 48V to 12V, 10A for telecom. Constraint: Hold-up time > 20ms at full load",
+      "specs": {
+        "vout": 12.0,
+        "vin": 48.0,
+        "iout": 10.0,
+        "power": 120.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "holdup_time_ms": 20
+      },
+      "difficulty": "intermediate",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L2_048",
+      "prompt": "Design a boost converter: 5V to 12V, 1.5A for car dashcam. Constraint: Quiescent current < 50\u00b5A in shutdown",
+      "specs": {
+        "vout": 12.0,
+        "vin": 5.0,
+        "iout": 1.5,
+        "power": 18.0,
+        "f_sw": 500000
+      },
+      "constraints": {
+        "quiescent_current_ua": 50
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L2_049",
+      "prompt": "Design a half-bridge LLC converter: 400V to 48V, 15A for telecom rectifier. Constraint: ZVS over 50-100% load range",
+      "specs": {
+        "vout": 48.0,
+        "vin": 400.0,
+        "iout": 15.0,
+        "power": 720.0
+      },
+      "constraints": {
+        "zvs_load_range_percent": "50-100"
+      },
+      "difficulty": "intermediate",
+      "topology": "half_bridge_llc",
+      "application": ""
+    },
+    {
+      "id": "L2_050",
+      "prompt": "Design a \u0106uk converter: 24V to -12V, 3A for test equipment. Constraint: Output noise < 10mV RMS (20Hz-20MHz)",
+      "specs": {
+        "vout": -12.0,
+        "vin": 24.0,
+        "iout": 3.0,
+        "power": 36.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "output_noise_mv_rms": 10,
+        "bandwidth_hz": "20-20M"
+      },
+      "difficulty": "intermediate",
+      "topology": "cuk",
+      "application": ""
+    }
+  ]
+}

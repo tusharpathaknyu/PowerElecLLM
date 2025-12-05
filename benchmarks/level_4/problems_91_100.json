@@ -1,0 +1,206 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_091",
+      "prompt": "Plasma Propulsion Hall Thruster Power: Deep space probe requiring high-Isp Hall effect thruster power processor",
+      "specs": {
+        "vout": 500,
+        "vin": 100,
+        "power": 5000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "3000 s specific impulse operation",
+        "Xenon propellant flow control integration",
+        "Plasma discharge stability",
+        "10000-hour continuous operation",
+        "Single-fault tolerant architecture"
+      ],
+      "difficulty": "expert",
+      "application": "Deep space probe requiring high-Isp Hall effect thruster power processor",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_092",
+      "prompt": "Cryogenic Dark Matter Detector Bias: Rare event search detector requiring ultra-stable bias for cryogenic bolometers",
+      "specs": {
+        "vout": 3,
+        "vin": 12,
+        "power": 0.1,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "100 eV FWHM energy resolution",
+        "1 keV threshold for WIMP detection",
+        "Operation at 50 mK base temperature",
+        "Zero electromagnetic interference",
+        "Underground laboratory compatible"
+      ],
+      "difficulty": "expert",
+      "application": "Rare event search detector requiring ultra-stable bias for cryogenic bolometers",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_093",
+      "prompt": "Interplanetary CubeSat Propulsion Power: Deep space CubeSat requiring electrospray propulsion power in 6U form factor",
+      "specs": {
+        "vout": 1500,
+        "vin": 8,
+        "power": 20,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "6U CubeSat volume constraints",
+        "100 m/s delta-V capability",
+        "Ionic liquid propellant compatible",
+        "Deep space communication thermal cycling",
+        "Solar panel degradation tolerance"
+      ],
+      "difficulty": "expert",
+      "application": "Deep space CubeSat requiring electrospray propulsion power in 6U form factor",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_094",
+      "prompt": "Quantum Cascade Laser Driver for Spectroscopy: Mid-IR spectroscopy system requiring pulsed QCL power for gas sensing",
+      "specs": {
+        "vout": 12,
+        "vin": 24,
+        "power": 40,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "100 kHz pulse repetition rate",
+        "Wavelength tuning 5-12 \u00b5m for multi-gas",
+        "Sub-nanosecond current rise time",
+        "TEC temperature control integration",
+        "Eye-safe operation compliance"
+      ],
+      "difficulty": "expert",
+      "application": "Mid-IR spectroscopy system requiring pulsed QCL power for gas sensing",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_095",
+      "prompt": "Offshore Wind HVDC Converter Station: Offshore wind farm requiring multi-MW HVDC transmission to shore",
+      "specs": {
+        "vout": 320000,
+        "vin": 66000,
+        "power": 500000000,
+        "f_sw": 150
+      },
+      "constraints": [
+        "1 GW wind farm capacity collection",
+        "100 km subsea cable transmission",
+        "Offshore platform space constraints",
+        "Marine environment corrosion protection",
+        "Grid code fault ride-through"
+      ],
+      "difficulty": "expert",
+      "application": "Offshore wind farm requiring multi-MW HVDC transmission to shore",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_096",
+      "prompt": "Quantum Repeater Entanglement Swapping Power: Quantum network requiring precision power for entanglement swapping stations",
+      "specs": {
+        "vout": 3.3,
+        "vin": 24,
+        "power": 30,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "0.99 entanglement fidelity requirement",
+        "50 km repeater station spacing",
+        "Single-photon detector power integration",
+        "Coincidence timing < 100 ps jitter",
+        "Field-deployable ruggedized design"
+      ],
+      "difficulty": "expert",
+      "application": "Quantum network requiring precision power for entanglement swapping stations",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_097",
+      "prompt": "Synchrotron Booster Ring Dipole Supply: Particle accelerator requiring ramping dipole magnet power for beam energy increase",
+      "specs": {
+        "vout": 600,
+        "vin": 800,
+        "power": 100000,
+        "f_sw": 20000
+      },
+      "constraints": [
+        "1 GeV/s energy ramp rate",
+        "10 Hz injection/extraction cycle",
+        "Tracking accuracy \u00b110 ppm to main ring",
+        "Energy recovery during ramp-down",
+        "Beam loss interlock integration"
+      ],
+      "difficulty": "expert",
+      "application": "Particle accelerator requiring ramping dipole magnet power for beam energy increase",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_098",
+      "prompt": "Asteroid Mining Drill Power System: Near-Earth asteroid mining spacecraft requiring percussive drill power",
+      "specs": {
+        "vout": 48,
+        "vin": 120,
+        "power": 3000,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Microgravity anchoring while drilling",
+        "Carbonaceous asteroid regolith penetration",
+        "3-year autonomous operation",
+        "Sample return container integration",
+        "Communication latency tolerance"
+      ],
+      "difficulty": "expert",
+      "application": "Near-Earth asteroid mining spacecraft requiring percussive drill power",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_099",
+      "prompt": "Brain-Computer Interface Neural Stimulator: Implantable BCI requiring precision current source for neural stimulation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 4.2,
+        "power": 0.5,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "1024-channel electrode array",
+        "1 \u00b5A current resolution per channel",
+        "Tissue temperature rise < 1\u00b0C",
+        "10-year implant lifetime",
+        "Wireless power and data (no transcutaneous wires)"
+      ],
+      "difficulty": "expert",
+      "application": "Implantable BCI requiring precision current source for neural stimulation",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_100",
+      "prompt": "Next-Gen Particle Collider Klystron Modulator: Future circular collider requiring high-power klystron modulators for RF acceleration",
+      "specs": {
+        "vout": 120000,
+        "vin": 10000,
+        "power": 10000000,
+        "f_sw": 1000
+      },
+      "constraints": [
+        "1 ms pulse flat-top with \u00b10.1% stability",
+        "100 Hz repetition rate capability",
+        "Arc fault protection < 10 \u00b5s",
+        "Klystron collector fault ride-through",
+        "Tunnel installation (high radiation)"
+      ],
+      "difficulty": "expert",
+      "application": "Future circular collider requiring high-power klystron modulators for RF acceleration",
+      "topology": "full_bridge"
+    }
+  ]
+}

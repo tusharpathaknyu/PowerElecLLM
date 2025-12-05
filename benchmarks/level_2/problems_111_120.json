@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_111",
+      "prompt": "Electric Bus Auxiliary Power Unit: Electric transit bus requiring auxiliary power from high-voltage battery",
+      "specs": {
+        "vout": 24,
+        "vin": 650,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Automotive AEC-Q100 qualification",
+        "Input from 400-800V battery pack",
+        "ECE R100 safety compliance",
+        "Integration with BMS"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Electric transit bus requiring auxiliary power from high-voltage battery"
+    },
+    {
+      "id": "L2_112",
+      "prompt": "5G Small Cell Power Distribution: 5G small cell requiring multiple voltage rails from single input",
+      "specs": {
+        "vout": 12,
+        "vin": 48,
+        "power": 150,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "DOSA form factor compliance",
+        "Hot-swap capability",
+        "Digital PMBus interface",
+        "Low acoustic noise for pole mounting"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "5G small cell requiring multiple voltage rails from single input"
+    },
+    {
+      "id": "L2_113",
+      "prompt": "Laboratory Power Supply Output Stage: Programmable bench power supply requiring precision voltage control",
+      "specs": {
+        "vout": 30,
+        "vin": 40,
+        "power": 300,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Voltage accuracy \u00b10.01%",
+        "Load regulation < 0.01%",
+        "Low output noise < 1 mV RMS",
+        "Remote sense capability"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Programmable bench power supply requiring precision voltage control"
+    },
+    {
+      "id": "L2_114",
+      "prompt": "Portable Ultrasound Scanner Power: Handheld medical ultrasound requiring battery operation and patient safety",
+      "specs": {
+        "vout": 12,
+        "vin": 7.4,
+        "power": 25,
+        "f_sw": 400000
+      },
+      "constraints": [
+        "IEC 60601-1 medical safety",
+        "Battery operation 2S Li-Ion",
+        "Patient leakage current limits",
+        "Low EMI for image quality"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Handheld medical ultrasound requiring battery operation and patient safety"
+    },
+    {
+      "id": "L2_115",
+      "prompt": "Stadium LED Display Driver: Large-format LED display requiring high-power current source with dimming",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "power": 500,
+        "f_sw": 250000
+      },
+      "constraints": [
+        "1000:1 PWM dimming ratio",
+        "Constant current output for LEDs",
+        "Outdoor temperature range",
+        "Flicker-free at any dimming level"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Large-format LED display requiring high-power current source with dimming"
+    },
+    {
+      "id": "L2_116",
+      "prompt": "Agricultural Sensor Node Supply: Outdoor agricultural monitoring sensor with solar and battery operation",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12,
+        "power": 1,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "Standby current < 10 \u00b5A",
+        "Wide input 6-20V for solar variation",
+        "IP65 outdoor operation",
+        "5-year battery life target"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Outdoor agricultural monitoring sensor with solar and battery operation"
+    },
+    {
+      "id": "L2_117",
+      "prompt": "Gaming Console VRM: Next-gen gaming console requiring high-current VRM for APU",
+      "specs": {
+        "vout": 1.1,
+        "vin": 12,
+        "power": 200,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "50A load step in 1 \u00b5s",
+        "Acoustic noise < 25 dBA from PSU",
+        "Compact form factor for console",
+        "8-phase interleaved topology"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Next-gen gaming console requiring high-current VRM for APU"
+    },
+    {
+      "id": "L2_118",
+      "prompt": "Dental X-Ray Generator Supply: Dental X-ray unit requiring high-voltage generation with precise exposure control",
+      "specs": {
+        "vout": 70,
+        "vin": 230,
+        "power": 1500,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Exposure time accuracy \u00b11%",
+        "IEC 60601-2-65 compliance",
+        "Low stored energy for safety",
+        "Repeatable dose delivery"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Dental X-ray unit requiring high-voltage generation with precise exposure control"
+    },
+    {
+      "id": "L2_119",
+      "prompt": "Robotics Servo Driver Supply: Industrial robot joint servo requiring fast dynamic response",
+      "specs": {
+        "vout": 24,
+        "vin": 48,
+        "power": 500,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "20 kHz control bandwidth",
+        "Regenerative braking capability",
+        "Position loop stability",
+        "Vibration-hardened for robot arm"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Industrial robot joint servo requiring fast dynamic response"
+    },
+    {
+      "id": "L2_120",
+      "prompt": "Stage Lighting DMX Supply: Professional stage lighting fixture requiring DMX control interface",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "power": 250,
+        "f_sw": 300000
+      },
+      "constraints": [
+        "DMX512 control interface",
+        "0-100% smooth dimming",
+        "Flicker-free for video",
+        "Daisy-chain capability"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Professional stage lighting fixture requiring DMX control interface"
+    }
+  ]
+}

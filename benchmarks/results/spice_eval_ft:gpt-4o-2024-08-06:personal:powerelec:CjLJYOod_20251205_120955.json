@@ -1,0 +1,74 @@
+{
+  "model": "ft:gpt-4o-2024-08-06:personal:powerelec:CjLJYOod",
+  "timestamp": "2025-12-05T12:10:18.465639",
+  "total_problems": 3,
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "by_level": {
+      "L1": {
+        "total": 3,
+        "passed": 3,
+        "accuracy": 100.0,
+        "avg_score": 100.0
+      }
+    },
+    "overall_accuracy": 100.0
+  },
+  "results": [
+    {
+      "success": true,
+      "predicted_vout": 48.0,
+      "target_vout": 48.0,
+      "error_pct": 0.0,
+      "score": 100,
+      "problem_id": "TEST_L1_001",
+      "level": 1,
+      "latency": 8.728049993515015,
+      "parsed_values": {
+        "vout": 48.0,
+        "duty": 1.0,
+        "L": 0.00082,
+        "C": 4.7e-05,
+        "topology": "boost"
+      },
+      "llm_response_length": 1070
+    },
+    {
+      "success": true,
+      "predicted_vout": 1.2,
+      "target_vout": 1.2,
+      "error_pct": 0.0,
+      "score": 100,
+      "problem_id": "TEST_L1_002",
+      "level": 1,
+      "latency": 6.848905086517334,
+      "parsed_values": {
+        "vout": 1.2,
+        "duty": null,
+        "L": 1.5e-06,
+        "C": 0.0056,
+        "topology": "buck"
+      },
+      "llm_response_length": 1044
+    },
+    {
+      "success": true,
+      "predicted_vout": 48.0,
+      "target_vout": 48.0,
+      "error_pct": 0.0,
+      "score": 100,
+      "problem_id": "TEST_L1_003",
+      "level": 1,
+      "latency": 7.166961908340454,
+      "parsed_values": {
+        "vout": 48.0,
+        "duty": 1.0,
+        "L": 9.999999999999999e-05,
+        "C": 4.7e-05,
+        "topology": "boost"
+      },
+      "llm_response_length": 976
+    }
+  ]
+}

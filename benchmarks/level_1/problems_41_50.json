@@ -1,0 +1,156 @@
+{
+  "level": 1,
+  "description": "Level 1 problems",
+  "problems": [
+    {
+      "id": "L1_041",
+      "prompt": "Design a buck converter: 72V e-bike battery to 12V, 8A for lighting and accessories",
+      "specs": {
+        "vout": 12.0,
+        "vin": 72.0,
+        "iout": 8.0,
+        "power": 96.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L1_042",
+      "prompt": "Design a boost converter: 9V battery pack to 24V, 1.5A for portable amplifier",
+      "specs": {
+        "vout": 24.0,
+        "vin": 9.0,
+        "iout": 1.5,
+        "power": 36.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L1_043",
+      "prompt": "Design a SEPIC converter: 18V to 12V, 3A for industrial sensor node",
+      "specs": {
+        "vout": 12.0,
+        "vin": 18.0,
+        "iout": 3.0,
+        "power": 36.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L1_044",
+      "prompt": "Design a \u0106uk converter: 48V to -24V, 2A for industrial instrumentation",
+      "specs": {
+        "vout": -24.0,
+        "vin": 48.0,
+        "iout": 2.0,
+        "power": 48.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L1_045",
+      "prompt": "Design an inverting buck-boost: 24V to -5V, 2A for analog front-end",
+      "specs": {
+        "vout": -5.0,
+        "vin": 24.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L1_046",
+      "prompt": "Design a flyback converter: 24V to 5V isolated, 4A for medical device",
+      "specs": {
+        "vout": 5.0,
+        "vin": 24.0,
+        "iout": 4.0,
+        "power": 20.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L1_047",
+      "prompt": "Design a forward converter: 48V to 5V, 10A for network switch",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0,
+        "iout": 10.0,
+        "power": 50.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L1_048",
+      "prompt": "Design a half-bridge converter: 300V DC to 24V, 8A for industrial automation",
+      "specs": {
+        "vout": 24.0,
+        "vin": 300.0,
+        "iout": 8.0,
+        "power": 192.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_049",
+      "prompt": "Design a full-bridge converter: 600V DC to 28V, 35A for aerospace power",
+      "specs": {
+        "vout": 28.0,
+        "vin": 600.0,
+        "iout": 35.0,
+        "power": 980.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "full_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_050",
+      "prompt": "Design a quasi-resonant buck: 24V to 3.3V, 8A for FPGA core supply",
+      "specs": {
+        "vout": 3.3,
+        "vin": 24.0,
+        "iout": 8.0,
+        "power": 26.4,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "qr_buck",
+      "application": ""
+    }
+  ]
+}

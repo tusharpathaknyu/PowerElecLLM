@@ -1,0 +1,156 @@
+{
+  "level": 1,
+  "description": "Level 1 problems",
+  "problems": [
+    {
+      "id": "L1_071",
+      "prompt": "Design a buck converter: 150V DC to 12V, 15A for welding auxiliary power",
+      "specs": {
+        "vout": 12.0,
+        "vin": 150.0,
+        "iout": 15.0,
+        "power": 180.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L1_072",
+      "prompt": "Design a boost converter: 18V to 36V, 3A for 36V power tool battery charger",
+      "specs": {
+        "vout": 36.0,
+        "vin": 18.0,
+        "iout": 3.0,
+        "power": 108.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L1_073",
+      "prompt": "Design a SEPIC converter: 24V to 19V, 4A for laptop DC-DC adapter",
+      "specs": {
+        "vout": 19.0,
+        "vin": 24.0,
+        "iout": 4.0,
+        "power": 76.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L1_074",
+      "prompt": "Design a \u0106uk converter: 36V to -12V, 2.5A for dual-rail supply",
+      "specs": {
+        "vout": -12.0,
+        "vin": 36.0,
+        "iout": 2.5,
+        "power": 30.0,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": ""
+    },
+    {
+      "id": "L1_075",
+      "prompt": "Design an inverting buck-boost: 9V to -9V, 500mA for op-amp supply from single 9V battery",
+      "specs": {
+        "vout": -9.0,
+        "vin": 9.0,
+        "iout": 0.5,
+        "power": 4.5,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L1_076",
+      "prompt": "Design a flyback converter: 380V PFC output to 15V, 4A isolated for appliance control",
+      "specs": {
+        "vout": 15.0,
+        "vin": 380.0,
+        "iout": 4.0,
+        "power": 60.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L1_077",
+      "prompt": "Design a forward converter: 24V DC to 3.3V, 15A for embedded processor",
+      "specs": {
+        "vout": 3.3,
+        "vin": 24.0,
+        "iout": 15.0,
+        "power": 49.5,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": ""
+    },
+    {
+      "id": "L1_078",
+      "prompt": "Design a half-bridge converter: 450V DC to 36V, 6A for class-D audio amplifier",
+      "specs": {
+        "vout": 36.0,
+        "vin": 450.0,
+        "iout": 6.0,
+        "power": 216.0,
+        "f_sw": 150000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_079",
+      "prompt": "Design a full-bridge converter: 480V industrial to 24V, 60A for motor drive auxiliary",
+      "specs": {
+        "vout": 24.0,
+        "vin": 480.0,
+        "iout": 60.0,
+        "power": 1440.0,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "full_bridge",
+      "application": ""
+    },
+    {
+      "id": "L1_080",
+      "prompt": "Design a quasi-resonant buck: 60V to 15V, 4A for medical imaging equipment",
+      "specs": {
+        "vout": 15.0,
+        "vin": 60.0,
+        "iout": 4.0,
+        "power": 60.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "qr_buck",
+      "application": ""
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "level": 2,
+  "description": "Constrained design problems requiring trade-off analysis",
+  "problems": [
+    {
+      "id": "L2_091",
+      "prompt": "Design a buck converter for automotive LIDAR sensor array. Input: 12V from vehicle bus, Output: 3.3V at 8A for VCSEL driver and processing. Must have input voltage range covering cold crank (6V) to load dump (42V) with zero output interruption.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage_range": "6V-42V",
+        "output_voltage": "3.3V",
+        "output_current": "8A",
+        "cold_crank": "Operation at 6V for 40ms",
+        "load_dump": "42V for 400ms",
+        "output_tolerance": "\u00b13% during all conditions"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "LIDAR Sensor Array Power"
+    },
+    {
+      "id": "L2_092",
+      "prompt": "Design a flyback converter for PROFIBUS PA segment coupler. Input: 24V DC, Output: 9V-32V at 0.5A (bus voltage dependent). Must meet intrinsic safety requirements (Ex ia) with limited energy storage for hazardous area deployment.",
+      "specs": {
+        "vout": 9.0,
+        "vin": 24.0
+      },
+      "constraints": {
+        "input_voltage": "24V DC (18V-32V)",
+        "output_voltage": "9V-32V adjustable",
+        "output_current": "0.5A",
+        "safety": "ATEX/IECEx Zone 0 (Ex ia)",
+        "max_capacitance": "Limited by IS certification",
+        "max_inductance": "Limited by IS certification"
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Industrial Fieldbus Isolated Power"
+    },
+    {
+      "id": "L2_093",
+      "prompt": "Design a boost converter for supercapacitor-based UPS. Input: 2.7V-5.4V (2-cell supercap bank), Output: 12V at 5A for 30 seconds backup. Must extract maximum energy from supercaps as voltage drops, with controlled discharge to 1.35V/cell.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 2.7
+      },
+      "constraints": {
+        "input_voltage_range": "2.7V-5.4V (discharged to charged)",
+        "output_voltage": "12V",
+        "output_current": "5A",
+        "backup_time": "30 seconds",
+        "min_supercap_voltage": "2.7V (1.35V/cell)",
+        "transition_time": "<5ms from mains to backup"
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Supercapacitor UPS Module"
+    },
+    {
+      "id": "L2_094",
+      "prompt": "Design a forward converter for railway signaling cabinet. Input: 110V DC nominal (77V-137.5V range per EN 50155), Output: 24V at 10A. Must meet EN 50155 railway standards including extended voltage transients and -40\u00b0C to +70\u00b0C operation.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 110.0
+      },
+      "constraints": {
+        "input_voltage": "110V DC (77V-137.5V per EN 50155)",
+        "output_voltage": "24V",
+        "output_current": "10A",
+        "temperature": "-40\u00b0C to +70\u00b0C",
+        "standard": "EN 50155 railway",
+        "interruption": "Ride through 10ms at 0V"
+      },
+      "difficulty": "intermediate",
+      "topology": "forward",
+      "application": "Railway Signaling Equipment"
+    },
+    {
+      "id": "L2_095",
+      "prompt": "Design a buck converter for high-speed camera image sensor. Input: 5V, Output: 2.8V at 2A. Requires extremely low noise (<50\u03bcV RMS from 10Hz-1MHz) to prevent banding artifacts in captured images.",
+      "specs": {
+        "vout": 2.8,
+        "vin": 5.0
+      },
+      "constraints": {
+        "input_voltage": "5V",
+        "output_voltage": "2.8V",
+        "output_current": "2A",
+        "noise": "<50\u03bcV RMS (10Hz-1MHz)",
+        "psrr": ">60dB at switching frequency",
+        "load_regulation": "<0.5%"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "High-Speed Camera Sensor Power"
+    },
+    {
+      "id": "L2_096",
+      "prompt": "Design a SEPIC converter for USB-C PD sink with variable output. Input: 5V-20V from USB PD source, Output: 12V at 3A for legacy equipment. Must request appropriate PD voltage profile to minimize losses and handle PD voltage transitions smoothly.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 5.0
+      },
+      "constraints": {
+        "input_voltage": "5V/9V/12V/15V/20V PD profiles",
+        "output_voltage": "12V",
+        "output_current": "3A",
+        "pd_transition": "Handle 20V to 5V without output dropout",
+        "efficiency": ">90% at optimal PD voltage",
+        "cable_compensation": "IR drop up to 0.5V"
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": "USB-C PD Sink Variable Output"
+    },
+    {
+      "id": "L2_097",
+      "prompt": "Design a half-bridge resonant converter for small induction heater. Input: 325V DC (from rectified mains), Output: Resonant tank at 50kHz delivering 500W to work coil. Must track resonant frequency as load changes and implement ZVS for all operating conditions.",
+      "specs": {
+        "vin": 325.0
+      },
+      "constraints": {
+        "input_voltage": "325V DC",
+        "output_power": "500W",
+        "resonant_frequency": "50kHz nominal",
+        "frequency_tracking": "45kHz-55kHz range",
+        "zvs_range": "Full load range",
+        "coil_current": "Up to 30A RMS"
+      },
+      "difficulty": "intermediate",
+      "topology": "half_bridge",
+      "application": "Induction Heating Resonant Supply"
+    },
+    {
+      "id": "L2_098",
+      "prompt": "Design a buck converter for automotive matrix LED headlight module. Input: 12V vehicle bus, Output: 3.3V at 12A for LED array driver ICs. Must handle cold crank, load dump, and provide individual channel current accuracy of \u00b12% for uniform light output.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage_range": "6V-42V (cold crank to load dump)",
+        "output_voltage": "3.3V",
+        "output_current": "12A total",
+        "current_accuracy": "\u00b12% per LED channel",
+        "temperature": "-40\u00b0C to +105\u00b0C",
+        "emi": "CISPR 25 Class 5"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Automotive Matrix LED Headlight"
+    },
+    {
+      "id": "L2_099",
+      "prompt": "Design a flyback converter for isolated CAN bus transceiver power. Input: 5V from main rail, Output: 5V isolated at 200mA. Must provide 2.5kV isolation with very low coupling capacitance (<10pF) to prevent common-mode noise coupling to CAN bus.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 5.0
+      },
+      "constraints": {
+        "input_voltage": "5V \u00b110%",
+        "output_voltage": "5V isolated",
+        "output_current": "200mA",
+        "isolation": "2.5kV DC",
+        "coupling_capacitance": "<10pF",
+        "output_ripple": "<50mV"
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Isolated CAN Bus Power"
+    },
+    {
+      "id": "L2_100",
+      "prompt": "Design a full-bridge converter for professional stage lighting fixture. Input: 385V DC (from PFC), Output: 48V at 20A for COB LED array. Must support 0-100% PWM dimming at 1kHz without flicker and maintain stable output during rapid dimming transitions.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 385.0
+      },
+      "constraints": {
+        "input_voltage": "385V DC (from PFC)",
+        "output_voltage": "48V",
+        "output_current": "20A (960W)",
+        "dimming": "0-100% PWM at 1kHz",
+        "flicker_free": "No visible flicker",
+        "transition_time": "<1ms from 0 to 100%"
+      },
+      "difficulty": "intermediate",
+      "topology": "full_bridge",
+      "application": "High-Power LED Stage Lighting"
+    }
+  ]
+}

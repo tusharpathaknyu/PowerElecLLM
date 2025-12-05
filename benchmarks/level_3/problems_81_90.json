@@ -1,0 +1,255 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_081",
+      "prompt": "Design a flyback converter for Mars helicopter drone. Input: 28V from lander umbilical during charge, Output: 6\u00d73.7V Li-ion cells at 2A charge. Must operate in 0.6% Earth atmospheric pressure, survive -90\u00b0C nights, and provide autonomous charging during sol.",
+      "specs": {
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "Mars atmosphere operation",
+          "-90\u00b0C survival",
+          "Autonomous charging"
+        ],
+        "secondary": [
+          "Mass <150g total",
+          "Fast charge"
+        ],
+        "constraints": [
+          "JPL design rules",
+          "Planetary protection"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Mars Helicopter Power",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_082",
+      "prompt": "Design a full-bridge converter for electromagnetic railgun capacitor charging. Input: 13.8kV 3-phase (rectified ~18kV DC), Output: 5kV at 500A average to charge 100MJ capacitor bank. Must charge in 60 seconds, handle regenerative energy from misfires, and meet MIL-STD-1399.",
+      "specs": {},
+      "constraints": {
+        "primary": [
+          "60-second charge",
+          "Misfire energy recovery",
+          "MIL-STD-1399"
+        ],
+        "secondary": [
+          "95% charge efficiency",
+          "Shipboard integration"
+        ],
+        "constraints": [
+          "Naval power quality",
+          "Shock and vibration"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Hypervelocity Railgun",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_083",
+      "prompt": "Design a boost converter for re-entry vehicle electronics during blackout phase. Input: 28V from thermal battery, Output: 150V at 10A for phased array antenna. Must operate through 3000\u00b0C plasma sheath, survive 15g deceleration, and maintain comms during blackout.",
+      "specs": {
+        "vout": 150.0,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "Plasma sheath operation",
+          "15g survival",
+          "Blackout comms"
+        ],
+        "secondary": [
+          "Rapid startup",
+          "Minimal mass"
+        ],
+        "constraints": [
+          "Single-use reliability",
+          "Thermal battery interface"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Atmospheric Re-entry Vehicle",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_084",
+      "prompt": "Design a \u0106uk converter for advanced LIGO seismometer array. Input: 24V from isolation transformer, Output: -15V at 500mA for geophone preamps. Must achieve <10\u207b\u00b9\u00b2g/\u221aHz noise floor, operate in ultra-high vacuum (10\u207b\u2079 torr), and provide isolation from ground loops.",
+      "specs": {
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "10\u207b\u00b9\u00b2g/\u221aHz noise",
+          "UHV compatible",
+          "Ground loop isolation"
+        ],
+        "secondary": [
+          "Seismic band filtering",
+          "Remote monitoring"
+        ],
+        "constraints": [
+          "Interferometer sensitivity",
+          "Multi-km cabling"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Gravitational Wave Seismometer",
+      "topology": "cuk"
+    },
+    {
+      "id": "L3_085",
+      "prompt": "Design a forward converter for orbital propellant depot cryocooler. Input: 120V DC from solar array, Output: 28V at 30A for Stirling cryocooler. Must maintain liquid hydrogen at 20K, operate for 15-year mission, and survive micrometeorite impacts.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 120.0
+      },
+      "constraints": {
+        "primary": [
+          "20K LH2 maintenance",
+          "15-year operation",
+          "Impact survival"
+        ],
+        "secondary": [
+          "Zero boil-off",
+          "Autonomous operation"
+        ],
+        "constraints": [
+          "On-orbit serviceability",
+          "Propellant proximity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Cryogenic Propellant Depot",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_086",
+      "prompt": "Design a SEPIC converter for borehole tiltmeter at volcano summit. Input: 12V-18V from solar/battery, Output: 5V at 500mA for precision tilt sensor. Must achieve <1 nanoradian resolution, survive volcanic gases (SO2, H2S), and provide 5-year autonomous operation.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "1 nanoradian noise floor",
+          "Volcanic gas survival",
+          "5-year autonomy"
+        ],
+        "secondary": [
+          "Low power",
+          "Telemetry interface"
+        ],
+        "constraints": [
+          "Hazardous environment",
+          "Remote access only"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Volcanic Tiltmeter",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_087",
+      "prompt": "Design a half-bridge converter for particle accelerator klystron modulator. Input: 34.5kV AC (rectified ~47kV), Output: 350kV at 500A pulse for klystron. Must achieve <0.1% flat-top droop, 3ms pulse width, and 120Hz repetition rate.",
+      "specs": {},
+      "constraints": {
+        "primary": [
+          "<0.1% flat-top droop",
+          "3ms \u00d7 500A pulse",
+          "120Hz rep rate"
+        ],
+        "secondary": [
+          "Long klystron life",
+          "Precise timing"
+        ],
+        "constraints": [
+          "X-ray shielding",
+          "RF synchronization"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Linear Accelerator Klystron",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_088",
+      "prompt": "Design a buck converter for semiconductor lithography stage motion control. Input: 48V from tool power, Output: 5V at 100A for linear motor drivers. Must achieve <1nm positioning contribution, <1ppm EMI at wafer, and operate in Class 1 cleanroom.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "<1nm noise contribution",
+          "<1ppm wafer EMI",
+          "Class 1 cleanroom"
+        ],
+        "secondary": [
+          "Fast stage settling",
+          "Low heat dissipation"
+        ],
+        "constraints": [
+          "No particles",
+          "No outgassing"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Semiconductor Fab Tool",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_089",
+      "prompt": "Design a flyback converter for deep ocean mooring instrumentation. Input: 12V from primary lithium pack, Output: 5V at 2A average for sensors and acoustic modem. Must operate at 6000m depth for 5 years, handle pressure cycling (recovery/redeployment), and communicate acoustically.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "6000m \u00d7 5 years",
+          "Pressure cycling survival",
+          "Acoustic link"
+        ],
+        "secondary": [
+          "Data logging",
+          "Low standby power"
+        ],
+        "constraints": [
+          "No maintenance",
+          "Neutral buoyancy design"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Deep Ocean Mooring",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_090",
+      "prompt": "Design a full-bridge converter for tokamak neutral beam injector. Input: 10kV from grid rectifier, Output: 80kV at 60A for ion accelerator. Must achieve 5-second pulse duration, recover between plasma shots, and handle beam dump scenarios.",
+      "specs": {},
+      "constraints": {
+        "primary": [
+          "5s \u00d7 60A pulse",
+          "Inter-shot recovery",
+          "Beam dump handling"
+        ],
+        "secondary": [
+          "Reliability for 30-year plant life",
+          "Grid stability"
+        ],
+        "constraints": [
+          "Nuclear facility requirements",
+          "Plasma timing synchronization"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Fusion Neutral Beam Injector",
+      "topology": "full_bridge"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_081",
+      "prompt": "Smart Home Hub Power Supply: Voice-controlled smart home hub with always-on microphone array",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Voice-controlled smart home hub with always-on microphone array"
+    },
+    {
+      "id": "L1_082",
+      "prompt": "Wireless Earbuds Charging Case: Portable charging case for true wireless earbuds with fast charging",
+      "specs": {
+        "vout": 4.2,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Portable charging case for true wireless earbuds with fast charging"
+    },
+    {
+      "id": "L1_083",
+      "prompt": "Portable Bluetooth Speaker Amplifier: Stereo Class-D amplifier power supply for 20W portable speaker",
+      "specs": {
+        "vout": 12,
+        "vin": 3.7,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Stereo Class-D amplifier power supply for 20W portable speaker"
+    },
+    {
+      "id": "L1_084",
+      "prompt": "Electronic Door Lock Power: Battery-powered smart door lock with motorized deadbolt",
+      "specs": {
+        "vout": 3,
+        "vin": 6,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Battery-powered smart door lock with motorized deadbolt"
+    },
+    {
+      "id": "L1_085",
+      "prompt": "RFID Reader Module Supply: 13.56MHz RFID reader requiring clean power for RF sensitivity",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 2000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "13.56MHz RFID reader requiring clean power for RF sensitivity"
+    },
+    {
+      "id": "L1_086",
+      "prompt": "Digital Signage Display Driver: LED backlight driver for 32-inch commercial digital signage display",
+      "specs": {
+        "vout": 36,
+        "vin": 12,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "LED backlight driver for 32-inch commercial digital signage display"
+    },
+    {
+      "id": "L1_087",
+      "prompt": "Medical Pulse Oximeter Power: Fingertip pulse oximeter with LED drive and signal processing",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3.7,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Fingertip pulse oximeter with LED drive and signal processing"
+    },
+    {
+      "id": "L1_088",
+      "prompt": "RC Car Motor Controller: Brushed DC motor driver for 1:10 scale RC car",
+      "specs": {
+        "vout": 6,
+        "vin": 7.4,
+        "f_sw": 50000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Brushed DC motor driver for 1:10 scale RC car"
+    },
+    {
+      "id": "L1_089",
+      "prompt": "USB Power Bank Cell Balancing: Cell balancing converter for multi-cell Li-ion power bank",
+      "specs": {
+        "vout": 3.7,
+        "vin": 4.2,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Cell balancing converter for multi-cell Li-ion power bank"
+    },
+    {
+      "id": "L1_090",
+      "prompt": "Thermostat Display Power: Smart thermostat with e-ink display and WiFi connectivity",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Smart thermostat with e-ink display and WiFi connectivity"
+    }
+  ]
+}

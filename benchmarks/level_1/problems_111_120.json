@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_111",
+      "prompt": "Electric Toothbrush Charger: Inductive charging receiver for waterproof electric toothbrush",
+      "specs": {
+        "vout": 4.2,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Inductive charging receiver for waterproof electric toothbrush"
+    },
+    {
+      "id": "L1_112",
+      "prompt": "Solar Battery Maintainer: 12V vehicle battery trickle charger with solar panel input",
+      "specs": {
+        "vout": 14.4,
+        "vin": 18,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "12V vehicle battery trickle charger with solar panel input"
+    },
+    {
+      "id": "L1_113",
+      "prompt": "Aquarium LED Controller: Programmable RGB LED lighting for planted aquarium",
+      "specs": {
+        "vout": 12,
+        "vin": 24,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Programmable RGB LED lighting for planted aquarium"
+    },
+    {
+      "id": "L1_114",
+      "prompt": "RC Plane Servo Power: BEC (battery eliminator circuit) for RC aircraft servos",
+      "specs": {
+        "vout": 5,
+        "vin": 11.1,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "BEC (battery eliminator circuit) for RC aircraft servos"
+    },
+    {
+      "id": "L1_115",
+      "prompt": "Smart Scale Display: Digital bathroom scale with Bluetooth connectivity",
+      "specs": {
+        "vout": 3.3,
+        "vin": 6,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Digital bathroom scale with Bluetooth connectivity"
+    },
+    {
+      "id": "L1_116",
+      "prompt": "Wireless Keyboard Power: Rechargeable wireless keyboard with RGB backlighting",
+      "specs": {
+        "vout": 3.3,
+        "vin": 4.2,
+        "f_sw": 1500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Rechargeable wireless keyboard with RGB backlighting"
+    },
+    {
+      "id": "L1_117",
+      "prompt": "Trail Camera Power System: Wildlife trail camera with motion sensor and SD storage",
+      "specs": {
+        "vout": 3.3,
+        "vin": 6,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Wildlife trail camera with motion sensor and SD storage"
+    },
+    {
+      "id": "L1_118",
+      "prompt": "Laser Pointer Driver: Green laser pointer module with adjustable focus",
+      "specs": {
+        "vout": 5,
+        "vin": 3,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Green laser pointer module with adjustable focus"
+    },
+    {
+      "id": "L1_119",
+      "prompt": "Smart Plug WiFi Module: WiFi smart outlet with power monitoring",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi smart outlet with power monitoring"
+    },
+    {
+      "id": "L1_120",
+      "prompt": "Portable Fan Power: USB rechargeable desk fan with variable speed",
+      "specs": {
+        "vout": 3.7,
+        "vin": 5,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "USB rechargeable desk fan with variable speed"
+    }
+  ]
+}

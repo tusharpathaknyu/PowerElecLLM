@@ -1,0 +1,196 @@
+{
+  "level": 2,
+  "description": "Constrained design with multiple requirements including efficiency, size, and thermal limits",
+  "problems": [
+    {
+      "id": "L2_141",
+      "prompt": "Concert Venue Wireless Mic Power: Professional wireless microphone system requiring ultra-clean audio power",
+      "specs": {
+        "vout": 3.3,
+        "vin": 9,
+        "power": 2,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "Audio SNR > 120 dB compatibility",
+        "Battery operation 2\u00d7AA or Li-Ion",
+        "RF transmission interference-free",
+        "Stage environment durability"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Professional wireless microphone system requiring ultra-clean audio power"
+    },
+    {
+      "id": "L2_142",
+      "prompt": "Racing Vehicle Data Logger Power: Motorsport data acquisition requiring high-vibration operation",
+      "specs": {
+        "vout": 5,
+        "vin": 14,
+        "power": 15,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "20g vibration survival",
+        "Wide input 8-18V for race battery",
+        "GPS and sensor array power",
+        "Quick-disconnect for pit stops"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Motorsport data acquisition requiring high-vibration operation"
+    },
+    {
+      "id": "L2_143",
+      "prompt": "Smart Meter Communication Module: Utility smart meter requiring cellular/RF communication power",
+      "specs": {
+        "vout": 3.8,
+        "vin": 12,
+        "power": 8,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "20-year operational lifetime",
+        "Wide temperature -40\u00b0C to +85\u00b0C",
+        "Cellular modem TX burst power",
+        "Tamper-resistant enclosure"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Utility smart meter requiring cellular/RF communication power"
+    },
+    {
+      "id": "L2_144",
+      "prompt": "Yacht Navigation System Power: Marine navigation requiring isolated power for sensitive electronics",
+      "specs": {
+        "vout": 12,
+        "vin": 24,
+        "power": 50,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "NMEA 2000 bus compatibility",
+        "Marine bonding requirements",
+        "Salt spray corrosion resistance",
+        "Ground loop elimination"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Marine navigation requiring isolated power for sensitive electronics"
+    },
+    {
+      "id": "L2_145",
+      "prompt": "Portable PA System Amplifier: Battery-powered PA system requiring efficient Class-D amplifier supply",
+      "specs": {
+        "vout": 28,
+        "vin": 14.4,
+        "power": 200,
+        "f_sw": 300000
+      },
+      "constraints": [
+        "6-hour runtime on battery pack",
+        "Class-D amplifier rail voltage",
+        "Bluetooth audio low latency",
+        "Portable event operation"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Battery-powered PA system requiring efficient Class-D amplifier supply"
+    },
+    {
+      "id": "L2_146",
+      "prompt": "Industrial Barcode Scanner Power: Warehouse scanner requiring fast charge and drop resistance",
+      "specs": {
+        "vout": 3.3,
+        "vin": 8.4,
+        "power": 4,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "2-meter drop test survival",
+        "Fast charging (2 hours)",
+        "Industrial temperature range",
+        "Laser/imager power management"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Warehouse scanner requiring fast charge and drop resistance"
+    },
+    {
+      "id": "L2_147",
+      "prompt": "Greenhouse Grow Light Driver: Horticultural LED lighting requiring spectrum control and efficiency",
+      "specs": {
+        "vout": 40,
+        "vin": 48,
+        "power": 300,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "Independent red/blue channel control",
+        "IP65 for greenhouse humidity",
+        "Sunrise/sunset simulation",
+        "PPFD uniformity optimization"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Horticultural LED lighting requiring spectrum control and efficiency"
+    },
+    {
+      "id": "L2_148",
+      "prompt": "Electric Skateboard Controller: High-performance electric skateboard requiring responsive motor control",
+      "specs": {
+        "vout": 36,
+        "vin": 42,
+        "power": 1500,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "Regenerative braking capture",
+        "Rider weight compensation",
+        "IP54 road debris protection",
+        "BMS integration"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "High-performance electric skateboard requiring responsive motor control"
+    },
+    {
+      "id": "L2_149",
+      "prompt": "Vending Machine Controller Power: Smart vending requiring payment processing and inventory tracking",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 20,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "PCI-compliant payment isolation",
+        "Touchscreen display power",
+        "Refrigeration controller interface",
+        "24/7 unattended operation"
+      ],
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "Smart vending requiring payment processing and inventory tracking"
+    },
+    {
+      "id": "L2_150",
+      "prompt": "Portable ECG Monitor Power: Wearable cardiac monitor requiring ultra-low power with medical safety",
+      "specs": {
+        "vout": 1.8,
+        "vin": 4.2,
+        "power": 0.1,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "IEC 60601-2-47 Holter compliance",
+        "7-day continuous monitoring",
+        "Patient leakage < 10 \u00b5A",
+        "Analog front-end noise < 10 \u00b5V"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Wearable cardiac monitor requiring ultra-low power with medical safety"
+    }
+  ]
+}

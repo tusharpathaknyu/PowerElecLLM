@@ -1,0 +1,206 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_081",
+      "prompt": "Tokamak Central Solenoid Fast Discharge: Fusion reactor requiring controlled energy extraction during plasma disruption",
+      "specs": {
+        "vout": 20000,
+        "vin": 1000,
+        "power": 500000,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "500 MJ energy extraction in 10 ms",
+        "Resistor bank thermal management",
+        "Superconducting coil quench protection",
+        "Fault current limiting capability",
+        "Plasma disruption synchronization"
+      ],
+      "difficulty": "expert",
+      "application": "Fusion reactor requiring controlled energy extraction during plasma disruption",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_082",
+      "prompt": "Inertial Confinement Fusion Pulse Power: NIF-class laser requiring multi-MJ capacitor bank charging system",
+      "specs": {
+        "vout": 24000,
+        "vin": 800,
+        "power": 200000,
+        "f_sw": 10000
+      },
+      "constraints": [
+        "3 MJ capacitor bank charge in 300 s",
+        "192-beam synchronization",
+        "Constant power charging mode",
+        "Shot-to-shot energy reproducibility \u00b10.1%",
+        "Arc fault protection"
+      ],
+      "difficulty": "expert",
+      "application": "NIF-class laser requiring multi-MJ capacitor bank charging system",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_083",
+      "prompt": "Quantum Dot Display Backlight Driver: 8K quantum dot display requiring precision LED backlight power for HDR",
+      "specs": {
+        "vout": 48,
+        "vin": 12,
+        "power": 500,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "10000:1 dimming ratio for HDR",
+        "99% DCI-P3 color gamut preservation",
+        "256-zone local dimming control",
+        "PWM dimming at 480 Hz for video sync",
+        "Zero audible noise (coil whine)"
+      ],
+      "difficulty": "expert",
+      "application": "8K quantum dot display requiring precision LED backlight power for HDR",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_084",
+      "prompt": "Mars Helicopter Rotor Motor Drive: Mars rotorcraft requiring high-power motor drives in 1% Earth atmospheric density",
+      "specs": {
+        "vout": 24,
+        "vin": 28,
+        "power": 350,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "1% Earth atmospheric density operation",
+        "Solar + battery power source",
+        "Dust storm survival mode",
+        "Temperature cycling -90\u00b0C to +20\u00b0C",
+        "Autonomous flight control integration"
+      ],
+      "difficulty": "expert",
+      "application": "Mars rotorcraft requiring high-power motor drives in 1% Earth atmospheric density",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_085",
+      "prompt": "Particle Detector Silicon Tracker Bias: LHC-class detector requiring silicon strip/pixel detector bias power",
+      "specs": {
+        "vout": 500,
+        "vin": 12,
+        "power": 100,
+        "f_sw": 200000
+      },
+      "constraints": [
+        "100 Mrad total ionizing dose survival",
+        "Leakage current limiting for irradiated sensors",
+        "256-channel independent control",
+        "Ramp rate control for sensor protection",
+        "Interlock with detector safety system"
+      ],
+      "difficulty": "expert",
+      "application": "LHC-class detector requiring silicon strip/pixel detector bias power",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_086",
+      "prompt": "Superconducting Magnetic Energy Storage Interface: Grid-scale SMES requiring bidirectional power converter for energy storage",
+      "specs": {
+        "vout": 4000,
+        "vin": 13800,
+        "power": 10000000,
+        "f_sw": 2000
+      },
+      "constraints": [
+        "1 GJ stored energy capacity",
+        "1 ms response time for grid support",
+        "Four-quadrant operation",
+        "Superconducting coil protection",
+        "Grid code compliance (NERC)"
+      ],
+      "difficulty": "expert",
+      "application": "Grid-scale SMES requiring bidirectional power converter for energy storage",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_087",
+      "prompt": "Atomic Magnetometer Array Power: MEG brain imaging system requiring ultra-low-noise sensor array power",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "power": 50,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "Magnetic noise < 10 fT/\u221aHz for brain signal",
+        "128-channel OPM sensor array",
+        "Zero magnetic signature from power supply",
+        "Wearable helmet form factor",
+        "Battery operation for mobility"
+      ],
+      "difficulty": "expert",
+      "application": "MEG brain imaging system requiring ultra-low-noise sensor array power",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_088",
+      "prompt": "Compact Muon Solenoid Upgrade Power: HL-LHC detector upgrade requiring high-density power distribution",
+      "specs": {
+        "vout": 1.2,
+        "vin": 300,
+        "power": 2000,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "1 Grad total ionizing dose (10-year operation)",
+        "100 W/cm\u00b3 power density",
+        "Serial powering chain topology",
+        "CO2 evaporative cooling at -35\u00b0C",
+        "Single-event upset tolerant control"
+      ],
+      "difficulty": "expert",
+      "application": "HL-LHC detector upgrade requiring high-density power distribution",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_089",
+      "prompt": "Lunar Gateway Station Power Distribution: Cislunar space station requiring 50 kW power distribution from solar arrays",
+      "specs": {
+        "vout": 28,
+        "vin": 120,
+        "power": 50000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "90-minute eclipse battery operation",
+        "15-year operational lifetime",
+        "Galactic cosmic ray tolerance",
+        "Module hot-swap capability",
+        "ISS-derived architecture compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "Cislunar space station requiring 50 kW power distribution from solar arrays",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_090",
+      "prompt": "Extreme Ultraviolet Solar Imager Power: Solar observation satellite requiring stable power for EUV imaging instruments",
+      "specs": {
+        "vout": 5,
+        "vin": 28,
+        "power": 100,
+        "f_sw": 400000
+      },
+      "constraints": [
+        "Solar pointing stability 1 arcsecond",
+        "Orbital day/night thermal cycling",
+        "CCD detector noise isolation",
+        "Magnetic torquer compatibility",
+        "10-year mission lifetime"
+      ],
+      "difficulty": "expert",
+      "application": "Solar observation satellite requiring stable power for EUV imaging instruments",
+      "topology": "buck"
+    }
+  ]
+}

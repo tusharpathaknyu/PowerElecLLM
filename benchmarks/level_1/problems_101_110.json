@@ -1,0 +1,136 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_101",
+      "prompt": "Desk Lamp USB Charger: LED desk lamp with integrated USB charging port",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "LED desk lamp with integrated USB charging port"
+    },
+    {
+      "id": "L1_102",
+      "prompt": "Baby Monitor Camera Power: WiFi baby monitor with night vision camera",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi baby monitor with night vision camera"
+    },
+    {
+      "id": "L1_103",
+      "prompt": "Guitar Effects Pedal Power: Digital guitar effects processor requiring clean analog supply",
+      "specs": {
+        "vout": 5,
+        "vin": 9,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Digital guitar effects processor requiring clean analog supply"
+    },
+    {
+      "id": "L1_104",
+      "prompt": "Cordless Drill Battery Interface: 18V cordless tool battery to USB adapter",
+      "specs": {
+        "vout": 5,
+        "vin": 20,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "18V cordless tool battery to USB adapter"
+    },
+    {
+      "id": "L1_105",
+      "prompt": "Portable Photo Printer Supply: Compact dye-sublimation photo printer heater driver",
+      "specs": {
+        "vout": 24,
+        "vin": 7.4,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Compact dye-sublimation photo printer heater driver"
+    },
+    {
+      "id": "L1_106",
+      "prompt": "Fitness Tracker Supply: Wrist-worn fitness band with heart rate monitor",
+      "specs": {
+        "vout": 1.8,
+        "vin": 4.2,
+        "f_sw": 2000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Wrist-worn fitness band with heart rate monitor"
+    },
+    {
+      "id": "L1_107",
+      "prompt": "Dash Camera Power Module: Vehicle dash camera with parking mode recording",
+      "specs": {
+        "vout": 5,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Vehicle dash camera with parking mode recording"
+    },
+    {
+      "id": "L1_108",
+      "prompt": "Smart Doorbell Power: Video doorbell with WiFi and local storage",
+      "specs": {
+        "vout": 5,
+        "vin": 16,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Video doorbell with WiFi and local storage"
+    },
+    {
+      "id": "L1_109",
+      "prompt": "E-Ink Badge Display: Electronic conference badge with e-paper display",
+      "specs": {
+        "vout": 15,
+        "vin": 3,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Electronic conference badge with e-paper display"
+    },
+    {
+      "id": "L1_110",
+      "prompt": "Handheld Game Console Power: Retro handheld gaming device with LCD display",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Retro handheld gaming device with LCD display"
+    }
+  ]
+}

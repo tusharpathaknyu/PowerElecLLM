@@ -1,0 +1,264 @@
+{
+  "level": 3,
+  "description": "Multi-objective optimization problems requiring system-level thinking",
+  "problems": [
+    {
+      "id": "L3_041",
+      "prompt": "Design a buck converter for high-power laser diode array in industrial cutting system. Input: 48V, Output: 2V at 100A for laser diode bar. Must achieve <1% current ripple for beam quality, handle 10kHz pulsing, and survive reflected beam events (sudden load dump).",
+      "specs": {
+        "vout": 2.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "Current ripple <1%",
+          "10kHz pulsing capability",
+          "Load dump protection"
+        ],
+        "secondary": [
+          "Efficiency >90%",
+          "Fast enable/disable"
+        ],
+        "constraints": [
+          "Laser safety interlock integration",
+          "Water cooling interface"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Laser Diode Array Driver",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_042",
+      "prompt": "Design a flyback converter for implantable pacemaker powered by lithium-iodine primary cell. Input: 2.8V (fresh) to 1.8V (EOS), Output: 5V at 1mA average. Must achieve 10-year battery life, <5\u03bcA quiescent current, and meet FDA Class III medical device requirements.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 2.8
+      },
+      "constraints": {
+        "primary": [
+          "10-year battery life",
+          "Quiescent <5\u03bcA",
+          "FDA Class III compliant"
+        ],
+        "secondary": [
+          "EOS detection",
+          "Pacing pulse delivery"
+        ],
+        "constraints": [
+          "Hermetic sealing",
+          "MRI conditional design"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Pacemaker Primary Cell Power",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_043",
+      "prompt": "Design a boost converter for fuel cell vehicle powertrain. Input: 200V-400V from PEMFC stack, Output: 650V DC link at 150kW peak. Must track fuel cell V-I characteristic, survive load rejection, and meet automotive functional safety ASIL-D.",
+      "specs": {
+        "vout": 650.0,
+        "vin": 200.0
+      },
+      "constraints": {
+        "primary": [
+          "ASIL-D functional safety",
+          "Fuel cell MPPT",
+          "150kW capability"
+        ],
+        "secondary": [
+          "Efficiency >97%",
+          "Load rejection survival"
+        ],
+        "constraints": [
+          "Automotive EMC",
+          "Fuel cell dynamics matching"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Fuel Cell Vehicle Traction Inverter",
+      "topology": "boost"
+    },
+    {
+      "id": "L3_044",
+      "prompt": "Design a forward converter for offshore wind turbine nacelle control systems. Input: 690V AC rectified (975V DC), Output: 24V at 20A. Must survive 25-year offshore exposure, handle salt fog and humidity, and operate during grid faults.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 690.0
+      },
+      "constraints": {
+        "primary": [
+          "25-year offshore life",
+          "Salt fog immunity",
+          "Grid fault ride-through"
+        ],
+        "secondary": [
+          "Efficiency >92%",
+          "Low audible noise"
+        ],
+        "constraints": [
+          "IEC 61400-1 Class I",
+          "ATEX Zone 2 possible"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Offshore Wind Turbine Control Power",
+      "topology": "forward"
+    },
+    {
+      "id": "L3_045",
+      "prompt": "Design a SEPIC converter for aviation emergency locator transmitter (ELT). Input: 4V-9V from lithium primary or alkaline pack, Output: 12V at 1A for RF PA. Must operate at -55\u00b0C to +70\u00b0C, survive 100g crash shock, and broadcast for 48 hours continuously.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 4.0
+      },
+      "constraints": {
+        "primary": [
+          "48-hour operation",
+          "100g crash survival",
+          "-55\u00b0C startup"
+        ],
+        "secondary": [
+          "Low standby current",
+          "Altitude insensitive"
+        ],
+        "constraints": [
+          "TSO-C126 certified",
+          "406MHz transmitter interface"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Emergency Locator Transmitter",
+      "topology": "sepic"
+    },
+    {
+      "id": "L3_046",
+      "prompt": "Design a half-bridge resonant converter for submarine battery charging from diesel generator. Input: 440V AC rectified (620V DC), Output: 120V at 200A for lead-acid battery bank. Must be silent (<40dBA), non-magnetic (degaussing compatibility), and survive depth charging shock.",
+      "specs": {
+        "vout": 120.0,
+        "vin": 440.0
+      },
+      "constraints": {
+        "primary": [
+          "Silent <40dBA",
+          "Non-magnetic",
+          "Shock resistant"
+        ],
+        "secondary": [
+          "Efficiency >95%",
+          "CC/CV charging"
+        ],
+        "constraints": [
+          "MIL-S-901D shock",
+          "Submarine EMI specs"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Submarine Battery Charging",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L3_047",
+      "prompt": "Design a buck converter for selective laser sintering (SLS) 3D printer laser. Input: 48V, Output: 5V at 60A for fiber laser pump diodes. Must support 500kHz modulation for scan pattern, <0.5% current accuracy for layer consistency, and thermal stability during 72-hour prints.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "500kHz modulation bandwidth",
+          "0.5% current accuracy",
+          "72-hour stability"
+        ],
+        "secondary": [
+          "Efficiency >92%",
+          "Digital control interface"
+        ],
+        "constraints": [
+          "Class 4 laser safety",
+          "Cleanroom compatible"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Additive Manufacturing Laser",
+      "topology": "buck"
+    },
+    {
+      "id": "L3_048",
+      "prompt": "Design a flyback converter for remote pipeline cathodic protection system. Input: 12V-48V from solar panel or thermoelectric generator, Output: -1.5V to -3V adjustable at 50A for ground bed. Must operate unattended for 5 years, survive lightning, and handle highly variable load impedance.",
+      "specs": {
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "5-year unattended operation",
+          "Lightning survival",
+          "Variable load handling"
+        ],
+        "secondary": [
+          "Remote monitoring",
+          "MPPT for solar"
+        ],
+        "constraints": [
+          "Hazardous area possible",
+          "Extreme temperatures"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Pipeline Cathodic Protection",
+      "topology": "flyback"
+    },
+    {
+      "id": "L3_049",
+      "prompt": "Design a full-bridge converter for Hyperloop pod systems power. Input: 800V DC from linear induction motor regeneration, Output: 48V at 100A for electronics and HVAC. Must survive vacuum environment (100Pa), 1000km/h vibration profile, and electromagnetic interference from propulsion.",
+      "specs": {
+        "vout": 48.0,
+        "vin": 800.0
+      },
+      "constraints": {
+        "primary": [
+          "Vacuum operation",
+          "1000km/h vibration",
+          "EMI immunity"
+        ],
+        "secondary": [
+          "Efficiency >96%",
+          "Regenerative capability"
+        ],
+        "constraints": [
+          "Pressure vessel integration",
+          "Mass critical"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Hyperloop Pod Power",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L3_050",
+      "prompt": "Design a \u0106uk converter for tokamak fusion reactor diagnostic systems. Input: 24V from UPS, Output: -15V at 5A for detector electronics. Must survive 10T magnetic fields, reject magnetic pickup noise, and operate during plasma disruptions with 100kA/ms current transients in the environment.",
+      "specs": {
+        "vin": 24.0
+      },
+      "constraints": {
+        "primary": [
+          "10T magnetic field operation",
+          "Disruption survival",
+          "Noise immunity"
+        ],
+        "secondary": [
+          "Non-magnetic construction",
+          "Precision regulation"
+        ],
+        "constraints": [
+          "Near plasma chamber",
+          "Neutron flux exposure"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Tokamak Diagnostics Power",
+      "topology": "cuk"
+    }
+  ]
+}

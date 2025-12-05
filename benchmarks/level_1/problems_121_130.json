@@ -1,0 +1,137 @@
+{
+  "level": 1,
+  "description": "Basic DC-DC converter design problems with single objectives",
+  "problems": [
+    {
+      "id": "L1_121",
+      "prompt": "Smart Irrigation Controller: WiFi-connected sprinkler controller with multiple zone control",
+      "specs": {
+        "vout": 5,
+        "vin": 24,
+        "f_sw": 400000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "WiFi-connected sprinkler controller with multiple zone control"
+    },
+    {
+      "id": "L1_122",
+      "prompt": "Smart Smoke Detector: Interconnected smoke/CO detector with voice alerts",
+      "specs": {
+        "vout": 3.3,
+        "vin": 9,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Interconnected smoke/CO detector with voice alerts"
+    },
+    {
+      "id": "L1_123",
+      "prompt": "Drone FPV Camera Power: First-person view camera and video transmitter for racing drone",
+      "specs": {
+        "vout": 5,
+        "vin": 14.8,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "First-person view camera and video transmitter for racing drone"
+    },
+    {
+      "id": "L1_124",
+      "prompt": "Portable Air Quality Monitor: Personal air quality sensor with PM2.5 and VOC detection",
+      "specs": {
+        "vout": 5,
+        "vin": 3.7,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Personal air quality sensor with PM2.5 and VOC detection"
+    },
+    {
+      "id": "L1_125",
+      "prompt": "Smart Lock Keypad: Touch-sensitive keypad module for electronic door lock",
+      "specs": {
+        "vout": 3.3,
+        "vin": 6,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Touch-sensitive keypad module for electronic door lock"
+    },
+    {
+      "id": "L1_126",
+      "prompt": "Wireless Charger Transmitter: Qi wireless charging pad transmitter coil driver",
+      "specs": {
+        "vout": 9,
+        "vin": 12,
+        "power": 15,
+        "f_sw": 130000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "half_bridge",
+      "application": "Qi wireless charging pad transmitter coil driver"
+    },
+    {
+      "id": "L1_127",
+      "prompt": "Electric Fence Energizer: Solar-powered livestock electric fence charger",
+      "specs": {
+        "vout": 48,
+        "vin": 12,
+        "f_sw": 100000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Solar-powered livestock electric fence charger"
+    },
+    {
+      "id": "L1_128",
+      "prompt": "MIDI Controller Power: USB-powered MIDI keyboard controller with LED feedback",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "USB-powered MIDI keyboard controller with LED feedback"
+    },
+    {
+      "id": "L1_129",
+      "prompt": "Night Vision Scope Power: Digital night vision monocular with recording capability",
+      "specs": {
+        "vout": 5,
+        "vin": 3.7,
+        "f_sw": 800000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Digital night vision monocular with recording capability"
+    },
+    {
+      "id": "L1_130",
+      "prompt": "Pet Feeder Controller: Automatic pet feeder with WiFi scheduling and camera",
+      "specs": {
+        "vout": 5,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Automatic pet feeder with WiFi scheduling and camera"
+    }
+  ]
+}

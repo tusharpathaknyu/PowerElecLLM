@@ -1,0 +1,198 @@
+{
+  "level": 4,
+  "description": "Expert-level integrated system design with advanced thermal, EMI, and multi-domain optimization",
+  "problems": [
+    {
+      "id": "L4_021",
+      "prompt": "Stellarator Fusion Coil Power Supply: Complex 3D superconducting coil power for Wendelstein 7-X class stellarator",
+      "specs": {
+        "vout": 2000,
+        "vin": 15000,
+        "power": 40000000,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "Field accuracy < 10ppm for plasma confinement",
+        "50+ independent coil supplies synchronized",
+        "Quench detection in < 100ms",
+        "Energy dump capability 1GJ in 10s",
+        "Non-planar coil inductance compensation"
+      ],
+      "difficulty": "expert",
+      "application": "Complex 3D superconducting coil power for Wendelstein 7-X class stellarator",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_022",
+      "prompt": "Brain-Computer Interface Stimulator Array: High-density cortical stimulation array with 10,000 independent channels",
+      "specs": {
+        "vin": 3.3,
+        "f_sw": 4000000
+      },
+      "constraints": [
+        "10,000 independent current sources",
+        "Charge-balanced stimulation for tissue safety",
+        "Inter-channel crosstalk < -60dB",
+        "Implant power budget < 10mW total",
+        "MRI conditional design"
+      ],
+      "difficulty": "expert",
+      "application": "High-density cortical stimulation array with 10,000 independent channels",
+      "topology": "buck"
+    },
+    {
+      "id": "L4_023",
+      "prompt": "Spacecraft Solar Electric Propulsion System: Hall thruster cluster power for deep space mission with 50kW total electric propulsion",
+      "specs": {
+        "vout": 400,
+        "power": 50000,
+        "efficiency_min": 0.96,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Wide input range for solar array degradation over 15 years",
+        "Hot redundancy with any 3 of 4 thrusters",
+        "Graceful degradation capability",
+        "Autonomous fault recovery without ground command",
+        "Mass < 30kg total"
+      ],
+      "difficulty": "expert",
+      "application": "Hall thruster cluster power for deep space mission with 50kW total electric propulsion",
+      "topology": "boost"
+    },
+    {
+      "id": "L4_024",
+      "prompt": "Particle Therapy Synchrotron Kicker Magnet: Fast beam extraction kicker for carbon ion therapy with nanosecond rise time",
+      "specs": {
+        "vin": 80000,
+        "efficiency_min": 0.85
+      },
+      "constraints": [
+        "50ns rise time for beam extraction window",
+        "Field flatness < 0.1% during pulse",
+        "Jitter < 1ns for synchronization",
+        "Recovery < 1ms for next cycle",
+        "Radiation hardened for tunnel location"
+      ],
+      "difficulty": "expert",
+      "application": "Fast beam extraction kicker for carbon ion therapy with nanosecond rise time",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L4_025",
+      "prompt": "Molten Salt Reactor Pump Power: Primary loop pump motor drive for 500MWth molten salt nuclear reactor",
+      "specs": {
+        "vout": 4160,
+        "vin": 6600,
+        "power": 2000000,
+        "efficiency_min": 0.97,
+        "f_sw": 5000
+      },
+      "constraints": [
+        "Class 1E nuclear safety qualification",
+        "700\u00b0C salt temperature proximity",
+        "Seismic Category I rated",
+        "Loss of coolant accident ride-through",
+        "100-year design life with maintenance"
+      ],
+      "difficulty": "expert",
+      "application": "Primary loop pump motor drive for 500MWth molten salt nuclear reactor",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_026",
+      "prompt": "Quantum Cascade Laser Cryocooler Driver: Stirling cryocooler motor drive for space-based infrared spectrometer",
+      "specs": {
+        "vin": 28,
+        "power": 72,
+        "efficiency_min": 0.94
+      },
+      "constraints": [
+        "Vibration export < 0.1mg for telescope pointing",
+        "Phase-locked to spacecraft master clock",
+        "5-year continuous cryogenic operation",
+        "Cold redundancy with hot swap",
+        "EMI compatible with sensitive detectors"
+      ],
+      "difficulty": "expert",
+      "application": "Stirling cryocooler motor drive for space-based infrared spectrometer",
+      "topology": "half_bridge"
+    },
+    {
+      "id": "L4_027",
+      "prompt": "Extreme Ultraviolet Lithography Source Driver: 50kW CO2 laser pre-pulse driver for EUV tin droplet plasma generation",
+      "specs": {
+        "vout": 30000,
+        "vin": 480,
+        "power": 50000,
+        "efficiency_min": 0.85
+      },
+      "constraints": [
+        "100ps jitter for droplet synchronization",
+        "50kHz repetition rate continuous operation",
+        "Pulse-to-pulse energy stability < 1%",
+        "24/7 semiconductor fab operation",
+        "Clean room compatible cooling"
+      ],
+      "difficulty": "expert",
+      "application": "50kW CO2 laser pre-pulse driver for EUV tin droplet plasma generation",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_028",
+      "prompt": "Cryogenic Particle Detector Bias Supply: Liquid argon TPC drift field supply for neutrino detector at -186\u00b0C",
+      "specs": {
+        "vout": 200000,
+        "vin": 24,
+        "power": 20
+      },
+      "constraints": [
+        "Operation at liquid argon temperature (-186\u00b0C)",
+        "Field uniformity < 0.01% over 10m drift",
+        "Ripple < 1ppm for electron drift consistency",
+        "Spark-over protection with \u03bcs response",
+        "10-year underground operation"
+      ],
+      "difficulty": "expert",
+      "application": "Liquid argon TPC drift field supply for neutrino detector at -186\u00b0C",
+      "topology": "flyback"
+    },
+    {
+      "id": "L4_029",
+      "prompt": "Plasma Wakefield Accelerator Modulator: Drive beam modulator for plasma-based TeV particle accelerator research",
+      "specs": {
+        "vin": 30000
+      },
+      "constraints": [
+        "100ps pulse width for plasma wake excitation",
+        "Bunch-to-bunch timing < 10ps",
+        "Energy per pulse = 150J",
+        "5MV/m gradient generation",
+        "Synchronization with laser systems"
+      ],
+      "difficulty": "expert",
+      "application": "Drive beam modulator for plasma-based TeV particle accelerator research",
+      "topology": "full_bridge"
+    },
+    {
+      "id": "L4_030",
+      "prompt": "Ocean Floor Observatory Power System: Deep sea cabled observatory node at 6000m depth requiring 25-year service life",
+      "specs": {
+        "vout": 48,
+        "vin": 10000,
+        "power": 5000,
+        "efficiency_min": 0.92
+      },
+      "constraints": [
+        "600 bar pressure rated enclosure",
+        "25-year maintenance-free operation",
+        "Seawater ground fault protection",
+        "Cable break detection and isolation",
+        "Hot-pluggable instrument ports"
+      ],
+      "difficulty": "expert",
+      "application": "Deep sea cabled observatory node at 6000m depth requiring 25-year service life",
+      "topology": "forward"
+    }
+  ]
+}

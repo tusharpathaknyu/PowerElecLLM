@@ -1,0 +1,178 @@
+{
+  "level": 2,
+  "description": "Level 2 problems",
+  "problems": [
+    {
+      "id": "L2_051",
+      "prompt": "Design a buck converter: 28V avionics to 5V, 5A for flight data recorder. Constraint: MTBF > 100,000 hours",
+      "specs": {
+        "vout": 5.0,
+        "vin": 28.0,
+        "iout": 5.0,
+        "power": 25.0,
+        "f_sw": 250000
+      },
+      "constraints": {
+        "mtbf_hours": 100000,
+        "environment": "avionics"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_052",
+      "prompt": "Design a boost converter: 3.0-4.2V Li-ion to 5V, 2.4A for USB power bank. Constraint: Light-load efficiency > 85% at 100mA",
+      "specs": {
+        "vout": 5.0,
+        "f_sw": 1200000
+      },
+      "constraints": {
+        "light_load_current_ma": 100,
+        "light_load_efficiency_percent": 85
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": ""
+    },
+    {
+      "id": "L2_053",
+      "prompt": "Design a flyback converter: 48V to 5V isolated, 6A for network equipment. Constraint: Common-mode noise < -60dB\u00b5V at 30MHz",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0,
+        "iout": 6.0,
+        "power": 30.0,
+        "f_sw": 150000
+      },
+      "constraints": {
+        "cm_noise_dbuv": -60,
+        "frequency_mhz": 30
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": ""
+    },
+    {
+      "id": "L2_054",
+      "prompt": "Design a buck converter: 12V to 5V, 4A for USB hub. Constraint: Spread-spectrum to reduce EMI peaks by 10dB",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0,
+        "iout": 4.0,
+        "power": 20.0
+      },
+      "constraints": {
+        "spread_spectrum_enabled": true,
+        "emi_reduction_db": 10
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_055",
+      "prompt": "Design a forward converter: 380V to 24V, 12A for industrial PSU. Constraint: Power factor > 0.95 with passive PFC",
+      "specs": {
+        "vout": 24.0,
+        "iout": 12.0,
+        "power": 288.0,
+        "f_sw": 100000
+      },
+      "constraints": {
+        "power_factor": 0.95,
+        "pfc_type": "passive"
+      },
+      "difficulty": "intermediate",
+      "topology": "forward_with_valley_fill",
+      "application": ""
+    },
+    {
+      "id": "L2_056",
+      "prompt": "Design a buck converter: 24V to 12V, 8A for automotive ECU. Constraint: Survive 40V load dump for 400ms",
+      "specs": {
+        "vout": 12.0,
+        "iout": 8.0,
+        "power": 96.0,
+        "f_sw": 300000
+      },
+      "constraints": {
+        "load_dump_voltage": 40,
+        "load_dump_duration_ms": 400
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": ""
+    },
+    {
+      "id": "L2_057",
+      "prompt": "Design a SEPIC converter: 12V to 5V, 3A for USB-C PD source. Constraint: Soft-start time 5-10ms to prevent inrush",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0,
+        "iout": 3.0,
+        "power": 15.0,
+        "f_sw": 400000
+      },
+      "constraints": {
+        "soft_start_min_ms": 5,
+        "soft_start_max_ms": 10
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": ""
+    },
+    {
+      "id": "L2_058",
+      "prompt": "Design a full-bridge phase-shift converter: 400V to 48V, 30A for server PSU. Constraint: ZVS down to 20% load",
+      "specs": {
+        "vout": 48.0,
+        "vin": 400.0,
+        "iout": 30.0,
+        "power": 1440.0,
+        "f_sw": 100000
+      },
+      "constraints": {
+        "zvs_minimum_load_percent": 20
+      },
+      "difficulty": "intermediate",
+      "topology": "full_bridge_phase_shift",
+      "application": ""
+    },
+    {
+      "id": "L2_059",
+      "prompt": "Design an inverting buck-boost: 12V to -12V, 2A for analog supply. Constraint: PSRR > 60dB at 120Hz",
+      "specs": {
+        "vout": -12.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 24.0,
+        "f_sw": 400000
+      },
+      "constraints": {
+        "psrr_db": 60,
+        "frequency_hz": 120
+      },
+      "difficulty": "intermediate",
+      "topology": "inverting_buck_boost",
+      "application": ""
+    },
+    {
+      "id": "L2_060",
+      "prompt": "Design a boost converter: 5V to 24V, 500mA for sensor excitation. Constraint: Output capacitor < 10\u00b5F (space limited)",
+      "specs": {
+        "vout": 24.0,
+        "vin": 5.0,
+        "iout": 0.5,
+        "power": 12.0,
+        "f_sw": 1000000
+      },
+      "constraints": {
+        "max_output_capacitance_uf": 10
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": ""
+    }
+  ]
+}
