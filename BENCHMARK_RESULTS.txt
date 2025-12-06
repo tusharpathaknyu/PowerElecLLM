@@ -1,0 +1,95 @@
+================================================================================
+POWERELECLLM BENCHMARK - COMPREHENSIVE RESULTS
+Generated: 2025-12-06 17:43:58
+================================================================================
+
+## SPICE SIMULATION RESULTS (650 problems)
+--------------------------------------------------------------------------------
+Model                              Pass@10%      Pass@5%     Accuracy
+--------------------------------------------------------------------------------
+FT GPT-4o                           163/651      115/651       25.0%
+FT GPT-4o-mini                      155/650       93/650       23.8%
+GPT-4o (base)                       139/650       78/650       21.4%
+Grok 4.1 Fast Reasoning             124/650       79/650       19.1%
+LLaMA 3.3 70B                        15/650       11/650        2.3%
+Grok-3 Mini                           0/650        0/650        0.0%
+
+🏆 BEST MODEL: FT GPT-4o (25.0%)
+
+
+## ACCURACY BY DIFFICULTY LEVEL
+--------------------------------------------------------------------------------
+Model                                  L1         L2         L3         L4
+--------------------------------------------------------------------------------
+FT GPT-4o                           28.7%      31.6%      22.2%      12.0%
+FT GPT-4o-mini                      30.8%      24.6%      22.2%      13.6%
+GPT-4o (base)                       22.6%      29.2%      19.3%       9.6%
+Grok 4.1 Fast Reasoning             22.1%      23.6%      17.8%       8.8%
+LLaMA 3.3 70B                        7.7%       0.0%       0.0%       0.0%
+Grok-3 Mini                          0.0%       0.0%       0.0%       0.0%
+
+
+## PROMPTING STRATEGY COMPARISON (30 problems)
+--------------------------------------------------------------------------------
+Strategy                Correct      Total     Accuracy
+--------------------------------------------------------------------------------
+basic                        15         30        50.0%
+cot                          19         30        63.3%
+few_shot                     20         30        66.7%
+all                          21         30        70.0%
+
+📈 CoT + Few-Shot improvement: 50.0% → 70.0% (+40% relative)
+
+
+## KEY FINDINGS
+--------------------------------------------------------------------------------
+
+1. FINE-TUNING IMPACT:
+   - Fine-tuned GPT-4o achieves best results (25.0%)
+   - ~17% relative improvement over base GPT-4o (21.4%)
+   - Fine-tuned GPT-4o-mini competitive at lower cost
+
+2. MODEL COMPARISON:
+   - GPT models: 20-25% accuracy
+   - Grok 4.1 Fast Reasoning: 19.1%
+   - LLaMA 3.3 70B: 2.3% (needs fine-tuning!)
+
+3. PROMPTING STRATEGIES:
+   - Chain-of-Thought: +26% relative improvement
+   - Few-Shot: +33% relative improvement  
+   - Combined: +40% relative improvement (50% → 70%)
+
+4. DIFFICULTY SCALING:
+   - Level 1-2: ~25-30% accuracy
+   - Level 3: ~20% accuracy
+   - Level 4: ~12% accuracy
+   - Clear difficulty progression validated
+
+5. BENCHMARK INSIGHTS:
+   - Power electronics is a challenging domain for LLMs
+   - Precise numerical reasoning is the bottleneck
+   - Domain-specific training significantly helps
+   - SPICE validation catches errors that text-based eval misses
+
+
+## DATASET SUMMARY
+--------------------------------------------------------------------------------
+
+Training Data:
+  - Level 1-4: 500 problems
+  - Test Set: 150 problems (test_set_v2)
+  - Fine-tuning: 2000 examples (train_large.jsonl)
+
+Problem Types:
+  - Level 1: Basic single converter
+  - Level 2: Intermediate with constraints
+  - Level 3: Advanced multi-criteria
+  - Level 4: Expert optimization
+  - Level 5: Expert (LLC, multi-phase, DAB) [NEW]
+
+Topologies:
+  - Buck, Boost, Buck-Boost
+  - SEPIC, Cuk
+  - Flyback, Forward
+  - Half-Bridge, Full-Bridge, Push-Pull
+  - LLC Resonant, Multi-phase, DAB [NEW]

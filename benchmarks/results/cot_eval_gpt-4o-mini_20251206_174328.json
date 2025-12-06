@@ -1,0 +1,816 @@
+{
+  "model": "gpt-4o-mini",
+  "timestamp": "2025-12-06T17:30:02.957268",
+  "cot_results": [
+    {
+      "id": "L1_001",
+      "level": 1,
+      "D": 0.417,
+      "vout": 4.4906502167750775,
+      "vout_error_pct": 10.18699566449845,
+      "passed": false
+    },
+    {
+      "id": "L1_002",
+      "level": 1,
+      "D": 0.5,
+      "vout": 11.540448825850339,
+      "vout_error_pct": 3.829593117913843,
+      "passed": true
+    },
+    {
+      "id": "L1_003",
+      "level": 1,
+      "D": 0.104,
+      "vout": 4.164944451369863,
+      "vout_error_pct": 16.70111097260275,
+      "passed": false
+    },
+    {
+      "id": "L1_004",
+      "level": 1,
+      "D": 0.22,
+      "vout": 2.6610628472789117,
+      "vout_error_pct": 19.361731900639036,
+      "passed": false
+    },
+    {
+      "id": "L1_005",
+      "level": 1,
+      "D": 0.583,
+      "vout": 11.19942940650685,
+      "vout_error_pct": 6.671421612442918,
+      "passed": true
+    },
+    {
+      "id": "L1_006",
+      "level": 1,
+      "D": 0.26,
+      "vout": 4.114643181020408,
+      "vout_error_pct": 17.707136379591848,
+      "passed": false
+    },
+    {
+      "id": "L1_007",
+      "level": 1,
+      "D": 0.5,
+      "vout": 22.902587604081635,
+      "vout_error_pct": 4.572551649659854,
+      "passed": true
+    },
+    {
+      "id": "L1_008",
+      "level": 1,
+      "D": 0.179,
+      "vout": 4.1700295256462585,
+      "vout_error_pct": 16.59940948707483,
+      "passed": false
+    },
+    {
+      "id": "L1_009",
+      "level": 1,
+      "D": 0.4,
+      "vout": 14.182811611564627,
+      "vout_error_pct": 5.447922589569151,
+      "passed": true
+    },
+    {
+      "id": "L1_010",
+      "level": 1,
+      "D": 0.333,
+      "vout": 11.352690940068493,
+      "vout_error_pct": 5.394242166095889,
+      "passed": true
+    },
+    {
+      "id": "L1_101",
+      "level": 1,
+      "D": 0.417,
+      "vout": 9.461283507668607,
+      "vout_error_pct": 89.22567015337215,
+      "passed": false
+    },
+    {
+      "id": "L1_102",
+      "level": 1,
+      "D": 0.417,
+      "vout": 1.6134863626155425,
+      "vout_error_pct": 51.10647386013507,
+      "passed": false
+    },
+    {
+      "id": "L1_103",
+      "level": 1,
+      "D": 0.75,
+      "vout": 6.555960205204081,
+      "vout_error_pct": 31.11920410408162,
+      "passed": false
+    },
+    {
+      "id": "L1_104",
+      "level": 1,
+      "D": 0.278,
+      "vout": 4.923226215646259,
+      "vout_error_pct": 1.5354756870748254,
+      "passed": true
+    },
+    {
+      "id": "L1_105",
+      "level": 1,
+      "D": 0.5,
+      "vout": 3.2970743759523806,
+      "vout_error_pct": 86.26219010019841,
+      "passed": false
+    },
+    {
+      "id": "L1_106",
+      "level": 1,
+      "D": 0.892,
+      "vout": 3.663186035634138,
+      "vout_error_pct": 103.51033531300766,
+      "passed": false
+    },
+    {
+      "id": "L1_107",
+      "level": 1,
+      "D": 0.417,
+      "vout": 4.509216069976035,
+      "vout_error_pct": 9.815678600479298,
+      "passed": true
+    },
+    {
+      "id": "L1_108",
+      "level": 1,
+      "D": 0.417,
+      "vout": 6.169099877850051,
+      "vout_error_pct": 23.38199755700103,
+      "passed": false
+    },
+    {
+      "id": "L1_109",
+      "level": 1,
+      "D": 0.26,
+      "vout": 0.8497465226246719,
+      "vout_error_pct": 94.33502318250218,
+      "passed": false
+    },
+    {
+      "id": "L1_110",
+      "level": 1,
+      "D": 0.66,
+      "vout": 3.0199056898299323,
+      "vout_error_pct": 8.487706368789924,
+      "passed": true
+    },
+    {
+      "id": "L1_111",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_112",
+      "level": 1,
+      "D": 0.167,
+      "vout": 10.301746838366013,
+      "vout_error_pct": 28.460091400236028,
+      "passed": false
+    },
+    {
+      "id": "L1_113",
+      "level": 1,
+      "D": 0.25,
+      "vout": 5.3567323570408165,
+      "vout_error_pct": 55.360563691326526,
+      "passed": false
+    },
+    {
+      "id": "L1_114",
+      "level": 1,
+      "D": 0.451,
+      "vout": 4.516064297653061,
+      "vout_error_pct": 9.678714046938772,
+      "passed": true
+    },
+    {
+      "id": "L1_115",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_116",
+      "level": 1,
+      "D": 0.26,
+      "vout": 0.6291339319893369,
+      "vout_error_pct": 80.93533539426252,
+      "passed": false
+    },
+    {
+      "id": "L1_117",
+      "level": 1,
+      "D": 0.417,
+      "vout": 2.0197859497432384,
+      "vout_error_pct": 38.7943651592958,
+      "passed": false
+    },
+    {
+      "id": "L1_118",
+      "level": 1,
+      "D": 0.556,
+      "vout": 1.318360865525505,
+      "vout_error_pct": 73.6327826894899,
+      "passed": false
+    },
+    {
+      "id": "L1_119",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_120",
+      "level": 1,
+      "D": 0.583,
+      "vout": 3.659122822284768,
+      "vout_error_pct": 1.104788586898172,
+      "passed": true
+    },
+    {
+      "id": "L1_011",
+      "level": 1,
+      "D": 0.294,
+      "vout": 9.982930681678083,
+      "vout_error_pct": 99.65861363356166,
+      "passed": false
+    },
+    {
+      "id": "L1_012",
+      "level": 1,
+      "D": 0.571,
+      "vout": 10.970221445919044,
+      "vout_error_pct": 8.581487950674632,
+      "passed": true
+    },
+    {
+      "id": "L1_013",
+      "level": 1,
+      "D": 0.667,
+      "vout": 48.07207207207208,
+      "vout_error_pct": 0.1501501501501708,
+      "passed": true
+    },
+    {
+      "id": "L1_014",
+      "level": 1,
+      "D": 0.294,
+      "vout": 4.997167138810198,
+      "vout_error_pct": 0.05665722379603721,
+      "passed": true
+    },
+    {
+      "id": "L1_015",
+      "level": 1,
+      "D": 0.556,
+      "vout": 6.672000000000001,
+      "vout_error_pct": 55.51999999999999,
+      "passed": false
+    },
+    {
+      "id": "L1_016",
+      "level": 1,
+      "D": 0.444,
+      "vout": 9.348300222226028,
+      "vout_error_pct": 22.097498148116436,
+      "passed": false
+    },
+    {
+      "id": "L1_017",
+      "level": 1,
+      "D": 0.0625,
+      "vout": 23.036699999999996,
+      "vout_error_pct": 91.97249999999997,
+      "passed": false
+    },
+    {
+      "id": "L1_018",
+      "level": 1,
+      "D": 0.48,
+      "vout": 11.15374892755102,
+      "vout_error_pct": 53.52604613520408,
+      "passed": false
+    },
+    {
+      "id": "L1_019",
+      "level": 1,
+      "D": 0.12,
+      "vout": 98.87958860068028,
+      "vout_error_pct": 105.99914291808392,
+      "passed": false
+    },
+    {
+      "id": "L1_020",
+      "level": 1,
+      "D": 0.208,
+      "vout": 4.992,
+      "vout_error_pct": 0.16000000000000014,
+      "passed": true
+    },
+    {
+      "id": "L1_121",
+      "level": 1,
+      "D": 0.208,
+      "vout": 4.20217112037415,
+      "vout_error_pct": 15.956577592517007,
+      "passed": false
+    },
+    {
+      "id": "L1_122",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_123",
+      "level": 1,
+      "D": 0.451,
+      "vout": 6.201326192006802,
+      "vout_error_pct": 24.026523840136047,
+      "passed": false
+    },
+    {
+      "id": "L1_124",
+      "level": 1,
+      "D": 0.66,
+      "vout": 2.1721893637414964,
+      "vout_error_pct": 56.55621272517008,
+      "passed": false
+    },
+    {
+      "id": "L1_125",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_126",
+      "level": 1,
+      "D": 0.5,
+      "vout": 5.572028792653061,
+      "vout_error_pct": 38.08856897052155,
+      "passed": false
+    },
+    {
+      "id": "L1_127",
+      "level": 1,
+      "D": 0.51,
+      "vout": 11.961762123405613,
+      "vout_error_pct": 75.07966224290497,
+      "passed": false
+    },
+    {
+      "id": "L1_128",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    },
+    {
+      "id": "L1_129",
+      "level": 1,
+      "D": 0.417,
+      "vout": 1.0788065647381033,
+      "vout_error_pct": 78.42386870523794,
+      "passed": false
+    },
+    {
+      "id": "L1_130",
+      "level": 1,
+      "D": null,
+      "vout": 0,
+      "vout_error_pct": 100.0,
+      "passed": false
+    }
+  ],
+  "basic_results": [
+    {
+      "id": "L1_001",
+      "level": 1,
+      "D": 0.4167,
+      "vout": 2.621666695857583,
+      "vout_error_pct": 47.56666608284834,
+      "passed": false
+    },
+    {
+      "id": "L1_002",
+      "level": 1,
+      "D": 0.5,
+      "vout": 11.733885161465402,
+      "vout_error_pct": 2.217623654454985,
+      "passed": true
+    },
+    {
+      "id": "L1_003",
+      "level": 1,
+      "D": 0.895,
+      "vout": 42.96,
+      "vout_error_pct": 759.2,
+      "passed": false
+    },
+    {
+      "id": "L1_004",
+      "level": 1,
+      "D": 0.22,
+      "vout": 3.3,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_005",
+      "level": 1,
+      "D": 0.583,
+      "vout": 5.678753664794521,
+      "vout_error_pct": 52.677052793378984,
+      "passed": false
+    },
+    {
+      "id": "L1_006",
+      "level": 1,
+      "D": 0.26,
+      "vout": 5.0,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_007",
+      "level": 1,
+      "D": 0.5,
+      "vout": 22.15156303231293,
+      "vout_error_pct": 7.701820698696131,
+      "passed": true
+    },
+    {
+      "id": "L1_008",
+      "level": 1,
+      "D": 0.1786,
+      "vout": 5.0008,
+      "vout_error_pct": 0.015999999999998238,
+      "passed": true
+    },
+    {
+      "id": "L1_009",
+      "level": 1,
+      "D": 0.4,
+      "vout": 15.0,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_010",
+      "level": 1,
+      "D": 0.333,
+      "vout": 11.548269317590691,
+      "vout_error_pct": 3.7644223534109087,
+      "passed": true
+    },
+    {
+      "id": "L1_101",
+      "level": 1,
+      "D": 0.5,
+      "vout": 10.044435536972788,
+      "vout_error_pct": 100.88871073945576,
+      "passed": false
+    },
+    {
+      "id": "L1_102",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.5,
+      "vout_error_pct": 24.24242424242424,
+      "passed": false
+    },
+    {
+      "id": "L1_103",
+      "level": 1,
+      "D": 0.5,
+      "vout": 4.460681834234235,
+      "vout_error_pct": 10.786363315315306,
+      "passed": false
+    },
+    {
+      "id": "L1_104",
+      "level": 1,
+      "D": 0.5,
+      "vout": 8.368920255918368,
+      "vout_error_pct": 67.37840511836737,
+      "passed": false
+    },
+    {
+      "id": "L1_105",
+      "level": 1,
+      "D": 0.5,
+      "vout": 3.7,
+      "vout_error_pct": 84.58333333333333,
+      "passed": false
+    },
+    {
+      "id": "L1_106",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.1,
+      "vout_error_pct": 16.666666666666668,
+      "passed": false
+    },
+    {
+      "id": "L1_107",
+      "level": 1,
+      "D": 0.5,
+      "vout": 6.0,
+      "vout_error_pct": 20.0,
+      "passed": false
+    },
+    {
+      "id": "L1_108",
+      "level": 1,
+      "D": 0.5,
+      "vout": 7.315610244183674,
+      "vout_error_pct": 46.31220488367347,
+      "passed": false
+    },
+    {
+      "id": "L1_109",
+      "level": 1,
+      "D": 0.5,
+      "vout": 1.5,
+      "vout_error_pct": 90.0,
+      "passed": false
+    },
+    {
+      "id": "L1_110",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.431264671072733,
+      "vout_error_pct": 26.32531299779596,
+      "passed": false
+    },
+    {
+      "id": "L1_111",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.5,
+      "vout_error_pct": 40.476190476190474,
+      "passed": false
+    },
+    {
+      "id": "L1_112",
+      "level": 1,
+      "D": 0.3,
+      "vout": 5.3999999999999995,
+      "vout_error_pct": 62.5,
+      "passed": false
+    },
+    {
+      "id": "L1_113",
+      "level": 1,
+      "D": 0.5,
+      "vout": 12.0,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_114",
+      "level": 1,
+      "D": 0.5,
+      "vout": 5.55,
+      "vout_error_pct": 10.999999999999996,
+      "passed": false
+    },
+    {
+      "id": "L1_115",
+      "level": 1,
+      "D": 0.5,
+      "vout": 3.0,
+      "vout_error_pct": 9.090909090909086,
+      "passed": true
+    },
+    {
+      "id": "L1_116",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.1,
+      "vout_error_pct": 36.36363636363636,
+      "passed": false
+    },
+    {
+      "id": "L1_117",
+      "level": 1,
+      "D": 0.5,
+      "vout": 3.0,
+      "vout_error_pct": 9.090909090909086,
+      "passed": true
+    },
+    {
+      "id": "L1_118",
+      "level": 1,
+      "D": 0.5,
+      "vout": 1.5,
+      "vout_error_pct": 70.0,
+      "passed": false
+    },
+    {
+      "id": "L1_119",
+      "level": 1,
+      "D": 0.5,
+      "vout": 5.486081148945578,
+      "vout_error_pct": 66.24488330138117,
+      "passed": false
+    },
+    {
+      "id": "L1_120",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.5,
+      "vout_error_pct": 32.432432432432435,
+      "passed": false
+    },
+    {
+      "id": "L1_011",
+      "level": 1,
+      "D": 0.583,
+      "vout": 16.776978417266186,
+      "vout_error_pct": 235.53956834532372,
+      "passed": false
+    },
+    {
+      "id": "L1_012",
+      "level": 1,
+      "D": 0.25,
+      "vout": 9.633683586074705,
+      "vout_error_pct": 19.71930344937746,
+      "passed": false
+    },
+    {
+      "id": "L1_013",
+      "level": 1,
+      "D": 0.5,
+      "vout": 12.0,
+      "vout_error_pct": 75.0,
+      "passed": false
+    },
+    {
+      "id": "L1_014",
+      "level": 1,
+      "D": 0.42,
+      "vout": -1.085754476770063,
+      "vout_error_pct": 121.71508953540126,
+      "passed": false
+    },
+    {
+      "id": "L1_015",
+      "level": 1,
+      "D": 0.4,
+      "vout": 4.800000000000001,
+      "vout_error_pct": 68.0,
+      "passed": false
+    },
+    {
+      "id": "L1_016",
+      "level": 1,
+      "D": 0.45,
+      "vout": 17.276136691471287,
+      "vout_error_pct": 43.96780576226072,
+      "passed": false
+    },
+    {
+      "id": "L1_017",
+      "level": 1,
+      "D": 0.25,
+      "vout": 12.0,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_018",
+      "level": 1,
+      "D": 0.24,
+      "vout": 24.62824313867003,
+      "vout_error_pct": 2.6176797444584565,
+      "passed": true
+    },
+    {
+      "id": "L1_019",
+      "level": 1,
+      "D": 0.12,
+      "vout": 48.0,
+      "vout_error_pct": 0.0,
+      "passed": true
+    },
+    {
+      "id": "L1_020",
+      "level": 1,
+      "D": 0.208,
+      "vout": 4.992,
+      "vout_error_pct": 0.16000000000000014,
+      "passed": true
+    },
+    {
+      "id": "L1_121",
+      "level": 1,
+      "D": 0.5,
+      "vout": 11.788892474006115,
+      "vout_error_pct": 135.7778494801223,
+      "passed": false
+    },
+    {
+      "id": "L1_122",
+      "level": 1,
+      "D": 0.5,
+      "vout": 4.114322212585034,
+      "vout_error_pct": 24.676430684394965,
+      "passed": false
+    },
+    {
+      "id": "L1_123",
+      "level": 1,
+      "D": 0.5,
+      "vout": 7.4,
+      "vout_error_pct": 48.00000000000001,
+      "passed": false
+    },
+    {
+      "id": "L1_124",
+      "level": 1,
+      "D": 0.5,
+      "vout": 1.85,
+      "vout_error_pct": 63.0,
+      "passed": false
+    },
+    {
+      "id": "L1_125",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.973779700066445,
+      "vout_error_pct": 9.88546363435014,
+      "passed": true
+    },
+    {
+      "id": "L1_126",
+      "level": 1,
+      "D": 0.5,
+      "vout": 6.0,
+      "vout_error_pct": 33.33333333333333,
+      "passed": false
+    },
+    {
+      "id": "L1_127",
+      "level": 1,
+      "D": 0.5,
+      "vout": 6.0,
+      "vout_error_pct": 87.5,
+      "passed": false
+    },
+    {
+      "id": "L1_128",
+      "level": 1,
+      "D": 0.5,
+      "vout": 2.478138654563624,
+      "vout_error_pct": 24.90488925564775,
+      "passed": false
+    },
+    {
+      "id": "L1_129",
+      "level": 1,
+      "D": 0.5,
+      "vout": 1.85,
+      "vout_error_pct": 63.0,
+      "passed": false
+    },
+    {
+      "id": "L1_130",
+      "level": 1,
+      "D": 0.5,
+      "vout": 6.0,
+      "vout_error_pct": 20.0,
+      "passed": false
+    }
+  ],
+  "summary": {
+    "total": 50,
+    "cot_correct": 14,
+    "cot_accuracy": 28.000000000000004,
+    "basic_correct": 15,
+    "basic_accuracy": 30.0,
+    "improvement": -6.666666666666667
+  }
+}
