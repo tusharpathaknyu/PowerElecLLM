@@ -1,0 +1,191 @@
+{
+  "level": 4,
+  "description": "Advanced multi-constraint optimization problems",
+  "problems": [
+    {
+      "id": "L4_201",
+      "prompt": "Design a buck converter for automotive 12V\u21925V, 3A with: <1% output ripple, >92% efficiency, <100kHz EMI compliance, -40\u00b0C to 85\u00b0C operation. Specify all component values and justify selections.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12,
+        "vout": 5,
+        "iout": 3,
+        "power": 15
+      },
+      "constraints": {
+        "vout_ripple_pct": 1,
+        "efficiency_min": 0.92,
+        "fsw_max": 100000.0,
+        "temp_range": [
+          -40,
+          85
+        ]
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_202",
+      "prompt": "Design a boost converter for solar battery charger: 12-18V panel to 24V battery, 100W. Must handle MPPT tracking with <0.5% tracking error and provide input current limiting at 7A.",
+      "specs": {
+        "topology": "boost",
+        "vin_range": [
+          12,
+          18
+        ],
+        "vout": 24,
+        "power": 100
+      },
+      "constraints": {
+        "mppt_error_pct": 0.5,
+        "iin_limit": 7,
+        "soft_start_time_ms": 50
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_203",
+      "prompt": "Design a flyback for isolated 48V\u21925V/10A auxiliary supply with: 5000V isolation, <50mV ripple, creepage >8mm. Include transformer design with specific core selection.",
+      "specs": {
+        "topology": "flyback",
+        "vin": 48,
+        "vout": 5,
+        "iout": 10,
+        "power": 50
+      },
+      "constraints": {
+        "isolation_voltage": 5000,
+        "vout_ripple_mv": 50,
+        "creepage_mm": 8
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_204",
+      "prompt": "Design a full-bridge converter for 48V to \u00b115V dual output, 200W total (symmetric loads). Both outputs must track within 1% and share a single transformer.",
+      "specs": {
+        "topology": "full_bridge_dual_output",
+        "vin": 48,
+        "vout_pos": 15,
+        "vout_neg": -15,
+        "power": 200
+      },
+      "constraints": {
+        "output_tracking_pct": 1,
+        "cross_regulation_pct": 3
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_205",
+      "prompt": "Design a SEPIC for wide-input LED driver: 9-36V DC input to constant 700mA output (LED forward voltage 24-32V depending on temp). Implement constant current control.",
+      "specs": {
+        "topology": "sepic",
+        "vin_range": [
+          9,
+          36
+        ],
+        "iout": 0.7,
+        "vout_range": [
+          24,
+          32
+        ]
+      },
+      "constraints": {
+        "iout_regulation_pct": 2,
+        "cc_mode": true,
+        "dimming_range": [
+          0.1,
+          1.0
+        ]
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_206",
+      "prompt": "Design a buck converter optimized for 10%-100% load efficiency: 24V\u21925V, 0.5-5A. Achieve >85% efficiency at 10% load and >93% at full load. Consider PFM/PWM mode switching.",
+      "specs": {
+        "topology": "buck",
+        "vin": 24,
+        "vout": 5,
+        "iout_range": [
+          0.5,
+          5
+        ]
+      },
+      "constraints": {
+        "efficiency_10pct_load": 0.85,
+        "efficiency_full_load": 0.93,
+        "mode_switch": "PFM_PWM"
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_207",
+      "prompt": "Design a boost converter for portable device: 3.0-4.2V (1S Li-ion) to 5V, 2A max. Optimize for <1mA quiescent current at no load while maintaining regulation.",
+      "specs": {
+        "topology": "boost",
+        "vin_range": [
+          3.0,
+          4.2
+        ],
+        "vout": 5,
+        "iout": 2
+      },
+      "constraints": {
+        "iq_ua": 1000,
+        "vout_regulation_pct": 2
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_208",
+      "prompt": "Design a buck converter with fast transient response: 12V\u21921.8V, 0-20A load step. Must recover to within 3% in <50\u00b5s. Calculate output capacitance and control bandwidth.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12,
+        "vout": 1.8,
+        "iout_step": 20
+      },
+      "constraints": {
+        "settling_time_us": 50,
+        "overshoot_pct": 3,
+        "undershoot_pct": 3
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_209",
+      "prompt": "Design a boost converter with input voltage transient immunity: 4.5-5.5V input, 12V output, 3A. Must maintain output within 5% during 1V/\u00b5s input slew rate.",
+      "specs": {
+        "topology": "boost",
+        "vin_range": [
+          4.5,
+          5.5
+        ],
+        "vout": 12,
+        "iout": 3
+      },
+      "constraints": {
+        "vin_slew_rate_v_per_us": 1,
+        "vout_deviation_pct": 5
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "id": "L4_210",
+      "prompt": "Design a buck converter fitting in 10x10mm: 5V\u21923.3V, 2A. Minimize total inductor+capacitor volume while meeting 20mV ripple spec. Switching frequency is your optimization variable.",
+      "specs": {
+        "topology": "buck",
+        "vin": 5,
+        "vout": 3.3,
+        "iout": 2
+      },
+      "constraints": {
+        "board_area_mm2": 100,
+        "vout_ripple_mv": 20,
+        "height_mm": 3
+      },
+      "difficulty": "advanced"
+    }
+  ]
+}
