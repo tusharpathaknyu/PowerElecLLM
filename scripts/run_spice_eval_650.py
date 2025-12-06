@@ -271,6 +271,11 @@ def main():
             "api_key_env": "OPENAI_API_KEY"
         },
         {
+            "name": "Grok 4.1 Fast",
+            "model_id": "grok-4-1-fast",
+            "api_key_env": "XAI_API_KEY"
+        },
+        {
             "name": "Grok 4.1 Fast Reasoning",
             "model_id": "grok-4-1-fast-reasoning",
             "api_key_env": "XAI_API_KEY"
