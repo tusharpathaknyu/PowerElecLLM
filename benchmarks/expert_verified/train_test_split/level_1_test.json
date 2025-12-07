@@ -1,0 +1,210 @@
+{
+  "source": "Expert-Verified (GATE + MIT) - Test Set",
+  "level": 1,
+  "difficulty": "beginner",
+  "total_problems": 13,
+  "split": "test",
+  "split_ratio": "80/20",
+  "problems": [
+    {
+      "id": "gate_2011_q25",
+      "source": "GATE Official (OCR)",
+      "year": 2011,
+      "question_number": "25",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.25 Circuit turn-off time of an SCR is defined as the time (A) taken by the SCR to turn off (B) required for the SCR current to become zero (C) for which the SCR is reverse biased by the commutation circuit (D) for which the SCR is reverse biased to reduce its current below the holding current EE-A 124 2011 EE",
+      "matched_patterns": [
+        "commutation"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw3_p4",
+      "source": "MIT 6.334 Problem Set 3, Problem 3.4",
+      "topic": "DCM Buck-Boost Analysis",
+      "problem_statement": "For a buck-boost converter in DCM with V1=25V, L=1\u00b5H, R=2\u03a9, f=300kHz: (a) Find average output current in DCM, (b) Find duty ratio at CCM/DCM boundary, (c) What happens when R becomes very large?",
+      "given": {
+        "V1": 25,
+        "L": "1e-6",
+        "R": 2,
+        "f": 300000
+      },
+      "required": [
+        "average_current_dcm",
+        "critical_duty_ratio",
+        "large_R_behavior"
+      ],
+      "solution_approach": "DCM analysis with inductor current waveform",
+      "ground_truth": {
+        "critical_inductance_formula": "L_crit = R*(1-D)^2/(2*f)",
+        "dcm_conversion_ratio": "V2/V1 = D*sqrt(R/(2*L*f))",
+        "notes": "At large R, converter enters deep DCM with voltage source behavior"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw6_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.4",
+      "problem_text": "Problem 6.4 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw2_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 2,
+      "problem_number": "2.2",
+      "problem_text": "Problem 2.2 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw2/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2012_q18",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 18,
+      "problem_type": "general",
+      "problem_text": "The i-v characteristics of the diode in the circuit given below are  \n                                            \n\uf0ef\uf0ee\n\uf0ef\uf0ed\n\uf0ec\n\uf03c\n\uf0b3\n\uf02d\n\uf03d\nV\n7.0\n,\nA\n0\nV\n7.0\n,\nA\n500\n7.0\nv\nv\nv\ni\n  \nThe current in the circuit is \n+\n1kW\n10V\n-\ni\n+\n-\nv\n(A)  10 mA  \n(B)  9.3 mA  \n(C)  6.67 mA \n(D)  6.2 mA",
+      "keywords": [
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw10_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.2",
+      "problem_text": "Problem 10.2 KSV Prob. 4.6",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2013_q30",
+      "source": "GATE EE 2013",
+      "year": 2013,
+      "question_number": 30,
+      "problem_type": "general",
+      "problem_text": "Three capacitors C1, C2, and C3, whose values are 10\u00b5F, 5\u00b5F, and 2\u00b5F respectively, have \nbreakdown voltages of 10V, 5V, and 2V respectively. For the interconnection shown, the maximum \nsafe voltage in Volts that can be applied across the combination and the corresponding total charge \nin \u00b5C stored in the effective capacitance across the terminals are respectively \nC3\nC1\nC2\n(A) 2.8 and 36 \n(B) 7 and 119 \n(C) 2.8 and 32 \n(D) 7 and 80",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw10_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.4",
+      "problem_text": "Problem 10.4 KSV Prob. 4.8",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q23",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 23,
+      "problem_type": "power_device",
+      "problem_text": "A steady dc current of 100 A is flowing through a power module (S, D) as shown in Figure (a). The \nV-I characteristics of the IGBT (S) and the diode (D) are shown in Figures (b) and (c), respectively. \nThe conduction power loss in the power module (S, D), in watts, is ________.",
+      "keywords": [
+        "igbt",
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q39",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 39,
+      "problem_type": "general",
+      "problem_text": "In the circuit shown, switch S2 has been closed for a long time. At time \u0750= 0 switch S1 is closed. \nAt \u0750= 0\u0b3e, the rate of change of current through the inductor, in amperes per second, is _____.",
+      "keywords": [
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw3_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 3,
+      "problem_number": "3.5",
+      "problem_text": "Problem 3.5 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw3/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2008_q54",
+      "source": "GATE Official",
+      "year": 2008,
+      "question_number": "54",
+      "problem_type": "general",
+      "problem_text": "Q54 Single line diagram of a 4-bus single source distribution system is shown below. Branches \u00a2, ,e,, e;and e, have equal impedances. The load current values indicated in the figure are in per unit. Distribution company\u2019s policy Tequires radial system operation with minimum loss. This can be achieved by opening of the branch (A) e (B) e, (\u00a9 e (D) e, Q55__A single phase fully controlled bridge converter supplies a load drawing constant and ripple free load current. If the triggering angle is 30\u00b0, the input power factor will be (A) 0.65 (B) 0.78 (C) 0.85 (D) 0.866 EE 15/28 2008 MAIN PAPER - EE.",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q12",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 12,
+      "problem_type": "power_device",
+      "problem_text": "A transistor circuit is given below. The Zener diode breakdown voltage is 5.3 V as shown. Take \nbase to emitter voltage drop to be 0.6 V. The value of the current gain \u03b2 is _________.",
+      "keywords": [
+        "diode",
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    }
+  ]
+}

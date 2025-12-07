@@ -1,0 +1,457 @@
+{
+  "source": "Expert-Verified (GATE + MIT) - Training Set",
+  "level": 3,
+  "difficulty": "advanced",
+  "total_problems": 28,
+  "split": "train",
+  "split_ratio": "80/20",
+  "problems": [
+    {
+      "id": "gate_ee_2014_q39",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 39,
+      "problem_type": "general",
+      "problem_text": "A three phase synchronous generator is to be connected to the infinite bus. The lamps are connected \nas shown in the figure for the synchronization. The phase sequence of bus voltage is R-Y-B and \nthat of incoming generator voltage is R\uf0a2-Y\uf0a2-B\uf0a2. \n \n \n \nIt was found that the lamps are becoming dark in the sequence La-Lb-Lc. It means that the phase \nsequence of incoming generator is  \n(A)  opposite to infinite bus and its frequency is  more than infinite bus \n(B)  opposite to infinite bus but its frequency is less than infinite bus \n(C)  same as infinite bus and its frequency is more than infinite bus \n(D)  same as infinite bus and its frequency is less than infinite bus \n \nLa\nLb\nLc\nR\nY\nB\nR'\nY'\nB'\nInfinite Bus\nIncoming Generator\nEE01 (GATE 2014)\n\nGATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE \nEE \n9/15",
+      "keywords": [
+        "three phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2012_q47",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 47,
+      "problem_type": "inverter",
+      "problem_text": "A single phase 10 kVA, 50 Hz transformer with 1 kV primary winding draws 0.5 A and 55 W, at \nrated voltage and frequency, on no load. A second transformer has a core with all its linear \ndimensions \n2  times the corresponding dimensions of the first transformer. The core material and \nlamination thickness are the same in both transformers. The primary windings of both the \ntransformers have the same number of turns. If a rated voltage of 2 kV at 50 Hz is applied to the \nprimary of the second transformer, then the no load current and power, respectively, are  \n(A)  0.7 A, 77.8 W \n(B)  0.7 A, 155.6 W \n(C)  1 A, 110 W \n(D)   1 A, 220 W \n \n\n2012                                                                                                                                          ELECTRICAL ENGINEERING - EE                    \n \nEE-A \n11/20\nCommon Data Questions \nCommon Data for Questions 48 and 49:   \n \nIn the 3-phase inverter circuit shown, the load is balanced and the gating scheme is 1800-conduction mode.  \nAll the switching devices are ideal. \nvph\nS1\n+\n-\nR=20 \u2126\nR\nR\nS3\n3-phase balanced load\nS5\nVd\nS4\nS6\nS2\n3-phase inverter",
+      "keywords": [
+        "inverter",
+        "switching",
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2008_q18",
+      "source": "GATE Official (OCR)",
+      "year": 2008,
+      "question_number": "18",
+      "problem_type": "inverter",
+      "problem_text": "Q.18 A 3-phase Voltage Source Inverter is operated in 180\u00b0 conduction mode. Which one of the following statements is true? (A) Both pole-voltage and line-voltage will have 3 harmonic components (B) Pole-voltage will have 3\" harmonic component but line-voltage will be free from 3 harmonic (C) Line-voltage will have 3\" harmonic component but pole-voltage will be free from 3\" harmonic (D) Both pole-voltage and line-voltage will be free from 3\u2122 harmonic components EE 5/28 2008 MAIN PAPER ~ EE",
+      "matched_patterns": [
+        "inverter.*voltage"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2019_q55",
+      "source": "GATE Official",
+      "year": 2019,
+      "question_number": "55",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q55 In a DC-DC boost converter, the duty ratio is controlled to regulate the output voltage at 48 V. The input DC voltage is 24 V. The output power is 120 W. The switching frequency is 50 kHz. Assume ideal components and a very large output filter capacitor. The converter operates at the boundary between continuous and discontinuous conduction modes. The value of the boost inductor (in 1H) is A fully-controlled three-phase bridge converter is working from a 415 V, 50 Hz AC supply. It is supplying constant current of 100 A at 400 V to a DC load. Assume large inductive smoothing and neglect overlap. The rms value of the AC line current in amperes (round off to two decimal places) is A single-phase fully-controlled thyristor converter is used to obtain an average voltage of 180 V with 10 A constant current to feed a DC load. It is fed from single-phase AC supply of 230 V, 50 Hz. Neglect the source impedance. The power factor (round off to two decimal places) of AC mains is : 1/13 om om mom mom mel O/o;o};]o]o ={/=/=/2]e= 0.095 to 0.105 100 to 100 100 to 100 111.0 to 115.0 a on | 2 afd eo] o ce =] oe ae ad a kK < z NAT NAT NAT NAT NAT w N = Qa p E AORC bi Q p w wo 5S > 0.25 to 0.27 45 to 45 5S > 0.45 to 0.47 N 5S ba 6 Eo ! ! | 2 | o | 2 | | |? | Ww 5 5 5 5 5 > E EE E N 5 2 E 5 5 5S > eal oO 5S bat a w w uw wn oy w N SIE|ElE S374 /]/4]4 al wn 5 bay =< =< =< =< <a",
+      "keywords": [
+        "thyristor",
+        "boost converter",
+        "duty ratio",
+        "dc-dc"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2019_q40",
+      "source": "GATE Official",
+      "year": 2019,
+      "question_number": "40",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q.40 PQ oo 01 11 10 (A)QR +S (B)QR +S (CQR+S (D) QR+S In the circuit shown below, X and Y are digital inputs, and Z is a digital output. The equivalent circuit is a xX Y \u2014y>* (A) NAND gate (B) NOR gate (C) XOR gate (D) XNOR gate ADC-DC buck converter operates in continuous conduction mode. It has 48 V input voltage, and it feeds a resistive load of 24 Q. The switching frequency of the converter is 250 Hz. If switch-on duration is 1 ms, the load power is (A)6W (B) 12 W (\u00a9) 24W (D) 48 W The line currents of a three-phase four wire system are square waves with amplitude of 100 A. These three currents are phase shifted by 120\u00b0 with respect to each other. The ms value of neutral current is (A) 0A 100 C) 100A 300A a) 8a \u00a9 \u00a9) IfA = 2xi+3yj+4zk and u=x? +y* +z\u201d, then div(wA) at (1, 1, 1) is : The probability of a resistor being defective is 0.02. There are 50 such resistors in a circuit. The probability of two or more defective resistors in the circuit (round off to two decimal places) is 8/3 GATE 2019 Electrical Engineering (Set No)",
+      "keywords": [
+        "buck converter",
+        "dc-dc"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2018_q28",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 28,
+      "problem_type": "general",
+      "problem_text": "The positive, negative and zero sequence impedances of a three phase generator are \ud835\udc4d1, \ud835\udc4d2 \nand \ud835\udc4d0 respectively. For a line-to-line fault with fault impedance \ud835\udc4d\ud835\udc53,\u2061the fault current \nis\u2061\ud835\udc3c\ud835\udc531 = \ud835\udc58\ud835\udc3c\ud835\udc53, where \ud835\udc3c\ud835\udc53 is the fault current with zero fault impedance. The relation between \n\ud835\udc4d\ud835\udc53 and \ud835\udc58 is \n(A) Zf  =\u2061\n(\ud835\udc4d1+\ud835\udc4d2)(1\u2212\ud835\udc58)\n\ud835\udc58\n \n(B) Zf  = \u2061\n(\ud835\udc4d1+\ud835\udc4d2)(1+\ud835\udc58)\n\ud835\udc58\n \n \n(C) Zf  = \u2061\n(\ud835\udc4d1+\ud835\udc4d2)\ud835\udc58\n1\u2212\ud835\udc58\n \n(D) Zf  = \u2061\n(\ud835\udc4d1+\ud835\udc4d2)\ud835\udc58\n1+\ud835\udc58\n \n \n \n\nGATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING \nEE \n8/15",
+      "keywords": [
+        "three phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw8_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 8,
+      "problem_number": "8.3",
+      "problem_text": "Problem 8.3 Consider the full-bridge resonant converter of KSV Fig. 9.19(a). Assuming the rectified output voltage is constant at a voltage VR, please find an equivalent ac-side resistance for the bridge rectifier Req as a function of VR and the ac current magnitude IA. This can be done with a describing function approach, in which one only considers the fundamental ac component of voltage v\u2019R. Demonstrate that this expression for resistance correctly models power transfer from the dc sources to the rectifier, under the assumption that the inductor current is a pure sinusoid. C R = 75 Ohm L i Zin",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw8/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2022_q64",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 64,
+      "problem_type": "general",
+      "problem_text": "A star-connected 3-phase, 400 V, 50 kVA, 50 Hz synchronous motor has a \nsynchronous reactance of 1 ohm per phase with negligible armature resistance. The \nshaft load on the motor is 10 kW while the power factor is 0.8 leading. The loss in \nthe motor is 2 kW. The magnitude of the per phase excitation emf of the motor, in \nvolts, is __________.  (round off to nearest integer).",
+      "keywords": [
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw1_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.3",
+      "problem_text": "Problem 1.3 Figure 1.2 shows a half-wave rectifier driven by a sinusoidal current source supplying a capacitively-filtered output. (Such a configuration is sometimes found in resonant dc-dc converters.) Determine the power factor seen by the current source, assuming that the diodes act ideally and capacitance Cf is large enough such that the output voltage has small ripple (vD \u2248 VD). Figure 1.2 A half-wave rectifier driven from a sinusoidal current source.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2007_q18",
+      "source": "GATE Official (OCR)",
+      "year": 2007,
+      "question_number": "18",
+      "problem_type": "inverter",
+      "problem_text": "Q.18 A three-phase, fully-controlled thyristor bridge converter is used as line commutated inverter to feed 50 kW power at 420 V dc toa three-phase, 415 V (line), 50 Hz ac mains. Consider de link current to be constant. The rms current of the thyristor is (A) 119.05 A (B) 79.37 A (C) 68.73 A (D) 39.68 A In a transformer, zero voltage regulation at full load is (A) not possible (B) possible at unity power factor load (C) possible at leading power factor load (D) possible at lagging power factor load The de motor, which can provide zero speed regulation at full load without any controller, is (A) series (B) shunt (C) cumulative compound (D) differential compound The probes of a non- isolated, two-channel oscilloscope are clipped to points A, B and C in the circuit of the adjacent figure. Vin is a square wave of a Ann suitable low frequency. The display on Ch, and Ch) are as shown on the right. Then the \u201cSignal\u201d and \u201cGround\u201d probes S;, G; and S), G, of Ch, and Ch respectively are connected to points: in (A) A,B,C,A (B) A,B,C,B (C) C,B,A,B (D) B,A,B,C A single phase full-wave half-controlled bridge converter feeds an inductive load. The two SCRs in the converter are connected to a common DC bus. The converter has to have a freewheeling diode (A) because the converter inherently does not provide for free-wheeling (B) because the converter does not provide for free-wheeling for high values of triggering angles (C) or else the free-wheeling action of the converter will cause shortin",
+      "matched_patterns": [
+        "thyristor.*converter",
+        "bridge.*converter",
+        "inverter.*voltage"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw1_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.4",
+      "problem_text": "Problem 1.4 Consider the half-wave rectifier circuit shown in KSV Fig. 3.9(a). What would the load regulation characteristic of this circuit be if it were driven with a square wave having peak voltage Vs and period 2\u03c0/\u03c9, instead of a sine wave? Plot the resulting load regulation curve. (Note that this situation occurs in some types of isolated dc/dc power converters.)",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2016_q46",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 46,
+      "problem_type": "inverter",
+      "problem_text": "A three-phase Voltage Source Inverter (VSI) as shown in the figure is feeding a delta connected \nresistive load of 30 \u2126/phase. If it is fed from a 600 V battery, with 180o conduction of solid-state \ndevices, the power consumed by the load, in kW, is __________. \n \n \nLoad\nvm\nT1\nT2\nT3\nT4\nBridge \nR=20\uf057\nL\nE=800V\n+\n-\nIL\n\nGATE 2016                                                                                                                                                                 Electrical Engineering Set 2 (2nd stage) \nEE \n11/12",
+      "keywords": [
+        "inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2022_q60",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 60,
+      "problem_type": "pwm_control",
+      "problem_text": "A 3-phase grid-connected voltage source converter with DC link voltage of 1000 V \nis switched using sinusoidal Pulse Width Modulation (PWM) technique. If the grid \nphase current is 10 A and the 3-phase complex power supplied by the converter is \ngiven by (\u22124000 \u2212\ud835\udc573000) VA, then the modulation index used in sinusoidal \nPWM is  ___________. (round off to two decimal places)  \n\nGATE 2022 Electrical Engineering (EE) \nPage 35 of 36",
+      "keywords": [
+        "converter",
+        "pwm"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2008_q60",
+      "source": "GATE Official",
+      "year": 2008,
+      "question_number": "60",
+      "problem_type": "inverter",
+      "problem_text": "Q.60 A400 V, 50 Hz, 4 pole, 1400 rpm, star connected squirrel cage induction motor has the following parameters referred to the stator: R/'=1.0Q, X,=X; =1.5Q Neglect stator resistance and core and rotational losses of the motor. The motor is controlled from a 3-phase voltage source inverter with constant V/f control. The stator line-to-line voltage (rms) and frequency to obtain the maximum torque at starting will be: (A) 20.6 V, 2.7 Hz (B) 133.3 V, 16.7 Hz (C) 266.6 V, 33.3Hz (D) 323.3 V, 40.3 Hz",
+      "keywords": [
+        "inverter",
+        "voltage source inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2007_q47",
+      "source": "GATE Official (OCR)",
+      "year": 2007,
+      "question_number": "47",
+      "problem_type": "inverter",
+      "problem_text": "Q.47 A single-phase voltage source inverter is controlled in a single pulse-width modulated mode with a pulse width of 150\u00b0 in each half cycle. Total harmonic distortion is WV, 2p? defined as ee \u201cx100, where V; is the rms value of the fundamental ! component of the output voltage. The THD of output ac voltage waveform is (A) 65.65% (B) 48.42% (C) 31.83% (D) 30.49% A voltage source inverter is used to control the speed of a three-phase, 50 Hz, squirrel cage induction motor. Its slip for rated torque is 4%. The flux is maintained at rated value. If the stator resistance and rotational losses are neglected, then the frequency of the impressed voltage to obtain twice the rated torque at starting should be (A) 10 Hz (B) 5 Hz (C) 4Hz (D) 2 Hz A three-phase, 440 V, 50 Hz ac mains fed thyristor bridge is feeding a 440 V de, 15 kW, 1500 rpm separately excited de motor with a ripple free continuous current in the de link under all operating conditions. Neglecting the losses, the power factor of the ac mains at half the rated speed, is (A) 0.354 (B) 0.372 (C) 0.90 (D) 0.955 A single-phase, 230V, 50 Hz ac mains fed step down transformer (4:1) is supplying power to a half-wave uncontrolled ac-de converter used for charging a battery (12 V dc) with the series current limiting resistor being 19.04 Q. The charging current is (A) 2.43 A (B) 1.65A (C) 1.22A (D) 1.0A A three-phase synchronous motor connected to ac mains is running at full load and unity power factor. If its shaft load is reduce",
+      "matched_patterns": [
+        "thyristor.*converter",
+        "bridge.*converter",
+        "inverter.*output"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2021_q7",
+      "source": "GATE Official",
+      "year": 2021,
+      "question_number": "7",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q7 Two discrete-time linear time-invariant systems with impulse responses h {n]=6[n-1]+6[n+1] ana h,[n] = [n]+ d[n-1] are connected in cascade, where 6[n] is the Kronecker delta. The impulse response of the cascaded system is (A) O[n\u20142]+d6[n+1] \u00ae) O[n\u20141J6[n]+ d[n +1]d[n -1] \u00a9 O[n\u20142]+6[n\u2014-1]+ 6[1]+ 6[n +1] \u00a9) O[n]6[n \u2014-1]+ 6[n\u20142]6[n +1] EE - Copyright \u00a9 GATE 2021 Page 10 of 30 Electrical Engineering (EE) Qs Consider the table given: Constructional feature Machine type Mitigation (P) Damper bars (S) Induction motor | (X) Hunting (Q) Skewed rotor slots (1) Transformer | (\u00a5) Magnetic locking (R) Compensating (U) Synchronous (Z) Armature reaction winding machine (V) DC machine The correct combination that relates the constructional feature, machine type and mitigation is (A) P-V-X, Q-U-Z, R-T-Y @) P-U-X, Q-S-Y, R-V-Z \u00a9 P-T-Y, Q-V-Z, R-S-X \u00a9) P-U-X, Q-V-Y, R-T-Z",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2023_q48",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 48,
+      "problem_type": "general",
+      "problem_text": "A three phase 415 V, 50 Hz, 6-pole, 960 RPM, 4 HP squirrel cage induction motor \ndrives a constant torque load at rated speed operating from rated supply and \ndelivering rated output. If the supply voltage and frequency are reduced by 20%, \nthe resultant speed of the motor in RPM (neglecting the stator leakage impedance \nand rotational losses) is __________ (Round off to the nearest integer).",
+      "keywords": [
+        "three phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2016_q44",
+      "source": "GATE Official",
+      "year": 2016,
+      "question_number": "44",
+      "problem_type": "pwm_control",
+      "problem_text": "Q.44 The switches T1 and T2 in Figure (a) are switched in a complementary fashion with sinusoidal pulse width modulation technique. The modulating voltage \u0752\u0be0(\u0750) = 0.8 sin (200\u07e8\u0750) V and the triangular carrier voltage (\u0752\u0bd6) are as shown in Figure (b). The carrier frequency is 5 kHz. The peak value of the 100 Hz component of the load current (iL), in ampere, is ________ .",
+      "keywords": [
+        "pulse width modulation"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2014_q43",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 43,
+      "problem_type": "general",
+      "problem_text": "The figure shows the single line diagram of a single machine infinite bus system. \n \n \nThe inertia constant of the synchronous generator \ud835\udc3b\ud835\udc3b= 5 MW-s/MVA. Frequency is 50 Hz. \nMechanical power is 1 pu. The system is operating at the stable equilibrium point with rotor angle \n\ud835\udeff\ud835\udeff equal to 30o. A three phase short circuit fault occurs at a certain location on one of the circuits of \nthe double circuit transmission line. During fault, electrical power in pu is \ud835\udc43\ud835\udc43\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5asin \ud835\udeff\ud835\udeff. If the values \nof \u03b4 and \ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\n\u2044\n at the instant of fault clearing are 45o and 3.762 radian/s respectively, then \ud835\udc43\ud835\udc43\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a (in \npu) is _______.",
+      "keywords": [
+        "three phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2016_q19",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 19,
+      "problem_type": "rectifier",
+      "problem_text": "A three-phase diode bridge rectifier is feeding a constant DC current of 100 A to a highly inductive \nload. If three-phase, 415 V, 50 Hz AC source is supplying to this bridge rectifier then the rms value \nof the current in each diode, in ampere, is _____________.",
+      "keywords": [
+        "rectifier",
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2014_q15",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 15,
+      "problem_type": "general",
+      "problem_text": "A three phase star-connected load is drawing power at a voltage of 0.9 pu and 0.8 power factor \nlagging. The three phase base power and base current are 100 MVA and 437.38 A respectively. The \nline-to-line load voltage in kV is ________.",
+      "keywords": [
+        "three phase",
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2022_q28",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 28,
+      "problem_type": "general",
+      "problem_text": "The network shown below has a resonant frequency of 150 kHz and a bandwidth of \n600 Hz. The \ud835\udc44-factor of the network is __________. (round off to nearest integer)",
+      "keywords": [
+        "resonant"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw1_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.5",
+      "problem_text": "Problem 1.5 Consider the magnetic stimulator circuit from the previous homework, repeated below as Fig. 1.3. Using any time-domain simulation tool you want (e.g. PSPICE, PSIM, etc.), simulate the circuit for 1 ms after the switch is closed. Assume that Vc = 950 V when switch S is closed. Note that links for acquiring some time-domain simulators are available on the 6.334 web page. icoil \u2126 S C= 180 uF D R= 85 m L = 11 uH + c V - Figure 1.3 Schematic of the magnetic stimulator circuit to be simulated. The capacitor voltage Vc is precharged to 950 V when the switch S is closed.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2011_q53",
+      "source": "GATE Official (OCR)",
+      "year": 2011,
+      "question_number": "53",
+      "problem_type": "general",
+      "problem_text": "Q.53 Inthe above system, the three-phase fault MVA at the bus 3 is (A) 82.55 MVA (B) 85.11 MVA (C) 170.91 MVA (D) 181.82 MVA EE-A 15/24 2011 EE Statement for Linked Answer Questions 54 and 55: A solar energy installation utilizes a three-phase bridge converter to feed energy into power system through a transformer of 400 V/ 400 V, as shown below. Filter Choke The energy is collected in a bank of 400 V battery and is connected to converter through a large filter choke of resistance 10 Q.",
+      "matched_patterns": [
+        "bridge.*converter"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2016_q40",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 40,
+      "problem_type": "general",
+      "problem_text": "A three-phase cable is supplying 800 kW and 600 kVAr to an inductive load. It is intended to \nsupply an additional resistive load of 100 kW through the same cable without increasing the heat \ndissipation in the cable, by providing a three-phase bank of capacitors connected in star across the \nload. Given the line voltage is 3.3 kV, 50 Hz, the capacitance per phase of the bank, expressed in \nmicrofarads, is ________. \n \n \nX 0\nX 1\nX 2\n3 V\nDigital\nCircuit\nB1\nB0\n100 \uf057\n200 \uf057\n200 \uf057\n100 \uf057\nVIN\n3V\n3V\n1\uf057\n2\uf057\nS1\nS2\n1H\n\nGATE 2016 EE paper Electrical Engineering Set 1 (2nd Stage) \nEE \n11/15",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_ee_2018_q51",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 51,
+      "problem_type": "general",
+      "problem_text": "A 3-phase 900 kVA, 3 kV / \n3  kV (\u2206/Y), 50 Hz transformer has primary (high voltage \nside) resistance per phase of 0.3 \u2126 and secondary (low voltage side) resistance per phase of \n0.02 \u2126. Iron loss of the transformer is 10 kW. The full load % efficiency of the transformer \noperated at unity power factor is _______ (up to 2 decimal places).",
+      "keywords": [
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2017_s1_q25",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "25",
+      "problem_type": "inverter",
+      "problem_text": "Question Number : 25 Correct : 1 Wrong : 0 A 3-phase voltage source inverter is supplied from a 600V DC source as shown in the figure below. For a star connected resistive load of 20 per phase, the load power for 120\u00b0 device conduction, in kW, is 600 V",
+      "keywords": [
+        "inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw6_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.2",
+      "problem_text": "Problem 6.2 Figure 1 shows the schematic of a Full-Bridge Three-Level \u201cFlying Capacitor\u201d Inverter. This is a simple example of a multilevel inverter topology. In this topology, the voltages on the flying capacitors are controlled are controlled to be approximately half of the input voltage (by balancing the switching patterns appropriately). a. Propose a switching pattern for the devices in the flying capacitor inverter that takes advantage of the multilevel capabilities of the inverter and results in an (unfiltered) output voltage vx(t) having no third, fifth, or even harmonics. You may assume that the voltages on the flying capacitors are at one half the input voltage. Note that each switch is switched oppositely with its corresponding \u201cprimed\u201d switch. Consequently, the independent switching functions are qA1, qA2, qB1, and qB2. How many times does each active device switch on and off per ac output cycle? b. How does the total harmonic distortion of the unfiltered waveform vx(t) compare to that of a conventional inverter using the harmonic elimination scheme of Fig. 8.6(c)?",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    }
+  ]
+}

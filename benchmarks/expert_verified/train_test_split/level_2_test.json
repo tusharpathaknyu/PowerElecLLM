@@ -1,0 +1,433 @@
+{
+  "source": "Expert-Verified (GATE + MIT) - Test Set",
+  "level": 2,
+  "difficulty": "intermediate",
+  "total_problems": 26,
+  "split": "test",
+  "split_ratio": "80/20",
+  "problems": [
+    {
+      "id": "mit_6334_hw10_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.1",
+      "problem_text": "Problem 10.1 Consider a continuous conduction mode buck converter to be operated under peak current mode control. The converter parameters are fsw = 500 kHz, L = 16 \u00b5H, C = 800 \u00b5F, and Vout,ref = 24 V. What is the smallest magnitude of compensating ramp that will yield stable dynamics for the ripple instability over an input voltage range of 36 V < Vin < 75 V? Note: Models for computing the ripple dynamics will be discussed in class. They can also be found in: H. Hsu, A. Brown, L. Rensink, and R.D. Middlebrook, \u201cModeling and Analysis of Switching dc-to-dc Converters in Constant-Frequency Current-Programmed Mode,\u201d 1979 IEEE Power Electronics Specialists Conference, pp. 284-301, and in R.W. Erickson, Fundamentals of Power Electronics, Boston: Kluwer, 1997, Chapter 11 (Current Programmed Control).",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "mit_6334_hw4_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 4,
+      "problem_number": "4.2",
+      "problem_text": "Problem 4.2 Figure 1 shows a tapped-inductor boost converter. This approach is sometimes used to achieve larger conversion ratios as compared to a conventional boost design. The inductor winding contains a total of (N1+N2) turns. The switch is placed N1 turns from the left side of the inductor, as shown. The tapped inductor can be viewed as a two-winding (N1:N2) transformer, in which the two windings are connected in series. The inductance of the entire (N1+N2) turn winding is L. a. Sketch an equivalent circuit model for the tapped inductor that includes a magnetizing inductance and an ideal transformer. Label the values of the magnetizing inductance and turns ratio. b. c. Determine an analytical expression for the conversion ratio V2/V1 assuming that all components are lossless, and that the converter operates in continuous conduction mode. Plot the conversion ratio as a function of duty ratio D for the case N1=N2, and compare to the conventional non-tapped case (N2 = 0). N1 N2 C R q(t) V1 + - V2 Figure 1 A tapped-inductor boost converter.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw4/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2012_q35",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 35,
+      "problem_type": "general",
+      "problem_text": "In the circuit shown, an ideal switch S is operated at 100 kHz with a duty ratio of 50 %. Given that \n\u0394ic is 1.6 A peak-to-peak and I0 is 5 A dc, the peak current in S is \n24 V\n+\n-\n\u2206ic\n+\n-\nv0\nR\nC\nL\nD\nS\nI0\n(A)  6.6 A \n(B)  5.0 A \n(C)  5.8 A \n(D)  4.2 A \npu \n\n2012                                                                                                                                          ELECTRICAL ENGINEERING - EE                    \n \nEE-A \n9/20",
+      "keywords": [
+        "duty"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2022_q22",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 22,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "A charger supplies 100 W at 20 V for charging the battery of a laptop. The power \ndevices, used in the converter inside the charger, operate at a switching frequency of \n200 kHz. Which power device is best suited for this purpose?  \n \n \n(A) \nIGBT \n(B) \nThyristor \n(C) \nMOSFET \n(D) \nBJT \n \n \n\nGATE 2022 Electrical Engineering (EE) \nPage 17 of 36",
+      "keywords": [
+        "converter",
+        "thyristor",
+        "igbt",
+        "mosfet",
+        "switching"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2016_q47",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 47,
+      "problem_type": "dc_dc_converter",
+      "problem_text": "A DC-DC boost converter, as shown in the figure below, is used to boost 360V to 400 V, at a \npower of 4 kW. All devices are ideal. Considering continuous inductor current, the rms current in \nthe solid state switch (S), in ampere, is _________.",
+      "keywords": [
+        "converter",
+        "boost",
+        "inductor",
+        "dc-dc"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2010_q23",
+      "source": "GATE Official (OCR)",
+      "year": 2010,
+      "question_number": "23",
+      "problem_type": "rectifier",
+      "problem_text": "Q.23 The power electronic converter shown in the figure has a single-pole double-throw switch. The pole P of the switch is connected alternately to throws A and B. The converter shown is a {A) step-down chopper (buck converter) (B) half-wave rectifier {C) step-up chopper (boost converter) (D) full-wave rectifier",
+      "matched_patterns": [
+        "half.wave.*rectifier",
+        "full.wave.*rectifier",
+        "chopper"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "mit_6334_hw5_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 5,
+      "problem_number": "5.3",
+      "problem_text": "Problem 5.3 Figure 1 shows the schematic of an example 50 W off-line converter (powered from the ac line voltage). The ac line voltage is rectified to provide a (nominal) voltage V+ = 170 V dc (across capacitor C25), which the dc/dc converter section uses to generate multiple low-voltage dc outputs. a. What type of dc/dc topology is at the core of this converter? b. Would the multiple windings on transformer T1 be wound on a parallel or series magnetic core structure (e.g., KSV Fig. 20.21 or Fig. 20.22)? c. Would it be better to use a gapped or an ungapped core structure in this converter? Why? d. Consider the case where the 3.3 V output is heavily loaded and the other outputs are lightly loaded. Considering the effects of transformer leakage inductance and diode drops, will the 5 V output tend to sit above, at, or below its nominal value of 5 V? (Note: it is the 3.3 V output that is regulated in this converter.)",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw5/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2017_s2_q16",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 2,
+      "question_number": "16",
+      "problem_type": "rectifier",
+      "problem_text": "Question Number : 16 Correct : 1 Wrong : 0 The figure below shows the circuit diagram of a controlled rectifier supplied from a 230 V, 50 Hz, 1-phase voltage source and a 10:1 ideal transformer. Assume that all devices are ideal. The firing angles of the thyristors T; and T, are 90\u00b0 and 270\u00b0 . respectively. 230 V, 50 Hz The RMS value of the current through diode D; in amperes is",
+      "keywords": [
+        "thyristor",
+        "rectifier"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2007_q85",
+      "source": "GATE Official",
+      "year": 2007,
+      "question_number": "85",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.85. More than one answer bubbled against a question will be taken as an incorrect response. Unattempted questions will not carry any marks. 5. Write your registration number, your name and name of the examination centre at the specified locations on the right half of the ORS. 6. Using HB pencil, darken the appropriate bubble under each digit of your registration number and the letters corresponding to your paper code. 7. Calculator is allowed in the examination hall. 8. Charts, graph sheets or tables are NOT allowed in the examination hall. 9. Rough work can be done on the question paper itself. Additionally blank pages are given at the end of the question paper for rough work. 10. This question paper contains 32 printed pages including pages for rough work. Please check all pages and report, if there is any discrepancy. S/121 Food/06-EE-1A EE 1/32 Q. 1-",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2018_q49",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 49,
+      "problem_type": "rectifier",
+      "problem_text": "A phase controlled single phase rectifier, supplied by an AC source, feeds power to an  \nR-L-E load as shown in the figure. The rectifier output voltage has an average value given \nby Vo= \n\ud835\udc49\ud835\udc5a\n2\ud835\udf0b (3 + cos \uf061), where\u2061\ud835\udc49\ud835\udc5a= 80\ud835\udf0b volts and \ud835\udefc is the firing angle. If the power \ndelivered to the lossless battery is 1600 W, \ud835\udefc in degree is________ (up to 2 decimal \nplaces). \n \nVm sin(\u03c9t)\nVO\n2 \u2126 \n10 mH\n80 V\n+\n-\n+\n-\nBattery\n \n \n\nGATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING \nEE \n14/15",
+      "keywords": [
+        "rectifier",
+        "firing",
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2021_q37",
+      "source": "GATE Official",
+      "year": 2021,
+      "question_number": "37",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.37 A counter is constructed with three D flip-flops. The input-output pairs are named (Do, Qo), (D1, Qi), and (D2, Q2), where the subscript 0 denotes the least significant bit. The output sequence is desired to be the Gray-code sequence 000, 001, 011, 010, 110, 111, 101, and 100, repeating periodically. Note that the bits are listed in the",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2021_q53",
+      "source": "GATE Official",
+      "year": 2021,
+      "question_number": "53",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q53 Consider the boost converter shown. Switch Q is operating at 25 kHz with a duty cycle of 0.6. Assume the diode and switch to be ideal. Under steady- state condition, the average resistance R,, as seen by the source is Q. (Round off to 2 decimal places.) lmH D 1I5sV(t) QL 00pE 100 Rin EE - Copyright \u00a9 GATE 2021 Page 29 of 30 Graduate Aptitude Test in Engineering 2021 Electrical Engineering (EE)",
+      "keywords": [
+        "boost converter",
+        "duty cycle"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2013_q29",
+      "source": "GATE EE 2013",
+      "year": 2013,
+      "question_number": 29,
+      "problem_type": "general",
+      "problem_text": "For a power system network with n nodes, Z33 of its bus impedance matrix is j0.5 per unit. The \nvoltage at node 3 is 1.3 \u2220\u201310\u00b0  per unit.  If a capacitor having reactance of \u2013j3.5 per unit is now \nadded to the network between node 3 and the reference node, the current drawn by the capacitor per \nunit is   \n(A)  0.325 \u2220\u2013100\u00b0 \n(B)   0.325 \u222080\u00b0   \n(C)  0.371 \u2220\u2013100\u00b0 \n(D)  0.433 \u222080\u00b0",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2018_q54",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 54,
+      "problem_type": "general",
+      "problem_text": "The equivalent circuit of a single phase induction motor is shown in the figure, where the \nparameters are \n\uf057\n\uf03d\n\uf03d\n\uf03d\n \n=\nX\n \nX\n \nR\n \nR\nl\nl\n12\n'\n2\n1\n'\n2\n1\n,\n\uf057\n \n=\nX M 240\n and s is the slip. At no-load, the \nmotor speed can be approximated to be the synchronous speed. The no-load lagging power \nfactor of the motor is___________ (up to 3 decimal places). \ns\nR\n2\n2\n2\n2\nlX\nj\n2\nM\nX\nj\n2\nM\nX\nj\n1\nR\n1\nl\njX\n\uf0b0\n\uf0d00\nV\n,\n,\n)\n2\n(\n2\n2\ns\nR\n\uf02d\n,\n2\n2\nlX\nj\n,",
+      "keywords": [
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2012_q17",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 17,
+      "problem_type": "general",
+      "problem_text": "In the following figure, C1  and C2 are ideal capacitors. C1 has been charged to 12 V before the ideal \nswitch S is closed at t = 0. The current i(t) for all t is  \nC1\nt = 0\nC2\ni(t)\nS\n(A)  zero \n(B)  a step function \n(C)  an exponentially decaying function \n(D)  an impulse function",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q7",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 7,
+      "problem_type": "general",
+      "problem_text": "The switch SW shown in the circuit is kept at position \u20181\u2019 for a long duration. At t = 0+, the switch \nis moved to position \u20182\u2019. Assuming |Vo2| > |Vo1|, the voltage vc(t) across the capacitor is  \n \n \n \n \n(A)   \no1\nt/2RC\no2\nc\nV\n)\ne\n(1\nV\n(t)\nv\n\uf02d\n\uf02d\n\uf02d\n\uf03d\n\uf02d\n \n(B)   \no1\nt/2RC\no2\nc\nV\n)\ne\n(1\nV\n(t)\nv\n\uf02b\n\uf02d\n\uf03d\n\uf02d\n \n(C)   \no1\nt/2RC\no1\no2\nc\nV\n)\ne\n)(1\nV\n(V\n(t)\nv\n\uf02d\n\uf02d\n\uf02b\n\uf02d\n\uf03d\n\uf02d\n \n(D)  \no1\nt/2RC\no1\no2\nc\nV\n)\ne\n)(1\nV\n(V\n(t)\nv\n\uf02b\n\uf02d\n\uf02d\n\uf03d\n\uf02d\n \n \n'1'\n'2'\nVo1\nVo2\nR\nR\nC\nvc\nSW\nEE02 (GATE 2014)\n\nGATE 2014                                               SET2                                            ELECTRICAL  \u2013  EE \nEE \n2/11",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q19",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 19,
+      "problem_type": "general",
+      "problem_text": "An LPF wattmeter of power factor 0.2 is having three voltage settings 300 V, 150 V and 75 V, and \ntwo current settings 5 A and 10 A. The full scale reading is 150. If the wattmeter is used with 150 V \nvoltage setting and 10 A current setting, the multiplying factor of the wattmeter is _________. \n \n \n \n \n \n \n \n \n \n \n \nU(s) \nC(s) \n1 \n1 \n1 \n1\n\ud835\udc60\ud835\udc60 \n1\n\ud835\udc60\ud835\udc60 \n\u2212\ud835\udc4e\ud835\udc4e1 \n\u2212\ud835\udc4e\ud835\udc4e0 \n\u210e1 \n\u210e0 \n. \nEE \n4/15 \nEE03 (GATE 2014)\n\nGATE 2014                                               SET3                                            ELECTRICAL  \u2013  EE",
+      "keywords": [
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_2010_q14",
+      "source": "GATE Official",
+      "year": 2010,
+      "question_number": "14",
+      "problem_type": "rectifier",
+      "problem_text": "Q.14 Power is transferred from system A to system B by an HVDC link as shown in the figure. If the volages \u00a5,, and Vp are as indicated in the figure. and / > 0. then Power Flow AC v4 AC System A System B BD Rectifier Inverter tA) V,, <O.M,, < OV, > Vip (B) Vag > Oey POV iy, < Vy, CC) V,, > OY, OV \"Eg OK, {Dh V,, >O.\u00a5., <0 FF was 2010 EE Qs",
+      "keywords": [
+        "rectifier",
+        "inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q12",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 12,
+      "problem_type": "general",
+      "problem_text": "A single phase, 50 kVA, 1000V/100 V two winding transformer is connected as an autotransformer \nas shown in the figure.  \n \n \n \n \n \n \n \n \n \n \n \n \nThe kVA rating of the autotransformer is _____________.",
+      "keywords": [
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2023_q54",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 54,
+      "problem_type": "general",
+      "problem_text": "The circuit shown in the figure is initially in the steady state with the switch K in \nopen condition and \ud835\udc3e\u0305 in closed condition. The switch K is closed and \ud835\udc3e\u0305 is opened \nsimultaneously at the instant t = t1, where t1 > 0. The minimum value of  t1 in \nmilliseconds, such that there is no transient in the voltage across the 100 \uf06dF \ncapacitor, is ____________ (Round off to 2 decimal places). \n \n \n \n \n \n \n \n \n \n100\uf06dF \n5V \n10\uf057 \n10\uf057 \n \n\ud835\udc8a\u123a\ud835\udc95\u123b= \n\ud835\udc94\ud835\udc8a\ud835\udc8f\ud835\udfcf\ud835\udfce\ud835\udfce\ud835\udfce\ud835\udc95 \nK \n\ud835\udc72\u0d25 \nVab =  \n200 V, 50 Hz \nd \na \nc \nb \n50 Hz, AC \ncurrent source \n\n Electrical Engineering (EE) \nPage 38 of 42 \nOrganizing Institute: IIT Kanpur",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2018_q23",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 23,
+      "problem_type": "general",
+      "problem_text": "The waveform of the current drawn by a semi-converter from a sinusoidal AC voltage \nsource is shown in the figure. If I0 = 20 A, the rms value of fundamental component of the \ncurrent is ___________A (up to 2 decimal places). \n \nVm sin(\u03c9t)\n\u03c9t\n30\u00b0\nI0\nI0\n210\u00b0\n180\u00b0 \nvoltage and \ncurrent\n0\n\nGATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING \nEE \n6/15",
+      "keywords": [
+        "converter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q52",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 52,
+      "problem_type": "inverter",
+      "problem_text": "A hysteresis type TTL inverter is used to realize an oscillator in the circuit shown in the figure. \n \n \nIf the lower and upper trigger level voltages are 0.9 V and 1.7 V, the period (in ms), for which \noutput is LOW, is __________.",
+      "keywords": [
+        "inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2013_q31",
+      "source": "GATE EE 2013",
+      "year": 2013,
+      "question_number": 31,
+      "problem_type": "general",
+      "problem_text": "A voltage \nt\n\u03c9\nsin\n1000\n Volts is applied across YZ. Assuming ideal diodes, the voltage measured \nacross WX in Volts is  \n1k\u2126\n_\n+ 1k\u2126\nW\nX\nZ\nY\n(A) \nt\n\u03c9\nsin\n \n(B) \n2\n/)\nsin\n(sin\nt\nt\n\u03c9\n\u03c9 +\n \n(C) \n2\n/)\nsin\n(sin\nt\nt\n\u03c9\n\u03c9 \u2212\n \n(D) 0 for all t  \n \n\n2013                                                                                                                                      ELECTRICAL ENGINEERING - EE                     \n \nEE-A \n9/20",
+      "keywords": [
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q20",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 20,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "In an oscilloscope screen, linear sweep is applied at the \n(A) vertical axis \n(B) horizontal axis \n(C) origin \n(D) both horizontal and vertical axis \n \nEE01 (GATE 2014)\n\nGATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE \nEE \n5/15",
+      "keywords": [
+        "scr"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2012_q4",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 4,
+      "problem_type": "general",
+      "problem_text": "In the circuit shown below, the current through the inductor is \n1 W \n1 W \nj1 W \n- j1 W \nA\nA\nV\n+           -\n-        +\nV\n1\n0\n1\n0\n1\n0\n1\n0\n(A)  \nA\n1\n2\nj\n\uf02b\n \n(B)  \nA\n1\n1\nj\n\uf02b\n\uf02d\n \n(C)  \nA\n1\n1\nj\n\uf02b\n \n(D)  0 A",
+      "keywords": [
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "gate_ee_2014_q53",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 53,
+      "problem_type": "rectifier",
+      "problem_text": "The figure shows the circuit diagram of a rectifier. The load consists of a resistance 10 \u2126 and an \ninductance 0.05 H connected in series. Assuming ideal thyristor and ideal diode, the thyristor \nfiring angle (in degree) needed to obtain an average load voltage of 70 V is ______ \n \n \n \n \n \n \n \n8\nBDB\nAB\n8\nOutput Port\n8\nOutput Device\n0\n1\n2\n3\n4\n5\n6\n7\n3Lx8L Decoder\nI2 \nI1\nI0\nIO/M\nWR\nBCB\nE1\nE2\nE3\nA15\nA14\nA13\nA12\nA11\n325 sin (314t) V\n+\n-\nLoad\nEE01 (GATE 2014)\n\nGATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE \nEE \n15/15",
+      "keywords": [
+        "rectifier",
+        "thyristor",
+        "diode",
+        "firing"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate"
+    }
+  ]
+}

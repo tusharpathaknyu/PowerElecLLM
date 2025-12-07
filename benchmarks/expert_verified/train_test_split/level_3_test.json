@@ -1,0 +1,115 @@
+{
+  "source": "Expert-Verified (GATE + MIT) - Test Set",
+  "level": 3,
+  "difficulty": "advanced",
+  "total_problems": 7,
+  "split": "test",
+  "split_ratio": "80/20",
+  "problems": [
+    {
+      "id": "gate_2011_q13",
+      "source": "GATE Official",
+      "year": 2011,
+      "question_number": "13",
+      "problem_type": "inverter",
+      "problem_text": "Q.13 A three-phase current source inverter used for the speed control of an induction motor is to be realized using MOSFET switches as shown below. Switches S; to S\u00a2 are identical switches. la SS The proper configuration for realizing switches S, to S\u00a2 is @) \u201c A \u00ae\u201d A i |\" A OS",
+      "keywords": [
+        "inverter",
+        "current source inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2017_s1_q39",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "39",
+      "problem_type": "general",
+      "problem_text": "Question Number : 39 Correct : 2 Wrong : -0.66 A load is supplied by a 230 V. 50 Hz source. The active power P and the reactive power Q consumed by the load are such that LkKW<P < 2kW and 1KVARSQ < 2kVAR A capacitor connected across the load for power factor correction generates 1 KVAR reactive power. The worst case power factor after power factor correction is (A) 0.447 lag (B) 0.707 lag (C) 0.894 lag (D) 1",
+      "keywords": [
+        "power factor correction"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw5_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 5,
+      "problem_number": "5.5",
+      "problem_text": "Problem 5.5 Figure 2 shows the structure of a forward converter having an active clamp. The main switch Q1 is modulated with duty cycle D, and the auxiliary switch QAUX is turned on and off exactly oppositely to the main switch. The function of the clamp circuit (comprising CAUX and QAUX) is to reset the transformer core. a. In periodic steady state operation, what is the voltage on CAUX as a function of V1 and D? b. Sketch the shape of the magnetizing inductance current in periodic steady-state operation for V1 = 48 V, D = 0.4, T = 5 \u00b5s, and L\u00b51 = 50 \u00b5H (magnetizing inductance referred to the primary side). Does this transformer have a unipolar or bipolar flux swing? c. If one wanted to minimize the energy stored in the transformer magnetizing inductance, should the transformer be wound on a gapped core or an ungapped core? (Recall that the peak stored energy is 0.5 L\u00b51 i\u00b51, peak 2.) Figure 1 An isolated SEPIC converter. The magnetizing inductance of the transformer is shown as an explicit circuit element. Figure 2A 50 W off-line converter (NSC datasheet example). L C2 R N1 : N2 Q1 QAUX + V2 - CAUX V1 Figure 3 A forward converter with an active clamp.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw5/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw5_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 5,
+      "problem_number": "5.1",
+      "problem_text": "Problem 5.1 Consider the isolated SEPIC converter of Fig. 1. (As with the flyback converter, the transformer is used as an energy-storage element. Figure 1 shows the transformer magnetizing inductance as an explicit circuit element.) You may assume the converter operates in heavy continuous conduction mode. a. What is the input to output conversion ratio with a transformer turns ratio of 1:n? b. If the nominal input voltage is 5 V, and the desired output voltage is 60 V, what is the optimum transformer turns ratio to minimize the device stresses? At what nominal duty ratio would the converter operate in this case? c. How do the device stresses of this case compare to that for a non-isolated indirect converter with the same input and output voltage magnitudes (cf KSV Sect. 6.6).",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw5/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "mit_6334_hw9_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 9,
+      "problem_number": "9.2",
+      "problem_text": "Problem 9.2 Also, calculate the average power dissipated in the two circuits. Figure 1 The resonant pole inverter HEXFE?'~Power MOSFET + Surface Mwnt Available in Tape % Reel Dynamic dvldt Rating RepetitiveAvalanche Rated * Fast Switching Ease of Paralleling * Srmple Drive Requirements hscrlptfan Third Generation HEXFETs from International Rectifier provide the designer with the best cornbhat~on01 tast switching, ruggedized devlm design, low on-rcrsfstanceand cost-effeetivcness. The SMP-220is a surfam mount p w e r packagacapable of ammmodating die sizes up to H E X 4 it provides thehighestpower capability and the lowest possible on-resfstancein any existing surface mount package. The SMD-220 1ssuitable for high current appl~cationsbecause of its low in:emal mnnercfion res~stanceand candiss~pateup to 2.OW In atypical surtace mountapplication. v, = 200v RDs(,,) = 0.80R ID= 5.2A ,, Absolute M~xlmumRatings -. >-.- --- i I Pnmmetsr -.-- - - -- ----- Mar. -- -.--.-. - , I1-- ~nits - I --I ( ~ 6 7 i ~ i ~ ; k - - ~ ~ a n i n u o u 5 Drain Current. Vos B 10V I ID _ rn . Tc = 1 -- OOiC __ , Conlinumrs Dram Current, Ves 10 - -------. - - - -V---<---.----.-- I I Linear Qeratlng -- --Factor -. - 0.40 - I WPC I Linenr - . .-Deratlng - - - Factor (PCB Mount)\" 0.025 ' I Gate-to-SourcsVoltage - -. P L I I S ~~valancheE n s q -. . ---0 ~valanenecurrent '1: -- F?epelilue~ v i a ~ ~ - - - - Energy 01 --- 5.0 I rnJ 1 -Peak ~ l o d ~ Recovev &!dl 3 - 1 -5.0-- ~, Jlmction . -and -storageTetweeture Ran* --I -55I0 + I 5 0 Soidennq.-Temperature. - kr - - 10 seconds 300 (1.6mm- - imm case) -1 9C ance I / I I dvldl <- - - ~J?_T_s~K-- I 1- - ------ Thermal Resist - I I Parameter Min.-- Max. T ~ _ - I Rwr, I 4- IJunction-I~Casc - - - .- - -- - - - - -a / - - --,- .,.?.? -- bikk ~_Rim Junction-!~-Ambient -- - (PCB mount]\"' - --- a0 \"CAW 1 1 R ~ M- I Junctron-to-Amblenl _ - - -- - _ -1 - - - -- - 62 ** When rnwnleclon F\" square PCB (FR-dor 0-10 Matwial), For r r ? m m m e n ~foo:pnnt and solderi",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw9/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2013_q55",
+      "source": "GATE Official",
+      "year": 2013,
+      "question_number": "55",
+      "problem_type": "power_device",
+      "problem_text": "Q.55 Appropriate transition i.e., Zero Voltage Switching (ZVS)/Zero Current Switching (ZCS) of the IGBTs during turn-on/turn-off is (A) ZVS during turn-off (B) ZVS during turn-on (C) ZCS during turn-off (D) ZCS during turn-on vo io +\u2010 Vdc",
+      "keywords": [
+        "IGBT"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    },
+    {
+      "id": "gate_2008_q62",
+      "source": "GATE Official (OCR)",
+      "year": 2008,
+      "question_number": "62",
+      "problem_type": "inverter",
+      "problem_text": "Q.62 A single phase voltage source inverter is feeding a purely inductive load as shown in the figure. The inverter is operated at 50 Hz in 180\u00b0 square wave mode. Assume that the load current does not have any de component. The peak value of the inductor current i, will be (A) 6.37 A (B) 10A (C)20A (D) 40A A 400 V, 50 Hz, 4 pole, 1400 rpm, star connected squirrel cage induction motor has the following parameters referred to the stator: R= 1.0Q, X,=X, =15Q Neglect stator resistance and core and rotational losses of the motor. The motor is controlled from a 3-phase voltage source inverter with constant V/f control. The stator line-to-line voltage (rms) and frequency to obtain the maximum torque at starting will be: (A) 20.6 V, 2.7 Hz (B) 133.3 V, 16.7 Hz (C) 266.6 V, 33.3Hz (D) 323.3 V, 40.3 Hz A single phase fully controlled converter bridge is used for electrical braking of a separately excited dc motor. The de motor load is represented by an equivalent circuit as shown in the fi gure. 22 150 V Assume that the load inductance is sufficient to ensure continuous and ripple free load current. The firing angle of the bridge for a load current of Ig = 10 A will be (A) 44\u00b0 (B) 51\u00b0 (C) 129\u00b0 (D) 136\u00b0 A three phase fully controlled bridge converter is feeding a load drawing a constant and ripple free load current of 10 A at a firing angle of 30\u00b0. The approximate Total Harmonic Distortion (%THD) and the rms value of fundamental component of the input current will respectively be (A) 31",
+      "matched_patterns": [
+        "bridge.*converter",
+        "firing.angle",
+        "inverter.*voltage"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced"
+    }
+  ]
+}

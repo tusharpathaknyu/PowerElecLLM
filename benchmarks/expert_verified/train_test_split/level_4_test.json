@@ -1,0 +1,26 @@
+{
+  "source": "Expert-Verified (GATE + MIT) - Test Set",
+  "level": 4,
+  "difficulty": "expert",
+  "total_problems": 1,
+  "split": "test",
+  "split_ratio": "80/20",
+  "problems": [
+    {
+      "id": "gate_2008_q70",
+      "source": "GATE Official",
+      "year": 2008,
+      "question_number": "70",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.70 Figure shows a feedback system where K > 0. eee oo s(8+3)(s+10) a The range of K for which the system is stable will be given by (A) 0< K <30 (B) 0< K <39 (C) 0< K <390 (D) K >390 The transfer function of a system is given as 100 5\u00b0 +20s +100 This system is (A) an overdamped system (B) an underdamped system (C) a critically damped system (D) an unstable system Two sinusoidal signals p(@t)=A sin @t and q(@,1) are applied to X and Y inputs of a dual channel CRO. The Lissajous figure displayed on the screen is shown below: Y i) \u2014>*x The signal q(@,t) will be represented as (A) (@,)=A sino, @,=2a, (B) g(@t)=Asinwot, w,=a,/2 (\u00a9) g(@,t)= A cosa, @,=20, (D) q(@,t1)= A cosa@,t, @,=a@,/2 The ac bridge shown in the figure is used to measure the impedance Z. If the bridge is balanced for oscillator frequency f =2 kHz, then the impedance Z will be (A) (260 + j0) Q (B) (0 + j200) Q (C) (260 \u2014j200) Q (D) (260 + j200) Q EE 19/28 2008 MAIN PAPER - EE Common Data Questions Common Data for Questions 71, 72 and 73: Consider a power system shown below: Va x x Veo Given that: V,, =V,, =1.0+ j0.0 pu; The positive sequence impedances are Z,, = Z,, =0.001+ 0.01 pu and Z, = 0.006 + j0.06 pu. 3-phase Base MVA = 100 Voltage base = 400 kV (Line to Line) Nominal system frequency = 50 Hz The reference voltage for phase \u2018a\u2019 is defined as v(t) = V,, cos(@t) . A symmetrical three phase fault occurs at centre of the line, i.e. point \u2018F\u2019 at time t,. The positive sequence impedance from source S, to point ",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 4,
+      "difficulty": "expert"
+    }
+  ]
+}
