@@ -1,0 +1,2056 @@
+{
+  "metadata": {
+    "name": "PowerElecLLM Combined Benchmark - Test Set",
+    "description": "100 problems (held out) combining expert-verified and synthetic design problems",
+    "total_problems": 100,
+    "split": "test",
+    "composition": {
+      "expert_verified": 40,
+      "synthetic": 60
+    },
+    "evaluation_methods": {
+      "conceptual": 40,
+      "spice": 60
+    },
+    "by_level": {
+      "2": 45,
+      "1": 25,
+      "3": 13,
+      "4": 17
+    }
+  },
+  "problems": [
+    {
+      "id": "L2_069",
+      "prompt": "Design a boost converter: 24V to 48V, 4A for hybrid vehicle auxiliary. Constraint: Bidirectional operation for regeneration",
+      "specs": {
+        "power": 192.0,
+        "f_sw": 100000
+      },
+      "constraints": {
+        "bidirectional": true,
+        "reverse_power_w": 192
+      },
+      "difficulty": "intermediate",
+      "topology": "bidirectional_boost_buck",
+      "application": "",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2018_q54",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 54,
+      "problem_type": "general",
+      "problem_text": "The equivalent circuit of a single phase induction motor is shown in the figure, where the \nparameters are \n\uf057\n\uf03d\n\uf03d\n\uf03d\n \n=\nX\n \nX\n \nR\n \nR\nl\nl\n12\n'\n2\n1\n'\n2\n1\n,\n\uf057\n \n=\nX M 240\n and s is the slip. At no-load, the \nmotor speed can be approximated to be the synchronous speed. The no-load lagging power \nfactor of the motor is___________ (up to 3 decimal places). \ns\nR\n2\n2\n2\n2\nlX\nj\n2\nM\nX\nj\n2\nM\nX\nj\n1\nR\n1\nl\njX\n\uf0b0\n\uf0d00\nV\n,\n,\n)\n2\n(\n2\n2\ns\nR\n\uf02d\n,\n2\n2\nlX\nj\n,",
+      "keywords": [
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_065",
+      "prompt": "Design an inverting buck-boost: 5V USB to -5V, 1A for RS-232 interface",
+      "specs": {
+        "vout": -5.0,
+        "vin": 5.0,
+        "iout": 1.0,
+        "power": 5.0,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "inverting_buck_boost",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q15",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 15,
+      "problem_type": "general",
+      "problem_text": "A three phase star-connected load is drawing power at a voltage of 0.9 pu and 0.8 power factor \nlagging. The three phase base power and base current are 100 MVA and 437.38 A respectively. The \nline-to-line load voltage in kV is ________.",
+      "keywords": [
+        "three phase",
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2017_s1_q15",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "15",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Question Number : 15 Correct : 1 Wrong : -0.33 For the power semiconductor devices IGBT, MOSFET, Diode and Thyristor, which one of the following statements is TRUE? (A) All the four are majority carrier devices. (B) All the four are minority carrier devices. (C) IGBT and MOSFET are majority carrier devices. whereas Diode and Thyristor are minority carrier devices. (D) MOSFET is majority carrier device. whereas IGBT, Diode, Thyristor are minority carrier devices.",
+      "keywords": [
+        "thyristor",
+        "IGBT",
+        "MOSFET"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_046",
+      "prompt": "Superconducting Quantum Interference Device Bias: Ultra-low-noise flux-locked loop electronics for SQUID magnetometer",
+      "specs": {
+        "vout": 0.01,
+        "vin": 5
+      },
+      "constraints": [
+        "1 fT/\u221aHz magnetic field noise",
+        "4.2K cryogenic operation interface",
+        "Flux-locked loop stability > 10\u2076 \u03a6\u2080",
+        "Zero ground loop current",
+        "Shielding factor > 10\u2076"
+      ],
+      "difficulty": "expert",
+      "application": "Ultra-low-noise flux-locked loop electronics for SQUID magnetometer",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q54",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 54,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "A single-phase SCR based ac regulator is feeding power to a load consisting of 5 \u2126 resistance and \n16 mH inductance. The input supply is 230 V, 50 Hz ac. The maximum firing angle at which the \nvoltage across the device becomes zero all throughout and the rms value of current through SCR, \nunder this operating condition, are \n(A)  300  and 46 A \n(B)  300 and 23 A \n(C)  450 and 23 A \n(D)  450 and 32 A",
+      "keywords": [
+        "scr",
+        "firing"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2018_q4",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 4,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Four power semiconductor devices are shown in the figure along with their relevant \nterminals. The device(s) that can carry dc current continuously in the direction shown when \ngated appropriately is (are) \nI\nI\nG\nMT1\nMT2\nA\nK\nG\nThyristor\nTriac\nG\nD\nS\nI\nMOSFET\nA\nK\nG\nGTO\nI\n(A) Triac only \n(B) Triac and MOSFET \n(C) Triac and GTO \n(D) Thyristor and Triac \n \n\nGATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING \nEE \n2/15",
+      "keywords": [
+        "thyristor",
+        "mosfet"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2017_s1_q16",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "16",
+      "problem_type": "general",
+      "problem_text": "Question Number : 16 Correct: 1 Wrong: 0 t-l\u00e9|, 70 _ , Where f\u20ac R. t\u2014|t]. otherwise Consider g(t) = | Here, | t | represents the largest integer less than or equal to \u00a2 and [7] denotes the smallest integer greater than or equal to f. The coefficient of the second harmonic component of the Fourier series representing g(f) is",
+      "keywords": [
+        "harmonic"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2012_q4",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 4,
+      "problem_type": "general",
+      "problem_text": "In the circuit shown below, the current through the inductor is \n1 W \n1 W \nj1 W \n- j1 W \nA\nA\nV\n+           -\n-        +\nV\n1\n0\n1\n0\n1\n0\n1\n0\n(A)  \nA\n1\n2\nj\n\uf02b\n \n(B)  \nA\n1\n1\nj\n\uf02b\n\uf02d\n \n(C)  \nA\n1\n1\nj\n\uf02b\n \n(D)  0 A",
+      "keywords": [
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L2_024",
+      "prompt": "Design a boost converter: 12V to 170V, 200mA for nixie tube display.",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 170.0,
+        "iout": 0.2,
+        "power": 34.0
+      },
+      "constraints": {
+        "high_voltage": true,
+        "optimization_target": "voltage_stress"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_hw4_p5",
+      "source": "MIT 6.334 Problem Set 4, Problem 4.5",
+      "topic": "Boost Converter Inductor Design",
+      "problem_statement": "Design an inductor for a 150W, 140kHz boost converter with Vin=14V, Vout=42V, L=6\u00b5H using 3F3 ferrite RM-core. Max flux density 0.3T, max current density 500A/cm\u00b2. Calculate ripple ratio and peak inductor current at full load.",
+      "given": {
+        "Pout": 150,
+        "fs": 140000,
+        "Vin": 14,
+        "Vout": 42,
+        "L": "6e-6",
+        "Bmax": 0.3,
+        "Jmax": 500
+      },
+      "required": [
+        "ripple_ratio",
+        "peak_inductor_current",
+        "core_selection"
+      ],
+      "solution_approach": "Magnetic design with core saturation constraints",
+      "ground_truth": {
+        "duty_ratio": 0.667,
+        "Iin_avg": 10.71,
+        "D_formula": "D = 1 - Vin/Vout = 1 - 14/42 = 0.667",
+        "Iin_formula": "Iin = Pout/Vin = 150/14 = 10.71A"
+      },
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L3_024",
+      "prompt": "Design a forward converter for subsea BOP (blowout preventer) control electronics. Input: 400V from subsea power cable, Output: 24V at 15A. Must survive 3000m depth (300 bar pressure), 25-year design life, and operate in oil-filled pressure-compensated enclosure.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 400.0
+      },
+      "constraints": {
+        "primary": [
+          "Pressure tolerance 300 bar",
+          "25-year lifetime",
+          "Oil-filled compatible"
+        ],
+        "secondary": [
+          "Efficiency >90%",
+          "EMI immunity from umbilical noise"
+        ],
+        "constraints": [
+          "No serviceable parts",
+          "Explosive atmosphere rated"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Subsea Oil & Gas Equipment",
+      "topology": "forward",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_003",
+      "prompt": "Design an average current-mode boost: 12V to 24V, 3A. 5kHz bandwidth for PFC.",
+      "specs": {
+        "topology": "boost",
+        "vin": 12.0,
+        "vout": 24.0,
+        "iout": 3.0,
+        "power": 72.0
+      },
+      "control": {
+        "mode": "average_current_mode",
+        "bandwidth_hz": 5000,
+        "phase_margin_deg": 50,
+        "inner_loop": "current",
+        "outer_loop": "voltage"
+      },
+      "difficulty": "expert",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_094",
+      "prompt": "Quantum Cascade Laser Driver for Spectroscopy: Mid-IR spectroscopy system requiring pulsed QCL power for gas sensing",
+      "specs": {
+        "vout": 12,
+        "vin": 24,
+        "power": 40,
+        "f_sw": 1000000
+      },
+      "constraints": [
+        "100 kHz pulse repetition rate",
+        "Wavelength tuning 5-12 \u00b5m for multi-gas",
+        "Sub-nanosecond current rise time",
+        "TEC temperature control integration",
+        "Eye-safe operation compliance"
+      ],
+      "difficulty": "expert",
+      "application": "Mid-IR spectroscopy system requiring pulsed QCL power for gas sensing",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2023_q58",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 58,
+      "problem_type": "rectifier",
+      "problem_text": "The single phase rectifier consisting of three thyristors T1, T2, T3 and a diode D1 \nfeed power to a 10 A constant current load. T1 and T3 are fired at \u03b1 = 60\u00b0 and T2 is \nfired at \u03b1 = 240\u00b0. The reference for \u03b1 is the positive zero crossing of Vin. The average \nvoltage VO across the load in volts is _____ (Round off to 2 decimal places).",
+      "keywords": [
+        "rectifier",
+        "thyristor",
+        "diode",
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L3_008",
+      "prompt": "Design an isolated DC-DC for telecom: 36-72V input to 3.3V/50A with hot-swap.",
+      "specs": {
+        "vin_min": 36.0,
+        "vin_max": 72.0,
+        "vout": 3.3,
+        "iout": 50.0,
+        "power": 165.0,
+        "isolated": true
+      },
+      "constraints": {
+        "hot_swap": true,
+        "redundancy": "N+1",
+        "topology": "full_bridge"
+      },
+      "difficulty": "advanced",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_030",
+      "prompt": "Ocean Floor Observatory Power System: Deep sea cabled observatory node at 6000m depth requiring 25-year service life",
+      "specs": {
+        "vout": 48,
+        "vin": 10000,
+        "power": 5000,
+        "efficiency_min": 0.92
+      },
+      "constraints": [
+        "600 bar pressure rated enclosure",
+        "25-year maintenance-free operation",
+        "Seawater ground fault protection",
+        "Cable break detection and isolation",
+        "Hot-pluggable instrument ports"
+      ],
+      "difficulty": "expert",
+      "application": "Deep sea cabled observatory node at 6000m depth requiring 25-year service life",
+      "topology": "forward",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_126",
+      "prompt": "Solar Inverter Grid-Tie Stage: Residential solar inverter requiring grid-tied operation with anti-islanding",
+      "specs": {
+        "vout": 400,
+        "vin": 300,
+        "power": 5000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Anti-islanding protection",
+        "THD < 3% per IEEE 1547",
+        "Ground fault detection",
+        "Utility communication interface"
+      ],
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Residential solar inverter requiring grid-tied operation with anti-islanding",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_110",
+      "prompt": "Wind Turbine Pitch Controller Supply: Blade pitch control system requiring operation in nacelle environment",
+      "specs": {
+        "vout": 48,
+        "vin": 700,
+        "power": 500,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Nacelle vibration immunity",
+        "Wide temperature range operation",
+        "Lightning protection integration",
+        "Fail-safe pitch control backup"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Blade pitch control system requiring operation in nacelle environment",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_110",
+      "prompt": "Handheld Game Console Power: Retro handheld gaming device with LCD display",
+      "specs": {
+        "vout": 3.3,
+        "vin": 5,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Retro handheld gaming device with LCD display",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_089",
+      "prompt": "Lunar Gateway Station Power Distribution: Cislunar space station requiring 50 kW power distribution from solar arrays",
+      "specs": {
+        "vout": 28,
+        "vin": 120,
+        "power": 50000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "90-minute eclipse battery operation",
+        "15-year operational lifetime",
+        "Galactic cosmic ray tolerance",
+        "Module hot-swap capability",
+        "ISS-derived architecture compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "Cislunar space station requiring 50 kW power distribution from solar arrays",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_6334_hw1_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.1",
+      "problem_text": "Problem 1.1 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L2_015",
+      "prompt": "Design a buck converter: 48V telecom to 3.3V, 20A. Interleaved for ripple cancellation.",
+      "specs": {
+        "topology": "buck",
+        "vin": 48.0,
+        "vout": 3.3,
+        "iout": 20.0,
+        "power": 66.0
+      },
+      "constraints": {
+        "interleaved": true,
+        "optimization_target": "ripple"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L3_022",
+      "prompt": "Design a wireless power receiver flyback converter for implantable neurostimulator charging. Input: 5V-12V from rectified wireless coil, Output: 4.2V at 0.5A for Li-ion charging. Must minimize heat dissipation (<0.5W), volume (<1cm\u00b3), and magnetic emissions while achieving safe isolation.",
+      "specs": {
+        "vout": 4.2,
+        "vin": 5.0
+      },
+      "constraints": {
+        "primary": [
+          "Heat dissipation <0.5W",
+          "Volume <1cm\u00b3",
+          "EMI compliance"
+        ],
+        "secondary": [
+          "Biocompatible encapsulation",
+          "Safe charging termination"
+        ],
+        "constraints": [
+          "Implant grade",
+          "MRI conditional if possible",
+          "FDA Class III requirements"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Implantable Medical Device Charger",
+      "topology": "flyback",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L3_053",
+      "prompt": "Design a forward converter for superconducting NMR magnet heater and sensors. Input: 48V external, Output: 24V at 10A. Must operate at 4K liquid helium temperature (electronics at room temp), minimize heat leak into cryostat, and provide ultra-stable current for shimming.",
+      "specs": {
+        "vout": 24.0,
+        "vin": 48.0
+      },
+      "constraints": {
+        "primary": [
+          "Minimal cryostat heat leak",
+          "Ultra-stable output",
+          "4K interface"
+        ],
+        "secondary": [
+          "Efficiency >90%",
+          "Remote control"
+        ],
+        "constraints": [
+          "Strong magnetic field >20T",
+          "Helium consumption minimization"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Cryogenic NMR Magnet",
+      "topology": "forward",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_091",
+      "prompt": "Design a buck converter for automotive LIDAR sensor array. Input: 12V from vehicle bus, Output: 3.3V at 8A for VCSEL driver and processing. Must have input voltage range covering cold crank (6V) to load dump (42V) with zero output interruption.",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12.0
+      },
+      "constraints": {
+        "input_voltage_range": "6V-42V",
+        "output_voltage": "3.3V",
+        "output_current": "8A",
+        "cold_crank": "Operation at 6V for 40ms",
+        "load_dump": "42V for 400ms",
+        "output_tolerance": "\u00b13% during all conditions"
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "LIDAR Sensor Array Power",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q30",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 30,
+      "problem_type": "general",
+      "problem_text": "The voltage across the capacitor, as shown in the figure, is expressed as  \n \n)\n\u03b8\nt\n\u03c9\nsin(\nA\n)\n\u03b8\nt\n\u03c9\nsin(\nA\n(t)\nv\n2\n2\n2\n1\n1\n1\nc\n\uf02d\n\uf02b\n\uf02d\n\uf03d\n \n \n \nThe values of \n1\nA and \n2\nA respectively, are \n \n \n(A)   2.0 and 1.98  \n(B)   2.0 and 4.20 \n(C)   2.5 and 3.50 \n(D)   5.0 and 6.40",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2010_q54",
+      "source": "GATE Official",
+      "year": 2010,
+      "question_number": "54",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q54 is used to commulate a thyristor. which is initially carrying a current of 5 A as shown in the figure below, The values and initial conditions of L and C are the same as in",
+      "keywords": [
+        "thyristor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L3_048",
+      "prompt": "Design a flyback converter for remote pipeline cathodic protection system. Input: 12V-48V from solar panel or thermoelectric generator, Output: -1.5V to -3V adjustable at 50A for ground bed. Must operate unattended for 5 years, survive lightning, and handle highly variable load impedance.",
+      "specs": {
+        "vin": 12.0
+      },
+      "constraints": {
+        "primary": [
+          "5-year unattended operation",
+          "Lightning survival",
+          "Variable load handling"
+        ],
+        "secondary": [
+          "Remote monitoring",
+          "MPPT for solar"
+        ],
+        "constraints": [
+          "Hazardous area possible",
+          "Extreme temperatures"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Pipeline Cathodic Protection",
+      "topology": "flyback",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_070",
+      "prompt": "Design a flyback converter: 12V to 5V isolated, 2A for USB isolator. Constraint: Isolation voltage > 2.5kV RMS",
+      "specs": {
+        "vout": 5.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 200000
+      },
+      "constraints": {
+        "isolation_voltage_kv_rms": 2.5
+      },
+      "difficulty": "intermediate",
+      "topology": "flyback",
+      "application": "",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_2014_q45",
+      "source": "GATE Official",
+      "year": 2014,
+      "question_number": "45",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.45 Consider the system described by following state space equations u x x x x \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee + \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee \u2212 \u2212 = \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee 1 0 1 1 1 0 2 1 2 1 \uf026 \uf026 ; [ ] \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee = 2 1 0 1 x x y If u is unit step input, then the steady state error of the system is (A) 0 (B) 1/2 (C) 2/3 (D) 1",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2017_s1_q53",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "53",
+      "problem_type": "rectifier",
+      "problem_text": "Question Number : 53 Correct : 2 Wrong: 0 The figure below shows an uncontrolled diode bridge rectifier supplied from a 220 V. 50 Hz, 1- phase ac source. The load draws a constant current 1, = 14 A . The conduction angle of the diode D, in degrees (rounded off to two decimal places) is",
+      "keywords": [
+        "rectifier",
+        "bridge"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L2_120",
+      "prompt": "Stage Lighting DMX Supply: Professional stage lighting fixture requiring DMX control interface",
+      "specs": {
+        "vout": 36,
+        "vin": 48,
+        "power": 250,
+        "f_sw": 300000
+      },
+      "constraints": [
+        "DMX512 control interface",
+        "0-100% smooth dimming",
+        "Flicker-free for video",
+        "Daisy-chain capability"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Professional stage lighting fixture requiring DMX control interface",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_093",
+      "prompt": "Design a boost converter for supercapacitor-based UPS. Input: 2.7V-5.4V (2-cell supercap bank), Output: 12V at 5A for 30 seconds backup. Must extract maximum energy from supercaps as voltage drops, with controlled discharge to 1.35V/cell.",
+      "specs": {
+        "vout": 12.0,
+        "vin": 2.7
+      },
+      "constraints": {
+        "input_voltage_range": "2.7V-5.4V (discharged to charged)",
+        "output_voltage": "12V",
+        "output_current": "5A",
+        "backup_time": "30 seconds",
+        "min_supercap_voltage": "2.7V (1.35V/cell)",
+        "transition_time": "<5ms from mains to backup"
+      },
+      "difficulty": "intermediate",
+      "topology": "boost",
+      "application": "Supercapacitor UPS Module",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2016_q40",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 40,
+      "problem_type": "general",
+      "problem_text": "A three-phase cable is supplying 800 kW and 600 kVAr to an inductive load. It is intended to \nsupply an additional resistive load of 100 kW through the same cable without increasing the heat \ndissipation in the cable, by providing a three-phase bank of capacitors connected in star across the \nload. Given the line voltage is 3.3 kV, 50 Hz, the capacitance per phase of the bank, expressed in \nmicrofarads, is ________. \n \n \nX 0\nX 1\nX 2\n3 V\nDigital\nCircuit\nB1\nB0\n100 \uf057\n200 \uf057\n200 \uf057\n100 \uf057\nVIN\n3V\n3V\n1\uf057\n2\uf057\nS1\nS2\n1H\n\nGATE 2016 EE paper Electrical Engineering Set 1 (2nd Stage) \nEE \n11/15",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 3,
+      "difficulty": "advanced",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L2_023",
+      "prompt": "Design a quasi-resonant buck: 48V to 12V, 4A. EMI-sensitive application.",
+      "specs": {
+        "topology": "qr_buck",
+        "vin": 48.0,
+        "vout": 12.0,
+        "iout": 4.0,
+        "power": 48.0
+      },
+      "constraints": {
+        "soft_switching": true,
+        "optimization_target": "emi"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_032",
+      "prompt": "Design a boost converter: 3.7V Li-ion to 5V, 2A for USB OTG",
+      "specs": {
+        "vout": 5.0,
+        "vin": 3.7,
+        "iout": 2.0,
+        "power": 10.0,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_hw0_p1",
+      "source": "MIT 6.334 Problem Set 0, Problem 0.1",
+      "topic": "RLC Circuit Transients",
+      "problem_statement": "A magnetic stimulator circuit has C=180\u00b5F, R=85m\u03a9, L=11\u00b5H with diode D. The capacitor is precharged to Vx=950V when switch S is closed. Calculate: (1) Time response of coil current, (2) Peak coil current for Vx=950V, (3) Time t1 when diode D turns on, (4) Energy dissipated in resistor.",
+      "given": {
+        "C": "180e-6",
+        "R": "0.085",
+        "L": "11e-6",
+        "Vx": 950
+      },
+      "required": [
+        "peak_current",
+        "diode_turn_on_time",
+        "energy_dissipated"
+      ],
+      "solution_approach": "Second-order RLC analysis with underdamped response",
+      "ground_truth": {
+        "damping_factor_alpha": 3863.6,
+        "natural_frequency_omega0": 22361,
+        "peak_current_A": 743,
+        "notes": "Underdamped since alpha < omega0"
+      },
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_206",
+      "prompt": "Design a buck converter optimized for 10%-100% load efficiency: 24V\u21925V, 0.5-5A. Achieve >85% efficiency at 10% load and >93% at full load. Consider PFM/PWM mode switching.",
+      "specs": {
+        "topology": "buck",
+        "vin": 24,
+        "vout": 5,
+        "iout_range": [
+          0.5,
+          5
+        ]
+      },
+      "constraints": {
+        "efficiency_10pct_load": 0.85,
+        "efficiency_full_load": 0.93,
+        "mode_switch": "PFM_PWM"
+      },
+      "difficulty": "advanced",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_022",
+      "prompt": "Brain-Computer Interface Stimulator Array: High-density cortical stimulation array with 10,000 independent channels",
+      "specs": {
+        "vin": 3.3,
+        "f_sw": 4000000
+      },
+      "constraints": [
+        "10,000 independent current sources",
+        "Charge-balanced stimulation for tissue safety",
+        "Inter-channel crosstalk < -60dB",
+        "Implant power budget < 10mW total",
+        "MRI conditional design"
+      ],
+      "difficulty": "expert",
+      "application": "High-density cortical stimulation array with 10,000 independent channels",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_6334_hw4_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 4,
+      "problem_number": "4.3",
+      "problem_text": "Problem 4.3 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw4/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L2_041",
+      "prompt": "Design a buck converter: 48V to 5V, 8A for PoE powered device. Constraint: Input current ripple < 500mA peak-to-peak",
+      "specs": {
+        "vout": 5.0,
+        "vin": 48.0,
+        "iout": 8.0,
+        "power": 40.0,
+        "f_sw": 300000
+      },
+      "constraints": {
+        "input_current_ripple_pp_ma": 500
+      },
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_007",
+      "prompt": "Design a forward converter: 48V to 5V, 8A. Keep transformer size small with f_sw > 200kHz.",
+      "specs": {
+        "topology": "forward",
+        "vin": 48.0,
+        "vout": 5.0,
+        "iout": 8.0,
+        "power": 40.0,
+        "isolated": true
+      },
+      "constraints": {
+        "f_sw_min": 200000,
+        "optimization_target": "transformer_size"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q8",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 8,
+      "problem_type": "general",
+      "problem_text": "A combination of 1 \u00b5F capacitor with an initial voltage v\u0b61\u123a0\u123b\u0d4c\u0d462 V in series with a 100 \u2126 \nresistor is connected to a 20 mA ideal dc current source by operating both switches at \u0750\u0d4c0 s as \nshown. Which of the following graphs shown in the options approximates the voltage v\u0b71 across the \ncurrent source over the next few seconds? \n(A)  \n \n(B)  \n(C)  \n \n(D)",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2022_q33",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 33,
+      "problem_type": "rectifier",
+      "problem_text": "The voltage at the input of an AC-DC rectifier is given by \ud835\udc63(\ud835\udc61) = 230\u221a2 sin \ud835\udf14\ud835\udc61 where \n\ud835\udf14= 2\ud835\udf0b\u00d7  50 rad/s. The input current drawn by the rectifier is given by  \n\ud835\udc56(\ud835\udc61) = 10 sin \u1240\ud835\udf14\ud835\udc61\u2212\n\u0c17\n\u0b37\u1241+ 4 sin \u12403\ud835\udf14\ud835\udc61\u2212\n\u0c17\n\u0b3a\u1241+ 3sin \u12405\ud835\udf14\ud835\udc61\u2212\n\u0c17\n\u0b37\u1241.  \nThe input power factor, (rounded off to two decimal places), is, _________________ \nlag.",
+      "keywords": [
+        "rectifier",
+        "ac-dc",
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L3_021",
+      "prompt": "Design a radiation-hardened buck converter for LEO satellite bus power. Input: 28V unregulated solar bus, Output: 5V at 10A. Must balance efficiency (>92%), radiation tolerance (TID 30krad), mass (<150g), and reliability (15-year mission) while operating in -40\u00b0C to +85\u00b0C.",
+      "specs": {
+        "vout": 5.0,
+        "vin": 28.0
+      },
+      "constraints": {
+        "primary": [
+          "Efficiency >92%",
+          "TID tolerance 30krad",
+          "Mass <150g"
+        ],
+        "secondary": [
+          "Reliability 15-year mission",
+          "Wide temperature range"
+        ],
+        "constraints": [
+          "Space-qualified components only",
+          "Single event latch-up immunity"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Satellite Bus Power Distribution",
+      "topology": "buck",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2016_q12",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 12,
+      "problem_type": "power_device",
+      "problem_text": "A transistor circuit is given below. The Zener diode breakdown voltage is 5.3 V as shown. Take \nbase to emitter voltage drop to be 0.6 V. The value of the current gain \u03b2 is _________.",
+      "keywords": [
+        "diode",
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_053",
+      "prompt": "Design a SEPIC converter: 5V USB to 9V, 2A for Quick Charge adapter",
+      "specs": {
+        "vout": 9.0,
+        "vin": 5.0,
+        "iout": 2.0,
+        "power": 18.0,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "sepic",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_128",
+      "prompt": "Warehouse AGV Battery Charger: Automated guided vehicle requiring fast charging with battery management",
+      "specs": {
+        "vout": 48,
+        "vin": 400,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "CC/CV charge profile",
+        "CAN bus battery interface",
+        "Opportunity charging support",
+        "Temperature-compensated charging"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Automated guided vehicle requiring fast charging with battery management",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_001",
+      "prompt": "Design a buck converter: 12V input to 5V output, 2A load current",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 5.0,
+        "iout": 2.0,
+        "power": 10.0
+      },
+      "constraints": {},
+      "difficulty": "beginner",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_2009_q45",
+      "source": "GATE Official (OCR)",
+      "year": 2009,
+      "question_number": "45",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q.45 \\ 4 Q.46 nr. f fr 4 Q.47 & In the chopper circuit shown, the main thyristor (Ty) is operated at a duty ratio of 0.8 which is much larger the commutation interval. If the maximum allowable reapplied dv/dt on Ty is 50 V/us, what should be the theoretical minimum value of C; ? Assume current ripple through Lo to be negligible. (A) 0.2 pF (B) 0.02 pF (C) 2uF (D) 20 pF Match the switch arrangements on the top row to the steady-state V-I characteristics on the lower row. The steady state operating points are shown by large black dots. (A) (B) (c) (D) SS paar is i, () (u) Vs Vs (A) A-I, B-I, C-Il, D-IV (B) A-II, B-IV, C-I, D-II Vs (C) A-IV, B-Ill, C-I, D-II (D) A-IV, B-Ill, C-l, D-I For the circuit shown, find out the current flowing through the 22 resistance. Also identify the changes to be made to double the current through the 2Q resistance. Vs 4V 2 (+) S) OE (A) (5A; Put Vs = 20V) (B) (2A; Put Vs = 8V) (C) (SA; Put Js = LOA) (D) (7A; Put Js = 12A) 14/24 2009",
+      "matched_patterns": [
+        "chopper",
+        "commutation",
+        "ripple.*current"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2021_q52",
+      "source": "GATE Official",
+      "year": 2021,
+      "question_number": "52",
+      "problem_type": "inverter",
+      "problem_text": "Q.52 A CMOS Schmitt-trigger inverter has a low output level of 0 V and a high output level of 5 V. It has input thresholds of 1.6 V and 2.4 V. The input capacitance and output resistance of the Schmitt-trigger are negligible. The frequency of the oscillator shown is Hz. (Round off to 2 decimal places.) 10 k",
+      "keywords": [
+        "inverter"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_105",
+      "prompt": "Portable Photo Printer Supply: Compact dye-sublimation photo printer heater driver",
+      "specs": {
+        "vout": 24,
+        "vin": 7.4,
+        "f_sw": 200000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "Compact dye-sublimation photo printer heater driver",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_086",
+      "prompt": "Design a SEPIC converter for marine navigation LED lights. Input: 10V-32V (12V or 24V marine systems with variation), Output: 20V at 0.5A for LED string. Must withstand salt fog corrosion, operate in -20\u00b0C to +55\u00b0C, and survive reverse polarity.",
+      "specs": {
+        "vout": 20.0,
+        "vin": 10.0
+      },
+      "constraints": {
+        "input_voltage_range": "10V-32V",
+        "output_voltage": "20V (LED forward voltage)",
+        "output_current": "0.5A constant current",
+        "temperature": "-20\u00b0C to +55\u00b0C",
+        "environment": "Salt fog, marine IP67",
+        "protection": "Reverse polarity, load dump"
+      },
+      "difficulty": "intermediate",
+      "topology": "sepic",
+      "application": "Marine Navigation Light Driver",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_087",
+      "prompt": "Medical Pulse Oximeter Power: Fingertip pulse oximeter with LED drive and signal processing",
+      "specs": {
+        "vout": 1.8,
+        "vin": 3.7,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Fingertip pulse oximeter with LED drive and signal processing",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_109",
+      "prompt": "Aviation Entertainment System Supply: In-flight entertainment system requiring aviation certification and low weight",
+      "specs": {
+        "vout": 5,
+        "vin": 28,
+        "power": 100,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "DO-160G environmental qualification",
+        "Weight optimization for aviation",
+        "EMC per RTCA DO-160 Section 21",
+        "Altitude operation to 45,000 ft"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "In-flight entertainment system requiring aviation certification and low weight",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_141",
+      "prompt": "Concert Venue Wireless Mic Power: Professional wireless microphone system requiring ultra-clean audio power",
+      "specs": {
+        "vout": 3.3,
+        "vin": 9,
+        "power": 2,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "Audio SNR > 120 dB compatibility",
+        "Battery operation 2\u00d7AA or Li-Ion",
+        "RF transmission interference-free",
+        "Stage environment durability"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Professional wireless microphone system requiring ultra-clean audio power",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_103",
+      "prompt": "Guitar Effects Pedal Power: Digital guitar effects processor requiring clean analog supply",
+      "specs": {
+        "vout": 5,
+        "vin": 9,
+        "f_sw": 1000000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Digital guitar effects processor requiring clean analog supply",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_036",
+      "prompt": "Cryogenic Dark Matter Detector Bias: Germanium detector bias supply for SuperCDMS at SNOLAB requiring fA leakage",
+      "specs": {
+        "vout": 6,
+        "vin": 12
+      },
+      "constraints": [
+        "100 atto-amp leakage for WIMP detection",
+        "0.1nV/\u221aHz noise floor",
+        "Operation interface to 15mK cryostat",
+        "Zero radioactive contamination",
+        "Underground EMI shielding"
+      ],
+      "difficulty": "expert",
+      "application": "Germanium detector bias supply for SuperCDMS at SNOLAB requiring fA leakage",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q7",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 7,
+      "problem_type": "general",
+      "problem_text": "The switch SW shown in the circuit is kept at position \u20181\u2019 for a long duration. At t = 0+, the switch \nis moved to position \u20182\u2019. Assuming |Vo2| > |Vo1|, the voltage vc(t) across the capacitor is  \n \n \n \n \n(A)   \no1\nt/2RC\no2\nc\nV\n)\ne\n(1\nV\n(t)\nv\n\uf02d\n\uf02d\n\uf02d\n\uf03d\n\uf02d\n \n(B)   \no1\nt/2RC\no2\nc\nV\n)\ne\n(1\nV\n(t)\nv\n\uf02b\n\uf02d\n\uf03d\n\uf02d\n \n(C)   \no1\nt/2RC\no1\no2\nc\nV\n)\ne\n)(1\nV\n(V\n(t)\nv\n\uf02d\n\uf02d\n\uf02b\n\uf02d\n\uf03d\n\uf02d\n \n(D)  \no1\nt/2RC\no1\no2\nc\nV\n)\ne\n)(1\nV\n(V\n(t)\nv\n\uf02b\n\uf02d\n\uf02d\n\uf03d\n\uf02d\n \n \n'1'\n'2'\nVo1\nVo2\nR\nR\nC\nvc\nSW\nEE02 (GATE 2014)\n\nGATE 2014                                               SET2                                            ELECTRICAL  \u2013  EE \nEE \n2/11",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2014_q12",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 12,
+      "problem_type": "general",
+      "problem_text": "A single phase, 50 kVA, 1000V/100 V two winding transformer is connected as an autotransformer \nas shown in the figure.  \n \n \n \n \n \n \n \n \n \n \n \n \nThe kVA rating of the autotransformer is _____________.",
+      "keywords": [
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2022_q32",
+      "source": "GATE EE 2022",
+      "year": 2022,
+      "question_number": 32,
+      "problem_type": "rectifier",
+      "problem_text": "A single-phase full-bridge diode rectifier feeds a resistive load of 50 \u03a9 from a 200 V, \n50 Hz single phase AC supply. If the diodes are ideal, then the active power, in watts, \ndrawn by the load is _____________. (round off to nearest integer).",
+      "keywords": [
+        "rectifier",
+        "diode",
+        "full-bridge",
+        "single phase"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "mit_6334_hw0_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 0,
+      "problem_number": "0.1",
+      "problem_text": "Problem 0.1 Figure 0.1 shows the circuit diagram of a magnetic stimulator made by an international biomedical electronics company. The pulsed magnetic field generated by the transducer coil (represented by the inductor) can be used in a variety of medical treatments including nerve stimulation. The capacitor is precharged to a Voltage Vx between 0 and 1000 V, and then at t = 0 the switch S is closed to trigger the magnetic pulse. Calculate the following assuming that the switch S and the diode D are ideal: 1. The time response of the coil current after the switch S is closed, as a function of the precharge voltage Vx. (Some types of stimulation require a field with a fast rise time and a slow fall time.) 2. The peak coil current for Vx = 950 V. 3. The time t1 at which diode D turns on. 4. The energy dissipated in the resistor for Vx = 950 V. icoil \u2126 S C= 180 uF D R= 85 m L = 11 uH + c V -",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw0/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_097",
+      "prompt": "Synchrotron Booster Ring Dipole Supply: Particle accelerator requiring ramping dipole magnet power for beam energy increase",
+      "specs": {
+        "vout": 600,
+        "vin": 800,
+        "power": 100000,
+        "f_sw": 20000
+      },
+      "constraints": [
+        "1 GeV/s energy ramp rate",
+        "10 Hz injection/extraction cycle",
+        "Tracking accuracy \u00b110 ppm to main ring",
+        "Energy recovery during ramp-down",
+        "Beam loss interlock integration"
+      ],
+      "difficulty": "expert",
+      "application": "Particle accelerator requiring ramping dipole magnet power for beam energy increase",
+      "topology": "full_bridge",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L3_051",
+      "prompt": "Design a boost converter for polar seismic monitoring station. Input: 6V-12V from radioisotope thermoelectric generator, Output: 28V at 3A for communications. Must operate at -70\u00b0C ambient, survive polar bear tampering (3000N force), and run unattended for 10 years.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 6.0
+      },
+      "constraints": {
+        "primary": [
+          "-70\u00b0C operation",
+          "10-year unattended life",
+          "Tamper resistant"
+        ],
+        "secondary": [
+          "Efficiency >85%",
+          "Satellite uplink power"
+        ],
+        "constraints": [
+          "RTG interface",
+          "No maintenance access"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Arctic Seismic Station",
+      "topology": "boost",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_208",
+      "prompt": "Design a buck converter with fast transient response: 12V\u21921.8V, 0-20A load step. Must recover to within 3% in <50\u00b5s. Calculate output capacitance and control bandwidth.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12,
+        "vout": 1.8,
+        "iout_step": 20
+      },
+      "constraints": {
+        "settling_time_us": 50,
+        "overshoot_pct": 3,
+        "undershoot_pct": 3
+      },
+      "difficulty": "advanced",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_2023_q19",
+      "source": "GATE Official",
+      "year": 2023,
+      "question_number": "19",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.19 The \ud835\udc4d-transform of a discrete signal \ud835\udc65[\ud835\udc5b] is \ud835\udc4b(\ud835\udc67) = 4\ud835\udc67 (\ud835\udc67\u22121 5)(\ud835\udc67\u22122 3)(\ud835\udc67\u22123) with \ud835\udc45\ud835\udc42\ud835\udc36= \ud835\udc45 . Which one of the following statements is true? (A) Discrete-time Fourier transform of x[n] converges if R is |\ud835\udc67| > 3 (B) Discrete-time Fourier transform of x[n] converges if R is 2 3 < |\ud835\udc67| < 3 (C) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a left- sided sequence (D) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a right- sided sequence Electrical Engineering (EE) Page 16 of 42 Organizing Institute: IIT Kanpur",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2023_q27",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 27,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Which of the following statement(s) is/are true?  \n(A) \nIf an LTI system is causal, it is stable \n(B) \nA discrete time LTI system is causal if and only if its response to a step input \ud835\udc62[\ud835\udc5b] \nis 0 for \ud835\udc5b< 0 \n(C) \nIf a discrete time LTI system has an impulse response \u210e[\ud835\udc5b] of finite duration the \nsystem is stable \n(D) \nIf the impulse response 0 < |\u210e[\ud835\udc5b]| < 1 for all \ud835\udc5b, then the LTI system is stable.",
+      "keywords": [
+        "scr"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_086",
+      "prompt": "Superconducting Magnetic Energy Storage Interface: Grid-scale SMES requiring bidirectional power converter for energy storage",
+      "specs": {
+        "vout": 4000,
+        "vin": 13800,
+        "power": 10000000,
+        "f_sw": 2000
+      },
+      "constraints": [
+        "1 GJ stored energy capacity",
+        "1 ms response time for grid support",
+        "Four-quadrant operation",
+        "Superconducting coil protection",
+        "Grid code compliance (NERC)"
+      ],
+      "difficulty": "expert",
+      "application": "Grid-scale SMES requiring bidirectional power converter for energy storage",
+      "topology": "full_bridge",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_2010_q23",
+      "source": "GATE Official (OCR)",
+      "year": 2010,
+      "question_number": "23",
+      "problem_type": "rectifier",
+      "problem_text": "Q.23 The power electronic converter shown in the figure has a single-pole double-throw switch. The pole P of the switch is connected alternately to throws A and B. The converter shown is a {A) step-down chopper (buck converter) (B) half-wave rectifier {C) step-up chopper (boost converter) (D) full-wave rectifier",
+      "matched_patterns": [
+        "half.wave.*rectifier",
+        "full.wave.*rectifier",
+        "chopper"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2012_q33",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 33,
+      "problem_type": "general",
+      "problem_text": "For the system shown below, SD1 and SD2 are complex power demands at bus 1 and bus 2 \nrespectively.   If  \npu\n1\nV2 \uf03d\n, the VAR rating of the capacitor (QG2) connected at bus 2 is \n \nSG1\nBus 2\nQG2\nSD2 = 1 pu\nSD1 = 1 pu\nV1=1 0  pu\nZ = j 0.5 p.u\nBus 1\nV2\n \n(A)  0.2 pu \n(B)  0.268 pu \n(C)  0.312 pu \n(D)  0.4 pu",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2014_q40",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 40,
+      "problem_type": "general",
+      "problem_text": "A distribution feeder of 1 km length having resistance, but negligible reactance, is fed from both the \nends by 400V, 50 Hz balanced sources. Both voltage sources S1 and S2 are in phase.  The feeder \nsupplies concentrated loads of unity power factor as shown in the figure. \n \n \nThe contributions of S1 and S2 in 100 A current supplied at location P respectively, are \n(A) 75 A and 25 A \n(B)  50 A and 50 A \n(C) 25 A and 75 A \n(D)  0 A and 100 A",
+      "keywords": [
+        "power factor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_2021_q53",
+      "source": "GATE Official",
+      "year": 2021,
+      "question_number": "53",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q53 Consider the boost converter shown. Switch Q is operating at 25 kHz with a duty cycle of 0.6. Assume the diode and switch to be ideal. Under steady- state condition, the average resistance R,, as seen by the source is Q. (Round off to 2 decimal places.) lmH D 1I5sV(t) QL 00pE 100 Rin EE - Copyright \u00a9 GATE 2021 Page 29 of 30 Graduate Aptitude Test in Engineering 2021 Electrical Engineering (EE)",
+      "keywords": [
+        "boost converter",
+        "duty cycle"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_081",
+      "prompt": "Smart Home Hub Power Supply: Voice-controlled smart home hub with always-on microphone array",
+      "specs": {
+        "vout": 3.3,
+        "vin": 12,
+        "f_sw": 500000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Voice-controlled smart home hub with always-on microphone array",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L3_079",
+      "prompt": "Design a half-bridge converter for MRI gradient coil amplifier. Input: 600V DC, Output: \u00b1400V at 300A for gradient coil. Must achieve 2T/m gradient strength, <1\u03bcs rise time, and operate continuously during scans without patient acoustic disturbance.",
+      "specs": {
+        "vin": 600.0
+      },
+      "constraints": {
+        "primary": [
+          "2T/m gradient",
+          "<1\u03bcs rise time",
+          "Low acoustic noise"
+        ],
+        "secondary": [
+          "Eddy current compensation",
+          "Duty cycle handling"
+        ],
+        "constraints": [
+          "MRI suite EMC",
+          "Patient safety"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Superconducting MRI Gradient",
+      "topology": "half_bridge",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_6334_hw3_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 3,
+      "problem_number": "3.1",
+      "problem_text": "Problem 3.1 Shown below is a type of indirect converter known as a SEPIC converter (Single-Ended Primary Inductor Converter). Please calculate its voltage conversion ratio V2/V1. Also, assuming that the capacitors and inductors are all very large (small ripple), please calculate the maximum steady-state voltage on capacitor C1. C1 V1 D C2 R + - V2 - + vC Figure 1 A Single-Ended Primary Inductor Converter (SEPIC Converter).",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw3/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_052",
+      "prompt": "Hypersonic Vehicle Actuation Power System: Mach 6+ vehicle requiring power for control surface actuators during atmospheric re-entry",
+      "specs": {
+        "vout": 48,
+        "vin": 270,
+        "power": 3000,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Plasma interference immunity during re-entry",
+        "Actuator response < 10 ms for flight control",
+        "Survive thermal shock 150\u00b0C to 800\u00b0C external",
+        "Operate through RF blackout conditions",
+        "Potted construction for thermal management"
+      ],
+      "difficulty": "expert",
+      "application": "Mach 6+ vehicle requiring power for control surface actuators during atmospheric re-entry",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "mit_6334_hw8_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 8,
+      "problem_number": "8.3",
+      "problem_text": "Problem 8.3 Consider the full-bridge resonant converter of KSV Fig. 9.19(a). Assuming the rectified output voltage is constant at a voltage VR, please find an equivalent ac-side resistance for the bridge rectifier Req as a function of VR and the ac current magnitude IA. This can be done with a describing function approach, in which one only considers the fundamental ac component of voltage v\u2019R. Demonstrate that this expression for resistance correctly models power transfer from the dc sources to the rectifier, under the assumption that the inductor current is a pure sinusoid. C R = 75 Ohm L i Zin",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw8/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 3,
+      "difficulty": "advanced",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2012_q17",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 17,
+      "problem_type": "general",
+      "problem_text": "In the following figure, C1  and C2 are ideal capacitors. C1 has been charged to 12 V before the ideal \nswitch S is closed at t = 0. The current i(t) for all t is  \nC1\nt = 0\nC2\ni(t)\nS\n(A)  zero \n(B)  a step function \n(C)  an exponentially decaying function \n(D)  an impulse function",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "gate_ee_2016_q23",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 23,
+      "problem_type": "power_device",
+      "problem_text": "A steady dc current of 100 A is flowing through a power module (S, D) as shown in Figure (a). The \nV-I characteristics of the IGBT (S) and the diode (D) are shown in Figures (b) and (c), respectively. \nThe conduction power loss in the power module (S, D), in watts, is ________.",
+      "keywords": [
+        "igbt",
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L4_012",
+      "prompt": "Superconducting MRI Gradient Amplifier: High-performance MRI gradient coil driver for 7T research scanner requiring ultra-fast slew rates",
+      "specs": {
+        "vout": 2000,
+        "vin": 800,
+        "power": 1000000,
+        "efficiency_min": 0.96,
+        "f_sw": 100000
+      },
+      "constraints": [
+        "Gradient slew rate > 200 T/m/s for advanced imaging sequences",
+        "No acoustic noise coupling to scanner bore",
+        "Current THD < 0.01% for image quality",
+        "Fault response < 1\u03bcs to protect patient",
+        "EMI shielding for RF coil compatibility"
+      ],
+      "difficulty": "expert",
+      "application": "High-performance MRI gradient coil driver for 7T research scanner requiring ultra-fast slew rates",
+      "topology": "full_bridge",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2014_q22",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 22,
+      "problem_type": "power_device",
+      "problem_text": "The transistor in the given circuit should always be in active region. Take \u0738\u0b47\u0b49\u123a\u0b71\u0b5f\u0b72\u123b\u0d4c0.2 V,\n\u00a0\u00a0\u00a0\u0738\u0b46\u0b49\u0d4c0.7\u00a0V. The maximum value of \u0734\u0bd6 in \u2126 which can be used, is ______________.",
+      "keywords": [
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "mit_6334_hw1_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.2",
+      "problem_text": "Problem 1.2 Figure 1.1 shows a circuit model for the utility supplying one phase of an ac induction motor. The motor system parameters are Rs = 0.08 \u2126, Lls = 1 mH, Lm = 40 mH, Llr = 1 mH, Rr = 0.1 \u2126, and Rx = 33 \u2126. If the utility voltage is 170\u0387cos(377t), what is the current into the motor? At what power factor is the motor operating? Lls R s L m Llr R r Rx 170cos(377t) i Figure 1.1 A Circuit model for one phase of an induction motor being driven by the utility.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_042",
+      "prompt": "Design a boost converter: 9V battery pack to 24V, 1.5A for portable amplifier",
+      "specs": {
+        "vout": 24.0,
+        "vin": 9.0,
+        "iout": 1.5,
+        "power": 36.0,
+        "f_sw": 300000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "boost",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_ee_2016_q48",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 48,
+      "problem_type": "general",
+      "problem_text": "A single-phase bi-directional voltage source converter (VSC) is shown in the figure below. All \ndevices are ideal. It is used to charge a battery at 400 V with power of 5 kW from a source Vs = 220 \nV (rms), 50 Hz sinusoidal AC mains at unity p.f. If its AC side interfacing inductor is 5 mH and the \nswitches are operated at 20 kHz, then the phase shift (\u03b4) between AC mains voltage (Vs) and \nfundamental AC rms VSC voltage (VC1), in degree, is _________.",
+      "keywords": [
+        "converter",
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 2,
+      "difficulty": "intermediate",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L3_059",
+      "prompt": "Design a boost converter for high-altitude balloon payload. Input: 5V-8V from flexible solar array, Output: 28V at 2A for payload electronics. Must operate at 35km altitude (-60\u00b0C, 1% atmosphere), survive cosmic ray events, and handle 50% solar cell degradation.",
+      "specs": {
+        "vout": 28.0,
+        "vin": 5.0
+      },
+      "constraints": {
+        "primary": [
+          "35km altitude operation",
+          "Cosmic ray tolerance",
+          "Solar degradation handling"
+        ],
+        "secondary": [
+          "MPPT efficiency",
+          "Weight <200g"
+        ],
+        "constraints": [
+          "Near-space environment",
+          "Limited thermal mass"
+        ]
+      },
+      "difficulty": "advanced",
+      "application": "Stratospheric Balloon Power",
+      "topology": "boost",
+      "level": 3,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_117",
+      "prompt": "Gaming Console VRM: Next-gen gaming console requiring high-current VRM for APU",
+      "specs": {
+        "vout": 1.1,
+        "vin": 12,
+        "power": 200,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "50A load step in 1 \u00b5s",
+        "Acoustic noise < 25 dBA from PSU",
+        "Compact form factor for console",
+        "8-phase interleaved topology"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "Next-gen gaming console requiring high-current VRM for APU",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_204",
+      "prompt": "Design a full-bridge converter for 48V to \u00b115V dual output, 200W total (symmetric loads). Both outputs must track within 1% and share a single transformer.",
+      "specs": {
+        "topology": "full_bridge_dual_output",
+        "vin": 48,
+        "vout_pos": 15,
+        "vout_neg": -15,
+        "power": 200
+      },
+      "constraints": {
+        "output_tracking_pct": 1,
+        "cross_regulation_pct": 3
+      },
+      "difficulty": "advanced",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_098",
+      "prompt": "Asteroid Mining Drill Power System: Near-Earth asteroid mining spacecraft requiring percussive drill power",
+      "specs": {
+        "vout": 48,
+        "vin": 120,
+        "power": 3000,
+        "f_sw": 80000
+      },
+      "constraints": [
+        "Microgravity anchoring while drilling",
+        "Carbonaceous asteroid regolith penetration",
+        "3-year autonomous operation",
+        "Sample return container integration",
+        "Communication latency tolerance"
+      ],
+      "difficulty": "expert",
+      "application": "Near-Earth asteroid mining spacecraft requiring percussive drill power",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_088",
+      "prompt": "RC Car Motor Controller: Brushed DC motor driver for 1:10 scale RC car",
+      "specs": {
+        "vout": 6,
+        "vin": 7.4,
+        "f_sw": 50000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "buck",
+      "application": "Brushed DC motor driver for 1:10 scale RC car",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_007",
+      "prompt": "Design a multiphase buck: 12V to 1.0V, 4-phase, 80A total. Current sharing < 5%.",
+      "specs": {
+        "topology": "buck",
+        "vin": 12.0,
+        "vout": 1.0,
+        "iout": 80.0,
+        "power": 80.0,
+        "phases": 4
+      },
+      "control": {
+        "mode": "multiphase_current_mode",
+        "current_sharing_error_max": 0.05,
+        "interleaving_deg": 90,
+        "bandwidth_hz": 50000
+      },
+      "difficulty": "expert",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_036",
+      "prompt": "Design a forward converter: 60V to 24V, 6A. Active clamp reset topology.",
+      "specs": {
+        "topology": "forward",
+        "vin": 60.0,
+        "vout": 24.0,
+        "iout": 6.0,
+        "power": 144.0,
+        "isolated": true
+      },
+      "constraints": {
+        "reset_method": "active_clamp",
+        "optimization_target": "efficiency"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_112",
+      "prompt": "5G Small Cell Power Distribution: 5G small cell requiring multiple voltage rails from single input",
+      "specs": {
+        "vout": 12,
+        "vin": 48,
+        "power": 150,
+        "f_sw": 500000
+      },
+      "constraints": [
+        "DOSA form factor compliance",
+        "Hot-swap capability",
+        "Digital PMBus interface",
+        "Low acoustic noise for pole mounting"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "5G small cell requiring multiple voltage rails from single input",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "gate_2019_q40",
+      "source": "GATE Official",
+      "year": 2019,
+      "question_number": "40",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q.40 PQ oo 01 11 10 (A)QR +S (B)QR +S (CQR+S (D) QR+S In the circuit shown below, X and Y are digital inputs, and Z is a digital output. The equivalent circuit is a xX Y \u2014y>* (A) NAND gate (B) NOR gate (C) XOR gate (D) XNOR gate ADC-DC buck converter operates in continuous conduction mode. It has 48 V input voltage, and it feeds a resistive load of 24 Q. The switching frequency of the converter is 250 Hz. If switch-on duration is 1 ms, the load power is (A)6W (B) 12 W (\u00a9) 24W (D) 48 W The line currents of a three-phase four wire system are square waves with amplitude of 100 A. These three currents are phase shifted by 120\u00b0 with respect to each other. The ms value of neutral current is (A) 0A 100 C) 100A 300A a) 8a \u00a9 \u00a9) IfA = 2xi+3yj+4zk and u=x? +y* +z\u201d, then div(wA) at (1, 1, 1) is : The probability of a resistor being defective is 0.02. There are 50 such resistors in a circuit. The probability of two or more defective resistors in the circuit (round off to two decimal places) is 8/3 GATE 2019 Electrical Engineering (Set No)",
+      "keywords": [
+        "buck converter",
+        "dc-dc"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 3,
+      "difficulty": "advanced",
+      "benchmark_type": "expert_verified",
+      "evaluation_method": "conceptual"
+    },
+    {
+      "id": "L1_067",
+      "prompt": "Design a forward converter: 110VAC rectified to 5V, 20A for industrial power supply",
+      "specs": {
+        "vout": 5.0,
+        "vin": 155.0,
+        "iout": 20.0,
+        "power": 100.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "forward",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L4_096",
+      "prompt": "Quantum Repeater Entanglement Swapping Power: Quantum network requiring precision power for entanglement swapping stations",
+      "specs": {
+        "vout": 3.3,
+        "vin": 24,
+        "power": 30,
+        "f_sw": 2000000
+      },
+      "constraints": [
+        "0.99 entanglement fidelity requirement",
+        "50 km repeater station spacing",
+        "Single-photon detector power integration",
+        "Coincidence timing < 100 ps jitter",
+        "Field-deployable ruggedized design"
+      ],
+      "difficulty": "expert",
+      "application": "Quantum network requiring precision power for entanglement swapping stations",
+      "topology": "buck",
+      "level": 4,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L1_064",
+      "prompt": "Design a \u0106uk converter: 12V to -9V, 2A for audio bipolar supply",
+      "specs": {
+        "vout": -9.0,
+        "vin": 12.0,
+        "iout": 2.0,
+        "power": 18.0,
+        "f_sw": 250000
+      },
+      "constraints": {},
+      "difficulty": "basic",
+      "topology": "cuk",
+      "application": "",
+      "level": 1,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_135",
+      "prompt": "Electric Aircraft Avionics Bus: eVTOL aircraft requiring certified avionics power distribution",
+      "specs": {
+        "vout": 28,
+        "vin": 400,
+        "power": 500,
+        "f_sw": 150000
+      },
+      "constraints": [
+        "DO-254 DAL A certification",
+        "DO-160G environmental testing",
+        "Lightning protection per DO-160 Section 22",
+        "Weight critical for eVTOL"
+      ],
+      "difficulty": "intermediate",
+      "topology": "buck",
+      "application": "eVTOL aircraft requiring certified avionics power distribution",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    },
+    {
+      "id": "L2_019",
+      "prompt": "Design a boost converter: 5V to 28V LED string, 700mA constant current.",
+      "specs": {
+        "topology": "boost",
+        "vin": 5.0,
+        "vout": 28.0,
+        "iout": 0.7,
+        "power": 19.6
+      },
+      "constraints": {
+        "constant_current": true,
+        "optimization_target": "current_regulation"
+      },
+      "difficulty": "intermediate",
+      "level": 2,
+      "benchmark_type": "synthetic",
+      "evaluation_method": "spice"
+    }
+  ]
+}

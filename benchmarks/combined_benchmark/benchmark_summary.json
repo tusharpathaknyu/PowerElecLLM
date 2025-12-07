@@ -1,0 +1,49 @@
+{
+  "benchmark_name": "PowerElecLLM Combined Benchmark",
+  "random_seed": 42,
+  "total_problems": 500,
+  "train": {
+    "file": "train_400.json",
+    "count": 400,
+    "expert_verified": 160,
+    "synthetic": 240,
+    "conceptual_eval": 160,
+    "spice_eval": 240,
+    "by_level": {
+      "2": 158,
+      "1": 109,
+      "5": 10,
+      "3": 75,
+      "4": 48
+    }
+  },
+  "test": {
+    "file": "test_100.json",
+    "count": 100,
+    "expert_verified": 40,
+    "synthetic": 60,
+    "conceptual_eval": 40,
+    "spice_eval": 60,
+    "by_level": {
+      "2": 45,
+      "1": 25,
+      "3": 13,
+      "4": 17
+    }
+  },
+  "sources": {
+    "expert_verified": {
+      "GATE_EE": "Official GATE papers 2007-2023 (IISc archive)",
+      "MIT_6334": "MIT OCW Power Electronics Spring 2007",
+      "license": "Public Domain (GATE) / CC BY-NC-SA 4.0 (MIT)"
+    },
+    "synthetic": {
+      "description": "Algorithmically generated circuit design problems",
+      "evaluation": "SPICE simulation with waveform comparison"
+    }
+  },
+  "usage": {
+    "train": "Use for fine-tuning, few-shot examples, or in-context learning",
+    "test": "Held out for final evaluation - DO NOT use for training"
+  }
+}
