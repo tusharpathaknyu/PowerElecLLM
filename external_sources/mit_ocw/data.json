@@ -1,0 +1,23 @@
+{
+  "course_title":"Power Electronics",
+  "course_description":"6.334 examines the application of electronics to energy conversion and control. Topics covered include: modeling, analysis, and control techniques; design of power circuits including inverters, rectifiers, and DC-DC converters; analysis and design of magnetic components and filters; and characteristics of power semiconductor devices. Numerous application examples will be presented such as motion control systems, power supplies, and radio-frequency power amplifiers. The course is worth 6 engineering design points.\n",
+  "course_description_html":"6.334 examines the application of electronics to energy conversion and control. Topics covered include: modeling, analysis, and control techniques; design of power circuits including inverters, rectifiers, and DC-DC converters; analysis and design of magnetic components and filters; and characteristics of power semiconductor devices. Numerous application examples will be presented such as motion control systems, power supplies, and radio-frequency power amplifiers. The course is worth 6 engineering design points.",
+  "site_uid":"388e892f-ddf8-4124-a110-49cad84d4ca3",
+  "legacy_uid":"e7accf36-346d-511a-91ba-6e36e6164ded","instructors": [{
+    "first_name":"David",
+    "last_name":"Perreault",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. David Perreault"}],"department_numbers":["6"],
+  "learning_resource_types":["Problem Sets","Lecture Notes"],
+  "topics":[["Engineering","Electrical Engineering","Electronics"],["Engineering","Electrical Engineering","Electric Power"]],
+  "mit_learn_topics":null,
+  "primary_course_number":"6.334",
+  "extra_course_numbers":"",
+  "term":"Spring",
+  "year":"2007",
+  "level":["Graduate"],
+  "hide_download":null,
+  "image_src":"./static_resources/5d4e39a4b370838f9b55ecec98ec9e81_6-334s07.jpg",
+  "course_image_metadata":{"content_type":"resource","description":"A bidirectional DC/DC converter for automotive applications. (Image by David Perreault.)","draft":false,"file":"/courses/6-334-power-electronics-spring-2007/5d4e39a4b370838f9b55ecec98ec9e81_6-334s07.jpg","file_size":57126,"file_type":"image/jpeg","image_metadata":{"caption":"A bidirectional DC/DC converter for automotive applications. (Image by David Perreault.)","credit":"","image-alt":"A bidirectional DC/DC converter for automotive applications."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","ocw_type":"OCWImage","resourcetype":"Image","title":"6-334s07.jpg","uid":"5d4e39a4-b370-838f-9b55-ecec98ec9e81","video_files":{"video_thumbnail_file":null},"video_metadata":{"youtube_id":null}}}
+

@@ -1,0 +1,594 @@
+{
+  "metadata": {
+    "name": "Parametric Physics Problems - Power Electronics",
+    "description": "Physics-derived problems with systematic parameter variations for comprehensive coverage",
+    "source": "Derived from fundamental power electronics equations with parametric sweep",
+    "verification_method": "Closed-form analytical solutions using textbook formulas",
+    "references": [
+      "Erickson & Maksimovic - Fundamentals of Power Electronics, 3rd Ed",
+      "MIT 6.334 Power Electronics (OCW)",
+      "UIUC ECE 464 Course Materials"
+    ],
+    "created": "2024-12-06",
+    "license": "Original problems with physics-based verification"
+  },
+  "problems": [
+    {
+      "id": "param_buck_001",
+      "topology": "buck",
+      "difficulty": "easy",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a buck converter for USB charging: Vin=12V, Vout=5V, Iout=2.4A (12W), f=500kHz.",
+      "specs": {
+        "vin": 12,
+        "vout": 5,
+        "iout": 2.4,
+        "frequency": 500000,
+        "ripple_current_percent": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.417,
+        "duty_cycle_formula": "D = Vout/Vin = 5/12 = 0.417",
+        "inductance_uH": 8.1,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 7*0.417/(0.72*500k) = 8.1\u03bcH"
+      }
+    },
+    {
+      "id": "param_buck_002",
+      "topology": "buck",
+      "difficulty": "easy",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a buck converter for automotive: Vin=14V, Vout=3.3V, Iout=3A, f=300kHz.",
+      "specs": {
+        "vin": 14,
+        "vout": 3.3,
+        "iout": 3,
+        "frequency": 300000,
+        "ripple_current_percent": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.236,
+        "duty_cycle_formula": "D = Vout/Vin = 3.3/14 = 0.236",
+        "inductance_uH": 8.4,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 10.7*0.236/(0.9*300k) = 9.4\u03bcH"
+      }
+    },
+    {
+      "id": "param_buck_003",
+      "topology": "buck",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a high-current buck for FPGA core: Vin=5V, Vout=1.0V, Iout=20A, f=1MHz.",
+      "specs": {
+        "vin": 5,
+        "vout": 1.0,
+        "iout": 20,
+        "frequency": 1000000,
+        "ripple_current_percent": 20
+      },
+      "ground_truth": {
+        "duty_cycle": 0.2,
+        "duty_cycle_formula": "D = Vout/Vin = 1.0/5 = 0.2",
+        "inductance_uH": 0.5,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 4*0.2/(4*1M) = 0.2\u03bcH"
+      }
+    },
+    {
+      "id": "param_buck_004",
+      "topology": "buck",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a buck for telecom: Vin=48V, Vout=12V, Iout=8A, f=150kHz.",
+      "specs": {
+        "vin": 48,
+        "vout": 12,
+        "iout": 8,
+        "frequency": 150000,
+        "ripple_current_percent": 25
+      },
+      "ground_truth": {
+        "duty_cycle": 0.25,
+        "duty_cycle_formula": "D = Vout/Vin = 12/48 = 0.25",
+        "inductance_uH": 30,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 36*0.25/(2*150k) = 30\u03bcH"
+      }
+    },
+    {
+      "id": "param_buck_005",
+      "topology": "buck",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a buck for server PSU: Vin=54V (PoE++), Vout=12V, Iout=7.5A (90W), f=250kHz.",
+      "specs": {
+        "vin": 54,
+        "vout": 12,
+        "iout": 7.5,
+        "frequency": 250000,
+        "ripple_current_percent": 20
+      },
+      "ground_truth": {
+        "duty_cycle": 0.222,
+        "duty_cycle_formula": "D = Vout/Vin = 12/54 = 0.222",
+        "inductance_uH": 24.9,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 42*0.222/(1.5*250k) = 24.9\u03bcH"
+      }
+    },
+    {
+      "id": "param_boost_001",
+      "topology": "boost",
+      "difficulty": "easy",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a boost converter for LED driver: Vin=5V (USB), Vout=12V, Iout=500mA, f=500kHz.",
+      "specs": {
+        "vin": 5,
+        "vout": 12,
+        "iout": 0.5,
+        "frequency": 500000,
+        "ripple_current_percent": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.583,
+        "duty_cycle_formula": "D = 1-Vin/Vout = 1-5/12 = 0.583",
+        "input_current": 1.2,
+        "input_current_formula": "Iin = Iout/(1-D) = 0.5/0.417 = 1.2A",
+        "inductance_uH": 8.1,
+        "inductance_formula": "L = Vin*D/(\u0394IL*f) = 5*0.583/(0.36*500k) = 16.2\u03bcH"
+      }
+    },
+    {
+      "id": "param_boost_002",
+      "topology": "boost",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a boost for solar battery charging: Vin=18V (panel Vmpp), Vout=28V (24V battery + margin), Pout=50W, f=80kHz.",
+      "specs": {
+        "vin": 18,
+        "vout": 28,
+        "pout": 50,
+        "iout": 1.79,
+        "frequency": 80000,
+        "ripple_current_percent": 25
+      },
+      "ground_truth": {
+        "duty_cycle": 0.357,
+        "duty_cycle_formula": "D = 1-Vin/Vout = 1-18/28 = 0.357",
+        "input_current": 2.78,
+        "input_current_formula": "Iin = Pout/Vin = 50/18 = 2.78A",
+        "inductance_uH": 57.4,
+        "inductance_formula": "L = Vin*D/(\u0394IL*f) = 18*0.357/(0.695*80k) = 115\u03bcH"
+      }
+    },
+    {
+      "id": "param_boost_003",
+      "topology": "boost",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a boost for EV 12V auxiliary: Vin=300V (HV battery), Vout=400V (DC link), Iout=25A (10kW), f=50kHz.",
+      "specs": {
+        "vin": 300,
+        "vout": 400,
+        "iout": 25,
+        "pout": 10000,
+        "frequency": 50000,
+        "ripple_current_percent": 15
+      },
+      "ground_truth": {
+        "duty_cycle": 0.25,
+        "duty_cycle_formula": "D = 1-Vin/Vout = 1-300/400 = 0.25",
+        "input_current": 33.3,
+        "input_current_formula": "Iin = Iout/(1-D) = 25/0.75 = 33.3A",
+        "inductance_uH": 300,
+        "inductance_formula": "L = Vin*D/(\u0394IL*f) = 300*0.25/(5*50k) = 300\u03bcH"
+      }
+    },
+    {
+      "id": "param_boost_004",
+      "topology": "boost",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a boost for PFC front-end: Vin_min=85V (AC rectified), Vout=400V, Pout=500W, f=65kHz.",
+      "specs": {
+        "vin_min": 85,
+        "vin_max": 265,
+        "vout": 400,
+        "pout": 500,
+        "frequency": 65000,
+        "ripple_current_percent": 20
+      },
+      "ground_truth": {
+        "duty_cycle_max": 0.787,
+        "duty_cycle_formula": "D_max = 1-Vin_min/Vout = 1-85/400 = 0.787",
+        "input_current_max": 5.88,
+        "input_current_formula": "Iin_max = Pout/Vin_min = 500/85 = 5.88A",
+        "inductance_uH": 546,
+        "inductance_formula": "L = Vin_min*D_max/(\u0394IL*f) = 85*0.787/(1.18*65k) = 873\u03bcH"
+      }
+    },
+    {
+      "id": "param_buckboost_001",
+      "topology": "buck_boost",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design an inverting buck-boost for audio amplifier supply: Vin=12V, Vout=-15V, Iout=1A, f=200kHz.",
+      "specs": {
+        "vin": 12,
+        "vout": -15,
+        "vout_magnitude": 15,
+        "iout": 1,
+        "frequency": 200000,
+        "ripple_current_percent": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.556,
+        "duty_cycle_formula": "D = |Vout|/(Vin+|Vout|) = 15/27 = 0.556",
+        "inductance_uH": 28.5,
+        "inductance_formula": "L = Vin*D/(\u0394IL*f) = 12*0.556/(0.54*200k) = 62\u03bcH"
+      }
+    },
+    {
+      "id": "param_buckboost_002",
+      "topology": "buck_boost",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a non-inverting buck-boost (4-switch) for Li-ion to 5V: Vin=2.7-4.2V, Vout=5V, Iout=2A, f=1MHz.",
+      "specs": {
+        "vin_min": 2.7,
+        "vin_max": 4.2,
+        "vout": 5,
+        "iout": 2,
+        "frequency": 1000000,
+        "ripple_current_percent": 25
+      },
+      "ground_truth": {
+        "duty_cycle_buck_mode": 0.84,
+        "duty_cycle_boost_mode": 0.46,
+        "mode_transition": "Vin=Vout=5V (not in range, pure boost when Vin<5V)"
+      }
+    },
+    {
+      "id": "param_flyback_001",
+      "topology": "flyback",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a flyback for 5V USB adapter: Vin=90-265Vac (rectified 127-375Vdc), Vout=5V, Iout=3A, f=100kHz, n=20:1.",
+      "specs": {
+        "vin_dc_min": 127,
+        "vin_dc_max": 375,
+        "vout": 5,
+        "iout": 3,
+        "frequency": 100000,
+        "turns_ratio": 20,
+        "ripple_current_percent": 40
+      },
+      "ground_truth": {
+        "duty_cycle_max": 0.44,
+        "duty_cycle_formula": "D = n*Vout/(Vin + n*Vout) = 20*5/(127+100) = 0.44 at Vin_min",
+        "primary_inductance_uH": 350,
+        "magnetizing_current_formula": "Lm chosen for CCM/DCM boundary"
+      }
+    },
+    {
+      "id": "param_flyback_002",
+      "topology": "flyback",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a multi-output flyback: Vin=48V, Vout1=12V/1A, Vout2=5V/2A, f=150kHz, n1=4:1, n2=8:1.",
+      "specs": {
+        "vin": 48,
+        "vout1": 12,
+        "iout1": 1,
+        "vout2": 5,
+        "iout2": 2,
+        "frequency": 150000,
+        "n1": 4,
+        "n2": 8
+      },
+      "ground_truth": {
+        "duty_cycle": 0.5,
+        "duty_cycle_formula": "D = n1*Vout1/(Vin + n1*Vout1) = 4*12/(48+48) = 0.5",
+        "total_power": 22,
+        "power_formula": "Ptotal = 12*1 + 5*2 = 22W"
+      }
+    },
+    {
+      "id": "param_forward_001",
+      "topology": "forward",
+      "difficulty": "medium",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a forward converter: Vin=48V, Vout=3.3V, Iout=20A, f=200kHz, n=8:1.",
+      "specs": {
+        "vin": 48,
+        "vout": 3.3,
+        "iout": 20,
+        "frequency": 200000,
+        "turns_ratio": 8
+      },
+      "ground_truth": {
+        "duty_cycle": 0.55,
+        "duty_cycle_formula": "D = n*Vout/Vin = 8*3.3/48 = 0.55",
+        "output_inductance_uH": 4.1,
+        "inductance_formula": "L = (Vout)*(1-D)/(\u0394IL*f)"
+      }
+    },
+    {
+      "id": "param_forward_002",
+      "topology": "forward",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design an active-clamp forward: Vin=36-75V, Vout=12V, Iout=5A, f=250kHz, n=3:1.",
+      "specs": {
+        "vin_min": 36,
+        "vin_max": 75,
+        "vout": 12,
+        "iout": 5,
+        "frequency": 250000,
+        "turns_ratio": 3
+      },
+      "ground_truth": {
+        "duty_cycle_range": "0.48-1.0",
+        "duty_cycle_formula": "D = n*Vout/Vin = 3*12/Vin",
+        "clamp_voltage": "Vin/(1-D)"
+      }
+    },
+    {
+      "id": "param_halfbridge_001",
+      "topology": "half_bridge",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a half-bridge DC-DC: Vin=400V, Vout=12V, Iout=20A, f=100kHz, n=10:1.",
+      "specs": {
+        "vin": 400,
+        "vout": 12,
+        "iout": 20,
+        "frequency": 100000,
+        "turns_ratio": 10
+      },
+      "ground_truth": {
+        "duty_cycle": 0.6,
+        "duty_cycle_formula": "Vout = 2*D*Vin/(2*n) = D*Vin/n, D = n*Vout/Vin = 10*12/400 = 0.3. Wait, for half-bridge: Vout = D*Vin/n",
+        "output_power": 240,
+        "power_formula": "Pout = 12*20 = 240W"
+      }
+    },
+    {
+      "id": "param_fullbridge_001",
+      "topology": "full_bridge",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a phase-shifted full-bridge: Vin=400V, Vout=48V, Iout=20A, f=100kHz, n=5:1.",
+      "specs": {
+        "vin": 400,
+        "vout": 48,
+        "iout": 20,
+        "frequency": 100000,
+        "turns_ratio": 5
+      },
+      "ground_truth": {
+        "effective_duty_cycle": 0.6,
+        "duty_cycle_formula": "Vout = Deff*Vin/n, Deff = n*Vout/Vin = 5*48/400 = 0.6",
+        "output_power": 960,
+        "power_formula": "Pout = 48*20 = 960W"
+      }
+    },
+    {
+      "id": "param_sepic_001",
+      "topology": "sepic",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a SEPIC for battery-powered device: Vin=2.7-4.2V, Vout=3.3V, Iout=1A, f=1MHz.",
+      "specs": {
+        "vin_min": 2.7,
+        "vin_max": 4.2,
+        "vout": 3.3,
+        "iout": 1,
+        "frequency": 1000000,
+        "ripple_current_percent": 30
+      },
+      "ground_truth": {
+        "duty_cycle_range": "0.44-0.55",
+        "duty_cycle_formula": "D = Vout/(Vin+Vout)",
+        "inductance_uH": 2.2,
+        "inductance_formula": "L1=L2 = Vin*D/(\u0394IL*f)"
+      }
+    },
+    {
+      "id": "param_cuk_001",
+      "topology": "cuk",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a Cuk converter: Vin=24V, Vout=-36V, Iout=1A, f=100kHz.",
+      "specs": {
+        "vin": 24,
+        "vout": -36,
+        "vout_magnitude": 36,
+        "iout": 1,
+        "frequency": 100000,
+        "ripple_current_percent": 25
+      },
+      "ground_truth": {
+        "duty_cycle": 0.6,
+        "duty_cycle_formula": "D = |Vout|/(Vin+|Vout|) = 36/60 = 0.6",
+        "inductance_uH": 144,
+        "inductance_formula": "L1=L2 = Vin*D/(\u0394IL*f)"
+      }
+    },
+    {
+      "id": "param_llc_001",
+      "topology": "llc",
+      "difficulty": "expert",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design an LLC resonant converter: Vin=380-420V, Vout=12V, Iout=30A, fr=100kHz, n=12:1.",
+      "specs": {
+        "vin_nom": 400,
+        "vout": 12,
+        "iout": 30,
+        "resonant_freq": 100000,
+        "turns_ratio": 12
+      },
+      "ground_truth": {
+        "Lr_uH": 30,
+        "Cr_nF": 84.4,
+        "resonant_formula": "fr = 1/(2\u03c0\u221a(Lr*Cr))",
+        "gain_at_resonance": 1.0
+      }
+    },
+    {
+      "id": "param_interleaved_001",
+      "topology": "interleaved_buck",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a 4-phase interleaved buck: Vin=12V, Vout=1.2V, Iout=100A, f=500kHz per phase.",
+      "specs": {
+        "vin": 12,
+        "vout": 1.2,
+        "iout": 100,
+        "num_phases": 4,
+        "frequency": 500000,
+        "ripple_current_percent": 40
+      },
+      "ground_truth": {
+        "duty_cycle": 0.1,
+        "duty_cycle_formula": "D = Vout/Vin = 1.2/12 = 0.1",
+        "per_phase_current": 25,
+        "per_phase_inductance_uH": 1.08,
+        "inductance_formula": "L = (Vin-Vout)*D/(\u0394IL*f) = 10.8*0.1/(10*500k) = 2.16\u03bcH"
+      }
+    },
+    {
+      "id": "param_multiphase_001",
+      "topology": "multiphase_boost",
+      "difficulty": "expert",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Design a 3-phase interleaved boost for solar: Vin=200-400V, Vout=800V, Pout=50kW, f=40kHz per phase.",
+      "specs": {
+        "vin_range": "200-400",
+        "vout": 800,
+        "pout": 50000,
+        "num_phases": 3,
+        "frequency": 40000
+      },
+      "ground_truth": {
+        "duty_cycle_range": "0.5-0.75",
+        "duty_cycle_formula": "D = 1-Vin/Vout",
+        "per_phase_power": 16.67,
+        "inductance_uH": 250
+      }
+    },
+    {
+      "id": "param_dcm_buck_001",
+      "topology": "buck_dcm",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Analyze DCM operation: Buck with L=5\u03bcH, f=500kHz, Vin=12V, Vout=5V, R=50\u03a9.",
+      "specs": {
+        "vin": 12,
+        "vout": 5,
+        "inductance_uH": 5,
+        "frequency": 500000,
+        "load_resistance": 50
+      },
+      "ground_truth": {
+        "K": 0.1,
+        "K_formula": "K = 2*L*f/R = 2*5\u03bc*500k/50 = 0.1",
+        "Kcrit": 0.173,
+        "Kcrit_formula": "Kcrit = (1-D) = 1-5/12 = 0.583. K<Kcrit means DCM",
+        "M_dcm": 0.417,
+        "mode": "DCM since K < Kcrit(1-D)"
+      }
+    },
+    {
+      "id": "param_dcm_boost_001",
+      "topology": "boost_dcm",
+      "difficulty": "hard",
+      "source": "Physics derivation - parametric",
+      "problem_statement": "Analyze DCM boost: L=20\u03bcH, f=200kHz, Vin=12V, D=0.4, R=100\u03a9.",
+      "specs": {
+        "vin": 12,
+        "inductance_uH": 20,
+        "frequency": 200000,
+        "duty_cycle": 0.4,
+        "load_resistance": 100
+      },
+      "ground_truth": {
+        "K": 0.08,
+        "K_formula": "K = 2*L*f/R = 2*20\u03bc*200k/100 = 0.08",
+        "M_dcm": 2.1,
+        "M_formula": "M = (1 + sqrt(1 + 4*D\u00b2/K))/2",
+        "vout_dcm": 25.2,
+        "vout_formula": "Vout = M*Vin = 2.1*12 = 25.2V"
+      }
+    },
+    {
+      "id": "param_efficiency_001",
+      "topology": "buck",
+      "difficulty": "medium",
+      "source": "Efficiency analysis",
+      "problem_statement": "Calculate efficiency: Buck with Vin=12V, Vout=5V, Iout=2A. Switch: Rds=20m\u03a9, Qg=20nC, Vdriver=10V. Diode: Vf=0.4V. Inductor DCR=15m\u03a9. f=500kHz.",
+      "specs": {
+        "vin": 12,
+        "vout": 5,
+        "iout": 2,
+        "rds_on": 0.02,
+        "qg": 2e-08,
+        "vdriver": 10,
+        "vf": 0.4,
+        "dcr": 0.015,
+        "frequency": 500000
+      },
+      "ground_truth": {
+        "p_cond_sw": 0.033,
+        "p_cond_sw_formula": "P = Irms\u00b2*Rds*D = 4*0.02*0.417 = 0.033W",
+        "p_gate": 0.1,
+        "p_gate_formula": "P = Qg*Vdriver*f = 20n*10*500k = 0.1W",
+        "p_diode": 0.467,
+        "p_diode_formula": "P = Vf*Iout*(1-D) = 0.4*2*0.583 = 0.467W",
+        "p_dcr": 0.06,
+        "p_dcr_formula": "P = Iout\u00b2*DCR = 4*0.015 = 0.06W",
+        "efficiency_percent": 93.4
+      }
+    },
+    {
+      "id": "param_thermal_001",
+      "topology": "buck",
+      "difficulty": "medium",
+      "source": "Thermal analysis",
+      "problem_statement": "Thermal design: MOSFET with Rth_jc=1\u00b0C/W, Rth_cs=0.5\u00b0C/W, Rth_sa=3\u00b0C/W. Power dissipation=2W. Ambient=25\u00b0C. Find junction temp.",
+      "specs": {
+        "rth_jc": 1,
+        "rth_cs": 0.5,
+        "rth_sa": 3,
+        "power_dissipation": 2,
+        "ambient_temp": 25
+      },
+      "ground_truth": {
+        "junction_temp_C": 34,
+        "formula": "Tj = Ta + P*(Rth_jc + Rth_cs + Rth_sa) = 25 + 2*4.5 = 34\u00b0C"
+      }
+    },
+    {
+      "id": "param_control_001",
+      "topology": "buck",
+      "difficulty": "hard",
+      "source": "Control loop design",
+      "problem_statement": "Determine control-to-output transfer function for buck: Vin=12V, Vout=5V, L=10\u03bcH, C=100\u03bcF, R=2.5\u03a9, f=500kHz.",
+      "specs": {
+        "vin": 12,
+        "vout": 5,
+        "inductance_uH": 10,
+        "capacitance_uF": 100,
+        "load_resistance": 2.5,
+        "frequency": 500000
+      },
+      "ground_truth": {
+        "dc_gain": 12,
+        "dc_gain_formula": "Gd0 = Vin = 12V",
+        "LC_resonant_freq_Hz": 5033,
+        "LC_formula": "f_LC = 1/(2\u03c0*sqrt(L*C)) = 1/(2\u03c0*sqrt(10\u03bc*100\u03bc)) = 5033Hz",
+        "Q_factor": 0.5,
+        "Q_formula": "Q = R*sqrt(C/L) = 2.5*sqrt(100\u03bc/10\u03bc) = 7.9"
+      }
+    }
+  ],
+  "synthetic": true,
+  "source_verified": false
+}

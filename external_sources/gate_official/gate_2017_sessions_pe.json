@@ -1,0 +1,163 @@
+[
+  {
+    "id": "gate_2017_s1_q15",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "15",
+    "problem_type": "thyristor_circuit",
+    "problem_text": "Question Number : 15 Correct : 1 Wrong : -0.33 For the power semiconductor devices IGBT, MOSFET, Diode and Thyristor, which one of the following statements is TRUE? (A) All the four are majority carrier devices. (B) All the four are minority carrier devices. (C) IGBT and MOSFET are majority carrier devices. whereas Diode and Thyristor are minority carrier devices. (D) MOSFET is majority carrier device. whereas IGBT, Diode, Thyristor are minority carrier devices.",
+    "keywords": [
+      "thyristor",
+      "IGBT",
+      "MOSFET"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q16",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "16",
+    "problem_type": "general",
+    "problem_text": "Question Number : 16 Correct: 1 Wrong: 0 t-l\u00e9|, 70 _ , Where f\u20ac R. t\u2014|t]. otherwise Consider g(t) = | Here, | t | represents the largest integer less than or equal to \u00a2 and [7] denotes the smallest integer greater than or equal to f. The coefficient of the second harmonic component of the Fourier series representing g(f) is",
+    "keywords": [
+      "harmonic"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q24",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "24",
+    "problem_type": "general",
+    "problem_text": "Question Number : 24 Correct: 1 Wrong : 0 In the converter circuit shown below, the switches are controlled such that the load voltage v, (tf) is a 400 Hz square wave. 220 V - The RMS value of the fundamental component of v, (t) in volts is",
+    "keywords": [
+      "converter"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q25",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "25",
+    "problem_type": "inverter",
+    "problem_text": "Question Number : 25 Correct : 1 Wrong : 0 A 3-phase voltage source inverter is supplied from a 600V DC source as shown in the figure below. For a star connected resistive load of 20 per phase, the load power for 120\u00b0 device conduction, in kW, is 600 V",
+    "keywords": [
+      "inverter"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q38",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "38",
+    "problem_type": "dc_dc_converter",
+    "problem_text": "Question Number : 38 Correct : 2 Wrong : -0.66 The input voltage V,. of the buck-boost converter shown below varies from 32 V to 72 V. Assume that all components are ideal. inductor current is continuous, and output voltage is ripple free. The range of duty ratio D of the converter for which the magnitude of the steady-state output voltage remains constant at 48 V is 2_pe3 2p A) \u2014<D<= B)\u2014<D< eae . 85 3 rs (C)0<D<1 (D)",
+    "keywords": [
+      "converter",
+      "buck",
+      "boost",
+      "ripple"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q39",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "39",
+    "problem_type": "general",
+    "problem_text": "Question Number : 39 Correct : 2 Wrong : -0.66 A load is supplied by a 230 V. 50 Hz source. The active power P and the reactive power Q consumed by the load are such that LkKW<P < 2kW and 1KVARSQ < 2kVAR A capacitor connected across the load for power factor correction generates 1 KVAR reactive power. The worst case power factor after power factor correction is (A) 0.447 lag (B) 0.707 lag (C) 0.894 lag (D) 1",
+    "keywords": [
+      "power factor correction"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s1_q53",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 1,
+    "question_number": "53",
+    "problem_type": "rectifier",
+    "problem_text": "Question Number : 53 Correct : 2 Wrong: 0 The figure below shows an uncontrolled diode bridge rectifier supplied from a 220 V. 50 Hz, 1- phase ac source. The load draws a constant current 1, = 14 A . The conduction angle of the diode D, in degrees (rounded off to two decimal places) is",
+    "keywords": [
+      "rectifier",
+      "bridge"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s2_q11",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 2,
+    "question_number": "11",
+    "problem_type": "general",
+    "problem_text": "Question Number: 11 Correct : 1 Wrong : -0.33 A phase-controlled, single-phase. full-bridge converter is supplying a highly inductive DC load. The converter is fed from a 230 V. 50 Hz, AC source. The fundamental frequency in Hz of the voltage ripple on the DC side is (A) 25 (B) 50 (C) 100 (D) 300",
+    "keywords": [
+      "converter",
+      "ripple",
+      "bridge"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s2_q16",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 2,
+    "question_number": "16",
+    "problem_type": "rectifier",
+    "problem_text": "Question Number : 16 Correct : 1 Wrong : 0 The figure below shows the circuit diagram of a controlled rectifier supplied from a 230 V, 50 Hz, 1-phase voltage source and a 10:1 ideal transformer. Assume that all devices are ideal. The firing angles of the thyristors T; and T, are 90\u00b0 and 270\u00b0 . respectively. 230 V, 50 Hz The RMS value of the current through diode D; in amperes is",
+    "keywords": [
+      "thyristor",
+      "rectifier"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  },
+  {
+    "id": "gate_2017_s2_q39",
+    "source": "GATE Official",
+    "year": 2017,
+    "session": 2,
+    "question_number": "39",
+    "problem_type": "inverter",
+    "problem_text": "Question Number : 39 Correct : 2 Wrong : -0.66 The figure below shows a half-bridge voltage source inverter supplying an RL-load with 0.3 \u2122 switch control signals of the converter are generated using sinusoidal pulse width modulation with modulation index, M = 0.6 . At 50 Hz, the RL-load draws an active power of 1.44 kW. The value R=40 Qand L-( H. The desired fundamental frequency of the load voltage is 50 Hz. The of DC source voltage V,, in volts is (A) 300/2 (B) 500 (Cc) 500J/2 (D) 1000/2",
+    "keywords": [
+      "inverter",
+      "converter",
+      "bridge"
+    ],
+    "source_verified": true,
+    "source_url": "https://gate2024.iisc.ac.in/download/",
+    "license": "Government of India / IISc Official"
+  }
+]

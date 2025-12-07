@@ -1,0 +1,1059 @@
+{
+  "source": "Expert-Verified (GATE + MIT)",
+  "level": 1,
+  "difficulty": "beginner",
+  "total_problems": 64,
+  "problems": [
+    {
+      "id": "gate_2008_q42",
+      "source": "GATE Official (OCR)",
+      "year": 2008,
+      "question_number": "42",
+      "problem_type": "rectifier",
+      "problem_text": "Q.42 The block diagrams of two types of half wave rectifiers are shown in the figure. The transfer characteristics of the rectifiers are also shown within the block. Vin Vin It is desired to make full wave rectifier using above two half-wave rectifiers. The resultant circuit will be (A) (B) (C) (D)",
+      "matched_patterns": [
+        "half.wave.*rectifier",
+        "full.wave.*rectifier"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2008_q54",
+      "source": "GATE Official",
+      "year": 2008,
+      "question_number": "54",
+      "problem_type": "general",
+      "problem_text": "Q54 Single line diagram of a 4-bus single source distribution system is shown below. Branches \u00a2, ,e,, e;and e, have equal impedances. The load current values indicated in the figure are in per unit. Distribution company\u2019s policy Tequires radial system operation with minimum loss. This can be achieved by opening of the branch (A) e (B) e, (\u00a9 e (D) e, Q55__A single phase fully controlled bridge converter supplies a load drawing constant and ripple free load current. If the triggering angle is 30\u00b0, the input power factor will be (A) 0.65 (B) 0.78 (C) 0.85 (D) 0.866 EE 15/28 2008 MAIN PAPER - EE.",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2009_q29",
+      "source": "GATE Official",
+      "year": 2009,
+      "question_number": "29",
+      "problem_type": "general",
+      "problem_text": "Q.29 Match the items in List-I with the items in List-II and select the correct answer using the codes given below the lists. List I To a. improve power factor b. reduce the current ripples c. increase the power flow in line d. reduce the Ferranti effect (A) a2, b-3, c4, do 1 (C) a4, b3, c1, d2 List If Use 1, shunt reactor 2. shunt capacitor 3. series capacitor 4. series reactor (B) a2, b4, c3, d1 (D) a4, b1, c3, d2",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2009_q45",
+      "source": "GATE Official (OCR)",
+      "year": 2009,
+      "question_number": "45",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q.45 \\ 4 Q.46 nr. f fr 4 Q.47 & In the chopper circuit shown, the main thyristor (Ty) is operated at a duty ratio of 0.8 which is much larger the commutation interval. If the maximum allowable reapplied dv/dt on Ty is 50 V/us, what should be the theoretical minimum value of C; ? Assume current ripple through Lo to be negligible. (A) 0.2 pF (B) 0.02 pF (C) 2uF (D) 20 pF Match the switch arrangements on the top row to the steady-state V-I characteristics on the lower row. The steady state operating points are shown by large black dots. (A) (B) (c) (D) SS paar is i, () (u) Vs Vs (A) A-I, B-I, C-Il, D-IV (B) A-II, B-IV, C-I, D-II Vs (C) A-IV, B-Ill, C-I, D-II (D) A-IV, B-Ill, C-l, D-I For the circuit shown, find out the current flowing through the 22 resistance. Also identify the changes to be made to double the current through the 2Q resistance. Vs 4V 2 (+) S) OE (A) (5A; Put Vs = 20V) (B) (2A; Put Vs = 8V) (C) (SA; Put Js = LOA) (D) (7A; Put Js = 12A) 14/24 2009",
+      "matched_patterns": [
+        "chopper",
+        "commutation",
+        "ripple.*current"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2009_q47",
+      "source": "GATE Official",
+      "year": 2009,
+      "question_number": "47",
+      "problem_type": "dc_dc_converter",
+      "problem_text": "Q.47 In the chopper circuit shown, the main thyristor (Ty) is operated at a duty ratio of 0.8 which is much larger the commutation interval. If the maximum allowable reapplied dv/dt on Ty is 50 V/us, what should be the theoretical minimum value of C; ? Assume current ripple through Ly to be negligible. (A) 0.2 uF (B) 0.02 #F (C) 2uF (D) 20 nF Match the switch arrangements on the top row to the steady-state V-I characteristics on the lower row. The steady state operating points are shown by large black dots. == aL (A) (8) , aN (c) (0) ) (i) (itl) (Iv) (AAT, B-Il, Cll, D-IV (B) A-I, B-IV, C-I, D-Ill (OAIV, BI, Cl D4 (D)AIV, BAI, Cll, D4 For the circuit shown, find out the current flowing through the 22 usav \u2018s resistance. Also identify the changes to be made to double the 20 current through the 2Q resistance. (*) (4) (A) (SA; Put Vs = 20V) (B) (2A ; Put Vs = 8V) (C) (SA; Put Js = LOA) (D) (7A; Put Js = 12A) 14724",
+      "keywords": [
+        "thyristor",
+        "chopper",
+        "duty ratio",
+        "commutation",
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2011_q25",
+      "source": "GATE Official (OCR)",
+      "year": 2011,
+      "question_number": "25",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.25 Circuit turn-off time of an SCR is defined as the time (A) taken by the SCR to turn off (B) required for the SCR current to become zero (C) for which the SCR is reverse biased by the commutation circuit (D) for which the SCR is reverse biased to reduce its current below the holding current EE-A 124 2011 EE",
+      "matched_patterns": [
+        "commutation"
+      ],
+      "extraction_method": "ocr",
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2012_q18",
+      "source": "GATE EE 2012",
+      "year": 2012,
+      "question_number": 18,
+      "problem_type": "general",
+      "problem_text": "The i-v characteristics of the diode in the circuit given below are  \n                                            \n\uf0ef\uf0ee\n\uf0ef\uf0ed\n\uf0ec\n\uf03c\n\uf0b3\n\uf02d\n\uf03d\nV\n7.0\n,\nA\n0\nV\n7.0\n,\nA\n500\n7.0\nv\nv\nv\ni\n  \nThe current in the circuit is \n+\n1kW\n10V\n-\ni\n+\n-\nv\n(A)  10 mA  \n(B)  9.3 mA  \n(C)  6.67 mA \n(D)  6.2 mA",
+      "keywords": [
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2013_q1",
+      "source": "GATE EE 2013",
+      "year": 2013,
+      "question_number": 1,
+      "problem_type": "general",
+      "problem_text": "has negligible collector-to-emitter saturation voltage and the diode \ndrops negligible voltage across it under forward bias. If Vcc is +5 V, X and Y are digital signals \nwith 0 V as logic 0 and Vcc as logic 1, then the Boolean expression for Z is \n(A) \nY\nX\n \n(B) \nY\nX\n \n(C) \nY\nX\n \n(D) XY",
+      "keywords": [
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2013_q30",
+      "source": "GATE EE 2013",
+      "year": 2013,
+      "question_number": 30,
+      "problem_type": "general",
+      "problem_text": "Three capacitors C1, C2, and C3, whose values are 10\u00b5F, 5\u00b5F, and 2\u00b5F respectively, have \nbreakdown voltages of 10V, 5V, and 2V respectively. For the interconnection shown, the maximum \nsafe voltage in Volts that can be applied across the combination and the corresponding total charge \nin \u00b5C stored in the effective capacitance across the terminals are respectively \nC3\nC1\nC2\n(A) 2.8 and 36 \n(B) 7 and 119 \n(C) 2.8 and 32 \n(D) 7 and 80",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2013_q48",
+      "source": "GATE Official",
+      "year": 2013,
+      "question_number": "48",
+      "problem_type": "general",
+      "problem_text": "Q.48 The PEAK-TO-PEAK source current ripple in Amps is (A) 0.96 (B) 0.144 (C) 0.192 (D) 0.288",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2013_q50",
+      "source": "GATE Official",
+      "year": 2013,
+      "question_number": "50",
+      "problem_type": "general",
+      "problem_text": "Q.50 The PEAK-TO-PEAK source current ripple in Amps is (A) 0.96 (B) 0.144 (C) 0.192 (D) 0.288",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2014_q8",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 8,
+      "problem_type": "general",
+      "problem_text": "A combination of 1 \u00b5F capacitor with an initial voltage v\u0b61\u123a0\u123b\u0d4c\u0d462 V in series with a 100 \u2126 \nresistor is connected to a 20 mA ideal dc current source by operating both switches at \u0750\u0d4c0 s as \nshown. Which of the following graphs shown in the options approximates the voltage v\u0b71 across the \ncurrent source over the next few seconds? \n(A)  \n \n(B)  \n(C)  \n \n(D)",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2014_q22",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 22,
+      "problem_type": "power_device",
+      "problem_text": "The transistor in the given circuit should always be in active region. Take \u0738\u0b47\u0b49\u123a\u0b71\u0b5f\u0b72\u123b\u0d4c0.2 V,\n\u00a0\u00a0\u00a0\u0738\u0b46\u0b49\u0d4c0.7\u00a0V. The maximum value of \u0734\u0bd6 in \u2126 which can be used, is ______________.",
+      "keywords": [
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2014_q48",
+      "source": "GATE EE 2014",
+      "year": 2014,
+      "question_number": 48,
+      "problem_type": "general",
+      "problem_text": "In the bridge circuit shown, the capacitors are loss free. At balance, the value of capacitance C1 in \nmicrofarad is _________. \n \n \n \n \n \n \n35k\uf057\nC1\n0.1\uf06dF\n105k\uf057\nVsin(\uf077t)\nG\nEE \n11/15 \nEE03 (GATE 2014)\n\nGATE 2014                                               SET3                                            ELECTRICAL  \u2013  EE",
+      "keywords": [
+        "capacitor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q12",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 12,
+      "problem_type": "power_device",
+      "problem_text": "A transistor circuit is given below. The Zener diode breakdown voltage is 5.3 V as shown. Take \nbase to emitter voltage drop to be 0.6 V. The value of the current gain \u03b2 is _________.",
+      "keywords": [
+        "diode",
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q23",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 23,
+      "problem_type": "power_device",
+      "problem_text": "A steady dc current of 100 A is flowing through a power module (S, D) as shown in Figure (a). The \nV-I characteristics of the IGBT (S) and the diode (D) are shown in Figures (b) and (c), respectively. \nThe conduction power loss in the power module (S, D), in watts, is ________.",
+      "keywords": [
+        "igbt",
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q24",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 24,
+      "problem_type": "power_device",
+      "problem_text": "A 4-pole, lap-connected, separately excited dc motor is drawing a steady current of 40 A while \nrunning at 600 rpm. A good approximation for the waveshape of the current in an armature \nconductor of the motor is given by \n(A)          \n \n(B)       \n \n \n \n(C)           \n \n(D)       \n \n \n \n \n \n \n \n \n \n100 A\nS\nD\nVo=1V\nVS(Volt)\nIS(A)\ndV/dI=0.02\uf057\nV-I characteristic of IGBT\nVo=0.7V\nVD (Volt)\nID (A)\ndV/dI=0.01\uf057\nV-I characteristic of diode\n(a)\n(b)\n(c)\nt\nI\n10A\nI\n40A\nt\nt\nI\n10A\n-10A\nT=25ms\nT=25ms\nt\nI\n10A\n-10A\nT=25ms\nT=25ms\n\nGATE 2016 EE paper Electrical Engineering Set 1 (2nd Stage) \nEE \n7/15",
+      "keywords": [
+        "igbt",
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2016_q39",
+      "source": "GATE EE 2016",
+      "year": 2016,
+      "question_number": 39,
+      "problem_type": "general",
+      "problem_text": "In the circuit shown, switch S2 has been closed for a long time. At time \u0750= 0 switch S1 is closed. \nAt \u0750= 0\u0b3e, the rate of change of current through the inductor, in amperes per second, is _____.",
+      "keywords": [
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2017_s1_q15",
+      "source": "GATE Official",
+      "year": 2017,
+      "session": 1,
+      "question_number": "15",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Question Number : 15 Correct : 1 Wrong : -0.33 For the power semiconductor devices IGBT, MOSFET, Diode and Thyristor, which one of the following statements is TRUE? (A) All the four are majority carrier devices. (B) All the four are minority carrier devices. (C) IGBT and MOSFET are majority carrier devices. whereas Diode and Thyristor are minority carrier devices. (D) MOSFET is majority carrier device. whereas IGBT, Diode, Thyristor are minority carrier devices.",
+      "keywords": [
+        "thyristor",
+        "IGBT",
+        "MOSFET"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2018_q3",
+      "source": "GATE Official",
+      "year": 2018,
+      "question_number": "3",
+      "problem_type": "rectifier",
+      "problem_text": "Q.3 A single phase fully controlled rectifier is supplying a load with an anti-parallel diode as shown in the figure. All switches and diodes are ideal. Which one of the following is true for instantaneous load voltage and current? o v oi L O A D (A) 0 & 0 o o v i \uf0b3 \uf03c (B) 0 & 0 o o v i \uf03c \uf03c (C) 0 & 0 o o v i \uf0b3 \uf0b3 (D) 0 & 0 o o v i \uf03c \uf0b3",
+      "keywords": [
+        "rectifier",
+        "controlled rectifier"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2018_q38",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 38,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Consider the two continuous-time signals defined below: \n \n                              \n1\n2\n, 1\n1\n1\n, 1\n1\n( )\n  ,        \n( )\n0, otherwise\n0  ,      otherwise\nt\nt\nt\nt\nx t\nx t\n\uf0ec\n\uf0ec\n\uf02d\uf0a3\uf0a3\n\uf02d\n\uf02d\uf0a3\uf0a3\n\uf03d\n\uf03d\n\uf0ed\n\uf0ed\n\uf0ee\n\uf0ee\n \n \nThese signals are sampled with a sampling period of T = 0.25 seconds to obtain discrete-\ntime signals \n1[ ]\nx n  and\n2[ ]\nx n , respectively. Which one of the following statements is true? \n(A) The energy of \n1[ ]\nx n  is greater than the energy of \n2[ ]\nx n . \n(B) The energy of \n2[ ]\nx n  is greater than the energy of \n1[ ]\nx n . \n(C) \n1[ ]\nx n   and \n2[ ]\nx n  have equal energies. \n(D) Neither \n1[ ]\nx n   nor \n2[ ]\nx n is a finite-energy signal.",
+      "keywords": [
+        "scr"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2018_q41",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 41,
+      "problem_type": "power_device",
+      "problem_text": "In the circuit shown in the figure, the bipolar junction transistor (BJT) has a current gain \n\ud835\udefd= 100. The base-emitter voltage drop is a constant, \ud835\udc49\ud835\udc35\ud835\udc38= 0.7\u2061\ud835\udc49. The value of the \nThevenin equivalent resistance \ud835\udc45\ud835\udc47\u210e (in \u2126) as shown in the figure is ______ (up to 2 \ndecimal places). \n \n15 V\n+\n-\n+\n-\n10.7 V\n1 k\uf057\n10 k\uf057\n10\uf057\na\nb\nRTh",
+      "keywords": [
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2018_q55",
+      "source": "GATE EE 2018",
+      "year": 2018,
+      "question_number": 55,
+      "problem_type": "general",
+      "problem_text": "The voltage \ud835\udc63(\ud835\udc61) across the terminals a and b as shown in the figure, is a sinusoidal voltage \nhaving a frequency \ud835\udf14= 100 radian/s. When the inductor current \ud835\udc56(\ud835\udc61) is in phase with the \nvoltage \ud835\udc63(\ud835\udc61), the magnitude of the impedance Z (in \u2126) seen between the terminals a and b \nis ________ (up to 2 decimal places). \n100    F\n\uf06d\n100 \uf057\nL\nv(t) +\n-\ni(t)\na\nb\nZ\n \nEND OF THE QUESTION PAPER \n\nQ.No.\nType\nSection\nKey/Range\nMarks\n1\nMCQ\nGA\nA\n1\n2\nMCQ\nGA\nD\n1\n3\nMCQ\nGA\nD\n1\n4\nMCQ\nGA\nC\n1\n5\nMCQ\nGA\nA\n1\n6\nMCQ\nGA\nC\n2\n7\nMCQ\nGA\nC\n2\n8\nMCQ\nGA\nMarks\u00a0to\u00a0All\n2\n9\nMCQ\nGA\nC\n2\n10\nMCQ\nGA\nC\n2\n1\nMCQ\nEE\nA\n1\n2\nMCQ\nEE\nB\n1\n3\nMCQ\nEE\nC\n1\n4\nMCQ\nEE\nB\n1\n5\nMCQ\nEE\nD\n1\n6\nMCQ\nEE\nB\n1\n7\nMCQ\nEE\nB\n1\n8\nMCQ\nEE\nC\n1\n9\nMCQ\nEE\nC\n1\n10\nMCQ\nEE\nD\n1\n11\nMCQ\nEE\nD\n1\n12\nMCQ\nEE\nA\n1\n13\nMCQ\nEE\nA\n1\n\nQ.No.\nType\nSection\nKey/Range\nMarks\n14\nMCQ\nEE\nD\n1\n15\nMCQ\nEE\nB\n1\n16\nMCQ\nEE\nA\n1\n17\nNAT\nEE\n5.5\u00a0to\u00a05.5\n1\n18\nNAT\nEE\n0.49\u00a0to\u00a00.51\n1\n19\nNAT\nEE\n0.45\u00a0to\u00a00.55\n1\n20\nNAT\nEE\n7.0\u00a0to\u00a07.0\n1\n21\nNAT\nEE\n73.0\u00a0to\u00a074.0\n1\n22\nNAT\nEE\n3500.0\u00a0to\u00a03500.0\n1\n23\nNAT\nEE\n16.90\u00a0to\u00a017.70\n1\n24\nNAT\nEE\n600.0\u00a0to\u00a0600.0\n1\n25\nNAT\nEE\n0.65\u00a0to\u00a00.69\n1\n26\nMCQ\nEE\nD\n2\n27\nMCQ\nEE\nA\n2\n28\nMCQ\nEE\nA\n2\n29\nMCQ\nEE\nC\n2\n30\nMCQ\nEE\nC\n2\n31\nMCQ\nEE\nB\n2\n32\nMCQ\nEE\nA\n2\n33\nMCQ\nEE\nC\n2\n34\nMCQ\nEE\nA\n2\n35\nMCQ\nEE\nB\n2\n36\nMCQ\nEE\nB\n2\n\nQ.No.\nType\nSection\nKey/Range\nMarks\n37\nMCQ\nEE\nB\n2\n38\nMCQ\nEE\nA\n2\n39\nMCQ\nEE\nD\n2\n40\nNAT\nEE\n9.5\u00a0to\u00a010.5\n2\n41\nNAT\nEE\n89.0\u00a0to\u00a091.5\n2\n42\nNAT\nEE\n0.0\u00a0to\u00a00.0\n2\n43\nNAT\nEE\n11.5\u00a0to\u00a012.5\n2\n44\nNAT\nEE\n0.9\u00a0to\u00a01.1\n2\n45\nNAT\nEE\n2.50\u00a0to\u00a02.55\n2\n46\nNAT\nEE\n8.0\u00a0to\u00a08.0\n2\n47\nNAT\nEE\n5.70\u00a0to\u00a05.85\n2\n48\nNAT\nEE\n10.0\u00a0to\u00a010.0\n2\n49\nNAT\nEE\n9",
+      "keywords": [
+        "inductor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2022_q29",
+      "source": "GATE Official",
+      "year": 2022,
+      "question_number": "29",
+      "problem_type": "general",
+      "problem_text": "Q.29 The maximum clock frequency in MHz of a 4-stage ripple counter, utilizing flip- flops, with each flip-flop having a propagation delay of 20 ns, is ___________. (round off to one decimal place)",
+      "keywords": [
+        "ripple"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2023_q8",
+      "source": "GATE Official",
+      "year": 2023,
+      "question_number": "8",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.8 Which one of the options does NOT describe the passage below or follow from it? We tend to think of cancer as a \u2018modern\u2019 illness because its metaphors are so modern. It is a disease of overproduction, of sudden growth, a growth that is unstoppable, tipped into the abyss of no control. Modern cell biology encourages us to imagine the cell as a molecular machine. Cancer is that machine unable to quench its intial command (to grow) and thus transform into an indestructible, self-propelled automaton. [Adapted from The Emperor of All Maladies by Siddhartha Mukherjee] (A) It is a reflection of why cancer seems so modern to most of us. (B) It tells us that modern cell biology uses and promotes metaphors of machinery. (C) Modern cell biology encourages metaphors of machinery, and cancer is often imagined as a machine. (D) Modern cell biology never uses figurative language, such as metaphors, to describe or explain anything. Electrical Engineering (EE) Page 8 of 42 Organizing Institute: IIT Kanpur",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2023_q19",
+      "source": "GATE Official",
+      "year": 2023,
+      "question_number": "19",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.19 The \ud835\udc4d-transform of a discrete signal \ud835\udc65[\ud835\udc5b] is \ud835\udc4b(\ud835\udc67) = 4\ud835\udc67 (\ud835\udc67\u22121 5)(\ud835\udc67\u22122 3)(\ud835\udc67\u22123) with \ud835\udc45\ud835\udc42\ud835\udc36= \ud835\udc45 . Which one of the following statements is true? (A) Discrete-time Fourier transform of x[n] converges if R is |\ud835\udc67| > 3 (B) Discrete-time Fourier transform of x[n] converges if R is 2 3 < |\ud835\udc67| < 3 (C) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a left- sided sequence (D) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a right- sided sequence Electrical Engineering (EE) Page 16 of 42 Organizing Institute: IIT Kanpur",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_2023_q22",
+      "source": "GATE Official",
+      "year": 2023,
+      "question_number": "22",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.22 The four stator conductors (A, A\uf0a2, B and B\uf0a2) of a rotating machine are carrying DC currents of the same value, the directions of which are shown in the figure (i). The rotor coils a-a\uf0a2 and b-b\uf0a2 are formed by connecting the back ends of conductors \u2018a\u2019 and \u2018a\uf0a2\u2019 and \u2018b\u2019 and \u2018b\uf0a2\u2019, respectively, as shown in figure (ii). The e.m.f. induced in coil a-a\uf0a2 and coil b-b\uf0a2 are denoted by Ea-a\uf0a2 and Eb-b\uf0a2, respectively. If the rotor is rotated at uniform angular speed \uf077 rad/s in the clockwise direction then which of the following correctly describes the Ea-a\uf0a2 and Eb-b\uf0a2 ? figure (i): cross-sectional view figure (ii): rotor winding connection diagram (A) Ea-a\uf0a2 and Eb-b\uf0a2 have finite magnitudes and are in the same phase (B) Ea-a\uf0a2 and Eb-b\uf0a2 have finite magnitudes with Eb-b\uf0a2 leading Ea-a\uf0a2 (C) Ea-a\uf0a2 and Eb-b\uf0a2 have finite magnitudes with Ea-a\uf0a2 leading Eb-b\uf0a2 (D) Ea-a\uf0a2 = Eb-b\uf0a2 = 0 Electrical Engineering (EE) Page 19 of 42 Organizing Institute: IIT Kanpur",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2023_q27",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 27,
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Which of the following statement(s) is/are true?  \n(A) \nIf an LTI system is causal, it is stable \n(B) \nA discrete time LTI system is causal if and only if its response to a step input \ud835\udc62[\ud835\udc5b] \nis 0 for \ud835\udc5b< 0 \n(C) \nIf a discrete time LTI system has an impulse response \u210e[\ud835\udc5b] of finite duration the \nsystem is stable \n(D) \nIf the impulse response 0 < |\u210e[\ud835\udc5b]| < 1 for all \ud835\udc5b, then the LTI system is stable.",
+      "keywords": [
+        "scr"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2023_q37",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 37,
+      "problem_type": "general",
+      "problem_text": "Consider the OP AMP based circuit shown in the figure. Ignore the conduction \ndrops of diodes D1 and D2. All the components are ideal and the breakdown voltage \nof the Zener is 5 V. Which of the following statements is true? \n \n \n(A) \nThe maximum and minimum values of the output voltage VO are +15 V and \n-10 V, respectively. \n(B) \nThe maximum and minimum values of the output voltage VO are +5 V and -15 V, \nrespectively. \n(C) \nThe maximum and minimum values of the output voltage VO are +10 V and -5 V, \nrespectively. \n(D) \nThe maximum and minimum values of the output voltage VO are +5 V and -10 V, \nrespectively. \n \n \n \n \n \n \n \n \n \n \nOP\n+\nVin = 10sin(1000t) V\n1 k\n1 k\nVO\n+15 V\n-15 V\n+\nD1\nD2\nDZ\n+\n-\n\n Electrical Engineering (EE) \nPage 29 of 42 \nOrganizing Institute: IIT Kanpur",
+      "keywords": [
+        "diode"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "gate_ee_2023_q59",
+      "source": "GATE EE 2023",
+      "year": 2023,
+      "question_number": 59,
+      "problem_type": "power_device",
+      "problem_text": "The Zener diode in circuit has a breakdown voltage of 5 V. The current gain \u03b2 of \nthe transistor in the active region in 99. Ignore base-emitter voltage drop VBE. The \ncurrent through the 20 \u2126 resistance in milliamperes is ________(Round off to 2 \ndecimal places). \n \n \nT1\nT2\nT3\nVin = 100 sin(100 t) V\n+\nD1\n10 A\nVO\n+\n-\n20 \n25 V\n+\n10 \n7 k\n5 V Zener\n = 99\n\n Electrical Engineering (EE) \nPage 40 of 42 \nOrganizing Institute: IIT Kanpur",
+      "keywords": [
+        "diode",
+        "transistor"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Public Domain (Government Exam)",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw0_p1",
+      "source": "MIT 6.334 Problem Set 0, Problem 0.1",
+      "topic": "RLC Circuit Transients",
+      "problem_statement": "A magnetic stimulator circuit has C=180\u00b5F, R=85m\u03a9, L=11\u00b5H with diode D. The capacitor is precharged to Vx=950V when switch S is closed. Calculate: (1) Time response of coil current, (2) Peak coil current for Vx=950V, (3) Time t1 when diode D turns on, (4) Energy dissipated in resistor.",
+      "given": {
+        "C": "180e-6",
+        "R": "0.085",
+        "L": "11e-6",
+        "Vx": 950
+      },
+      "required": [
+        "peak_current",
+        "diode_turn_on_time",
+        "energy_dissipated"
+      ],
+      "solution_approach": "Second-order RLC analysis with underdamped response",
+      "ground_truth": {
+        "damping_factor_alpha": 3863.6,
+        "natural_frequency_omega0": 22361,
+        "peak_current_A": 743,
+        "notes": "Underdamped since alpha < omega0"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw2_p1",
+      "source": "MIT 6.334 Problem Set 2, Problem 2.1",
+      "topic": "Boost Converter with Source Resistance",
+      "problem_statement": "A boost converter supplies 12V to a 5\u03a9 load from a 5V source with 0.2\u03a9 internal resistance. Determine the duty ratio D. Neglect semiconductor device drops.",
+      "given": {
+        "Vsource": 5,
+        "Rs": 0.2,
+        "Vout": 12,
+        "Rload": 5
+      },
+      "required": [
+        "duty_ratio"
+      ],
+      "solution_approach": "Power balance with source resistance losses",
+      "ground_truth": {
+        "duty_ratio": 0.624,
+        "derivation": "Accounting for losses in source resistance: Pin = Pout + Ploss. Iin = Pout/(Vin_eff), where Vin_eff = 5 - Iin*0.2. D = 1 - Vin_eff/Vout"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw2_p4",
+      "source": "MIT 6.334 Problem Set 2, Problem 2.4",
+      "topic": "Buck Converter Passive Component Design",
+      "problem_statement": "A buck converter operates at fs=250kHz, Vin=48V, D=0.5, with load resistance varying 0.5\u03a9 to 1\u03a9. Design for: (A) Capacitor ripple current <4A RMS, (B) Output voltage ripple <1.2V peak-to-peak, (D) Output voltage 16-32V during load transient.",
+      "given": {
+        "fs": 250000,
+        "Vin": 48,
+        "D": 0.5,
+        "Rload_min": 0.5,
+        "Rload_max": 1.0,
+        "cap_ripple_current_max_Arms": 4,
+        "vout_ripple_max_Vpp": 1.2,
+        "transient_vout_min": 16,
+        "transient_vout_max": 32
+      },
+      "required": [
+        "inductance",
+        "capacitance"
+      ],
+      "solution_approach": "Ripple analysis and transient response requirements",
+      "ground_truth": {
+        "Vout": 24,
+        "Iout_max": 48,
+        "notes": "Multi-objective design problem with ripple and transient constraints"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw3_p1",
+      "source": "MIT 6.334 Problem Set 3, Problem 3.1",
+      "topic": "SEPIC Converter Analysis",
+      "problem_statement": "For a Single-Ended Primary Inductor Converter (SEPIC), calculate the voltage conversion ratio V2/V1 and the maximum steady-state voltage on capacitor C1. Assume large capacitors and inductors (small ripple).",
+      "given": {
+        "topology": "SEPIC"
+      },
+      "required": [
+        "voltage_conversion_ratio",
+        "capacitor_voltage"
+      ],
+      "solution_approach": "Volt-second balance on inductors",
+      "ground_truth": {
+        "conversion_ratio": "D/(1-D)",
+        "capacitor_C1_voltage": "V1",
+        "notes": "V2/V1 = D/(1-D), Vc1 = V1 in steady state"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw3_p4",
+      "source": "MIT 6.334 Problem Set 3, Problem 3.4",
+      "topic": "DCM Buck-Boost Analysis",
+      "problem_statement": "For a buck-boost converter in DCM with V1=25V, L=1\u00b5H, R=2\u03a9, f=300kHz: (a) Find average output current in DCM, (b) Find duty ratio at CCM/DCM boundary, (c) What happens when R becomes very large?",
+      "given": {
+        "V1": 25,
+        "L": "1e-6",
+        "R": 2,
+        "f": 300000
+      },
+      "required": [
+        "average_current_dcm",
+        "critical_duty_ratio",
+        "large_R_behavior"
+      ],
+      "solution_approach": "DCM analysis with inductor current waveform",
+      "ground_truth": {
+        "critical_inductance_formula": "L_crit = R*(1-D)^2/(2*f)",
+        "dcm_conversion_ratio": "V2/V1 = D*sqrt(R/(2*L*f))",
+        "notes": "At large R, converter enters deep DCM with voltage source behavior"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw4_p5",
+      "source": "MIT 6.334 Problem Set 4, Problem 4.5",
+      "topic": "Boost Converter Inductor Design",
+      "problem_statement": "Design an inductor for a 150W, 140kHz boost converter with Vin=14V, Vout=42V, L=6\u00b5H using 3F3 ferrite RM-core. Max flux density 0.3T, max current density 500A/cm\u00b2. Calculate ripple ratio and peak inductor current at full load.",
+      "given": {
+        "Pout": 150,
+        "fs": 140000,
+        "Vin": 14,
+        "Vout": 42,
+        "L": "6e-6",
+        "Bmax": 0.3,
+        "Jmax": 500
+      },
+      "required": [
+        "ripple_ratio",
+        "peak_inductor_current",
+        "core_selection"
+      ],
+      "solution_approach": "Magnetic design with core saturation constraints",
+      "ground_truth": {
+        "duty_ratio": 0.667,
+        "Iin_avg": 10.71,
+        "D_formula": "D = 1 - Vin/Vout = 1 - 14/42 = 0.667",
+        "Iin_formula": "Iin = Pout/Vin = 150/14 = 10.71A"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw5_p1",
+      "source": "MIT 6.334 Problem Set 5, Problem 5.1",
+      "topic": "Isolated SEPIC Converter",
+      "problem_statement": "For an isolated SEPIC converter in heavy CCM with Vin=5V, Vout=60V: (a) Find input-to-output ratio with turns ratio 1:n, (b) Find optimum turns ratio to minimize device stresses and nominal duty ratio, (c) Compare device stresses to non-isolated indirect converter.",
+      "given": {
+        "Vin": 5,
+        "Vout": 60,
+        "mode": "CCM"
+      },
+      "required": [
+        "conversion_ratio",
+        "optimal_turns_ratio",
+        "optimal_duty_ratio"
+      ],
+      "solution_approach": "Transformer-coupled SEPIC analysis",
+      "ground_truth": {
+        "conversion_ratio_formula": "V2/V1 = n*D/(1-D)",
+        "notes": "Optimum turns ratio balances switch voltage stress"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw5_p5",
+      "source": "MIT 6.334 Problem Set 5, Problem 5.5",
+      "topic": "Active Clamp Forward Converter",
+      "problem_statement": "For a forward converter with active clamp: V1=48V, D=0.4, T=5\u00b5s, L\u00b51=50\u00b5H (primary magnetizing inductance). (a) Find voltage on clamp capacitor CAUX, (b) Sketch magnetizing inductance current waveform, (c) Should transformer use gapped or ungapped core?",
+      "given": {
+        "V1": 48,
+        "D": 0.4,
+        "T": "5e-6",
+        "Lmu1": "50e-6"
+      },
+      "required": [
+        "clamp_capacitor_voltage",
+        "magnetizing_current_waveform",
+        "core_type"
+      ],
+      "solution_approach": "Active clamp analysis with volt-second balance",
+      "ground_truth": {
+        "Vcaux_formula": "Vcaux = V1/(1-D) = 48/0.6 = 80V",
+        "flux_swing": "Bipolar (active clamp resets core with opposite polarity)",
+        "core_recommendation": "Ungapped preferred to minimize magnetizing current"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw6_p3",
+      "source": "MIT 6.334 Problem Set 6, Problem 6.3",
+      "topic": "Buck Converter Input Filter Design",
+      "problem_statement": "A 25W buck converter (fs=200kHz, Vin=9V, Vout=5V, heavy CCM) has LC input filter with CF=220\u00b5F (Sanyo OSCON, 3.7A rms rating), LF=220\u00b5H. (a) Estimate ESR and ESL of filter capacitor, (b) Design damping components CD, RD for <10dB peaking, (c) Calculate negative resistance from closed-loop converter.",
+      "given": {
+        "Pout": 25,
+        "fs": 200000,
+        "Vin": 9,
+        "Vout": 5,
+        "CF": "220e-6",
+        "LF": "220e-6",
+        "CF_Irms_rating": 3.7
+      },
+      "required": [
+        "capacitor_ESR",
+        "capacitor_ESL",
+        "damping_design",
+        "negative_resistance"
+      ],
+      "solution_approach": "Input filter stability analysis with converter negative resistance",
+      "ground_truth": {
+        "D": 0.556,
+        "notes": "Input filter must be designed considering converter as negative resistance load"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw8_p2",
+      "source": "MIT 6.334 Problem Set 8, Problem 8.2",
+      "topic": "LC Matching Network Design",
+      "problem_statement": "Design L and C for a matching network with 75\u03a9 load to achieve 50\u03a9 resistive input impedance at 27.12MHz (ISM band). Assume inductor QL=100, negligible capacitor loss. Find matching network efficiency.",
+      "given": {
+        "Rload": 75,
+        "Zin_target": 50,
+        "f": 27120000.0,
+        "QL": 100
+      },
+      "required": [
+        "L_value",
+        "C_value",
+        "efficiency"
+      ],
+      "solution_approach": "Impedance matching with Q factor analysis",
+      "ground_truth": {
+        "notes": "L-section matching network between 50\u03a9 source and 75\u03a9 load"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_hw10_p1",
+      "source": "MIT 6.334 Problem Set 10, Problem 10.1",
+      "topic": "Current Mode Control Stability",
+      "problem_statement": "A CCM buck converter with fsw=500kHz, L=16\u00b5H, C=800\u00b5F, Vout=24V operates under peak current mode control. Find the smallest compensating ramp magnitude for stable ripple dynamics over Vin range 36V to 75V.",
+      "given": {
+        "fs": 500000,
+        "L": "16e-6",
+        "C": "800e-6",
+        "Vout": 24,
+        "Vin_min": 36,
+        "Vin_max": 75
+      },
+      "required": [
+        "minimum_ramp_slope"
+      ],
+      "solution_approach": "Subharmonic oscillation analysis in current mode control",
+      "ground_truth": {
+        "D_range_min": 0.32,
+        "D_range_max": 0.667,
+        "stability_condition": "ma > (m2 - m1)/2 where m1, m2 are rising/falling slopes",
+        "notes": "Compensating ramp prevents subharmonic oscillation at D>0.5"
+      },
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw1_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 1,
+      "problem_number": "1.1",
+      "problem_text": "Problem 1.1 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw1/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw3_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 3,
+      "problem_number": "3.2",
+      "problem_text": "Problem 3.2.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw3/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw2_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 2,
+      "problem_number": "2.2",
+      "problem_text": "Problem 2.2 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw2/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw6_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.5",
+      "problem_text": "Problem 6.5",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw3_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 3,
+      "problem_number": "3.3",
+      "problem_text": "Problem 3.3 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw3/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw6_p13",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.13",
+      "problem_text": "Problem 6.13",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw3_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 3,
+      "problem_number": "3.5",
+      "problem_text": "Problem 3.5 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw3/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw4_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 4,
+      "problem_number": "4.1",
+      "problem_text": "Problem 4.1 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw4/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw4_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 4,
+      "problem_number": "4.3",
+      "problem_text": "Problem 4.3 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw4/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw5_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 5,
+      "problem_number": "5.2",
+      "problem_text": "Problem 5.2 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw5/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw7_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 7,
+      "problem_number": "7.3",
+      "problem_text": "Problem 7.3",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw7/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw5_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 5,
+      "problem_number": "5.4",
+      "problem_text": "Problem 5.4 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw5/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw8_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 8,
+      "problem_number": "8.1",
+      "problem_text": "Problem 8.1",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw8/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw6_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.1",
+      "problem_text": "Problem 6.1 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw8_p9",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 8,
+      "problem_number": "8.9",
+      "problem_text": "Problem 8.9",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw8/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw6_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 6,
+      "problem_number": "6.4",
+      "problem_text": "Problem 6.4 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw6/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw7_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 7,
+      "problem_number": "7.2",
+      "problem_text": "Problem 7.2 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw7/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw7_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 7,
+      "problem_number": "7.5",
+      "problem_text": "Problem 7.5 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw7/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw9_p5",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 9,
+      "problem_number": "9.5",
+      "problem_text": "Problem 9.5",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw9/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw9_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 9,
+      "problem_number": "9.3",
+      "problem_text": "Problem 9.3 KSV",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw9/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw10_p2",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.2",
+      "problem_text": "Problem 10.2 KSV Prob. 4.6",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw10_p3",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.3",
+      "problem_text": "Problem 10.3 KSV Prob. 4.7",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    },
+    {
+      "id": "mit_6334_hw10_p4",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 10,
+      "problem_number": "10.4",
+      "problem_text": "Problem 10.4 KSV Prob. 4.8",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw10/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 1,
+      "difficulty": "beginner"
+    }
+  ]
+}

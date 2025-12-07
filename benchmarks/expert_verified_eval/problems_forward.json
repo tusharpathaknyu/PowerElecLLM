@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "forward",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_forward_001",
+      "topology": "forward",
+      "level": 3,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 48,
+        "vout": 5,
+        "iout": 10,
+        "frequency": 250000,
+        "ripple_voltage_pct": 1,
+        "ripple_current_pct": 20
+      },
+      "ground_truth": {
+        "duty_cycle": 0.417,
+        "inductance_uH": 6,
+        "capacitance_uF": 40,
+        "formula_duty_cycle": "D = Vout * n / Vin = 5 * 4 / 48 = 0.417",
+        "formula_inductance": "L = (Vin/n - Vout) * D / (delta_IL * f) = (12 - 5) * 0.417 / (2 * 250000) = 5.8uH",
+        "formula_capacitance": "C = delta_IL / (8 * f * delta_Vout) = 2 / (8 * 250000 * 0.05) = 20uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a forward converter with Vin=48V, Vout=5V, Iout=10A, switching frequency=250kHz. Use turns ratio of 4:1."
+    }
+  ]
+}

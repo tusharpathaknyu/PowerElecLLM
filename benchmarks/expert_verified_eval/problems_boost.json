@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "boost",
+    "count": 2,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_boost_001",
+      "topology": "boost",
+      "level": 1,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 12,
+        "vout": 24,
+        "iout": 1,
+        "frequency": 100000,
+        "ripple_voltage_pct": 1,
+        "ripple_current_pct": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.5,
+        "inductance_uH": 30,
+        "capacitance_uF": 50,
+        "formula_duty_cycle": "D = 1 - Vin/Vout = 1 - 12/24 = 0.5",
+        "formula_inductance": "L = Vin * D / (delta_IL * f) = 12*0.5 / (0.6*100000) = 100uH for 30% ripple",
+        "formula_capacitance": "C = Iout * D / (f * delta_Vout) = 1*0.5 / (100000*0.24) = 20.8uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a boost converter with Vin=12V, Vout=24V, Iout=1A, switching frequency=100kHz."
+    },
+    {
+      "id": "pv_boost_002",
+      "topology": "boost",
+      "level": 2,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 18,
+        "vout": 48,
+        "iout": 2.08,
+        "pout": 100,
+        "frequency": 50000,
+        "ripple_voltage_pct": 2,
+        "ripple_current_pct": 20
+      },
+      "ground_truth": {
+        "duty_cycle": 0.625,
+        "inductance_uH": 101.3,
+        "capacitance_uF": 27.1,
+        "formula_duty_cycle": "D = 1 - Vin/Vout = 1 - 18/48 = 0.625",
+        "formula_inductance": "L = Vin * D / (delta_IL * f) = 18*0.625 / (1.11*50000) = 202uH",
+        "formula_capacitance": "C = Iout * D / (f * delta_Vout) = 2.08*0.625 / (50000*0.96) = 27uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a boost converter for solar MPPT with Vin=18V (PV panel Vmp), Vout=48V (battery), Pout=100W, switching frequency=50kHz."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "source": "Expert-Verified (GATE + MIT)",
+  "level": 4,
+  "difficulty": "expert",
+  "total_problems": 5,
+  "problems": [
+    {
+      "id": "gate_2007_q38",
+      "source": "GATE Official",
+      "year": 2007,
+      "question_number": "38",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.38 The system wae +1Xs+9) is to be compensated such that its gain-crossover frequency becomes same as its uncompensated phase-crossover frequency and provides a 45\u00b0 phase margin. To achieve this, one may use (A) a lag compensator that provides an attenuation of 20 dB and a phase lag of 45\u201d at the frequency of 3 3 rad/s (B) a lead compensator that provides an amplification of 20 dB and a phase lead of 45\u00b0 at the frequency of 3 rad/s (C) a lag-lead compensator that provides an amplification of 20 dB and a phase lag of 45\u00b0 at the frequency of V3 rad/s. @) a lag-lead compensator that provides an attenuation of 20 dB and phase lead of 45\u00b0 at the frequency of 3 rad/s Consider the discrete-time system shown in the figure where the impulse response of G(2) is (0) = 0, g(1) = g(2) = 1, g(3) = 9(4) =... =0. This system is stable for range of values of K (A) [-1, 1/2] (B) [-1,1] (C) [-1/2, 1] (D) [-1/2, 2] A signal x(t) is given by 1, -T/4<t<3T/4 x(th= 5-1, 37/4<1<7T/4 =r) Which among the following gives the fundamental Fourier term of x(t)? 4 mt 7 a m on or oe dk ams Ae 4) tat % Bat m. (C) Sn ae (D) Fiver a If the loop gain K of a negative feedback system having a loop transfer function K(s +3) 2 is to be adjusted to induce a sustained oscillation then (s+8)\u00b0 (A) The frequency of this oscillation must be he rad/s (B) The frequency of this oscillation must be must be 4 rad/s (C) The frequency of this oscillation must be must be 4 or is rad/s (D) such a K does not exist EE 14/32",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 4,
+      "difficulty": "expert"
+    },
+    {
+      "id": "gate_2008_q70",
+      "source": "GATE Official",
+      "year": 2008,
+      "question_number": "70",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q.70 Figure shows a feedback system where K > 0. eee oo s(8+3)(s+10) a The range of K for which the system is stable will be given by (A) 0< K <30 (B) 0< K <39 (C) 0< K <390 (D) K >390 The transfer function of a system is given as 100 5\u00b0 +20s +100 This system is (A) an overdamped system (B) an underdamped system (C) a critically damped system (D) an unstable system Two sinusoidal signals p(@t)=A sin @t and q(@,1) are applied to X and Y inputs of a dual channel CRO. The Lissajous figure displayed on the screen is shown below: Y i) \u2014>*x The signal q(@,t) will be represented as (A) (@,)=A sino, @,=2a, (B) g(@t)=Asinwot, w,=a,/2 (\u00a9) g(@,t)= A cosa, @,=20, (D) q(@,t1)= A cosa@,t, @,=a@,/2 The ac bridge shown in the figure is used to measure the impedance Z. If the bridge is balanced for oscillator frequency f =2 kHz, then the impedance Z will be (A) (260 + j0) Q (B) (0 + j200) Q (C) (260 \u2014j200) Q (D) (260 + j200) Q EE 19/28 2008 MAIN PAPER - EE Common Data Questions Common Data for Questions 71, 72 and 73: Consider a power system shown below: Va x x Veo Given that: V,, =V,, =1.0+ j0.0 pu; The positive sequence impedances are Z,, = Z,, =0.001+ 0.01 pu and Z, = 0.006 + j0.06 pu. 3-phase Base MVA = 100 Voltage base = 400 kV (Line to Line) Nominal system frequency = 50 Hz The reference voltage for phase \u2018a\u2019 is defined as v(t) = V,, cos(@t) . A symmetrical three phase fault occurs at centre of the line, i.e. point \u2018F\u2019 at time t,. The positive sequence impedance from source S, to point ",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 4,
+      "difficulty": "expert"
+    },
+    {
+      "id": "gate_2009_q17",
+      "source": "GATE Official",
+      "year": 2009,
+      "question_number": "17",
+      "problem_type": "thyristor_circuit",
+      "problem_text": "Q17 EE A 3-phase squirrel cage induction motor supplied from a balanced 3-phase source drives a mechanical load. The torque-speed characteristics of the motor (solid curve) and of the load (dotted curve) are shown. Of the two equilibrium points A and B, which of the following options correctly describes the stability of A and B? (A) A is stable B is unstable (B) A is unstable B is stable (C) Both are stable (D) Both are unstable An SCR is considered to be a semi-controlled device because (A) it can be turned OFF but not ON with a gate pulse (B) it conducts only during one half-cycle of an alternating current wave (C) it can be turned ON but not OFF with a gate pulse (D) it can be turned ON only during one half-cycle of an alternating voltage wave The polar plot of an open loop stable system is shown below. The closed loop system is (A) always stable (B) marginally stable (C) unstable with one pole on the RH s-plane (D) unstable with two poles on the RH s-plane",
+      "keywords": [
+        "SCR"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 4,
+      "difficulty": "expert"
+    },
+    {
+      "id": "gate_2019_q13",
+      "source": "GATE Official",
+      "year": 2019,
+      "question_number": "13",
+      "problem_type": "rectifier",
+      "problem_text": "Q13 Qi4 Qis A six-pulse thyristor bridge rectifier is connected to a balanced three-phase, 50 Hz AC source. Assuming that the DC output current of the rectifier is constant, the lowest harmonic component in the AC input current is (A) 100 Hz (B) 150 Hz (C) 250 Hz (D) 300 Hz The parameter of an equivalent circuit of a three-phase induction motor affected by reducing the mms value of the supply voltage at the rated frequency is (A) rotor resistance (B) rotor leakage reactance (C) magnetizing reactance (D) stator resistance A three-phase synchronous motor draws 200 A from the line at unity power factor at rated load. Considering the same line voltage and load, the line current at a power factor of 0.5 leading is (A) 100A (B) 200 A (\u00a9) 300A (D) 400A In the circuit shown below, the switch is closed at t= 0. The value of 6 in degrees which will give the maximum value of DC offset of the current at the time of switching is R=3.77Q L=10 mH ()=150 sin (377t + 8) (A) 60 (B) -45 (C) 90 (D) -30 The output response of a system is denoted as y(?), and its Laplace transform is given by 10 \u00a5(s)= s(s?+s+100V2)\" The steady state value of (7) is waa (B) 10\u00a52 Om (D) 1002 The open loop transfer function of a unity feedback system is given by 66) == In G(s) plane, the Nyquist plot of G(s) passes through the negative real axis at the point (A) (0.5, j0) (B) (0.75, j0) (\u00a9) \u00a91.25,j0) \u2014 @) (-1.5,j0) The characteristic equation of a linear time-invariant (LTT) system is given by A(s) = s* +353 +3s*+s+k",
+      "keywords": [
+        "thyristor",
+        "rectifier"
+      ],
+      "source_verified": true,
+      "source_url": "https://gate2024.iisc.ac.in/download/",
+      "license": "Government of India / IISc Official",
+      "level": 4,
+      "difficulty": "expert"
+    },
+    {
+      "id": "mit_6334_hw7_p1",
+      "source": "MIT 6.334 Power Electronics",
+      "homework": 7,
+      "problem_number": "7.1",
+      "problem_text": "Problem 7.1 Figure 1 shows the structure, waveforms, and operating sequence of a power converter topology known as a resonant pole inverter. The top switch is turned on until inductor current iL rises to a positive value ip+. The top switch is then turned off (under ZVS conditions) and the resonant capacitors ring with the resonant inductor until the bottom diode conducts, at which point the bottom switch can be turned on (under ZVS conditions). The other half of the cycle is essentially the reverse of the first half. Derive the minimum current ip+ that will enable zero voltage turn-on of the bottom device. Express this minimum current as a function of Cr, Lr, Vdc, and Vcf. You may assume that Vcf does not change during a cycle. Calculate the turn-off loss of the top switch, assuming that at turn off the current in the switch falls linearly to zero in a time tf. As this converter is designed to operate with \u201czero-voltage\u201d switching, you may assume the switch current reaches zero before the switch voltage rises to the bus voltage Vdc.",
+      "source_verified": true,
+      "source_url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/resources/hw7/",
+      "license": "CC BY-NC-SA 4.0",
+      "level": 4,
+      "difficulty": "expert"
+    }
+  ]
+}

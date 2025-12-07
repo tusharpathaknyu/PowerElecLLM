@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "name": "University Exam Style Problems - International",
+    "description": "Problems modeled after university exam patterns from multiple sources",
+    "sources": [
+      "MIT OCW 6.334 Power Electronics (CC-BY-NC-SA)",
+      "UIUC ECE 464 Course Objectives",
+      "NPTEL Power Electronics (Open Access)",
+      "TU Delft OCW (CC-BY-NC-SA)"
+    ],
+    "verification_method": "Analytical solutions using standard textbook methods",
+    "created": "2024-12-06",
+    "license": "Educational use - problems inspired by open course patterns"
+  },
+  "problems": [
+    {
+      "id": "uni_mit_001",
+      "source": "MIT 6.334 style",
+      "difficulty": "medium",
+      "topic": "Buck Converter Analysis",
+      "problem_statement": "A synchronous buck converter operates with Vin=12V, Vout=3.3V, L=4.7\u03bcH, C=47\u03bcF, and fsw=500kHz. The load current is 5A. (a) Calculate the duty cycle. (b) Calculate the inductor current ripple. (c) Calculate the output voltage ripple assuming ideal capacitor.",
+      "solution": {
+        "part_a": "D = Vout/Vin = 3.3/12 = 0.275",
+        "part_b": "\u0394IL = (Vin-Vout)*D/(L*f) = (12-3.3)*0.275/(4.7\u03bc*500k) = 1.02A",
+        "part_c": "\u0394Vout = \u0394IL/(8*f*C) = 1.02/(8*500k*47\u03bc) = 5.4mV"
+      },
+      "answers": {
+        "duty_cycle": 0.275,
+        "ripple_current_A": 1.02,
+        "ripple_voltage_mV": 5.4
+      }
+    },
+    {
+      "id": "uni_mit_002",
+      "source": "MIT 6.334 style",
+      "difficulty": "hard",
+      "topic": "Boost Converter Design",
+      "problem_statement": "Design a boost converter for a solar MPPT application with the following specifications: Vin=15-25V (panel voltage range), Vout=48V (battery), Pout=200W, fsw=100kHz, maximum inductor current ripple=30% of average.",
+      "solution": {
+        "step1": "At Vin_min=15V: D_max = 1-15/48 = 0.687",
+        "step2": "Iin_max = Pout/Vin_min = 200/15 = 13.3A",
+        "step3": "\u0394IL_max = 0.3*13.3 = 4A",
+        "step4": "L_min = Vin_min*D_max/(\u0394IL*f) = 15*0.687/(4*100k) = 25.8\u03bcH",
+        "step5": "Select L = 33\u03bcH standard value"
+      },
+      "answers": {
+        "D_max": 0.687,
+        "D_min": 0.479,
+        "L_min_uH": 25.8,
+        "L_recommended_uH": 33
+      }
+    },
+    {
+      "id": "uni_mit_003",
+      "source": "MIT 6.334 style",
+      "difficulty": "hard",
+      "topic": "Flyback Converter CCM/DCM",
+      "problem_statement": "A flyback converter operates with Vin=48V, Vout=5V, fsw=100kHz, Np:Ns=6:1, Lm=100\u03bcH (referred to primary). (a) Determine the duty cycle for CCM operation. (b) Find the boundary load resistance for CCM/DCM transition. (c) Calculate output voltage ripple if C=100\u03bcF and Iout=2A in CCM.",
+      "solution": {
+        "part_a": "D = n*Vout/(Vin+n*Vout) = 6*5/(48+30) = 0.385",
+        "part_b": "R_crit = 2*Lm*f*(1-D)\u00b2/(n\u00b2*D) = 2*100\u03bc*100k*0.378/(36*0.385) = 54.6\u03a9",
+        "part_c": "\u0394Vout = Iout*D/(f*C) = 2*0.385/(100k*100\u03bc) = 77mV"
+      },
+      "answers": {
+        "duty_cycle": 0.385,
+        "R_critical_ohm": 54.6,
+        "ripple_voltage_mV": 77
+      }
+    },
+    {
+      "id": "uni_nptel_001",
+      "source": "NPTEL IIT style",
+      "difficulty": "medium",
+      "topic": "Buck-Boost Analysis",
+      "problem_statement": "A buck-boost converter supplies a 10\u03a9 load from a 24V source. The output voltage is -18V. Switching frequency is 50kHz and L=200\u03bcH. (a) Find the duty cycle. (b) Verify CCM operation. (c) Calculate average input current.",
+      "solution": {
+        "part_a": "D = |Vout|/(Vin+|Vout|) = 18/42 = 0.429",
+        "part_b": "Iout = 18/10 = 1.8A, IL_avg = Iout/(1-D) = 1.8/0.571 = 3.15A. \u0394IL = Vin*D/(L*f) = 24*0.429/(200\u03bc*50k) = 1.03A. IL_min = 3.15-0.515 = 2.64A > 0, so CCM",
+        "part_c": "Iin_avg = D*IL_avg = 0.429*3.15 = 1.35A"
+      },
+      "answers": {
+        "duty_cycle": 0.429,
+        "mode": "CCM",
+        "input_current_A": 1.35
+      }
+    },
+    {
+      "id": "uni_nptel_002",
+      "source": "NPTEL IIT style",
+      "difficulty": "medium",
+      "topic": "Forward Converter",
+      "problem_statement": "A forward converter with reset winding has Vin=48V, Vout=5V, Iout=10A, fsw=150kHz, transformer ratio Np:Ns:Nr=8:1:8. (a) Calculate maximum duty cycle. (b) Find required output inductance for 40% ripple current. (c) Determine transformer volt-seconds.",
+      "solution": {
+        "part_a": "D_max = Np/(Np+Nr) = 8/16 = 0.5",
+        "part_b": "D_actual = Ns*Vout/Vin = 1*5/6 = 0.833? Wait, D = n*Vout/Vin where n=Np/Ns=8. D = Vout*n/Vin = 5*8/48 = 0.833. But D_max=0.5. So D=Vout*Np/(Vin*Ns) = 5*8/(48*1) \u2248 0.83 > 0.5. Need to verify: Vout = D*Vin/n = D*48/8 = 6*D. For Vout=5V: D = 5*8/48 = 0.833. This exceeds D_max!",
+        "part_c": "For valid design: Vout \u2264 D_max*Vin/n = 0.5*48/8 = 3V. The specs have an issue."
+      },
+      "answers": {
+        "D_max": 0.5,
+        "note": "Problem specs may need adjustment for forward converter constraints"
+      }
+    },
+    {
+      "id": "uni_uiuc_001",
+      "source": "UIUC ECE 464 style",
+      "difficulty": "medium",
+      "topic": "Real Component Effects",
+      "problem_statement": "A buck converter has: Vin=24V, Vout=5V, Iout=5A, fsw=300kHz, L=22\u03bcH with DCR=15m\u03a9, C=220\u03bcF with ESR=20m\u03a9. Calculate: (a) Output voltage ripple from capacitance. (b) Output voltage ripple from ESR. (c) Total output ripple (approximate).",
+      "solution": {
+        "part_a": "D = 5/24 = 0.208. \u0394IL = (24-5)*0.208/(22\u03bc*300k) = 0.6A. \u0394Vout_C = \u0394IL/(8*f*C) = 0.6/(8*300k*220\u03bc) = 1.14mV",
+        "part_b": "\u0394Vout_ESR = \u0394IL*ESR = 0.6*0.02 = 12mV",
+        "part_c": "Total \u2248 sqrt(\u0394VC\u00b2 + \u0394VESR\u00b2) = sqrt(1.14\u00b2 + 12\u00b2) \u2248 12.1mV (ESR dominated)"
+      },
+      "answers": {
+        "ripple_from_C_mV": 1.14,
+        "ripple_from_ESR_mV": 12,
+        "total_ripple_mV": 12.1
+      }
+    },
+    {
+      "id": "uni_uiuc_002",
+      "source": "UIUC ECE 464 style",
+      "difficulty": "hard",
+      "topic": "Magnetics Design",
+      "problem_statement": "Design an inductor for a boost converter: L=47\u03bcH, IL_peak=8A, IL_rms=6A. Core: EE25 with Ae=52mm\u00b2, AL=160nH/turn\u00b2, Bsat=0.3T. Calculate: (a) Minimum turns. (b) Wire gauge for J=5A/mm\u00b2. (c) Check saturation.",
+      "solution": {
+        "part_a": "N = sqrt(L/AL) = sqrt(47\u03bc/160n) = sqrt(294) = 17.1, use N=18",
+        "part_b": "Awire = Irms/J = 6/5 = 1.2mm\u00b2, use AWG16 (1.31mm\u00b2)",
+        "part_c": "B = L*IL_peak/(N*Ae) = 47\u03bc*8/(18*52e-6) = 0.40T > 0.3T, SATURATES! Need more turns or larger core."
+      },
+      "answers": {
+        "turns": 18,
+        "wire_AWG": 16,
+        "B_peak_T": 0.4,
+        "saturation_check": "FAILS - need larger core"
+      }
+    },
+    {
+      "id": "uni_uiuc_003",
+      "source": "UIUC ECE 464 style",
+      "difficulty": "hard",
+      "topic": "Switching Loss Analysis",
+      "problem_statement": "A buck converter MOSFET has: Coss=100pF, Qg=15nC, tr=15ns, tf=10ns. Operating at Vds=24V, Id=5A, fsw=500kHz, Vgate=10V. Calculate: (a) Turn-on switching loss. (b) Turn-off switching loss. (c) Gate drive loss. (d) Total switching losses.",
+      "solution": {
+        "part_a": "Pon = 0.5*V*I*tr*f = 0.5*24*5*15n*500k = 0.45W",
+        "part_b": "Poff = 0.5*V*I*tf*f = 0.5*24*5*10n*500k = 0.30W",
+        "part_c": "Pgate = Qg*Vgate*f = 15n*10*500k = 0.075W",
+        "part_d": "Ptotal = 0.45 + 0.30 + 0.075 = 0.825W"
+      },
+      "answers": {
+        "P_turnon_W": 0.45,
+        "P_turnoff_W": 0.3,
+        "P_gate_W": 0.075,
+        "P_total_W": 0.825
+      }
+    },
+    {
+      "id": "uni_delft_001",
+      "source": "TU Delft style",
+      "difficulty": "medium",
+      "topic": "Filter Design",
+      "problem_statement": "Design an input LC filter for a buck converter: Vin=48V, Vout=12V, Iout=4A, fsw=200kHz. Requirements: corner frequency at fsw/10, damping factor \u03b6=0.5.",
+      "solution": {
+        "step1": "fc = fsw/10 = 20kHz",
+        "step2": "Choose Lf first. For \u03b6=0.5: R_damp = 2*\u03b6*sqrt(Lf/Cf)",
+        "step3": "fc = 1/(2\u03c0*sqrt(Lf*Cf)). If Lf=10\u03bcH: Cf = 1/((2\u03c0*20k)\u00b2*10\u03bc) = 6.33\u03bcF",
+        "step4": "R_damp = 2*0.5*sqrt(10\u03bc/6.33\u03bc) = 1.26\u03a9"
+      },
+      "answers": {
+        "corner_freq_kHz": 20,
+        "Lf_uH": 10,
+        "Cf_uF": 6.33,
+        "R_damp_ohm": 1.26
+      }
+    },
+    {
+      "id": "uni_delft_002",
+      "source": "TU Delft style",
+      "difficulty": "hard",
+      "topic": "EMI Considerations",
+      "problem_statement": "A buck converter with Vin=24V, fsw=500kHz has switch rise time tr=20ns. (a) Estimate the bandwidth of switching noise. (b) Calculate the fundamental switching noise frequency. (c) Estimate dV/dt stress.",
+      "solution": {
+        "part_a": "BW \u2248 1/(\u03c0*tr) = 1/(\u03c0*20n) = 15.9MHz",
+        "part_b": "f_fundamental = fsw = 500kHz",
+        "part_c": "dV/dt = Vin/tr = 24/20n = 1.2V/ns = 1200V/\u03bcs"
+      },
+      "answers": {
+        "noise_BW_MHz": 15.9,
+        "fundamental_kHz": 500,
+        "dVdt_V_per_us": 1200
+      }
+    },
+    {
+      "id": "uni_combined_001",
+      "source": "Combined university style",
+      "difficulty": "expert",
+      "topic": "Complete Converter Design",
+      "problem_statement": "Design a complete synchronous buck converter: Vin=12V, Vout=1.8V, Iout=15A, fsw=600kHz. Specify: (a) Duty cycle. (b) Inductor value for 30% ripple. (c) Output capacitor for 30mV ripple (include ESR=5m\u03a9). (d) Estimate efficiency with Rds_on=5m\u03a9 per MOSFET.",
+      "solution": {
+        "part_a": "D = 1.8/12 = 0.15",
+        "part_b": "\u0394IL = 0.3*15 = 4.5A. L = (Vin-Vout)*D/(\u0394IL*f) = 10.2*0.15/(4.5*600k) = 0.567\u03bcH, use 0.47\u03bcH",
+        "part_c": "\u0394Vout_target = 30mV. \u0394VESR = \u0394IL*ESR = 4.5*0.005 = 22.5mV. \u0394VC = sqrt(30\u00b2-22.5\u00b2) = 19.8mV. C = \u0394IL/(8*f*\u0394VC) = 4.5/(8*600k*0.0198) = 47\u03bcF",
+        "part_d": "Pcond_HS = I\u00b2*Rds*D = 225*0.005*0.15 = 0.169W. Pcond_LS = I\u00b2*Rds*(1-D) = 225*0.005*0.85 = 0.956W. Ptotal = 1.125W. \u03b7 = Pout/(Pout+Ploss) = 27/(27+1.125) = 96%"
+      },
+      "answers": {
+        "duty_cycle": 0.15,
+        "inductance_uH": 0.47,
+        "capacitance_uF": 47,
+        "efficiency_percent": 96
+      }
+    },
+    {
+      "id": "uni_combined_002",
+      "source": "Combined university style",
+      "difficulty": "expert",
+      "topic": "Isolated Converter Selection",
+      "problem_statement": "For a 48V to 3.3V/30A converter, compare flyback, forward, and half-bridge topologies. Specify preferred topology and justify based on: power level, efficiency, complexity, and cost.",
+      "solution": {
+        "power": "Pout = 3.3*30 = 99W \u2248 100W",
+        "flyback": "Suitable up to ~100W, single switch, higher RMS currents, moderate efficiency (85-88%)",
+        "forward": "Better for 50-200W, two switches (active clamp) or reset winding, good efficiency (88-92%)",
+        "half_bridge": "Better for 100-500W, four switches, higher complexity, highest efficiency (92-95%)",
+        "recommendation": "Forward converter with active clamp - good balance of efficiency, complexity, and cost at this power level"
+      },
+      "answers": {
+        "power_W": 100,
+        "recommended_topology": "Active-clamp forward",
+        "expected_efficiency_percent": 90
+      }
+    },
+    {
+      "id": "uni_combined_003",
+      "source": "Combined university style",
+      "difficulty": "medium",
+      "topic": "Continuous vs Discontinuous Mode",
+      "problem_statement": "A boost converter has: Vin=5V, L=10\u03bcH, fsw=1MHz, R_load=50\u03a9. (a) Find critical duty cycle for CCM/DCM boundary. (b) Calculate output voltage at D=0.3 assuming CCM. (c) Verify the mode of operation.",
+      "solution": {
+        "part_a": "Kcrit = 2*L*f/R = 2*10\u03bc*1M/50 = 0.4",
+        "part_b": "Vout_CCM = Vin/(1-D) = 5/0.7 = 7.14V",
+        "part_c": "K = D*(1-D)\u00b2 for boost boundary. At D=0.3: K_required = 0.3*0.49 = 0.147 < 0.4. CCM operation confirmed."
+      },
+      "answers": {
+        "K_crit": 0.4,
+        "Vout_V": 7.14,
+        "mode": "CCM"
+      }
+    },
+    {
+      "id": "uni_combined_004",
+      "source": "Combined university style",
+      "difficulty": "hard",
+      "topic": "Transformer Design",
+      "problem_statement": "Design a transformer for a push-pull converter: Vin=24V, Vout=5V, Iout=20A, fsw=100kHz. Core: ETD34, Ae=97mm\u00b2, Bmax=0.2T. Calculate turns ratio and primary/secondary turns.",
+      "solution": {
+        "step1": "Vout = 2*D*Vin/n, assume D_max=0.45, n = 2*D*Vin/Vout = 2*0.45*24/5 = 4.32, use n=4",
+        "step2": "Np_min = Vin*D_max/(2*Bmax*Ae*f) = 24*0.45/(2*0.2*97e-6*100k) = 2.78, use Np=3",
+        "step3": "Ns = Np/n = 3/4 = 0.75, not practical. Use Np=4, Ns=1",
+        "step4": "Verify: n=4, Vout = 2*0.417*24/4 = 5V \u2713"
+      },
+      "answers": {
+        "turns_ratio": 4,
+        "Np": 4,
+        "Ns": 1,
+        "D_actual": 0.417
+      }
+    },
+    {
+      "id": "uni_combined_005",
+      "source": "Combined university style",
+      "difficulty": "expert",
+      "topic": "Control Loop Design",
+      "problem_statement": "A voltage-mode buck converter has: Vin=12V, Vout=3.3V, L=4.7\u03bcH, C=100\u03bcF, R=1.65\u03a9, fsw=500kHz. (a) Find LC resonant frequency. (b) Estimate required crossover frequency. (c) Calculate required compensator gain at crossover.",
+      "solution": {
+        "part_a": "f_LC = 1/(2\u03c0*sqrt(L*C)) = 1/(2\u03c0*sqrt(4.7\u03bc*100\u03bc)) = 7.34kHz",
+        "part_b": "f_c = fsw/10 to fsw/5 = 50-100kHz. Use f_c = 50kHz",
+        "part_c": "At f_c, plant gain \u2248 Vin*(f_LC/f_c)\u00b2 = 12*(7.34/50)\u00b2 = 0.26. Compensator must provide 1/0.26 = 3.85 gain"
+      },
+      "answers": {
+        "f_LC_kHz": 7.34,
+        "f_crossover_kHz": 50,
+        "compensator_gain": 3.85
+      }
+    }
+  ],
+  "synthetic": true,
+  "source_verified": false
+}

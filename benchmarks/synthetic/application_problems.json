@@ -1,0 +1,611 @@
+{
+  "metadata": {
+    "name": "Application-Specific Power Electronics Problems",
+    "description": "Real-world application scenarios from various industries",
+    "source": "Industry applications and design challenges",
+    "verification_method": "Analytical solutions with practical constraints",
+    "applications_covered": [
+      "EV/Automotive",
+      "Telecom",
+      "Server/Data Center",
+      "LED Lighting",
+      "Solar/Renewable",
+      "Battery Management",
+      "Industrial",
+      "Consumer"
+    ],
+    "created": "2024-12-06",
+    "license": "Original problems with physics-based verification"
+  },
+  "problems": [
+    {
+      "id": "app_ev_001",
+      "application": "Electric Vehicle",
+      "topology": "bidirectional_boost",
+      "problem_statement": "Design an EV DC-DC converter: Battery pack 300-400V to 800V DC bus for traction inverter, 100kW bidirectional, f=40kHz.",
+      "specs": {
+        "v_battery": "300-400",
+        "v_bus": 800,
+        "power_kW": 100,
+        "frequency": 40000
+      },
+      "ground_truth": {
+        "D_max": 0.625,
+        "inductance_uH": 150,
+        "current_rating_A": 333,
+        "efficiency_target": 98
+      }
+    },
+    {
+      "id": "app_ev_002",
+      "application": "Electric Vehicle",
+      "topology": "isolated_buck",
+      "problem_statement": "Design EV 12V auxiliary supply from HV bus: Vin=280-420V, Vout=13.5V (lead-acid charging), Pout=2.5kW, isolated.",
+      "specs": {
+        "vin_range": "280-420",
+        "vout": 13.5,
+        "pout": 2500
+      },
+      "ground_truth": {
+        "topology_choice": "Phase-shifted full-bridge",
+        "turns_ratio": 25,
+        "duty_cycle_range": "0.3-0.45"
+      }
+    },
+    {
+      "id": "app_ev_003",
+      "application": "EV Charging",
+      "topology": "pfc_boost",
+      "problem_statement": "Design Level 2 EV charger PFC stage: Vac=240Vrms, Vout=400V, Pout=7.7kW, PF>0.99, THD<5%.",
+      "specs": {
+        "vac": 240,
+        "vout": 400,
+        "pout": 7700,
+        "pf_min": 0.99,
+        "thd_max": 5
+      },
+      "ground_truth": {
+        "inductance_uH": 250,
+        "frequency_kHz": 65,
+        "output_cap_uF": 680
+      }
+    },
+    {
+      "id": "app_telecom_001",
+      "application": "Telecom",
+      "topology": "isolated_buck",
+      "problem_statement": "Design telecom rectifier module: Vin=43-56V, Vout=48V\u00b11%, Pout=3kW, efficiency>96%.",
+      "specs": {
+        "vin_range": "43-56",
+        "vout": 48,
+        "regulation": 1,
+        "pout": 3000,
+        "efficiency": 96
+      },
+      "ground_truth": {
+        "topology_choice": "Interleaved forward with active clamp",
+        "num_phases": 2,
+        "per_phase_power": 1500
+      }
+    },
+    {
+      "id": "app_telecom_002",
+      "application": "Telecom",
+      "topology": "buck",
+      "problem_statement": "Design -48V to 3.3V PoL converter for telecom shelf: Vin=-36 to -72V, Vout=3.3V, Iout=20A.",
+      "specs": {
+        "vin_range": "-36 to -72",
+        "vout": 3.3,
+        "iout": 20
+      },
+      "ground_truth": {
+        "D_range": "0.046-0.092",
+        "inductance_uH": 1.5,
+        "frequency_kHz": 500
+      }
+    },
+    {
+      "id": "app_server_001",
+      "application": "Server/Data Center",
+      "topology": "multiphase_buck",
+      "problem_statement": "Design CPU VR for Xeon: Vin=12V, Vout=0.6-1.5V (AVS), Iout_max=300A, transient 200A/\u03bcs.",
+      "specs": {
+        "vin": 12,
+        "vout_range": "0.6-1.5",
+        "iout_max": 300,
+        "transient_Aus": 200
+      },
+      "ground_truth": {
+        "num_phases": 8,
+        "per_phase_current": 37.5,
+        "inductance_nH": 200,
+        "frequency_MHz": 0.5,
+        "output_cap_uF": 3000
+      }
+    },
+    {
+      "id": "app_server_002",
+      "application": "Server/Data Center",
+      "topology": "48v_to_pol",
+      "problem_statement": "Design 48V direct-to-PoL: Vin=40-60V, Vout=1.0V, Iout=100A for GPU acceleration card.",
+      "specs": {
+        "vin_range": "40-60",
+        "vout": 1.0,
+        "iout": 100
+      },
+      "ground_truth": {
+        "topology_choice": "Sigma converter or LLC+buck",
+        "intermediate_voltage": "5-6V",
+        "efficiency": 94
+      }
+    },
+    {
+      "id": "app_led_001",
+      "application": "LED Lighting",
+      "topology": "buck_constant_current",
+      "problem_statement": "Design LED driver: Vin=12Vdc, LED string Vf=9V@350mA, constant current control.",
+      "specs": {
+        "vin": 12,
+        "vout": 9,
+        "iout": 0.35
+      },
+      "ground_truth": {
+        "D": 0.75,
+        "sense_resistor_ohm": 0.5,
+        "inductance_uH": 100,
+        "frequency_kHz": 200
+      }
+    },
+    {
+      "id": "app_led_002",
+      "application": "LED Lighting",
+      "topology": "flyback",
+      "problem_statement": "Design offline LED driver: Vac=90-265V, LED load=36V/1A (36W), isolated, PF>0.9.",
+      "specs": {
+        "vac_range": "90-265",
+        "vout": 36,
+        "iout": 1,
+        "pf_min": 0.9
+      },
+      "ground_truth": {
+        "topology": "Single-stage PFC flyback",
+        "Lm_uH": 500,
+        "turns_ratio": 5,
+        "dcm_operation": true
+      }
+    },
+    {
+      "id": "app_solar_001",
+      "application": "Solar/PV",
+      "topology": "boost_mppt",
+      "problem_statement": "Design string inverter MPPT stage: Vpv=200-450V, Vbus=600V, Pmax=6kW.",
+      "specs": {
+        "vpv_range": "200-450",
+        "vbus": 600,
+        "pmax": 6000
+      },
+      "ground_truth": {
+        "D_max": 0.667,
+        "D_min": 0.25,
+        "inductance_uH": 400,
+        "frequency_kHz": 60
+      }
+    },
+    {
+      "id": "app_solar_002",
+      "application": "Solar/Microinverter",
+      "topology": "flyback",
+      "problem_statement": "Design microinverter DC-DC stage: Vpv=20-45V (one panel), Vdc_link=380V, Pmax=350W.",
+      "specs": {
+        "vpv_range": "20-45",
+        "vdc_link": 380,
+        "pmax": 350
+      },
+      "ground_truth": {
+        "topology": "Interleaved flyback",
+        "turns_ratio": 8,
+        "frequency_kHz": 100,
+        "num_interleaved": 2
+      }
+    },
+    {
+      "id": "app_battery_001",
+      "application": "Battery Management",
+      "topology": "buck_charger",
+      "problem_statement": "Design Li-ion battery charger: Vin=19V (adapter), Vbat=2.5-4.2V\u00d74S=10-16.8V, Icharge_max=4A.",
+      "specs": {
+        "vin": 19,
+        "vbat_range": "10-16.8",
+        "icharge_max": 4
+      },
+      "ground_truth": {
+        "D_range": "0.53-0.88",
+        "inductance_uH": 22,
+        "frequency_kHz": 400,
+        "cc_cv_control": true
+      }
+    },
+    {
+      "id": "app_battery_002",
+      "application": "Battery Management",
+      "topology": "bidirectional",
+      "problem_statement": "Design UPS battery converter: Vbus=48V, Vbat=44-58V (4S LFP), Pmax=1kW bidirectional.",
+      "specs": {
+        "vbus": 48,
+        "vbat_range": "44-58",
+        "pmax": 1000
+      },
+      "ground_truth": {
+        "topology": "4-switch buck-boost",
+        "inductance_uH": 47,
+        "frequency_kHz": 150,
+        "efficiency": 96
+      }
+    },
+    {
+      "id": "app_industrial_001",
+      "application": "Industrial",
+      "topology": "isolated_fullbridge",
+      "problem_statement": "Design industrial 24V supply: Vin=3-phase 480Vac, Vout=24V, Pout=10kW, isolation 4kV.",
+      "specs": {
+        "vac_3ph": 480,
+        "vout": 24,
+        "pout": 10000,
+        "isolation_kV": 4
+      },
+      "ground_truth": {
+        "rectified_dc": 650,
+        "topology": "3-phase PFC + PSFB",
+        "turns_ratio": 27,
+        "frequency_kHz": 100
+      }
+    },
+    {
+      "id": "app_industrial_002",
+      "application": "Industrial Motor Drive",
+      "topology": "regenerative",
+      "problem_statement": "Design motor drive regenerative DC-DC: Vdc_bus=540V, Vbrake_resistor=600V, Pbraking=5kW.",
+      "specs": {
+        "vdc_bus": 540,
+        "vbrake": 600,
+        "pbraking": 5000
+      },
+      "ground_truth": {
+        "topology": "Boost chopper",
+        "D": 0.1,
+        "inductance_uH": 200,
+        "brake_resistor_ohm": 72
+      }
+    },
+    {
+      "id": "app_consumer_001",
+      "application": "Consumer Electronics",
+      "topology": "flyback_usb_pd",
+      "problem_statement": "Design USB-PD charger: Vac=90-265V, Vout=5/9/15/20V programmable, Pmax=100W.",
+      "specs": {
+        "vac_range": "90-265",
+        "vout_options": [
+          5,
+          9,
+          15,
+          20
+        ],
+        "pmax": 100
+      },
+      "ground_truth": {
+        "topology": "QR flyback",
+        "Lm_uH": 200,
+        "turns_ratio_5V": 16,
+        "frequency_range_kHz": "50-130"
+      }
+    },
+    {
+      "id": "app_consumer_002",
+      "application": "Laptop",
+      "topology": "buck",
+      "problem_statement": "Design laptop battery to 5V USB-A output: Vbat=11.1V nominal (3S Li-ion, 9-12.6V), Iout=2.4A.",
+      "specs": {
+        "vbat_range": "9-12.6",
+        "vout": 5,
+        "iout": 2.4
+      },
+      "ground_truth": {
+        "D_range": "0.4-0.56",
+        "inductance_uH": 4.7,
+        "frequency_kHz": 1000
+      }
+    },
+    {
+      "id": "app_aerospace_001",
+      "application": "Aerospace",
+      "topology": "isolated_boost",
+      "problem_statement": "Design satellite power converter: Vin=28V (bus), Vout=100V, Pout=500W, rad-hard.",
+      "specs": {
+        "vin": 28,
+        "vout": 100,
+        "pout": 500
+      },
+      "ground_truth": {
+        "topology": "Push-pull boost",
+        "turns_ratio": 3.57,
+        "frequency_kHz": 50,
+        "efficiency": 94
+      }
+    },
+    {
+      "id": "app_medical_001",
+      "application": "Medical",
+      "topology": "isolated_flyback",
+      "problem_statement": "Design medical device supply: Vac=100-240V, Vout=5V/2A, 4kVac isolation, <50\u03bcA leakage.",
+      "specs": {
+        "vac_range": "100-240",
+        "vout": 5,
+        "iout": 2,
+        "isolation_kVac": 4,
+        "leakage_uA": 50
+      },
+      "ground_truth": {
+        "topology": "Flyback with Y-cap optimization",
+        "reinforced_insulation": true,
+        "y_cap_pF": 10
+      }
+    },
+    {
+      "id": "app_audio_001",
+      "application": "Audio",
+      "topology": "buck_boost_split_rail",
+      "problem_statement": "Design audio amplifier supply: Vin=12V (car), Vout=\u00b135V, Pout=100W\u00d74ch.",
+      "specs": {
+        "vin": 12,
+        "vout": "\u00b135",
+        "pout": 400
+      },
+      "ground_truth": {
+        "topology": "Push-pull with center-tap",
+        "turns_ratio": 2.9,
+        "frequency_kHz": 100
+      }
+    },
+    {
+      "id": "app_iot_001",
+      "application": "IoT/Wearable",
+      "topology": "buck",
+      "problem_statement": "Design ultra-low power buck: Vin=1.8-5.5V, Vout=1.2V, Iout=1\u03bcA-100mA, efficiency>80% at 10\u03bcA.",
+      "specs": {
+        "vin_range": "1.8-5.5",
+        "vout": 1.2,
+        "iout_range": "1\u03bcA-100mA",
+        "efficiency_at_10uA": 80
+      },
+      "ground_truth": {
+        "topology": "Hysteretic/PFM buck",
+        "inductance_uH": 10,
+        "quiescent_current_uA": 0.5
+      }
+    },
+    {
+      "id": "app_railway_001",
+      "application": "Railway",
+      "topology": "isolated_boost",
+      "problem_statement": "Design railway auxiliary converter: Vin=72-110Vdc (battery), Vout=600Vdc, Pout=50kW.",
+      "specs": {
+        "vin_range": "72-110",
+        "vout": 600,
+        "pout": 50000
+      },
+      "ground_truth": {
+        "topology": "3-phase interleaved DAB",
+        "turns_ratio": 5.5,
+        "frequency_kHz": 20
+      }
+    },
+    {
+      "id": "app_motor_001",
+      "application": "Motor Drive",
+      "topology": "buck_motor",
+      "problem_statement": "Design brushed DC motor driver: Vin=48V, Vmotor=0-48V, Imax=20A, PWM frequency for low ripple.",
+      "specs": {
+        "vin": 48,
+        "vmotor_max": 48,
+        "imax": 20
+      },
+      "ground_truth": {
+        "topology": "H-bridge with PWM",
+        "frequency_kHz": 20,
+        "bootstrap_cap_uF": 10,
+        "current_sense_mohm": 5
+      }
+    },
+    {
+      "id": "app_wireless_001",
+      "application": "Wireless Charging",
+      "topology": "resonant",
+      "problem_statement": "Design Qi wireless charger transmitter: Vin=5V, coil voltage=20Vpp, f=100-200kHz, Pout=15W.",
+      "specs": {
+        "vin": 5,
+        "v_coil_pp": 20,
+        "freq_range_kHz": "100-200",
+        "pout": 15
+      },
+      "ground_truth": {
+        "topology": "Half-bridge resonant",
+        "L_coil_uH": 10,
+        "C_resonant_nF": 100,
+        "frequency_kHz": 127
+      }
+    },
+    {
+      "id": "app_poc_001",
+      "application": "PoE/Power over Cable",
+      "topology": "isolated_flyback",
+      "problem_statement": "Design PoE PD converter: Vin=37-57V (class 4 PD), Vout=5V, Pout=25W.",
+      "specs": {
+        "vin_range": "37-57",
+        "vout": 5,
+        "pout": 25
+      },
+      "ground_truth": {
+        "D_range": "0.35-0.5",
+        "Lm_uH": 100,
+        "turns_ratio": 4,
+        "frequency_kHz": 200
+      }
+    },
+    {
+      "id": "app_display_001",
+      "application": "Display/Backlight",
+      "topology": "boost_led",
+      "problem_statement": "Design LCD backlight driver: Vin=3.7V (1S Li-ion), LED string=25V@20mA\u00d76 strings.",
+      "specs": {
+        "vin": 3.7,
+        "vout": 25,
+        "iout_per_string_mA": 20,
+        "num_strings": 6
+      },
+      "ground_truth": {
+        "D": 0.85,
+        "inductance_uH": 10,
+        "frequency_kHz": 1000,
+        "current_matching": "PWM dimming per string"
+      }
+    },
+    {
+      "id": "app_energy_harvest_001",
+      "application": "Energy Harvesting",
+      "topology": "boost_mppt",
+      "problem_statement": "Design solar energy harvester: Vin=0.3-5V (small PV), Vout=3.3V, cold start at 0.3V.",
+      "specs": {
+        "vin_range": "0.3-5",
+        "vout": 3.3,
+        "cold_start_V": 0.3
+      },
+      "ground_truth": {
+        "topology": "Charge pump + boost",
+        "inductance_uH": 22,
+        "cold_start_circuit": true,
+        "mppt_algorithm": "Fractional Voc"
+      }
+    },
+    {
+      "id": "app_supercap_001",
+      "application": "Supercapacitor Interface",
+      "topology": "bidirectional_buckboost",
+      "problem_statement": "Design supercap backup power: Vsc=0-2.7V\u00d72S (0-5.4V), Vbus=5V, Pmax=25W, thold=30s.",
+      "specs": {
+        "vsc_range": "0-5.4",
+        "vbus": 5,
+        "pmax": 25,
+        "holdup_s": 30
+      },
+      "ground_truth": {
+        "topology": "4-switch synchronous buck-boost",
+        "supercap_F": 100,
+        "inductance_uH": 10,
+        "frequency_kHz": 500
+      }
+    },
+    {
+      "id": "app_fuel_cell_001",
+      "application": "Fuel Cell",
+      "topology": "boost",
+      "problem_statement": "Design fuel cell DC-DC: Vin=30-60V (varies with load), Vbus=400V, Pmax=50kW.",
+      "specs": {
+        "vin_range": "30-60",
+        "vbus": 400,
+        "pmax": 50000
+      },
+      "ground_truth": {
+        "topology": "Interleaved boost 6-phase",
+        "D_range": "0.85-0.925",
+        "per_phase_power_kW": 8.3,
+        "inductance_per_phase_uH": 50
+      }
+    },
+    {
+      "id": "app_sst_001",
+      "application": "Solid-State Transformer",
+      "topology": "dab_cascaded",
+      "problem_statement": "Design SST module: Vin=7.2kV (MV grid via CHB), Vout=400V (LV), Pmax=100kW.",
+      "specs": {
+        "vin": 7200,
+        "vout": 400,
+        "pmax": 100000
+      },
+      "ground_truth": {
+        "topology": "Cascaded H-bridge + DAB",
+        "num_modules": 6,
+        "per_module_voltage": 1200,
+        "frequency_kHz": 20
+      }
+    },
+    {
+      "id": "app_wind_001",
+      "application": "Wind Turbine",
+      "topology": "boost",
+      "problem_statement": "Design small wind turbine converter: Vrect=20-80V (varying wind), Vbat=48V, Pmax=1kW.",
+      "specs": {
+        "vrect_range": "20-80",
+        "vbat": 48,
+        "pmax": 1000
+      },
+      "ground_truth": {
+        "topology": "4-switch buck-boost (bidirectional for dump load)",
+        "inductance_uH": 100,
+        "frequency_kHz": 50
+      }
+    },
+    {
+      "id": "app_welding_001",
+      "application": "Welding",
+      "topology": "fullbridge_arc",
+      "problem_statement": "Design inverter welder: Vin=340-540Vdc (from 3ph rectifier), Varc=20-35V, Iarc=10-200A.",
+      "specs": {
+        "vin_range": "340-540",
+        "varc_range": "20-35",
+        "iarc_range": "10-200"
+      },
+      "ground_truth": {
+        "topology": "Full-bridge with current mode control",
+        "turns_ratio": 12,
+        "frequency_kHz": 60,
+        "current_slope_A_per_ms": 50
+      }
+    },
+    {
+      "id": "app_induction_001",
+      "application": "Induction Heating",
+      "topology": "resonant_inverter",
+      "problem_statement": "Design induction cooktop: Vdc=310V (rectified mains), Pmax=2kW, f=20-50kHz.",
+      "specs": {
+        "vdc": 310,
+        "pmax": 2000,
+        "freq_range_kHz": "20-50"
+      },
+      "ground_truth": {
+        "topology": "Single-switch quasi-resonant or half-bridge",
+        "L_work_coil_uH": 100,
+        "C_resonant_uF": 0.3,
+        "frequency_kHz": 25
+      }
+    },
+    {
+      "id": "app_plasma_001",
+      "application": "Plasma/Coating",
+      "topology": "resonant_high_voltage",
+      "problem_statement": "Design plasma ignition supply: Vin=300V, Vout=3kV pulse, Pmax=500W, f=50kHz.",
+      "specs": {
+        "vin": 300,
+        "vout_kV": 3,
+        "pmax": 500,
+        "frequency_kHz": 50
+      },
+      "ground_truth": {
+        "topology": "Resonant inverter with step-up transformer",
+        "turns_ratio": 10,
+        "resonant_tank": true
+      }
+    }
+  ],
+  "synthetic": true,
+  "source_verified": false
+}

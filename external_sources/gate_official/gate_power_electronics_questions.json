@@ -1,0 +1,951 @@
+[
+  {
+    "source": "GATE EE 2012",
+    "year": "2012",
+    "question_number": "23",
+    "text": "Q.23 A half-controlled single-phase bridge rectifier is supplying an R-L load. It is operated at a firing angle \u03b1 and the load current is continuous. The fraction of cycle that the freewheeling diode conducts is (A) 2 1 (B)  \uf028 \uf029 \uf070 \uf061 \uf02d 1 (C) \uf070 \uf0612 (D) \uf070 \uf061",
+    "file": "EE2012.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2012",
+    "year": "2012",
+    "question_number": "24",
+    "text": "Q.24 The typical ratio of latching current to holding current in a 20 A thyristor is (A)  5.0 (B)  2.0 (C)  1.0 (D)  0.5 2012                                                                                                                                          ELECTRICAL ENGINEERING - EE EE-A 6/20",
+    "file": "EE2012.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2012",
+    "year": "2012",
+    "question_number": "47",
+    "text": "Q.47 A single phase 10 kVA, 50 Hz transformer with 1 kV primary winding draws 0.5 A and 55 W, at rated voltage and frequency, on no load. A second transformer has a core with all its linear dimensions 2  times the corresponding dimensions of the first transformer. The core material and lamination thickness are the same in both transformers. The primary windings of both the transformers have the same number of turns. If a rated voltage of 2 kV at 50 Hz is applied to the primary of the second transformer, then the no load current and power, respectively, are (A)  0.7 A, 77.8 W (B)  0.7 A, 155.6 W (C)  1 A, 110 W (D)   1 A, 220 W 2012                                                                                                                                          ELECTRICAL ENGINEERING - EE EE-A 11/20 Common Data Questions Common Data for Questions 48 and 49: In the 3-phase inverter circuit shown, the load is balanced and the gating scheme is 1800-conduction mode. All the switching devices are ideal. vph S1 + - R=20 \u2126 R R S3 3-phase balanced load S5 Vd S4 S6 S2 3-phase inverter",
+    "file": "EE2012.pdf",
+    "keywords_matched": [
+      "inverter",
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "32",
+    "text": "Q.32 The separately excited dc motor in the figure below has a rated armature current of 20 A and a rated armature voltage of 150 V. An ideal chopper switching at 5 kHz is used to control the armature voltage.  If  La= 0.1 mH,   Ra= 1 \u2126, neglecting armature reaction, the duty ratio of the chopper to obtain 50% of the rated torque at the rated speed and the rated field current is (A)  0.4 (B)  0.5 (C)  0.6 (D)  0.7",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "44",
+    "text": "Q.44 Thyristor T in the figure below is initially off and is triggered with a single pulse of width 10 \u00b5s. It is given that ( ) H 100 \u00b5 \u03c0 = L and ( ) . F 100 \u00b5 \u03c0 = C Assuming latching and holding currents of the thyristor are both zero and the initial charge on C is zero, T conducts for (A)  10 \u00b5s (B)  50 \u00b5s (C)  100 \u00b5s (D)  200 \u00b5s",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "47",
+    "text": "Q.47 When the Newton-Raphson method is applied to solve the equation ( ) 3 2 1 0, f x x x = + \u2212= the solution at the end of the first iteration with the initial guess value as 0 1.2 x = is (A)  \u20130.82 (B)  0.49 (C)  0.705 (D)  1.69 Common Data Questions Common Data for Questions 48 and 49: In the figure shown below, the chopper feeds a resistive load from a battery source.  MOSFET Q is switched at 250 kHz, with a duty ratio of 0.4. All elements of the circuit are assumed to be ideal.",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper",
+      "mosfet"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "53",
+    "text": "Q.53 If the base impedance and the line-to-line base voltage are 100 \u2126 and 100 kV, respectively, then the real power in MW delivered by the generator connected at the slack bus is (A) \u221210 (B) 0 (C) 10 (D) 20 P2=0.1 pu P3=0.2 pu Bus 1(slack) Bus 2 Bus 3 j1 \u2126 j1 \u2126 j1 \u2126 2013                                                                                                                                      ELECTRICAL ENGINEERING - EE EE-A 14/20 Statement for Linked Answer Questions 54 and 55: The Voltage Source Inverter (VSI) shown in the figure below is switched to provide a 50 Hz, square-wave ac output voltage (vo) across an R-L load. Reference polarity of vo and reference direction of the output current io are indicated in the figure. It is given that , 3 \u2126 = R . mH 55 .9 = L",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "55",
+    "text": "Q.55 Appropriate transition i.e., Zero Voltage Switching (ZVS)/Zero Current Switching (ZCS) of the IGBTs during turn-on/turn-off is (A) ZVS during turn-off (B) ZVS during turn-on (C) ZCS during turn-off (D) ZCS during turn-on vo io +\u2010 Vdc",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "igbt"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "33",
+    "text": "Q.33 Thyristor T in the figure below is initially off and is triggered with a single pulse of width 10 \u00b5s. It is given that ( ) H 100 \u00b5 \u03c0 = L and ( ) . F 100 \u00b5 \u03c0 = C Assuming latching and holding currents of the thyristor are both zero and the initial charge on C is zero, T conducts for (A)  10 \u00b5s (B)  50 \u00b5s (C)  100 \u00b5s (D)  200 \u00b5s",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "43",
+    "text": "Q.43 The separately excited dc motor in the figure below has a rated armature current of 20 A and a rated armature voltage of 150 V. An ideal chopper switching at 5 kHz is used to control the armature voltage.  If  La= 0.1 mH,   Ra= 1 \u2126, neglecting armature reaction, the duty ratio of the chopper to obtain 50% of the rated torque at the rated speed and the rated field current is (A)  0.4 (B)  0.5 (C)  0.6 (D)  0.7",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "51",
+    "text": "Q.51 The PEAK-TO-PEAK source current ripple in Amps is (A)  0.96 (B)  0.144 (C)   0.192 (D)  0.288 Linked Answer Questions Statement for Linked Answer Questions 52 and 53: The Voltage Source Inverter (VSI) shown in the figure below is switched to provide a 50 Hz, square-wave ac output voltage (vo) across an R-L load. Reference polarity of vo and reference direction of the output current io are indicated in the figure. It is given that , 3 \u2126 = R . mH 55 .9 = L",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "53",
+    "text": "Q.53 Appropriate transition i.e., Zero Voltage Switching (ZVS)/Zero Current Switching (ZCS) of the IGBTs during turn-on/turn-off is (A) ZVS during turn-off (B) ZVS during turn-on (C) ZCS during turn-off (D) ZCS during turn-on vo io +\u2010 Vdc",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "igbt"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "65",
+    "text": "Q.65 A car travels 8 km in the first quarter of an hour, 6 km in the second quarter and 16 km in the third quarter. The average speed of the car in km per hour over the entire journey is (A) 30 (B) 36 (C) 40 (D) 24 END OF THE QUESTION PAPER SESSION - 3 2013                                                                                                                           Question Booklet Code EE-C 1/20 EE : ELECTRICAL ENGINEERING Duration: Three Hours Maximum Marks: 100 Read the following instructions carefully. 1. Do not open the seal of the Question Booklet until you are asked to do so by the invigilator. 2. Take out the Optical Response Sheet (ORS) from this Question Booklet without breaking the seal and read the instructions printed on the ORS carefully. If you find that either: a. The Question Booklet Code printed at the right hand top corner of this page does not match with the Question Booklet Code at the right hand top corner of the ORS or b. The Question Paper Code preceding the Registration number on the ORS is not EE, then exchange the booklet immediately with a new sealed Question Booklet. 3. On the right half hand side of the ORS, using ONLY a black ink ballpoint",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "30",
+    "text": "Q.30 The separately excited dc motor in the figure below has a rated armature current of 20 A and a rated armature voltage of 150 V. An ideal chopper switching at 5 kHz is used to control the armature voltage.  If  La= 0.1 mH,   Ra= 1 \u2126, neglecting armature reaction, the duty ratio of the chopper to obtain 50% of the rated torque at the rated speed and the rated field current is (A)  0.4 (B)  0.5 (C)  0.6 (D)  0.7 La ,Ra 200 V 2013                                                                                                                                      ELECTRICAL ENGINEERING - EE EE-C 8/20",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "40",
+    "text": "Q.40 Thyristor T in the figure below is initially off and is triggered with a single pulse of width 10 \u00b5s. It is given that ( ) H 100 \u00b5 \u03c0 = L and ( ) . F 100 \u00b5 \u03c0 = C Assuming latching and holding currents of the thyristor are both zero and the initial charge on C is zero, T conducts for (A)  10 \u00b5s (B)  50 \u00b5s (C)  100 \u00b5s (D)  200 \u00b5s",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "47",
+    "text": "Q.47 In the circuit shown below, Q1 has negligible collector-to-emitter saturation voltage and the diode drops negligible voltage across it under forward bias. If Vcc is +5 V, X and Y are digital signals with 0 V as logic 0 and Vcc as logic 1, then the Boolean expression for Z is (A) Y X (B) Y X (C) Y X (D) XY Common Data Questions Common Data for Questions 48 and 49: In the figure shown below, the chopper feeds a resistive load from a battery source.  MOSFET Q is switched at 250 kHz, with a duty ratio of 0.4. All elements of the circuit are assumed to be ideal.",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper",
+      "mosfet"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "51",
+    "text": "Q.51 The system is (A) controllable but not observable (B) not controllable but observable (C) both controllable and observable (D) both not controllable and not observable Linked Answer Questions Statement for Linked Answer Questions 52 and 53: The Voltage Source Inverter (VSI) shown in the figure below is switched to provide a 50 Hz, square-wave ac output voltage (vo) across an R-L load. Reference polarity of vo and reference direction of the output current io are indicated in the figure. It is given that , 3 \u2126 = R . mH 55 .9 = L",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "65",
+    "text": "Q.65 Statement: There were different streams of freedom movements in colonial India carried out by the moderates, liberals, radicals, socialists, and so on. Which one of the following is the best inference from the above statement? (A) The emergence of nationalism in colonial India led to our Independence. (B) Nationalism in India emerged in the context of colonialism. (C) Nationalism in India is homogeneous. (D) Nationalism in India is heterogeneous. END OF THE QUESTION PAPER SESSION - 4 2013                                                                                                                           Question Booklet Code EE-D 1/20 EE : ELECTRICAL ENGINEERING Duration: Three Hours Maximum Marks: 100 Read the following instructions carefully. 1. Do not open the seal of the Question Booklet until you are asked to do so by the invigilator. 2. Take out the Optical Response Sheet (ORS) from this Question Booklet without breaking the seal and read the instructions printed on the ORS carefully. If you find that either: a. The Question Booklet Code printed at the right hand top corner of this page does not match with the Question Booklet Code at the right hand top corner of th",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "29",
+    "text": "Q.29 Thyristor T in the figure below is initially off and is triggered with a single pulse of width 10 \u00b5s. It is given that ( ) H 100 \u00b5 \u03c0 = L and ( ) . F 100 \u00b5 \u03c0 = C Assuming latching and holding currents of the thyristor are both zero and the initial charge on C is zero, T conducts for (A)  10 \u00b5s (B)  50 \u00b5s (C)  100 \u00b5s (D)  200 \u00b5s",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "41",
+    "text": "Q.41 The separately excited dc motor in the figure below has a rated armature current of 20 A and a rated armature voltage of 150 V. An ideal chopper switching at 5 kHz is used to control the armature voltage.  If  La= 0.1 mH,   Ra= 1 \u2126, neglecting armature reaction, the duty ratio of the chopper to obtain 50% of the rated torque at the rated speed and the rated field current is (A)  0.4 (B)  0.5 (C)  0.6 (D)  0.7",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper"
+    ]
+  },
+  {
+    "source": "GATE EE 2013",
+    "year": "2013",
+    "question_number": "49",
+    "text": "Q.49 The system is (A) controllable but not observable (B) not controllable but observable (C) both controllable and observable (D) both not controllable and not observable 2013                                                                                                                                      ELECTRICAL ENGINEERING - EE EE-D 13/20 Common Data for Questions 50 and 51: In the figure shown below, the chopper feeds a resistive load from a battery source.  MOSFET Q is switched at 250 kHz, with a duty ratio of 0.4. All elements of the circuit are assumed to be ideal.",
+    "file": "EE2013.pdf",
+    "keywords_matched": [
+      "chopper",
+      "mosfet"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "20",
+    "text": "Q.20 In an oscilloscope screen, linear sweep is applied at the (A) vertical axis (B) horizontal axis (C) origin (D) both horizontal and vertical axis EE01 (GATE 2014) GATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE EE 5/15",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "24",
+    "text": "Q.24 The figure shows the circuit of a rectifier fed from a 230-V (rms), 50-Hz sinusoidal voltage source. If we want to replace the current source with a resistor so that the rms value of the current supplied by the voltage source remains unchanged, the value of the resistance (in ohms) is __________ (Assume diodes to be ideal.) R1 R4 C2 R2 R3 +Vcc C1 -Vcc vi 10k 10k C C 1k +Vcc hfe=100 vo C 10 A 230 V, 50 Hz EE01 (GATE 2014) GATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE EE 6/15",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "rectifier"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "31",
+    "text": "Q.31 In an unbalanced three phase system, phase current \u072b\u0bd4\u0d4c1\u2220\u123a\u0d4690o\u123b pu, negative sequence current \u072b\u0bd5\u0b36\u0d4c4\u2220\u123a\u0d46150o\u123b pu, zero sequence current \u072b\u0bd6\u0b34\u0d4c3\u222090o pu. The magnitude of phase current \u072b\u0bd5 in pu is (A) 1.00 (B) 7.81 (C)  11.53 (D)  13.00",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "36",
+    "text": "Q.36 The core loss of a single phase, 230/115 V, 50 Hz power transformer is measured from 230 V side by feeding the primary (230 V side) from a variable voltage variable frequency source while keeping the secondary open circuited. The core loss is measured to be 1050 W for 230 V, 50 Hz input. The core loss is again measured to be 500 W for 138 V, 30 Hz input. The hysteresis and eddy current losses of the transformer for 230 V, 50 Hz input are respectively, (A) 508 W and 542 W. (B) 468 W and 582 W. (C) 498 W and 552 W. (D) 488 W and 562 W.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "39",
+    "text": "Q.39 A three phase synchronous generator is to be connected to the infinite bus. The lamps are connected as shown in the figure for the synchronization. The phase sequence of bus voltage is R-Y-B and that of incoming generator voltage is R\uf0a2-Y\uf0a2-B\uf0a2. It was found that the lamps are becoming dark in the sequence La-Lb-Lc. It means that the phase sequence of incoming generator is (A)  opposite to infinite bus and its frequency is  more than infinite bus (B)  opposite to infinite bus but its frequency is less than infinite bus (C)  same as infinite bus and its frequency is more than infinite bus (D)  same as infinite bus and its frequency is less than infinite bus La Lb Lc R Y B R' Y' B' Infinite Bus Incoming Generator EE01 (GATE 2014) GATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE EE 9/15",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "53",
+    "text": "Q.53 The figure shows the circuit diagram of a rectifier. The load consists of a resistance 10 \u2126 and an inductance 0.05 H connected in series. Assuming ideal thyristor and ideal diode, the thyristor firing angle (in degree) needed to obtain an average load voltage of 70 V is ______ 8 BDB AB 8 Output Port 8 Output Device 0 1 2 3 4 5 6 7 3Lx8L Decoder I2 I1 I0 IO/M WR BCB E1 E2 E3 A15 A14 A13 A12 A11 325 sin (314t) V + - Load EE01 (GATE 2014) GATE 2014                                               SET1                                            ELECTRICAL  \u2013  EE EE",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "thyristor",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "54",
+    "text": "Q.54 Figure (i) shows the circuit diagram of a chopper. The switch S in the circuit in figure (i) is switched such that the voltage \u0752\u0bbd across the diode has the wave shape as shown in figure (ii). The capacitance C is large so that the voltage across it is constant. If switch S and the diode are ideal, the peak to peak ripple (in A) in the inductor current is ______ Figure (i) Figure (ii)",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "chopper"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "55",
+    "text": "Q.55 The figure shows one period of the output voltage of an inverter. \u03b1 should be chosen such that 60o \u0d4f\u03b1 \u0d4f90o. If rms value of the fundamental component is 50 V, then \u03b1 in degree is______________ END OF THE QUESTION PAPER 100 V S 1 mH C Load vD + _ vD t (ms) 100 V 0.05 0.1 0 0.15 0.2 \uf077t (degree) 0 \uf061 180-\uf061 180 180+\uf061 360-\uf061 360 100 V -100 V -100 V -100 V 100 V 100 V EE01 (GATE 2014) Key\u00a0/\u00a0Range Marks Key\u00a0/\u00a0Range Marks",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "12",
+    "text": "Q.12 A single phase, 50 kVA, 1000V/100 V two winding transformer is connected as an autotransformer as shown in the figure. The kVA rating of the autotransformer is _____________.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "14",
+    "text": "Q.14 A single phase induction motor draws 12 MW power at 0.6 lagging power. A capacitor is connected in parallel to the motor to improve the power factor of the combination of motor and capacitor to 0.8 lagging. Assuming that the real and reactive power drawn by the motor remains same as before, the reactive power delivered by the capacitor in MVAR is __________.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "15",
+    "text": "Q.15 A three phase star-connected load is drawing power at a voltage of 0.9 pu and 0.8 power factor lagging. The three phase base power and base current are 100 MVA and 437.38 A respectively. The line-to-line load voltage in kV is ________.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "24",
+    "text": "Q.24 A step-up chopper is used to feed a load at 400 V dc from a 250 V dc source. The inductor current is continuous. If the \u2018off\u2019 time of the switch is 20 \u00b5s, the switching frequency of the chopper in kHz is ____________. 100 V 20ms 40ms t EE02 (GATE 2014) GATE 2014                                               SET2                                            ELECTRICAL  \u2013  EE EE 5/11",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "chopper",
+      "switching frequency"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "33",
+    "text": "Q.33 A discrete system is represented by the difference equation \uf0fa\uf0fb \uf0f9 \uf0ea\uf0eb \uf0e9 \uf0fa\uf0fb \uf0f9 \uf0ea\uf0eb \uf0e9 \uf02b \uf02d \uf03d \uf0fa\uf0fb \uf0f9 \uf0ea\uf0eb \uf0e9 \uf02b \uf02b (k) X (k) X a 1 a 1 a a 1) (k X 1) (k X 2 1 2 1 It has initial conditions X1(0) = 1; X2(0) = 0. The pole locations of the system for a = 1, are (A)  1 \u00b1 j0",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "39",
+    "text": "Q.39 For a single phase, two winding transformer, the supply frequency and voltage are both increased by 10%. The percentage changes in the hysteresis loss and eddy current loss, respectively, are (A)  10 and 21 (B)  \u0d4610\u00a0and 21 (C)  21 and 10 (D)  \u0d4621 and 10",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "42",
+    "text": "Q.42 The horizontally placed conductors of a single phase line operating at 50 Hz are having outside diameter of 1.6 cm, and the spacing between centers of the conductors is 6 m. The permittivity of free space is 12 10 854 .8 \uf02d \uf0b4 F/m. The capacitance to ground per kilometer of each line is (A) 9 10 2.4 \uf02d \uf0b4 F (B) 9 10 4.8 \uf02d \uf0b4 F (C) 12 10 2.4 \uf02d \uf0b4 F (D) 12 10 4.8 \uf02d \uf0b4 F",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "43",
+    "text": "Q.43 A three phase, 100 MVA, 25 kV generator has solidly grounded neutral. The positive, negative, and the zero sequence reactances of the generator are 0.2 pu, 0.2 pu, and 0.05 pu, respectively, at the machine base quantities. If a bolted single phase to ground fault occurs at the terminal of the unloaded generator, the fault current in amperes immediately after the fault is _________.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase",
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "54",
+    "text": "Q.54 A single-phase SCR based ac regulator is feeding power to a load consisting of 5 \u2126 resistance and 16 mH inductance. The input supply is 230 V, 50 Hz ac. The maximum firing angle at which the voltage across the device becomes zero all throughout and the rms value of current through SCR, under this operating condition, are (A)  300  and 46 A (B)  300 and 23 A (C)  450 and 23 A (D)  450 and 32 A",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "55",
+    "text": "Q.55 The SCR in the circuit shown has a latching current of 40 mA.  A gate pulse of 50 \u00b5s is applied to the SCR. The maximum value of  R in \u2126 to ensure successful firing of the SCR is _________. END OF THE QUESTION PAPER EE02 (GATE 2014) Key\u00a0/\u00a0Range Marks Key\u00a0/\u00a0Range Marks GA 1 A 1 EE 24 31.0\u00a0to\u00a031.5 1 GA 2 B 1 EE 25 B 1 GA 3 A 1 EE 26 B 2 GA 4 B 1 EE 27 0.35\u00a0to\u00a00.45 2",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "6",
+    "text": "Q.6 The line A to neutral voltage is \uf06f 15 10\u2220 V for a balanced three phase star-connected load with phase sequence ABC. The voltage of line B with respect to line C is given by (A) \uf06f 105 3 10 \u2220 V (B) \uf06f 105 10\u2220 V (C) \uf06f 75 3 10 \u2212 \u2220 V (D) \uf06f 90 3 10 \u2220 \u2212 V",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "12",
+    "text": "Q.12 A single phase induction motor is provided with capacitor and centrifugal switch in series with auxiliary winding. The switch is expected to operate at a speed of 0.7 Ns, but due to malfunctioning the switch fails to operate. The torque-speed characteristic of the motor is represented by (A) (B) (C) (D)",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "20",
+    "text": "Q.20 The two signals S1 and S2, shown in figure, are applied to Y and X deflection plates of an oscilloscope. The waveform displayed on the screen is (A) (B) (C) (D)",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "43",
+    "text": "Q.43 The figure shows the single line diagram of a single machine infinite bus system. The inertia constant of the synchronous generator \ud835\udc3b\ud835\udc3b= 5 MW-s/MVA. Frequency is 50 Hz. Mechanical power is 1 pu. The system is operating at the stable equilibrium point with rotor angle \ud835\udeff\ud835\udeff equal to 30o. A three phase short circuit fault occurs at a certain location on one of the circuits of the double circuit transmission line. During fault, electrical power in pu is \ud835\udc43\ud835\udc43\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5asin \ud835\udeff\ud835\udeff. If the values of \u03b4 and \ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51\ud835\udc51 \u2044 at the instant of fault clearing are 45o and 3.762 radian/s respectively, then \ud835\udc43\ud835\udc43\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a\ud835\udc5a (in pu) is _______.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "45",
+    "text": "Q.45 Consider the system described by following state space equations u x x x x \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee + \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee \u2212 \u2212 = \uf8fa\uf8fb \uf8f9 \uf8ef\uf8f0 \uf8ee 1 0 1 1 1 0 2 1 2 1 \uf026 \uf026 ; [",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "52",
+    "text": "Q.52 A hysteresis type TTL inverter is used to realize an oscillator in the circuit shown in the figure. If the lower and upper trigger level voltages are 0.9 V and 1.7 V, the period (in ms), for which output is LOW, is __________.",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "53",
+    "text": "Q.53 A three-phase fully controlled bridge converter is fed through star-delta transformer as shown in the figure. The converter is operated at a firing angle of 300. Assuming the load current (I0) to be virtually constant at 1 p.u. and transformer to be an ideal one, the input phase current waveform is (A) (B) (C) (D) 10k 0.1\u00b5F vo +5V 1:K R Y B IR Io 0 \u03c0 2\u03c0 1/3K 2/3K IR 0 \u03c0 2\u03c0 K/3 2K/3 IR 0 \u03c0 2\u03c0 2K/3 IR 0 \u03c0 2\u03c0 2/3K IR",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2014",
+    "year": "2014",
+    "question_number": "55",
+    "text": "Q.55 A single-phase voltage source inverter shown in figure is feeding power to a load. The triggering pulses of the devices are also shown in the figure. If the load current is sinusoidal and is zero at 0, \u03c0, 2\u03c0\u2026, the node voltage VAO has the waveform (A) (B) (C) (D) END OF THE QUESTION PAPER O A B S1 S3 S2 S4 VDC S1,S4 S2,S3 \u03b8 \u03c0\u2212\u03b8 \u03c0 2\u03c0 \u03c0+\u03b8 2\u03c0\u2212\u03b8 iL C C Load VAO \u03b8 \u03c0\u2212\u03b8 \u03c0 2\u03c0 VDC/2 -VDC/2 VAO \u03b8 \u03c0\u2212\u03b8 \u03c0 2\u03c0",
+    "file": "EE2014.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "22",
+    "text": "Q.22 A buck converter, as shown in Figure (a) below, is working in steady state. The output voltage and the inductor current can be assumed to be ripple free. Figure (b) shows the inductor voltage v\u0b50 during a complete switching interval. Assuming all devices are ideal, the duty cycle of the buck converter is ________. Vg + - vL + - D M C R + - Vo vL 0 30V \uf02d 20V TON TOFF TS t (a) (b) GATE 2016 EE paper Electrical Engineering Set 1 (2nd Stage) EE 6/15",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "buck converter",
+      "duty cycle"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "23",
+    "text": "Q.23 A steady dc current of 100 A is flowing through a power module (S, D) as shown in Figure (a). The V-I characteristics of the IGBT (S) and the diode (D) are shown in Figures (b) and (c), respectively. The conduction power loss in the power module (S, D), in watts, is ________.",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "igbt"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "24",
+    "text": "Q.24 A 4-pole, lap-connected, separately excited dc motor is drawing a steady current of 40 A while running at 600 rpm. A good approximation for the waveshape of the current in an armature conductor of the motor is given by (A) (B) (C) (D) 100 A S D Vo=1V VS(Volt) IS(A) dV/dI=0.02\uf057 V-I characteristic of IGBT Vo=0.7V VD (Volt) ID (A) dV/dI=0.01\uf057 V-I characteristic of diode (a) (b) (c) t I 10A I 40A t t I 10A -10A T=25ms T=25ms t I 10A -10A T=25ms",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "igbt"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "43",
+    "text": "Q.43 A single-phase thyristor-bridge rectifier is fed from a 230 V, 50 Hz, single-phase AC mains. If it is delivering a constant DC current of 10 A, at firing angle of 30o, then value of the power factor at AC mains is (A) 0.87 (B) 0.9 (C)  0.78 (D)  0.45 GATE 2016 EE paper Electrical Engineering Set 1 (2nd Stage) EE 12/15",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "thyristor",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "50",
+    "text": "Q.50 A single-phase full-bridge voltage source inverter (VSI) is fed from a 300 V battery. A pulse of 120o duration is used to trigger the appropriate devices in each half-cycle. The rms value of the fundamental component of the output voltage, in volts, is (A) 234 (B) 245 (C)  300 (D)  331",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "inverter",
+      "full-bridge"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "11",
+    "text": "Q.11 A resistance and a coil are connected in series and supplied from a single phase, 100 V, 50 Hz ac source as shown in the figure below. The rms values of plausible voltages across the resistance (VR) and coil (VC) respectively, in volts, are (A) 65, 35 (B) 50, 50 (C) 60, 90 (D) 60, 80",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "19",
+    "text": "Q.19 A three-phase diode bridge rectifier is feeding a constant DC current of 100 A to a highly inductive load. If three-phase, 415 V, 50 Hz AC source is supplying to this bridge rectifier then the rms value of the current in each diode, in ampere, is _____________.",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "rectifier"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "20",
+    "text": "Q.20 A buck-boost DC-DC converter, shown in the figure below, is used to convert 24 V battery voltage to 36 V DC voltage to feed a load of 72 W. It is operated at 20 kHz with an inductor of 2 mH and output capacitor of 1000 \u00b5F. All devices are considered to be ideal. The peak voltage across the solid-state switch (S), in volt, is ____________. GATE 2016                                                                                                                                                                 Electrical Engineering Set 2 (2nd stage) EE 5/12",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "buck-boost",
+      "dc-dc"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "38",
+    "text": "Q.38 The single line diagram of a balanced power system is shown in the figure. The voltage magnitude at the generator internal bus is constant and 1.0 p.u. The p.u. reactances of different components in the system are also shown in the figure. The infinite bus voltage magnitude is 1.0 p.u. A three phase fault occurs at the middle of line 2. The ratio of the maximum real power that can be transferred during the pre-fault condition to the maximum real power that can be transferred under the faulted condition is _________.",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "45",
+    "text": "Q.45 A full-bridge converter supplying an RLE load is shown in figure. The firing angle of the bridge converter is 120\u00ba.  The supply voltage \u0752\u0be0(\u0750) = 200\u07e8sin (100\u07e8\u0750) V, R=20 \u2126, E=800 V. The inductor L is large enough to make the output current IL a smooth dc current. Switches are lossless. The real power fed back to the source, in kW, is __________.",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "full-bridge",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "46",
+    "text": "Q.46 A three-phase Voltage Source Inverter (VSI) as shown in the figure is feeding a delta connected resistive load of 30 \u2126/phase. If it is fed from a 600 V battery, with 180o conduction of solid-state devices, the power consumed by the load, in kW, is __________. Load vm T1 T2 T3 T4 Bridge R=20\uf057 L E=800V + - IL GATE 2016                                                                                                                                                                 Electrical Engineering Set 2 (2nd stage) EE 11/12",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "inverter"
+    ]
+  },
+  {
+    "source": "GATE EE 2016",
+    "year": "2016",
+    "question_number": "47",
+    "text": "Q.47 A DC-DC boost converter, as shown in the figure below, is used to boost 360V to 400 V, at a power of 4 kW. All devices are ideal. Considering continuous inductor current, the rms current in the solid state switch (S), in ampere, is _________.",
+    "file": "EE2016.pdf",
+    "keywords_matched": [
+      "boost converter",
+      "dc-dc"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "3",
+    "text": "Q.3 A single phase fully controlled rectifier is supplying a load with an anti-parallel diode as shown in the figure. All switches and diodes are ideal. Which one of the following is true for instantaneous load voltage and current? o v oi L O A D (A) 0 & 0 o o v i \uf0b3 \uf03c (B) 0 & 0 o o v i \uf03c \uf03c (C) 0 & 0 o o v i \uf0b3 \uf0b3 (D) 0 & 0",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "single phase",
+      "controlled rectifier"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "4",
+    "text": "Q.4 Four power semiconductor devices are shown in the figure along with their relevant terminals. The device(s) that can carry dc current continuously in the direction shown when gated appropriately is (are) I I G MT1 MT2 A K G Thyristor Triac G D S I MOSFET A K G GTO I (A) Triac only (B) Triac and MOSFET (C) Triac and GTO (D) Thyristor and Triac GATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING EE 2/15",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "thyristor",
+      "mosfet"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "28",
+    "text": "Q.28 The positive, negative and zero sequence impedances of a three phase generator are \ud835\udc4d1, \ud835\udc4d2 and \ud835\udc4d0 respectively. For a line-to-line fault with fault impedance \ud835\udc4d\ud835\udc53,\u2061the fault current is\u2061\ud835\udc3c\ud835\udc531 = \ud835\udc58\ud835\udc3c\ud835\udc53, where \ud835\udc3c\ud835\udc53 is the fault current with zero fault impedance. The relation between \ud835\udc4d\ud835\udc53 and \ud835\udc58 is (A) Zf  =\u2061 (\ud835\udc4d1+\ud835\udc4d2)(1\u2212\ud835\udc58) \ud835\udc58 (B) Zf  = \u2061 (\ud835\udc4d1+\ud835\udc4d2)(1+\ud835\udc58) \ud835\udc58 (C) Zf  = \u2061 (\ud835\udc4d1+\ud835\udc4d2)\ud835\udc58 1\u2212\ud835\udc58 (D) Zf  = \u2061 (\ud835\udc4d1+\ud835\udc4d2)\ud835\udc58 1+\ud835\udc58 GATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING EE 8/15",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "38",
+    "text": "Q.38 Consider the two continuous-time signals defined below: 1 2 , 1 1 1 , 1 1 ( ) , ( ) 0, otherwise 0  ,      otherwise t t t t x t x t \uf0ec \uf0ec \uf02d\uf0a3\uf0a3 \uf02d \uf02d\uf0a3\uf0a3 \uf03d \uf03d \uf0ed \uf0ed \uf0ee \uf0ee These signals are sampled with a sampling period of T = 0.25 seconds to obtain discrete- time signals 1[ ] x n  and 2[ ] x n , respectively. Which one of the following statements is true? (A) The energy of 1[ ] x n  is greater than the energy of 2[ ] x n .",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "49",
+    "text": "Q.49 A phase controlled single phase rectifier, supplied by an AC source, feeds power to an R-L-E load as shown in the figure. The rectifier output voltage has an average value given by Vo= \ud835\udc49\ud835\udc5a 2\ud835\udf0b (3 + cos \uf061), where\u2061\ud835\udc49\ud835\udc5a= 80\ud835\udf0b volts and \ud835\udefc is the firing angle. If the power delivered to the lossless battery is 1600 W, \ud835\udefc in degree is________ (up to 2 decimal places). Vm sin(\u03c9t) VO 2 \u2126 10 mH 80 V + - + - Battery GATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING EE 14/15",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "single phase",
+      "firing angle"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "50",
+    "text": "Q.50 The figure shows two buck converters connected in parallel. The common input dc voltage for the converters has a value of 100 V. The converters have inductors of identical value. The load resistance is 1 \uf057. The capacitor voltage has negligible ripple. Both converters operate in the continuous conduction mode. The switching frequency is 1 kHz, and the switch control signals are as shown. The circuit operates in the steady state. Assuming that the converters share the load equally, the average value of \ud835\udc56\ud835\udc461, the current of switch S1 (in Ampere), is _____ (up to 2 decimal places). + - iS1 S1 S2 C 1\uf057 L L 100 V t 0 0.5 ms 1 ms t Switch control signals S1 S2",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "buck converter",
+      "switching frequency"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "53",
+    "text": "Q.53 A dc to dc converter shown in the figure is charging a battery bank, B2 whose voltage is constant at 150 V. B1 is another battery bank whose voltage is constant at 50 V. The value of the inductor, L is 5 mH and the ideal switch, S is operated with a switching frequency of 5 kHz with a duty ratio of 0.4. Once the circuit has attained steady state and assuming the diode D to be ideal, the power transferred from B1 to B2 (in Watt) is ___________ (up to 2 decimal places). L = 5 mH S D + _ + _ 50 V 150 V iL B1 B2 GATE 2018                                                                                                                                                         ELECTRICAL ENGINEERING EE 15/15",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "switching frequency"
+    ]
+  },
+  {
+    "source": "GATE EE 2018",
+    "year": "2018",
+    "question_number": "54",
+    "text": "Q.54 The equivalent circuit of a single phase induction motor is shown in the figure, where the parameters are \uf057 \uf03d \uf03d \uf03d = X X R R l l 12 ' 2 1 ' 2 1 , \uf057 = X M 240 and s is the slip. At no-load, the motor speed can be approximated to be the synchronous speed. The no-load lagging power factor of the motor is___________ (up to 3 decimal places). s R 2 2 2 2 lX j 2 M X j 2 M",
+    "file": "EE2018.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "8",
+    "text": "Q.8 The price of an item is 10% cheaper in an online store S compared to the price at another online store M. Store S charges \u20b9 150 for delivery. There are no delivery charges for orders from the store M. A person bought the item from the store S and saved \u20b9 100. What is the price of the item at the online store S (in \u20b9) if there are no other charges than what is described above? (A) 2500 (B) 2250 (C) 1750 (D) 1500 Page 9 of 36",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "12",
+    "text": "Q.12 For an ideal MOSFET biased in saturation, the magnitude of the small signal current gain for a common drain amplifier is (A) 0 (B) 1 (C) 100 (D) infinite GATE 2022 Electrical Engineering (EE) Page 12 of 36",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "mosfet"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "22",
+    "text": "Q.22 A charger supplies 100 W at 20 V for charging the battery of a laptop. The power devices, used in the converter inside the charger, operate at a switching frequency of 200 kHz. Which power device is best suited for this purpose? (A) IGBT (B) Thyristor (C) MOSFET (D) BJT GATE 2022 Electrical Engineering (EE) Page 17 of 36",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "thyristor",
+      "igbt",
+      "mosfet",
+      "switching frequency"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "32",
+    "text": "Q.32 A single-phase full-bridge diode rectifier feeds a resistive load of 50 \u03a9 from a 200 V, 50 Hz single phase AC supply. If the diodes are ideal, then the active power, in watts, drawn by the load is _____________. (round off to nearest integer).",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "full-bridge",
+      "single phase",
+      "diode rectifier"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "33",
+    "text": "Q.33 The voltage at the input of an AC-DC rectifier is given by \ud835\udc63(\ud835\udc61) = 230\u221a2 sin \ud835\udf14\ud835\udc61 where \ud835\udf14= 2\ud835\udf0b\u00d7  50 rad/s. The input current drawn by the rectifier is given by \ud835\udc56(\ud835\udc61) = 10 sin \u1240\ud835\udf14\ud835\udc61\u2212 \u0c17 \u0b37\u1241+ 4 sin \u12403\ud835\udf14\ud835\udc61\u2212 \u0c17 \u0b3a\u1241+ 3sin \u12405\ud835\udf14\ud835\udc61\u2212 \u0c17 \u0b37\u1241. The input power factor, (rounded off to two decimal places), is, _________________ lag.",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "ac-dc"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "49",
+    "text": "Q.49 The discrete time Fourier series representation of a signal \ud835\udc65[\ud835\udc5b] with period \ud835\udc41 is written as \ud835\udc65[\ud835\udc5b] = \u2211 \ud835\udc4e\u0bde\ud835\udc52\u0bdd(\u0b36\u0bde\u0be1\u0c17\u0bc7) \u2044 \u0bc7\u0b3f\u0b35 \u0bde\u0b40\u0b34 . A discrete time periodic signal with period \ud835\udc41= 3, has the non-zero Fourier series coefficients: \ud835\udc4e\u0b3f\u0b37= 2 and \ud835\udc4e\u0b38= 1. The signal is (A) 2 + 2\ud835\udc52\u0b3f\u1240\u0bdd\u0c2e\u0d0f \u0c32\u0be1\u1241cos \u0d6c2\ud835\udf0b 6 \ud835\udc5b\u0d70 (B) 1 + 2\ud835\udc52\u1240\u0bdd\u0c2e\u0d0f \u0c32\u0be1\u1241cos \u0d6c2\ud835\udf0b 6 \ud835\udc5b\u0d70 (C) 1 + 2\ud835\udc52\u1240\u0bdd\u0c2e\u0d0f \u0c2f\u0be1\u1241cos \u0d6c2\ud835\udf0b 6 \ud835\udc5b\u0d70 (D) 2 + 2\ud835\udc52\u1240\u0bdd\u0c2e\u0d0f \u0c32\u0be1\u1241cos \u0d6c2\ud835\udf0b 6 \ud835\udc5b\u0d70 GATE 2022 Electrical Engineering (EE) Page 30 of 36",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "58",
+    "text": "Q.58 Consider an ideal full-bridge single-phase DC-AC inverter with a DC bus voltage magnitude of 1000 V. The inverter output voltage \ud835\udc63(\ud835\udc61) shown below, is obtained when diagonal switches of the inverter are switched with 50 % duty cycle. The inverter feeds a load with a sinusoidal current given by, \ud835\udc56(\ud835\udc61) = 10 sin(\ud835\udf14\ud835\udc61\u2212 \u0c17 \u0b37) A, where \ud835\udf14= \u0b36\u0c17 \u0bcd . The active power, in watts, delivered to the load is _________. (round off to nearest integer)",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "inverter",
+      "dc-ac",
+      "duty cycle",
+      "full-bridge"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "59",
+    "text": "Q.59 For the ideal AC-DC rectifier circuit shown in the figure below, the load current magnitude is Idc = 15 A and is ripple free.  The thyristors are fired with a delay angle of 45o. The amplitude of the fundamental component of the source current, in amperes, is __________. (round off to two decimal places)",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "thyristor",
+      "ac-dc"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "60",
+    "text": "Q.60 A 3-phase grid-connected voltage source converter with DC link voltage of 1000 V is switched using sinusoidal Pulse Width Modulation (PWM) technique. If the grid phase current is 10 A and the 3-phase complex power supplied by the converter is given by (\u22124000 \u2212\ud835\udc573000) VA, then the modulation index used in sinusoidal PWM is  ___________. (round off to two decimal places) GATE 2022 Electrical Engineering (EE) Page 35 of 36",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "pwm"
+    ]
+  },
+  {
+    "source": "GATE EE 2022",
+    "year": "2022",
+    "question_number": "61",
+    "text": "Q.61 The steady state current flowing through the inductor of a DC-DC buck boost converter is given in the figure below. If the peak-to-peak ripple in the output voltage of the converter is 1 V, then the value of the output capacitor, in \u00b5F, is _______________. (round off to nearest integer)",
+    "file": "EE2022.pdf",
+    "keywords_matched": [
+      "boost converter",
+      "dc-dc"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "8",
+    "text": "Q.8 Which one of the options does NOT describe the passage below or follow from it? We tend to think of cancer as a \u2018modern\u2019 illness because its metaphors are so modern. It is a disease of overproduction, of sudden growth, a growth that is unstoppable, tipped into the abyss of no control. Modern cell biology encourages us to imagine the cell as a molecular machine. Cancer is that machine unable to quench its intial command (to grow) and thus transform into an indestructible, self-propelled automaton. [Adapted from The Emperor of All Maladies by Siddhartha Mukherjee] (A) It is a reflection of why cancer seems so modern to most of us. (B) It tells us that modern cell biology uses and promotes metaphors of machinery. (C) Modern cell biology encourages metaphors of machinery, and cancer is often imagined as a machine. (D) Modern cell biology never uses figurative language, such as metaphors, to describe or explain anything. Electrical Engineering (EE) Page 8 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "16",
+    "text": "Q.16 A 10-pole, 50 Hz, 240 V, single phase induction motor runs at 540 RPM while driving rated load. The frequency of induced rotor currents due to backward field is (A) 100 Hz (B) 95 Hz (C) 10 Hz (D) 5 Hz",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "17",
+    "text": "Q.17 A continuous-time system that is initially at rest is described by \ud835\udc51\ud835\udc66(\ud835\udc61) \ud835\udc51\ud835\udc61 + 3\ud835\udc66(\ud835\udc61) = 2\ud835\udc65(\ud835\udc61), where \ud835\udc65(\ud835\udc61) is the input voltage and \ud835\udc66(\ud835\udc61) is the output voltage. The impulse response of the system is (A) 3\ud835\udc52\u22122\ud835\udc61 (B) 1 3 \ud835\udc52\u22122\ud835\udc61\ud835\udc62(\ud835\udc61) (C) 2\ud835\udc52\u22123\ud835\udc61\ud835\udc62(\ud835\udc61) (D) 2\ud835\udc52\u22123\ud835\udc61 Electrical Engineering (EE) Page 15 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "19",
+    "text": "Q.19 The \ud835\udc4d-transform of a discrete signal \ud835\udc65[\ud835\udc5b] is \ud835\udc4b(\ud835\udc67) = 4\ud835\udc67 (\ud835\udc67\u22121 5)(\ud835\udc67\u22122 3)(\ud835\udc67\u22123)  with \ud835\udc45\ud835\udc42\ud835\udc36= \ud835\udc45 . Which one of the following statements is true? (A) Discrete-time Fourier transform of x[n] converges if R is |\ud835\udc67| > 3 (B) Discrete-time Fourier transform of x[n] converges if R is 2 3 < |\ud835\udc67| < 3 (C) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a left- sided sequence (D) Discrete-time Fourier transform of x[n] converges if R is such that x[n] is a right- sided sequence Electrical Engineering (EE) Page 16 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "22",
+    "text": "Q.22 The four stator conductors (A, A\uf0a2, B and B\uf0a2) of a rotating machine are carrying DC currents of the same value, the directions of which are shown in the figure (i). The rotor coils a-a\uf0a2 and b-b\uf0a2  are formed by connecting the back ends of conductors \u2018a\u2019 and \u2018a\uf0a2\u2019 and \u2018b\u2019 and \u2018b\uf0a2\u2019, respectively, as shown in figure (ii). The e.m.f. induced in coil a-a\uf0a2  and coil b-b\uf0a2  are denoted by Ea-a\uf0a2 and Eb-b\uf0a2, respectively. If the rotor is rotated at uniform angular speed \uf077 rad/s in the clockwise direction then which of the following correctly describes the Ea-a\uf0a2 and Eb-b\uf0a2 ? figure (i): cross-sectional view            figure (ii): rotor winding connection diagram (A) Ea-a\uf0a2  and Eb-b\uf0a2  have finite magnitudes and are in the same phase (B) Ea-a\uf0a2 and Eb-b\uf0a2  have finite magnitudes with Eb-b\uf0a2  leading Ea-a\uf0a2 (C) Ea-a\uf0a2  and Eb-b\uf0a2  have finite magnitudes with Ea-a\uf0a2  leading Eb-b\uf0a2 (D) Ea-a\uf0a2  = Eb-b\uf0a2  = 0 Electrical Engineering (EE) Page 19 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "23",
+    "text": "Q.23 The chopper circuit shown in figure (i) feeds power to a 5 A DC constant current source. The switching frequency of the chopper is 100 kHz. All the components can be assumed to be ideal. The gate signals of switches S1 and S2 are shown in figure (ii). Average voltage across the 5 A current source is (A) 10 V (B) 6 V (C) 12 V (D) 20 V S1 20 V + figure (i) D1 S2 D2 5 A figure (ii) Gate Signal of S1 3 time in s 5 8 10 Gate Signal of S2 0 High Low Electrical Engineering (EE) Page 20 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "chopper",
+      "switching frequency"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "27",
+    "text": "Q.27 Which of the following statement(s) is/are true? (A) If an LTI system is causal, it is stable (B) A discrete time LTI system is causal if and only if its response to a step input \ud835\udc62[\ud835\udc5b] is 0 for \ud835\udc5b< 0 (C) If a discrete time LTI system has an impulse response \u210e[\ud835\udc5b] of finite duration the system is stable (D) If the impulse response 0 < |\u210e[\ud835\udc5b]| < 1 for all \ud835\udc5b, then the LTI system is stable.",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "46",
+    "text": "Q.46 Consider the state-space description of an LTI system with matrices \ud835\udc34= [ 0 1 \u22121 \u22122] , \ud835\udc35= [0 1] , \ud835\udc36= [3 \u22122], \ud835\udc37= 1 For the input, sin(\ud835\udf14\ud835\udc61), \ud835\udf14> 0, the value of \ud835\udf14 for which the steady-state output of the system will be zero, is ___________ (Round off to the nearest integer). 10 V + + + 20 V 40 V 4 A, DC 2 A, DC D2 D1 D3 S Electrical Engineering (EE) Page 35 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "48",
+    "text": "Q.48 A three phase 415 V, 50 Hz, 6-pole, 960 RPM, 4 HP squirrel cage induction motor drives a constant torque load at rated speed operating from rated supply and delivering rated output. If the supply voltage and frequency are reduced by 20%, the resultant speed of the motor in RPM (neglecting the stator leakage impedance and rotational losses) is __________ (Round off to the nearest integer).",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "three phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "49",
+    "text": "Q.49 The period of the discrete-time signal \ud835\udc65[\ud835\udc5b] described by the equation below is \ud835\udc41= ___________________ (Round off to the nearest integer). \ud835\udc65[\ud835\udc5b] = 1 + 3\ud835\udc60\ud835\udc56\ud835\udc5b(15\ud835\udf0b 8 \ud835\udc5b+ 3\ud835\udf0b 4 ) \u22125sin (\ud835\udf0b 3 \ud835\udc5b\u2212\ud835\udf0b 4)",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "50",
+    "text": "Q.50 The discrete-time Fourier transform of a signal \ud835\udc65[\ud835\udc5b] is \ud835\udc4b(\u03a9) = (1 + \ud835\udc50\ud835\udc5c\ud835\udc60\u03a9)\ud835\udc52\u2212\ud835\udc57\u03a9. Consider that \ud835\udc65\ud835\udc5d[\ud835\udc5b] is a periodic signal of period N = 5 such that \ud835\udc65\ud835\udc5d[\ud835\udc5b] = \ud835\udc65[\ud835\udc5b], for \ud835\udc5b= 0, 1 ,2 = 0, for \ud835\udc5b= 3, 4 Note that \ud835\udc65\ud835\udc5d[\ud835\udc5b] = \u2211 \ud835\udc4e\ud835\udc58\ud835\udc52\ud835\udc572\ud835\udf0b \ud835\udc41\ud835\udc58\ud835\udc5b \ud835\udc41\u22121 \ud835\udc58=0 .  The magnitude of the Fourier series coefficient \ud835\udc4e3 is _______________ (Round off to 3 decimal places). Electrical Engineering (EE) Page 36 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "55",
+    "text": "Q.55 The circuit shown in the figure has reached steady state with thyristor \u2018T\u2019 in OFF condition. Assume that the latching and holding currents of the thyristor are zero. The thyristor is turned ON at t = 0 sec. The duration in microseconds for which the thyristor would conduct, before it turns off, is _____ (Round off to 2 decimal places).",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "thyristor"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "58",
+    "text": "Q.58 The single phase rectifier consisting of three thyristors T1, T2, T3 and a diode D1 feed power to a 10 A constant current load. T1 and T3 are fired at \u03b1 = 60\u00b0 and T2 is fired at \u03b1 = 240\u00b0. The reference for \u03b1 is the positive zero crossing of Vin. The average voltage VO across the load in volts is _____ (Round off to 2 decimal places).",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "rectifier",
+      "thyristor",
+      "single phase"
+    ]
+  },
+  {
+    "source": "GATE EE 2023",
+    "year": "2023",
+    "question_number": "62",
+    "text": "Q.62 The closed curve shown in the figure is described by \ud835\udc5f= 1 + \ud835\udc50\ud835\udc5c\ud835\udc60\ud835\udf03, where \ud835\udc5f= \u221a\ud835\udc652 + \ud835\udc662;   \ud835\udc65= \ud835\udc5f\ud835\udc50\ud835\udc5c\ud835\udc60\ud835\udf03, \ud835\udc66= \ud835\udc5f\ud835\udc60\ud835\udc56\ud835\udc5b\ud835\udf03 The magnitude of the line integral of the vector field \ud835\udc39= \u2212\ud835\udc66\ud835\udc56\u0302 + \ud835\udc65\ud835\udc57\u0302 around the closed curve is ____________ (Round off to 2 decimal places). Electrical Engineering (EE) Page 42 of 42 Organizing Institute: IIT Kanpur",
+    "file": "EE2023.pdf",
+    "keywords_matched": [
+      "scr"
+    ]
+  }
+]

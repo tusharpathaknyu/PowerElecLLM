@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "half_bridge",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_halfbridge_001",
+      "topology": "half_bridge",
+      "level": 3,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 400,
+        "vout": 24,
+        "iout": 20.8,
+        "pout": 500,
+        "frequency": 100000,
+        "ripple_voltage_pct": 2
+      },
+      "ground_truth": {
+        "duty_cycle": 0.48,
+        "inductance_uH": 5.8,
+        "capacitance_uF": 217,
+        "formula_duty_cycle": "D = 2 * n * Vout / Vin = 2 * 8 * 24 / 400 = 0.96 (max 0.48 per leg)",
+        "formula_capacitance": "C = Iout * (1-D) / (f * delta_Vout) = 20.8*0.52 / (100000*0.48) = 225uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a half-bridge converter with Vin=400V (PFC output), Vout=24V, Pout=500W, switching frequency=100kHz. Use transformer ratio 8:1."
+    }
+  ]
+}

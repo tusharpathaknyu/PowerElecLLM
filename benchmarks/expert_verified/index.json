@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "name": "PowerElecLLM Expert-Verified Benchmark",
+    "description": "Power electronics problems from verified academic/examination sources, categorized by difficulty",
+    "total_problems": 233,
+    "by_level": {
+      "L1_beginner": 64,
+      "L2_intermediate": 129,
+      "L3_advanced": 35,
+      "L4_expert": 5
+    },
+    "sources": [
+      {
+        "name": "MIT 6.334 Power Electronics",
+        "url": "https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/",
+        "count": 60,
+        "license": "CC BY-NC-SA 4.0"
+      },
+      {
+        "name": "GATE EE Official Papers (2007-2023)",
+        "url": "https://gate2024.iisc.ac.in/download/",
+        "count": 173,
+        "license": "Public Domain (Government Exam)"
+      }
+    ]
+  },
+  "problem_files": [
+    "mit_6334_problems.json",
+    "gate_official_problems.json"
+  ],
+  "by_level_files": [
+    "by_level/level_1_problems.json",
+    "by_level/level_2_problems.json",
+    "by_level/level_3_problems.json",
+    "by_level/level_4_problems.json"
+  ],
+  "level_criteria": {
+    "L1_beginner": "Conceptual questions, device characteristics, basic identification",
+    "L2_intermediate": "Standard converter calculations, firing angle, duty cycle, ripple",
+    "L3_advanced": "Three-phase systems, THD, multi-stage converters, complex topologies",
+    "L4_expert": "Control design, compensation, stability analysis, transfer functions"
+  }
+}

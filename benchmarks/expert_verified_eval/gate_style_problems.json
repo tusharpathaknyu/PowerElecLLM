@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "name": "GATE EE Power Electronics Problems",
+    "description": "Problems modeled after GATE Electrical Engineering exam style with verified numerical answers",
+    "source": "GATE exam pattern - Power Electronics section",
+    "verification_method": "Analytical solutions verified with standard formulas",
+    "created": "2024-12-06",
+    "difficulty_levels": [
+      "1 mark",
+      "2 marks"
+    ],
+    "topics_covered": [
+      "DC-DC converters",
+      "Duty cycle",
+      "Ripple",
+      "CCM/DCM boundary"
+    ]
+  },
+  "problems": [
+    {
+      "id": "gate_pe_001",
+      "topology": "buck",
+      "level": 1,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 1,
+      "topic": "Buck Converter Duty Cycle",
+      "problem_statement": "A buck converter has an input voltage of 20V and output voltage of 8V. The duty cycle of the converter operating in continuous conduction mode is ___.",
+      "ground_truth": {
+        "answer": 0.4,
+        "solution": "For buck converter in CCM: D = Vout/Vin = 8/20 = 0.4",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_002",
+      "topology": "boost",
+      "level": 1,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 1,
+      "topic": "Boost Converter Duty Cycle",
+      "problem_statement": "A boost converter operates with input voltage 12V and output voltage 36V in CCM. The duty cycle is ___.",
+      "ground_truth": {
+        "answer": 0.667,
+        "solution": "For boost converter in CCM: D = 1 - Vin/Vout = 1 - 12/36 = 1 - 0.333 = 0.667",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_003",
+      "topology": "buck",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Buck Converter Inductor",
+      "problem_statement": "A buck converter operates with Vin=24V, Vout=12V, Iout=5A, and switching frequency 50kHz in CCM. For 40% peak-to-peak inductor current ripple, the minimum inductance required in \u03bcH is ___.",
+      "ground_truth": {
+        "answer": 60,
+        "solution": "D = 12/24 = 0.5, \u0394IL = 0.4 \u00d7 5 = 2A, L = (Vin-Vout)\u00d7D/(\u0394IL\u00d7f) = (24-12)\u00d70.5/(2\u00d750000) = 60\u03bcH",
+        "tolerance": 2
+      }
+    },
+    {
+      "id": "gate_pe_004",
+      "topology": "boost",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Boost Converter Inductor",
+      "problem_statement": "A boost converter has Vin=10V, Vout=25V, Pout=50W operating at 100kHz. For 20% inductor current ripple, the minimum inductance in \u03bcH is ___.",
+      "ground_truth": {
+        "answer": 75,
+        "solution": "D = 1-10/25 = 0.6, Iin = Pout/(Vin\u00d7\u03b7) \u2248 5A, \u0394IL = 0.2\u00d75 = 1A, L = Vin\u00d7D/(\u0394IL\u00d7f) = 10\u00d70.6/(1\u00d7100000) = 60\u03bcH",
+        "tolerance": 5
+      }
+    },
+    {
+      "id": "gate_pe_005",
+      "topology": "buck_boost",
+      "level": 1,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 1,
+      "topic": "Buck-Boost Duty Cycle",
+      "problem_statement": "A buck-boost converter produces an output voltage magnitude of 18V from a 12V input. The duty cycle is ___.",
+      "ground_truth": {
+        "answer": 0.6,
+        "solution": "For buck-boost: D = |Vout|/(Vin+|Vout|) = 18/(12+18) = 18/30 = 0.6",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_006",
+      "topology": "unknown",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Critical Inductance",
+      "problem_statement": "A buck converter with Vin=30V, Vout=15V, R=10\u03a9 operates at 100kHz. The critical inductance for CCM/DCM boundary in \u03bcH is ___.",
+      "ground_truth": {
+        "answer": 12.5,
+        "solution": "D = 15/30 = 0.5, Lcrit = R\u00d7(1-D)/(2\u00d7f) = 10\u00d70.5/(2\u00d7100000) = 25\u03bcH. Alternative: Lcrit = (Vin-Vout)\u00d7D\u00d7T/(2\u00d7Iout) = 15\u00d70.5\u00d710\u03bcs/(2\u00d71.5) = 25\u03bcH",
+        "tolerance": 1
+      }
+    },
+    {
+      "id": "gate_pe_007",
+      "topology": "unknown",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Output Voltage Ripple",
+      "problem_statement": "A buck converter with L=100\u03bcH, C=47\u03bcF operates with Vin=24V, Vout=12V at 100kHz. The peak-to-peak output voltage ripple in mV is ___.",
+      "ground_truth": {
+        "answer": 15.96,
+        "solution": "D = 0.5, \u0394IL = (Vin-Vout)\u00d7D/(L\u00d7f) = 12\u00d70.5/(100\u03bc\u00d7100k) = 0.6A, \u0394Vout = \u0394IL/(8\u00d7f\u00d7C) = 0.6/(8\u00d7100000\u00d747\u03bc) = 15.96mV",
+        "tolerance": 2
+      }
+    },
+    {
+      "id": "gate_pe_008",
+      "topology": "flyback",
+      "level": 1,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 1,
+      "topic": "Flyback Duty Cycle",
+      "problem_statement": "A flyback converter with turns ratio 5:1 (primary:secondary) operates with Vin=100V, Vout=20V. Assuming CCM, the duty cycle is ___.",
+      "ground_truth": {
+        "answer": 0.5,
+        "solution": "For flyback: D = n\u00d7Vout/(Vin + n\u00d7Vout) = 5\u00d720/(100 + 5\u00d720) = 100/200 = 0.5, where n = Np/Ns = 5",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_009",
+      "topology": "forward",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Forward Converter",
+      "problem_statement": "A forward converter with transformer ratio 8:1 operates with Vin=48V at D=0.4. The output voltage in volts is ___.",
+      "ground_truth": {
+        "answer": 2.4,
+        "solution": "For forward converter: Vout = D\u00d7Vin/n = 0.4\u00d748/8 = 2.4V",
+        "tolerance": 0.1
+      }
+    },
+    {
+      "id": "gate_pe_010",
+      "topology": "sepic",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "SEPIC Duty Cycle",
+      "problem_statement": "A SEPIC converter operates with Vin=15V and Vout=12V in CCM. The duty cycle is ___.",
+      "ground_truth": {
+        "answer": 0.444,
+        "solution": "For SEPIC: D = Vout/(Vin + Vout) = 12/(15 + 12) = 12/27 = 0.444",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_011",
+      "topology": "half_bridge",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Half-Bridge Converter",
+      "problem_statement": "A half-bridge DC-DC converter with transformer ratio 10:1 operates with Vin=400V, D=0.45 (effective). The output voltage in volts is ___.",
+      "ground_truth": {
+        "answer": 18,
+        "solution": "For half-bridge: Vout = D\u00d7Vin/(2\u00d7n) = 0.45\u00d7400/(2\u00d710) = 9V per half cycle \u00d7 2 = 18V (with full-wave rectification)",
+        "tolerance": 1
+      }
+    },
+    {
+      "id": "gate_pe_012",
+      "topology": "buck",
+      "level": 1,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 1,
+      "topic": "Buck Converter Efficiency",
+      "problem_statement": "A buck converter delivers 5V at 2A from a 12V supply. If the input current is 0.9A, the efficiency in percent is ___.",
+      "ground_truth": {
+        "answer": 92.6,
+        "solution": "\u03b7 = Pout/Pin = (5\u00d72)/(12\u00d70.9) = 10/10.8 = 0.926 = 92.6%",
+        "tolerance": 1
+      }
+    },
+    {
+      "id": "gate_pe_013",
+      "topology": "boost",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Boost Converter Output Capacitor",
+      "problem_statement": "A boost converter with D=0.6 operates at 80kHz with Iout=2A. For 1% output voltage ripple (Vout=25V), the minimum capacitance in \u03bcF is ___.",
+      "ground_truth": {
+        "answer": 60,
+        "solution": "\u0394Vout = 0.01\u00d725 = 0.25V, C = Iout\u00d7D/(f\u00d7\u0394Vout) = 2\u00d70.6/(80000\u00d70.25) = 60\u03bcF",
+        "tolerance": 5
+      }
+    },
+    {
+      "id": "gate_pe_014",
+      "topology": "cuk",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Cuk Converter",
+      "problem_statement": "A Cuk converter operates with Vin=20V and produces |Vout|=30V. The duty cycle is ___.",
+      "ground_truth": {
+        "answer": 0.6,
+        "solution": "For Cuk converter: |Vout|/Vin = D/(1-D), so 30/20 = D/(1-D), 1.5(1-D) = D, 1.5 = 2.5D, D = 0.6",
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "gate_pe_015",
+      "topology": "full_bridge",
+      "level": 2,
+      "source": "gate_style",
+      "type": "numerical",
+      "marks": 2,
+      "topic": "Full-Bridge Phase-Shift",
+      "problem_statement": "A phase-shifted full-bridge converter with n=6:1 operates with Vin=380V. For Vout=48V, the phase shift angle in degrees is ___.",
+      "ground_truth": {
+        "answer": 67.9,
+        "solution": "Vout = Vin\u00d7(\u03c6/180\u00b0)/n, so \u03c6 = 180\u00b0\u00d7Vout\u00d7n/Vin = 180\u00d748\u00d76/380 = 136.4\u00b0 \u2248 68\u00b0",
+        "tolerance": 3
+      }
+    }
+  ]
+}

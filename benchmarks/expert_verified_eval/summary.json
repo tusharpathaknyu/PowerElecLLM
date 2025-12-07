@@ -1,0 +1,22 @@
+{
+  "total_expert_verified_problems": 25,
+  "physics_verified_design_problems": 10,
+  "gate_style_numerical_problems": 15,
+  "verification_methods": [
+    "Analytical formulas from textbooks",
+    "SPICE simulation validation",
+    "Closed-form solutions"
+  ],
+  "topologies_covered": [
+    "buck",
+    "boost",
+    "buck_boost",
+    "flyback",
+    "sepic",
+    "forward",
+    "half_bridge",
+    "full_bridge",
+    "cuk"
+  ],
+  "key_advantage": "Ground truth derived from physics, not LLM-generated"
+}

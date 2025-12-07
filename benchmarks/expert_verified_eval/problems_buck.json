@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "buck",
+    "count": 2,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_buck_001",
+      "topology": "buck",
+      "level": 1,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 24,
+        "vout": 12,
+        "iout": 2,
+        "frequency": 100000,
+        "ripple_voltage_pct": 1,
+        "ripple_current_pct": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.5,
+        "inductance_uH": 30,
+        "capacitance_uF": 12.5,
+        "formula_duty_cycle": "D = Vout/Vin = 12/24 = 0.5",
+        "formula_inductance": "L = (Vin - Vout) * D / (delta_IL * f) = (24-12)*0.5 / (0.6*100000) = 100uH for 30% ripple",
+        "formula_capacitance": "C = delta_IL / (8 * f * delta_Vout) = 0.6 / (8*100000*0.12) = 6.25uF for 1% ripple"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a buck converter with Vin=24V, Vout=12V, Iout=2A, switching frequency=100kHz. Assume ideal components and continuous conduction mode (CCM)."
+    },
+    {
+      "id": "pv_buck_002",
+      "topology": "buck",
+      "level": 2,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 48,
+        "vout": 5,
+        "iout": 10,
+        "frequency": 200000,
+        "ripple_voltage_pct": 2,
+        "ripple_current_pct": 20
+      },
+      "ground_truth": {
+        "duty_cycle": 0.104,
+        "inductance_uH": 5.4,
+        "capacitance_uF": 62.5,
+        "formula_duty_cycle": "D = Vout/Vin = 5/48 = 0.104",
+        "formula_inductance": "L = (Vin - Vout) * D / (delta_IL * f) = (48-5)*0.104 / (2*200000) = 11.2uH",
+        "formula_capacitance": "C = delta_IL / (8 * f * delta_Vout) = 2 / (8*200000*0.1) = 12.5uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a buck converter with Vin=48V, Vout=5V, Iout=10A, switching frequency=200kHz for a telecom power supply."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "full_bridge",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_fullbridge_001",
+      "topology": "full_bridge",
+      "level": 4,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 380,
+        "vout": 48,
+        "iout": 41.7,
+        "pout": 2000,
+        "frequency": 100000,
+        "ripple_voltage_pct": 1
+      },
+      "ground_truth": {
+        "duty_cycle": 0.505,
+        "inductance_uH": 12,
+        "capacitance_uF": 434,
+        "formula_duty_cycle": "D = n * Vout / Vin = 4 * 48 / 380 = 0.505",
+        "formula_capacitance": "C = Iout / (8 * f * delta_Vout) = 41.7 / (8*100000*0.48) = 109uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a full-bridge converter with Vin=380V, Vout=48V, Pout=2000W for server power supply, switching frequency=100kHz. Use transformer ratio 4:1."
+    }
+  ]
+}

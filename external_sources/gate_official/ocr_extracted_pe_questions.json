@@ -1,0 +1,472 @@
+[
+  {
+    "id": "gate_2007_q77",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "77",
+    "problem_text": "Q.77, Q.79, Q.81, Q.83 and in Q.85. More than one answer bubbled against a question will be taken as an incorrect response. Unattempted questions will not carry any marks. 5. Write your registration number, your name and name of the examination centre at the specified locations on the right half of the ORS. 6. Using HB pencil, darken the appropriate bubble under each digit of your registration number and the letters corresponding to your paper code. 7. Calculator is allowed in the examination hall. 8. Charts, graph sheets or tables are NOT allowed in the examination hall. 9. Rough work can be done on the question paper itself. Additionally blank pages are given at the end of the question paper for rough work. 10. This question paper contains 32 printed pages including pages for rough work. Please check all pages and report, if there is any discrepancy. S/121 Food/06-EE-1A EE 1/32",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q10",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "10",
+    "problem_text": "Q.10 The frequency spectrum of a signal is shown in the Qu Q13 figure. If this signal is ideally sampled at intervals [UGo)| of 1 ms, then the frequency spectrum of the sampled signal will be kHz sd (A) |U\"(jo)| oO (B) oO (C) ao (D) gots Divergence of the vector field V(x,V,2) = - (x cos xy + y)i + (v cos xy)j + (sin P+P+7)k is (A) 2z cos 2\u201d (B) sin xy + 2z cos 2\u201d (C) x sin xy - cos z (D) none of these x=[x1 x2... x,)\" is an n-tuple nonzero vector. The nxn matrix V=xx\" (A) has rank zero (B) has rank 1 (C) is orthogonal (D) has rank A single-phase fully controlled thyristor bridge ac-de converter is operating at a firing angle of 25\u00b0 and an overlap angle of 10\u00b0 with constant de output current of 20 A. The fundamental power factor (displacement factor) at input ac mains is (A) 0.78 (B) 0.827 (C) 0.866 (D) 0.9 EE 6/32",
+    "keywords": [
+      "thyristor",
+      "overlap angle",
+      "thyristor_firing"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q18",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "18",
+    "problem_text": "Q.18 A three-phase, fully-controlled thyristor bridge converter is used as line commutated inverter to feed 50 kW power at 420 V de toa three-phase, 415 V (line), 50 Hz ac mains. Consider de link current to be constant. The rms current of the thyristor is (A) 119.05 A (B) 79.37 A (C) 68.73 A (D) 39.68 A Ina transformer, zero voltage regulation at full load is (A) not possible (B) possible at unity power factor load (C) possible at leading power factor load (D) possible at lagging power factor load The de motor, which can provide zero speed regulation at full load without any controller, is (A) series (B) shunt (C) cumulative compound (D) differential compound The probes of a non- isolated, two-channel oscilloscope are clipped to points A, B and C in the circuit of the adjacent figure. Vin is a square wave of a suitable low frequency. The display on Ch, and Ch) are as shown on the right. Then the \u201cSignal\u201d and \u201cGround\u201d probes S;, G; and S, G, of Ch, and Ch) respectively are connected to points: (A) A,B,C,A (B) A,B,C,B (C) C,B,A,B (D) B,A,B,C A single phase full-wave half-controlled bridge converter feeds an inductive load. The two SCRs in the converter are connected to a common DC bus. The converter has to have a freewheeling diode (A) because the converter inherently does not provide for free-wheeling (B) because the converter does not provide for free-wheeling for high values of triggering angles (C) or else the free-wheeling action of the converter will cause shorting of the AC supply (D) or else if a gate pulse to one of the SCRs is missed, it will subsequently cause a high load current in the other SCR EE 7/32",
+    "keywords": [
+      "SCR",
+      "freewheeling",
+      "converter_voltage",
+      "full-wave",
+      "thyristor_circuit"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q21",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "21",
+    "problem_text": "Q.21 The electromagnetic torque T, of a drive, and its connected load torque T, are as shown below. Out of the operating points A, B, C and D, the stable ones are rs 7% Ty) Te ry c os ry Te 7 zr T bs A th Ty it 8 , Speed \u00bb Speed > Speed > Speed \u00bb (A) A, C,D (B) B,C (C) A,D (D) B,C,D \u201cSix MOSFETs connected in a bridge configuration (having no other power device) MUST be operated as a Voltage Source Inverter (VSI)\u201d. This statement is (A) True, because being majority carier devices, MOSFETs are voltage driven (B) True, because MOSFETs have inherently anti-parallel diodes (C) False, because it can be operated both as Current Source Inverter (CSI) or a VSI (D) False, because MOSFETs can be operated as excellent constant current sources in the saturation region",
+    "keywords": [
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q21",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "21",
+    "problem_text": "Q. 21 to Q. 75 carry two marks each. The input signal Vj, shown in the figure is a 1 kHz square wave voltage that alternates between +7V and -7V with a 50% duty cycle. Both transistors have the same current gain, which is large. The circuit delivers power to the load resistor R,. What is the efficiency of this circuit Vin for the given input? Choose the closest answer. RL=10Q +10V -10V (A) 46% (B) 55% (C) 63% (D) 92% EE 8/32",
+    "keywords": [
+      "duty cycle"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q22",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "22",
+    "problem_text": "Q.22 A, B,C and D are input bits, and Y is the output bit in the XOR gate circuit of the figure below. Which of the following statements about the sum S of 4, B, C, D and Y is correct? (A) S is always either zero or odd (B) S is always either zero or even (C) S= | only if the sum of A, B, C and D is even (D) S= 1 only if the sum of A, B, C and D is odd Q23 The differential equation Ss. \u2014\u2014 is discretised using Euler\u2019s numerical integration \u20ac method with a time step AT > 0. What is the maximum permissible value of AT to ensure stability of the solution of the corresponding discrete time equation? (A) 1 (B) r/2 (C) ct (D) 2r",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q26",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "26",
+    "problem_text": "Q.26 Q27 A solid sphere made of insulating material has a radius R and has a total charge O distributed uniformly in its volume. What is the magnitude of the electric field intensity, \u00a3, at a distance r (0<r<R) inside the sphere? (ieee \u2018Oy (Cm = (ey aes 4ne, R\u00b0 4ze, R\u00b0 476, r 4ne, r\u00b0 The figure below shows a three phase self-commutated voltage source converter connected to a power system. The converter\u2019s de bus capacitor is marked as C in the figure. The circuit is initially operating in steady state with d= 0 and the capacitor de voltage is equal to Vico. You may neglect all losses and harmonics. What action should be taken to increase the capacitor de voltage slowly to a new steady state value? Three phase voltage source converter els elo (A) Make 6 positive and maintain it at a positive value (B) Make d positive and return it to its original value (C) Make S negative and maintain it at a negative value (D) Make 6 negative and return it to its original value \u2018The total reactance and total susceptance of a lossless overhead EHV line, operating at 50 Hz, are given by 0.045 pu and 1.2 pu respectively. If the velocity of wave propagation is 3 x 10\u00b0 km/s, then the approximate length of the line is (A) 122 km (B) 172 km (C) 222 km (D) 272 km EE 10/32 $/121 Food/0s-EE-28",
+    "keywords": [
+      "converter_voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q52",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "52",
+    "problem_text": "Q.52 A single-phase 50 kVA, 250V/S00V two winding transformer has an efficiency of 95% at full load, unity power factor. If it is reconfigured as a S00V/750V autotransformer, its efficiency at its new rated load at unity power factor will be (A) 95.752% (B) 97.851% (C) 98.276% (D) 99.241% A 230 V (Phase), 50 Hz, three-phase, 4-wire system has a phase sequence ABC. A unity power-factor load of 4 kW is connected between phase A and neutral N. It is desired to achieve zero neutral current through the use of a pure inductor and a pure capacitor in the other two phases. The value of inductor and capacitor is (A) 72.95 mH in phase C and 139.02 F in phase B (B) 72.95 mH in phase B and 139.02 uF in phase C (C) 42.12 mH in phase C and 240.79 uF in phase B (D) 42.12 mH in phase B and 240.79 iF in phase C The state equation for the current I, shown in the network shown below in terms of the voltage V, and the independent source V, is given by 322 @.28 $Q dl, 5 dl, 5 A) St =-1.4V, -3.751, +20 B) &!=1.4y, -3.751, -2 ane er OF : oe di, 5 di, 5 C) She andyieasi soy D) St =-1.4y, +3.751,-2V ( a 4 \"4 ( a = 4 If u(), r(\u00a2) denote the unit step and unit ramp functions respectively and u(t)*r(s) their convolution, then the function 2(\u00a2+1)*r(t-2) is given by (A) (1/2)(t-1)(1-2) (B) (1/2)(t-1)(\u00a2-2) (C) (12) 1)\u00b0u(t-1) (D) none of the above 1 sd . The integral 57 Jsing -2)cos raz equals \u00e9 (A) sintcost (B) 0 (C) (1/2)cost (D) (1/2)sint EE 17/32",
+    "keywords": [
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q56",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "56",
+    "problem_text": "Q.56 X(z) = 1 = 32\", \u00a5() = 1 + 22\u201d are Z-transforms of two signals x[7], y[n] respectively. A linear time invariant system has the impulse response h{7] defined by these two signals as Aln| = x[n-1}* yf] where * denotes discrete time convolution. Then the output of the system for the input 8[n-1] (A) has Z-transform z'X(z)\u00a5(z) (B) equals 8[n-2] - 35[n-3] + 28[n-4] - 65[n-5] (C) has Z-transform 1 - 32! + 2z7- 6z\u00b0 (D) does not satisfy any of the above three. A loaded dice has following probability distribution of occurrences Dicevalue [1 [2 [3 [4 [5 [6 Probability | 1/4 | 1/8 | 1/8 si ad Md If three identical dice as the above are thrown, the probability of occurrence of values 1, 5 and 6 on the three dice is (A) same as that of occurrence of 3, 4, 5 (B) same as that of occurrence of 1, 2, 5 (\u00a9) 1128 (D) 5/8 Let x and y be two vectors in a 3 dimensional space and <x,y> denote their dot product. Then the determinant pcis | det <y,x> <yy> (A) is zero when x and y are linearly independent (B) is positive when x and y are linearly independent (C) is non-zero for all non-zero x and y (D) is zero only when either x or y is zero The linear operation L(x) is defined by the cross product L(x) = bXx, where b=[0 1 0]! and x=[\u00a51 x) x3]' are three dimensional vectors. The 3x3 matrix M of this operation satisfies x L(x) = M] x, xy Then the eigenvalues of M are (A) 0, +1, -1 (B) 1,-1.1 (C) i.-i.1 (D) #,-i,0 EE 18/32",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q58",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "58",
+    "problem_text": "Q.58 In the figure, transformer T; has two secondaries, all three windings having the same number of turns and with polarities as indicated. One secondary is shorted by a 10 Q resistor R, and the other by a 15 uF capacitor. The switch SW is opened (\u00a2 = 0) when the capacitor is charged to 5 V with the left plate as positive. At \u00a2 = 0+ the voltage V, and current Ip are SW Ip (A) -25 V,0.0A (B) very large voltage, very large current (C) 5.0 V,0.5A (D) -5.0 V,-0.5A IC 555 in the adjacent figure is configured as an astable multivibrator. It is enabled to oscillate at = 0 by applying a high input to pin 4. The pin description is: 1 and 8 \u2014 supply; 2-trigger; 4-reset; 6-threshold; 7-discharge. The waveform appearing across the capacitor starting from t = 0, as observed on a storage CRO is EE 19/32",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q60",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "60",
+    "problem_text": "Q.60 The circuit in the figure is a current commutated de \u2014 de chopper where, Thy is the main SCR and Thavx is the auxiliary SCR.The load current is constant at 10 A. Thy is ON. Thaux is triggered at \u00a2 = 0. Thy is turned OFF between (A) 0 ps <\u00a2 <25 ps (B) 25 ps << 50 ps (C) 50 ps <1 <75 ps (D) 75 ps <1< 100 ps",
+    "keywords": [
+      "chopper",
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q61",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "61",
+    "problem_text": "Q.61 In the circuit shown in figure switch SW, is s initially CLOSED and SW. is OPEN. The we Fe 100 inductor L carries a current of 10 A and the capacitor is charged to 10 V with polarities as Ry 10 + indicated. SW; is initially CLOSED at \u00a2 = 0- 10a Hera c]iov and SW, is OPENED at \u00a2 = 0. The current through C and the voltage across L at f= 0+ is (A) 55 A, 4.5 V (B) 5.5 A, 45 V (C) 45A,5.5V (D) 4.5A,55V EE 20/32 Q62 The R-L-C series circuit shown is supplied from a variable frequency voltage source. The admittance-locus of the R-L- C network at terminals AB for increasing frequency @ is (A) (B) I ' Im Im \u2014> Re Re bai o (C) (D) I zi Im t o o \u2014 Re Rew EE 21/32",
+    "keywords": [
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q72",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "72",
+    "problem_text": "Q.72 Ifa star-delta starter is used to start this induction motor, the per unit starting torque will be (A) 0.607 (B) 0.816 (C) 1.225 (D) 1.616 Q73 Ifa starting torque of 0.5 per unit is required then the per unit starting current should be (A) 4.65 (B) 3.75 (C) 3.16 (D) 2.13 Common Data for Questions 74, 75: A 1:1 Pulse Transformer (PT) is used to trigger the 100 SCR in the adjacent figure. The SCR is rated at 1.5 kV, 250 A with /, = 250 mA, Jy= 150 mA, and Icmax = 150 mA, IGmin = 100 mA. The SCR is connected to an inductive load, where L = 150 mH in series with a small resistance and the supply voltage is 200V dc. The +1200 Vv forward drops of all transistors/diodes and gate-cathode AN. junction during ON state are 1.0 V. +10 PT R 8 c R",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q75",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "75",
+    "problem_text": "Q.75 The minimum approximate volt-second rating of the pulse transformer suitable for triggering the SCR should be: (volt-second rating is the maximum of product of the voltage and the width of the pulse that may be applied) (A) 2000 V-s (B) 200 pV-s (C) 20 pV-s (D) 2.0 pV-s EE 25/32 Linked Answer Questions: Q.76 to Q.85 carry two marks each. Statement for Linked Answer Questions 76 & 77: \u2018An inductor designed with 400 turns coil wound on an iron core of 16 cm\u2019 cross sectional area and with a cut of an air gap length of | mm. The coil is connected to a 230 V, 50 Hz ac supply. Neglect coil resistance, core loss, iron reluctance and leakage inductance.(19 = 4nx107 H/m)",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q76",
+    "source": "GATE Official",
+    "year": 2007,
+    "question_number": "76",
+    "problem_text": "Q.76 The current in the inductor is (A) 18.08 A (B) 9.04 A (C) 4.56A (D) 2.28 A",
+    "keywords": [
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q?",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "?",
+    "problem_text": "2008 MAIN PAPER ~ EE EE: ELECTRICAL ENGINEERING Duration: Three Hours Maximum Marks: 150 Read the following instructions carefully i nN 10. ll. 12. This question paper contains 28 printed pages including pages for rough work. Please check all pages and report discrepancy, if any. Write your registration number, your name and name of the examination centre at the specified locations on the right half of the ORS. Using HB pencil, darken the appropriate bubble under each digit of your registration number and the letters corresponding to your paper code. All the questions in this question paper are of objective type. Questions must be answered on Objective Response Sheet (ORS) by darkening the appropriate bubble (marked A, B, C, D) using HB pencil against the question number on the left hand side of the ORS. Each question has only one correct answer. In case you wish to change an answer, erase the old answer completely. More than one answer bubbled against a question will be treated as a wrong answer. Questions | through 20 are 1-mark questions and questions 21 through 85 are 2-mark questions. Questions 71 through 73 is one set of common data questions, questions 74 and 75 is another pair of common data questions. The question pairs (76, 77), (78, 79), (80, 81), (82, 83) and (84, 85) are questions with linked answers. The answer to the second question of the above pairs will depend on the answer to the first question of the pair. If the first question in the linked pair is wrongly answered or is un-attempted, then the answer to the second question in the pair will not be evaluated. Un-attempted questions will carry zero marks. NEGATIVE MARKING: For Q.1 to Q.20, 0.25 mark will be deducted for each wrong answer. For",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q18",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "18",
+    "problem_text": "Q.18 A 3-phase Voltage Source Inverter is operated in 180\u00b0 conduction mode. Which one of the following statements is true? (A) Both pole-voltage and line-voltage will have 3% harmonic components (B) Pole-voltage will have 3\" harmonic component but line-voltage will be free from 3\" harmonic (C) Line-voltage will have 3\" harmonic component but pole-voltage will be free from 3\u201d harmonic (D) Both pole-voltage and line-voltage will be free from 3\u201d harmonic components EE \u20185/28 2008 MAIN PAPER ~ EE",
+    "keywords": [
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q42",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "42",
+    "problem_text": "Q.42 The block diagrams of two types of half wave rectifiers are shown in the figure. The transfer characteristics of the rectifiers are also shown within the block. It is desired to make full wave rectifier using above two half-wave rectifiers. The resultant circuit will be (A) (B) Q43 A 3 line to 8 line decoder, with active low outputs, is used to implement a 3-variable Boolean function as shown in the figure. 3L x 8L Decoder EE 11728 2008 MAIN PAPER ~ EE",
+    "keywords": [
+      "rectifier",
+      "half-wave",
+      "rectifier_output"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q56",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "56",
+    "problem_text": "Q.56 A single-phase half controlled converter shown in the figure is feeding power to highly inductive load. The converter is operating at a firing angle of 60\u00b0. If the firing pulses are suddenly removed, the steady state voltage (v,) waveform of the converter will become (A) (B)",
+    "keywords": [
+      "firing angle",
+      "converter_load",
+      "converter_voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q57",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "57",
+    "problem_text": "Q.57__ A 220 V, 20 A, 1000 rpm, separately excited de motor has an armature resistance of 2.5 Q. The motor is controlled by a step down chopper with a frequency of | kHz. The input de voltage to the chopper is 250 V. The duty cycle of the chopper for the motor to operate at a speed of 600 rpm delivering the rated torque will be (A) 0.518 (B) 0.608 (C) 0.852 (D) 0.902",
+    "keywords": [
+      "duty cycle",
+      "chopper"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q58",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "58",
+    "problem_text": "Q.58 A 220 V, 1400 rpm, 40 A separately excited de motor has an armature resistance of 0.4 Q. The motor is fed from a single phase circulating current dual converter with an input ac line voltage of 220 V (rms). The approximate firing angles of the dual converter for motoring operation at 50% of rated torque and 1000 rpm will be (A) 43\u00b0, 137\u00b0 (B) 43\u00b0, 47\u00b0 (C) 39\u00b0, 141\u00b0 (D) 39\u00b0, 51\u00b0 EE 16/28 2008 MAIN PAPER ~ EE",
+    "keywords": [
+      "firing angle",
+      "converter_voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q59",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "59",
+    "problem_text": "Q.59 A single phase voltage source inverter is feeding a purely inductive load as shown in the figure. The inverter is operated at 50 Hz in 180\u00b0 square wave mode. Assume that the load current does not have any de component. The peak value of the inductor current i, will be (A) 6.37 A (B) 10A (C)20A (D) 40A",
+    "keywords": [
+      "inverter",
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q60",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "60",
+    "problem_text": "Q.60 A400 V, 50 Hz, 4 pole, 1400 rpm, star connected squirrel cage induction motor has the following parameters referred to the stator: R/'=1.0Q, X,=X; =1.5Q Neglect stator resistance and core and rotational losses of the motor. The motor is controlled from a 3-phase voltage source inverter with constant V/f control. The stator line-to-line voltage (rms) and frequency to obtain the maximum torque at starting will be: (A) 20.6 V, 2.7 Hz (B) 133.3 V, 16.7 Hz (C) 266.6 V, 33.3Hz (D) 323.3 V, 40.3 Hz",
+    "keywords": [
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q61",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "61",
+    "problem_text": "Q.61 A single phase fully controlled converter bridge is used for electrical braking of a separately excited dc motor. The de motor load is represented by an equivalent circuit as shown in the figure. 22 150V Assume that the load inductance is sufficient to ensure continuous and ripple free load current. The firing angle of the bridge for a load current of Ip = 10 A will be (A) 44\u00b0 (B) 51\u00b0 (C) 129\u00b0 (D) 136\u00b0",
+    "keywords": [
+      "firing angle",
+      "ripple",
+      "converter_load"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q62",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "62",
+    "problem_text": "Q.62 A three phase fully controlled bridge converter is feeding a load drawing a constant and ripple free load current of 10 A at a firing angle of 30\u00b0. The approximate Total Harmonic Distortion (%THD) and the rms value of fundamental component of the input current will respectively be (A) 31% and 6.8 A (B) 31% and 7.8 A (C) 66% and 6.8 A (D) 66% and 7.8 A EE 17728 2008 MAIN PAPER ~ EE",
+    "keywords": [
+      "firing angle",
+      "ripple",
+      "converter_load"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q63",
+    "source": "GATE Official",
+    "year": 2008,
+    "question_number": "63",
+    "problem_text": "Q.63 _ In the circuit shown in the figure, the switch is operated at a duty cycle of 0.5. A large capacitor is connected across the load. The inductor current is assumed to be continuous. aaa 1 bP 20V The average voltage across the load and the average current through the diode will respectively be (A) 10V,2A (B) 10 V,8A (C) 40V,2A (D) 40 V,8A",
+    "keywords": [
+      "inductor_current",
+      "duty cycle",
+      "switch_duty"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q3",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "3",
+    "problem_text": "Q.3 The following circuit has a source voltage Vs as shown in the graph. The current through the circuit is also shown. a qb 10k Vs (volts) 0 100 200 300 400 200 Time (ms) Time (ms) The element connected between a and b could be (aya\u2014l>}+\u2014b () a\u2014| #\u2014\u00bb (\u00a9) a\u2014_ <<} \u2014b ) a a EE 2124 EE Q4 Q5 Q6 Q7 Qs Q9 The two inputs of a CRO are fed with two stationary periodic signals. In the X-Y mode, the screen shows a figure which changes from ellipse to circle and back to ellipse with its major axis changing orientation slowly and repeatedly. The following inference can be made from this. (A) The signals are not sinusoidal (B) The amplitudes of the signals are very close but not equal (C) The signals are sinusoidal with their frequencies very close but not equal (D) There is a constant but small phase difference between the signals The increasing order of speed of data access for the following devices is (i) Cache Memory (ii) CDROM (iii) Dynamic RAM (iv) Processor Registers (v) Magnetic Tape (A) (\u00a5), (ii), (iii), (iv), @ (B) (v), (ii), Gil), @, (iv) (C) Gi), (), Git), (iv), (v) (D) (v), Gi), @), (iii) , (iv) A field excitation of 20 A in a certain alternator results in an armature current of 400 A in short circuit and a terminal voltage of 2000 V on open circuit. The magnitude of the internal voltage drop within the machine at a load current of 200 A is (A)1V (B) 10 V (C) 100 V (D) 1000 V The current through the 2 kQ resistance in the circuit shown is 1kQ c1ka (A) 0 mA (B) 1 mA (C) 2mA (D) 6mA Out of the following plant categories (i) Nuclear (ii) Run-of-river (iii) Pump Storage (iv) Diesel the base load power plants are (A) (i) and (ii) (B) (ii) and (iii) (C) (i), (ii) and (iv) \u2014 (D) (i), (iii) and (iv) For a fixed value of complex power flow in a transmission line having a sending end voltage V, the real power loss will be proportional to (ayV (B) V? \u00a9) 1/v? () 1/V 2009 EE",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q16",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "16",
+    "problem_text": "Q.16 Q17 EE A 3-phase squirrel cage induction motor supplied from a balanced 3-phase source drives a mechanical load. The torque-speed characteristics of the motor (solid curve) and of the load (dotted curve) are shown. Of the two equilibrium points A and B, which of the following options correctly describes the stability of A and B? (A) A is stable B is unstable (B) A is unstable B is stable (C) Both are stable (D) Both are unstable An SCR is considered to be a semi-controlled device because (A) it can be turned OFF but not ON with a gate pulse (B) it conducts only during one half-cycle of an alternating current wave (C) it can be turned ON but not OFF with a gate pulse (D) it can be turned ON only during one half-cycle of an alternating voltage wave The polar plot of an open loop stable system is shown below. The closed loop system is (A) always stable (B) marginally stable (C) unstable with one pole on the RH s-plane (D) unstable with two poles on the RH s-plane",
+    "keywords": [
+      "SCR"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q29",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "29",
+    "problem_text": "Q.29 Match the items in List-I with the items in List-II and select the correct answer using the codes given below the lists. List I To a. improve power factor b. reduce the current ripples c. increase the power flow in line d. reduce the Ferranti effect (A) a2, b-3, c4, do 1 (C) a4, b3, c1, d2 List If Use 1, shunt reactor 2. shunt capacitor 3. series capacitor 4. series reactor (B) a2, b4, c3, d1 (D) a4, b1, c3, d2",
+    "keywords": [
+      "ripple",
+      "capacitor_ripple"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q43",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "43",
+    "problem_text": "Q.43 The circuit shows an ideal diode connected D to a pure inductor and is connected to a purely sinusoidal 50Hz voltage source. Under ideal conditions the current y,=10sin 100nt L = (0.1/n)H waveform through the inductor will look like (A) (B) 1s 1.5) 1 1 i j F05) 05 % 10 30 40 50 % 10 20 30 40 50 time(ms) time(ms) \u00a9 15) \u00a9), e1 1 05 0.5) a a a ee) ua. 10. 20. 30. 40 ~ 60 \u2018time(ms)",
+    "keywords": [
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q44",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "44",
+    "problem_text": "Q.44 The Current Source Inverter shown in figure is operated by alternately turning on thyristor pairs (T;, Tz) and (Ts, T,). If the load is purely resistive, the theoretical maximum output frequency obtainable will be (A) 125 kHz (B) 250 kHz (C) 500 kHz (D) 50 kHz time(ms) 13/24 2009 Q45",
+    "keywords": [
+      "thyristor",
+      "inverter_output",
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q47",
+    "source": "GATE Official",
+    "year": 2009,
+    "question_number": "47",
+    "problem_text": "Q.47 In the chopper circuit shown, the main thyristor (Ty) is operated at a duty ratio of 0.8 which is much larger the commutation interval. If the maximum allowable reapplied dv/dt on Ty is 50 V/us, what should be the theoretical minimum value of C; ? Assume current ripple through Ly to be negligible. (A) 0.2 uF (B) 0.02 #F (C) 2uF (D) 20 nF Match the switch arrangements on the top row to the steady-state V-I characteristics on the lower row. The steady state operating points are shown by large black dots. == aL (A) (8) , aN (c) (0) ) (i) (itl) (Iv) (AAT, B-Il, Cll, D-IV (B) A-I, B-IV, C-I, D-Ill (OAIV, BI, Cl D4 (D)AIV, BAI, Cll, D4 For the circuit shown, find out the current flowing through the 22 usav \u2018s resistance. Also identify the changes to be made to double the 20 current through the 2Q resistance. (*) (4) (A) (SA; Put Vs = 20V) (B) (2A ; Put Vs = 8V) (C) (SA; Put Js = LOA) (D) (7A; Put Js = 12A) 14724 Q48",
+    "keywords": [
+      "commutation",
+      "ripple",
+      "chopper",
+      "thyristor_circuit",
+      "switch_duty"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q14",
+    "source": "GATE Official",
+    "year": 2010,
+    "question_number": "14",
+    "problem_text": "Q.14 Power is transferred from system A to system B by an HVDC link as shown in the figure. If the volages \u00a5,, and Vp are as indicated in the figure. and / > 0. then Power Flow AC v4 AC System A System B BD Rectifier Inverter tA) V,, <O.M,, < OV, > Vip (B) Vag > Oey POV iy, < Vy, CC) V,, > OY, OV \"Eg OK, {Dh V,, >O.\u00a5., <0 FF was 2010 EE Qs Q16",
+    "keywords": [
+      "rectifier",
+      "HVDC",
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q23",
+    "source": "GATE Official",
+    "year": 2010,
+    "question_number": "23",
+    "problem_text": "Q.23. The power electronic converter shown in the figure has a single-pole double-throw switch. The pole P of the switch is connected alternately to throws A and B. The converter shown is a {A) step-down chopper (buck converter) (B) half-wave rectifier (C) step-up chopper (boost converter) (D) full-wave rectifier",
+    "keywords": [
+      "rectifier",
+      "buck converter",
+      "full-wave",
+      "chopper",
+      "half-wave"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q24",
+    "source": "GATE Official",
+    "year": 2010,
+    "question_number": "24",
+    "problem_text": "Q.24 Figure shows a composite switch consisting of a power transistor (BJT) in series with a diode. Assuming that the transistor switch and the diode are ideal, the I-V characteristic of the composite switch is + * - ( (A) B) 1 I a oo Vv o) (D) 1 \\ Q25 The fully controlled thyristor converter in the figure is fed from a single-phase source. When the firing angle is 0\u00b0, the de output voltage of the converter is 300 V. What will be the output voltage for a firing angle of 60\u00b0, assuming continuous conduction? (A) 150 V (B) 210 V (Cy 300 V (D) 1002 \u00a5 EE vis 2010",
+    "keywords": [
+      "converter_voltage",
+      "firing angle",
+      "thyristor_firing",
+      "thyristor",
+      "continuous conduction"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q54",
+    "source": "GATE Official",
+    "year": 2010,
+    "question_number": "54",
+    "problem_text": "Q.54 The initia! current through the inductor is zero. while the initial capacitor voltage is LOO V. The switch is closed at \u00a2 =. The current i through the circuit is: (A) Scos(Sxl0'n aA {B) Ssin(LO*7) A (C) 1l0cos(SxtO'NA (D) 10sin(10*eA 0.55) The L-C circuit of Q54 is used to commulate a thyristor. which is initially carrying a current of 5 A as shown in the figure below, The values and initial conditions of L and C are the same as in Q54. The switch is closed ati =O. Ef lhe forward drop is negligible. the Gime taken for the device to tum off is 100 Vz 202 (A) 52 ps (B) 156 ps. (C) 312 ys (D) 26 ps BE 14 20 EE General Aptitude (GA) Questions",
+    "keywords": [
+      "thyristor",
+      "thyristor_circuit",
+      "inductor_current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q13",
+    "source": "GATE Official",
+    "year": 2011,
+    "question_number": "13",
+    "problem_text": "Q.13 A three-phase current source inverter used for the speed control of an induction motor is to be realized using MOSFET switches as shown below. Switches S; to S\u00a2 are identical switches. la SS The proper configuration for realizing switches S, to S\u00a2 is @) \u201c A \u00ae\u201d A i |\" A OS",
+    "keywords": [
+      "inverter"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q36",
+    "source": "GATE Official",
+    "year": 2011,
+    "question_number": "36",
+    "problem_text": "Q.36 A voltage commutated chopper circuit, operated at 500Hz, is shown below. Mim i=10A 200 V LOAD If the maximum value of load current is 10 A, then the maximum current through the main (M) and auxiliary (A) thyristors will be (A) imax =12 A and i,,, =10 A B) ismax = 12 A and ip nax = 2A (C) issmax =10 A and iy... =12 A (D) ixgmax =10 A and i,,.,, =8A EE-A 10/24 2011 EE",
+    "keywords": [
+      "thyristor",
+      "chopper",
+      "thyristor_circuit"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q47",
+    "source": "GATE Official",
+    "year": 2011,
+    "question_number": "47",
+    "problem_text": "Q.47_ Aclipper circuit is shown below. Assuming forward voltage drops of the diodes to be 0.7 V, the input-output transfer characteristics of the circuit is (A) (B) t he eee : Vo (C) @) EE-A 13/24 2011 EE Common Data Questions Common Data for Questions 48 and 49: The input voltage given to a converter is v, =100V2 sin(l001) V The current drawn by the converter is i, = (10V2 sin 1001 ~ 2/3) +502 sin (30021 + 27/4) + 2V2 sin (5001 - 2/6) A",
+    "keywords": [
+      "converter_voltage"
+    ],
+    "extraction_method": "ocr"
+  }
+]

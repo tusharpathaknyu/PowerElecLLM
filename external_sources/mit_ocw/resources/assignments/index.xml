@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on MIT OpenCourseWare</title>
+    <link>/resources/assignments/</link>
+    <description>Recent content in Assignments on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Assignments</title>
+      <link>/pages/assignments/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pages/assignments/data.json</guid>
+      <description>&lt;p&gt;The homeworks refer to reading assignments and select problems from the course textbook:&lt;/p&gt;&#xA;&lt;p&gt;Kassakian, John G., Martin F. Schlecht, and George C. Verghese. &lt;em&gt;Principles of Power Electronics&lt;/em&gt;. Reading, MA: Addison-Wesley, 1991. ISBN: 9780201096897. (abbreviated as KSV).&lt;/p&gt;&#xA;&lt;p&gt;Homework 0 (&lt;a href=&#34;../../resources/hw0/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 1 (&lt;a href=&#34;../../resources/hw1/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 2 (&lt;a href=&#34;../../resources/hw2/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 3 (&lt;a href=&#34;../../resources/hw3/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 4 (&lt;a href=&#34;../../resources/hw4/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 5 (&lt;a href=&#34;../../resources/hw5/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 6 (&lt;a href=&#34;../../resources/hw6/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 7 (&lt;a href=&#34;../../resources/hw7/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 8 (&lt;a href=&#34;../../resources/hw8/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 9 (&lt;a href=&#34;../../resources/hw9/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;Homework 10 (&lt;a href=&#34;../../resources/hw10/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "sepic",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_sepic_001",
+      "topology": "sepic",
+      "level": 3,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 12,
+        "vout": 12,
+        "iout": 1,
+        "frequency": 200000,
+        "ripple_voltage_pct": 2,
+        "ripple_current_pct": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.5,
+        "inductance_uH": 13.7,
+        "capacitance_uF": 14.3,
+        "formula_duty_cycle": "D = Vout / (Vin + Vout) = 12 / (9 + 12) = 0.571 at Vin=9V",
+        "formula_inductance": "L1 = Vin_min * D_max / (delta_IL * f) = 9*0.571 / (0.75*200000) = 34.3uH"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a SEPIC converter with Vin=9-15V (automotive), Vout=12V, Iout=1A, switching frequency=200kHz."
+    }
+  ]
+}

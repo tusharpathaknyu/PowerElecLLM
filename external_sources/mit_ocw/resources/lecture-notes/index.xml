@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Notes on MIT OpenCourseWare</title>
+    <link>/resources/lecture-notes/</link>
+    <description>Recent content in Lecture Notes on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/lecture-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ch10.pdf</title>
+      <link>/resources/ch10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch10/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on switching-mode rectifiers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch11.pdf</title>
+      <link>/resources/ch11/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch11/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on switching losses and snubbers, simple RCD turn-off snubbers, and simple RCD turn-on snubbers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch12.pdf</title>
+      <link>/resources/ch12/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch12/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on soft switching techniques, CS/ZVS techniques, and DC/DC converter applications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch13.pdf</title>
+      <link>/resources/ch13/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch13/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on convection, conduction, radiation, heat sinking, and thermal modeling.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch14.pdf</title>
+      <link>/resources/ch14/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch14/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on input and output ripple and electromagnetic interference filtering.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch15.pdf</title>
+      <link>/resources/ch15/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch15/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on three-phase systems, three-phase rectifiers, and higher-order rectifiers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch16.pdf</title>
+      <link>/resources/ch16/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch16/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on resonant power conversion, resonant circuit review, class D amplifiers, class E converters, resonant gate drives, multi-stage amplifiers, and RF power circuits.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch3.pdf</title>
+      <link>/resources/ch3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch3/data.json</guid>
+      <description>&lt;p&gt;Lecture notes on power factor, total harmonic distortion, passive power factor compensation, and the displacement factor component of power factor.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch4.pdf</title>
+      <link>/resources/ch4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch4/data.json</guid>
+      <description>&lt;p&gt;Lecture notes on phase-controlled rectifiers, thyristor devices, and silicon controlled rectifiers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch5.pdf</title>
+      <link>/resources/ch5/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch5/data.json</guid>
+      <description>&lt;p&gt;Lecture notes on DC/DC converters, Kirchhoff&amp;rsquo;s voltage law, Kirchhoff&amp;rsquo;s current law, and periodic steady state conditions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch6.pdf</title>
+      <link>/resources/ch6/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch6/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes with an introduction to magnetics, Ampere&amp;rsquo;s law, Faraday&amp;rsquo;s law, flux continuity, the design of an inductor, flux computation, reluctance models, transformers, and inductor design tips.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch7.pdf</title>
+      <link>/resources/ch7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch7/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on isolated DC/DC converters, flyback converters, single?ended forward converters, multiple outputs from isolated converters, transformer leakage inductances, and double?ended converters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch8.pdf</title>
+      <link>/resources/ch8/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch8/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on modeling and control, direct circuit averaging, state-space averaging, linearization, and control design.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ch9.pdf</title>
+      <link>/resources/ch9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/ch9/data.json</guid>
+      <description>&lt;p&gt;Handwritten lecture notes on Fourier series review, inverter structure, programmed PWM, harmonic cancellation, multi-level converters, sine-triangle PWM, and inverter current control techniques.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>chp1.pdf</title>
+      <link>/resources/chp1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/chp1/data.json</guid>
+      <description>&lt;p&gt;Lecture notes on switching power electronics, analysis of techniques, and periodic steady state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>chp2.pdf</title>
+      <link>/resources/chp2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/chp2/data.json</guid>
+      <description>&lt;p&gt;Lecture notes on rectifiers, load regulation, and analysis methods.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>content.pdf</title>
+      <link>/resources/content/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/content/data.json</guid>
+      <description>&lt;p&gt;Title page and table of contents from the course lecture notes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture Notes</title>
+      <link>/pages/lecture-notes/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/pages/lecture-notes/data.json</guid>
+      <description>&lt;p&gt;AC = alternate current&lt;br&gt;&#xA;DC = direct current&lt;/p&gt;&#xA;&lt;p&gt;Title page and table of contents (&lt;a href=&#34;../../resources/content/index.html&#34;&gt;PDF&lt;/a&gt;)&lt;/p&gt;&#xA;&lt;p&gt;&lt;table&gt;&#xA;&#xA;&lt;thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;CHAPTERS&#xA;&lt;/th&gt;&#xA;&#xA;&lt;th&gt;&#xA;&#xA;TOPICS&#xA;&lt;/th&gt;&#xA;&lt;/p&gt;&#xA;&lt;/tr&gt;&#xA;&#xA;&lt;p&gt;&lt;/thead&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;1&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Introduction and analysis methods (&lt;a href=&#34;../../resources/chp1/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;2&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Introduction to rectifiers (&lt;a href=&#34;../../resources/chp2/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;3&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Power factor and measures of distortion (&lt;a href=&#34;../../resources/ch3/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;4&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Phase-controlled rectifiers (&lt;a href=&#34;../../resources/ch4/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;5&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Introduction to DC/DC converters (&lt;a href=&#34;../../resources/ch5/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;6&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Introduction to magnetics (&lt;a href=&#34;../../resources/ch6/index.html&#34;&gt;PDF - 2.0 MB&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;7&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Isolated DC/DC converters (&lt;a href=&#34;../../resources/ch7/index.html&#34;&gt;PDF&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;&lt;/tr&gt;&#xA;&#xA;&lt;tr&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;8&#xA;&lt;/td&gt;&#xA;&#xA;&lt;td&gt;&#xA;&#xA;Modeling and control (&lt;a href=&#34;../../resources/ch8/index.html&#34;&gt;PDF - 1.9 MB&lt;/a&gt;)&#xA;&lt;/td&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

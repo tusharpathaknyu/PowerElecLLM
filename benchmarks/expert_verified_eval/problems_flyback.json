@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "flyback",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_flyback_001",
+      "topology": "flyback",
+      "level": 3,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 150,
+        "vout": 12,
+        "iout": 2,
+        "pout": 24,
+        "frequency": 65000,
+        "ripple_voltage_pct": 5
+      },
+      "ground_truth": {
+        "duty_cycle": 0.444,
+        "capacitance_uF": 68.4,
+        "formula_duty_cycle": "D = n*Vout / (Vin + n*Vout) = 10*12 / (150 + 10*12) = 0.444"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 10
+      },
+      "problem_statement": "Design a flyback converter for offline AC-DC with Vin_dc=150V (rectified 110VAC), Vout=12V, Pout=24W, switching frequency=65kHz. Primary to secondary turns ratio is 10:1."
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+[
+  {
+    "id": "gate_2007_q13",
+    "source": "GATE Official (OCR)",
+    "year": 2007,
+    "question_number": "13",
+    "problem_type": "thyristor_circuit",
+    "problem_text": "Q.13 figure. If this signal is ideally sampled at intervals |U(jo)| of 1 ms, then the frequency spectrum of the sampled signal will be 1 kHz 4 (A) |U\"(jo)| a (B) oa (C) o (D) o Divergence of the vector field V(x,y,2) = - (x cos xy + y)i + (y cos xy)j + (sin P47 t+y~)k is (A) 2z cos 2\u201d (B) sin xy + 2z cos z* (C) x sin xy - cos z (D) none of these x=[x) x2 ... x\u00bb]\" is an n-tuple nonzero vector. The nxn matrix V=xx\" (A) has rank zero (B) has rank 1 (C) is orthogonal (D) has rank n A single-phase fully controlled thyristor bridge ac-de converter is operating at a firing angle of 25\u00b0 and an overlap angle of 10\u00b0 with constant de output current of 20 A. The fundamental power factor (displacement factor) at input ac mains is (A) 0.78 (B) 0.827 (C) 0.866 (D) 0.9 EE 6/32",
+    "matched_patterns": [
+      "thyristor.*converter",
+      "bridge.*converter",
+      "firing.angle"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q18",
+    "source": "GATE Official (OCR)",
+    "year": 2007,
+    "question_number": "18",
+    "problem_type": "inverter",
+    "problem_text": "Q.18 A three-phase, fully-controlled thyristor bridge converter is used as line commutated inverter to feed 50 kW power at 420 V dc toa three-phase, 415 V (line), 50 Hz ac mains. Consider de link current to be constant. The rms current of the thyristor is (A) 119.05 A (B) 79.37 A (C) 68.73 A (D) 39.68 A In a transformer, zero voltage regulation at full load is (A) not possible (B) possible at unity power factor load (C) possible at leading power factor load (D) possible at lagging power factor load The de motor, which can provide zero speed regulation at full load without any controller, is (A) series (B) shunt (C) cumulative compound (D) differential compound The probes of a non- isolated, two-channel oscilloscope are clipped to points A, B and C in the circuit of the adjacent figure. Vin is a square wave of a Ann suitable low frequency. The display on Ch, and Ch) are as shown on the right. Then the \u201cSignal\u201d and \u201cGround\u201d probes S;, G; and S), G, of Ch, and Ch respectively are connected to points: in (A) A,B,C,A (B) A,B,C,B (C) C,B,A,B (D) B,A,B,C A single phase full-wave half-controlled bridge converter feeds an inductive load. The two SCRs in the converter are connected to a common DC bus. The converter has to have a freewheeling diode (A) because the converter inherently does not provide for free-wheeling (B) because the converter does not provide for free-wheeling for high values of triggering angles (C) or else the free-wheeling action of the converter will cause shortin",
+    "matched_patterns": [
+      "thyristor.*converter",
+      "bridge.*converter",
+      "inverter.*voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q21",
+    "source": "GATE Official (OCR)",
+    "year": 2007,
+    "question_number": "21",
+    "problem_type": "inverter",
+    "problem_text": "Q.21 The electromagnetic torque T, of a drive, and its connected load torque T, are as shown below. Out of the operating points A, B, C and D, the stable ones are r Te Tt 4 Te a yy By A Ty 0 B Ty, Speed > Speed \u00bb Speed \u00bb (A) A, C, D (B) B,C (C) A,D (D) B,C, D \u201cSix MOSFETs connected in a bridge configuration (having no other power device). MUST be operated as a Voltage Source Inverter (VSI)\u201d. This statement is (A) True, because being majority carier devices, MOSFETs are voltage driven (B) True, because MOSFETs have inherently anti-parallel diodes (C) False, because it can be operated both as Current Source Inverter (CSI) or a VSI (D) False, because MOSFETs can be operated as excellent constant current sources in the saturation region",
+    "matched_patterns": [
+      "inverter.*voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q47",
+    "source": "GATE Official (OCR)",
+    "year": 2007,
+    "question_number": "47",
+    "problem_type": "inverter",
+    "problem_text": "Q.47 A single-phase voltage source inverter is controlled in a single pulse-width modulated mode with a pulse width of 150\u00b0 in each half cycle. Total harmonic distortion is WV, 2p? defined as ee \u201cx100, where V; is the rms value of the fundamental ! component of the output voltage. The THD of output ac voltage waveform is (A) 65.65% (B) 48.42% (C) 31.83% (D) 30.49% A voltage source inverter is used to control the speed of a three-phase, 50 Hz, squirrel cage induction motor. Its slip for rated torque is 4%. The flux is maintained at rated value. If the stator resistance and rotational losses are neglected, then the frequency of the impressed voltage to obtain twice the rated torque at starting should be (A) 10 Hz (B) 5 Hz (C) 4Hz (D) 2 Hz A three-phase, 440 V, 50 Hz ac mains fed thyristor bridge is feeding a 440 V de, 15 kW, 1500 rpm separately excited de motor with a ripple free continuous current in the de link under all operating conditions. Neglecting the losses, the power factor of the ac mains at half the rated speed, is (A) 0.354 (B) 0.372 (C) 0.90 (D) 0.955 A single-phase, 230V, 50 Hz ac mains fed step down transformer (4:1) is supplying power to a half-wave uncontrolled ac-de converter used for charging a battery (12 V dc) with the series current limiting resistor being 19.04 Q. The charging current is (A) 2.43 A (B) 1.65A (C) 1.22A (D) 1.0A A three-phase synchronous motor connected to ac mains is running at full load and unity power factor. If its shaft load is reduce",
+    "matched_patterns": [
+      "thyristor.*converter",
+      "bridge.*converter",
+      "inverter.*output"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2007_q61",
+    "source": "GATE Official (OCR)",
+    "year": 2007,
+    "question_number": "61",
+    "problem_type": "dc_dc_converter",
+    "problem_text": "Q.61 In the circuit of adjacent figure the diode connects the ac source to a pure inductance L. The-diode conducts for (A) 90\u00b0 (B) 180\u00b0 (C) 270\u00b0 (D) 360\u00b0 The circuit in the figure is a current commutated de \u2014 de chopper where, Thy, is the main SCR and Thaux is the auxiliary SCR.The load current is constant at 10 A. Thy is ON. Thaux is triggered at \u00a2 = 0. Thy is turned OFF between 10pF 25.28 HH (A) 0 ps <\u00a2 <25 ps (B) 25 ps <1 < 50 ps (C) 50 ps <\u00a2<75 ps (D) 75 ps <t< 100 ps In the circuit shown in figure switch SW, is initially CLOSED and SW, is OPEN. The SW2 Ro 100 inductor L carries a current of 10 A and the capacitor is charged to 10 V with polarities as Ry 10 + indicated. SW) is initially CLOSED at \u00a2 = 0- 100 eas c] lov and SW, is OPENED at \u00a2 = 0. The current through C and the voltage across L at \u00a2 = 0+ is (A) 55 A, 4.5 V (B) 5.5 A, 45 V (C) 45 A, 5.5 V (D) 4.5A,55V EE 20/32 eee",
+    "matched_patterns": [
+      "chopper"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q18",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "18",
+    "problem_type": "inverter",
+    "problem_text": "Q.18 A 3-phase Voltage Source Inverter is operated in 180\u00b0 conduction mode. Which one of the following statements is true? (A) Both pole-voltage and line-voltage will have 3 harmonic components (B) Pole-voltage will have 3\" harmonic component but line-voltage will be free from 3 harmonic (C) Line-voltage will have 3\" harmonic component but pole-voltage will be free from 3\" harmonic (D) Both pole-voltage and line-voltage will be free from 3\u2122 harmonic components EE 5/28 2008 MAIN PAPER ~ EE",
+    "matched_patterns": [
+      "inverter.*voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q42",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "42",
+    "problem_type": "rectifier",
+    "problem_text": "Q.42 The block diagrams of two types of half wave rectifiers are shown in the figure. The transfer characteristics of the rectifiers are also shown within the block. Vin Vin It is desired to make full wave rectifier using above two half-wave rectifiers. The resultant circuit will be (A) (B) (C) (D)",
+    "matched_patterns": [
+      "half.wave.*rectifier",
+      "full.wave.*rectifier"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q55",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "55",
+    "problem_type": "general",
+    "problem_text": "Q.55 MAIN PAPER ~ EE A lossless power system has to serve a load of 250 MW. There are two generators (G1 and G2) in the system with cost curves C, and C, respectively defined as follows: C\\(Pa) = Po +0.055xP,,? C,(PG2)= 3P;, +0.03xP,,? where Pg; and Pg are the MW injections from generator G1 and G2 respectively. Then, the minimum cost dispatch will be (A) Pg: = 250 MW; Pg2 = 0 MW (B) Pg: = 150 MW; Pg = 100 MW (C) Pci = 100 MW; Pg = 150 MW (D) Pg: = 0 MW; Pg? = 250 MW A lossless single machine infinite bus power system is shown below: 1.046 pu 1.040 pu \u00a9 | 1.0 pu t The synchronous generator transfers 1.0 per unit of power to the infinite bus. The critical clearing time of circuit breaker is 0.28 s. If another identical synchronous generator is connected in parallel to the existing generator and each generator is scheduled to supply 0.5 per unit of power, then the critical clearing time of the circuit breaker will (A) reduce to 0.14 s (B) reduce but will be more than 0.14 s (C) remain constant at 0.28 s (D) increase beyond 0.28 s Single line diagram of a 4-bus single source distribution system is shown below. Branches Css. e;and e, have equal impedances. The load current values indicated in the figure are in per unit. Distribution company\u2019s policy requires radial system operation with minimum loss. This can be achieved by opening of the branch (A) @, (B) e, (C) e (D) e, A single phase fully controlled bridge converter supplies a load drawing constant and ripple free load curren",
+    "matched_patterns": [
+      "bridge.*converter",
+      "ripple.*current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q56",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "56",
+    "problem_type": "dc_dc_converter",
+    "problem_text": "Q.56 A single-phase half controlled converter shown in the figure is feeding power to highly inductive load. The converter is operating at a firing angle of 60\u00b0. If the firing pulses are suddenly removed, the steady state voltage (v.) waveform of the converter will become (A) (B) Q.57_ A 220 V, 20 A, 1000 rpm, separately excited de motor has an armature resistance of 2.5 Q. The motor is controlled by a step down chopper with a frequency of 1 kHz. The input de voltage to the chopper is 250 V. The duty cycle of the chopper for the motor to operate at a speed of 600 rpm delivering the rated torque will be (A) 0.518 (B) 0.608 (C) 0.852 (D) 0.902",
+    "matched_patterns": [
+      "firing.angle",
+      "chopper"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q58",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "58",
+    "problem_type": "general",
+    "problem_text": "Q.58 A 220 V, 1400 rpm, 40 A separately excited dc motor has an armature resistance of 0.4 Q. The motor is fed from a single phase circulating current dual converter with an input ac line voltage of 220 V (rms). The approximate firing angles of the dual converter for motoring operation at 50% of rated torque and 1000 rpm will be (A) 43\u00b0, 137\u00b0 (B) 43\u00b0, 47\u00b0 (C) 39\u00b0, 141\u00b0 (D) 39\u00b0, 51\u00b0 EE 16/28 2008 MAIN PAPER \u2014 EE",
+    "matched_patterns": [
+      "firing.angle"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2008_q62",
+    "source": "GATE Official (OCR)",
+    "year": 2008,
+    "question_number": "62",
+    "problem_type": "inverter",
+    "problem_text": "Q.62 A single phase voltage source inverter is feeding a purely inductive load as shown in the figure. The inverter is operated at 50 Hz in 180\u00b0 square wave mode. Assume that the load current does not have any de component. The peak value of the inductor current i, will be (A) 6.37 A (B) 10A (C)20A (D) 40A A 400 V, 50 Hz, 4 pole, 1400 rpm, star connected squirrel cage induction motor has the following parameters referred to the stator: R= 1.0Q, X,=X, =15Q Neglect stator resistance and core and rotational losses of the motor. The motor is controlled from a 3-phase voltage source inverter with constant V/f control. The stator line-to-line voltage (rms) and frequency to obtain the maximum torque at starting will be: (A) 20.6 V, 2.7 Hz (B) 133.3 V, 16.7 Hz (C) 266.6 V, 33.3Hz (D) 323.3 V, 40.3 Hz A single phase fully controlled converter bridge is used for electrical braking of a separately excited dc motor. The de motor load is represented by an equivalent circuit as shown in the fi gure. 22 150 V Assume that the load inductance is sufficient to ensure continuous and ripple free load current. The firing angle of the bridge for a load current of Ig = 10 A will be (A) 44\u00b0 (B) 51\u00b0 (C) 129\u00b0 (D) 136\u00b0 A three phase fully controlled bridge converter is feeding a load drawing a constant and ripple free load current of 10 A at a firing angle of 30\u00b0. The approximate Total Harmonic Distortion (%THD) and the rms value of fundamental component of the input current will respectively be (A) 31",
+    "matched_patterns": [
+      "bridge.*converter",
+      "firing.angle",
+      "inverter.*voltage"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q44",
+    "source": "GATE Official (OCR)",
+    "year": 2009,
+    "question_number": "44",
+    "problem_type": "inverter",
+    "problem_text": "Q.44 to a pure inductor and is connected to a purely sinusoidal 50Hz voltage source. Under ideal conditions the waveform through the inductor will look like 1.5 we 20 30 time(ms) time(ms) The Current Source Inverter shown in figure is operated by alternately turning on thyristor pairs (T;, T>) and (Ts, T,). If the load is purely resistive, the theoretical maximum output frequency obtainable will be (A) 125 kHz (C) 500 kHz % current y,=10sin 100xnt + L=(0.1/n)H 10 40 50 time(ms) 15 \u00a9), 5 1 E 1 B05 0. [\\ % \u20184020. 90 +40 ~\u00b0 60 10 20. 30. +440 50 time(ms) (B) 250 kHz (D) 50 kHz EE EE 2009",
+    "matched_patterns": [
+      "inverter.*output"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2009_q45",
+    "source": "GATE Official (OCR)",
+    "year": 2009,
+    "question_number": "45",
+    "problem_type": "dc_dc_converter",
+    "problem_text": "Q.45 \\ 4 Q.46 nr. f fr 4 Q.47 & In the chopper circuit shown, the main thyristor (Ty) is operated at a duty ratio of 0.8 which is much larger the commutation interval. If the maximum allowable reapplied dv/dt on Ty is 50 V/us, what should be the theoretical minimum value of C; ? Assume current ripple through Lo to be negligible. (A) 0.2 pF (B) 0.02 pF (C) 2uF (D) 20 pF Match the switch arrangements on the top row to the steady-state V-I characteristics on the lower row. The steady state operating points are shown by large black dots. (A) (B) (c) (D) SS paar is i, () (u) Vs Vs (A) A-I, B-I, C-Il, D-IV (B) A-II, B-IV, C-I, D-II Vs (C) A-IV, B-Ill, C-I, D-II (D) A-IV, B-Ill, C-l, D-I For the circuit shown, find out the current flowing through the 22 resistance. Also identify the changes to be made to double the current through the 2Q resistance. Vs 4V 2 (+) S) OE (A) (5A; Put Vs = 20V) (B) (2A; Put Vs = 8V) (C) (SA; Put Js = LOA) (D) (7A; Put Js = 12A) 14/24 2009",
+    "matched_patterns": [
+      "chopper",
+      "commutation",
+      "ripple.*current"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q23",
+    "source": "GATE Official (OCR)",
+    "year": 2010,
+    "question_number": "23",
+    "problem_type": "rectifier",
+    "problem_text": "Q.23 The power electronic converter shown in the figure has a single-pole double-throw switch. The pole P of the switch is connected alternately to throws A and B. The converter shown is a {A) step-down chopper (buck converter) (B) half-wave rectifier {C) step-up chopper (boost converter) (D) full-wave rectifier",
+    "matched_patterns": [
+      "half.wave.*rectifier",
+      "full.wave.*rectifier",
+      "chopper"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2010_q25",
+    "source": "GATE Official (OCR)",
+    "year": 2010,
+    "question_number": "25",
+    "problem_type": "thyristor_circuit",
+    "problem_text": "Q.25 The fully controlled thyristor converter in the figure is fed from a single-phase source. When the firmg angle is 0\u00b0, the dc output voltage of the converter is 300 V. What will be the output voltage for a firing angle of 60\u00b0, assuming continuous conduction? (A) 150 V {B) 210 V (C} \u00aeOV (D) 100n V EE Vis 2010 EB",
+    "matched_patterns": [
+      "thyristor.*converter",
+      "firing.angle",
+      "continuous.*conduction"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q25",
+    "source": "GATE Official (OCR)",
+    "year": 2011,
+    "question_number": "25",
+    "problem_type": "thyristor_circuit",
+    "problem_text": "Q.25 Circuit turn-off time of an SCR is defined as the time (A) taken by the SCR to turn off (B) required for the SCR current to become zero (C) for which the SCR is reverse biased by the commutation circuit (D) for which the SCR is reverse biased to reduce its current below the holding current EE-A 124 2011 EE",
+    "matched_patterns": [
+      "commutation"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q36",
+    "source": "GATE Official (OCR)",
+    "year": 2011,
+    "question_number": "36",
+    "problem_type": "dc_dc_converter",
+    "problem_text": "Q.36 A voltage commutated chopper circuit, operated at 500Hz, is shown below. Mim i=10A 200 V LOAD If the maximum value of load current is 10 A, then the maximum current through the main (M) and auxiliary (A) thyristors will be =12 Aandi Amax =10A (B) itm, =12 A and i,,,, =2A Mmax =12A (D) ism =10 A and i,,,, =8A (A) trax (C) igmax = 10 A and i Mmax Amax Mmax EE-A 10/24 2011 EE",
+    "matched_patterns": [
+      "chopper"
+    ],
+    "extraction_method": "ocr"
+  },
+  {
+    "id": "gate_2011_q53",
+    "source": "GATE Official (OCR)",
+    "year": 2011,
+    "question_number": "53",
+    "problem_type": "general",
+    "problem_text": "Q.53 Inthe above system, the three-phase fault MVA at the bus 3 is (A) 82.55 MVA (B) 85.11 MVA (C) 170.91 MVA (D) 181.82 MVA EE-A 15/24 2011 EE Statement for Linked Answer Questions 54 and 55: A solar energy installation utilizes a three-phase bridge converter to feed energy into power system through a transformer of 400 V/ 400 V, as shown below. Filter Choke The energy is collected in a bank of 400 V battery and is connected to converter through a large filter choke of resistance 10 Q.",
+    "matched_patterns": [
+      "bridge.*converter"
+    ],
+    "extraction_method": "ocr"
+  }
+]

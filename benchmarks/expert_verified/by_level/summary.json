@@ -1,0 +1,13 @@
+{
+  "total": 233,
+  "by_level": {
+    "L1_beginner": 64,
+    "L2_intermediate": 129,
+    "L3_advanced": 35,
+    "L4_expert": 5
+  },
+  "sources": {
+    "GATE": 173,
+    "MIT": 60
+  }
+}

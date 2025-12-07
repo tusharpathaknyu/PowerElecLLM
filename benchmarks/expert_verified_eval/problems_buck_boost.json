@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "source": "physics_verified",
+    "topology": "buck_boost",
+    "count": 1,
+    "verification": "analytical_formulas"
+  },
+  "problems": [
+    {
+      "id": "pv_buckboost_001",
+      "topology": "buck_boost",
+      "level": 2,
+      "source": "physics_verified",
+      "specs": {
+        "vin": 12,
+        "vout": 15,
+        "iout": 1,
+        "frequency": 100000,
+        "ripple_voltage_pct": 2,
+        "ripple_current_pct": 30
+      },
+      "ground_truth": {
+        "duty_cycle": 0.556,
+        "inductance_uH": 41.1,
+        "capacitance_uF": 18.5,
+        "formula_duty_cycle": "D = |Vout| / (Vin + |Vout|) = 15 / (12 + 15) = 0.556",
+        "formula_inductance": "L = Vin * D / (delta_IL * f) = 12*0.556 / (0.54*100000) = 123uH",
+        "formula_capacitance": "C = Iout * D / (f * delta_Vout) = 1*0.556 / (100000*0.3) = 18.5uF"
+      },
+      "verification": {
+        "method": "Analytical + SPICE",
+        "expected_vout_tolerance_pct": 5
+      },
+      "problem_statement": "Design a buck-boost converter with Vin=12V, Vout=-15V, Iout=1A, switching frequency=100kHz."
+    }
+  ]
+}

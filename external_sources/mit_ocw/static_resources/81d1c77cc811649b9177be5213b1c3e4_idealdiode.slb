@@ -1,0 +1,32 @@
+*version 8.0 872075816
+@index
+symloc idealdiode 0 565
+*symbol idealdiode
+d Ideal diode
+@type p 8.0
+@attributes
+a 1 sp 0:9 0 0 0 hln 100 REFDES=X?
+a 0 sp 11 0 0 30 hln 100 PART=
+a 0 sp 0 0 0 0 hln 100 MODEL=diode_ideal
+a 0 sp 0 0 0 0 hln 100 TEMPLATE=X^@REFDES %1 %2 @MODEL
+@pins
+p 0 12 12 hln 100 1 n 0 10 h
+a 0 s 1 0 -1 10 hrn 100 PIN=1
+a 0 s 0:13 0 0 10 hln 100 ERC=b
+a 0 s 0:13 0 0 10 hln 100 FLOAT=n
+p 0 19 12 hrn 100 2 n 30 10 u
+a 0 s 1 0 34 12 hlb 100 PIN=2
+a 0 s 0:13 0 30 10 hln 100 ERC=b
+a 0 s 0:13 0 30 10 hln 100 FLOAT=n
+@graphics 30 20 0 10 10
+v 0 12 5
+12 15
+20 10
+12 5
+;
+v 0 10 10
+12 10
+;
+v 0 20 5
+20 15
+;
