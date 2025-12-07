@@ -1,17 +1,15 @@
 {
-  "generated_at": "2025-12-07T16:30:21.065583",
+  "generated_at": "2025-12-07T17:49:25.095022",
   "models_used": [
     "GPT-4o",
-    "GPT-4o-mini",
-    "GPT-4-Turbo",
-    "Grok-3-Fast",
+    "Grok-4.1-Fast-Reasoning",
     "Gemini-2.0-Flash"
   ],
   "statistics": {
     "total": 83,
-    "unanimous": 17,
-    "majority": 54,
-    "tie": 12,
+    "unanimous": 27,
+    "majority": 35,
+    "tie": 21,
     "failed": 0
   },
   "total_questions": 83,
@@ -20,137 +18,109 @@
       "question_id": "gate_2007_q18",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C\nC\nB\nC\nA",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2007_q21",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2007_q23",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.5,
+      "consensus_answer": "D",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2007_q47",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B\nB\nA\nC",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "B",
+      "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2007_q60",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2007_q73",
       "individual_answers": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q18",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
       "confidence": 1.0,
@@ -160,217 +130,173 @@
       "question_id": "gate_2008_q42",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q54",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
-      },
-      "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
-    },
-    {
-      "question_id": "gate_2008_q55",
-      "individual_answers": {
-        "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
-      },
-      "raw_responses": {
-        "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
       "confidence": 1.0,
       "consensus_method": "unanimous"
     },
     {
-      "question_id": "gate_2008_q56",
+      "question_id": "gate_2008_q55",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B\nB",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
+    },
+    {
+      "question_id": "gate_2008_q56",
+      "individual_answers": {
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
+      },
+      "raw_responses": {
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
+      },
+      "consensus_answer": "B",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q58",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q59",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
       },
-      "consensus_answer": "A",
+      "consensus_answer": "C",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2008_q60",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2008_q61",
       "individual_answers": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "consensus_answer": "B",
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2008_q62",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B\nB\nC\nA",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.5,
+      "consensus_answer": "A",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q63",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_2008_q70",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
@@ -380,77 +306,61 @@
       "question_id": "gate_2008_q77",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2009_q9",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2009_q17",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C\nC\nA",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2009_q29",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
       "confidence": 1.0,
@@ -460,77 +370,61 @@
       "question_id": "gate_2009_q45",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2009_q47",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2009_q54",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2011_q25",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
       "confidence": 1.0,
@@ -540,97 +434,77 @@
       "question_id": "gate_2011_q36",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2011_q53",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D\n"
       },
-      "consensus_answer": "C",
+      "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2012_q4",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2012_q17",
       "individual_answers": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "D",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "GPT-4o": "D",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "D",
-      "confidence": 0.5,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2012_q18",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
       "confidence": 1.0,
@@ -640,77 +514,61 @@
       "question_id": "gate_2012_q23",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "B",
+      "consensus_answer": "C",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2012_q24",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "consensus_answer": "B",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2012_q32",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D\n"
       },
-      "consensus_answer": "C",
-      "confidence": 0.5,
+      "consensus_answer": "A",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2012_q33",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
       "confidence": 1.0,
@@ -720,77 +578,61 @@
       "question_id": "gate_ee_2012_q35",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2012_q47",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "B",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2013_q1",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
       },
-      "consensus_answer": "D",
+      "consensus_answer": "C",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2013_q27",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
@@ -800,217 +642,173 @@
       "question_id": "gate_ee_2013_q29",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.5,
+      "consensus_answer": "D",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2013_q30",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "B",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2013_q31",
       "individual_answers": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "D",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2013_q32",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "B",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2013_q40",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D\n"
+      },
+      "consensus_answer": "C",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
+    },
+    {
+      "question_id": "gate_ee_2013_q47",
+      "individual_answers": {
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
+      },
+      "raw_responses": {
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
       "confidence": 1.0,
       "consensus_method": "unanimous"
     },
     {
-      "question_id": "gate_ee_2013_q47",
-      "individual_answers": {
-        "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
-      },
-      "raw_responses": {
-        "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
-      },
-      "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
-    },
-    {
       "question_id": "gate_2013_q48",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "consensus_answer": "C",
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2013_q49",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_2013_q50",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2013_q51",
       "individual_answers": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "A",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "GPT-4o": "A",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "C",
-      "confidence": 0.75,
+      "consensus_answer": "A",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2013_q53",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
       "confidence": 1.0,
@@ -1020,377 +818,301 @@
       "question_id": "gate_2013_q55",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "B",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2013_q65",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2014_q8",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "C",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q30",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q33",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "A",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2014_q34",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "consensus_answer": "C",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q36",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q40",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
-      "consensus_answer": "B",
-      "confidence": 1.0,
-      "consensus_method": "unanimous"
+      "consensus_answer": "A",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q42",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_2014_q45",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
+      "consensus_answer": "B",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2014_q54",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2016_q11",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
+      "consensus_answer": "D",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2016_q37",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2016_q50",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "A",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2017_s1_q15",
       "individual_answers": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "D",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2017_s1_q39",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_2017_s2_q11",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2018_q1",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "consensus_answer": "A",
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2018_q3",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
       "confidence": 1.0,
@@ -1400,97 +1122,77 @@
       "question_id": "gate_ee_2018_q38",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2019_q13",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C\nD\nD\nB\nA\n",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_2019_q40",
       "individual_answers": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "B",
       "confidence": 0.5,
-      "consensus_method": "majority"
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2022_q8",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "consensus_answer": "A",
+      "confidence": 0.5,
+      "consensus_method": "tie_gpt4o"
     },
     {
       "question_id": "gate_ee_2022_q22",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
       "confidence": 1.0,
@@ -1500,37 +1202,29 @@
       "question_id": "gate_ee_2022_q49",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "consensus_answer": "C",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_2023_q8",
       "individual_answers": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "D",
       "confidence": 1.0,
@@ -1540,140 +1234,112 @@
       "question_id": "gate_ee_2023_q16",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2023_q17",
       "individual_answers": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
       "consensus_answer": "C",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_2023_q19",
       "individual_answers": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
+      "consensus_answer": "B",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_2023_q22",
       "individual_answers": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
-      "consensus_answer": "A",
-      "confidence": 0.5,
-      "consensus_method": "tie_gpt4o"
+      "consensus_answer": "B",
+      "confidence": 0.6666666666666666,
+      "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2023_q23",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B\n"
       },
       "consensus_answer": "B",
-      "confidence": 0.75,
-      "consensus_method": "majority"
+      "confidence": 1.0,
+      "consensus_method": "unanimous"
     },
     {
       "question_id": "gate_ee_2023_q27",
       "individual_answers": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       },
       "raw_responses": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C\n"
       },
-      "consensus_answer": "B",
-      "confidence": 0.75,
+      "consensus_answer": "C",
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     },
     {
       "question_id": "gate_ee_2023_q37",
       "individual_answers": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       },
       "raw_responses": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": "\n  No API_KEY or ADC found. Please either:\n    - Set the `GOOGLE_API_KEY` environment variable.\n    - Manually pass the key with `genai.configure(api_key=my_api_key)`.\n    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information."
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D\n"
       },
       "consensus_answer": "D",
-      "confidence": 0.5,
+      "confidence": 0.6666666666666666,
       "consensus_method": "majority"
     }
   ]

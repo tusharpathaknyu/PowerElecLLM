@@ -5,7 +5,7 @@ Comprehensive Benchmark Evaluation for PowerElecLLM
 Evaluates LLMs on:
 1. GATE theory questions (MCQ with consensus LLM answers)
 2. MIT problems (with ground truth solutions)  
-3. Synthetic circuit problems (SPICE simulation verification)
+3. Synthetic circuit problems (Multi-LLM consensus verification)
 """
 
 import json
@@ -14,6 +14,7 @@ import re
 import subprocess
 import tempfile
 import time
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -22,13 +23,130 @@ import matplotlib.pyplot as plt
 import numpy as np
 from openai import OpenAI
 
+# Try to import optional providers
+try:
+    import google.generativeai as genai
+    GEMINI_AVAILABLE = True
+except ImportError:
+    GEMINI_AVAILABLE = False
+
 # Initialize OpenAI client
 client = OpenAI()
+
+# Configure Gemini
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyCzu3KioCon4o6pZIGHfkxe7NkjYTP_gRc")
+if GEMINI_AVAILABLE and GOOGLE_API_KEY:
+    genai.configure(api_key=GOOGLE_API_KEY)
+
+# xAI API key
+XAI_API_KEY = os.getenv("XAI_API_KEY", "")
 
 # Evaluation config
 EVAL_MODEL = "gpt-4o"
 RESULTS_DIR = Path("benchmarks/evaluation_results")
 RESULTS_DIR.mkdir(exist_ok=True)
+
+# Multi-LLM models for consensus (GPT-4o, Grok-4.1, Gemini)
+CONSENSUS_MODELS = [
+    {"provider": "openai", "model": "gpt-4o", "name": "GPT-4o"},
+    {"provider": "xai", "model": "grok-4-1-fast-reasoning", "name": "Grok-4.1-Fast-Reasoning"},
+    {"provider": "gemini", "model": "gemini-2.0-flash", "name": "Gemini-2.0-Flash"},
+]
+
+
+# =============================================================================
+# Multi-LLM Query Functions
+# =============================================================================
+
+def query_openai_design(model: str, prompt: str) -> Tuple[Optional[float], str]:
+    """Query OpenAI model for circuit design, return duty ratio."""
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=200,
+            temperature=0.0
+        )
+        raw = response.choices[0].message.content
+        d_val = extract_duty_ratio(raw)
+        return d_val, raw
+    except Exception as e:
+        return None, str(e)
+
+
+def query_xai_design(model: str, prompt: str) -> Tuple[Optional[float], str]:
+    """Query xAI Grok model for circuit design."""
+    if not XAI_API_KEY:
+        return None, "XAI_API_KEY not set"
+    try:
+        xai_client = OpenAI(api_key=XAI_API_KEY, base_url="https://api.x.ai/v1")
+        response = xai_client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=200,
+            temperature=0.0
+        )
+        raw = response.choices[0].message.content
+        d_val = extract_duty_ratio(raw)
+        return d_val, raw
+    except Exception as e:
+        return None, str(e)
+
+
+def query_gemini_design(model: str, prompt: str) -> Tuple[Optional[float], str]:
+    """Query Google Gemini model for circuit design."""
+    if not GEMINI_AVAILABLE:
+        return None, "Gemini not available"
+    try:
+        gemini_model = genai.GenerativeModel(model)
+        response = gemini_model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(max_output_tokens=200, temperature=0.0)
+        )
+        raw = response.text
+        d_val = extract_duty_ratio(raw)
+        return d_val, raw
+    except Exception as e:
+        return None, str(e)
+
+
+def extract_duty_ratio(response: str) -> Optional[float]:
+    """Extract duty ratio from LLM response."""
+    # Look for D= followed by decimal
+    d_match = re.search(r'D\s*=\s*(0?\.\d+|\d+\.\d+)', response, re.IGNORECASE)
+    if d_match:
+        d_val = float(d_match.group(1))
+        if d_val > 1:  # Percentage
+            d_val = d_val / 100
+        return d_val
+    return None
+
+
+def get_consensus_duty_ratio(answers: Dict[str, Optional[float]]) -> Tuple[Optional[float], str, Dict]:
+    """Get consensus duty ratio from multiple LLM answers."""
+    valid = {k: v for k, v in answers.items() if v is not None}
+    
+    if not valid:
+        return None, "no_valid", answers
+    
+    if len(valid) == 1:
+        return list(valid.values())[0], "single", answers
+    
+    # Round to 3 decimal places for comparison
+    rounded = {k: round(v, 3) for k, v in valid.items()}
+    counter = Counter(rounded.values())
+    most_common = counter.most_common()
+    
+    if len(most_common) == 1 or most_common[0][1] > 1:
+        # Unanimous or majority
+        consensus_val = most_common[0][0]
+        method = "unanimous" if most_common[0][1] == len(valid) else "majority"
+        return consensus_val, method, answers
+    else:
+        # All different - use Grok-4.1-Fast-Reasoning as tiebreaker
+        if "Grok-4.1-Fast-Reasoning" in valid:
+            return valid["Grok-4.1-Fast-Reasoning"], "grok_tiebreaker", answers
+        return list(valid.values())[0], "first", answers
 
 
 # =============================================================================
@@ -219,8 +337,8 @@ def evaluate_spice_circuit(problem: Dict) -> Dict:
 # LLM Circuit Design Evaluation
 # =============================================================================
 
-def evaluate_llm_circuit_design(problem: Dict, model: str = EVAL_MODEL) -> Dict:
-    """Have LLM design a circuit and verify against specs."""
+def evaluate_llm_circuit_design(problem: Dict, use_consensus: bool = True) -> Dict:
+    """Have LLM design a circuit and verify against specs using multi-LLM consensus."""
     specs = problem.get("specs", problem.get("specifications", {}))
     topology = specs.get("topology", problem.get("topology", "buck"))
     
@@ -249,68 +367,74 @@ Efficiency_pct=90
 """
 
     try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=200,
-            temperature=0.0
-        )
-        raw_response = response.choices[0].message.content
-        
-        # Parse response - look for D= followed by a decimal between 0 and 1
-        results = {}
-        
-        # Try to find duty ratio specifically
-        d_match = re.search(r'D\s*=\s*(0?\.\d+|\d+\.\d+)', raw_response, re.IGNORECASE)
-        if d_match:
-            d_val = float(d_match.group(1))
-            # If D > 1, it might be percentage, convert
-            if d_val > 1:
-                d_val = d_val / 100
-            results['d'] = d_val
-        
-        # Parse other values
-        for line in raw_response.split('\n'):
-            if '=' in line:
-                key, val = line.split('=', 1)
-                key = key.strip().lower().replace('_', '')
-                try:
-                    num = float(re.findall(r'[\d.]+', val)[0])
-                    if 'luh' in key or key == 'l':
-                        results['l'] = num
-                    elif 'cuf' in key or key == 'c':
-                        results['c'] = num
-                    elif 'efficiency' in key or 'pct' in key:
-                        results['efficiency'] = num
-                except:
-                    pass
-        
-        # Verify duty ratio
-        vin = specs.get('vin', specs.get('Vin', 12))
-        expected_vout = specs.get('vout', specs.get('Vout', 5))
-        
+        # Calculate expected duty ratio
         if "buck" in topology.lower():
-            expected_D = expected_vout / vin
+            expected_D = vout / vin
         elif "boost" in topology.lower():
-            expected_D = 1 - (vin / expected_vout)
+            expected_D = 1 - (vin / vout)
         else:
             expected_D = 0.5
         
-        predicted_D = results.get('d', 0)
-        D_error = abs(predicted_D - expected_D) / expected_D * 100 if expected_D > 0 else 100
-        
-        return {
-            "status": "evaluated",
-            "problem_id": problem["id"],
-            "expected_D": round(expected_D, 3),
-            "predicted_D": round(predicted_D, 3),
-            "D_error_percent": round(D_error, 2),
-            "correct_D": D_error < 10,  # Within 10%
-            "predicted_L_uH": results.get('l'),
-            "predicted_C_uF": results.get('c'),
-            "predicted_efficiency": results.get('efficiency'),
-            "raw_response": raw_response
-        }
+        if use_consensus and (XAI_API_KEY or GEMINI_AVAILABLE):
+            # Multi-LLM consensus approach
+            answers = {}
+            raw_responses = {}
+            
+            for model_config in CONSENSUS_MODELS:
+                provider = model_config["provider"]
+                model = model_config["model"]
+                name = model_config["name"]
+                
+                if provider == "openai":
+                    d_val, raw = query_openai_design(model, prompt)
+                elif provider == "xai":
+                    d_val, raw = query_xai_design(model, prompt)
+                elif provider == "gemini":
+                    d_val, raw = query_gemini_design(model, prompt)
+                else:
+                    continue
+                
+                answers[name] = d_val
+                raw_responses[name] = raw
+                time.sleep(0.3)
+            
+            predicted_D, method, all_answers = get_consensus_duty_ratio(answers)
+            
+            D_error = abs(predicted_D - expected_D) / expected_D * 100 if expected_D > 0 and predicted_D else 100
+            
+            return {
+                "status": "evaluated",
+                "problem_id": problem["id"],
+                "expected_D": round(expected_D, 3),
+                "predicted_D": round(predicted_D, 3) if predicted_D else None,
+                "D_error_percent": round(D_error, 2),
+                "correct_D": D_error < 10,
+                "consensus_method": method,
+                "individual_answers": {k: round(v, 3) if v else None for k, v in all_answers.items()},
+                "raw_responses": raw_responses
+            }
+        else:
+            # Single model fallback
+            response = client.chat.completions.create(
+                model=EVAL_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=200,
+                temperature=0.0
+            )
+            raw_response = response.choices[0].message.content
+            predicted_D = extract_duty_ratio(raw_response)
+            
+            D_error = abs(predicted_D - expected_D) / expected_D * 100 if expected_D > 0 and predicted_D else 100
+            
+            return {
+                "status": "evaluated",
+                "problem_id": problem["id"],
+                "expected_D": round(expected_D, 3),
+                "predicted_D": round(predicted_D, 3) if predicted_D else None,
+                "D_error_percent": round(D_error, 2),
+                "correct_D": D_error < 10,
+                "raw_response": raw_response
+            }
     
     except Exception as e:
         return {"status": "error", "error": str(e)}
@@ -403,7 +527,7 @@ def run_full_evaluation(
         print(f"  Level {level}: Testing {len(problems)} problems...")
         
         for problem in problems:
-            result = evaluate_llm_circuit_design(problem, model)
+            result = evaluate_llm_circuit_design(problem, use_consensus=True)
             results["synthetic_design"].append(result)
             
             if result.get("correct_D"):
@@ -411,7 +535,11 @@ def run_full_evaluation(
             synthetic_count += 1
             
             status = "✓" if result.get("correct_D") else "✗"
-            print(f"    {problem['id']}: {status} (D error: {result.get('D_error_percent', 'N/A')}%)")
+            method = result.get("consensus_method", "single")
+            answers_str = ""
+            if "individual_answers" in result:
+                answers_str = f" | {result['individual_answers']}"
+            print(f"    {problem['id']}: {status} (D err: {result.get('D_error_percent', 'N/A')}%, {method}){answers_str}")
             time.sleep(0.5)
     
     synthetic_accuracy = synthetic_correct / synthetic_count * 100 if synthetic_count else 0

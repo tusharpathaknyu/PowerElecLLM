@@ -26,15 +26,14 @@ except ImportError:
 openai_client = OpenAI()
 
 # Initialize Gemini if available
-if GEMINI_AVAILABLE and os.getenv("GOOGLE_API_KEY"):
-    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyCzu3KioCon4o6pZIGHfkxe7NkjYTP_gRc")
+if GEMINI_AVAILABLE and GOOGLE_API_KEY:
+    genai.configure(api_key=GOOGLE_API_KEY)
 
-# Models to use for consensus
+# Models to use for consensus (balanced: 1 OpenAI + 1 xAI + 1 Google)
 MODELS = [
     {"provider": "openai", "model": "gpt-4o", "name": "GPT-4o"},
-    {"provider": "openai", "model": "gpt-4o-mini", "name": "GPT-4o-mini"},
-    {"provider": "openai", "model": "gpt-4-turbo", "name": "GPT-4-Turbo"},
-    {"provider": "xai", "model": "grok-3-fast", "name": "Grok-3-Fast"},
+    {"provider": "xai", "model": "grok-4-1-fast-reasoning", "name": "Grok-4.1-Fast-Reasoning"},
     {"provider": "gemini", "model": "gemini-2.0-flash", "name": "Gemini-2.0-Flash"},
 ]
 
@@ -174,9 +173,11 @@ def get_consensus_answer(answers: Dict[str, str]) -> Tuple[Optional[str], float,
         confidence = top_count / len(valid_answers)
         return most_common[0][0], confidence, "majority"
     else:
-        # Tie - prefer GPT-4o if available
-        if answers.get("GPT-4o") in [most_common[0][0], most_common[1][0]]:
-            return answers["GPT-4o"], 0.5, "tie_gpt4o"
+        # Tie - prefer Grok-4.1-Fast-Reasoning as tiebreaker
+        grok_answer = answers.get("Grok-4.1-Fast-Reasoning")
+        if grok_answer and grok_answer in [most_common[0][0], most_common[1][0]]:
+            return grok_answer, 0.5, "tie_grok"
+        # Fallback to first most common
         return most_common[0][0], 0.5, "tie_first"
 
 

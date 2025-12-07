@@ -44,13 +44,11 @@
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -68,14 +66,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -91,15 +87,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "B",
-      "llm_confidence": 0.5,
+      "llm_answer": "D",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -132,15 +126,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "B",
+      "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -186,14 +178,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -225,14 +215,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -282,10 +270,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -304,14 +290,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -328,14 +312,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -354,14 +336,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -380,14 +360,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -405,14 +383,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -429,15 +405,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "A",
+      "llm_answer": "C",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -455,14 +429,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -479,15 +451,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_answer": "B",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -506,15 +476,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "B",
-      "llm_confidence": 0.5,
+      "llm_answer": "A",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -531,14 +499,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -559,10 +525,8 @@
       "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -580,13 +544,11 @@
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -603,14 +565,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -627,14 +587,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -655,10 +613,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -693,14 +649,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -721,14 +675,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -745,14 +697,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -852,10 +802,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -873,14 +821,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -897,15 +843,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "C",
+      "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -922,14 +866,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -946,14 +888,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "D",
-      "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
-        "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "D",
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -974,10 +914,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -994,15 +932,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "B",
+      "llm_answer": "C",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1018,15 +954,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_answer": "B",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1042,15 +976,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "C",
-      "llm_confidence": 0.5,
+      "llm_answer": "A",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1071,10 +1003,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1091,14 +1021,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1131,14 +1059,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "B",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1154,15 +1080,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "D",
+      "llm_answer": "C",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1183,10 +1107,8 @@
       "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1202,15 +1124,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 0.5,
+      "llm_answer": "D",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1228,13 +1148,11 @@
       "license": "Public Domain (Government Exam)",
       "llm_answer": "B",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1251,14 +1169,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "D",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1277,14 +1193,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "B",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1301,14 +1215,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1327,14 +1239,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
-        "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "C",
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1350,15 +1260,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_answer": "C",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1375,14 +1283,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1399,14 +1305,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1423,15 +1327,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "C",
-      "llm_confidence": 0.75,
+      "llm_answer": "A",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "A",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1452,10 +1354,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1472,14 +1372,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -1497,13 +1395,11 @@
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1562,14 +1458,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1686,14 +1580,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1711,13 +1603,11 @@
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1733,15 +1623,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_answer": "C",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1758,14 +1646,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -1795,15 +1681,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 1.0,
-      "llm_method": "unanimous",
+      "llm_answer": "A",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1820,14 +1704,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -1857,15 +1739,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
+      "llm_answer": "B",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1928,14 +1808,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -1966,15 +1844,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
+      "llm_answer": "D",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -2087,14 +1963,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -2234,14 +2108,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "A",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "A",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -2275,14 +2147,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "D",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -2363,14 +2233,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -2406,14 +2274,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -2462,15 +2328,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_answer": "A",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -2492,10 +2356,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -2555,14 +2417,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "A"
       }
     },
     {
@@ -2688,14 +2548,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -2730,13 +2588,11 @@
       "license": "Government of India / IISc Official",
       "llm_answer": "B",
       "llm_confidence": 0.5,
-      "llm_method": "majority",
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
-        "GPT-4o": "C",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "GPT-4o": "B",
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -2856,15 +2712,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_answer": "A",
+      "llm_confidence": 0.5,
+      "llm_method": "tie_gpt4o",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -2889,10 +2743,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -2969,15 +2821,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_answer": "C",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -3079,10 +2929,8 @@
       "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "D",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "D",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -3099,14 +2947,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -3123,14 +2969,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
       "llm_answer": "C",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "C",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "C",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -3146,15 +2990,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
+      "llm_answer": "B",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "A",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -3170,15 +3012,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Government of India / IISc Official",
-      "llm_answer": "A",
-      "llm_confidence": 0.5,
-      "llm_method": "tie_gpt4o",
+      "llm_answer": "B",
+      "llm_confidence": 0.6666666666666666,
+      "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "A",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "D",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -3196,14 +3036,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "B",
-      "llm_confidence": 0.75,
-      "llm_method": "majority",
+      "llm_confidence": 1.0,
+      "llm_method": "unanimous",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "C",
-        "GPT-4-Turbo": "B",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "B",
+        "Gemini-2.0-Flash": "B"
       }
     },
     {
@@ -3219,15 +3057,13 @@
       "source_verified": true,
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
-      "llm_answer": "B",
-      "llm_confidence": 0.75,
+      "llm_answer": "C",
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "B",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "C",
-        "Grok-3-Fast": "B",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "C",
+        "Gemini-2.0-Flash": "C"
       }
     },
     {
@@ -3244,14 +3080,12 @@
       "source_url": "https://gate2024.iisc.ac.in/download/",
       "license": "Public Domain (Government Exam)",
       "llm_answer": "D",
-      "llm_confidence": 0.5,
+      "llm_confidence": 0.6666666666666666,
       "llm_method": "majority",
       "llm_individual": {
         "GPT-4o": "D",
-        "GPT-4o-mini": "B",
-        "GPT-4-Turbo": "D",
-        "Grok-3-Fast": "A",
-        "Gemini-2.0-Flash": null
+        "Grok-4.1-Fast-Reasoning": "A",
+        "Gemini-2.0-Flash": "D"
       }
     },
     {
@@ -3413,12 +3247,10 @@
       "license": "Public Domain (Government Exam)"
     }
   ],
-  "answers_generated_at": "2025-12-07T16:30:21.071380",
+  "answers_generated_at": "2025-12-07T17:49:25.103266",
   "answers_models": [
     "GPT-4o",
-    "GPT-4o-mini",
-    "GPT-4-Turbo",
-    "Grok-3-Fast",
+    "Grok-4.1-Fast-Reasoning",
     "Gemini-2.0-Flash"
   ]
 }
