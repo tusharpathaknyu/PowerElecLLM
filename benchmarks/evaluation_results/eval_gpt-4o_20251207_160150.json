@@ -1,0 +1,218 @@
+{
+  "model": "gpt-4o",
+  "timestamp": "2025-12-07T16:01:28.790570",
+  "gate_mcq": [
+    {
+      "status": "evaluated",
+      "question_id": "gate_2007_q60",
+      "expected": "B",
+      "predicted": "A",
+      "correct": false,
+      "confidence": 1.0,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q18",
+      "expected": "B",
+      "predicted": "D",
+      "correct": false,
+      "confidence": 1.0,
+      "raw_response": "D"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q42",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q55",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q29",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2011_q25",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2011_q36",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q18",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q33",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q35",
+      "expected": "A",
+      "predicted": "A",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q47",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q32",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q40",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q47",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q53",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2013_q55",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2014_q8",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2014_q40",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2018_q38",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2019_q13",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2022_q22",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2023_q8",
+      "expected": "D",
+      "predicted": "D",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "D"
+    }
+  ],
+  "synthetic_design": [],
+  "summary": {
+    "gate_mcq": {
+      "total": 22,
+      "correct": 20,
+      "accuracy": 90.9090909090909
+    },
+    "synthetic_design": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0
+    },
+    "overall_accuracy": 45.45454545454545
+  }
+}

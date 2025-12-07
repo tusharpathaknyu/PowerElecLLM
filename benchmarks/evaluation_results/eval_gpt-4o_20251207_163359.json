@@ -1,0 +1,471 @@
+{
+  "model": "gpt-4o",
+  "timestamp": "2025-12-07T16:33:14.848395",
+  "gate_mcq": [
+    {
+      "status": "evaluated",
+      "question_id": "gate_2007_q60",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q18",
+      "expected": "B",
+      "predicted": "D",
+      "correct": false,
+      "confidence": 1.0,
+      "raw_response": "D"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q54",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q55",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q56",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q58",
+      "expected": "A",
+      "predicted": "A",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q60",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q61",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2008_q63",
+      "expected": "A",
+      "predicted": "A",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q9",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q17",
+      "expected": "C",
+      "predicted": "A",
+      "correct": false,
+      "confidence": 0.75,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q29",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q45",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2009_q54",
+      "expected": "A",
+      "predicted": "C",
+      "correct": false,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2011_q25",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2011_q36",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q18",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q33",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q35",
+      "expected": "A",
+      "predicted": "A",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2012_q47",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q31",
+      "expected": "D",
+      "predicted": "A",
+      "correct": false,
+      "confidence": 0.75,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q32",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q40",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q47",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2013_q48",
+      "expected": "B",
+      "predicted": "C",
+      "correct": false,
+      "confidence": 0.75,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q51",
+      "expected": "C",
+      "predicted": "A",
+      "correct": false,
+      "confidence": 0.75,
+      "raw_response": "A"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2013_q53",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_2013_q55",
+      "expected": "B",
+      "predicted": "B",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "B"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2014_q8",
+      "expected": "C",
+      "predicted": "C",
+      "correct": true,
+      "confidence": 1.0,
+      "raw_response": "C"
+    },
+    {
+      "status": "evaluated",
+      "question_id": "gate_ee_2014_q30",
+      "expected": "A",
+      "predicted": "A",
+      "correct": true,
+      "confidence": 0.75,
+      "raw_response": "A"
+    }
+  ],
+  "synthetic_design": [
+    {
+      "status": "evaluated",
+      "problem_id": "L1_001",
+      "expected_D": 0.417,
+      "predicted_D": 0.417,
+      "D_error_percent": 0.08,
+      "correct_D": true,
+      "predicted_L_uH": 68.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.417  \nL_uH=68  \nC_uF=470  \nEfficiency_pct=90  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L1_002",
+      "expected_D": 0.5,
+      "predicted_D": 0.5,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 120.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.5  \nL_uH=120  \nC_uF=470  \nEfficiency_pct=90"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L1_003",
+      "expected_D": 0.104,
+      "predicted_D": 0.104,
+      "D_error_percent": 0.16,
+      "correct_D": true,
+      "predicted_L_uH": 1200.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.104\nL_uH=1200\nC_uF=470\nEfficiency_pct=90"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L1_004",
+      "expected_D": 0.22,
+      "predicted_D": 0.22,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 330.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.22  \nL_uH=330  \nC_uF=470  \nEfficiency_pct=85  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L1_005",
+      "expected_D": 0.583,
+      "predicted_D": 0.583,
+      "D_error_percent": 0.06,
+      "correct_D": true,
+      "predicted_L_uH": 68.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.583  \nL_uH=68  \nC_uF=470  \nEfficiency_pct=85  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L2_001",
+      "expected_D": 0.25,
+      "predicted_D": 0.25,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 1200.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.25  \nL_uH=1200  \nC_uF=470  \nEfficiency_pct=90"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L2_002",
+      "expected_D": 0.75,
+      "predicted_D": 0.75,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 1500.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.75  \nL_uH=1500  \nC_uF=470  \nEfficiency_pct=90  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L2_003",
+      "expected_D": 0.137,
+      "predicted_D": 0.138,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 330.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.1375  \nL_uH=330  \nC_uF=470  \nEfficiency_pct=85"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L2_004",
+      "expected_D": 0.5,
+      "predicted_D": 0.333,
+      "D_error_percent": 33.4,
+      "correct_D": false,
+      "predicted_L_uH": 150.0,
+      "predicted_C_uF": 1000.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.333  \nL_uH=150  \nC_uF=1000  \nEfficiency_pct=85  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L2_005",
+      "expected_D": 0.5,
+      "predicted_D": 0.5,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 47.0,
+      "predicted_C_uF": 100.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.5  \nL_uH=47  \nC_uF=100  \nEfficiency_pct=85"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L3_001",
+      "expected_D": 1.583,
+      "predicted_D": 0.016,
+      "D_error_percent": 99.0,
+      "correct_D": false,
+      "predicted_L_uH": 1000.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 0.0,
+      "raw_response": "D=1.583  \nL_uH=1000  \nC_uF=470  \nEfficiency_pct=0  "
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L3_002",
+      "expected_D": 0.021,
+      "predicted_D": 0.021,
+      "D_error_percent": 0.16,
+      "correct_D": true,
+      "predicted_L_uH": 0.96,
+      "predicted_C_uF": 4700.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.0208  \nL_uH=0.96  \nC_uF=4700  \nEfficiency_pct=85"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L3_003",
+      "expected_D": 1.0,
+      "predicted_D": 1.0,
+      "D_error_percent": 0.0,
+      "correct_D": true,
+      "predicted_L_uH": 0.0,
+      "predicted_C_uF": 0.0,
+      "predicted_efficiency": 100.0,
+      "raw_response": "D=1.0  \nL_uH=0  \nC_uF=0  \nEfficiency_pct=100"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L3_004",
+      "expected_D": 0.417,
+      "predicted_D": 0.417,
+      "D_error_percent": 0.08,
+      "correct_D": true,
+      "predicted_L_uH": 150.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 85.0,
+      "raw_response": "D=0.417  \nL_uH=150  \nC_uF=470  \nEfficiency_pct=85"
+    },
+    {
+      "status": "evaluated",
+      "problem_id": "L3_005",
+      "expected_D": 0.417,
+      "predicted_D": 0.417,
+      "D_error_percent": 0.08,
+      "correct_D": true,
+      "predicted_L_uH": 68.0,
+      "predicted_C_uF": 470.0,
+      "predicted_efficiency": 90.0,
+      "raw_response": "D=0.417  \nL_uH=68  \nC_uF=470  \nEfficiency_pct=90  "
+    }
+  ],
+  "summary": {
+    "gate_mcq": {
+      "total": 30,
+      "correct": 24,
+      "accuracy": 80.0
+    },
+    "synthetic_design": {
+      "total": 15,
+      "correct": 13,
+      "accuracy": 86.66666666666667
+    },
+    "overall_accuracy": 83.33333333333334
+  }
+}
