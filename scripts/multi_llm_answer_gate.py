@@ -25,8 +25,8 @@ except ImportError:
 # Initialize clients
 openai_client = OpenAI()
 
-# Initialize Gemini if available
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyCzu3KioCon4o6pZIGHfkxe7NkjYTP_gRc")
+# Initialize Gemini if available (API key from environment variable)
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 if GEMINI_AVAILABLE and GOOGLE_API_KEY:
     genai.configure(api_key=GOOGLE_API_KEY)
 
