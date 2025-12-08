@@ -212,7 +212,8 @@ MIT License - see [LICENSE](LICENSE)
 
 ## Author
 
-Tushar Pathak - NYU
+Tushar Pathak
+
 
 ## Acknowledgments
 
